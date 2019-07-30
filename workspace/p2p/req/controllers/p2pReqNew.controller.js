@@ -9183,7 +9183,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
         ];
        
 
-        $scope.costElementsList = [{
+        $scope.costElementsList = [
+            {
                 'questval1': '0.4046',
                 'questval': '0.37',
                 'sequence': '1',
@@ -9196,6 +9197,38 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 },
                 selectedDataSource: {
                     "name": "ICIS"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '0.1240',
+                'questval': '0.28',
+                'sequence': '2',
+                'Product': 'Unsheeted Board',
+                'costelem': '0.4430',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "ICIS"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '0.0340',
+                'questval': '0.034',
+                'sequence': '3',
+                'Product': 'Board Waste',
+                'costelem': '1',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "GEP Chemicals Price Database"
                 },
                 'currency': ''
             }
