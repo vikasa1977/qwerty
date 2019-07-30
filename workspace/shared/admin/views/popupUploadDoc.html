@@ -1,0 +1,26 @@
+<div id="uploadDocPopup">
+    <div class="modal-header clearfix">
+        <i class="icon grey-text iconSmall left">
+            <svg><use xlink:href="#icon_Attachment"></use></svg>
+        </i>
+        <span class="title" ng-if="!!uploadTitle">{{uploadTitle}}</span>
+        <span class="title" ng-if="!uploadTitle">ADD DOCUMENTS</span>
+    </div>
+
+    <div class="modal-content is-scrolled">
+        <div class="model_body">
+            <smart-drag-drop-upload ng-model="nameData"></smart-drag-drop-upload>
+        </div>
+    </div>
+
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-click="link(); attachAction()"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

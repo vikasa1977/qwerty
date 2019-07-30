@@ -1,0 +1,47 @@
+<div>
+    <div class="modal-header borderBtmLight">
+        <i class="icon grey-text">
+            <svg>
+                <use xlink:href="#icon_Copy"></use>
+            </svg>
+        </i>
+        <span class="title">Copy Project</span>
+    </div>
+    <smart-scroll height="350px">
+        <div class="modal-content padding15">
+            <div class="model_body">
+                <div class="row">
+                    <smart-textfield label="New Project Name" class="col s6 input-field line-height-manager" type="text" ng-model="project.name" is-mandatory="true" validate="name"></smart-textfield>
+                    <smart-select label="Project Phase"  class="col s6 line-height-manager" options="projectOptions" ng-model="project.projectOption" on-change="onChangeType(project.projectOption)" datakey="name" is-mandatory="true" validate="po.projectOption"></smart-select>
+                </div>
+                
+                <div class="row marginBottom0">
+                    <smart-textfield label="Start Date" class="col s6 input-field line-height-manager" type="date" ng-model="project.date" is-mandatory="true" validate="date"></smart-textfield>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <i class="icon iconSmall">
+                           <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use></svg>
+                        </i>
+                        <span class="fontSize12">
+                            All other dates in the project will be auto-set on the basis of Execution start date provide here.
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+    </div>
+    </smart-scroll>
+            <div class="modal-footer is-scrolled">
+                <div class="row marginBottom0">
+                    <div class="col s12 padding0">
+                        <div class="right">
+                            <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                            <smart-button flat="true" class="left" ng-click="projectDone()" config='{"title":"DONE"}' disabled="isDisabled"></smart-button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

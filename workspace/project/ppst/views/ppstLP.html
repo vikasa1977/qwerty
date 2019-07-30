@@ -1,0 +1,303 @@
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 projectsNav extra-nav-wrap" scrolled ng-class="{'boxShadowNone': onErrorFound.isWarningHeader || showSummaryPanel}">
+        <div class="col s12" >
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_projects"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text max-width277 truncate" title="{{ppst.frmModelData.Title ? ppst.frmModelData.Title : 'PPST New'}}">{{ppst.frmModelData.Title ? ppst.frmModelData.Title : "PPST New"}}</span><span class="extra-nav-title--text marginLeft5">({{projectCurrentStatus}})</span>
+
+            </div>
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon" ng-if="showSummaryPanel">
+                    <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button">
+                        <i class="icon iconSmall white-text" smart-tooltip message="Review Status" data-position="bottom" data-delay="50">
+                            <svg><use xlink:href="#icon_ReviewStatus"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button" data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="landingPageAction">
+                            <li>
+                                <a href="javaScript:void(0);" class="grey-text text-darken-4" ng-click="changHistoryPopup()">
+                                    {{'Change Ownership' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="showTrackStatus(e)">
+                                    {{'Track Status' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="p2p.order.viewChanges({ changeType: 'reviewChange' })" class="grey-text text-darken-4">
+                                    {{'Review Changes' || translate}}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'View Spend' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="projects.auditLogs" class="grey-text text-darken-4">
+                                    {{'Audit Log' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="copyProject()">
+                                    {{'Copy Project' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="showViewLog()">
+                                    {{'View Logs' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+            </ul>
+        </div>
+        <div class='alert-bar--fixed white bandcontainer clearfix' ng-if="showInfoBarProject">
+            <div class="alert-bar enter-from-top info-bar paddingLeft15 paddingRight15 eventBar paddingLeft25">
+                <span class="left marginTop2 paddingRight5">
+                    <i class="icon small gray-text">
+                        <svg><use xlink:href="#icon_Info"></use></svg>
+                    </i>
+                </span>
+                <span class="left paddingTop2 paddingTop10">
+                    Estimated Savings to be filled, Milestones to be marked as achieved and all mandatory fields to be filled
+                </span>
+                <span class="left paddingTop2 paddingTop10">This is a Training Event.</span>
+                <div class="right paddingTop5">
+                    <a href="javaScript:void(0);" class="marginRight10"
+                       ng-click="closeInfoBar()" smart-tooltip position="bottom" delay="10" message="Close">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xmlns xlink="http://www.w3.org/1999/xlink" href="#icon_Close"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class='alert-bar alert-bar--warning alert-bar--fixed clearfix bandcontainer' ng-if="isPrjStatusChange">
+            <div class="row">
+                <div class="s4 left">
+                    <a href="javascript:void(0);">Estimated Savings</a> |
+                    <a href="javascript:void(0);" ng-click="gotoSection('milestones', 4, $event)">Milestones Pending</a> |
+                    <span>Mandatory fields should be filled.</span>
+                </div>
+                <div class="s8 right">
+                    <div class="right">
+                        <a href="javaScript:void(0);" class="marginRight10"
+                           ng-click="closeErrorHeader()" smart-tooltip position="bottom" delay="10" message="Close">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xmlns xlink="http://www.w3.org/1999/xlink" href="#icon_Close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <smart-read-errors showerrors-panel="onErrorFound" customfields-selector=".linkError" frm-widget-id="formWidgetUniqueIdTest1" class="bandcontainer clearfix"></smart-read-errors>
+        <!-- Summary Panel -->
+        <div summary-panel class="bandcontainer clearfix"></div>
+        <!-- Summary Panel -->
+    </div>
+</div>
+
+
+<div class="row smartFormWidgetContainer paddingBtm50" ng-class="{'widgetWithPanel' : showSummaryPanel, 'collapsedPanel' : panelState == 'collapsed', 'expandedPanel' : panelState == 'expanded'}" id="formWidgetUniqueIdTest1">
+    <smart-form-widget form-config="ppst.formConfigData" model-data="ppst.frmModelData" is-sequential="true">
+    </smart-form-widget>
+</div>
+<!-- footer -->
+<footer class="page-footer footerSpace">
+    <div class="row marginBottom0">
+        <!--<smart-button ng-if="!onErrorFound.noMoreErrors" config='{"title":"SAVE"}' disable="false" class="right footerBtn" ng-click="ppst.saveProject()"></smart-button>
+        <smart-button ng-if="!onErrorFound.noMoreErrors" config='{"title":"CANCEL"}' class="right footerBtn whiteSecondaryBtn"></smart-button>
+        <smart-button ng-if="onErrorFound.noMoreErrors && !isSentForAppr" config="{ 'title': 'Send For Approval', 'allignRight': 'false'}" disable="false" class="right footerBtn" ng-click="sendForApproval()" ></smart-button>
+        <smart-button ng-show="onErrorFound.noMoreErrors && isSentForAppr" config="{ 'title': 'Withdraw Approval'}" disable="false" class="right footerBtn" ng-click="withdrawAppr()"></smart-button>
+        <smart-button ng-if="onErrorFound.noMoreErrors" config='{"title":"SAVE"}' disable="false" class="right footerBtn whiteSecondaryBtn" ng-class="{'whiteSecondaryBtn' : onErrorFound.noMoreErrors}"></smart-button>
+        <smart-button ng-if="onErrorFound.noMoreErrors" flat="true" config='{"title":"CANCEL"}' class="right footerBtn"></smart-button>-->
+        <smart-button ng-if="!isSaved" config='{"title":"SAVE"}' disable="false" class="right footerBtn" ng-click="ppst.saveProject()"></smart-button>
+        <smart-button ng-if="!isSaved" config='{"title":"CANCEL"}' class="right footerBtn whiteSecondaryBtn"></smart-button>
+        <smart-button ng-if="!isSentForAppr && isSaved" config="{ 'title': 'Send For Approval', 'allignRight': 'false'}" disable="false" class="right footerBtn" ng-click="sendForApproval()"></smart-button>
+        <smart-button ng-show="isSentForAppr" config="{ 'title': 'Withdraw Approval'}" disable="false" class="right footerBtn" ng-click="withdrawAppr()"></smart-button>
+        <smart-button ng-if="isSaved" config='{"title":"SAVE"}' disable="false" class="right footerBtn whiteSecondaryBtn" ng-class="{'whiteSecondaryBtn' : true}"></smart-button>
+        <smart-button ng-if="isSaved" flat="true" config='{"title":"CANCEL"}' class="right footerBtn"></smart-button>
+
+    </div>
+</footer>
+<smart-popup template-url="{{changeHistoryUrl}}" show='{{showChangeHistory}}' on-hide="changeHistoryCallback(e)"></smart-popup>
+<smart-popup template-url="{{copyProjectUrl}}" show='{{showCopyProject}}' on-hide="changeCopyProject(e)"></smart-popup>
+<smart-popup template-url="{{commentsPopupgTabUrl}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+<smart-popup template-url="project/ppst/views/trackStatus.html" class="trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" expand-collapse="#trackStatusPopup"></smart-popup>
+<smart-popup template-url="project/ppst/views/viewLogPopup.html" show='{{showLogPopup}}' on-hide="logOnHideCallback(e)" type="large"></smart-popup>
+<script id="fiscalYearTemplate.html" type="text/ng-template">
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5"><b>FY 2017: $ 110K</b></div>
+    <div class="paddingLeft5">FY 2018: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+</script>
+<script type="text/ng-template" id="copies.html">
+    <div>
+        <div class="table-header row">
+            <div class="table-header-column col s3">
+                {{'Status' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Copies Created' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Request Time' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Complete Time' || translate}}
+            </div>
+        </div>
+        <smart-scroll height="250px">
+            <div class="table-body">
+                <div class="row table-body-row" ng-repeat="uploadLog in uploadData">
+                    <div class="table-body-row-cell col s3">
+                        <span ng-class="(uploadLog.status=='success') ? 'green-text' : (uploadLog.status=='In progress') ? 'orange-text' : 'red-text'">
+                            <span> {{uploadLog.statusText}}</span>
+                            <span ng-if="uploadLog.status=='failed'">({{uploadLog.failed}}/{{uploadLog.total}})</span>
+                            <span ng-if="uploadLog.status=='success'">({{uploadLog.total}})</span>
+                        </span>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">
+                            <a href="javascript:void(0)">{{uploadLog.documentName}}</a>
+                        </div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+</script>
+<script type="text/ng-template" id="pricelist.html">
+    <div>
+        <div class="table-header row">
+            <div class="table-header-column col s3">
+                {{'Status' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Action Description' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Request Time' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Complete Time' || translate}}
+            </div>
+        </div>
+        <smart-scroll height="250px">
+            <div class="table-body">
+                <div class="row table-body-row" ng-repeat="uploadLog in uploadData">
+                    <div class="table-body-row-cell col s3">
+                        <span ng-class="(uploadLog.status=='success') ? 'green-text' : (uploadLog.status=='In progress') ? 'orange-text' : 'red-text'">
+                            <span> {{uploadLog.statusText}}</span>
+                            <span ng-if="uploadLog.status=='failed'">({{uploadLog.failed}}/{{uploadLog.total}})</span>
+                            <span ng-if="uploadLog.status=='success'">({{uploadLog.total}})</span>
+                        </span>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">
+                            <a href="javascript:void(0)">{{uploadLog.documentName}}</a>
+                        </div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+</script>
+<script type="text/ng-template" id="compliance.html">
+    <div>
+        <div class="table-header row">
+            <div class="table-header-column col s3">
+                {{'Status' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Action Description' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Request Time' || translate}}
+            </div>
+            <div class="table-header-column col s3">
+                {{'Complete Time' || translate}}
+            </div>
+        </div>
+        <smart-scroll height="250px">
+            <div class="table-body">
+                <div class="row table-body-row" ng-repeat="uploadLog in uploadData">
+                    <div class="table-body-row-cell col s3">
+                        <span ng-class="(uploadLog.status=='success') ? 'green-text' : (uploadLog.status=='In progress') ? 'orange-text' : 'red-text'">
+                            <span> {{uploadLog.statusText}}</span>
+                            <span ng-if="uploadLog.status=='failed'">({{uploadLog.failed}}/{{uploadLog.total}})</span>
+                            <span ng-if="uploadLog.status=='success'">({{uploadLog.total}})</span>
+                        </span>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">
+                            <a href="javascript:void(0)">{{uploadLog.documentName}}</a>
+                        </div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                    <div class="table-body-row-cell col s3">
+                        <div class="truncate">{{uploadLog.date}}</div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+</script>
+<script type="text/ng-template" id="success.html">
+    <div>
+        <span class="left">Success</span>
+    </div>
+</script>
+<script type="text/ng-template" id="failed.html">
+    <div>
+        <span class="left">Failed</span>
+    </div>
+</script>

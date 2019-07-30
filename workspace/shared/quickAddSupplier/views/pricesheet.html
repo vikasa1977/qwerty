@@ -1,0 +1,329 @@
+<div class="row extra-nav-wrap marginBtm0" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+	<div class="col s12">
+		<div class="left marginLeft8">
+			<a href="javascript:history.go(-1);" class="left waves-block waves-circle waves-effect waves-light white-text marginRight24">
+				<i class="icon small ">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small left marginRight8">
+				<svg><use xlink:href="#icon_PriceSheet"></use></svg>
+			</i>
+			<span class="headingText left">{{slideTitle}}</span>
+			<smart-select class="sub-header-dd left marginTop2" ng-hide="createMode" ng-model="pricesheetList[currentIndex]" options="pricesheetList" datakey="title"></smart-select>
+		</div>
+		<ul class="right extra-nav-right-icon">
+			<li class="extra-nav-icon">
+				<a href="javascript:void(0);" class="waves-block waves-effect waves-light" smart-tooltip position="bottom" message="Download">
+					<i class="icon iconSmall ">
+						<svg><use xlink:href="#icon_Download"></use></svg>
+					</i>
+				</a>
+			</li>
+			<li class="extra-nav-icon" ng-show="editableMode">
+				<a href="javascript:void(0);" class="waves-block waves-effect waves-light" smart-tooltip position="bottom" message="Upload">
+					<i class="icon iconSmall ">
+						<svg><use xlink:href="#icon_Upload"></use></svg>
+					</i>
+				</a>
+			</li>
+			<li class="extra-nav-icon" ng-hide="editableMode">
+				<a href="javascript:void(0);" class="waves-block waves-effect waves-light" smart-tooltip position="bottom" message="Delete">
+					<i class="icon iconSmall">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="row paddingBtm40 smartFormWidgetContainer">
+	<div class="card-panel marginTop0 paddingTop40">
+		<div class="row">
+			<smart-textfield class="col s8 xl4 xxl4 fieldEditable" label="{{'Price Sheet Title' || translate}}" charactercounter="true" maxlength="100" type="text" ng-model="pricesheetTitle" readonly="true" is-mandatory="true"></smart-textfield>
+			<div class="col s4 xxl4 input-field line-height-manager margin0">
+				<div class="field-label">Type</div>
+				<a href="javascript:void(0);" class="marginTop8 left" ng-click="pricesheetTypePopupCallback(e)" ng-show="editableMode">{{selectedPricesheetType.title}}</a>
+				<div class="marginTop3 left" ng-hide="editableMode">{{selectedPricesheetType.title}}<span ng-show="priceTypewWithInfo">: <span class="grey-text">{{pricesheetTypeInfo}}</span> </span></div>
+			</div>
+		</div>
+		<div class="row">
+			<smart-textfield type="area" charactercounter="true" maxlength="4000" class="col s12 fieldEditable" label="{{'Description' || translate}}" ng-model="pricesheetDesc" readonly="true" is-mandatory="true"></smart-textfield>
+		</div>
+		<div class="row">
+			<div class="col s4 input-field line-height-manager margin0">
+				<div class="field-label" ng-hide="editableMode">Category</div>
+				<a href="javascript:void(0);" class="marginTop8 left" ng-click="showCategoryPopupCallback()" ng-show="editableMode">Choose Category</a>
+				<smart-dropdown config="{{dropDownConfig}}" ng-hide="editableMode">
+					<a href="javascript:void(0)" class="left marginTop3 textCapitalize dropdown-button" data-activates="categorylookup" data-constrainwidth="false" data-alignment="right">
+						IT & Hardware + 3 more
+					</a>
+					<ul id="categorylookup" class="dropdown-content">
+						<li class="">
+							<a href="javascript:void(0)">Air Travel</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">Baggage Fees</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">Air Travel</a>
+						</li>
+					</ul>
+				</smart-dropdown>
+			</div>
+			<div class="col s4 input-field line-height-manager margin0">
+				<div class="field-label marginTop8" ng-hide="editableMode">Business Unit</div>
+				<a href="javascript:void(0);" class="left" ng-show="editableMode">Choose Business Unit</a>
+				<smart-dropdown config="{{dropDownConfig}}" ng-hide="editableMode">
+					<a href="javascript:void(0)" class="left marginTop3 textCapitalize dropdown-button" data-activates="businessUnitlookup" data-constrainwidth="false"
+					   data-alignment="right">
+						GEP Hyderabad + 3 more
+					</a>
+					<ul id="businessUnitlookup" class="dropdown-content">
+						<li class="">
+							<a href="javascript:void(0)">GEP Mumbai</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">GEP Clarke</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">GEP Singapore</a>
+						</li>
+					</ul>
+				</smart-dropdown>
+			</div>
+			<div class="col s4 input-field line-height-manager margin0">
+				<div class="field-label marginTop8" ng-hide="editableMode">Region</div>
+				<a href="javascript:void(0);" class="left" ng-show="editableMode">Choose Region</a>
+				<smart-dropdown config="{{dropDownConfig}}" ng-hide="editableMode">
+					<a href="javascript:void(0)" class="left marginTop3 textCapitalize dropdown-button" data-activates="regionlookup" data-constrainwidth="false"
+					   data-alignment="right">
+						USA + 3 more
+					</a>
+					<ul id="regionlookup" class="dropdown-content">
+						<li class="">
+							<a href="javascript:void(0)">India</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">China</a>
+						</li>
+						<li class="">
+							<a href="javascript:void(0)">Czech</a>
+						</li>
+					</ul>
+				</smart-dropdown>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 marginBtm17" ng-show="editableMode">
+				<div class="right">
+					<a href="javascript:void(0);" class="waves-block waves-effect left waves-light" smart-tooltip message="{{'Download Selected' || translate}}" position="bottom" delay="50">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Download"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Delete Selected' || translate}}" delay="50" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_TrashCan"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Copy Selected' || translate}}" delay="50" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Copy"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Paste Selected' || translate}}" delay="50" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Paste"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Freeze Columns' || translate}}" delay="50" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_FreezeCol"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" ng-click="manageColumnsPopupCallback(e)" smart-tooltip message="{{'Manage Columns' || translate}}" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_ManageColumns"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Filter' || translate}}" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Filter"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Sort' || translate}}" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Sort"></use></svg>
+						</i>
+					</a>
+					<smart-dropdown>
+						<span class="left marginRight15">
+							<i class="icon small left blue-text dropdown-button marginRight0 smallest" data-constrainwidth="false" data-activates="createPricesheet" data-alignment="right" smart-tooltip message="{{'Add Rows' || translate}}" delay="50" position="bottom">
+								<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+							</i>
+						</span>
+						<div id="createPricesheet" class="dropdown-content lookup-popup zIndex10 padding15 dd-close-off" style="width:250px">
+							<div class="fontSize16 marginBtm20 row">{{'Add Rows' || translate}}</div>
+							<div class="row">
+								<div class="col s12 padding0 marginBtm20">
+									<smart-radio gap="true" class="addRowRB" ng-model="selectedAddRowOption" options="addRowOptions" datakey="name"></smart-radio>
+								</div>
+								<div class="col s6 padding0">
+									<smart-textfield type="number" class="col s12 dd-close-off" label="Add"></smart-textfield>
+								</div>
+							</div>
+							<div class="row margin0">
+								<div class="right">
+									<a href="javascript:void(0)">
+										<i class="icon iconSmall left blue-text" smart-tooltip message="Close" delay="50" position="bottom">
+											<svg><use xlink:href="#icon_Close"></use></svg>
+										</i>
+									</a>
+									<a href="javascript:void(0)">
+										<i class="icon iconSmall left blue-text addBulkRow margin0" smart-tooltip message="Add" delay="50" position="bottom">
+											<svg><use xlink:href="#icon_Check"></use></svg>
+										</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</smart-dropdown>
+					<a href="javascript:void(0);" class="waves-block waves-effect waves-light left" smart-tooltip message="{{'Full-screen' || translate}}" position="bottom">
+						<i class="icon iconSmall left">
+							<svg><use xlink:href="#icon_Fullscreen"></use></svg>
+						</i>
+					</a>
+				</div>
+			</div>
+			<div class="col s12 marginBtm25">
+			<div id="theFlexSheet" class="flexSheet"></div>
+			<div id="result"></div>
+			</div>
+			<div class="col s12">
+				<smart-checkbox fill="true" class="left marginRight20" label="Mark As Complete" ng-show="editableMode"></smart-checkbox>
+				<smart-checkbox fill="true" class="left" label="Enable Supplier to add rows" ng-show="editableMode"></smart-checkbox>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="page-footer footerSpace">
+	<smart-button class="left footerBtn" flat="true" config='{"title":"PREVIEW"}' ng-click="makeReadonly()" ng-show="editableMode"></smart-button>
+	<smart-button class="right footerBtn" config='{"title":"EDIT"}' ng-click="getEditMode()" ng-show="!editableMode"></smart-button>
+	<smart-button class="right footerBtn" config='{"title":"SAVE & CLOSE"}' ng-click="savePricesheet()" ng-show="editableMode"></smart-button>
+	<smart-button class="right footerBtn" ng-class="white blue-text" config='{"title":"CANCEL"}' ui-sref="sourcing.rfx.new"></smart-button>
+	<smart-button flat="true" class="right footerBtn" config='{"title":"SAVE"}' ng-show="editableMode"></smart-button>
+</footer>
+
+<script>
+
+	var sheet, lineCount = 7, columnCount = 20, sheetCount = 2,
+	   startTime, docChangedTimeout, resulted = false;
+
+	// add sheets for the felxsheet
+	function addSheets(deferAdd) {
+		var data = getData(lineCount, columnCount);
+		if (sheet) {
+			sheet.dispose();
+		}
+		sheet = new wijmo.grid.sheet.FlexSheet('#theFlexSheet', {
+			columns: getColumnData(columnCount)
+		});
+		startTime = new Date();
+		resulted = false;
+		if (deferAdd) {
+			sheet.deferUpdate(function () {
+				for (var i = 1; i <= sheetCount; i++) {
+					sheet.addBoundSheet('sheet' + i, data);
+				}
+				sheet.selectedSheetIndex = 0;
+			});
+		} else {
+			for (var i = 1; i <= sheetCount; i++) {
+				sheet.addBoundSheet('sheet' + i, data);
+			}
+			sheet.selectedSheetIndex = 0;
+		}
+	}
+
+	// get data source for the flexsheet
+	function getData(lineCount, columnCount) {
+		var data = [];
+		for (var i = 1; i < lineCount; i++) {
+			var str = '{';
+			str = str + '\"ID\":' + (i);
+			for (var j = 1; j < columnCount; j++) {
+				str = str + ',\"Title' + j + '\" :' + '\"Data' + j + '_' + i + '\"';
+			}
+			str = str + '}';
+			var obj = JSON.parse(str);
+			data.push(obj);
+		}
+		var str2 = {
+			Title1: '=count(A2:A50)',
+			Title2: '=average(A2:A50)',
+			Title3: '=max(A2:A50)',
+			Title4: '=min(A2:A50)',
+			Title5: '=sum(A2:A50)',
+		}
+		data.push(str2);
+		var cv = new wijmo.collections.CollectionView(data);
+		return cv;
+	}
+
+	// get column for the flexhseet
+	function getColumnData(i) {
+		var columndata = [];
+		columndata.push(
+		  { binding: 'ID', header: 'ID', dataType: 'Number' }
+		);
+		for (var j = 1; j < i; j++) {
+			columndata.push({
+				binding: 'Title' + j,
+				header: 'Title' + j,
+				width: 200,
+				dataType: 'String'
+			});
+		}
+		return columndata;
+	}
+	addSheets(true);
+
+</script>
+
+<smart-popup template-url="{{manageColumnsUrl}}" class="manageColPopup" show="{{manageColumnsPopup}}" on-hide="manageColumnsOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{categoryPopupUrl}}" show="{{showCategoryPopup}}" on-hide="categoryPopUpOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="pricesheetType.html" show="{{pricesheetTypePopup}}" on-hide="pricesheetTypePopUpOnHideCallback(e)" type="small"></smart-popup>
+
+<script id="pricesheetType.html" type="text/ng-template">
+	<div>
+		<div class="modal-header">
+			<i class="icon iconSmall red-text left">
+				<svg><use xlink:href="#icon_RFX"></use></svg>
+			</i>
+			<span class="title">{{'TYPE' || translate}}</span>
+		</div>
+		<div class="modal-content padding10 pricesheet-type">
+			<div class="row">
+				<smart-radio class="col s12" gap="true" group-id="pricesheetTypeID" ng-model="selectedPricesheetType" options="pricesheetTypeOptions01"></smart-radio>
+				<smart-checkbox class="col s12 line-height-manager pricesheet-type-info input-label-black" label="Enable Multi-UOM Line Bidding" ng-model="matSelected"></smart-checkbox>
+			</div>
+			<div class="row">
+				<smart-radio class="col s12" gap="true" group-id="pricesheetTypeID" ng-model="selectedPricesheetType" options="pricesheetTypeOptions02"></smart-radio>
+				<div class="col s12 pricesheet-type-info">
+					<span class="left line-height-manager margin0">Enable Supplier to submit</span>
+					<smart-select class="left marginLeft10" ng-model="selectedServicesInfo" options="serviceTypeInfoDD"></smart-select>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer is-scrolled">
+			<div class="row marginBottom0">
+				<div class="col s12">
+					<smart-button flat="true" class="modal-close" config='{"title":"APPLY"}' ng-click="popupTypeApplyCallback()"></smart-button>
+					<smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

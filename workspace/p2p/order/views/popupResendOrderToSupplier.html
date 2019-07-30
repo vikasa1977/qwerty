@@ -1,0 +1,48 @@
+﻿<div>
+    <div class="modal-header">
+        <span class="title">{{ 'RESEND ORDER TO SUPPLIER via' || translate }} </span>
+    </div>
+    <div class="modal-content padding0" ng-class="{'is-scrolled': true}">
+        <div class="model_body">
+            <!--<smart-list model="{{resendOptionList}}"
+                        style-class="collection noBorder is-overflowHidden"
+                        item-class="collection-item"
+                        template="radioResendOptionList.html" height="250px">
+            </smart-list>-->
+            <ul class="collection noBorder">
+                <li class="collection-item" ng-repeat="item in resendOptionList">
+                    <div class="clearfix">
+                        <div class="left">                          
+                            <input class="with-gap" type="radio" ng-model="$parent.selectedOption.id" ng-change="resendOptionChange(item)" name="selectOption" ng-value="item.isCheked" id="resendOption-{{ $index }}">
+                            <label for="resendOption-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.title  || translate }}</label>
+                        </div>
+                        <i class="icon iconSmall blue-text left marginLeft10 marginTop2" ng-if="item.showInfo" smart-tooltip message="{{item.infoMsg}}" position="bottom" delay="50">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer paddingLeft4" ng-class="{'is-scrolled': true}">
+        <div class="clearfix">
+            <smart-button flat="true" class="modal-close right" config='{"title":"SEND"}' ng-click="resendOptionSend()"></smart-button>
+        </div>
+    </div>
+</div>
+
+
+
+<script id="radioResendOptionList.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <div class="savedViews">
+            <input class="with-gap" type="radio" ng-model="selectedOption.checked" ng-change="resendOptionChange(selectedOption)" name="selectSaveView" ng-value="item.title" id="resendOption-{{ $index }}">
+            <label for="resendOption-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.title  || translate }}</label>
+        </div>
+    </div>
+</script>
+
+
+

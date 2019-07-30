@@ -1,0 +1,227 @@
+<!--back arrow-->
+
+ <div class="col s12 extra-nav-wrap search-reverse">
+          <ul class="right">
+            <li> <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.search}}" id="subNavSearchTrigger"> <i class="icon iconSmall " id="iconSearch">
+              <svg>
+                <use xlink:href="#icon_Search"></use>
+              </svg>
+              </i> </a> </li>
+            <li> <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.quick}} {{$label.cart}}"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_CartQuick"></use>
+              </svg>
+              </i> </a> </li>
+            <li> <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.wishlist}}"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_Wishlist"></use>
+              </svg>
+              </i> </a> </li>
+            <li class="cartCountWrap"> <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.cart}}"  data-activates='cartAddedList' data-constrainwidth="false"> <i class="icon iconSmall">
+              <svg>
+                <use xlink:href="#icon_Cart"></use>
+              </svg>
+              </i> </a>
+              <ul id="cartAddedList" class='dropdown-content cart-lookaup-popup lookup-popup'>
+                <li>
+                  <div  class="input-field"><span class="left">{{$label_U.shoping}} {{$label_U.cart}}</span> <span class="right">{{$label_FU.item}} 2</span></div>
+                </li>
+                <li>
+                  <div class="input-field "><span class="left">Cart Value</span> <span class="right">500.00</span></div>
+                </li>
+                <li>
+                  <div class="input-field "><span class="left">Taxes</span> <span class="right">20.00</span></div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <div class="input-field "><span class="left">Cart Total</span> <span class="right">USD 1020.00</span></div>
+                </li>
+                <li class="">
+                  <div class="right"> <a href="viewCart.html" class="btn-flat blue-text left waves-effect">{{$label_U.view}} {{$label_U.cart}}</a> <a href="newRfq.html" class="btn-flat blue-text left waves-effect">{{$label_U.checkout}}</a> </div>
+                </li>
+              </ul>
+              <div class="z-depth-1 small-cart-count bubble _icon_Cart " style="opacity:0;"><span>0</span></div>
+            </li>
+            <li> <a class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.list}} {{$label.view}}" ng-click="viewTypeCallback($event)"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_ViewList"></use>
+              </svg>
+              </i> </a> <a href="#" class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.card}} {{$label.view}}" style="display: none;"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_ViewGrid"></use>
+              </svg>
+              </i> </a> 
+
+            </li>
+            <li> <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.sort}}" data-activates='filterLookup' data-constrainwidth="false"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_Sort"></use>
+              </svg>
+              </i> </a>
+              <ul id="filterLookup" class='dropdown-content width170'>
+                <li><a href="#!"> Popular</a></li>
+                <li><a href="#!">New</a></li>
+                <li><a href="#!">High Price</a></li>
+                <li><a href="#!">Low Price</a></li>
+              </ul>
+            </li>
+            </ul>
+          <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="#/"> <i class="icon iconSmall ">
+          <svg>
+            <use xlink:href="#icon_Back"></use>
+          </svg>
+          </i> </a>
+
+     <span class="left"> 
+                 All CATEGORIES 
+              </span>
+          <div class="extr-nav-wrap-content search-header left catalog-landing"> 
+              
+              <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);"  
+
+style="visibility:hidden"> <i class="icon iconSmall ">
+            <svg>
+              <use xlink:href="#icon_Back"></use>
+            </svg>
+            </i> </a>
+            <div id="left-content"> <span class="extra-nav-item  icon"> <i class="icon iconSmall ">
+              <svg>
+                <use xlink:href="#icon_RfxReq"></use>
+              </svg>
+              </i> </span> <span class="headingText ng-cloak">Laptops (<span>8981 ITEMS</span>)</span> </div>
+              <smart-global-textfield></smart-global-textfield>
+          </div>
+          
+
+                
+      
+        </div>
+        
+          
+
+
+<div id="RequestingForOthersPopup" class="modal modal-sm scrollableModel">
+        <div class="modal-header">
+            <div class="regularSearch">
+                <a href="#" class="waves-circle waves-effect  search-icon btn-flat black-text" title="Search" alt="Search">
+                    <i class="icon iconSmall left grey-text">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+                <a href="#" class="waves-circle waves-effect cancel-icon btn-flat black-text" title="Reset" alt="Reset">
+                    <i class="icon iconSmall left grey-text">
+                        <svg>
+                            <use xlink:href="#icon_Close"></use>
+                        </svg>
+                    </i>
+                </a>
+                <div class="input-field">
+                    <input id="Text32" type="text" class="validate" placeholder="{{$label_U.approvalPendingWith}}">
+                </div>
+            </div>
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Lookup"></use>
+                </svg>
+            </i>
+            <span class="title">ON BEHALF OF</span>
+        </div>
+        <div class="modal-content padding0">
+            <div class="model_body">
+                <div class="option-container scrollbar-outer" style="max-height: 350px;">
+                    <ul class="collection noBorder">
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test2" /><label for="test2" class="grey-text text-darken-4">Phil James</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test3" /><label for="test3" class="grey-text text-darken-4">Robin Ross</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test4" /><label for="test4" class="grey-text text-darken-4">Shane Anderson </label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test5" /><label for="test5" class="grey-text text-darken-4">Fill James</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test7" /><label for="test7" class="grey-text text-darken-4">Shane Bond</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test8" /><label for="test8" class="grey-text text-darken-4">Shane Bond</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test9" /><label for="test9" class="grey-text text-darken-4">Fill James</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test10" /><label for="test10" class="grey-text text-darken-4">Robin Rose</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test11" /><label for="test11" class="grey-text text-darken-4">Shane Anderson</label></li>
+                        <li class="collection-item waves-effect">
+                            <input name="group3" type="radio" class="with-gap" id="test12" /><label for="test12" class="grey-text text-darken-4">Shane Bond</label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer_new">
+                <div class="row marginBottom0">
+                    <div class="col s12 right-align">
+                        <a href="#!" class="btn-flat editRequest modal-close waves-effect  ">{{$label_U.cancel}}</a>
+                        <a href="javascript:void(0)" onclick="$('#OnBehalfOfUser').show()" class="waves-effect modal-close btn-flat call-contact-popup">{{$label_U.ok}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(document).ready(function () {
+
+        if ($('.search-header').parent().hasClass('search-reverse')) {
+            $("#iconSearch").parent().parent('li').css({ visibility: 'hidden' });
+
+            $("#left-content").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+            $("#iconClose").click(function () {
+                $("#left-content").css('left', '0%').velocity({ opacity: 1, translateX: 0 });
+                $("#header_search_box").velocity({ opacity: 0, translateX: -1200 });
+                $("#iconSearch").parent().parent('li').css({ visibility: 'visible' }).end().end().fadeIn();
+                $('#iconClose').fadeOut();
+
+            });
+
+
+            $("#iconSearch").click(function () {
+                $("#left-content").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+                $("#header_search_box").velocity({ opacity: 1, translateX: 0 }).find('input').focus();
+                $("#iconSearch").parent().parent('li').css({ visibility: 'hidden' });
+                $('#iconClose').fadeIn();
+
+            });
+
+
+        }
+
+        else {
+
+            $("#header_search_box").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+            $("#iconSearch").click(function () {
+                $("#left-content").velocity({ opacity: 0, translateX: -1200 });
+                $("#header_search_box").css('left', '0').velocity({ opacity: 1, translateX: 0 }).find('input').focus();
+                $("#iconSearch").fadeOut();
+                $('#iconClose').fadeIn();
+
+            });
+
+            $("#iconClose").click(function () {
+                $("#left-content").velocity({ opacity: 1, translateX: 0 })
+                $("#header_search_box").velocity({ opacity: 0, translateX: -1200 });
+                $("#iconSearch").fadeIn();
+                $('#iconClose').fadeOut();
+
+            });
+
+        }
+        $('#RequestingFor').change(function () {
+            var el = $(this);
+            var valu = el.val();
+            if (valu == "2") {
+                $('#RequestingForOthersPopup').openModal();
+            } else {
+                $("#OnBehalfOfUser").hide();
+            }
+        });
+    });
+</script>

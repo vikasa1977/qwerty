@@ -1,0 +1,98 @@
+<div>
+    <div class="modal-header borderBtmLight">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_Edit"></use>
+            </svg>
+        </i>
+        <span class="title">MILESTONE STATUS</span>
+    </div>
+    <smart-scroll height="350px">
+        <div class="modal-content">
+            <div class="model_body">
+                <div class="row">
+                    <span class="col s12">
+                        <a href="javascript:void()" class="gray-text cursorDefault">
+                            <i class="icon iconSmall gray-text titleIcon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                        </a>
+                        {{'Ensure mandatory activities if any, are marked as completed to achieve this milestone'|| translate}}
+                    </span>
+                </div>
+                <div class="row">
+                    <smart-textfield label="Achieved Date" class="col s6 input-field line-height-manager" type="date" ng-model="achievedCommentData.achievedDate" is-mandatory="true" validate="achievedCommentData.dateValid"></smart-textfield>
+                </div>
+                <div class="row">
+                    <!--<smart-textfield label="Comment" class="col s12 input-field line-height-manager" type="area" ng-model="achievedCommentData.achievedComment" charactercounter="true" maxlength="4500" is-mandatory="true" validate="achievedCommentData.commentValid"></smart-textfield>-->
+                    <div class="col s12">
+                        <a class="fontSize14" href="javascript:void(0)" ng-click="showCommentsPopupTabCallback(e, 'type1', 'statusPop')">Add Comment</a>
+                    </div>
+                </div>
+
+                <!--<div class="row" ng-if="!attachmentAddedAchieved">
+                    <div class="col s12">
+                        <a class="fontSize14" href="javascript:void(0)" ng-click="addAttachmentsAchieved('isAchieved')">Add Attachments</a>
+                    </div>
+                </div>-->
+
+                <!--<div class="row" ng-if="attachmentAddedAchieved">
+                    <div class="col s12 marginTop35">
+                        <div class="col s12 paddingLeft0 paddingBtm5 fontSize16 borderBtmLight">ATTACHMENTS</div>
+                        <div class="clearfix secContentWithBorder fontSize12">
+                            <div class="right">
+                                <a href="javascript:void(0)" class="marginLeft10 right" ng-click="addAttachmentsAchieved(e)">
+                                    <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Attachments" position="bottom">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteAttachments()">
+                                    <i class="icon left blue-text">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        <table class="bordered sTable fixedTbl">
+                            <thead>
+                                <tr>
+                                    <th width="50px" ng-class="{'filled-partial' : fillpartial == true }">
+                                        <smart-checkbox class="paddingTop5" ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+                                    </th>
+                                    <th>{{ 'Name' || translate }}</th>
+                                    <th>{{ 'Created By' || translate }}</th>
+                                    <th>{{ 'Created On' || translate }}</th>
+                                    <th>{{ 'Shared with' || translate }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in attachments track by $index">
+                                    <td>
+                                        <smart-checkbox class="paddingTop5" ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+                                    </td>
+                                    <td><a href="javascript:void(0);">{{x.name}}</a></td>
+                                    <td> {{x.createdBy}} </td>
+                                    <td> {{x.uploadDate}} </td>
+                                    <td> {{x.sharedWith}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>-->
+            </div>
+    </div>
+    </smart-scroll>
+            <div class="modal-footer is-scrolled">
+                <div class="row marginBottom0">
+                    <div class="col s12 padding0">
+                        <div class="right">
+                            <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}' ng-click="cancelAttachmentComment()"></smart-button>
+                            <smart-button flat="true" class="left" ng-click="addAttachmentComment(achievedCommentData,attachments)" config='{"title":"SAVE"}'></smart-button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

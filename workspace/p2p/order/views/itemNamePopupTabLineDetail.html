@@ -1,0 +1,32 @@
+<!-- order lines tab content -->
+
+<div class="clearfix itemPopup--tabContentHeight">
+    <smart-scroll  height="{{templateListHeight}}" is-fixed-header="true">
+        <table class="table bordered">
+            <colgroup>
+                <col style="width:40%">
+                <col style="width:30%">
+                <col style="width:30%">
+            </colgroup>
+            <thead>
+                <tr ng-repeat="item in lineDetailTHeadData">
+                    <th>{{item.title_1}}</th>
+                    <th>{{item.title_2}}</th>
+                    <th>{{item.title_3}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in lineDetailTbodyData" ng-class="{'grey lighten-4':item.isSubHeader}">
+                    <td ng-class="{'paddingLeft40':item.isSubChild}">{{item.attributes}}</td>
+                    <td>{{item.modifiedFrom}}</td>
+                    <td>{{item.modifiedTo}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row marginBtm0" ng-hide="hideShowMoreLink">
+            <div class="col s12 center padding10">
+                <smart-button flat="true" config='{"title":"SHOW MORE","allignRight":"false"}' disable="false" ng-click="showMoreChangesCall($event)"></smart-button>
+            </div>
+        </div>
+    </smart-scroll>
+</div>

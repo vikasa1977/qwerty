@@ -1,0 +1,308 @@
+{
+  "uomData": [
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "convRate": {
+        "number": 1,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      },
+      "measure": {
+        "id": 0,
+        "name": "Each"
+      },
+      "measureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "bestMeasure": {
+        "id": 0,
+        "name": "Each"
+      },
+      "bestMeasureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "unitPrice": {
+        "number": 1,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "convRate": {
+        "number": 2,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      },
+      "measure": {
+        "id": 1,
+        "name": "Pack"
+      },
+      "measureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "bestMeasure": {
+        "id": 1,
+        "name": "Pack"
+      },
+      "bestMeasureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "unitPrice": {
+        "number": 2,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "convRate": {
+        "number": 3,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      },
+      "measure": {
+        "id": 1,
+        "name": "Pack"
+      },
+      "measureOpt": [
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "bestMeasure": {
+        "id": 2,
+        "name": "Pieces"
+      },
+      "bestMeasureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "unitPrice": {
+        "number": 3,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "convRate": {
+        "number": 4,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      },
+      "measure": {
+        "id": 3,
+        "name": "Unit"
+      },
+      "measureOpt": [
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "bestMeasure": {
+        "id": 3,
+        "name": "Unit"
+      },
+      "bestMeasureOpt": [
+        {
+          "id": 0,
+          "name": "Each"
+        },
+        {
+          "id": 1,
+          "name": "Pack"
+        },
+        {
+          "id": 2,
+          "name": "Pieces"
+        },
+        {
+          "id": 3,
+          "name": "Unit"
+        }
+      ],
+      "unitPrice": {
+        "number": 4,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    }
+  ]
+}

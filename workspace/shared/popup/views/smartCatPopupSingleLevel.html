@@ -1,0 +1,69 @@
+<div class="categoryPopup">
+	<div class="modal-header clearfix">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" ng-if="!readMode">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+				<a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearchHeader"></smart-textfield>
+				<a href="javascript:void(0)" class="search-icon btn-flat waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<i class="icon iconSmall grey-text left">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title left">
+			 {{ defaultText }}
+		</span>
+
+		<span class="grey-text left title marginLeft6" ng-if="selectedValueTrue >= 1">
+			({{ selectedValueTrue }})<!--/{{$parent.selectedValue.length}}-->
+		</span>
+	</div>
+
+    <div class="modal-content is-scrolled padding0">
+        <div class="model_body" style="height:350px;" ><!-- temporary hieght applied till the time directive get updated for fixed height-->
+            <smart-scroll height="350px" > 
+                <ul class="tree-view-str">
+                    <li ng-repeat="additionalForm in $parent.selectedValue" ng-if="!readMode">
+                        <div class="tree-view-str-item waves-effect">
+							<smart-checkbox checked='false' fill='true' disable='false' label="{{additionalForm.name}}" class="left" ng-model="additionalForm.check" on-change="onChange(additionalForm.check)" input-field="false"></smart-checkbox>                        
+							<i ng-if="additionalForm.group" style="left: auto;" smart-tooltip position="left" delay="50" message="Approvers's Group" class="icon small right dropdown-button groupIcon deep-orange-text marginRight0 smallest iconDefaultCursor paddingTop0">
+					            <svg><use xlink:href="#icon_Group"></use></svg>
+				            </i>
+						</div>
+					</li>
+					<li ng-repeat="additionalForm in $parent.selectedValue | filter: {'check' : true }" ng-if="readMode">
+						<div class="tree-view-str-item">
+							{{additionalForm.name}}
+							<i ng-if="additionalForm.group" style="left: auto;"  smart-tooltip position="left" delay="50" message="Approvers's Group" class="icon small right deep-orange-text dropdown-button marginRight0 smallest iconDefaultCursor paddingTop0">
+								<svg><use xlink:href="#icon_Group"></use></svg>
+							</i>
+						</div>
+					</li>  
+                </ul>     
+            </smart-scroll>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0" ng-if="!readMode">
+                <div class="col l4 s4 "><a href="javascript:void(0)" class="waves-effect btn-flat" ng-click="additionalFormPopUpReset()">Reset</a></div>
+                <div class="col l8 s8 right-align">
+                    <a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect" >Cancel</a>
+                    <a href="javascript:void(0)" class="modal-action modal-close waves-effect btn-flat" ng-click="additionalFormPopUpOnHideCallback()">Done</a>
+                </div>
+            </div>
+			<div class="row marginBottom0" ng-if="readMode">
+				<div class="col s12 right-align">
+					<a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect">Close</a>
+				</div>
+			</div>
+        </div>
+    </div>
+
+</div>

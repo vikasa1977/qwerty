@@ -1,0 +1,246 @@
+<div>
+    <div class="modal-header">
+        <i class="icon grey-text iconSmall left ng-scope">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Ordered"></use></svg>
+        </i>
+        <span class="title">ORDER</span>
+        
+</div>
+    <div class="modal-content padding0 is-scrolled">
+        <div class="wrapper clearfix wrapper--withSidebar padding0">
+            <div class="sidebar sidebar--left Set-Top" style="min-height:353px;">
+                <div class="panel-content">
+                    
+                    <smart-scroll height="320px">
+                        <ul class="panel-content-iteamList">
+                            <li class="clearfix panel-content-iteamList-item marginTop10 paddingBtm7 paddingLeft5 paddingRight0">
+                                <div>
+                                    <smart-typeahead class="col s12"  multiselect="true" addnew="false" titleofmodel="Select Order Number" show-lookup="true" placeholder="" readonly="false" is-mandatory="true" disable="false" selecttypeoption="modelData.mSelectedTypeOrder" ng-model="modelData.mSelectedOrder" options="modelData.orderOptions" filterkeys="['OrderNumber']" lookup-Open="hideOrderDetailsPopupCallback(e)" lookup-Hide="orderDetailsPopupCallback(e)" on-select="selectedItem(0)" label="Order Number"></smart-typeahead>
+                                 
+                                </div>
+                            </li>
+                            <li custom-tab tabindex="{{ ($index == indexToShow ) ? 0 : -1 }}" ng-repeat="n in modelData.mSelectedOrder" class="manage-panel-iteamList-item panel-content-iteamList-item " ng-class="($index == indexToShow ) ? 'selected' : 'cursorPointer'" ng-click="selectedItem($index)">
+                                <span>{{n.OrderNumber}}</span>
+                            </li>
+                        </ul>
+                     </smart-scroll>
+                </div>
+            </div>
+            <div class="content left padding0 scroll-inner-container" style="min-height:353px;">
+                
+                    <div class="panel-content paddingBtm0">
+                        <div class="filterView is-floating-menu-active padding0 marginBtm0 padding0 no-animate" ng-if="modelData.mSelectedOrder.length > 0">
+                            <div class="row rightPanelHeader marginBottom0" style="background-color: #efefef; line-height: 51px;">
+                                <div class="s9 m9 l9 left paddingLeft0 marginLeft15 fontSize16">
+                                    <span class="left paddingLeft5 milestoneTitle truncate cursorDefault" title="{{selectedPO.OrderNumber}}">{{selectedPO.OrderNumber}}</span>
+                                    <span class="listTbl-meta left marginLeft10">({{totalChecked}} of {{selectedPO.OrderDetails.length}} selected)</span>
+                                </div>
+                                <div class="right s4 paddingRight15">
+                                    <ul class="activityHeaderNav">
+
+                                        <li>
+                                            <a href="javascript:void(0)" ng-click="deleteCurrentOrder(indexToShow)">
+                                                <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                                    <svg>
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  marginBtm0">
+                            <div class="col s12">
+                                <smart-scroll height="353px">
+                                    
+                                        <table class="bordered width1400" ng-if="modelData.mSelectedOrder.length > 0">
+                                                <colgroup>
+                                                    <col style="width:50px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                </colgroup>
+                                            <thead class="paddingBtm0">
+                                                <tr>
+                                                    <th>
+                                                        <smart-checkbox ng-model="chkBoxObj.checkedAll" class="left" smart-selectall data="selectedPO.OrderDetails|.orderDetailChk" checker-flag="checked" on-change="onChangeCheckAll(selectedPO.OrderDetails)"></smart-checkbox>
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Line No." ng-model="orderList.LineNo" smart-character-restrict patternreg="^[a-zA-z]" rules="{{textRules}}"></smart-textfield>
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Description" ng-model="orderList.Description" rules="{{textRules}}"></smart-textfield>
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12"  label="Item No." ng-model="orderList.ItemNo" smart-character-restrict patternreg="^[a-zA-z]" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Supplier Item No." smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.SupplierItemNo" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Unit Price" smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.UnitPrice" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Quantity" smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.Quantity" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Charges (USD)" smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.Charges" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Shipping Charges" smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.ShippingCharges" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <smart-textfield class="col s12" label="Other Charges" smart-character-restrict patternreg="^[a-zA-z]" ng-model="orderList.OtherCharges" rules="{{textRules}}"></smart-textfield>
+
+                                                    </th>
+                                                    <th>
+                                                        <a href="javascript:void(0)" class="right btn-flat" ng-click="addCurrentOrder(indexToShow)">
+                                                            {{ 'Add' || translate | uppercase  }}
+                                                        </a>
+
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="orderDetail in selectedPO.OrderDetails">
+                                                    <td>
+                                                        <div>
+                                                            <smart-checkbox class="paddingTop5 orderDetailChk" ng-model="orderDetail.checked" on-change="onChangePOItem(selectedPO.OrderDetails)"></smart-checkbox>
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <div class="truncate">
+                                                            {{orderDetail.LineNo}}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="truncate">
+                                                            {{orderDetail.Description}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <div class="truncate">
+                                                            {{orderDetail.ItemNo}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <div class="truncate">
+                                                            {{orderDetail.SupplierItemNo}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" data-activates='unitPrice_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.UnitPrice">Enter Value</span>
+                                                                <span ng-if="orderDetail.UnitPrice">{{orderDetail.UnitPrice}}</span>
+                                                            </a>
+                                                            <div id='unitPrice_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="orderDetail.UnitPrice" focus="orderDetail.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+
+
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" ng-class="{'invalid-field': conNum.errorMsg}" data-activates='quantity_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.Quantity">Enter Value</span>
+                                                                <span ng-if="orderDetail.Quantity">{{orderDetail.Quantity}}</span>
+                                                            </a>
+                                                            <div id='quantity_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="orderDetail.Quantity" focus="selectedPO.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+
+                                                    </td>
+
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" ng-class="{'invalid-field': conNum.errorMsg}" data-activates='charges_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.Charges">Enter Value</span>
+                                                                <span ng-if="orderDetail.Charges">{{orderDetail.Charges}}</span>
+                                                            </a>
+                                                            <div id='charges_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="orderDetail.Charges" focus="selectedPO.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" data-activates='shipping_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.ShippingCharges">Enter Value</span>
+                                                                <span ng-if="orderDetail.ShippingCharges">{{orderDetail.ShippingCharges}}</span>
+                                                            </a>
+                                                            <div id='shipping_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="orderDetail.ShippingCharges" focus="selectedPO.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+
+                                                    </td>
+
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" data-activates='other_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.OtherCharges">Enter Value</span>
+                                                                <span ng-if="orderDetail.OtherCharges">{{orderDetail.OtherCharges}}</span>
+                                                            </a>
+                                                            <div id='other_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="orderDetail.OtherCharges" focus="selectedPO.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+                                                    </td>
+                                                    <td></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    
+                                </smart-scroll>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+
+                    <smart-button flat="true" class="left modal-close" config='{"title":"IMPORT"}'></smart-button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

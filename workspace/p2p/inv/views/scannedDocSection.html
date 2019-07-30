@@ -1,0 +1,11 @@
+
+<div ng-controller="p2pInvScannedDocSecCtrl" >	
+    <smart-scroll height="100%" scroll-break-points="{{::scrollBreakPoints}}" on-break-points="onBreakPoints()">
+        <pdfviewer src="{{docURL}}" scale="pdfScale" display-all="true"
+                   on-page-load='onpageLoaded(page, total)' id="viewer" pdfcontrol="pdfControlWrapper" poupoutoption="{{showpopupoption}}" is-popout ="popupout" ></pdfviewer>
+
+    </smart-scroll>
+    <smart-global-loader ng-if="pdfLoader" config="loaderConfig"></smart-global-loader>
+
+</div>
+

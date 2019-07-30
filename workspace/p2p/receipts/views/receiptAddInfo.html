@@ -1,0 +1,88 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:void(0)" ng-click="backToHistory()" class="left  waves-circle waves-effect waves-light left extra-nav-title--back" smart-tooltip position="bottom" delay="50" message="{{ 'Back' || translate }}">
+                <i class="icon small ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xlink:href="#icon_Order"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">Receipt-05:16-002629 - Receipt-PO-27:10-16377  ({{ 'DRAFT' || translate }})  - {{ 'ADDITIONAL INFORMATION' || translate }}</span>
+        </div>
+    </div>
+</div>
+<!-- body content -->
+<div ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader}" class="extendBg dcc-query-container">
+    <div class="wrapper clearfix additional-info-wrapper wrapper--withSidebar" ng-class="{'wrapper--withSidebar':!isActive}">
+        <!-- cotent left side -->
+        <div class="sidebar dcc-container-sidebar sidebar--left white" ng-style="{'top':(showFilter === true ? '0' :(fixedSubHeader === true ? '50px' : '114px')),'position':(showFilter === true ? 'relative' : 'fixed'), 'height': contHeight(fixedSubHeader), 'transition': 'all 0.5s ease'}">
+            <a href="javascript:void(0)" class="sidebar-btn white-text" ng-click="activeButton()">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_RightChevro"></use>
+                    </svg>
+                </i>
+            </a>
+            <div class="panel-content panel-content-container">
+                <ul class="panel-content-iteamList panel-content-iteamList-withoutHover">
+                    <li class="panel-content-iteamList-item clearfix" style="padding-right:8px; padding-left:6px;">
+                        <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex2" data-ng-init="mysearchC=false;" ng-style="mysearchC === false && {'margin-top':'-2px'}">
+                            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveC}">
+                                <a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearchC()" ng-show="hideCloseC" class="marginTop6 waves-circle waves-effect cancel-icon btn-flat black-text">
+                                    <i class="icon iconSmall center grey-text">
+                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                    </i>
+                                </a>
+                                <smart-textfield ng-model="treeSearchModel" class="input-field paddingRight35 marginTop3N" placeholder="{{'Search'|| translate}} {{item.title}}" focus="focusSearchC"></smart-textfield>
+                                <a href="javascript:void(0)" class="search-icon btn-flat waves-circle waves-effect black-text marginTop6" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchC()">
+                                    <i class="icon iconSmall center grey-text">
+                                        <svg><use xlink:href="#icon_Search"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        {{ 'Line Items' }}
+                    </li>
+                </ul>
+                <smart-scroll v-offset="100px" height="100%">
+                    <ul class="panel-content-iteamList panel-content-container-iteamList ">
+                        <li class="panel-content-iteamList-item clearfix" style="padding-right:8px; padding-left:8px;" ng-repeat="n in lineviewData" ng-class="{selected : $index == currentSelected}" ng-click="selectedItem($index)">
+                            <a href="javascript:void(0)" class="item-name truncate" >
+                                <span class="black-text fldFxdWrapper--sidebar--count">{{$index + 1 }}</span> {{n.title | translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+        <!-- cotent right side -->
+        <div class="page-container">
+            <!-- content line widget -->
+            <div class="row editableMode row-with-page-container " ng-repeat="items in lineviewData | filter:!showContent">
+
+    
+                <div class="clearfix questionnaire-section" ng-include="'p2p/receipts/views/templateAdditionalInfo.html'" ng-repeat="item in items.data">
+                </div>
+            </div>
+            <!-- footer -->
+            <footer class="page-footer page-footer-with-section bounceInUp animated zIndex0">
+                <div class="row">
+                    <div class="right-align col s9 offset-s3">
+                        <smart-button flat="true" config='{"title":"Cancel","allignRight":"false"}' class="marginRight10" disable="false" ng-click="javascript:history.go(-1);"></smart-button>
+                        <smart-button config='{"title":"Save","allignRight":"false"}' class="marginRight10 whiteSecondaryBtn" disable="false"></smart-button>
+                        <smart-button config='{"title":"Done","allignRight":"false"}' disable="false"></smart-button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+ <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>

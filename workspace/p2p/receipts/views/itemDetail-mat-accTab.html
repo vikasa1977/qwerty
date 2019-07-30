@@ -1,0 +1,202 @@
+<div id="tabAccounting">
+	<div class="col s12 padding10 borderBtmGray">
+		<!--<div class="left">
+			<smart-checkbox class="input-chk" fill="true" label="All"></smart-checkbox>
+		</div>-->
+		<div class="right">
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left dropdown-button blue-text" data-activates="tabMateLineTUlkEdittt" data-constrainwidth="false" smart-tooltip position="bottom" delay="50" message="Edit Multiple Lines" data-alignment="right">
+					<svg><use xlink:href="#icon_BulkEdit"></use></svg>
+				</i>
+				<ul id="tabMateLineTUlkEdittt" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup" style="width: 400px;">
+					<li>
+						<span class="col s12 left-align fontSize16">EDIT MULTIPLE LINES</span>
+						<smart-textfield class="col s6" label="Requester"></smart-textfield>
+						<smart-textfield class="col s6" label="Legal Entity"></smart-textfield>
+						<smart-textfield class="col s6" label="Business Unit"></smart-textfield>
+						<smart-textfield class="col s6" label="Cost Center"></smart-textfield>
+						<smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+					</li>
+				</ul>
+			</smart-dropdown>
+
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left dropdown-button blue-text" smart-tooltip position="bottom" delay="50" message="Managed Column" data-activates="tabMateLineTFilter" data-constrainwidth="false" data-alignment="right">
+					<svg><use xlink:href="#icon_ManageColumns"></use></svg>
+				</i>
+				<ul id="tabMateLineTFilter" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup">
+					<li><span class="left-align fontSize16">SHOW / HIDE OPTIONAL FIELDS</span></li>
+					<li class="marginTop10"><span class="left-align fontSize16">ACCOUNTING</span> </li>
+					<li>
+						<smart-checkbox class="col s6" fill="true" label="Requester"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Legal Entity"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Business Unit"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Cost Center"></smart-checkbox>
+					</li>
+					<li>
+						<smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right"></smart-button>
+					</li>
+				</ul>
+			</smart-dropdown>
+		</div>
+	</div>
+	<!--<div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col s6 m5 l4 xl3 xxl2 requItemContainerLeft">
+				<div>
+					<smart-checkbox class="input-chk left" fill="true" label="1"></smart-checkbox>
+					<span class="right">
+						<a href="javascript:void(0)" class="modal-trigger add-row icon iconSmall right dropdown-button" smart-tooltip position="bottom" delay="50" message="Copy Line Details">
+							<svg><use xlink:href="#icon_BulkApply"></use></svg>
+						</a>
+						<a href="javascript:void(0)" class="add-row icon iconSmall right dropdown-button marginRight20" smart-tooltip position="bottom" delay="50" message="Duplicate Line">
+							<svg><use xlink:href="#icon_Copy"></use></svg>
+						</a>
+					</span>
+				</div>
+				<div class="col s12 marginTop10 marginBtm15">
+					<span class="title">Item Name</span>
+				</div>
+				<smart-textfield class="col s8" readonly="true" label="Unit Price (USD)"></smart-textfield>
+				<smart-textfield class="col s4" readonly="true" label="Quantity"></smart-textfield>
+				<div class="input-field col s12">
+					<smart-dropdown config="{{dropDownConfig}}">
+						<a href="javascript:void(0)" class="dropdown-button" data-activates="addSplitt_{{$index}}" data-constrainwidth="false" data-alignment="right">
+							<i class="icon iconSmall blue-text">
+								<svg><use xlink:href="#icon_Split"></use></svg>
+							</i>
+							<span>Split</span>
+						</a>
+						<ul id="addSplitt_{{$index}}" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off" ng-init="splitByOpts=[{'title':'Quantity', 'key':'quantity', 'selected':true}, {'title':'Percentage', 'key':'percentage'}]; splitByOptsModel={'title':'Quantity', 'key':'quantity'}">
+							<li><span class="fontSize16">Split</span></li>
+							<li>
+								<smart-radio gap="true" ng-model="splitByOptsModel" options="splitByOpts"></smart-radio>
+							</li>
+							<li class="marginTop20" style="border-top: 1px solid #e7e7e7;">
+								<div class="row marginTop10">
+									<div class="col s3">
+										<a href="javascript:void(0)">
+											<i class="icon iconSmall blue-text">
+												<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+											</i>
+										</a>
+									</div>
+									<smart-textfield class="col s6" label="Number of Splits"></smart-textfield>
+									<div class="col s3">
+										<a href="javascript:void(0)">
+											<i class="icon iconSmall blue-text">
+												<svg><use xlink:href="#icon_CircleMinus"></use></svg>
+											</i>
+										</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+								<smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right"></smart-button>
+							</li>
+						</ul>
+					</smart-dropdown>
+				</div>
+			</div>
+			<div class="col s6 m7 l8 xl9 xxl10 padding0">
+				<div class="col s12 relative padding10 borderBtmGraye7">
+					<div class="right">
+						Requisition Line Value: 
+						<smart-dropdown config="{{dropDownConfig}}">
+						<a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownAUSD_{{$index}}" data-constrainwidth="false" data-alignment="right">USD 1000</a>
+						<ul id="dropdownAUSD_{{$index}}" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+							<li>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+							</li>
+						</ul>
+					</smart-dropdown>
+					</div>
+				</div>
+				<div class="row">
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Requester"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Legal Entity"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Business Unit"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Cost Center"></smart-textfield>
+				</div>
+			</div>
+		</div>
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col s6 m5 l4 xl3 xxl2 requItemContainerLeft">
+				<smart-checkbox class="input-chk" fill="true" label="5"></smart-checkbox>
+				<div class="col s12 marginTop10 marginBtm15">
+					<span class="title">Item Name</span>
+				</div>
+				<smart-textfield class="col s8" readonly="true" label="Unit Price (USD)"></smart-textfield>
+				<smart-textfield class="col s4" readonly="true" label="Quantity"></smart-textfield>
+				<div class="input-field col s12">
+					<a href="javascript:void(0)">
+						<i class="icon iconSmall blue-text">
+							<svg><use xlink:href="#icon_Split"></use></svg>
+						</i>
+						<span>Split by Qty: 3</span>
+					</a>
+				</div>
+			</div>
+			<div class="col s6 m7 l8 xl9 xxl10 padding0">
+				<div class="col s12 relative padding10" style="background-color: #e7e7e7;">
+					<div class="left">
+						<span>Splits <span>3</span></span>
+						<a href="javascript:void(0)">
+							<i class="icon iconSmall blue-text">
+								<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+							</i>
+						</a>
+						<a href="javascript:void(0)">
+							<i class="icon iconSmall blue-text">
+								<svg><use xlink:href="#icon_CircleMinus"></use></svg>
+							</i>
+						</a>
+					</div>
+					<div class="right">
+						Requisition Line Value:
+						<a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownAUSD_split" data-constrainwidth="false" data-alignment="right">USD 1000</a>
+					</div>
+				</div>
+				<ul id="dropdownAUSD_split" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+					</li>
+				</ul>
+				<div class="row">
+					<div class="col s12 padding10">
+						<div class="left">
+							<span class="">Split 1: Quantity </span>
+							<smart-textfield class="small-field" label=""></smart-textfield>
+						</div>
+						<smart-dropdown config="{{dropDownConfig}}">
+							<div class="right">
+								<span>Split Value: <a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownUSD_Acc" data-constrainwidth="false" data-alignment="right">USD 1000</a></span>
+							</div>
+							<ul id="dropdownUSD_Acc" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+								</li>
+							</ul>
+						</smart-dropdown>
+					</div>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Requester"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Legal Entity"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Business Unit"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Cost Center"></smart-textfield>
+				</div>
+			</div>
+		</div>
+	</div>-->
+		<div class="col s12 padding0" ui-grid="gridOptionsAccounting" ui-grid-selection ui-grid-resize-columns ui-grid-edit ui-grid-cellNav ui-grid-move-columns ui-grid-pinning ui-grid-tree-view style="height:300px;"> </div>
+
+</div>

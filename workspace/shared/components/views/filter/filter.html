@@ -1,0 +1,572 @@
+<!-- filter Trigger -->
+<div class="mainFilter" data-ng-if="pageName == 'catalog.requestercatalog.wishlist'">
+<a href="javascript:void(0);" class="waves-block filterActive waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Filter" data-tooltip-id="dc9b50d8-0981-71ac-e285-d26bea4b681d">
+    <i class="icon iconSmall ">
+        <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter"></use>
+        </svg>
+    </i>
+</a>
+
+<!-- Applied filter band -->
+<div class="col s12 filterAppliedIndicator" id="appliedSaveFilter">
+    <span class="">Saved Filter Applied "Draft Credit Memos"</span>
+    <div class="right"><a href="javascript:void(0)" id="appliedUndoBand" class="waves-effect   btn-flat">{{$label_U.undo}}</a></div>
+</div>
+<div class="col s12 filterAppliedIndicator" id="appliedNewFilter">
+    <span class="">Filter Applied</span>
+    <div class="right">
+        <a href="javascript:void(0)" id="appliedNewSaveBand" class="waves-effect   btn-flat">{{$label_U.save}}</a>
+        <a href="javascript:void(0)" id="appliedNewUndoBand" class="waves-effect   btn-flat">{{$label_U.undo}}</a>
+    </div>
+</div>
+<!-- Applied filter band -->
+
+<!-- Filter panel html-->
+<div class="col s12 filterContainer" id="dev_filterContainer">
+                <div class="row filterWraper card marginTop0 marginBottom0">
+                    <div class="filterHeaderAction">
+                        <div class="left fontsize16">
+                            <smart-select label="Select Currency" options='[{"title": "New Filter","selected": false}, {"title": "Draft Memos 1","selected": true}, {"title": "Draft Memos 2","selected": true}, {"title": "Draft Memos 3","selected": true}]'></smart-select>
+                           
+                        </div>
+                        <div class="right">
+                            <a href="javascript:void(0);" class="filterTopIcon disabled waves-circle waves-effect waves-light dropdown-button" id="filter_shared" data-activates='dropdown2' data-constrainwidth="false" data-alignment="left" ><i class="icon iconSmall tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.share}}">
+              <svg >
+                <use xlink:href="#icon_Share"></use>
+              </svg>
+              </i></a>
+              <ul id='dropdown2' class='dropdown-content'>
+                <li><a href="#sendEmailCall" class="modal-trigger"><i class="icon iconSmall left">
+              <svg>
+                    <use xlink:href="#icon_Email"></use>
+                  </svg>
+                  </i>Email</a></li>
+                <li><a href="#!"><i class="icon iconSmall left">
+                  <svg>
+                    <use xlink:href="#icon_Chat"></use>
+                  </svg>
+                  </i>Chat</a></li>
+                <li><a href="#!"><i class="icon iconSmall left">
+                  <svg>
+                    <use xlink:href="#icon_Discuss"></use>
+                  </svg>
+                  </i>Discussion Forum</a></li>
+              </ul>
+                            <a href="#" class="filterTopIcon disabled waves-circle  waves-effect waves-dark-light" id="filter_clear"><i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_FilterReset"></use></svg>
+                            </i></a>
+                            <a href="#" class="filterTopIcon waves-circle  waves-effect waves-dark-light" id="filter_close"><i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use></svg>
+                            </i></a>
+                        </div>
+                    </div>
+                    <div class="col s4 filterItem currentDisplay">
+                        <div class="input-field withSearchIcon">
+
+                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+
+
+
+                            <i class="icon iconFix iconSmall filterCloseIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg>
+
+                            </i>
+                            <input id="text_type" type="text" class="validate" placeholder="{{$label_U.by}} {{$label_U.type}}">
+                            <label for="text_type"></label>
+                        </div>
+                        <div class="option-container scrollbar-outer">
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.all}}'></smart-checkbox>
+                             </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.requisitions}}'></smart-checkbox>
+                              
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.orders}}'></smart-checkbox>
+                              
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.programs}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.all}}'></smart-checkbox>
+                                <input id="chk_type05" type="checkbox" class="filled-in" />
+                                <label for="chk_type05">{{$label_FU.receipts}}</label>
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.returnNote}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.invoices}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.creditMemo}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.invoiceReconciliation}}'></smart-checkbox>
+                              
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col s4 filterItem">
+                        <div class="input-field withSearchIcon">
+
+                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+
+
+
+                            <i class="icon iconFix iconSmall filterCloseIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg></i>
+                            <input id="text_status" type="text" class="validate" placeholder="{{$label_U.by}} {{$label_U.status}}">
+                            <label for="text_status"></label>
+                        </div>
+                        <div class="option-container scrollbar-outer">
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.all}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.draft}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.active}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.approved}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.rejected}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.approvalRequired}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.responseInProgress}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.scoringInProgress}}'></smart-checkbox>
+                               
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col s4 filterItem">
+                        <div class="input-field withSearchIcon">
+                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+
+
+
+                            <i class="icon iconFix iconSmall filterCloseIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg></i>
+                            <input id="text_category" type="text" class="validate" placeholder="{{$label_U.by}} {{$label_U.category}}">
+                            <label for="text_category"></label>
+                        </div>
+                         <div class="option-container scrollbar-outer">
+                            <p>
+                               <smart-checkbox checked='false' fill='true' disable='false' label='Office Depot'></smart-checkbox>
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Dell'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Wallmart'></smart-checkbox>
+                              
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Canon'></smart-checkbox>
+                              
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Staples'></smart-checkbox>
+                            
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='eBay'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Wallmart'></smart-checkbox>
+                            
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Staples'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Canon'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='General Services'></smart-checkbox>
+                              
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Dell'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Logistic'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Packaging'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='Human Resources'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='usiness Travel'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='General Services<'></smart-checkbox>
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col s4 filterItem">
+                        <div class="input-field withSearchIcon">
+                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+                            <input id="text1" type="text" class="validate" placeholder="{{$label_U.by}} {{$label_U.status}}">
+                            <label for="text_status"></label>
+                        </div>
+                        <div class="option-container scrollbar-outer">
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.all}}'></smart-checkbox>
+                                </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.draft}}'></smart-checkbox>
+                              </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.active}}'></smart-checkbox>
+                             </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.approved}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.rejected}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.approvalRequired}}'></smart-checkbox>
+                               
+                            </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.responseInProgress}}'></smart-checkbox>
+                                
+                            </p>
+                            <p>
+                                <smart-checkbox checked='catagory.isSelected' fill='true' disable='false' label='{{$label_FU.scoringInProgress}}'></smart-checkbox>
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col s4 filterItem">
+                        <div class="marginTop20">
+                            <span class="title">{{$label_U.by}} {{$label_U.price}} {{$label_U.range}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <smart-textfield label="FORM" validate="true" ng-model=""></smart-textfield>
+                             </div>
+                            <div class="input-field col s6">
+                                  <smart-textfield label="TO" validate="true" ng-model=""></smart-textfield>
+                            </div>
+                        </div>
+                        <div class="marginTop40">
+                            <span class="title">{{$label_U.by}} {{$label_U.catalog}} {{$label_U.type}}</span>
+                        </div>
+                        <div class="option-container scrollbar-outer">
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.internal}}'></smart-checkbox>
+                            </p>
+                            <p>
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.hosted}}'></smart-checkbox>
+                            </p>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="row clearfix">
+                        <div class="col s12">
+                             <div class="arrowWraper">
+                                <span class="next_arrow"><i class="icon iconSmall"><svg><use xlink:href="#icon_RightChevro"></use></svg></i></span>
+                                <span class="prev_arrow disabled"><i class="icon iconSmall"><svg><use xlink:href="#icon_LeftChevron"></use></svg></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col m6 s12">
+                            <div class="marginLeft25 marginTop7">
+                                <smart-checkbox checked='false' fill='true' disable='false' label='{{$label_FU.urgent}} {{$label_FU.requisitions}}'></smart-checkbox>
+                              </div>
+                        </div>
+                        <div class="col m6 s12 right-align">
+                            <a id="save_filter_model" class="waves-effect  btn-flat disabled">{{$label_U.save}}</a>
+                            <a id="btn_apply_filter" class="waves-effect btn-flat disabled marginRight5">{{$label_U.apply}}</a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="filterFooterAction clearfix hide">
+                        <div class="left">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+</div>
+
+<div class="row filterWraper" data-ng-if="pageName == 'p2p.inv.dynamicDis'">
+
+
+
+    <div class="col s12">
+        <div class="card col s12">
+            <div class="col s12 m6 l6 x6 xxl6">
+
+                <h5 class="col s12 fontSize14">INVITE DATE</h5>
+                <div class="row">
+                    <smart-date-component label="Start Date" config='{"selectMoTnths":true,"selectYears":4}' validate="true" class="col s12 m6 l6 x6 xxl6"></smart-date-component>
+                    <smart-date-component label="Select Time" config='{"selectMoTnths":true,"selectYears":4}' validate="true" class="col s12 m6 l6 x6 xxl6"></smart-date-component>
+                   
+                </div>
+
+                <div class="row">
+                    <smart-textfield label="Partner" validate="true" ng-model="" class="col s12"></smart-textfield>
+                </div>
+                
+                <h5 class="col s12 fontSize14">INVOICE TOTAL</h5>
+                <div class="row">
+                    <smart-textfield label="From" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                    <smart-textfield label="To" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                </div>
+
+               <div class="row marginTop75">
+                    <smart-select class="col s12" label="" options='[{"title": "Invoice Number","selected": true}, {"title": "Invoice Number","selected": false}, {"title": "Invoice Number","selected": false}, {"title": "Invoice Number","selected": false}]'></smart-select>
+                </div>
+
+            </div>
+
+
+           <div class="col s12 m6 l6 x6 xxl6">
+
+                <h5 class="col s12 fontSize14">INVITE DATE</h5>
+                <div class="row">
+                    <smart-date-component label="Start Date" config='{"selectMoTnths":true,"selectYears":4}' validate="true" class="col s12 m6 l6 x6 xxl6"></smart-date-component>
+                    <smart-date-component label="Select Time" config='{"selectMoTnths":true,"selectYears":4}' validate="true" class="col s12 m6 l6 x6 xxl6"></smart-date-component>
+                   
+                </div>
+
+                <div class="row">
+                    <smart-textfield label="Partner" validate="true" ng-model="" class="col s12"></smart-textfield>
+                </div>
+                
+                <h5 class="col s12 fontSize14">INVOICE DATE RANGE</h5>
+                <div class="row">
+                    <smart-textfield label="From" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                    <smart-textfield label="To" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                </div>
+
+               <div class="row">
+                   <h5 class="col s12 fontSize14">NEW PAY DATE</h5> </div>
+                <div class="row">
+                    <smart-textfield label="From" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                    <smart-textfield label="To" validate="true" ng-model="" class="col s12 m6 l6 x6 xxl6"></smart-textfield>
+                </div>
+               
+
+            </div>
+
+
+            <div class="row clearfix">
+                        <div class="col s12">
+                             <div class="arrowWraper right-align">
+                                <span class="next_arrow"><i class="icon iconSmall"><svg><use xlink:href="#icon_RightChevro"></use></svg></i></span>
+                                 <span class="prev_arrow disabled"><i class="icon iconSmall"><svg><use xlink:href="#icon_LeftChevron"></use></svg></i></span>
+                            </div>
+                        </div>
+                    
+                        <div class="col s12 right-align">
+                           <a id="A1" class="waves-effect btn-flat disabled marginRight5">{{$label_U.apply}}</a>
+                        </div>
+                    </div>
+
+
+        </div>
+
+</div>
+</div>
+
+
+
+
+
+<!-- Save Filter modal -->
+<div id="saveFilter" class="modal modal-sm">
+    <div class="modal-content">
+        <!--            <a href="javascript:void(0)" class="model_closeIcon modal-close">X</a>-->
+        <h6>{{$label_U.save}} {{$label_U.filter}}</h6>
+        <div class="input-field marginTop25">
+            <input id="text_filterName" type="text" class="validate">
+            <label for="text_filterName">{{$label_FU.filter}} {{$label_FU.name}}</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" id="btn_filter_save" class=" modal-action modal-close waves-effect   btn-flat">{{$label_FU.save}}</a>
+        <a href="#!" class="btn-flat editRequest ng-binding modal-close waves-effect  ">{{$label_U.cancel}}</a>
+    </div>
+</div>
+
+
+
+
+<!-- Js Code -->
+<script>
+$(document).ready(function () {
+    //filter
+    $('.filterWraper .filterCloseIcon').click(function () {
+                $(this).next().val('');
+            });
+
+
+
+
+            $('.filterItem input[type=checkbox]').click(function () {
+                var flagCheck = false;
+                $('.filterItem input[type=checkbox]').each(function () {
+                    if ($(this).is(':checked')) {
+                        $('#filter_shared, #filter_clear').removeClass('disabled');
+                        $('#save_filter_model, #btn_apply_filter').removeClass('disabled');
+                        $('#btn_apply_filter').addClass('notSaved');
+                        flagCheck = true;
+                        return false;
+                    }
+                });
+                if (!flagCheck) {
+                    $('#filter_shared, #filter_clear').addClass('disabled');
+                    $('#save_filter_model, #btn_apply_filter').addClass('disabled');
+                    $('#btn_apply_filter').removeClass('notSaved');
+                }
+            });
+
+            $('#select_Draft_Memos').change(function () {
+                $('.filterItem input[type=checkbox]').removeAttr('checked');
+                var number = getRandomArbitrary(1, 20);
+                $('.filterItem input[type=checkbox]').eq(number).attr('checked', 'checked');
+                $('.filterItem input[type=checkbox]').eq(number + 3).attr('checked', 'checked');
+                $('#filter_shared, #filter_clear').removeClass('disabled');
+                $('#btn_apply_filter').removeClass('disabled').removeClass('notSaved');
+                $('#save_filter_model').addClass('disabled');
+            });
+
+            function getRandomArbitrary(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+
+            $('#filter_clear').click(function () {
+                $('.filterItem input[type=checkbox]').removeAttr('checked');
+                $('#filter_shared, #filter_clear').addClass('disabled');
+                $('#save_filter_model, #btn_apply_filter').addClass('disabled');
+            });
+
+            $('.arrowWraper .next_arrow').click(function () {
+                var curent = $('.currentDisplay');
+                if (curent.next('.filterItem').next('.filterItem').next('.filterItem').length == 0) {
+                    $(this).addClass('disabled');
+                }
+                if (curent.next('.filterItem').next('.filterItem').length) {
+                    $('.arrowWraper .prev_arrow').removeClass('disabled');
+                    curent.removeClass('currentDisplay').next().addClass('currentDisplay');
+                }
+            });
+            $('.arrowWraper .prev_arrow').click(function () {
+                var curent = $('.currentDisplay');
+                if (curent.prev('.filterItem').prev('.filterItem').length == 0) {
+                    $(this).addClass('disabled');
+                }
+                if (curent.prev('.filterItem').length) {
+                    curent.removeClass('currentDisplay').prev().addClass('currentDisplay');
+                    $('.arrowWraper .next_arrow').removeClass('disabled');
+                }
+            });
+            $('.filterActive, #filter_close').click(function () {
+                $('#dev_filterContainer').slideToggle('slow');
+            });
+
+            $('#save_filter_model').click(function () {
+                $('#saveFilter').openModal();
+                $('#btn_filter_save').removeClass('onLandinfPage');
+            });
+
+            $('#appliedNewSaveBand').click(function () {
+                $('#saveFilter').openModal();
+                $('#btn_filter_save').addClass('onLandinfPage');
+            });
+
+            $('#btn_apply_filter').click(function () {
+                $('#dev_filterContainer').slideUp('slow');
+                $('.filterAppliedIndicator').fadeOut('slow');
+                if ($('#btn_apply_filter').hasClass('notSaved')) {
+                    $('#appliedNewFilter').fadeIn('slow');
+                } else {
+                    $('#appliedSaveFilter').fadeIn('slow');
+                }
+            });
+            $('#btn_filter_save').click(function () {
+                if ($('#btn_filter_save').hasClass('onLandinfPage')) {
+                    $('.filterAppliedIndicator').hide();
+                    $('#appliedSaveFilter').fadeIn('slow');
+                } else {
+                    $('#save_filter_model').addClass('disabled');
+                    $('#btn_apply_filter').removeClass('notSaved');
+                }
+            });
+
+            $('#appliedUndoBand,#appliedNewUndoBand').click(function () {
+                $('.filterAppliedIndicator').fadeOut('slow');
+            });
+});
+</script>

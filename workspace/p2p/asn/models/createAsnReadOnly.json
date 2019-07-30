@@ -1,0 +1,466 @@
+{
+  "dataModel": {
+    "asnData": {
+      "DocumentName": "ASN for PO-2012333",
+      "ASNNumber": "ASN-2012333",
+      "OrderNumber": "PO-2012333",
+      "DocumentStatus": "Draft",
+      "createdBy": "Linda",
+      "DateCreatedOn": "Date(1500748200000)",
+      "DateReceivedOn": "Date(1500748200000)",
+      "OrderAcknowledgedOn": "Date(1500748200000)",
+      "SupplierAsnNumber": "ASN for PO-4032333",
+      "ShippingDetails": {
+        "DeliverTo":"",
+        "TrackingNo": 201200333,
+        "ExpectDeliveryDate": "Date(1455388200000)",
+        "ShippingMethod": "FedEx",
+        "ShipToLocation": {
+          "location":"California",
+          "shipToAddress": "Hanger 42, Berlinitta Street, Santa Clara, California-54224, USA",
+          "readonly":true
+        },
+        "shippingOptions" : [
+                        { "location": "Mumbai", "shipToAddress": "7th Floor, Building 3 Plot # 3 TTC Industrial Area MIDC Thane Belapur Road Airoli Navi Mumbai 400 708" },
+                        { "location": "Hyderabad", "shipToAddress": "Western Pearl, 8th Floor Next to Google Building, Kondapur, Hitech-city Hyderabad 500084" },
+                        { "location": "Shanghai", "shipToAddress": "Cross Tower, #318 Fu Zhou Road,HuangPu District, Shanghai" },
+                        { "location": "Singapore", "shipToAddress": "89 Short Street, #B1-11 Golden Wall Centre, Singapore-188216" },
+                        { "location": "Sydney", "shipToAddress": "Australia Square 2000 NSW, Australia" },
+                        { "location": "London", "shipToAddress": "GEP, 22 Tudor Street, London, EC4Y 0AY" },
+                        { "location": "Prague", "shipToAddress": "Hradcanská Office Center Milady Horákové 116/109, Prague 6, 160 00 Czech Republic" }
+    ]
+      },
+      "Partner": {
+        "PartnerName": {
+          "FirstName": "Motion",
+          "LastName": "Industries"
+        },
+        "readonly": true,
+        "typeOptions": [
+          {
+            "UserId": 28360,
+            "UserName": "SRUser1@outlook.com",
+            "FirstName": "Avishek",
+            "LastName": "Jana"
+          },
+          {
+            "UserId": 28977,
+            "UserName": "SRUser1@outlook.com11",
+            "FirstName": "Pawan",
+            "LastName": "Singh"
+          },
+          {
+            "UserId": 28978,
+            "UserName": "SRUser1@outlook.com234",
+            "FirstName": "Apurva",
+            "LastName": "Chi"
+          },
+          {
+            "UserId": 28979,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Mayur",
+            "LastName": "Gadekar"
+          },
+          {
+            "UserId": 28980,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Avishek",
+            "LastName": "Jana"
+          },
+          {
+            "UserId": 28981,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Sachin",
+            "LastName": "Kurkute"
+          },
+          {
+            "UserId": 28982,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Karthic",
+            "LastName": "Muthuraman"
+          },
+          {
+            "UserId": 28983,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Rahul",
+            "LastName": "Kardekar"
+          },
+          {
+            "UserId": 28984,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Sheetal",
+            "LastName": "Shah"
+          },
+          {
+            "UserId": 28985,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Nandini",
+            "LastName": "Shah"
+          },
+          {
+            "UserId": 28986,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Poonam",
+            "LastName": "Lad"
+          },
+          {
+            "UserId": 28987,
+            "UserName": "SRUser1@outlook.com342",
+            "FirstName": "Harshit",
+            "LastName": "Shah"
+          }
+        ]
+      }
+    }
+  },
+  "formConfig": {
+    "sections": [
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "ASN Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true, 
+                "focus": true,
+                "data": "asnData.DocumentName",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                }
+              },
+              {
+                "label": "ASN Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "asnData.ASNNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 10
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Order Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "asnData.OrderNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                "label": "ASN Status",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "asnData.DocumentStatus",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                "label": "Created By",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.createdBy",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                "label": "Created On",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.DateCreatedOn",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Order Received On",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.DateReceivedOn",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Order Acknowledged On",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.OrderAcknowledgedOn",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Supplier ASN Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "asnData.SupplierAsnNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Supplier Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+"isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Supplier Name",
+                "editable": true,
+                "isMandatory": true,
+                "data": "asnData.Partner",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/asn/views/supplierFieldTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Shipping & Delivery Information",
+        "isMandatory": true,
+        "isCollapsible": true,
+"isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Expected Delivery Date",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails.ExpectDeliveryDate",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Tracking No.",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails.TrackingNo",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                "label": "Shipping Method",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails.ShippingMethod",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                 "colspan": 1,
+                "label": "Ship to Location",
+                "editable": true,
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails",
+                "type": "subsection",
+                "templateUrl": "p2p/asn/views/shipToTemplate.html"
+              },
+              {
+                "colspan": 6,
+                "label": "Ship To Address",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails.ShipToLocation.shipToAddress",
+                "attributes": {
+                   "readonly": true,
+                    "type": "area"
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  }
+                ]
+              },
+               {
+                "label": "Deliver To",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "asnData.ShippingDetails.DeliverTo",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Lines Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+"isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/asn/views/itemDetailTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Notes and Attachments",
+"isDraggable": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "p2p/asn/views/notesAndAttachmentSection.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

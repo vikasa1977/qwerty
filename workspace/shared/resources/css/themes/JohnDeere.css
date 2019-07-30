@@ -1,0 +1,309 @@
+﻿nav, 
+.extra-nav-wrap, 
+.extra-nav-wrap .subHeaderWithFilter, 
+.login-wrapper, 
+.side-out-bm-nf-ct .collection, 
+.side-out-bm-nf-ct .collection-item, 
+.side-out-bm-nf-ct > div:first-child,
+.side-nav li:hover, 
+.side-nav li:active, 
+.side-nav li.active
+{
+	background-color : #367c2b;
+}
+
+::selection {
+  background-color: #367c2b;
+}
+
+a:focus, a:active:focus, a:hover:focus, a:visited:focus {
+    outline-color: #367c2b !important;
+}
+
+.extra-nav-wrap .global-search .searchWithHiddenTextField, 
+.headersearch .searchWithHiddenTextField,
+.side-nav .smart-accordion-container .collection
+{
+	background-color : #367c2b !important;
+}
+
+.side-nav, 
+.side-nav .smart-accordion-container .collection li:hover, 
+.side-nav .smart-accordion-container .collection li:active, 
+.side-nav .smart-accordion-container .collection li.active
+{
+	background-color : #479829;
+}
+
+.blueOverlay,
+.userConsentPopUp .modal-header
+ {
+	background : #367c2b;
+}
+
+.nav-bottom-stick.copyrightBtmCont {
+	border-top-color: #479829;
+}
+
+.nav-right-buttons.nav-slide-active li:last-child a {
+	color : #FFF;
+}
+
+#profileOverlayUniId .overlayOkayButton {
+	color: #367c2b !important;
+}
+
+.blue-overlay {
+    background: rgba(54, 124, 43, 0.88);
+}
+
+/* =================================== Help Center =================================== */
+
+.help-center .title.support-title {
+	background : #367c2b;
+}
+
+.help-center .collection li .support-li {
+	background-color : #367c2b;
+}
+
+.support-title span {
+	color : #FFF;
+}
+
+/* =================================== Announcement =================================== */
+.side-out-bm-nf-ct .tabs {
+	background : #479829;
+}
+
+#slide-out-notification .borderBtmGray.tabparent-container,
+.nav-bottom-stick
+{
+	background : #367c2b;
+}
+
+.nav-notification.currentActive a,
+#slide-out-notification span.title,
+#slide-out-notification .icons-ops .icon
+{
+	color : #FFF;
+}
+
+.side-out-bm-nf-ct .tabs .tab a.active {
+	color : #FFF;
+	border-bottom: 2px solid #FDE100 !important;
+}
+
+#slide-out-notification .add-announce {
+	color: #FFF !important;
+}
+
+/* =================================== Bookmark =================================== */
+
+.side-nav #slide-out-bookmark li.collection-item a,
+.nav-bookmark.currentActive a
+{
+	color: #FFF;
+}
+
+#slide-out-bookmark .add-announce {
+	color: #FFF !important;
+}
+
+
+/* =================================== Fixed Button =================================== */
+.home-page a, .fixed-action-btn a, 
+.home-page a:hover, 
+.fixed-action-btn a:hover, 
+.home-page a:focus, 
+.fixed-action-btn a:focus
+{
+	background-color : #367c2b;
+}
+
+.fixed-action-btn .waves-effect.waves-light .waves-ripple{
+	background-color : #479829;
+}
+
+.recentDocSlider .slick-prev, .recentDocSlider .slick-next {
+	border-color : #367c2b;
+    color : #367c2b;
+}
+
+/* =================================== Intro =================================== */
+.introjs-overlay {
+	background : #367c2b !important;
+}
+
+/* =================================== Message Container =================================== */
+
+.messageIconContainer span {
+	background : #367c2b !important;
+}
+
+.messageBannerContainer .readMoreLink {
+	color: #367c2b;
+}
+
+/* =================================== Card Slider =================================== */
+
+.card-slider .slick-dots li.slick-active:after {
+    background : #367c2b;
+}
+
+/* =================================== Buttons =================================== */
+
+.fixedBottom .sliderTitle {
+	color : #367c2b;
+}
+
+.btn-flat,
+.whiteSecondaryBtn .btn, 
+.whiteSecondaryBtn .btn:hover
+{
+	color : #367c2b !important;
+}
+
+.btn-flat:hover, .btn-flat:focus{
+	color : rgba(54, 124, 43, 0.88) !important;
+}
+
+.btn, .btn-large {
+  background-color : #367c2b;
+}
+
+.btn.blue-text {
+	color : #367c2b !important;
+}
+
+.btn:hover, 
+.btn-large:hover, 
+.btn:focus, 
+.btn-large:focus 
+{
+  background-color : #479829;
+}
+
+.btn.waves-effect.waves-light .waves-ripple, 
+.btn-large.waves-effect.waves-light .waves-ripple 
+{
+  background : #367c2b;
+}
+
+.card-slider .slick-prev, 
+.card-slider .slick-next 
+{
+	background : #367c2b !important;
+}
+
+.inverseButton a {
+  color : #367c2b;
+  background-color : #fff;
+}
+
+.inverseButton a:hover {
+  background-color : #367c2b;
+}
+
+.inverseButton .btn.waves-effect.waves-light .waves-ripple {
+	background : #479829;
+}
+/* =================================== Checkbox =================================== */
+[type="checkbox"].filled-in:checked + label:after {
+	border: 2px solid #367c2b !important;
+    background-color : #367c2b !important;
+}
+
+.filled-partial [type="checkbox"].filled-in:not(:checked) + label:after, 
+.filled-partial [type="checkbox"].filled-in:checked + label:after {
+    background-color : #367c2b !important;
+}
+
+.inverseCheckBox [type="checkbox"].filled-in:checked + label:after {
+	border: 2px solid #FFF !important;
+}
+
+.inverseCheckBox [type="checkbox"].filled-in:checked + label:before {
+	  border-bottom-color: #367c2b !important;
+	  border-right-color: #367c2b !important;
+}
+/* =================================== Radio Button =================================== */
+[type="radio"].with-gap:checked + label:after, 
+[type="radio"]:checked + label:after {
+	border-color : #367c2b;
+    background-color : #367c2b;
+}
+
+[type="radio"].with-gap:checked + label:before {
+	border-color : #367c2b;
+}
+
+/* =================================== Scroll bar =================================== */
+.help-center .scroll-element.scroll-y .scroll-element_outer .scroll-bar,
+.internal-external-notification .scroll-element.scroll-y .scroll-element_outer .scroll-bar
+{
+	background-color : #479829 !important;
+}
+
+/* =================================== Switch =================================== */
+.switch label input[type=checkbox]:checked + .lever {
+	background-color : #cccccc;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+	background-color : #479829;
+}
+
+/* =================================== Landing Page Filter =================================== */
+.panelBox-withSpace.top-to-bottom-slide {
+	background-color : #367c2b;
+}
+
+.sidebar-btn {
+	background-color : #367c2b !important;
+}
+
+/* =================================== SecNav =================================== */
+.secondary-navigation-one a{
+    background-color : #367c2b !important;
+}
+
+.secondary-navigation-one > .thumbnails-wrap > li > a.active {
+	border: 3px solid #0177d6;
+	background-color: #fff !important;
+}
+
+.secondary-navigation-one > ul > li > .secNavconnector, a.initialDiv span{
+	background-color : #367c2b !important;
+}
+
+.secondary-navigation-one > .thumbnails-wrap > li > a:hover {
+	background-color: #0177d6 !important;
+}
+
+.spinner-blue, .spinner-blue-only {
+	border-color: #367c2b;
+}
+
+/* =================================== Invoice Change Image Popup Header =================================== */
+.popHdr {
+	background: #367c2b;
+}
+
+/* =================================== Search Field =================================== */
+.headersearch .searchWithHiddenTextField input {
+	border-bottom-color : #479829 !important;
+}
+
+/* =================================== Form Loader =================================== */
+.indeterminate-loader {
+	background-color: #367c2b;
+}
+
+.indeterminate-loader:after, .indeterminate-loader:before {
+	background-color: #56B931;
+}
+
+.section-card-slider .card-slider .slick-dots li.slick-active {
+	background: #367c2b;
+}

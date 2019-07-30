@@ -1,0 +1,86 @@
+﻿<div class="scrollableModel">
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+                <a href="javascript:void(0)" ng-class="showMeM" ng-click="columnSearchKey='';hideSearchM()" ng-show="hideCloseM" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" message="Close">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield ng-model="columnSearchKey.title" placeholder="Search" class="input-field" focus="focusSearchM"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchM();focusSearchM=true">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="left icon iconSmall grey-text">
+            <svg><use xlink:href="#icon_Lookup"></use></svg>
+        </i>
+        <span class="title">Select Suppliers ({{popupExport.count}}/{{popupExport.options.length}})</span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="padding10 clearfix" ng-if="!supplierInfo">
+            <div class="left marginTop1">
+                <i class="icon iconSmall left marginRight5 paddingLeft10">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+                <span class="fontSize12">Responses will be available only if the supplier has submitted any response</span>
+            </div>
+        </div>
+        <div class="padding10 clearfix row marginBtm0 borderTopLight" ng-if="popupExport.respondBy.options.length">
+            <div class="col s3 m3 l3 xl3 xll2 paddingLeft2">
+                <smart-select label="Responded By" ng-model="popupExport.respondBy.selectedOption" class="col s9 gotoOptions marginTop8" options="popupExport.respondBy.options" datakey="name"></smart-select>
+            </div>
+        </div>
+        <table class="fixedTableHeaderShadow">
+            <thead>
+                <tr>
+                    <th class="left-align" style="width:55px;" ng-class="{'filled-partial' : fillpartialcontentListCR.ischeck }">
+                        <smart-checkbox class="left paddingTop5" fill="true" ng-model="selectSupplierDataHeadCR.ischeck" on-change="checkedAllCheck(selectSupplierDataHeadCR.ischeck, popupExport.options, fillpartialcontentListCR, popupExport)"></smart-checkbox>
+                    </th>
+                    <th class="left-align">
+                        <span class="left marginTop4">Supplier Name</span>
+                        <a href="javaScript:void(0)">
+                            <i class="left icon iconSmall blue-text" smart-tooltip position="bottom" message="Sort">
+                                <svg><use xlink:href="#icon_Sort"></use></svg>
+                            </i>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <smart-scroll height="230px">
+
+            <table class="bordered sTable">
+                <tbody>
+                    <tr ng-repeat="selectSupplier in popupExport.options | filter:{name: columnSearchKey.title} as popupExportFilterData track by $index">
+                        <td style="width:55px;" class="left-align">
+                            <smart-checkbox class="left paddingTop5" ng-model="selectSupplier.ischeck" on-change="onChangecontentList(selectSupplierDataHeadCR, popupExport.options, fillpartialcontentListCR, popupExport)"></smart-checkbox>
+                        </td>
+                        <td class="left-align paddingLeft3">
+                            <span class="left paddingTop5">{{selectSupplier.name}}</span>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-if="!popupExportFilterData.length" class="norecordfoundContainer">
+                <div class="norecordfoundContainer-title">
+                    <span>No records found</span>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+    <div class="modal-footer modal-footer-normalScroll">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left" disable="supplierInfo && popupExport.count == 0" config='{"title":"DONE"}' on-click="uploadFn(popupExport);"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

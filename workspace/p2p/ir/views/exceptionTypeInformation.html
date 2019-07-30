@@ -1,0 +1,432 @@
+<div ng-class="tabView ? 'item-details-template-wrap':'padding15 paddingTop0' " ng-controller="p2pIRExceptionTypeInfoCtrl">
+   <div ng-if="tabView">
+     <smart-tabs tab-config="excTypeOptions" width="100%" nextback="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+       </div>
+    <div class="exceptionHelp slight-dark-grey-border-top clearfix paddingLeft19 paddingRight19" ng-if="!tabView">
+        <div class="info-cnt clearfix">
+            <div class="exceptionHelp_dropdown left" >
+                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer">
+                    <a href="javascript:void(0)" data-activates='changeType' class="displayBlock black-text clearfix dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <span smart-tooltip position="bottom" message="{{ selectedExcType.title | translate}}" data-delay="50">
+                            {{ selectedExcType.title | translate}}
+                        </span>
+                        <i class="icon iconSmall black-text">
+                            <svg>
+                                <use xlink:href="#icon_DropArrow"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul id='changeType' class='dropdown-content'>
+                        <li ng-repeat="item in excTypeOptions" ng-class="{'active': selectedExcType.title == item.title}">
+                            <a href="javascript:void(0)" class="black-text paddingTop10 paddingBtm10" ng-click="exceptionTypeChange(item)" ng-class="{'blue-text cusror-default': selectedExcType.title == item.title}">
+                                {{ item.title || translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+            <div class="exceptionHelp_tableWrap left">
+                <div class="flex-container">
+                    <div>
+                        <i class="icon iconSmall black-text">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                    </div>
+                    <div class="desc">
+                        <div ng-repeat="help in selectedExcType.excHelp" class="truncate fontSize12">
+                            <span class="desc-title">{{help.title}}: </span><span smart-tooltip position="bottom" message="{{help.desc}}" data-delay="50">{{help.desc}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="exceptionContent">
+    <div class="exceptionHelp  clearfix paddingLeft19 paddingRight19" ng-class="{'slight-dark-grey-border-top' : !tabView }" ng-if="tabView">
+        <div class="info-cnt clearfix">
+            <div class="exceptionHelp_tableWrap">
+                <div class="flex-container">
+                    <div>
+                        <i class="icon iconSmall black-text">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                    </div>
+                    <div class="desc">
+                        <div ng-repeat="help in selectedExcType.excHelp" class="truncate fontSize12">
+                            <span class="desc-title">{{help.title}}: </span><span smart-tooltip position="bottom" message="{{help.desc}}" data-delay="50">{{help.desc}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="resolveException slight-dark-grey-border-top" ng-class="{'bg-color-approved': resolved, 'bg-color-rejected': rejected, 'bg-color-notMine': notMine, 'bg-color-withdrawn': withdraw}">
+        <div class="row marginBtm0">
+            <div class="s12 m6 col paddingLeft19 paddingRight19" ng-show="!showActionMessage">
+                <div ng-show="selectedExcType.datakey != 'orderTotalTbl' && selectedExcType.datakey != 'chargesTbl'">
+                    <span>This to be resolved by  </span>
+                    <a href="javascript:void(0)" ng-click="resolverLookup($event, resolvedByData.selectedOpts)" >{{ resolvedByData.selectedOpts.name }}</a>
+                </div>
+                <div ng-show="selectedExcType.datakey == 'orderTotalTbl'">
+                    <span>{{ 'This exception type is to be resolved by ' + resolverList[0].name | translate }} </span>
+                    <a href="javascript:void(0)" ng-click="showResolveList()" ng-if="resolverList.length > 1"> {{ '+' + (resolverList.length - 1 )  +  ' More' | translate }} </a>
+                </div>
+                <div ng-show="selectedExcType.datakey == 'chargesTbl'">
+                    <span>{{ 'This is ' +  resolverUserList[0].status + ' by ' + resolverUserList[0].name + ' and ' | translate }} </span>
+                    <a href="javascript:void(0)" ng-click="resolverUserStatus()" ng-if="resolverUserList.length > 1"> {{ '+' + (resolverUserList.length - 1)  +  ' More' | translate }} </a>
+                </div>
+            </div>
+
+            <div class="s12 m6 col paddingLeft19 paddingRight19" ng-show="!showActionMessage">
+                <ul class="panelBox-header--action ">
+                    <li class="panelBox-header--aLink">
+                        <a href="javascript:void(0)" ng-click="actionCallback('resolved')" smart-tooltip position="bottom" message="Approved" data-delay="50">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Approved"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="panelBox-header--aLink rotateTheIcon">
+                        <a href="javascript:void(0)"  ng-click="actionCallback('rejected')" smart-tooltip position="bottom" message="Rejected" data-delay="50">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Approved"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="panelBox-header--aLink">
+                        <a href="javascript:void(0)" ng-click="actionCallback('notMine')" smart-tooltip position="bottom" message="Not Mine" data-delay="50">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="s12 col paddingLeft19 paddingRight19" ng-show="showActionMessage && !notMine" ng-class="{'color-approved': resolved, 'color-rejected': rejected, 'color-withdrawn': withdraw}">
+                <span ng-show="resolved || rejected || withdraw">This is <span ng-show="resolved">resolved</span><span ng-show="rejected">rejected</span><span ng-show="withdraw">withdraw</span> by {{resolvedByData.selectedOpts.name}} | 22 March 2018 at 13:12:50 IST</span>
+                <span ng-show="notMine">Not mine by {{resolvedByData.selectedOpts.name}} | 22 March 2018 at 13:12:50 IST</span>
+            </div>
+
+            <div class="s12 col paddingLeft19 paddingRight19" ng-show="showActionMessage && notMine">
+                <span>Not mine, reassigned to {{reassignUser}} | 22 March 2018 at 13:12:50 IST</span>
+                <a href="javascript:void(0)" ng-click="actionCallback('notMine')" smart-tooltip position="bottom" message="Reassign" data-delay="50">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Reassign"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="tableCnt" ng-switch on="selectedExcType.datakey">
+        <table class="bordered sTable" ng-switch-when="approvalRequiredExcTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:11%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:25%" />
+                <col style="width:8%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Supplier Item Number</th>
+                    <th>Item Type</th>
+                    <th>Item Matching Type</th>
+                    <th class="center-align">Override Exception</th>
+                    <th class="right-align">Item Total</th>
+                    <th>Exception Comment</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="are in exceptionData.approvalRequiredExcData track by $index">
+                    <td><a href="javascript:void(0)" ng-click="">{{are.orderNumber}}</a></td>
+                    <td>{{are.supplierItemNumber}}</td>
+
+                    <td>{{are.itemType}}</td>
+                    <td>{{are.itemMatchingType}}</td>
+                    <td class="center-align">
+                        <div style="width: 70px; display: inline-block;">
+                            <smart-select class="marginBottom0" ng-model="are.overrideExc" options="are.overrideExcOpt" datakey="excOpt" displaykey="excOpt" on-change="overrideExcChange(are.overrideExc)"></smart-select>
+                        </div>
+                    </td>
+                    <td class="right-align">{{are.itemTotal}}</td>
+                    <td>{{are.exceptionComment}}</td>
+                    <td>{{are.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="chargesTbl" sticky-header scroll-type="page">
+            <colgroup>
+
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:16%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th class="right-align">Order Line Number</th>
+                    <th>Item</th>
+                    <th class="right-align">Ordered Charges<br />(USD)</th>
+                    <th class="right-align">Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Total Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="charges in exceptionData.chargesData track by $index">
+                    <td>{{charges.orderNumber}}</td>
+                    <td class="right-align">{{charges.orderLineNumber}}</td>
+                    <td>{{charges.item}}</td>
+                    <td class="right-align">{{charges.orderedCharges}}</td>
+                    <td class="right-align"><span class="red-text">{{charges.invoicedCharges}}</span></td>
+                    <td class="right-align"><span class="red-text">{{charges.totalInvoicedCharges}}</span></td>
+                    <td class="right-align">{{charges.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="orderTotalTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:10%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:15%" />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Amount for</th>
+                    <th class="right-align">In Order<br />(USD)</th>
+                    <th class="right-align">In Invoice<br />(USD)</th>
+                    <th class="right-align">Total Invoiced<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                    <th>{{ 'Resolver Name' | translate  }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ot in exceptionData.orderTotalData track by $index" >
+                    <td>{{ot.amount}}</td>
+                    <td class="right-align">{{ot.inOrder}}</td>
+                    <td class="right-align"><span class="red-text">{{ot.inInvoice}}</span></td>
+                    <td class="right-align"><span class="red-text">{{ot.totalInvoice}}</span></td>
+                    <td class="right-align">{{ot.tolerance}}</td>
+                    <td>
+                        <a href="javascript:void(0)" class="truncate" ng-click="reassignException($event, $index)">{{ ot.resolver.user.name }}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="itemMismatchTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <!--<col style="width:15%" />-->
+                <col style="width:30%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <!--<th>Sr. No.</th>-->
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Quantity / Effort</th>
+                    <th class="right-align">Unit Price / Amount (USD)</th>
+                    <th class="right-align">Item Value (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="im in exceptionData.itemMismatchExcData track by $index">
+                    <!--<td>
+                        <div style="width: 80%; display:inline-block;">
+                            <smart-select class="marginBottom0" ng-model="im.srModel" options="im.srOpt" datakey="opt" displaykey="opt"></smart-select>
+                        </div>
+                    </td>-->
+                    <td>{{im.item}}</td>
+                    <td>{{im.itemType}}</td>
+                    <td>{{im.quantity}}</td>
+                    <td class="right-align">{{im.unitPrice}}</td>
+                    <td class="right-align">{{im.itemValue}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="quantityTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:10%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Order Quantity / Effort</th>
+                    <th>Received Quantity / Effort</th>
+                    <th>Accepted Quantity / Efforts</th>
+                    <th>Invoiced Quantity / Effort</th>
+                    <th>Total Invoiced Quantity / Effort</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="q in exceptionData.quantityData track by $index">
+                    <td>{{q.item}}</td>
+                    <td>{{q.orderQuantity}}</td>
+                    <td>{{q.recQuantity}}</td>
+                    <td>{{q.acceptedQuantity}}</td>
+                    <td>{{q.invQuantity}}</td>
+                    <td>{{q.totalInvoice}}</td>
+                    <td class="right-align">{{q.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="shippingTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:25%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th class="right-align">Order Line Number</th>
+                    <th>Item</th>
+                    <th class="right-align">Order Shipping (USD)</th>
+                    <th class="right-align">Invoiced Shipping (USD)</th>
+                    <th class="right-align">Total Invoiced Shipping (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shp in exceptionData.shippingData track by $index">
+                    <td><a href="javascript:void(0)" ng-click="">{{shp.orderNumber}}</a></td>
+                    <td class="right-align">{{shp.orderLineNumber}}</td>
+                    <td>{{shp.item}}</td>
+                    <td class="right-align">{{shp.orderShipping}}</td>
+                    <td class="right-align"><span class="red-text">{{shp.invShipping}}</span></td>
+                    <td class="right-align"><span class="red-text">{{shp.totalInvShipping}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="unitPriceTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:30%" />
+                <!--<col style="width:15%" />-->
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <!--<th>Item Type</th>-->
+                    <th>Order Unit Price / Rate (USD)</th>
+                    <th>Invoiced Unit Price / Rate (USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="up in exceptionData.unitPriceData track by $index">
+                    <td>{{up.item}}</td>
+                    <!--<td>{{up.itemType}}</td>-->
+                    <td>{{up.orderUnitPrice}}</td>
+                    <td>{{up.invUnitPrice}}</td>
+                    <td class="right-align">{{up.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="taxTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:25%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:15%" />
+                <col style="width:20%" />
+                <!--<col style="width:15%" />-->
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th class="right-align">Ordered Tax (USD)</th>
+                    <th class="right-align">Invoiced Tax (USD)</th>
+                    <th class="right-align">Total Invoiced Tax (USD)</th>
+                    <th class="right-align">Use Tax (USD)</th>
+                    <!--<th class="right-align">Tolerance</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="t in exceptionData.taxData track by $index">
+                    <td>{{t.item}}</td>
+                    <td class="right-align">{{t.orderTax}}</td>
+                    <td class="right-align">{{t.invTax}}</td>
+                    <td class="right-align">{{t.totalInvTax}}</td>
+                    <td class="right-align">{{t.useTax}}</td>
+                    <!--<td class="right-align">{{t.tolerance}}</td>-->
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="uomTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Order UOM</th>
+                    <th>Received UOM</th>
+                    <th>Invoice UOM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="uom in exceptionData.uomData track by $index">
+                    <td>{{uom.item}}</td>
+                    <td>{{uom.itemType}}</td>
+                    <td>{{uom.orderUOM}}</td>
+                    <td>{{uom.receivedUOM}}</td>
+                    <td>{{uom.invUOM}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

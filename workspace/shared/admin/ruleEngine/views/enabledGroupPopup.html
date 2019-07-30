@@ -1,0 +1,35 @@
+<div  ng-controller="addActionTypesCtrl">
+    <div class="modal-header clearfix">
+        <i class="icon grey-text iconSmall left">
+            <svg><use xlink:href="#icon_Settings"></use></svg>
+        </i>
+        <span class="title">Settings</span>
+    </div>
+    <div class="is-scrolled" style="padding-bottom:40px;padding-left:8px;padding-top:24px;">
+        <div class="model_body">
+            <div class="row marginBtm0">
+              
+                    <div class="col s4">
+                        <smart-checkbox class="left" label="Enable Rule Group" ng-model="document.isEnableRuleGroup"  on-change="enableGrp(document.isEnableRuleGroup)"></smart-checkbox>
+                   </div>
+                    <div class="col s4">
+                        <smart-checkbox class="left" label="Enable Levels" ng-model="document.isEnableLevel" disable="{{document.isEnableRuleGroup}}"  on-change="enableRule(document.isEnableLevel)"></smart-checkbox>
+                   </div>
+               
+            </div>
+          
+        </div>
+    </div>
+
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}' ng-click="hideAddLinkedDocumentPopupCallback()"></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"APPLY"}'  disable="(document.isEnableRuleGroup || document.isEnableLevel) ? false : true"  ng-click="addRuleGrp(document)"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

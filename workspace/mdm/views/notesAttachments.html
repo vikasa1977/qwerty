@@ -1,0 +1,38 @@
+<div ng-controller="notesAttachCtrl" class="marginbtm10">
+    <table class="bordered sTable fixedTbl marginTop10" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:10%"/>
+                <col style="width:10%"/>
+                <col style="width:15%"/>
+                <col style="width:20%"/>
+                <col style="width:10%"/>
+                <col style="width:15%"/>
+                <col style="width:10%"/>
+                <col style="width:10%"/>
+            </colgroup>
+            <thead>
+                <tr class="is-scrolled">
+                    <th class="left-align">Name</th>
+                    <th class="left-align">Type</span></th>
+                    <th class="left-align">Classification</th>
+                    <th class="left-align">Description</th>
+                    <th class="left-align">Shared External</th>
+                    <th class="left-align">Added On</th>
+                    <th class="left-align">Added By</th>
+                    <th class="left-align">File Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="notesAttachments in notesAttachmentList">
+                    <td class="left-align">{{notesAttachments.name}}</td>
+                    <td class="left-align">{{notesAttachments.type}}</td>
+                    <td class="left-align">{{notesAttachments.classification}}</td>
+                    <td class="left-align"><a href:"http://smart.gep.com">{{notesAttachments.description}}</a></td>
+                    <td class="left-align">{{notesAttachments.sharedExt}}</td>
+                    <td class="left-align">{{notesAttachments.addedOn}}</td>
+                    <td class="left-align">{{notesAttachments.addedBy}}</td>
+                    <td class="left-align">{{notesAttachments.fileSize}}</td>
+                </tr>
+            </tbody>
+    </table>
+</div>

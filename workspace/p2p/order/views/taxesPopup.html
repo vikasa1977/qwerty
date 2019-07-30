@@ -1,0 +1,55 @@
+<div id="addTaxes">
+	<div class="modal-header">
+		<div class="title"><span class="left">Add Taxes</span><span class="right">5%</span></div>
+	</div>
+	<div class="modal-content padding10">
+		<div class="row div-table-row">
+			<smart-textfield class="col s3" label="Tax Code"></smart-textfield>
+			<smart-textfield class="col s3" label="Tax Description"></smart-textfield>
+			<smart-textfield class="col s3" label="Tax Rate"></smart-textfield>
+			<div class="col s2">
+				<a href="javascript:void(0)" class="icon iconSmall right marginTop20">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</a>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col s3 input-field">
+				<span>TAX00069</span>
+			</div>
+			<div class="col s4 input-field">
+				<span>Sample Tax Description</span>
+			</div>
+			<div class="col s3 input-field">
+				<span class="right">5</span>
+			</div>
+			<div class="col s2">
+				<a href="javascript:void(0)" class="icon iconSmall" >
+					<svg><use xlink:href="#icon_Edit"></use></svg>
+				</a>
+                <a href="javascript:void(0)" class="icon iconSmall">
+                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                </a>
+			</div>
+		</div>
+		<div class="row grey greyPanel lighten-3 paddingBtm10" ng-show="">
+			<smart-textfield class="col s3" label="Tax Code"></smart-textfield>
+			<smart-textfield class="col s3" label="Tax Description"></smart-textfield>
+			<smart-textfield class="col s3" label="Tax Rate"></smart-textfield>
+			<div class="col s2">
+				<a href="javascript:void(0)" class="icon iconSmall right marginTop15">
+					<svg><use xlink:href="#icon_Close"></use></svg>
+				</a>
+				<a href="javascript:void(0)" class="icon iconSmall right marginTop15">
+					<svg><use xlink:href="#icon_Check"></use></svg>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="row marginBottom0">
+			<smart-button flat="true" config='{"title":"APPLY"}' callback=""></smart-button>
+			<smart-button flat="true" config='{"title":"CANCEL"}' callback=""></smart-button>
+		</div>
+	</div>
+</div>

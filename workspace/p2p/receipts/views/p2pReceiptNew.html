@@ -1,0 +1,143 @@
+<!--sub header-->
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap" scrolled>
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak"><span>{{'NEW RECEIPT ' || translate}}</span><span ng-show="!isFinalize"> ({{pageStatus}})</span><span ng-show="isFinalize">{{'(Final)' || translate}}</span></span>
+            </div>
+
+
+
+
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon paddingTop10" id="formSearchDv">
+                </li>
+                    
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                        <i class="icon iconSmall white-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="{{ commentIcon }}"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-title--text ">
+                    |
+                </li>
+                <li class="extra-nav-icon ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="createReturnNote()">
+                                    Create Return Note
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="createReceiptCorrection(e)">
+                                    Create Receipt Correction
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="trackStatusPopupCallback(e)">
+                                    Track Status
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="finalizeCallback(e)">
+                                    Finalize
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="showPreview(e)">
+                                    Finalize and Print
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="exportPdfCallback(e)">
+                                    Export to PDF
+                                </a>
+                            </li>
+                            <li ng-show="isFinalize">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="">
+                                    Cancel Receipt
+                                </a>
+                            </li>
+                            <li ng-show="isFinalize">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="">
+                                    Cancel Lines
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback(e)">
+                                    Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+
+            </ul>
+
+        </div>
+
+        
+        <div class="alert-bar alert-bar--warning paddingTop2 paddingBtm2 paddingLeft20 paddingRight20" ng-if="primaryStatus && secondaryStatus">
+            <div class="left" style="line-height: 34px;">
+                <i class="icon small black-text icon-style">
+                    <svg>
+                        <use xlink:href="#icon_Info"></use>
+                    </svg>
+                </i>
+                <span class="fontSize14 black-text">
+                    This document includes a different status
+                </span>
+            </div>
+            <div class="right">
+                <a href="javascript:void(0)" class="waves-effect waves-light btn-flat fontSize12" ng-click="changeStatusCall()">View {{btnStatusVal}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--sub header end-->
+
+<div class="row paddingBtm40 smartFormWidgetContainer">
+    <smart-form-widget form-config="config" search-holder="formSearchDv" model-data="dataModel" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+</div>
+
+<footer class="page-footer">
+    <div class="row">
+
+        <div class="col s12 normalMode">
+            <div class="left-align col s3">
+                <smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false" callback="showPreview"></smart-button>
+            </div>
+            <div class="right-align col s9">
+                <smart-button class="marginRight15" flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false" ng-if="pageStatus != 'Executed'"></smart-button>
+                <smart-button class="whiteSecondaryBtn marginRight15" config='{"title":"CANCEL","allignRight":"false"}' disable="false" ng-if="pageStatus == 'Executed'"></smart-button>
+                <smart-button class="whiteSecondaryBtn marginRight15" config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false" ng-if="pageStatus != 'Executed'"></smart-button>
+                <smart-button config='{"title":"EXECUTE","allignRight":"false"}' disable="false" ng-click="" ng-if="pageStatus == 'Executed'"></smart-button>
+                <smart-button config='{"title":"SUBMIT","allignRight":"false"}' disable="false" ng-click="submitReq()" ng-if="pageStatus != 'Executed'"></smart-button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<!-- popup -- track status -->
+<smart-popup template-url="{{trackStatusPopupUrl}}" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)"></smart-popup>

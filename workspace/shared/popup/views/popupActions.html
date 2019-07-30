@@ -1,0 +1,45 @@
+<div class="multi-org" ng-controller="sourcingSupplierCtrl">
+    <div class="modal-header row margin0">
+        <div class="col s8 padding0">
+            <i class="icon iconSmall grey-text left">
+                <svg><use xlink:href="#icon_Email"></use></svg>
+            </i>
+            <span class="title">
+                {{popupTitle}}
+            </span>
+        </div>
+        '
+    <smart-select ng-model="registrationForm.language.selectedoption" label="Language" options="languageOptions" class="supplierPopupLang col paddingRight0 s3 right" datakey="name" on-change="onChange(registrationForm.language.selectedoption)"></smart-select>
+
+    </div>
+
+    <div class="modal-content is-scrolled padding0">
+        <smart-scroll height="400px">
+            <div class="model_body">
+                <div class="notification-tab notification-content-wrapper">
+                    <div class="row marginBottom0">
+                        <smart-textfield class="col s12 active clearfix" label="To" ng-model="notificationNew1.notifyTo" is-mandatory="true"></smart-textfield>
+                        <smart-textfield class="col s12 active clearfix" label="Cc" ng-model="notificationNew1.notifyCc"></smart-textfield> 
+						<smart-textfield class="col s12 active" label="Subject" ng-model="notificationNew1.notifySub" is-mandatory="true"></smart-textfield>
+                        <div class="col s12 marginBtm7"><a href="javascript:void(0);" ng-click="ActAttachementPopupCallback()">Add attachment</a></div>
+						<div class="col s12">
+							<div class="ckeditorContainer paddingRight10 marginBottom10">
+
+								<textarea ckeditor="editorOptions" ng-model="documentDescription" rows="10" cols="80" height="100%"></textarea>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+
+            <div class="modal-footer_new is-scrolled">
+                <div class="row marginBottom0">
+                    <!--<smart-button flat="true" config="{'title':'PREVIEW'}" class="left" ng-click="popupPreviewInPopup(e)" ></smart-button>-->
+                    <smart-button flat="true" config="{'title':'SEND'}" class="right" ng-click="inviteSupplierForm(supplierTitle, supplierInvitedIndex)"></smart-button>
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click=""></smart-button>
+                </div>
+            </div>
+</div>
+</div>
+

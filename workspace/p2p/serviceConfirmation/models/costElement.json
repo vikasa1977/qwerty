@@ -1,0 +1,401 @@
+{
+    "notesData": [
+      {
+        "highlight":  false,
+        "isChecked": false,
+        "uploadIcon": "icon_Upload",
+        "uploadTooltip": "Upload",
+        "notesName": {
+          "name": "Quality Tasks",
+          "errorMsg": "",
+          "validateRule": [
+            {
+              "rule": "this.length.toString() < 1",
+              "error": "Enter some value"
+            },
+            {
+              "rule": "this.length.toString() < 2",
+              "error": "Length should greater than 2"
+            }
+          ]
+        },
+        "bu": {
+          "testnew" :{"name":"Printer Service 2"},
+          "selectedOption": {
+            "name": "Marketing Service"
+          },
+          "options": [
+            {
+              "name": "Laptop Service"
+            },
+            {
+              "name": "Marketing Service"
+            },
+            {
+              "name": "Desktop Service"
+            },
+            {
+              "name": "Printer Service 2"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "ALL"
+          }
+        },
+        "bu2": {
+          "selectedOption": {
+            "name": "Form Name One"
+          },
+          "options": [
+            {
+              "name": "Fixed"
+            },
+            {
+              "name": "Form Name one"
+            },
+            {
+              "name": "Form Name BU2"
+            },
+            {
+              "name": "Form Name BU3"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "Form Name One"
+          },
+          "questval": "Marketing Service"
+        },
+        "classification": {
+          "id": 0,
+          "name": "All"
+        },
+        "classificationOpt": [
+          {
+            "id": 0,
+            "name": "All"
+          },
+          {
+            "id": 1,
+            "name": "Buyer"
+          }
+        ],
+        "internalChk": false,
+        "editableChk": false,
+        "includeOn": {
+          "id": 0,
+          "name": "Active"
+        },
+        "includeOnOpt": [
+          {
+            "id": 0,
+            "name": "Draft"
+          },
+          {
+            "id": 1,
+            "name": "Active"
+          },
+          {
+            "id": 3,
+            "name": "Inactive"
+          }
+        ]
+      },
+      {
+        "highlight":  false,
+        "isChecked": false,
+        "uploadIcon": "icon_Upload",
+        "uploadTooltip": "Upload",
+        "notesName": {
+          "name": "Shipping Inst",
+          "errorMsg": "",
+          "validateRule": [
+            {
+              "rule": "this.length.toString() < 1",
+              "error": "Enter some value"
+            },
+            {
+              "rule": "this.length.toString() < 2",
+              "error": "Length should greater than 2"
+            }
+          ]
+        },
+        "bu": {
+          "selectedOption": {
+            "name": "Marketing Service"
+          },
+          "options": [
+            {
+              "name": "Marketing Service"
+            },
+            {
+              "name": "Desktop Service "
+            },
+            {
+              "name": "P2P Service"
+            },
+            {
+              "name": "Laptop Service"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "BU1"
+          }
+        },
+        "bu2": {
+          "selectedOption": {
+            "name": "Marketing Service"
+          },
+          "options": [
+            {
+              "name": "Fixed"
+            },
+            {
+              "name": "Form Name Two"
+            },
+            {
+              "name": "Form Name Three"
+            },
+            {
+              "name": "Form Name Four"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "Fixed"
+          },
+          "questval": "Marketing Service"
+        },
+        "classification": {
+          "id": 0,
+          "name": "All"
+        },
+        "classificationOpt": [
+          {
+            "id": 0,
+            "name": "All"
+          },
+          {
+            "id": 1,
+            "name": "Buyer"
+          }
+        ],
+        "internalChk": false,
+        "editableChk": false,
+        "includeOn": {
+          "id": 0,
+          "name": "Draft"
+        },
+        "includeOnOpt": [
+          {
+            "id": 0,
+            "name": "Draft"
+          },
+          {
+            "id": 1,
+            "name": "Active"
+          },
+          {
+            "id": 3,
+            "name": "Inactive"
+          }
+        ]
+      },
+      {
+        "highlight":  false,
+        "isChecked": false,
+        "uploadIcon": "icon_Upload",
+        "uploadTooltip": "Upload",
+        "notesName": {
+          "name": "Inspection Inst",
+          "errorMsg": "",
+          "validateRule": [
+            {
+              "rule": "this.length.toString() < 1",
+              "error": "Enter some value"
+            },
+            {
+              "rule": "this.length.toString() < 2",
+              "error": "Length should greater than 2"
+            }
+          ]
+        },
+        "bu": {
+          "selectedOption": {
+            "name": "Laptop Service"
+          },
+          "options": [
+            {
+              "name": "Dummy Questionnaire"
+            },
+            {
+              "name": "Questionnaire One"
+            },
+            {
+              "name": "Questionnaire Two"
+            },
+            {
+              "name": "Questionnaire Three"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "BU2"
+          }
+        },
+        "bu2": {
+          "selectedOption": {
+            "name": "Variable"
+          },
+          "options": [
+            {
+              "name": "Fixed"
+            },
+            {
+              "name": "Variable"
+            },
+            {
+              "name": "Form Name 2"
+            },
+            {
+              "name": "Form Name 3"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "Variable"
+          },
+          "questval": "Laptop Service"
+        },
+        "classification": {
+          "id": 0,
+          "name": "All"
+        },
+        "classificationOpt": [
+          {
+            "id": 0,
+            "name": "All"
+          },
+          {
+            "id": 1,
+            "name": "Buyer"
+          }
+        ],
+        "internalChk": false,
+        "editableChk": false,
+        "includeOn": {
+          "id": 2,
+          "name": "Active"
+        },
+        "includeOnOpt": [
+          {
+            "id": 0,
+            "name": "Draft"
+          },
+          {
+            "id": 1,
+            "name": "Active"
+          },
+          {
+            "id": 3,
+            "name": "Inactive"
+          }
+        ]
+      },
+      {
+        "highlight":  false,
+        "isChecked": false,
+        "uploadIcon": "icon_Upload",
+        "uploadTooltip": "Upload",
+        "notesName": {
+          "name": "Reject Task",
+          "errorMsg": "",
+          "validateRule": [
+            {
+              "rule": "this.length.toString() < 1",
+              "error": "Enter some value"
+            },
+            {
+              "rule": "this.length.toString() < 2",
+              "error": "Length should greater than 2"
+            }
+          ]
+        },
+        "bu": {
+          "selectedOption": {
+            "name": "Questionnaire Laptop"
+          },
+          "options": [
+            {
+              "name": "Laptop Questionnaire"
+            },
+            {
+              "name": "Questionnaire Service"
+            },
+            {
+              "name": "Laptop Service"
+            },
+            {
+              "name": "Questionnaire Service"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "BU3"
+          }
+        },
+        "bu2": {
+          "selectedOption": {
+            "name": "Fixed"
+          },
+          "options": [
+            {
+              "name": "Variable"
+            },
+            {
+              "name": "Form Name 1"
+            },
+            {
+              "name": "Fixed"
+            },
+            {
+              "name": "Form Name 3"
+            }
+          ],
+          "selectTypeOption": {
+            "selectiontext": "Fixed"
+          },
+          "questval": "Questionnaire Laptop"
+        },
+        "classification": {
+          "id": 0,
+          "name": "All"
+        },
+        "classificationOpt": [
+          {
+            "id": 0,
+            "name": "All"
+          },
+          {
+            "id": 1,
+            "name": "Buyer"
+          }
+        ],
+        "internalChk": false,
+        "editableChk": false,
+        "includeOn": {
+          "id": 3,
+          "name": "Inactive"
+        },
+        "includeOnOpt": [
+          {
+            "id": 0,
+            "name": "Draft"
+          },
+          {
+            "id": 1,
+            "name": "Active"
+          },
+          {
+            "id": 3,
+            "name": "Inactive"
+          }
+        ]
+      }
+    ]
+  }

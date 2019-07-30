@@ -1,0 +1,399 @@
+<section class="track-section-container left-align track-section-with-add-more marginBtm0">
+    <smart-scroll width="100%" height="{{totalWindowHeight + 'px'}}">
+        <div ng-repeat="buyer in approvalFlowLists.data" id="{{'buyerGroup_' + $index}}" class="approval-group">
+            <div class="is-overflowHidden position-relative">
+                <div class="summary-wrap paddingLeft50 marginTop20" ng-if="$first">
+                    <div class="summary-inner-wrap">
+                        <div class="t-s-c-wrap t-s-w-add-more-item grey-text margin0" ng-repeat="sum in approvalFlowLists.summary.top">
+                            <div class="icon-container">
+                                <i class="t-s-c-icon icon iconMedium shades white grey-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Info_i"></use>
+                                    </svg>
+                                </i>
+                            </div>
+
+                            <div class="t-s-content marginBtm30">
+                                <div class="clearfix">
+                                    <span class="t-s-c-title left ng-binding">{{sum.title}}</span>
+                                    <smart-dropdown config="{{dropDownConfig}}" class="right">
+                                        <a href="javaScript:void(0)" class="dropdown-button" data-activates="{{'commentData' + $index}}" data-constrainwidth="false" data-alignment="right" data-hover="true">
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_Commented"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                        <div id="{{'commentData' + $index}}" class="dropdown-content dd-close-off row shades white">
+                                            <div class="col s12 padding20 dropdown-content-header">
+                                                <div class="light ">
+                                                    <div class="shade black-text">{{sum.user}}<span class="grey-text"> - {{sum.userType}}</span></div>
+                                                    <div class="">"{{sum.orderStatus}}"</div>
+                                                    <div class=""><span class="red-text">Rejected</span><span> on {{sum.onDate}}</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+                                <div>by Buyer {{sum.user | translate}}</div>
+                                <div class="grey-text ng-binding"> on {{sum.createdOn | date:'MM/dd/yyyy'}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="top-short-gray-border"></div>
+                </div>
+
+                <div class="approval-group-wrap">
+                    <div class="approval-group-title-wrap">
+                        <div class="vertical-line"></div>
+                        <div class="position-relative">
+                            <div class="group-title grey lighten-5 padding10">{{buyer.groupName}}</div>
+                            <div class="clearfix groupStatusCnt">
+                                <smart-checkbox class="left marginLeft10 marginTop5" ng-model="buyer.offline" label="Offline"></smart-checkbox>
+                                <a class="left waves-circle waves-effect" href="javascript:void(0)" ng-click="showUploadPopupCallback(e)" ng-class="{'disabled': !buyer.offline}" tabindex="{{ (!buyer.offline) ? -1 : 0 }}">
+                                    <i class="icon iconSmall" smart-tooltip message="Add Attachments" position="bottom">
+                                        <svg>
+                                            <use xlink:href="#icon_Attachment"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="vertical-line"></div>
+                    </div>
+
+                    <div class="clearfix approval-group-inner-wrap">
+                        <div class="left dummy-border right-gray-border"></div>
+                        <div ng-repeat="cc in buyer.ccList" class="approval-cc-wrap" ng-class="{'right-gray-border': !$last}" smart-sortable on-sort="appendCurrentArray($event)">
+                            <div class="approval-cc-title-wrap position-relative">
+                                <div class="top-short-gray-border" ng-show="buyer.nonParallelFlow"></div>
+                                <div class="top-gray-border" ng-show="!buyer.nonParallelFlow"></div>
+                                <div class="approval-cc-title clearfix">
+                                    <span class="ccName-cnt displayInlineBlock left">{{cc.ccName}}</span>
+                                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative left" ng-show="cc.isEditable">
+                                        <a href="javascript:void(0)" class="dropdown-button displayInlineBlock edit-ccName-icon" ng-click="addFocuse(cc)" data-activates='editCc_{{$index}}'>
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_editPen"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                        <div id='editCc_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off width200'>
+                                            <div class="row marginBtm0">
+                                                <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="cc.ccName" focus="cc.ccNamefocus" class="col s12 marginTop15 marginBtm25" on-focus="getCcValue(cc)" on-blur="setCcValue(cc)"></smart-textfield>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+
+                                <a href="javascript:void(0)" class="waves-circle waves-effect btn-add-new-cc" ng-show="$last && !buyer.nonParallelFlow" ng-click="showAddApprovalLevelPopupCallback([e, $parent.$index, $index], 'addNewCc')">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_CirclePlus"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </div>
+                            <!-- if statusList is not zero -->
+                            <div class="t-s-c-wrap marginBtm20" ng-if="cc.levelList.length == 0">
+                                <div class="icon-container">
+                                    <i class="t-s-c-icon icon iconMedium iconHexLarge  {{applyStatusColor(statusList.status)}}">
+                                        <svg>
+                                            <use xlink:href="#icon_TSHexOutlin"></use>
+                                        </svg>
+                                    </i>
+                                </div>
+
+                                <div class="grey lighten-5 t-s-content is-empty-t-s-c-content">
+                                    <div class="t-s-c-header">
+                                        <span class="t-s-c-header-title">
+                                            {{ 'LEVEL' | translate }} {{ '1' | translate}}
+                                        </span>
+                                    </div>
+                                    <div class="t-s-c-container">
+                                        <a href="javascript:void(0);" ng-click="showAddApprovalLevelPopupCallback([e, $parent.$parent.$index, $index], 'addFirstLevel')" class="">
+                                            <i class="icon">
+                                                <svg>
+                                                    <use xlink:href="#icon_CirclePlus"></use>
+                                                </svg>
+                                            </i>
+                                            <span>{{ 'Add Approvers' | translate }}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- if statusList is not zero -->
+
+                            <div ng-repeat="list in cc.levelList" smart-last-repeater-element class="adjust-last-bottom-items" ng-class="{'disable-sort-item' : list.status == 'APPROVED', 'latest-approved': list.latestApproved}">
+
+                                <div class="t-s-c-wrap t-s-w-add-more-item  grey-text">
+                                    <div class="icon-container">
+                                        <i class="t-s-c-icon icon iconMedium {{applyStatusColor(list.status)}} iconHexLarge">
+                                            <svg>
+                                                <use xlink:href="#icon_TSHexOutlin"></use>
+                                            </svg>
+                                        </i>
+                                        <i class="t-s-c-icon icon iconMedium ts-inner-icon {{applyStatusColor(list.status)}}">
+                                            <svg>
+                                                <use xlink:href="{{ InnerIconStatus(list.status) }}"></use>
+                                            </svg>
+                                        </i>
+                                    </div>
+
+                                    <div class="grey lighten-5 t-s-content {{ approvalGroupType(list.approvalGroupName) }} marginBtm40">
+
+                                        <div class="offlineCheckboxContainer">
+                                            <smart-checkbox class="left" ng-model="list.bypass.status" label="{{list.bypass.type}}"></smart-checkbox>
+                                            <a class="attachIcon left waves-circle waves-effect" ng-if="list.bypass.type == 'Offline'" href="javascript:void(0)" ng-click="showUploadPopupCallback(e)" ng-class="{'disabled': !list.bypass.status}" tabindex="{{ (!list.bypass.status) ? -1 : 0 }}">
+                                                <i class="icon iconSmall" smart-tooltip message="Add Attachments" position="bottom">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Attachment"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                            <div class="clearfix marginLeft25" ng-if="list.bypass.type == 'Bypass' && list.bypass.status">
+                                                <smart-radio class="left radioCnt" ng-model="list.bypass.selectedCat" options="list.bypass.subCatOptions" datakey="name" gap="true"></smart-radio>
+                                                <a class="attachIcon left waves-circle waves-effect" href="javascript:void(0)" ng-click="showUploadPopupCallback(e)" ng-class="{'disabled': list.bypass.selectedCat.name != 'Offline'}" tabindex="{{ (list.bypass.selectedCat.name != 'Offline') ? -1 : 0 }}">
+                                                    <i class="icon iconSmall" smart-tooltip message="Add Attachments" position="bottom">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Attachment"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="t-s-c-header clearfix">
+                                            <a href="javascript:void(0)" class="collapsible-header-drag-icon" ng-if="cc.levelList.length != 1 && list.status != 'Approved' || list.status != 'Approved' ">
+                                                <i class="icon">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Drag"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                            <div class="clearfix">
+                                                <div class="t-s-c-header-copy margin0 left">
+                                                    <div class="t-s-c-header-title">
+                                                        {{ 'STEP' | translate }} {{ $index + 1 | translate }}
+                                                    </div>
+
+                                                    <div class="t-s-c-title marginLeft7 fontSize12 {{applyStatusColor(list.status)}}">
+                                                        {{ list.status }}
+                                                    </div>
+                                                </div>
+
+                                                <span class="secondary-content">
+                                                    <a href="javascript:void(0)" class="left waves-circle waves-effect" ng-click="editCurrentItem(list, $parent.$parent.$index, $parent.$index, $index)" ng-class="{'disabled': list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status)}" tabindex="{{ (list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status)) ? -1 : 0 }}">
+                                                        <i class="icon iconSmall" smart-tooltip message="Edit" position="bottom">
+                                                            <svg>
+                                                                <use xlink:href="#icon_editPen"></use>
+                                                            </svg>
+                                                        </i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" class="right waves-circle waves-effect" ng-click="deleteCurrentItem(list, $parent.$parent.$index, $parent.$index, $index)" ng-class="{'disabled': list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status)}" tabindex="{{ (list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status)) ? -1 : 0 }}">
+                                                        <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                                            <svg>
+                                                                <use xlink:href="#icon_TrashCan"></use>
+                                                            </svg>
+                                                        </i>
+                                                    </a>
+                                                </span>
+                                            </div>
+
+                                            <div class="clearfix marginLeft7" ng-if="list.approvalGroupName">
+                                                <a href="javascript:void(0)" class="waves-effect waves-light {{ applyStatusColor(list.approvalGroupName) }}">
+                                                    <i class="icon iconSmall">
+                                                        <svg>
+                                                            <use xlink:href="{{ IconForApproval(list.approvalGroupName) }}"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <span class="group-approval-name">{{ list.approvalGroupName }}</span>
+                                            </div>
+
+                                            <div class="grey-text marginLeft7" ng-if="list.onDated != ''">
+                                                <span class="fontSize12">on </span>{{ list.onDated }}
+                                            </div>
+                                        </div>
+
+                                        <div class="t-s-c-container" ng-class="{'alert-bar--warning': list.deligatedBy || list.reassignedFrom}">
+                                            <div class="clearfix">
+                                                <!-- group content -->
+                                                <div class="clearfix">
+                                                    <span class="left selected-user-wrap">
+                                                        <span class="marginRight7 left">
+                                                            <i class="icon iconSize16">
+                                                                <svg>
+                                                                    <use xlink:href="{{ IconForTeamType(list.team[0].type) }}"></use>
+                                                                </svg>
+                                                            </i>
+                                                        </span>
+                                                        <span class="selected-user left">
+                                                            {{ list.team[0].name }}
+                                                            <span ng-if="list.team.length > 1 && list.type == 'user'">  {{ '+' }} {{ list.team.length - 1 }}  {{ 'More' | translate }} </span>
+                                                            <span ng-if="list.team.members.length > 1  && list.team[0].type == 'group'"> ( {{ list.team.members.length }} )</span>
+                                                            <span ng-if="list.deligatedBy" class="displayBlock grey-text fontSize12 truncate" title="Delegated by {{list.deligatedBy}}">Delegated by {{list.deligatedBy}}</span>
+                                                            <span ng-if="list.reassignedFrom" class="displayBlock grey-text fontSize12 truncate" title="Reassigned from {{list.reassignedFrom}}">Reassigned from {{list.reassignedFrom}}</span>
+                                                        </span>
+                                                    </span>
+
+                                                    <span class="right right-arrow" ng-if="list.team.length > 0 || list.type == 'group' ">
+                                                        <a href="javascript:void(0)" ng-click="slideParentfunc(list)" class="blue-text slideDetailClick waves-effect waves-light">
+                                                            <i class="icon iconSmall" ng-class="{ 'transform180DegN' : !list.isDetailShow }">
+                                                                <svg>
+                                                                    <use xlink:href="#icon_UpChevron"></use>
+                                                                </svg>
+                                                            </i>
+                                                        </a>
+                                                    </span>
+                                                </div>
+
+                                                <span class="shades-text text-black ng-binding fontSize12" ng-if="setApprovalLimit && list.team.length > 1"><span class="grey-text fontSize12">{{ 'Approval Limit' | translate }}</span>: {{userCount}}{{selectedLimitOption.title == 1 ? ' out of '+totalUsers+' total users' : '% of people' }}</span>
+
+                                                <!-- content accourdian-->
+                                                <div class="slideDetail" ng-show="list.isDetailShow" ng-class="{ 'slide-up-css' : !list.isDetailShow, 'slide-down-css' : list.isDetailShow }">
+                                                    <!--user-->
+                                                    <div ng-if="list.type == 'user' ">
+                                                        <div class="t-s-c-Box relative clearfix" ng-repeat-start="item in list.team">
+                                                            <div>
+                                                                <span class="shades-text text-black">{{ item.name }}</span>
+                                                                <span> {{ item.userType }}</span>
+                                                            </div>
+                                                            <div>
+                                                                <span> {{ item.designation }}</span>
+                                                            </div>
+                                                            <div ng-if="item.approverType">
+                                                                <a href="javascript:void(0)" class="waves-effect waves-light {{ applyStatusColor(item.approverType) }}">
+                                                                    <i class="icon iconSmall">
+                                                                        <svg>
+                                                                            <use xlink:href="{{ IconForApproval(item.approverType) }}"></use>
+                                                                        </svg>
+                                                                    </i>
+                                                                </a>
+                                                                <span class="group-approval-name">{{ item.approverType }}</span>
+                                                            </div>
+                                                            <div>
+                                                                <span class="{{applyStatusColor(item.status)}}">{{ item.status  || 'Sent'}}</span>
+                                                                <span ng-show="item.status!='Pending Approval' && item.statusDate">on</span>
+                                                                <span ng-show="item.status=='Pending Approval' && item.statusDate">since</span>
+                                                                <span>{{item.statusDate}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-repeat-end>
+                                                            <!--reassign section -->
+                                                            <div class="t-s-c-Box relative clearfix delegateDiv" ng-if="item.reassign">
+                                                                <span ng-if="item.reassign" class="absolute delegate-arrow">
+                                                                    <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light color-add-Hoc">
+                                                                        <i class="icon iconSmall">
+                                                                            <svg>
+                                                                                <use xlink:href="#icon_DelgtArrow"></use>
+                                                                            </svg>
+                                                                        </i>
+                                                                    </a>
+                                                                </span>
+                                                                <div>
+                                                                    <span class="shades-text text-black">{{ item.reassignedTo.name }}</span>
+                                                                </div>
+                                                                <div>
+                                                                    {{ item.reassignedTo.designation }}
+                                                                </div>
+                                                                <div>
+                                                                    <span class="{{applyStatusColor(item.reassignedTo.status)}}"><span>{{ item.reassignedTo.status }}</span></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--group-->
+                                                    <div ng-if="list.type == 'group' ">
+                                                        <div ng-repeat="item in list.team">
+                                                            <div class="t-s-c-Box relative clearfix" ng-repeat="item in item.members ">
+                                                                <div>
+                                                                    <span class="shades-text text-black">{{ item.name }}</span>
+                                                                </div>
+                                                                <div>{{ item.designation }}</div>
+                                                                <div class="{{applyStatusColor(item.status)}}">{{ item.status }}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- content end-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="waves-circle waves-effect btn-add-new-approval-group" ng-click="showAddApprovalLevelPopupCallback([e, list, $parent.$parent.$index, $parent.$index, $index], 'addNewLevel')" ng-class="{'disabled': list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status), 'not-last-btn': !($last && buyer.ccList.length == 1 && $parent.$parent.$last)}" tabindex="{{ (list.bypass.type != 'Skip' && (list.bypass.type == 'Bypass' && list.bypass.status ? list.bypass.selectedCat.name != 'Offline' : !list.bypass.status)) ? -1 : 0 }}">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use xlink:href="#icon_CirclePlus"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!--<span class="border-left" ng-if="buyer.ccList.length > 1"></span>-->
+                            <!--<span class="border-bottom" ng-if="!$last"></span>-->
+                        </div>
+                    </div>
+                </div>
+                <span class="bottom-short-gray-border" ng-show="buyer.ccList.length == 1 && !$last"></span>
+                <span class="bottom-gray-border" ng-show="buyer.ccList.length > 1"></span>
+            </div>
+            <div class="summary-wrap paddingLeft50" ng-if="$last">
+                <div class="vertical-line top-line" ng-hide="buyer.ccList.length == 1 && $last"></div>
+                <div class="top-short-gray-border" ng-hide="buyer.ccList.length == 1 && $last"></div>
+                <div class="vertical-line left-line"></div>
+                <div class="summary-inner-wrap">
+                    <div class="t-s-c-wrap grey-text margin0" ng-repeat="sum in approvalFlowLists.summary.bottom">
+                        <div class="icon-container">
+                            <i class="t-s-c-icon icon iconMedium shades white grey-text">
+                                <svg ng-if="sum.sumType != 'withdraw'">
+                                    <use xlink:href="#icon_Info_i"></use>
+                                </svg>
+                                <svg ng-if="sum.sumType == 'withdraw'">
+                                    <use xlink:href="#icon_widthdrawal"></use>
+                                </svg>
+                            </i>
+                        </div>
+
+                        <div class="t-s-content marginBtm30">
+                            <div class="clearfix">
+                                <span class="t-s-c-title left ng-binding">{{sum.title}}</span>
+                                <smart-dropdown config="{{dropDownConfig}}" class="right">
+                                    <a href="javaScript:void(0)" class="dropdown-button" data-activates="{{'commentBottomData' + $index}}" data-constrainwidth="false" data-alignment="right" data-hover="true">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use xlink:href="#icon_Commented"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                    <div id="{{'commentBottomData' + $index}}" class="dropdown-content dd-close-off row shades white">
+                                        <div class="col s12 padding20 dropdown-content-header">
+                                            <div class="light ">
+                                                <div class="shade black-text">{{sum.user}}<span class="grey-text"> - {{sum.userType}}</span></div>
+                                                <div class="">"{{sum.orderStatus}}"</div>
+                                                <div class=""><span class="red-text">Rejected</span><span> on {{sum.onDate}}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </div>
+                            <div>by Buyer {{sum.user | translate}}</div>
+                            <div class="grey-text ng-binding"> on {{sum.createdOn | date:'MM/dd/yyyy'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </smart-scroll>
+    <smart-global-loader ng-if="showTabLoader" config="tabLoaderConfig"></smart-global-loader>
+</section>
+<div class="popupDataCont">
+    <smart-popup template-url="shared/approval/views/popupAddApprovalLevel.html" show="{{showAddApprovalLevelPopup}}" on-hide="hideAddApprovalLevelPopupCallback(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+</div>

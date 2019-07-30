@@ -1,0 +1,301 @@
+﻿
+.viewChangePg {
+	padding-bottom: 100px;
+      .fixedTopHeader{
+        width:100% !important;
+        left:0; 
+    }
+
+	.btnHolder{
+		height:93px;
+	}
+
+}
+
+.docInfo {
+	float: left;
+	font-size: 14px;
+	padding: 20px;
+   &:last-child:after{
+        visibility:hidden;
+
+    }
+    &:after{
+    content: '';
+    border-right: 1px solid #000;
+    right: -20px;
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    position: relative;
+    top: 5px;
+    }
+  
+}
+
+
+label.docInfo-lbl {
+	font-size: 14px;
+	color: black;
+}
+
+span.docInfo-val {
+	color: #757575;
+}
+
+.docInfoWrap .sep {
+	float: left;
+	padding-top: 19px;
+	color: #000; 
+}
+
+.docListWrap {
+	position: relative;
+}
+
+.docList {
+	position: relative;
+}
+
+.viewChangePg--compared .docList {
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid #ccc;
+	padding-top:34px;
+}
+
+.docList-hdr{
+    background:rgba(0, 0, 0, 0.02);
+    padding:10px;
+    }
+
+.docList-hdr-left {
+	padding-right: 28px;
+  margin-bottom: 12px;
+}
+.docList-hdr-left:last-child{
+    margin-bottom:0;
+    padding:0;
+}
+
+.docList-li-pad {
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	margin: 0 10px 30px;
+	/*padding: 8px 10px 12px;*/
+	position: relative;
+}
+
+.docList-hdr-chkWrap {
+	position: absolute;
+	right: 1px;
+	top: 10px;
+}
+
+.docList-hdr-left-lbl {
+	color: #757575;
+	font-size: 12px;
+}
+
+.doc-hdr-amt {
+	float: right;
+}
+
+
+.docList-cnt {
+	padding:10px;
+}
+.docList-cnt-field .d-c-f-label{ padding-left:0; color:#9e9e9e; }
+.value-divider{margin-right:10px; color:#9e9e9e;}
+.docList-cnt-field .docList-value{
+    width: calc(100% - 15px);
+}
+
+.changeLnk {
+	/*margin: 34px 10px 10px;
+	position: absolute;
+	top: 0;
+	right: 0;*/
+	position: relative;
+	top: 30%;
+	transform: translateY(-30%);
+}
+
+.docListWrap-hdr {
+	padding-left: 20px;
+}
+
+.viewChangePg table th,
+.viewChangePg table td {
+	padding-left: 25px;
+	font-weight: normal;
+}
+
+.viewChangePg table th {
+	font-size: 12px;
+	color: #757575;
+}
+
+.t-title {
+	font-size: 18px;
+	padding-left: 25px;
+}
+
+.lineChangeFltr {
+	position: absolute;
+	right: 25px;
+	margin-top: 25px;
+}
+
+table th.right-align,
+table td.right-align {
+	padding-right: 25px;
+}
+
+.sts {
+	padding: 4px;
+}
+
+.stsCir--approved {
+	background: $success;
+}
+
+.stsCir--modified {
+	background: $pending;
+}
+
+.stsCir--cancelled {
+	background: #cccccc;
+}
+
+.stsCir--rejected {
+	background: $error;
+}
+
+.stsCir--icon {
+	width: 17px;
+	height: 17px;
+	display: inline-block;
+	border-radius: 11px;
+}
+
+.sts-list {
+	min-width: 400px;
+	font-weight: normal;
+ z-index:1;
+}
+
+.sts-li {
+	padding: 0 0 2px 60px;   line-height:1.5rem!important;
+}
+
+.sts-list .stsCir {
+	float: left;
+	margin-right:10px;
+	margin-top: 12px;
+	padding: 0;
+}
+
+.sts-cnt-info {
+	font-size: 12px;
+	color: #757575;
+}
+
+.sts-cnt {
+	float: left;
+}
+
+.sts-cnt-hdr {
+	margin-top: 10px;
+}
+
+.navFixedUp .viewChangePg {
+	padding-top: 10px !important;
+}
+
+.fixedTopHeader {
+	position: fixed;
+	z-index: 4;
+	background: white;
+	top: 50px;
+	left: 10px;
+	width: calc(100% - 89px) !important;
+	box-shadow: 0px 0px 2px;
+}
+
+.popHdr {
+	background: #0067b0;
+	color: #fff;
+	padding: 22px 24px;
+    width:100%;
+}
+.popHdr:after{
+     content:'';
+    clear:both;
+    width:100%;
+    height:0;
+   
+}
+
+.popHdr-name,
+.popHdr-status {
+	padding-bottom: 4px;
+
+}
+
+.popHdr-name {
+        font-size: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+        white-space: nowrap;
+}
+
+.popHdr-info {
+	font-size: 12px;
+}
+
+.popAction {
+	padding: 14px 24px;
+}
+
+.popAction-txt {
+	padding: 0 5px;
+}
+
+.popAction .popAction-txt,
+.popAction .stsCir--icon {
+	vertical-align: middle;
+}
+
+.popAction .arr {
+	vertical-align: bottom;
+}
+
+.popHdr-lineArr {
+	position: absolute;
+	top: 22px;
+	right: 16px;
+}
+
+#lineItemModal .tabs {
+	border-bottom: 1px solid #e3e3e3;
+	box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.docInfoWrap--main {
+	background: #fff9c4;
+	box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+  .footer.page-footer {
+        position: fixed;
+    }
+
+    .col.lineitem-tab--spliter {
+        border-bottom: 1px solid #d0d0d0;
+        padding-bottom: 15px;
+    }
+
+.itemPopup--tabContentHeight{height:308px;}
+.d-c-f-value { position:relative; 
+	&.col{padding-left:1.45rem; }
+	.value-divider{ position:absolute; left:0.75rem; top:0;}
+}

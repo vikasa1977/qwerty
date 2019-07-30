@@ -1,0 +1,116 @@
+footer.page-footer.extra-nav-wrap { opacity: 1; -webkit-transition: opacity 1s ease; -moz-transition: opacity 1s ease; transition: opacity 1s ease; -o-transition: opacity 1s ease; height: 50px; line-height: 50px; background-color: #0067b0; font-size: 1.1em; }
+.navbar-fixed nav { -webkit-transition: all 0.2s ease; -moz-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; -ms-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
+.navFixedUp .navbar-fixed nav { top: -64px; }
+.navFixedUp .accountDetailPage { margin-top: -13px; }
+.opacityBlur { opacity: 0.7; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+
+
+@keyframes toggle {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+.userProfile{height:200px;width:200px;margin:-7px auto 0;display: table;position:relative;}
+.userProfile img{
+border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%;}
+.accountDetails ul.collapsible li span{color:#474747;}
+.img-editing{position:absolute;right: 10px;top: 151px;padding: 5px;border-radius: 50%;background:#0067b0;cursor:pointer;}
+.accountDetails .collapsible{border:none;box-shadow:none;}
+.accountDetails ul.collapsible li.active .img-editing i{transform:rotate(0deg);color:#fff;}
+.accountDetails .collapsible-body, .accountDetails .collapsible-header{border:none;}
+.accountDetails .border-top{border-top:1px solid #00b2fd;}
+.personalDetails, .loginInfo{padding:45px 0 0 0;}
+
+.change-passaword label{left:0;}
+
+.accountDetails ul.profileFiels.collapsible li.active i, ul.collapsible.change-passaword li.active span {   
+-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg);-o-transform: rotate(180deg);-moz-transform: rotate(180deg);transform: rotate(-180deg);color:#12b7fc;}
+.collapsible .row.marginZero{margin:0;}
+.collapsible-header i, .change-passaword span{-ms-transition:0.5s;-webkit-transition:0.5s;-moz-transition:0.5s;transition:0.5s;-0-transition: 0.5s;}
+
+
+.secondary-navigation { position: fixed; top:115px; height: 100%; border-left: 1px solid #D4D4D4; z-index: 1; -webkit-transition: 0.1s ease-out; -moz-transition: 0.1s ease-out; -o-transition: 0.1s ease-out; -ms-transition: 0.1s ease-out; left: calc( 100% - 70px ); display: inline-table; }
+.navFixedUp .secondary-navigation {top:50px;}
+.secondary-navigation ul { margin: 0; }
+.secondary-navigation ul li a, a.initialDiv { padding: 10px 30px 10px 26px; }
+.secondary-navigation ul li a i, a.initialDiv i { font-size: 22px; float: left; line-height: 20px; }
+.secondary-navigation ul li a span, a.initialDiv span { float: left; margin-left: 26px; }
+.secondary-navigation ul li a span._optionalFieldLabel {margin: 0 15px 0 5px;}
+a.initialDiv { background: #e6e6e6; color: #000; margin-top: 8px; }
+.secondary-navigation ul li.selected a{ color: #999999; }
+.easeIn { -webkit-transform: translateX(-176px); -moz-transform: translateX(-176px); -ms-transform: translateX(-176px); -o-transform: translateX(-176px); transform: translateX(-176px); }
+.accountDetails .card-panel { padding: 0.75rem 1.50rem; }
+.readOnlyForm .card-panel .col:nth-child(1) ul { margin-left: 1rem; margin-top: 1.5rem; }
+.readOnlyForm .card-panel .col:nth-child(2) ul { margin-right: 1rem; margin-top: 1.5rem; }
+.readOnlyForm .card-panel .col:nth-child(3) ul { margin: 1rem; }
+.readOnlyForm .card-panel .col:nth-child(4) ul { margin: 1rem; }
+.readOnlyForm .card-panel .col:nth-child(5) ul { margin: 1rem; }
+.optionalField { position: relative; }
+.optionalFieldHover { border: 1px solid #ebebeb; padding: 1.5rem 1.5rem 2.7rem 1.5rem; position: absolute; width: 98%; height: 100%; left: 1px; top: -1px; opacity: 9; }
+.optionalFieldHover.hilighted { background: #f7fbfe; border-color: #e3f2fd; }
+.closingOpt { right: 0.2rem; position: absolute; top: 0; cursor: pointer; }
+.readOnlyForm { Padding: 0px; }
+.readOnlyForm .secondUl { border-left: 1px solid #e5e5e5; }
+.readOnlyForm ul li { font-size: 14px; }
+.readOnlyForm ul li .label { font-weight: bold; margin-right: 15px; }
+.readOnlyForm .border { border-top: 1px solid #e5e5e5; }
+.readOnlyForm .floatBreak { float: none; display: block; }
+.lowerHeading { color: #fff; }
+.lowerHeading ul li { float: left; }
+.lowerHeading ul li a { color: #fff; }
+.input-field .iconFix ~ input { padding-right: 3rem; width: 92%; width: calc(100% - 3rem); position: relative; }
+.input-field .iconFix.active { color: #26a69a; }
+.editableMode { transition: 0.3s ease-out; }
+.navbar-fixed nav.InTop { top: -68px; line-height: 45px; }
+.navbar-fixed nav { -webkit-transition: 0.5s ease-out; -moz-transition: 0.5s ease-out; -o-transition: 0.5s ease-out; -ms-transition: 0.5s ease-out; top: 0px; }
+.readOnlyForm { Padding: 0px; }
+.readOnlyForm .secondUl { border-left: 1px solid #e5e5e5; }
+.readOnlyForm ul li { font-size: 14px; }
+.readOnlyForm ul li .label { font-weight: bold; margin-right: 15px; }
+.readOnlyForm .border { border-top: 1px solid #e5e5e5; }
+.readOnlyForm .floatBreak { float: none; display: block; }
+.lowerHeading { color: #fff; }
+.lowerHeading ul li { float: left; }
+.lowerHeading ul li a { color: #fff; }
+.input-field .iconFix ~ input { padding-right:3rem; width: 92%; width: calc(100% - 3rem); position: relative;}
+.input-field.dual-icon .iconFix ~ input{padding:0 3rem; width: 92%; width: calc(100% - 6rem);}
+.input-field.dual-icon label{left:3.75rem;}
+.input-field.dual-icon .second-icon{left:0.75rem;width:24px;}
+.iconFix { position: absolute;font-size: 2rem; -webkit-transition: color .2s; -moz-transition: color .2s; -o-transition: color .2s; -ms-transition: color .2s; transition: color .2s; right: 0.75rem; top: 0rem; color: #bdbdbd;z-index:1; }
+.input-field .iconFix.active { color: #00b2fd; }
+
+.editableMode .input-field { margin-bottom:15px;}
+.editableMode input[type=text].invalid + label:after{top:50px;}
+.previewModeContainer { transition: 1s ease-out;position:relative; }
+.previewModeContainer .card-panel{padding:0;}
+.normalMode, .previewMode { opacity: 1; -webkit-transition: opacity 1s ease; -moz-transition: opacity 1s ease; transition: opacity 1s ease; -o-transition: opacity 1s ease; }
+.secondary-navigation ul li { position: relative; }
+.secondary-navigation ul li .reactive { position: absolute; right: 10px; top: 12px; z-index: 100000; cursor: pointer;display:none; }
+.secondary-navigation ul li.selected .reactive {display:block;}
+.reactive1, .reactive2, .reactive3, .reactive4 { display: none; }
+.profile-percentage { font-size: 36px; line-height: 30px; }
+.profile-status { font-size: 14px; margin-left: 10px; line-height: 16px;opacity: 0.8;}
+
+
+table.header-table th{vertical-align:top;font-size:12px;font-weight:normal;}
+.datepicker.custom-input{line-height: 8px;height: 18px;margin: 0;border: none;font-size: 12px;}
+
+/*CSS FOR REQUEST FORM*/
+.quetionFormTitle { font-size: 1.3rem; margin-bottom: 5px; }
+.collapsible-header.quetionHeader { line-height: 24px; min-height: 24px; padding: 0; }
+.collapsible-header.quetionHeader.active { color: #000; }
+.collapsible-header .quetionCount { width: 24px; height: 24px; border: 1px solid; float: left; line-height: 24px; text-align: center; border-radius: 50%; margin-right: 12px; border-color: #00B6D4; }
+.collapsible-header .quetionContent { padding-left: 36px; }
+.collapsible .verticalLineSpace { border-left: 1px solid #BDBDBD; margin-left: 10px; }
+.collapsible .verticalLineSpace.topSpace { margin-top: 6px; height: 10px; }
+.collapsible .verticalLineSpace.bottomSpace { margin-bottom: 6px; height: 18px; }
+.collapsible-body.quetionBody { border-left: 1px solid #BDBDBD; margin-left: 10px; padding-left: 26px; }
+.collapsible-body.quetionBody .quetionBodyContainer { background: #F1F0F0; margin-bottom: 0; }
+.informationIconWithQuestion { display: initial !important; float: none !important; line-height: 20px !important; }
+
+.quetionHeader.mandatoryQuestions .quetionCount { border-color: #C62828; }
+.quetionHeader.filledQuestions .quetionCount { background-color: #00B6D4; color: #fff; }
+.quetionHeader.filledQuestions.mandatoryQuestions .quetionCount { background-color: #D50000; }
+.collapsible-header .informationOnInfo { position: absolute; width: 93%; left: 36px; bottom: 35px; line-height: 18px; background: #F1F0F0; padding: 10px; border: 1px solid #e7e7e7; border-radius: 0.3em; z-index: 1; display: none; cursor: initial;}
+    .collapsible-header .informationOnInfo .triangleToUp { width: 0px; height: 0px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #E7E7E7; position: absolute; left: 265px; z-index: 1; bottom: -10px; }
+/*CSS FOR REQUEST FORM END*/

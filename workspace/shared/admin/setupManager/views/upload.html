@@ -1,0 +1,122 @@
+<div class="row extra-nav-wrap marginBtm0" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+	<div class="col s12">
+		<div class="extra-nav-title">
+			<a href="javascript:history.go(-1);" class="extra-nav-title--back waves-block waves-circle sh-icon waves-effect waves-light">
+				<i class="icon small ">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small left marginRight8">
+				<svg><use xlink:href="#icon_Upload"></use></svg>
+			</i>
+			<span class="headingText headingTextLineHeightFix left">UPLOAD EXCEL</span>
+		</div>		
+	</div>
+</div>
+<div class="card-panel marginTop0 page-wrapper-full-height ">	
+	<div class="paddingBtm40">
+		<div class="row marginBtm0">
+		<div class="col s12 paddingBtm10"><span class="">UPLOAD CONTRACT</span></div>
+		<div class="col s12 m12 l10 xl8 ">						
+			<div class="col s12 padding0 marginBtm7"><a href="javascript:void(0);" class="right">Download Template</a></div>		
+			<div class="box-input valign-wrapper box-input-small-height">
+				<div class="valign center">
+					<div class="file-field paddingBtm5 input-field">
+						<span>Drag and drop file here OR</span><a href="javascript:void(0);" ng-click="uploadSec1AttachmentCall(e);"> Upload Document</a>
+						<smart-textfield  ng-hide="true" type="file"></smart-textfield>
+					</div>
+					<div class="grey-text fontSize12">The file should be in the template provided.</div> 
+					<div class="grey-text fontSize12">Supported file formats: xls, xlsx</div> 
+					<div class="grey-text fontSize12">Limited to 1 file of 1MB</div>
+				</div>
+			</div>				
+		</div>						
+		</div>	
+		<div class="row  upload-attachment marginBtm0 " ng-show="uploadSec1AttachFlag">
+			<div class="col s12">		
+				<span class="fontSize12 left">AttachmentOne.xls</span>
+				<a href="javascript:void(0);" class="left marginLeft10 fontSize12" ng-show="uploadSec1Fail" ng-click="uploadSec1RetryCall()">Retry</a>
+				<div class="circle-loading-container left" ng-hide="uploadSec1Fail">
+					<div class="preloader-wrapper x-small active ">
+					<div class="spinner-layer spinner-green-only">
+						<div class="circle-clipper circle-clipper--x left">
+						<div class="circle"></div>
+						</div><div class="gap-patch">
+						<div class="circle"></div>
+						</div><div class="circle-clipper circle-clipper--x right">
+						<div class="circle"></div>
+						</div>
+					</div>
+					</div>
+				</div>						
+				<a href="javascript:void(0);" class="attachment-manage-icon" ng-click="uploadSec1CloseAttachment()" ng-hide="uploadSec1Fail">
+					<i class="icon">
+						<svg>
+							<use xlink:href="#icon_Close"></use>
+						</svg>
+					</i>
+				</a>							
+				<div class="attachment-info">
+					<span class="grey-text " ng-hide="uploadSec1Fail">This file will take time to upload, please check the status in the log later</span>
+					<span class="red-text " ng-show="uploadSec1Fail">The uploaded file exceeds the file size (max 1MB).</span>
+				</div>
+			</div>	
+		</div>	
+	</div>
+	<div class="blockSeparator"></div>	
+	<div class="paddingTop40 marginBtm100">
+		<div class="row marginBtm0">
+			<div class="col s12 paddingBtm10"><span class="">ADD ATTACHMENT</span></div>				
+			<div class="col s12 m12 l10 xl8 ">					
+					<div class="box-input valign-wrapper box-input-small-height">
+					<div class="valign center">
+						<div class="file-field paddingBtm5 input-field">
+							<span>Drag and drop file here OR</span><a href="javascript:void(0);" ng-click="uploadSec2AttachmentCall(e);"> Upload Document</a>
+							<smart-textfield  ng-hide="true" type="file"></smart-textfield>
+						</div>
+						<div class="grey-text fontSize12">Supported file formats: zip</div> 
+						<div class="grey-text fontSize12">Limited to 1 file of 100MB</div>
+					</div>
+				</div>										
+			</div>	
+		</div>
+		<div class="row  upload-attachment marginBtm0" ng-show="uploadSec2AttachFlag">
+			<div class="col s12">
+				<span class="fontSize12 left">AttachmentOne.zip</span>
+				<a href="javascript:void(0);" class="left marginLeft10 fontSize12" ng-show="uploadSec2Fail" ng-click="uploadSec2RetryCall()">Retry</a>
+				<div class="circle-loading-container left" ng-hide="uploadSec2Fail">
+					<div class="preloader-wrapper x-small active ">
+						<div class="spinner-layer spinner-green-only">
+							<div class="circle-clipper circle-clipper--x left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+						    	<div class="circle"></div>
+							</div>
+							<div class="circle-clipper circle-clipper--x right">
+								<div class="circle"></div>
+							</div>
+						</div>
+					</div>
+				</div>						
+				<a href="javascript:void(0);" class="attachment-manage-icon" ng-click="uploadSec2CloseAttachment()" ng-hide="uploadSec2Fail">
+					<i class="icon">
+						<svg>
+							<use xlink:href="#icon_Close"></use>
+						</svg>
+					</i>
+				</a>							
+				<div class="attachment-info">
+					<span class="grey-text " ng-hide="uploadSec2Fail">This file will take time to upload, please check the status in the log later</span>
+					<span class="red-text " ng-show="uploadSec2Fail">The uploaded file exceeds the file size (max 100MB).</span>
+				</div>
+			</div>	
+		</div>	
+	</div>
+</div>
+
+	
+<footer class="page-footer footerSpace">
+	<smart-button class="right footerBtn" config='{"title":"UPLOAD"}'  ng-click="goToLandingPage();"></smart-button>
+	<smart-button class="right footerBtn" ng-class="white blue-text" config='{"title":"CANCEL"}' ></smart-button>
+</footer>

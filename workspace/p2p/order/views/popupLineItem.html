@@ -1,0 +1,83 @@
+<div class="changeHistoryLineItemPopup">
+    <div class="popHdr">
+        <div class="clearfix">
+        <div class="popHdr-name left">{{ items.itemName }}</div>       
+        <div class="select-wrapper right">
+            <smart-dropdown config="{{dropDownConfig}}">
+                <a class="dropdown-button" href="javascript:void(0);" data-activates="lineFilterDropdown_{{$index}}" data-constrainwidth="false" data-alignment="right">
+                    <i class="icon iconSmall white-text marginLeft10">
+                        <svg class="left">
+                            <use xlink:href="#icon_Filter"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul id='lineFilterDropdown_{{$index}}' class='dropdown-content--size-small dropdown-content lookup-popup lookupInline dd-close-off'>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <smart-checkbox fill="true" class="input-chk" label="Added"></smart-checkbox>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <smart-checkbox fill="true" class="input-chk" label="Modified"></smart-checkbox>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <smart-checkbox fill="true" class="input-chk" label="Cancelled"></smart-checkbox>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="right">
+                            <smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closePopOver" config='{"title":"CANCEL" || translate}'></smart-button>
+                            <smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closePopOver" config='{"title":"Apply" || translate}'></smart-button>
+                        </div>
+                    </li>
+                </ul>
+            </smart-dropdown>
+        </div>
+            </div>
+        <div class="popHdr-status bold">{{ items.action || translate | uppercase }}</div>
+        <div class="popHdr-info"> <span>{{'Item Number' || translate}}: {{ items.ItemNo || translate}}</span> | <span>{{ 'Contract Number' || translate  }}: {{ items.ContractNo || translate}} </span> </div>
+        <div class="popHdr-info">
+            <span ng-repeat="item in items.itemAttrs" class="marginRight10"> <span>{{ item.dataKey || translate}}</span>: <span>{{ item.dataValue || translate}}</span>  </span>
+        </div>
+    </div>
+   
+        <div class="popAction">
+            <smart-dropdown config="{{actionConfig}}">
+                <a href="javascript:void(0)" class="stsCir dropdown-button" data-activates="gStsDropdown_{{$index}}" ng-show='stsList'>
+                    <span class="stsCir--icon marginTop2 marginRight3" ng-class="setCurrentItemStatus.statusIcon"></span>
+                    <span class="popAction-txt ">{{ setCurrentItemStatus.name || translate}}</span>
+                    <i class="icon iconSmall grey-text">
+                        <svg>
+                            <use xlink:href="#icon_DropArrow"></use>
+                        </svg>
+                    </i>
+                </a>
+
+                <ul class="sts-list dropdown-content" id="gStsDropdown_{{$index}}" style="z-index: 501;">
+                    <li class="clearfix sts-li" ng-repeat="state in statusConfig" ng-click="setCurrentStatus($index)">
+                        <a href="javascript:void(0)" class="stsCir">
+                            <span class="stsCir--icon" ng-class="state.statusIcon"></span>
+                        </a>
+                        <div class="sts-cnt">
+                            <div class="sts-cnt-hdr">{{ state.name  || translate}}</div>
+                            <div class="sts-cnt-info">{{ state.statusSummary || translate}}</div>
+                        </div>
+                    </li>
+                </ul>
+                </smart-dropdown>
+
+                
+</div>
+    
+        <smart-tabs tab-config="{{tabsData}}" width="100%" class="marginBtm0" on-select="getActiveTab(e)"></smart-tabs>
+   
+    <div class="modal-footer is-scrolled">       
+        <smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closeSlideView"  config='{"title":"Ok" || translate}' disable="false"></smart-button>
+        <!--<smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closeSlideView"  config='{"title":"CANCEL" || translate}'></smart-button>-->
+    </div>
+</div>
+
+

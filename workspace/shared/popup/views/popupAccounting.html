@@ -1,0 +1,28 @@
+<div id="reviewsPopup">
+    <div class="modal-header">
+        <i class="icon iconSmall left lineHeight30">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Lookup"></use>
+            </svg>
+        </i>
+        <span class="title">{{popupTitle || translate}}</span>
+    </div>
+    <div class="modal-content paddingTop0">
+        <div class="model_body container">
+            <div class="row formEdit marginBottom0" ng-if="accounting">
+                <smart-textfield class="col s12" value="abc" label="Cost Center" type="text" ></smart-textfield>
+                <smart-textfield class="col s12" value="abc" label="Business Unit" type="text"></smart-textfield>
+                <smart-textfield class="col s12" value="abc" label="Project"  type="text"></smart-textfield>
+            </div>
+			<div class="row formEdit marginBottom0" ng-if="!accounting">
+                <smart-textfield class="col s12" value="abc" label="Name on card" type="text" ></smart-textfield>
+                <smart-textfield class="col s12" value="123" label="Phone Number" type="text"></smart-textfield>
+                <smart-textfield class="col s12" value="abc, 123" label="Address" type="text"></smart-textfield>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <smart-button flat="true" class="modal-close" config='{"title":"OK"}'></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

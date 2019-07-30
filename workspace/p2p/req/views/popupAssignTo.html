@@ -1,0 +1,53 @@
+<div class="scrollableModel">
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate}}" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_OnBehalf"></use></svg>
+        </i>
+        <span class="title">{{' ASSIGN TO'|| translate}}</span>
+    </div>
+
+    <div class="modal-content padding0">
+        <div class="row marginBtm0">
+            <div class="col s12">
+                 <div class="row marginBtm0">
+                    <div class="col s12 manage-space">
+                        <smart-scroll height="200px" class="clearfix">
+                            <smart-radio ng-model="selectedPerson" layout="" options="OnBehalfOfUrl || translate" datakey="name" ng-click="getVal(selectedPerson)" layout="vertical" gap="true"></smart-radio>
+                        </smart-scroll>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="modal-footer is-scrolled">
+        <smart-button flat="true" class="modal-close" ng-click="showOnBehalfClick()" config='okBtnConfig'></smart-button>
+        <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+    </div>-->
+
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"OK"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

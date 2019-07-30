@@ -1,0 +1,14 @@
+<div class="col s12 input-field line-height-manager">
+    <label class="active" ng-if="selectedSavings > 0">Baseline Savings Type and Impact</label>
+    <a href="javascript:void(0)" ng-click="selectSavings()" ng-if="selectedSavings == 1">{{selectedSavingsType + savingsSubtype || translate}}</a>
+    <a href="javascript:void(0)" ng-click="selectSavings()" ng-if="selectedSavings > 1" smart-infotip position="top" template-url="savingsTemplate.html" bind-on="mouseover">{{selectedSavings + " Savings Type" || translate}}</a>
+    <a href="javascript:void(0)" ng-click="selectSavings()" ng-if="selectedSavings == 0">{{"Baseline Savings Type and Impact" || translate}}</a>
+    <span class="linkError hide">Validation Message</span>
+</div>
+<!-- popup -- Assign / Re-assign -->
+<smart-popup template-url="project/ppst/views/popupSavingsImpact.html" show='{{savingsPopup}}' on-hide="savingsPopupOnHideCallback(e)" type="large"></smart-popup>
+<script id="savingsTemplate.html" type="text/ng-template">
+    <div class="infotip-popover-template">
+        <div ng-repeat="savingsType in selectedSavingsList">{{ savingsType.title || translate}}</div>
+    </div>
+</script>

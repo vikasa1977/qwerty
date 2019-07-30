@@ -1,0 +1,97 @@
+<div class="secondary-content s-c-with-tab">
+
+    <i class="icon iconSmall left" smart-tooltip position="Down" delay="250" message="{{'Search' || translate }}">
+        <svg>
+            <use xlink:href="#icon_Search"></use>
+        </svg>
+    </i>
+
+    <smart-dropdown config="{{dropDownConfig}}">
+        <i class="icon iconSmall dropdown-button left  " data-activates='sortbyDropdown' smart-tooltip position="Down" delay="250"  message="{{'Sort By' || translate }}" data-position="bottom" data-delay="50" data-constrainwidth="true">
+            <svg><use xlink:href="#icon_Sort"></use></svg>
+        </i>
+
+        <ul id='sortbyDropdown' class='dropdown-content dropdown-content--size-medium dd-close-off '>
+           <li class="dropdown-content-header ">
+               <div class="searchSlideMain">
+                   <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                       <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{Reset || translate}}">
+                           <i class="icon iconSmall center grey-text">
+                               <svg><use xlink:href="#icon_Close"></use></svg>
+                           </i>
+                       </a>
+                       <div class="input-field" ng-class="{'active': isActive}">
+                           <input type="text" class="validate" placeholder="">
+                       </div>
+                       <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text"
+                          smart-tooltip position="bottom" delay="50" message="{{ 'Search' || translate }} " ng-click="showSearch()">
+                           <i class="icon iconSmall center grey-text">
+                               <svg><use xlink:href="#icon_Search"></use></svg>
+                           </i>
+                       </a>
+                   </div>
+               </div>
+             <div class="title"> {{ 'SORT BY' || translate }}</div>
+               
+               </li>
+            <li class="dropdown-content-content" ng-class="{ 'is-scrolled': true}">
+                <smart-list model="{{listSortWith}}"
+                            style-class="collection noBorder "
+                            item-class="collection-item"
+                            height="230px" template="shared/landingPage/views/sortbyListing.html">
+                </smart-list>
+            </li>
+            <li  class="dropdown-content-footer">
+                <div class="right">
+                <smart-button config='{"title":"Done"}' flat="true" ng-click="applySort();" disable="false"></smart-button>
+                    </div>
+            </li>
+        </ul>
+    </smart-dropdown>
+  
+    <i class="icon iconSmall left" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+            <svg>
+                <use xlink:href="#icon_Filter"></use>
+            </svg>
+        </i>
+         
+    <smart-dropdown config="{{dropDownConfig}}">
+
+        <i data-activates='landingPageAction' class="icon iconSmall dropdown-button" message="{{'Actions' || translate }}" data-position="bottom" data-delay="50" data-constrainwidth="false">
+            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+        </i>
+
+        <ul id='landingPageAction' class='dropdown-content'>
+            <li>
+                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback(e)">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_SavedView"></use>
+                        </svg>
+                    </i>
+                    {{ 'Saved Views' || translate }}
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback(e)">
+                    <i class="icon iconSmall" >
+                        <svg>
+                            <use xlink:href="#icon_ManageFields"></use>
+                        </svg>
+                    </i>
+                    {{ 'Manage Fields' || translate }}
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                    <i class="icon iconSmall" >
+                        <svg>
+                            <use xlink:href="#icon_ExcelView"></use>
+                        </svg>
+                    </i>
+                    {{ 'Excel View' || translate }}
+                </a>
+            </li>
+        </ul>
+    </smart-dropdown>
+</div>

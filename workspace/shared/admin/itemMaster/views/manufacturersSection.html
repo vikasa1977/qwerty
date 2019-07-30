@@ -1,0 +1,104 @@
+<div class="manufaturer-section-wrapper" ng-controller="adminItemMasterManufacturerCtrl">
+	<div class="row marginBtm0 borderTopLight">
+		<div class="clearfix secContentWithBorder fontSize12">
+			<div class="right ">			
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-click="mfrAddRowCallback()">
+					<i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Attachments" position="bottom">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>			
+				<!--<a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled': !mfrSelectedCount}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteSelectedItemCallback('mfr')">
+					<i class="icon left blue-text">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>-->
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled': !(mfrSelectAll || mfrPartiallyFill)}" smart-tooltip message="Delete Selected" position="bottom" ng-click="mfrDeleteRowCallback()">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>				
+			</div>
+		</div>
+	</div>
+	<table class="bordered sTable">
+        <colgroup>
+            <col style="width:5%" />
+            <col style="width:20%" />
+            <col style="width:20%" />
+            <col style="width:20%" />
+            <col style="width:15%" />
+            <col style="width:20%" />
+        </colgroup>
+		<thead>
+			<tr>
+				<th ng-class="{'filled-partial': mfrPartiallyFill}">
+                    <smart-checkbox class="" ng-model="mfrSelectAll" on-change="mfrSelectAllChanged(mfrSelectAll)"></smart-checkbox>
+                    <!--<smart-checkbox class="" ng-model="mfrSelectAll" smart-selectall data="manufacturerData|.mfrListchk" get-checkbox-info="mfrGetCheckedInfo()" checker-flag="isChecked"></smart-checkbox>-->
+                </th>
+				<th>Name</th>
+                <th class="right-align">Model Number</th>
+				<th class="right-align">Part Number</th>
+                <th class="right-align">Status</th>
+                <th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="mfr in manufacturerData | itemsPerPage:5 " pagination-id="mfr" current-page="mfrCurrentPage">
+				<td ng-class="{'highlight': mfr.highlight}">
+                    <smart-checkbox class="" ng-model="mfr.isChecked" on-change="mfrListChanged(mfr.isChecked)"></smart-checkbox>
+                    <!--<smart-checkbox class="mfrListchk" ng-model="mfr.isChecked"></smart-checkbox>-->
+                </td>
+                <td ng-class="{'highlight': mfr.highlight}">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(mfr)" ng-class="{'invalid-field': mfr.mfrName.errorMsg}" data-activates='mfrName_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!mfr.mfrName.name">Enter Value</span>
+                            <span ng-if="mfr.mfrName.name">{{mfr.mfrName.name}}</span>
+                        </a>
+                        <div id='mfrName_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="mfr.mfrName.name" error-model="mfr.mfrName.errorMsg" focus="mfr.qtyfocus" class="col s12" on-blur="updatedMFR_Name()" rules="{{mfr.mfrName.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': mfr.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(mfr)" ng-class="{'invalid-field': mfr.modelNum.errorMsg}" data-activates='modelNumber_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!mfr.modelNum.number">Enter Value</span>
+                            <span ng-if="mfr.modelNum.number">{{mfr.modelNum.number}}</span>
+                        </a>
+                        <div id='modelNumber_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="mfr.modelNum.number" error-model="mfr.modelNum.errorMsg" focus="mfr.qtyfocus" class="col s12" align="right" on-blur="updatedModelNumber()" rules="{{mfr.modelNum.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': mfr.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(mfr)" ng-class="{'invalid-field': mfr.partNum.errorMsg}" data-activates='partNumber_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!mfr.partNum.number">Enter Value</span>
+                            <span ng-if="mfr.partNum.number">{{mfr.partNum.number}}</span>
+                        </a>
+                        <div id='partNumber_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="mfr.partNum.number" error-model="mfr.partNum.errorMsg" focus="mfr.qtyfocus" class="col s12" align="right" on-blur="updatedPartNumber()" rules="{{mfr.partNum.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': mfr.highlight}" class="right-align">
+                    <smart-switch right-label="''" left-label="''" disable="false" class="noBorder" ng-model="mfr.isActive"></smart-switch>
+                </td>
+                <td ng-class="{'highlight': mfr.highlight}">&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>
+    <div class="clearfix paginationWrapper">
+        <span class="rowsToShow" style="display: none">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+        </span>
+        <dir-pagination-controls pagination-id="mfr" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+</div>	

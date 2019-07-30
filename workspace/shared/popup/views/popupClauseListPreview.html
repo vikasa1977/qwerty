@@ -1,0 +1,57 @@
+<div class="scrollableModel ">
+    <div class="modal-header">
+        <i class="icon iconSmall left modal-header--Icon grey-text">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Preview"></use>
+            </svg>
+        </i>
+        <span class="title">{{'Clauses' || translate  }}</span>
+    </div>
+    <div class="modal-content padding5">
+
+        <div class="row marginBtm0">
+            <div class="col s12 marginTop15">
+                {{selectedClauseOptions}}
+                <smart-radio label="" ng-model="radioCong.selectedClauseOptions" options="radioCong.clauseOptions" datakey="name" gap='true' on-change="selectClause(radioCong.selectedClauseOptions)"></smart-radio>
+            </div>
+            <div class="col s12 marginTop15 padding0">
+                <smart-scroll height="200px">
+                    <div ng-include="contractClausesType" class="left"></div>
+                </smart-scroll>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-footer is-scrolled padding0 paddingTop4">
+        <smart-button flat="true" class="modal-close left" config='{"title":"VIEW INCOMPATIBLE CLAUSE"}' ng-click="incompatibleClause(e);"></smart-button>
+
+        <smart-button flat="true" class="modal-close" config='{"title":"ADD"}' ng-click="addclause();"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+
+    </div>
+</div>
+
+<script type="text/ng-template" id="standardClause.html">
+    <div class="padding15 paddingTop0">
+        <p>Heading Clause 1</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+</script>
+
+<script type="text/ng-template" id="alternativeClause.html">
+
+    <table class="sTable padding15">
+            <tr ng-repeat="clause in alternativeClauseList">
+                <td style="vertical-align:top;padding:10px">
+                  
+                <smart-checkbox label="" ng-model="clause.ischecked" on-change="onSelect(clause)"></smart-checkbox>
+                </td>
+                <td>
+                <p class="marginTop0">{{clause.name}}</p>
+                <p>{{clause.content}}</p> 
+                </td>
+            </tr>
+    </table>
+
+</script>

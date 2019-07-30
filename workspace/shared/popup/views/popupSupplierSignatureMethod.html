@@ -1,0 +1,59 @@
+<div>
+
+    <div ng-if="!signatureMethod">
+        <div class="modal-header">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_ElecSign"></use>
+                </svg>
+            </i>
+            <span class="title">Supplier Signature Method</span>
+        </div>
+        <div class="modal-content row padding15 is-scrolled">
+            <div class="marginBtm10">Please Select Signature Method</div>
+            <smart-radio label="" ng-model="selectedMethod" options="methodOptions" datakey="name" on-change="onChange(selectedMethod)" gap="true"></smart-radio>
+        </div>
+
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12">
+                    <div class="right">
+                        <smart-button flat="true" class="left" config='{"title":"CANCEL"}'></smart-button>
+                        <smart-button flat="true" class="left" config='{"title":"DONE"}' ng-click="methodSelected(selectedMethod)"></smart-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="signatureMethod">
+        <div class="modal-header">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_ElecSign"></use>
+                </svg>
+            </i>
+            <span class="title">Offline Signature</span>
+
+        </div>
+        <div class="modal-content row padding15 is-scrolled">
+            <div class="marginTop20">
+                Please download document for offline signature.
+            </div>
+
+
+
+        </div>
+
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12">
+                    <div class="right">
+                        <smart-button flat="true" class="left" config='{"title":"Download"}' ng-click="download()"></smart-button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

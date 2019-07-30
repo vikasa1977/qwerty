@@ -1,0 +1,88 @@
+<div id="{{parentId}}" class="white tree-view">
+    <!-- search bar -->
+    <!--<div class="modal-header">
+    </div>-->
+    <div class="modal-header">
+        <div class="row white">
+            <div class="col s12 ">
+                <div ng-show="treeConfig.isSearchEnabled" class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+                    <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                        <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="left" message="Search" ng-click="showSearch()">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Search"></use></svg>
+                            </i>
+                        </a>
+                        <smart-textfield ng-model="searchFieldVal" class="input-field" focus="focusSearch" on-change="searchAndSelectNode()"></smart-textfield>
+                        <a href="javascript:void(0)" ng-class="showMe" ng-click="searchFieldVal='';hideSearch();" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="left" message="Close">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Close"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <i class="icon iconSmall grey-text left">
+                    <svg><use xlink:href="#icon_Lookup"></use></svg>
+                </i>
+                <span class="title">
+                    {{treeConfig.title}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- !search bar -->
+    <!-- tree holder -->
+    <div class="row" style="position:relative; overflow:hidden; background: white; border-top: 1px solid #e5e5e5">
+        <smart-scroll height={{treeConfig.height}} on-scroll-end="scrollEnd(e)" on-scroll-in-progress="scroll(e)">
+            <!-- 3 options allows clearSelection SelectAll and SelectrionCount  -->
+
+            <div ng-if="selectionAndCountOptions && !isReadOnly">
+                <input ng-if="treeConfig.showSelectAll" class="filled-in" ng-checked="getSelectAllBool()" ng-click="selectAll()"
+                       type="checkbox" id="selectAll">
+                <label ng-if="treeConfig.showSelectAll" for="selectAll" ng-style="{'background':category.bgColor, 'color':'black', 'width' : 'calc(100% - 50px)'}" style=" white-space nowrap; overflow hidden;text-overflow ellipsis; width
+                       calc(100% - 39px) ;">Select all</label>
+                <smart-button ng-if="treeConfig.showClearSelection" flat="true" config='{"title":"Clear Selections"}' ng-click="clearAllSelection()"></smart-button>
+                <span ng-if="treeConfig.showSelectionCount"> Total Selection = {{totalSelection}}</span>
+            </div>
+
+            <div id="treeComponentContainer" ng-style="{'height': treeConfig.height}" class="row">
+                <ul id="{{templateId}}" class="tree-view-str">
+                    <li id="{{category[codeProperty]}}" ng-if="searchFieldVal.length<=2" ng-repeat="category in categories" ng-include="'shared/directives/smartHierarchy/smartHierarchyListContent.html'"></li>
+                    <li id="{{category[codeProperty]}}" ng-if="searchFieldVal.length>2" ng-repeat="category in searchResults" ng-include="'shared/directives/smartHierarchy/smartHierarchyListContent.html'"></li>
+                </ul>
+                <!--<div ng-if="isLoading" style="text-align: center; padding-top: 20%;">
+                    {{msg}}
+                </div>-->
+            </div>
+        </smart-scroll>
+        <div ng-if="isLoading" class="clearfix margin0 grey lighten-3 Category_Component_Loader absolute">
+            <div class="preloader-wrapper x-small marginRight10 active left" style="top:2px;">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper circle-clipper--x left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper circle-clipper--x right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="marginLeft5">Loading...</span>
+        </div>
+        <div ng-if="isError" class="clearfix margin0 grey lighten-3 Category_Component_Loader absolute">
+            <i class="icon iconSmall margin0 left grey-text">
+                <svg>
+                    <use xlink:href="#icon_Warning"></use>
+                </svg>
+            </i>
+            <div class="marginLeft3 left fontSize12 marginTop4 red-text"><span>Error while fetching data from server </span><!--<a class="marginLeft5" href="javascript:void()">Refresh</a>--></div>
+        </div>
+    </div>
+
+    <!-- !tree holder -->
+    <!-- footer
+    <div class="modal-footer_new is-scrolled relative white" style="z-index:10;">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' callback="doneClickHandler"></smart-button>
+    </div>
+    !footer -->
+
+</div>

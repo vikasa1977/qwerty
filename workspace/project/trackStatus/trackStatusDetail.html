@@ -1,0 +1,168 @@
+﻿<style>
+    .upDownChevron {
+        position:absolute;
+        top:15px;
+        right:10px;
+    }
+</style>
+<div class="col s12 relative track-status-parent padding0 marginTop1">
+    <smart-scroll height="100%" v-offset="279px">
+        <div class="row paddingTop8 paddingBtm5" ng-if="cycleObject.length > 0">
+            <div class="col m2 s12 relative">
+                <smart-select ng-model="selectedCycle" options="cycleObject" class="left" on-change="changeCycle(selectedCycle)">
+                </smart-select>
+            </div>
+        </div>
+        <section class="track-section-container scroll-container">
+            <div class="t-s-c-wrap {{ proccesStatus(statusList.status) }} {{applyStatusColor(statusList.status)}}" ng-repeat="statusList in statusLists">
+                <div class="icon-container">
+                    <i class="t-s-c-icon icon iconMedium shades white {{applyStatusColor(statusList.status)}}" ng-class="{'iconHexLarge' : 
+                       IconStatus(statusList.status) != '#icon_Info_i'}">
+                        <svg>
+                            <use xlink:href="{{ IconStatus(statusList.status) }}">
+
+                            </use>
+                        </svg>
+                    </i>
+                    <i class="t-s-c-icon icon iconMedium ts-inner-icon {{applyStatusColor(statusList.status)}}" ng-if="IconStatus(statusList.status) != '#icon_Info_i'">
+                        <svg>
+                            <use xlink:href="{{ InnerIconStatus(statusList.status) }}"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="t-s-content {{ approvalGroupType(statusList.approvalGroupName) }} grey lighten-5">
+                    <div class="clearfix">
+                        <span class="t-s-c-title left">{{ statusList.status }}</span>
+                        <span class="t-s-c-title right" ng-if="statusList.iconComment">
+                            <smart-dropdown config="{{dropDownConfig}}" class="right">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="commentData" data-constrainwidth="false" data-alignment="right" data-hover="true">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_Commented"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <div id="commentData" class="dropdown-content dd-close-off row shades white " style="width:100%">
+                                    <div class="col s12 padding20 dropdown-content-header">
+                                        <div class="light ">
+                                            <div class="shade black-text">Whitney  H<span class="grey-text">- External User</span></div>
+                                            <div class="">Order Exceed the budget</div>
+                                            <div class="right"><span class="red-text">Rejected</span><span> on Nov 20,2015 03:54 PM</span></div>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                            </smart-dropdown>
+                            
+                        </span>
+                    </div>
+                    <!--<div>
+                        {{ statusList.getCreatedBy }}
+                        {{ statusList.getCreatedByUser }}
+                    </div>-->
+                    <!--<div class="clearfix">-->
+                        <!--<span class="left">
+                            <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xlink:href="{{ IconForApproval(statusList.ForApproval) }}"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <span class="fontSize16">{{ statusList.approvalGroupName }}</span>
+                        </span>-->
+                        <span class="upDownChevron">
+                            <a href="javascript:void(0)" ng-click="slideDetailsTS(statusList.uniqueId)" class="blue-text slideDetailClick waves-effect waves-light">
+                                <i class="icon iconSmall" ng-class="{ 'transform180DegN' : !statusList.isDetailShow }">
+                                    <svg>
+                                        <use xlink:href="#icon_UpChevron"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </span>
+                    <!--</div>-->
+                    <div class="grey-text"> on {{ getDate(statusList.actionDate) }}</div>
+                    <div class="slideDetail" ng-show="statusList.isDetailShow" ng-class="{ 'slide-up-css' : !statusList.isDetailShow, 'slide-down-css' : statusList.isDetailShow }">
+                        <div ng-if="statusList.roles" class="">
+                            <div class="">
+                                <span class="fontSize12">{{ statusList.roleGroup }} </span>:
+                                <span class="fontSize12 ">{{ statusList.roleGroupValue }}</span>
+                            </div>
+                            <div class="">
+                                <span class="fontSize12">{{ statusList.ruleName }} </span>:
+                                <span class="fontSize12 ">{{ statusList.ruleNameValue }}</span>
+                            </div>
+                        </div>
+                        <div ng-repeat="list in statusList.actionerDetails">
+                            <div class="t-s-c-Box relative clearfix" ng-if="list.ProxyApproverId == 0">
+                                <div>
+                                    <span ng-if="list.userModes">
+                                        <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light color-add-Hoc">
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_AppHoc"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </span>
+                                    <span class="shades-text text-black">
+                                        {{ list.Name }}
+                                    </span>
+                                    <span> {{ list.userType }}</span>
+                                </div>
+                                <div class="shades-text text-black">{{ list.Designation }}</div>
+                                <div ng-if="hasComments(list.Comments.comment)" class="marginTop10">
+                        <div class="questContent" ng-init="initShowModel(list.uniqueId)">
+                                <div id="" class="questContentPara" ng-class="{'ellipsis questContentPara1': showMore[list.uniqueId], 'questContentPara2': !showMore[list.uniqueId]}">
+                        {{list.Comments.comment}}
+                        <span class="less" ng-if="showLess[list.uniqueId]">
+                        <a href="javascript:void(0);" class="showLess" ng-click="showMoreLess(list.uniqueId, 'less');">less</a>
+                    </span>
+                    </div>
+                    <span class="more" 
+                    ng-if="list.Comments.comment.length > 100 && showMore[list.uniqueId  ]">
+                        <a href="javascript:void(0);" class="showMore"
+                            ng-click="showMoreLess(list.uniqueId, 'more');">more</a>
+                    </span>
+                                </div>
+                                </div>
+                                <div>
+                                    <span class="{{applyStatusColor(list.userStatus)}}">
+                                        <span>{{ list.userStatus }}</span>
+                                    </span>
+                                    <strong>{{ list.userMode }}</strong>
+                                    <span>on {{ getDate(list.StatusDate) }}</span>
+                                </div>
+                            </div>
+                            <!-- Delegated User -->
+                            <div class="t-s-c-Box relative clearfix" ng-class="{'delegateDiv' : list.ProxyApproverId != 0}" ng-if="list.ProxyApproverId != 0">
+                                <span class="absolute delegate-arrow">
+                                    <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light color-add-Hoc">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use xlink:href="#icon_DelgtArrow"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </span>
+                                <span class="shades-text text-black">
+                                    {{ list.ProxyApproverName }}
+                                </span>
+                                <span> {{ list.userType }}</span>
+                                <div class="shades-text text-black">{{ list.ProxyApproverDesignation }}</div>
+                                <div>
+                                    <span class="{{applyStatusColor(list.userStatus)}}">
+                                        <span>{{ list.userStatus }}</span>
+                                    </span>
+                                    <strong>{{ list.userMode }}</strong>
+                                    <span>on {{ getDate(list.proxyActionDate) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </smart-scroll>
+</div>
+
+

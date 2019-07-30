@@ -1,0 +1,85 @@
+<div style="margin-top:-15px;" class="extraHeader">
+    <nav>
+        <div class="nav-wrapper row">
+            <div class="col s12 extra-nav-wrap">
+                <div class="normalMode">
+                    <div class="left">
+                        <a href="javascript:history.go(-1);" class="left waves-block waves-effect waves-light">
+                            <i class="icon small ">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                                </svg>
+                            </i>
+                        </a><i class="icon small left">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                            </svg>
+                        </i><span class="headingText left">{{DocumentName()}} - {{DocumentNumber()}}( {{DocStatus()}} )</span>
+                    </div>
+                    <div class="right">
+                        <smart-dropdown config="{{dropDownConfig}}">
+                            <a class="dropdown-button btn-in-header" data-activates="dropdownUSD" data-constrainwidth="false" data-alignment="right">
+                                <i class="icon iconSmall white-text right">
+                                    <svg class="marginTop8">
+                                        <use xlink:href="#icon_DropArrow"></use>
+                                    </svg>
+                                </i>
+                                <span>{{GetTotalPrice()}} USD</span>
+                            </a>
+                            <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary">
+                                        <span class="left grey-text">Document Value(USD)</span>
+                                        <span class="right">{{GetDocVal()}}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary header-input-edit">
+                                        <span class="left grey-text" ng-if="!isProrate">Shipping(USD)</span>
+                                        <div class="right" ng-if="!isProrate">
+                                            <div>{{GetShipping()}}</div>
+                                            <div class="shwEditMode"><a class="blue-text fontSize12 " ng-click="toggleProrate()">Prorate</a></div>
+                                        </div>
+                                        <div ng-if="isProrate">
+                                            <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                                <div class="col s6 input-field">
+                                                    <input ng-model="prorate.Val" id="prorate1" type="number" style="width:60px;"/>
+                                                    <label for="prorate1" class="active">Prorate</label>
+                                                </div>
+                                                <div class="col s6">
+                                                    <a class=" icon iconSmall right marginTop15 blue-text" ng-click="applyProrate()">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Check"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class=" icon iconSmall right marginTop15 hideEditMode blue-text" ng-click="toggleProrate()">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Close"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary">
+                                        <span class="left grey-text">Taxes & Charges(USD)</span>
+                                        <span class="right">{{GetTaxes()}}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary">
+                                        <span class="left grey-text">Document Total (USD)</span> 
+                                        <span class="right">{{GetTotalPrice()}}</span> 
+                                    </div>
+                                </li>
+                                <li/>
+                            </ul>
+                        </smart-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

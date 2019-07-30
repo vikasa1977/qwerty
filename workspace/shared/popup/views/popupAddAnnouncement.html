@@ -1,0 +1,109 @@
+<div id="reviewsPopup" class="scrollableModel">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text">
+            <svg>
+                <use xlink:href="#icon_Annoucement"></use>
+            </svg>
+        </i> <span class="title">{{announcement.title || translate | uppercase }}</span>
+        <div class="right" ng-show="!announcement.adding">
+            <div>
+                <a class="prevAnn icon" ng-click="announcement.backward()">
+                    <svg>
+                        <use xlink:href="#icon_LeftChevron"></use>
+                    </svg>
+                </a>
+                <a class="nextAnn icon" ng-click="announcement.forward()">
+                    <svg>
+                        <use xlink:href="#icon_LeftChevron"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-content">
+        <div class="model_body">
+            <div class="relative col s12 announcement_options" ng-if="!announcement.viewing">
+                <span class="grey-text fontSize12 annTitle">Type</span>
+                <smart-radio gap="true" ng-model="announcement.type" options="[{title:'Internal',name:'IntExt',active:true},{title:'External',name:'IntExt'}]"></smart-radio>
+            </div>
+            <smart-textfield readonly="{{announcement.viewing}}" label="Title" ng-model="announcement.data.title" class="announce-fields col s12 active clearfix" type="text"></smart-textfield>
+           
+            <div ng-if="announcement.data.discription || addAnnouncementPopup == true ">
+                <smart-textfield readonly="{{announcement.viewing}}" type="area" ng-model="announcement.data.discription" charactercounter="true" maxlength="400" class="col s12 l12  fieldEditable commentField announce-fields" label="Comment" cols="40"></smart-textfield>
+            </div>
+            
+            <div class="col s12">
+                <div class="announcement_attachments">
+                    <span class="grey-text fontSize12 annTitle">Attachments</span>
+                    <smart-drag-drop-upload ng-if="!announcement.viewing" ng-model="nameData"></smart-drag-drop-upload>
+                    <ul class="margin0 attached_itemlist" ng-if="announcement.editing || announcement.viewing">
+                        <li class="attached_item clearfix" ng-repeat="item in announcement.data.attachments">
+                            <span class="filExtention icon attached-pdf" ng-if="item.type == 'pdf'">
+                                <svg>
+                                    <use xlink:href="#icon_pdf"></use>
+                                </svg>
+                            </span>
+                            <span class="filExtention icon attached-ppt" ng-if="item.type == 'ppt'">
+                                <svg>
+                                    <use xlink:href="#icon_ppt"></use>
+                                </svg>
+                            </span>
+                            <span class="filExtention icon attached-txt" ng-if="item.type == 'txt'">
+                                <svg>
+                                    <use xlink:href="#icon_text"></use>
+                                </svg>
+                            </span>
+                            <span class="filExtention icon attached-img" ng-if="item.type == 'jpg'">
+                                <svg>
+                                    <use xlink:href="#icon_image"></use>
+                                </svg>
+                            </span>
+                            <span class="filExtention icon attached-xl" ng-if="item.type == 'xls' || item.type == 'xlsx'">
+                                <svg>
+                                    <use xlink:href="#icon_excel"></use>
+                                </svg>
+                            </span>
+                            <span class="filExtention icon attached-doc" ng-if="item.type == 'doc' || item.type == 'docx'">
+                                <svg>
+                                    <use xlink:href="#icon_word"></use>
+                                </svg>
+                            </span>
+                            <a class="attachedFileName">{{item.name +'.'+item.type}}</a>
+                            <span class="attachedFileSize right">
+                                {{item.size}}
+                                <a class="delete_attach icon" ng-click="announcement.deleteAttach($index)" ng-if="announcement.editing">
+                                    <svg>
+                                        <use xlink:href="#icon_TrashCan"></use>
+                                    </svg>
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer announcement_footer">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div ng-show="announcement.adding">
+                    <smart-button flat="true" class="modal-close right" config='{"title":"ADD"}'></smart-button>
+                    <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+                <div ng-show="announcement.editing">
+                    <smart-button flat="true" class="modal-close left" ng-click="announcement.delete()" config='{"title":"DELETE"}'></smart-button>
+
+                    <smart-button flat="true" class="modal-close right" ng-click="announcement.save()" config='{"title":"SAVE"}'></smart-button>
+                    <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+                <div ng-show="announcement.viewing">
+                    <smart-button flat="true" class="modal-close left" ng-click="announcement.delete()" config='{"title":"DELETE"}'></smart-button>
+
+                    <smart-button flat="true" class="modal-close right" config='{"title":"CLOSE"}'></smart-button>
+                    <smart-button flat="true" class="right" ng-click="announcement.editState(announcement.data,announcement.index,announcement.dataSet)" config='{"title":"EDIT"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

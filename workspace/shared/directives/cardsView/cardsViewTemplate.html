@@ -1,0 +1,10 @@
+<section class="card-page-container row card-slider">
+    <div class="choose_slider_items col centered s12" id="slider-height">
+        <ul ng-if="htmlWrappers == 'slick'" id="{{cardsViewId}}" class="landing-cards iconThree" ng-class="animationSpeed" ng-transclude=""></ul>
+        <div ng-if="htmlWrappers == 'custom'" id="{{cardsViewId}}" class="slick-slider landing-cards">
+            <div class="slick-list">
+                <div class="slick-track analyse-card-wrapper" ng-transclude smart-sortable placeholder="drop-hover slick-slide analyse-cards-placeholder" append-to="body" helper="clone" while-sorting="true"></div>
+            </div>
+        </div>
+    </div>
+</section>

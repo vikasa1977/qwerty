@@ -1,0 +1,93 @@
+<div id="tabItemDetails">
+	<div class="col s12 padding10 borderBtmGray" data-ng-init='taxExemptOpts=[{"title": "NO","selected": true}, {"title": "YES","selected": false}]'>
+		<div class="right">
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left dropdown-button blue-text" smart-tooltip position="bottom" delay="50" message="Manage Column" data-activates="tabMatLineTFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns()">
+					<svg><use xlink:href="#icon_ManageColumns"></use></svg>
+				</i>
+                <ul id="tabMatLineTFilter" class="dropdown-content  dd-close-off">
+                    <li class="dropdown-content-header">
+                        <div class="title">{{'MANAGE COLUMNS' | translate}}</div>
+                    </li>
+                    <li class="padding0 is-scrolled">
+                        <ul class="collection">
+                            <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true}">
+                                <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                <span class="right padding0" ng-if="selectedCount > 0">({{selectedCount}}) Selected</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                        <smart-scroll height="230px" class="inlineList">
+                            <div class="listHolder" ng-style="listHolderWidth">
+                                <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init="myIndex = $index">
+                                    <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                        <smart-checkbox class="label-truncate" title="{{field.lable}}" fill="true" ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+                        </smart-scroll>
+                    </li>
+                    <li class="dropdown-content-footer is-scrolled">
+                        <smart-button config='{"title":"APPLY"}' disable="(!fillpartial && !selectedAll.selection)" flat="true" ng-click="applyCurrentFields()" class="right marginRight5"></smart-button>
+                        <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup marginRight5" ng-click="cancelAllFields()"></smart-button>
+                        <smart-button config='{"title":"Reset","flat":true}' disable="(!fillpartial  && !selectedAll.selection)" flat="true" ng-click="resetAllFields()" class="left marginLeft5"></smart-button>
+                    </li>
+                </ul>
+			</smart-dropdown>
+
+            <a href="javascript:void(0)">
+			    <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete">
+				    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+			    </i>
+            </a>
+
+            <a href="javascript:void(0)">
+                <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Cancel Item">
+                    <svg><use xlink:href="#icon_CircleCross"></use></svg>
+                </i>
+            </a>
+            
+            <smart-dropdown config="{{dropDownConfig}}">
+                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabItemDetailsAction" data-constrainwidth="false" data-alignment="right">
+                    <i class="icon icon-fix-overlay iconSmall tooltipped" smart-tooltip position="bottom" delay="50" message="Action">
+                        <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                    </i>
+                </a>
+                <ul id="tabItemDetailsAction" class="dropdown-content">
+                    <li><a href="javaScript:void(0)" ng-click="applyToAllPopUpCallback(e)">{{'Edit Multiple Lines'|| translate}}</a></li>
+                    <li><a href="javaScript:void(0)">{{'Cancel'|| translate}}</a></li>
+                    </ul>
+            </smart-dropdown>
+        </div>
+        <div ng-init="showErrorAlert = false" class="">
+            Lines(42) : Materials(19) + Variable Service(23) | <a href="javascript:void(0)" class="red-text" ng-click="showErrorAlert = true">60 errors</a>
+        </div>
+	</div>
+    <div class="alert-bar alert-bar--warning alert-bar--with-button" ng-show="showErrorAlert">
+
+       <div class="left red-text"><span>Validation Error message goes here</span></div> 
+        <div class="right">
+            <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete">
+				<svg><use xlink:href="#icon_LeftChevron"></use></svg>
+			</i>
+            <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete">
+				<svg><use xlink:href="#icon_RightChevro"></use></svg>
+			</i>
+            <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete" ng-click="showErrorAlert = false">
+				<svg><use xlink:href="#icon_Close"></use></svg>
+			</i>
+
+        </div> 
+
+    </div>
+    
+
+    
+    <div class="col s12 padding0">
+        <smart-ui-grid col-def="{{itemConfig}}" model="itemModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition" ng-class="{'cancelled-rows': mode=='changeInReceipt'}"></smart-ui-grid>
+    </div>
+</div>
+
+<!-- popup -- apply to all -->
+<smart-popup template-url="{{applyToAllUrl}}" show="{{applyToAllPopUp}}" on-hide="applyToAllPopUpClose(e)"></smart-popup>

@@ -1,0 +1,120 @@
+﻿/*bg status & module  color with status*/
+.pending-approval {
+  background: #159dfc !important; }
+
+.draft {
+  background: #26beb4 !important; }
+
+.awarded {
+  background: #ffcc80 !important; }
+.project {
+  background-color: #c76060 !important; }
+
+/*status text color*/
+.color-approved{ 
+  color:$success !important;  }
+
+.color-approved-pending  {
+  color:$pending !important; }
+
+.color-rejected { 
+  color: $error !important;}
+
+.color-pool-approved {
+  color: $pending !important; }
+
+.color-add-Hoc{
+    color: $adHocApprover !important;}
+
+.color-withdraw { 
+  color: $error; }
+
+.color-offline { 
+  color: #cccccc; }
+ 
+.color-bud-overrid-pending {
+  color: $pending; }
+
+.color-bud-overrid {
+  color:$pending; }
+
+.color-assigned-on {
+  color:$assigned; }
+
+.color-withdrawn { 
+  color: #c35aae; }
+
+/*Event Type Color*/
+.color-updation{
+color: #2979ff !important;
+}
+.color-notification{
+color: #11d9a7 !important;
+}
+.color-workflowevents{
+color: #ff5722 !important;
+}
+.color-attachment{
+color: #673ab7 !important;
+}
+.color-milestones{
+color: #43a047 !important;
+}
+
+.track-section-container{
+    .color-updation:after{
+         background: #2979ff !important;
+    }
+    .color-notification:after{
+         background: #11d9a7 !important;
+    }
+    .color-workflowevents:after{
+         background: #ff5722 !important;
+    }
+    .color-attachment:after{
+         background: #673ab7 !important;
+    }
+    .color-milestones:after{
+         background: #43a047 !important;
+    }
+   
+}
+
+
+/*bg status & module color with status*/
+
+
+/*card header background color*/
+.koromiko {
+  background: #fdb657 !important; }
+
+.asparagus {
+  background: #78a74b !important; }
+
+.cornflower-blue {
+  background: #5EA0F3 !important; }
+
+.slate-blue {
+  background: #7e57c2 !important; }
+
+.red-orange {
+  background: #f44336 !important; }
+
+.summer-sky {
+  background: #26c6da !important; }
+
+.bg-color-approved{
+    background-color: rgba(2,104,64,0.12);
+}
+
+.bg-color-rejected{
+    background-color: rgba(244,67,54,0.12);
+}
+
+.bg-color-notMine{
+    background-color: rgba(28,28,28,0.12);
+}
+
+.bg-color-withdrawn{
+    background-color: rgba(185,90,174,0.12);
+}

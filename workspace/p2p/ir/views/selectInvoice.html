@@ -1,0 +1,920 @@
+<!--sub header-->
+<div class="row marginBtm0 extra-nav-wrap"  scrolled scroll-call="true " ng-class="{'extra-nav-wrap-fixed':fixedSubHeader,'boxShadowNone':showFilter,'z-depth-0':isApplyFilters || isSavedView || isUploadStatus}">
+    <div class="col s12 subHeaderWithFilter" ng-if="scannedInviocePreview ==  null ">
+        <!--leftSide content-->
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle  waves-effect waves-light  extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{setModalIcon}}"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak" ng-hide="docType == 'blanket'">{{ Pagefor || translate | uppercase }}<span ng-if="Pagefor =='task'">{{ 's' || translate | uppercase }}</span>
+             <span ng-if="!docType == '' && !Pagefor == ''" ng-hide="isContract">-</span> {{ docTypeText || translate | uppercase }}</span>
+            <span class="extra-nav-title--text ng-cloak" ng-if="docType == 'blanket'">BLANKET PO</span>
+            <span class="extra-nav-title--text ng-cloak" ng-if="docType == 'recent_documents'">RECENT DOUCMENTS</span>
+        </div>
+        <!--rightSide content-->
+        <div class="extra-nav-action">
+            <ul class="right extra-nav-right-icon">
+                <li class="extra-nav-icon relative">
+                    <search-header placeholder="{{search}}" ng-model="" is-active-header="false" search-id="manageBar" width-manage="15"></search-header>
+                </li>
+                <li class="extra-nav-icon">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle waves-effect waves-light dropdown-button " data-activates='sortbyDropdown' data-position="bottom" data-delay="50" data-constrainwidth="true">
+                            <i class="icon iconSmall" smart-tooltip position="Down" delay="250" message="{{'Sort' || translate }}">
+                                <svg><use xlink:href="#icon_Sort"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='sortbyDropdown' class='dropdown-content dropdown-content--size-medium dd-close-off relative'>
+                            <li class="dropdown-content-header">
+                                <div class="title"> {{ 'SORT BY' | translate }}</div>
+                            </li>
+                            <li class="dropdown-content-content" ng-class="{ 'is-scrolled': true}">
+                                <smart-list model="{{listSortWith}}" style-class="collection noBorder " item-class="collection-item" height="230px" template="shared/landingPage/views/sortbyListing.html">
+                                </smart-list>
+                            </li>
+                            <li class="dropdown-content-footer">
+                                <div class="right">
+                                    <!--<smart-button config='{"title":"Cancel"}' flat="true" class="fontSize14" ng-click="applySort();" disable="false"></smart-button>-->
+                                    <smart-button config='{"title":"CAncel"}' flat="true" class="fontSize14" ng-click="closePopOver();" disable="false"></smart-button>
+                                    <smart-button config='{"title":"Done"}' flat="true" class="fontSize14" ng-click="applySort(isSavedView);" disable="false"></smart-button>
+                                </div>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+                <li class="extra-nav-icon">
+                    <a class="waves-circle  white-text  waves-effect waves-light" ng-click="toggleFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Filter"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon" ng-if="scannedImg">
+                    <a class="waves-circle  white-text  waves-effect waves-light" smart-tooltip position="Down" delay="250" message="{{'Upload' || translate }}" ng-click="addDocumentPopupCallback(e)">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Upload"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon" ng-if="docType !== 'supplier' && !scannedImg ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle  waves-effect waves-light dropdown-button " data-activates='landingPageAction' data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            <i class="icon iconSmall" message="{{'Actions' || translate }}">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="savedViewPopupCallback(e)">
+                                    <i class="icon iconSmall s-dd-icon-wth-color marginRight1 paddingLeft2">
+                                        <svg>
+                                            <use xlink:href="#icon_SavedView"></use>
+                                        </svg>
+                                    </i> {{ 'Saved Views' || translate }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="manageAttributesPopupCallback(e, isSavedView)">
+                                    <i class="icon iconSmall s-dd-icon-wth-color">
+                                        <svg>
+                                            <use xlink:href="#icon_ManageFields"></use>
+                                        </svg>
+                                    </i> {{ 'Manage Attributes' || translate }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3">
+                                    <i class="icon iconSmall s-dd-icon-wth-color">
+                                        <svg>
+                                            <use xlink:href="#icon_ExcelView"></use>
+                                        </svg>
+                                    </i> {{ 'Excel View' || translate }}
+                                </a>
+                            </li>
+                            <li ng-if="docType === 'RFX' && !eventAdminMode">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="eventAdmin(e)">
+                                    <i class="icon iconSmall s-dd-icon-wth-color">
+                                        <svg>
+                                            <use xlink:href="#icon_EventAdmin"></use>
+                                        </svg>
+                                    </i> {{ 'Event Admin' || translate }}
+                                </a>
+                            </li>
+                            <li class="divider" ng-if="docType === 'order'"></li>
+                            <li ng-if="docType === 'order'">
+                                <a ui-sref="p2p.order.mass" class="grey-text text-darken-4 paddingLeft3">
+                                    <i class="icon iconSmall s-dd-icon-wth-color">
+                                        <svg>
+                                            <use xlink:href="#icon_BulkEdit"></use>
+                                        </svg>
+                                    </i> {{ 'Order Processing Workbench' || translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s12" ng-if="scannedInviocePreview !=  null">
+        <!--leftSide content-->
+        <div class="extra-nav-title">
+            <a href="javascript:void(0)" ng-click="gotoBackscannedInvoiceList()" class="left  waves-circle  waves-effect waves-light  extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Invoice"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text">{{ doclists[scannedInviocePreview].docName | translate | uppercase }}</span>
+        </div>
+
+        <!-- right side -->
+       
+<ul class="right extra-nav-right-icon right-panel">
+  
+    <li class="extra-nav-icon" ng-if="!createInvoiceFromScan">
+
+        <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="deleteItem(scannedInviocePreview)">
+            <i class="icon iconSmall white-text" message="Delete" smart-tooltip data-position="bottom" delay="50">
+            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+            </i>
+        </a>
+    </li>
+</ul>
+
+
+
+    </div>
+
+    <div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" class="panelBox-withSpace panelBox--filter">
+        <div class="panelBox-content panel-tab-align">
+            <div class="panelBox-header clearfix row marginBottom0">
+                <div class="col s12">
+                    <div class="left fontSize16">FILTER</div>
+                </div>
+            </div>
+
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 padding0">
+                        <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="100%" tab-panel-height="300px" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+                    </div>
+                </div>
+            </div>
+            <div class="panelBox-footer row footerSpace ">
+                <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="toggleFilter(e);"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleFilter(e);"></smart-button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+
+<!--content details  scanned invoice-->
+<div class="row sub-extra-nav-bar z-depth-1" stick-on-scroll="true" set-top="50px" set-zindex="1000" ng-if="scannedInviocePreview !=  null">
+    <div  ng-init="checkOutMode = true;isValidate = true">
+        <div class="col s12 m6">
+            <span class="marginLeft5"><strong>{{ doclists[scannedInviocePreview].docNumber | translate | uppercase}} </strong></span>
+            <span class="inline-divider">|</span>
+            <span ng-repeat="attrib in doclists[scannedInviocePreview].attributes">
+                <span ng-if="attrib.datakey == 'Uploaded_by'">{{ 'Uploaded by' | translate  }} :</span>
+            <span ng-if="attrib.datakey == 'Uploaded_On'">{{ 'On' | translate   }} </span>
+            <span class="marginLeft5 marginRight5 grey-text">{{attrib.value | translate}}</span>
+            </span>
+        </div>
+        <div class="col s12 m6 right-align">
+           <span> {{'Page' | translate }} <span>{{ '1' | translate }}</span> {{'of'  | translate }} <span>{{ totalPages | translate }}</span></span>
+                  <span class="inline-divider">|</span>
+                        <!--zoom in-->
+                <a href="javaScript:void(0)" class="waves-circle  waves-effect waves-grey " ng-click="ZoomIn(pdfScale)">
+                    <i class="icon iconSmall " message="Zoom In" smart-tooltip data-position="bottom" delay="50">
+                                                 <svg><use xlink:href="#icon_zoomIn"></use></svg>
+                                        </i>
+                </a>
+                <!--zoom out-->
+                <a href="javaScript:void(0)" class="waves-circle  waves-effect waves-grey " ng-click="ZoomOut(pdfScale)">
+                    <i class="icon iconSmall" message="Zoom Out" smart-tooltip data-position="bottom" delay="50">
+                                         <svg><use xlink:href="#icon_zoomOutNew"></use></svg>
+                                         </i>
+                </a>
+                <!--zoom reset-->
+                    <a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="zoomReset(pdfScale)">
+                            <i class="icon iconSmall " message="Reset Zoom" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_zoomReset"></use></svg>
+                            </i>
+                </a>
+                <!--clockwise-->
+                <a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="rotateRight(e)">
+                    <i class="icon iconSmall " message="Rotate Clockwise" smart-tooltip data-position="bottom" delay="50">
+                                    <svg><use xlink:href="#icon_RotateClock"></use></svg>
+                            </i>
+                </a>
+                <!--anti clockwise-->
+                <a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="rotateLeft(e)">
+                    <i class="icon iconSmall " message="Rotate Anti-clockwise" smart-tooltip data-position="bottom" delay="50">
+                                <svg><use xlink:href="#icon_RotateAntiClock"></use></svg>
+                                 </i>
+                </a>
+
+          
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- aleart bar -->
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader, 'alert-bar-exist': (isApplyFilters ||isSavedView|| isUploadStatus)}">
+    <!-- <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top" ng-if="isApplyFilters">
+        <span ng-show="isFilteredFromMain"><a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a></span>
+        <span class="marginLeft5 marginRight5" ng-if="!!currentFilterApplied && isFilteredFromMain">|</span>
+        <span class="" ng-if="!!currentFilterApplied">Showing: {{currentFilterApplied}}</span>
+        <div class="right">
+            <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+        </div>
+        <div class="right">
+            <smart-button flat="true" class="marginRigth10" config='{"title": "RESET" }' ng-click="filterResetWarningCall()"></smart-button>
+        </div>
+    </div> -->
+    <div class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top" ng-class="{'show-dv-msg': isApplyFilters}" ng-if="false">
+        <span>
+            <a href="javascript:void(0)">{{ 'Delivery Status' || translate }}</a>,
+            <a href="javascript:void(0)">{{ 'Document Type' || translate }}</a>
+        </span>
+        <div class="right">
+            <smart-button flat="true" class="modal-close" ng-click="resetFilter();" config='{"title": "RESET" }'></smart-button>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView ">
+        <div>
+            <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+            </span>
+            <div class="right" ng-if="isSavedViewModified">
+                <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isUploadStatus">
+        <div>
+            <span>Error in upload. </span>
+            <div class="right">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div scrolled class="width100P zIndex3" ng-class="{'extra-nav-wrap-fixed alert-bar--fixed-to-nav':fixedSubHeader}" ng-show="eventAdminMode">
+    <div class="clearfix alert-bar--fixed relative zIndex2 white is-scrolled">
+        <div class="alert-bar enter-from-top info-bar paddingLeft15 paddingRight15">
+            <span class="left marginTop2 paddingRight5">
+                <i class="icon small gray-text">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+            </span>
+            <span class="left paddingTop9">You are viewing the event in a Event Admin mode</span>
+            <span class="right paddingTop9">Event Admin: <a href="javascript:void(0)" ng-click="onChangeEventAdmin(e)">OFF</a></span>
+        </div>
+    </div>
+</div>
+
+<!-- filter panel -->
+<!-- <div ng-if="showFilter" class="enter-from-top" ng-include="'shared/filter/views/filter.html'"></div> -->
+<!--page start-->
+<div class="page-container-active" ng-class="{'page-footer-is-active': ShowCheckboxs}" ng-if="scannedInviocePreview ==  null">
+    <div class="white">
+        <!--filter end-->
+        <div ng-if="!isListView">
+            <smart-tabs tab-config="{{tabsData}}" width="30%" on-select="onselectTabCall(e)"></smart-tabs>
+            <div class="hide-on-down fixed-action-btn" ng-if="docType == 'requisition' || docType == 'order' || docType == 'invoice'">
+                <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger" ng-if="docType != 'supplier' || docType != 'project' || docType != 'contract'  || docType != 'catalog' || docType != 'supplierprofile'">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="btn-floating overflowVisible" ui-sref="catalog.requestercatalog.landing">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Catalog"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Create from Catalog' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" ui-sref="p2p.template({ templatefor: '{{ getTemplateLink }}' })">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Template"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Create from Template' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" ui-sref="{{ blankPagelink }}">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_CreateBlank"></use>
+                                </svg>
+
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Create Blank' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div ng-if="isListView" ng-class="{'paddingTop40':fixedSubHeader}">
+            <div ng-if="(docType != 'supplier' && docType != 'contract'  && docType != 'catalog' && docType != 'project' && docType != 'supplierprofile' && docType !='recent_documents' && fabBtn)" ng-class="{'fixed-action-btn':!isnotPageEnd,'is-page-end':isnotPageEnd }">
+                <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="btn-floating overflowVisible">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Template"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Use Template' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Catalog"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Use Existing' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" ng-click="showUploadlogpopupCallback()">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Template"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Upload Excel' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_CreateBlank"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Blank form' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="docType === 'contract'" ng-class="{'fixed-action-btn':!isnotPageEnd,'is-page-end':isnotPageEnd }">
+                <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="btn-floating overflowVisible" ng-click="contractQuickCreate()">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_QuickCreate"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Quick create' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" href="#/contract/new">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_CreateBlank"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Using Blank Form' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" ng-click="onUploadExcelShowRootCall()">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Upload"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Using Excel' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Template"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Using Template' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="docType === 'blanketPO'" ng-class="{'fixed-action-btn':!isnotPageEnd,'is-page-end':isnotPageEnd }">
+                <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="btn-floating overflowVisible" ng-click="gotoCreateBlanket()">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_CreateBlank"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Using Blank Form' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-floating overflowVisible" href="javascript:void(0)">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Template"></use>
+                                </svg>
+                            </i>
+                            <div class="subFabLblContainer">
+                                <div class="subFabLblContainer-label">{{'Using Template' | translate}}</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="docType === 'catalog'" ng-class="{'fixed-action-btn':!isnotPageEnd,'is-page-end':isnotPageEnd }">
+                <a class="btn-floating btn-large waves-effect waves-light" ui-sref="catalog.admincatalog.new">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+            <div ng-if="docType === 'supplier' && Pagefor === 'manage'" ng-class="{'fixed-action-btn':!isnotPageEnd,'is-page-end':isnotPageEnd }">
+                <a class="btn-floating btn-large waves-effect waves-light" smart-tooltip position="top" delay="10" message="Create New Supplier" ui-sref="supplier.new">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_LpAdd"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+            <!--List with Left Panel filter-->
+            <div class="sidepanel-filter-wrapper clearfix" ng-init="isActive=false;" ng-class="{'sidepanel-filter-open':isActive}">
+                <!-- <div class="sidepanel-filter " ng-style="{'top':(showFilter === true) ? 0 : (fixedSubHeader  === true) ? (50 + bandHeight) + 'px' : (114 + bandHeight - pageYOffset) + 'px','position':(showFilter === true ? 'relative' : 'fixed')}"> -->
+                <div class="sidepanel-filter" ng-style="{'top':(fixedSubHeader  === true) ? (50 + bandHeight + (eventAdminMode ? 40 : 0)) + 'px' : (114 + (bandHeight + (eventAdminMode ? 40 : 0)) - pageYOffset) + 'px'}" style="position: fixed;">
+                    <a href="javascript:void(0)" class="sidebar-btn white-text" ng-click="isActive = !isActive;$event.stopPropagation();">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_RightChevro"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sidepanel-filter-itemList ">
+                        <li class="sidepanel-filter-itemList-item paddingLeft20" ng-class="{'isSelected':isAllFilterSelected}" ng-click="allFilterClicked()">
+                            All
+                        <span class="sidepanel-filter-item-count" ng-if="dataLength < 100">{{dataLength}}</span>
+                        <span class="sidepanel-filter-item-count" ng-if="!dataLength > 99">99+</span>
+                        </li>
+                        <li class="sidepanel-filter-itemList-item clearfix" ng-repeat="item in landingFilterList" smart-tooltip position="right" delay="50" message="{{item.name}}" ng-class="{'isSelected':item.isSelected}" ng-click="filteByStatusClicked($index,item)">
+                            <span class="sidepanel-filter-item-icon-cont">
+                                <i class="icon  iconSmall sidepanel-filter-item-icon">
+                                    <svg>
+                                        <use xlink:href="{{item.iconID}}"></use>
+                                    </svg>
+                                </i>
+                            </span>
+                            <span class="sidepanel-filter-itemList-item-name" ng->
+                                {{item.name}}
+                            </span>
+
+                            <span class="sidepanel-filter-item-count">
+                                {{item.itemCount}}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+           
+                <div class="hideHorizontalScroll" ng-class="{'right-panel-filter-open':isActive}" style="transition: 0.5s ease">
+                                 
+                    <smart-list item-class="collection-item avatar collection-item--animate" model="{{doclists}}" style-class="collection highlight-first with-header" template="shared/landingPage/views/listWithAction.html">
+                    </smart-list>
+                </div>
+                <div class="row borderBtmLight" ng-hide="totalDisplayed == doclists.length - 1 || doclists.length < 7">
+                    <div class="col s12 center-align marginTop10 marginBtm10">
+                        <smart-button flat="true" config='{"title":"LOAD MORE ACTIVITIES"}' ng-click="loadMore()"></smart-button>
+                        <div class="preloader-wrapper small active" ng-if="loderIcon">
+                            <div class="spinner-layer spinner-blue">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-red">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-yellow">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="spinner-layer spinner-green">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+<!-- scannedInvioce Preview  page content start here-->
+<div class="page-footer-is-active page-scanned-invoice card-slider" ng-if="scannedInviocePreview !=  null " >
+ 
+   <button class="slick-prev slick-arrow" ng-class="{'disabled' : 0 == scannedInviocePreview}" ng-click="previous(scannedInviocePreview)" >
+       <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+        </i>
+   </button>
+
+     <button class="slick-next slick-arrow" ng-class="{'disabled' : (doclists.length - 1 ) == scannedInviocePreview }" ng-click="next(scannedInviocePreview, doclists)" >
+            <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_RightChevro"></use></svg>
+        </i>
+     </button>
+
+
+    <div class="row marginBtm0">
+        <div class="pdfViewer" ng-class="{ 'is-footer-off' : createInvoiceFromScan }">
+        <!--add pdfjs-->
+                <pdfviewer src="{{doclists[scannedInviocePreview].invURL}}" rotate="{{ pdfCanvasRoted }}" scale="{{pdfScale}}" display-all="true" 
+                on-page-load='pageLoaded(page,total)' id="viewer" load-progress='loadProgress(loaded, total, state)'></pdfviewer>
+              
+                
+        </div>
+
+    </div>
+</div>
+
+<div class="noRecord-container hide">
+    <div class="noRecord-content">
+        <div class="noRecord-message">
+            No Records Available!
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer" ng-show="ShowCheckboxs" ng-if="scannedInviocePreview ==  null">
+    <div class="row">
+        <div class="col s12 right-align ">
+            <div class="btn-group marginRight24">
+                <smart-button config='{"title":"EXPORT TO EXCEL2"}' ng-class="btn-first-button" ng-click="selectReqPopupCallback(e)" disable="false"></smart-button>
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a data-activates='exportActionBtn' class="white-text dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                        </i>
+                    </a>
+                    <ul id='exportActionBtn' class='dropdown-content footer-dropdown-for-landing'>
+                        <li ng-repeat="item in exportActions">
+                            <a href="javascript:void(0)" ng-click="triggerAction(item.key)" class="black-text"> {{  item.key }}</a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- scanned invoice footer. -->
+<footer class="page-footer" ng-if="scannedInviocePreview !=  null" ng-hide="createInvoiceFromScan">
+    <div class="row">
+        <div class="col s12 right-align ">
+            <div>
+                <smart-button config='{"title":"CREATE INVOICE"}' ng-class="btn-first-button" callback="PoNumberConfCallback" disable="false" ></smart-button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--pop up-->
+<!-- SAVED VIEW -->
+<smart-saved-view-popup show="savedViewPopUp" hide="savedViewPopupHideCallback(e)" ng-model="selectedSavedview" open-popup-saved-view="showSavedViewList" config="getSavedViewsList" is-apply-filter="isApplyFilters" is-saved-filter="isSavedView" is-modified="isSavedViewModified"></smart-saved-view-popup>
+<!-- Manage Attributes -->
+<smart-popup type="small" template-url="{{manageAttributesPopupUrl}}" show='{{manageAttributesPopUp}}' on-hide="manageAttributesPopupHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{uploadPoupUrl}}" show="{{showUploadlogpopup}}" on-hide="onUploadlogpopupHide(e)"></smart-popup>
+<!-- save filter--->
+<smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+<!-- Upload / Download Log -->
+<smart-popup template-url="contract/views/popupUploadExcelLog.html" type="large" show="{{uploadDownloadLogPopup}}" on-hide="uploadDownloadLogPopupHide(e)"></smart-popup>
+<!-- Contract Popups-->
+<smart-popup type="large" template-url="contract/views/contractQuickCreate.html" show="{{contractQuickCreateRootCall}}" on-hide="contractQuickCreateHideRootCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupUploadExcel.html" show="{{showUploadExcelrootCall}}" on-hide="onUploadlExcelHideCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showAddAttachmentPopup}}" on-hide="showAddAttachmentPopupHideCall(e)"></smart-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Category" default-text="Choose Category" show="showFormRootC" mode="true" selected-value="categoryRootData" modal-content="category" modal-button="categoryBtn" initial-display-text="categoryDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormRootBU" mode="true" selected-value="businessUnitRootData" modal-content="businessUnit" modal-button="businessUnitBtn" initial-display-text="businessUnitDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Region" default-text="Choose Region" show="showRegionRoot" mode="true" selected-value="regionRootData" modal-content="region" modal-button="regionBtn" initial-display-text="RegionDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-popup template-url="{{addDocumentPoupUrl}}" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>
+<smart-popup template-url="contract/views/popupExport.html" show='{{showExportPopup}}' on-hide="exportPopupOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupExportLog.html" show='{{showExportLogPopup}}' on-hide="exportLogPopupOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupSupplierIcard.html" show="{{$parent.showSupplierIcardPopup}}" on-hide="hideSupplierIcardPopupCallback(e)" class="supplier-icard-popup"></smart-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode="true" openpopup="hideSupplierIcardPopupCallback()" callback="showSupplierIcard()" class="similarPopup" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="true" mode="true" selected-value="supplierIcard.businessunit.selectedoption" modal-content="businessUnitReadSP" modal-button="businessUnitBtnReadSP"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupSingleLevel.html" read-mode="true" openpopup="hideSupplierIcardPopupCallback()" callback="showSupplierIcard()" class="similarPopup" type="small" read-mode-text="Diversity Status" default-text="Choose Diversity Status" show="true" mode="true" selected-value="supplierIcard.diversityStatus.selectedoption" modal-content="DiversityStatusRead" modal-button="DiversityStatusBtnRead"></smart-list-popup>
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupNewTrackStatus.html" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)"></smart-popup>
+
+<script type="text/ng-template" id="tabHeader1.html">
+    <div>
+        <a>Period<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader2.html">
+    <div>
+        <a>Delivery Status<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader3.html">
+    <div>
+        <a>Recipient Type<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader4.html">
+    <div>
+        <a>Date Range <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader5.html">
+    <div>
+        <a>Advance Date Range <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabDocument.html">
+    <div>
+        <a>Document Type<span class="right marginLeft20">{{countPricesheetList}}/{{repoList.length}}</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="period.html">
+    
+        <div class="row panelBox-field ">
+            <div class="row manage-space radio-vertical radio-block margin0">
+                <smart-radio label="" ng-model="selectedFilter" class="col s12" options="filterOptions" datakey="name" gap="true" on-change="onChange(selectedFilter)"></smart-radio>
+            </div>
+            <div class="row margin0 formEdit">
+                <div ng-show="dateRange" class="col s12 paddingLeft15">
+                    <smart-textfield label="{{'From'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+                    <smart-textfield label="{{'To'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    
+</script>
+<script type="text/ng-template" id="deliveryStatus.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="documentType.html">
+    
+        <div class="row marginBtm0 marginTop10">
+           <div class="col s12"> 
+            <div class="input-field withSearchIcon paddingLeft15" >
+                <i class="icon iconFix iconSmall filterSearchIcon paddingLeft15">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+                <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextF_{{ $index }}='';searchfocusOut(e)">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+                <input id="text_type_" type="text" class="validate" ng-model="searchTextF_" placeholder="Search by Type">
+                <label for="text_type"></label>
+            </div></div>
+        </div>
+        
+        <div class="row">            
+          
+                <ul class="panel-content-iteamList">                   
+                    <li class="panel-content-iteamList-item paddingLeft20 clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                        <smart-checkbox class="left" label="All" ng-model="docAll.checkedAll" on-change="checkedAllDoc(docAll.checkedAll)"></smart-checkbox>
+                        <div class="right">
+                           <span><a href="javascript:void(0)" class="" ng-class="{'disabled pointEventN' : showSelect == true}"  ng-model="checkElem.checkElemStatus" ng-click="showselected(checkElem.checkElemStatus)">show {{checkElem.text}}</a></span>
+                           <span class="grey-text text-darken-1 marginLeft9 marginRight9">|</span>
+                           <span>
+                               <a href="javascript:void(0)" smart-tooltip position="bottom" message="{{'Resend'|| translate}}" ng-click="resetData()" ng-class="{'disabled pointEventN' : showSelect == true}">
+                                   <i class="icon small">
+                                       <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                                   </i>
+                               </a>
+                           </span>
+                        </div>
+                    </li>
+                    </ul>
+                <smart-scroll height="210px" >
+                    <ul class="collection noBorder">
+                        <li ng-repeat="n in repoList" class="collection-item " ng-class="{'is-hide' : n.isHide == true}">
+                            <span ng-class="{'is-hide' : n.isHide == true}">
+                                <smart-checkbox class="chklink left" ng-model="n.isChecked" on-change="documentListChange(n.isChecked)"></smart-checkbox>
+                            </span>
+                            <span class="item-name">{{n.title}}</span>
+                        </li>
+                    </ul>
+                </smart-scroll>                            
+          
+        </div> 
+</script>
+<script type="text/ng-template" id="recipientType.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="dateRange.html">
+    <div class="row paddingTop5">
+        <div class="operatorsDropDown">
+            <div class="row marginLeft15 formEdit marginBottom0">
+                <smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" label="Operator" is-mandatory='true' ng-model="defaultSelectedOperator" options="operatorsList" datakey="name" on-change="onChangeFilterType(defaultSelectedOperator)"></smart-select>
+                <smart-textfield ng-show="operatorRange" label="From" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" type="date" ng-model="startDate"></smart-textfield>
+                <smart-textfield ng-show="operatorRange" label="To" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                <smart-textfield ng-show="!operatorRange" label="From" type="date" ng-model="fromDate" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field"></smart-textfield>
+            </div>
+        </div>
+        <div class="col s12 marginTop15" ng-hide="hideDateRow">
+            <div class="col s12">
+                <div class="row marginTop10">
+                    <smart-textfield label="From" class="col s12 l4" type="date" ng-model="startDate"></smart-textfield>
+                    <smart-textfield label="To" class="col s12 l4" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="advanceDateRange.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <smart-radio gap="true" class="left line-height-manager" ng-model="advanceDateType" options="advanceDateTypeOptions" on-change="onChangeadvanceDateType(advanceDateType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="row">
+                <smart-textfield label="From" class="col m4 s12 l4" type="date" ng-model="advancestartDate"></smart-textfield>
+                <smart-textfield label="To" class="col m4 s12 l4" min="{{advancestartDate}}" type="date" ng-model="advanceendDate" ng-if="advanceDateType.code=='dr'"></smart-textfield>
+                <div class="col s12 m4 l4" ng-if="advanceDateType.code=='p'">
+                    <div class="row">
+                        <div class="col line-height-manager grey-text padding0">To Next</div>
+                        <div class="col s5"><smart-select options="nextDayOptions" is-mandatory="true" ng-model="nextDays"></smart-select></div>
+                        <div class="col line-height-manager grey-text padding0">Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<smart-popup type="medium" template-url="p2p/inv/views/popupPoNumberConfirmation.html" show='{{PoNumberConfPopup}}' on-hide="PoNumberConfPopupHideCallback(e)"></smart-popup>

@@ -1,0 +1,289 @@
+<!-- header template  here -->
+<div ng-include="'catalog/requesterCatalog/views/searchControl.html'">
+    <!-- template  here -->
+</div>
+
+<!-- page content -->
+<section class="clearfix">
+    <!--demo widget starts-->
+    <div ng-include="'catalog/views/budgetWidgetTemplate.html'"></div>
+
+    <!--demo widget ends-->
+    <!--ng-style="{'padding-top' :(fixedSubHeader ? '150px':'0px')}"  -->
+    <div class="col s12 m12 white">
+        <!--header fix-->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="compare-table" ng-show="fixedSubHeader" scrolled ng-class="{'fixedTableHead':fixedSubHeader}">
+            <colgroup>
+                <col style="width: 20%;">
+                <col style="width: 20%">
+                <col style="width: 20%">
+                <col style="width: 20%">
+                <col style="width: 20%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="compare-table-th">&nbsp;</th>
+
+                    <th class="compare-table-th relative" ng-repeat="product in products">
+                        <!-- product card-->
+                        <div ng-include="'compareItem.html'" add-to-cart target="userCart" ng-init="isfixedDiv = true" ng-show="!product.hide">
+                        </div>
+                        <!-- product search-->
+                        <div class="compare-search" ng-show="product.hide">
+                            <i class="icon iconSmall compare-search-icon marginTop8">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+                            <smart-textfield type="autocomplete" placeholder="{{autoCompleteData.itemName}}" filterkeys="['itemName']" optionformat="<span class='left'><img src='{img}' width='40px' height='25px' class='marginRight10'></span><span>{itemName}</span>" displayformat="{itemName}" options="compareOptions" on-change="onChange()" on-select="onSelect(autoCompleteData, product, $index + 1)" on-key-press="clearSearch()"></smart-textfield>
+                            <a href="javascript:void(0)" ng-click="clearSearchVal()" ng-if="showSearch" class="waves-circle waves-effect compare-search-remove" smart-tooltip position="bottom" delay="10" message="Clear">
+                                <i class="icon small">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+
+        <!-- compare page table-->
+        <div class="col s12">
+            <table class="compare-table striped">
+                <colgroup>
+                    <col style="width: 20%;">
+                    <col style="width: 20%">
+                    <col style="width: 20%">
+                    <col style="width: 20%">
+                    <col style="width: 20%">
+                </colgroup>
+                <thead>
+                    <tr class="white" ng-show="!fixedSubHeader">
+                        <th class="compare-table-th">&nbsp;</th>
+                        <th class="compare-table-th dev_catalogCartParent relative" ng-repeat="product in products">
+                            <!-- product card-->
+                            <div ng-include="'compareItem.html'" ng-init="isfixedDiv = false" add-to-cart target="userCart" ng-show="!product.hide">
+                            </div>
+                            <!-- product search-->
+                            <div class="compare-search" ng-show="product.hide">
+                                <i class="icon iconSmall compare-search-icon marginTop8">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Search"></use>
+                                    </svg>
+                                </i>
+                                <smart-textfield type="autocomplete" placeholder="{{autoCompleteData.itemName}}" filterkeys="['itemName']" optionformat="<span class='left'><img src='{img}' width='40px' height='25px' class='marginRight10'></span><span>{itemName}</span>" displayformat="{itemName}" options="compareOptions" on-change="onChange()" on-select="onSelect(autoCompleteData, product, $index + 1)" on-key-press="clearSearch()"></smart-textfield>
+                                <a href="javascript:void(0)" ng-click="clearSearchVal()" ng-if="showSearch" class="waves-circle waves-effect compare-search-remove" smart-tooltip position="bottom" delay="10" message="Clear">
+                                    <i class="icon small">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="spec in specs track by $index">
+                        <td class="compare-table-td black-text" style="width: 100px">{{spec.headingTxt}}</td>
+                        <td class="compare-table-td grey-text text-darken-1">
+                            <!-- not line total -->
+                            <div ng-if="spec.product1">
+                                <div ng-if="spec.headingLable != 'keywordsTags' " ng-class="{'right-align' : spec.isNum, 'left-align': !spec.isNum , 'verticalAlignMiddle fontSize12':  spec.headingLable == 'Rating'}">
+                                    {{spec.productData}}
+
+                                    <i class="icon iconSize16 orange-text pro-rating-star" ng-if="spec.headingLable == 'Rating' && spec.product4 == ''">
+                                        <svg>
+                                            <use xlink:href="#icon_StarFill"></use>
+                                        </svg>
+                                    </i>
+
+                                </div>
+
+                                <!-- for line total -->
+                                <div ng-if="spec.headingLable == 'lineTotal' " ng-repeat="item in spec.product1 track by $index" class="right-align">
+                                    {{ item.dataKey}} {{  item.dataValue }}
+                                </div>
+                                <!-- for keyword and tags -->
+                                <div class="clearfix" ng-if="spec.headingLable == 'keywordsTags' ">
+                                    <span ng-repeat="item in spec.productData track by $index">
+                                        {{item.title}}<span ng-if="!$last">,</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </td>
+                        <td class="compare-table-td grey-text text-darken-1">
+                            <div ng-if="spec.product2">
+
+                                <div ng-if="spec.headingLable != 'keywordsTags' " ng-class="{'right-align' : spec.isNum, 'left-align': !spec.isNum , 'verticalAlignMiddle fontSize12':  spec.headingLable == 'Rating'}">
+                                    {{spec.productData}}
+
+                                    <i class="icon iconSize16 orange-text pro-rating-star" ng-if="spec.headingLable == 'Rating' && spec.product4 == ''">
+                                        <svg>
+                                            <use xlink:href="#icon_StarFill"></use>
+                                        </svg>
+                                    </i>
+
+                                </div>
+
+                                <!-- for line total -->
+                                <div ng-if="spec.headingLable == 'lineTotal'" ng-repeat="item in spec.product2 track by $index" class="right-align">
+                                    {{ item.dataKey}} {{  item.dataValue }}
+                                </div>
+
+                                <!-- for keyword and tags -->
+                                <div class="clearfix" ng-if="spec.headingLable == 'keywordsTags' ">
+                                    <span ng-repeat="item in spec.productData track by $index">
+                                        {{item.title}}<span ng-if="!$last">,</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="compare-table-td grey-text text-darken-1">
+                            <!-- not line total -->
+                            <div ng-if="spec.product3">
+                                <div ng-if="spec.headingLable != 'keywordsTags' " ng-class="{'right-align' : spec.isNum, 'left-align': !spec.isNum , 'verticalAlignMiddle fontSize12':  spec.headingLable == 'Rating'}">
+                                    {{spec.productData}}
+
+                                    <i class="icon iconSize16 orange-text pro-rating-star" ng-if="spec.headingLable == 'Rating' && spec.product4 == ''">
+                                        <svg>
+                                            <use xlink:href="#icon_StarFill"></use>
+                                        </svg>
+                                    </i>
+
+                                </div>
+
+                                <!-- for line total -->
+                                <div ng-if="spec.headingLable == 'lineTotal'" ng-repeat="item in spec.product3 track by $index" class="right-align">
+                                    {{ item.dataKey}} {{  item.dataValue }}
+                                </div>
+
+                                <!-- for keyword and tags -->
+                                <div class="clearfix" ng-if="spec.headingLable == 'keywordsTags' ">
+                                    <span ng-repeat="item in spec.productData track by $index">
+                                        {{item.title}}<span ng-if="!$last">,</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="compare-table-td grey-text text-darken-1">
+                            <div ng-if="spec.product4">
+                                <!-- not line total -->
+
+                                <div ng-if="spec.headingLable != 'keywordsTags' " ng-class="{'right-align' : spec.isNum, 'left-align': !spec.isNum , 'verticalAlignMiddle fontSize12':  spec.headingLable == 'Rating'}">
+                                    {{spec.productData}}
+
+                                    <i class="icon iconSize16 orange-text pro-rating-star" ng-if="spec.headingLable == 'Rating' && spec.product4 == ''">
+                                        <svg>
+                                            <use xlink:href="#icon_StarFill"></use>
+                                        </svg>
+                                    </i>
+
+                                </div>
+
+                                <!-- for line total -->
+                                <div ng-if="spec.headingLable == 'lineTotal'" ng-repeat="item in spec.product4 track by $index" class="right-align">
+                                    {{ item.dataKey}} {{  item.dataValue }}
+                                </div>
+
+                                <!-- for keyword and tags -->
+                                <div class="clearfix" ng-if="spec.headingLable == 'keywordsTags' ">
+                                    <span ng-repeat="item in spec.productData track by $index">
+                                        {{item.title}}<span ng-if="!$last">,</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+<!-- popup -- on behalf of -->
+<smart-popup template-url="{{popupOnBehalfOfUrl}}" show='{{popupOnBehalfOf}}' on-hide="popupOnBehalfOfCallback(e)" type="small"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupBudgetEntity.html" show='{{showBudgetEntityPopup}}' on-hide="popupBudgetEntityPopupHide(e)" type="small" ng-click="$event.stopPropagation()"></smart-popup>
+<script type="text/ng-template" id="compareItem.html">
+    <span class="catalog-card-item-type" ng-if="product.itemFrom == 'contracted'">
+        <i class="icon" smart-tooltip position="bottom" delay="50" message="Contracted Item">
+            <svg>
+                <use xlink:href="#icon_Contract"></use>
+            </svg>
+        </i>
+    </span>
+    <span class="cardClose">
+        <a href="javascript:void(0)" ng-click="removeCol(product, $index+1)" class="waves-circle waves-effect tooltipped removeItem2" smart-tooltip position="bottom" delay="10" message="{{'Remove'|| translate}}">
+            <i class="icon small blue-text">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                </svg>
+            </i>
+        </a>
+    </span>
+    <div class="clearfix">
+        <div class="cardList ">
+            <div class="cardListImg" ng-if="!isfixedDiv">
+                <a ui-sref="catalog.requestercatalog.itemDetail({ itemFrom: product.itemFrom, id: $index  })">
+                    <img ng-src="shared/resources/images/{{ getProductImage(product.id) }}" alt="" />
+                </a>
+            </div>
+            <div class="cardListContent">
+                <div class="row marginBottom0 clearfix">
+                    <div class="col s12 ">
+                        <div class="container">
+                            <div class="row marginBottom0 ">
+                                <div class="col s12"><a ui-sref="catalog.requestercatalog.itemDetail({ itemFrom: product.itemFrom, id: $index  })" class="fontSize16 title marginBtm5 truncate black-text">{{ getProductConf(product.id) | translate}}</a></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row marginBottom0">
+                    <div class="col s12">
+                        <p class="text-darken-3 productPrice" ng-if="product.price != ''">
+                            <span class="orange-text">{{'USD' | translate }} {{product.price || '-' | currency:''}}</span>
+                        </p>
+                        <div class="clearfix" ng-if="product.price == ''">
+                            <div class="left">
+                                <a href="javascript:void(0)" class="grey-text" smart-infotip position="top" delay="10" message="<span class='red-text'>{{'Enter Price' | translate}}</span>">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <span class="workAsInput">{{ 'USD' | translate }}</span>
+                            </div>
+                            <smart-textfield ng-init="new['price'+$index] = ''" ng-model="new['price'+$index]" type="number" class="col s6 _fxLbl productPrice" placeholder="">
+                            </smart-textfield>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col s12 ">
+                        <smart-select options="unitTypeOption" on-change="changeUnit(product.selectedUnit, $index)" ng-model="product.selectedUnit" is-mandatory="true" class=" quantityfor" datakey="name"></smart-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <smart-textfield label="Quantity" ng-model="product.itemCount" type="number" class="col s5 input-field quantity-field"></smart-textfield>
+                    <div class="col s2 aCenter forlbl padding0 grey-text text-darken-1 fontSize12" ng-if="product.forItem">For</div>
+                    <smart-textfield label="Efforts" ng-model="product.efforts" type="number" class="col s5 input-field efforts-field" ng-if="product.forItem"></smart-textfield>
+                </div>
+            </div>
+        </div>
+        <div class="cardListFooter clearfix">
+            <div class="right">
+                <!--<smart-button flat="true" triggerr  class="waves-effect waves-blue wave-light fontSize12" ng-click="addToCart($event, catalog)" config="{'title': 'ADD TO CART' }"></smart-button>-->
+                <a href="javascript:void(0)" class="addToCart-btn" ng-click="addToCart($event, catalog)">ADD TO CART</a>
+            </div>
+        </div>
+    </div>
+</script>

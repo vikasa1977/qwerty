@@ -1,0 +1,109 @@
+﻿<div ng-controller="adrCtrl">
+    <div class="right">
+        <a href="javascript:;">
+            <i class="icon iconSmall left blue-text tooltipped" message="Download" smart-tooltip data-position="bottom" delay="50">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Download"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="javascript:;" ng-click="viewLogPopupCallback()">
+            <i class="icon iconSmall left blue-text tooltipped" message="View Log" smart-tooltip data-position="bottom" delay="50">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_viewLog"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="javascript:;">
+            <i class="icon iconSmall left blue-text tooltipped" message="Upload" smart-tooltip data-position="bottom" delay="50" ng-click="showUploadPopupCallback(e)">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Upload"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="javascript:;">
+            <i class="icon iconSmall left blue-text tooltipped" message="Delete" smart-tooltip data-position="bottom" delay="50">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                </svg>
+            </i>
+        </a>
+        <!--<a href="javascript:;">
+            <i class="icon iconSmall left blue-text tooltipped" message="Add New" smart-tooltip data-position="bottom" delay="50">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_CirclePlus"></use>
+                </svg>
+            </i>
+        </a>-->
+        <a href="javascript:void(0)" class="marginRight10 right" ng-click="addidentificationData(identificationData)">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+    </div>
+    
+    <table class="bordered sTable fixedTbl" style="border-top:1px solid #d0d0d0;margin-top: 8px;display: inline-table;">
+        <thead>
+            <tr>
+                <th width="5%"></th>
+                <th width="70%" colspan="{{tableHeaders.length}}" style="border-right:1px solid #d0d0d0">Accounting Source</th>
+                <th width="25%">Accounting Segment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <smart-checkbox label="" ng-model="checkall"  smart-selectall data="identificationData|.sectiersuppData"></smart-checkbox>
+                </th>
+                <th ng-repeat="data in tableHeaders">
+                    {{data.name}}
+                </th>
+                <th style="border-left:1px solid #d0d0d0;">{{targetSegVal || basicDetail.selectedTargetSeg[0].name}}</th>
+            </tr>
+            <tr ng-repeat="listData1 in identificationData track by $index">
+                <td>
+                    <smart-checkbox class="sectiersuppData" label="" ng-model="listData1.checked"></smart-checkbox>
+                </td>
+
+                <td ng-repeat="listData in listData1.tableInnerData track by $index" class="left-align relative">
+                    <a class="left" href="javascript:void(0)" ng-if="listData.isTree" ng-click="treeOpenCallback('category', $parent.$parent.$index)">{{listData.selectedCategoriesTxt}}</a>
+                   <smart-dropdown config="{{dropDownConfig}}" ng-if="!listData.isTree">
+                        <a ng-show="!listData.group.selectedoption[0].name" class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='dropdowngrid-group-{{$id}}' data-constrainwidth="false">
+                            {{listData.group.selectedoption.name  || listData.group.displaytitle }}
+                        </a>
+                        <div ng-class="{'table-typeahead-lookup--active' : listData.group.selectedoption[0].name}" id="dropdowngrid-group-{{$id}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                            <smart-typeahead class="" titleofmodel="{{listData.group.lookuptitle}}" multiselect="false" addnew="false" show-lookup="true" placeholder="{{listData.group.displaytext}}" ng-model="listData.group.selectedoption" options="listData.group.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                        </div>
+                    </smart-dropdown>
+                </td>
+
+                <td style="border-left: 1px solid #d0d0d0;">
+                    <smart-dropdown config="{{parentScope.dropDownConfig}}">
+                        <a ng-show="!listData1.group.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-group1-' + parentIndex + '-' + $index, listData1);" href='javascript:void(0)' data-activates='dropdowngrid-group1-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                            {{listData1.group.selectedoption.name  || listData1.group.displaytitle }}
+                        </a>
+                        <div ng-class="{'table-typeahead-lookup--active' : listData1.group.selectedoption[0].name}" id="dropdowngrid-group1-{{parentIndex}}-{{$index}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                            <smart-typeahead class="" titleofmodel="{{listData1.group.lookuptitle}}" multiselect="false" addnew="false" show-lookup="true" placeholder="{{listData1.group.displaytext}}" ng-model="listData1.group.selectedoption" options="listData1.group.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                        </div>
+                    </smart-dropdown>
+                </td>
+
+                <td class="right-align" width="5%" ng-show="($index + 1) != identificationData.length">
+                    <a href="javascript:void(0)" class="right marginRight10" ng-click="deleteConditionData(identificationData, $index)">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                </td>
+
+                <td class="right-align marginRight10" width="5%" ng-show="($index + 1) === identificationData.length">
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <smart-popup template-url="{{viewLogPoupUrl}}" show="{{viewLogPopup}}" on-hide="hideViewLogPopupCallback()" type="medium"></smart-popup>
+    <smart-popup template-url="{{uploadPopupUrl}}" show="{{showUploadPopup}}" on-hide="uploadPopUpOnHideCallback(e)" type="medium"></smart-popup>
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback(e)" cancel-button="true"></smart-popup>
+</div>

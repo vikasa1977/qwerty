@@ -1,0 +1,66 @@
+﻿<div id="approvalPending">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+        </i>
+        <span class="title">Task List</span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body mass-edit-popup is-scrolled">
+            <smart-scroll height="500px">
+                <ul class="collection noBorder">
+                    <li class="collection-item clearfix" ng-repeat="item in taskListData">
+                        <div class="checkbox-wrapper">
+                            <!--<smart-checkbox label="" ng-model="item.isChecked"></smart-checkbox>-->
+                        </div>
+                        <div class="checkbox-content-wrapper">
+                            <span class="chk-label">{{item.label}}</span>
+                            <div ng-if="item.hasStatus" class="ddStatus clearfix">
+                                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true" fixed="true">
+                                    <a href="javascript:void(0)" data-activates='selectStatus1' class="black-text clearfix dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                        <span class="clearfix statusIndicator">
+                                            <span ng-class="{'partiallyReceived': item.selectedStatus.name == 'Complete', 'inProgress': item.selectedStatus.name == 'In Progress', 'fullyReceived': item.selectedStatus.name == 'Not Started'}"></span>
+                                        </span>
+                                        <span>
+                                            {{ item.selectedStatus.name || translate}}
+                                        </span>
+                                        <i class="icon iconSmall black-text">
+                                            <svg>
+                                                <use xlink:href="#icon_DropArrow"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                    <ul id='selectStatus1' class='dropdown-content'>
+                                        <li ng-repeat="currItem in item.status" ng-class="{'active': item.selectedStatus.name == currItem.name}">
+                                            <a href="javascript:void(0)" ng-click="statusChange(currItem.name, item.selectedStatus)" ng-class="{'blue-text cusror-default': item.selectedStatus.name == currItem.name}">
+                                                <span class="clearfix statusIndicator">
+                                                    <span ng-class="{'partiallyReceived': currItem.name == 'Complete', 'inProgress': currItem.name == 'In Progress', 'fullyReceived': currItem.name == 'Not Started'}"></span>
+                                                </span>
+                                                {{ currItem.name || translate }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="collection-item clearfix">
+                        <div ng-if="statusChanged" class="checkbox-content-wrapper">
+                            <span class="chk-label">Start/End Date</span>
+                            <div class="clearfix">
+                                <smart-textfield type="date" label="" ng-model="item.endDate"><smart-textfield>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </smart-scroll>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <!--<smart-button flat="true" config="{'title':'RESET'}" class="left"></smart-button>-->
+                <smart-button flat="true" config="{'title':'SAVE'}" class="right modal-close"></smart-button>
+                <smart-button flat="true" config="{'title':'CANCEL'}" class="right modal-close"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

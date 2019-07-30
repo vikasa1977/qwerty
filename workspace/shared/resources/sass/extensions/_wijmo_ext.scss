@@ -1,0 +1,737 @@
+
+.wj-flexgrid .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background: #fff;
+}
+
+.wj-content.wj-flexsheet {
+    border: none;
+}
+
+.wj-header-row {
+    background-color: #f2f2f2 !important;
+    color: #757575 !important;
+}
+
+.wj-control .wj-listbox .wj-content input[type=checkbox],
+.wj-listbox-item input[type=checkbox],
+.wj-control .wj-state-focused input[type=radio] {
+    opacity: 1;
+    position: relative;
+    left: 0;
+}
+
+.wj-dropdown-panel {
+    max-width: 350px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    will-change: width, height;
+    transition-delay: 0s, 0s, 0.3s;
+}
+
+.wj-elem-filter,
+.wj-elem-dropdown {
+    float: right;
+}
+
+.wj-flexgrid .wj-colheaders .wj-header.wj-state-multi-selected {
+    border-bottom: 2px solid $link !important;
+}
+
+.wj-flexgrid .wj-rowheaders .wj-header.wj-state-multi-selected {
+    border-right: 2px solid $link !important;
+}
+
+.wj-flexgrid .wj-marquee {
+    border: 2px solid $link !important;
+}
+
+.wj-flexsheet .wj-marquee {
+    border: 2px solid $link !important;
+}
+
+.wj-sTable-cell input[type=text], .wj-sTable-cell input[type=password], .wj-sTable-cell input[type=email], .wj-sTable-cell input[type=url], .wj-sTable-cell input[type=time], .wj-sTable-cell input[type=date], .wj-sTable-cell input[type=datetime-local], .wj-sTable-cell input[type=tel], .wj-sTable-cell input[type=number], .wj-sTable-cell input[type=search], .wj-sTable-cell textarea.materialize-textarea {
+    height: 20px;
+}
+
+.wj-sTable-cell input[type=text]:focus:not([readonly]), .wj-sTable-cell input[type=password]:focus:not([readonly]), .wj-sTable-cell input[type=email]:focus:not([readonly]), .wj-sTable-cell input[type=url]:focus:not([readonly]), .wj-sTable-cell input[type=time]:focus:not([readonly]), .wj-sTable-cell input[type=date]:focus:not([readonly]), .wj-sTable-cell input[type=datetime-local]:focus:not([readonly]), .wj-sTable-cell input[type=tel]:focus:not([readonly]), .wj-sTable-cell input[type=number]:focus:not([readonly]), .wj-sTable-cell input[type=search]:focus:not([readonly]), .wj-sTable-cell textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.wj-control a[wj-part^="btn-apply"], .wj-control a[wj-part^="btn-apply"]:hover, .wj-control a[wj-part^="btn-clear"], .wj-control a[wj-part^="btn-clear"]:hover {
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -o-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    outline: 0;
+    padding: 0 1.429rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: none;
+    background-color: transparent !important;
+    color: $link !important;
+    cursor: pointer;
+}
+
+.wj-control a[wj-part^="btn-asc"], .wj-control a[wj-part^="btn-dsc"], .wj-control a[wj-part^="btn-asc"]:hover, .wj-control a[wj-part^="btn-dsc"]:hover {
+    padding-right: 0;
+    box-shadow: none;
+    background-color: transparent !important;
+    color: $link !important;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.wj-control a[wj-part^="btn-dsc"] {
+    padding-left: 0;
+}
+
+.wj-control a[wj-part^="btn-dsc"] {
+    margin-left: 10px;
+}
+
+.wj-control a[wj-part^="btn-"]:hover {
+    background-color: #00b0ff;
+    color: #fff;
+}
+
+.wj-control div[wj-part^="div-filter"] {
+    border: none !important;
+    padding: 6px 15px;
+    border-top: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    margin: 0 !important;
+}
+
+.wj-control a[wj-part^="a-cnd"] {
+    margin-right: 5px;
+}
+
+.wj-control a[wj-part^="a-val"] {
+    margin-left: 5px;
+}
+
+.wj-control div[wj-part^="div-filter"] input[wj-part^="input"] {
+    border: none !important;
+    margin-top: 0 !important;
+}
+
+.wj-control div[wj-part^="div-filter"] input[wj-part^="input"]:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.wj-control div[wj-part^="div-values"] {
+    border: none !important;
+    margin-bottom: -5px;
+}
+
+.wj-control .wj-listbox-item label {
+    position: relative;
+    padding-left: 29px;
+    color: rgba(0, 0, 0, 0.87);
+    height: 20px;
+    line-height: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.wj-control input[type="checkbox"] {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    border: 2px solid #5a5a5a;
+    border-radius: 1px;
+    margin-top: 2px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.wj-control input[type="checkbox"]:checked, .wj-control input[type="checkbox"]:not(:checked) {
+    position: absolute;
+    left: 0;
+    visibility: visible;
+}
+
+.wj-control input[type="checkbox"]:not(:checked)::before {
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    left: 0;
+    top: 10px;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 20% 40%;
+    transform-origin: 100% 100%;
+}
+
+.wj-control input[type=checkbox]::before {
+    content: '';
+    position: absolute;
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    z-index: 1;
+}
+
+.wj-control input[type="checkbox"]:checked::before {
+    top: 2px;
+    width: 7px;
+    height: 11px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    left: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.wj-control input[type="checkbox"]::after {
+    content: '';
+    left: 0;
+    position: absolute;
+    transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+    border-radius: 2px;
+}
+
+.wj-control input[type="checkbox"]:checked::after {
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid $link;
+    background-color: $link;
+    z-index: 0;
+}
+
+.wj-control input[type="checkbox"]:not(:checked)::after {
+    background-color: #fff;
+    border: 2px solid #5a5a5a;
+    width: 16px;
+    height: 16px;
+    z-index: 0;
+}
+
+.wj-control .wj-state-selected {
+    background-color: #fff;
+}
+
+.wj-control.wj-dropdown-panel {
+    padding: 0 0 5px 0;
+}
+
+.wj-control div[wj-part^="div-sort"] {
+    padding: 10px 0;
+}
+
+.wj-control div[wj-part^="div-type"] {
+    padding: 0 20px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.wj-control div[wj-part^="div-edt-val"] {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.wj-control .wj-listbox-item {
+    line-height: 13px;
+    padding: 10px 20px;
+}
+
+.wj-control div[wj-part^="div-filter"] + .wj-listbox-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.wj-control a[wj-part^="btn-apply"] {
+    float: right;
+}
+
+.wj-control a[wj-part^="btn-apply"], .wj-control a[wj-part^="btn-clear"] {
+    margin-top: 0;
+}
+
+.wj-control .wj-input-group-btn:last-child > .wj-btn {
+    border-left: 1px solid #e0e0e0;
+}
+
+.wj-control .wj-input-group input.wj-form-control {
+    height: 30px;
+    margin: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.wj-content:not(.wj-dropdown-panel):not(.wj-listbox):not(.wj-flexgrid):not(.wj-calendar-outer) {
+    border: 1px solid #e0e0e0;
+}
+
+.wj-control div[wj-part^="div-edt-cnd"] {
+    padding: 0 20px;
+}
+
+.wj-control div[wj-part^="div-edt-cnd"] .wj-combobox {
+    margin-bottom: 10px;
+}
+
+.wj-control div[wj-part^="div-edt-cnd"] div[wj-part^="div-cmb2"] {
+    margin-top: 10px;
+}
+
+.wj-control div[wj-part^="div-edt-cnd"] div[wj-part^="div-hdr"] {
+    margin-bottom: 5px;
+}
+
+.wj-control input[type="radio"] + span::before, .wj-control input[type="radio"] + span::after {
+    content: '';
+    position: absolute;
+    left: -17px;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    z-index: 0;
+    -webkit-transition: 0.28s ease;
+    -moz-transition: 0.28s ease;
+    -o-transition: 0.28s ease;
+    -ms-transition: 0.28s ease;
+    transition: 0.28s ease;
+}
+
+.wj-control input[type="radio"]:checked + span::before {
+    border-radius: 50%;
+    border: 2px solid $link;
+    background: #fff;
+}
+
+.wj-control input[type="radio"]:checked + span::after {
+    border-radius: 50%;
+    border: 2px solid $link;
+    background-color: $link;
+    z-index: 0;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.wj-control input[type="radio"]:not(:checked) + span::before {
+    border-radius: 50%;
+    border: 2px solid #5a5a5a;
+    background: #fff;
+}
+
+.wj-control input[type="radio"]:not(:checked) + span::after {
+    border-radius: 50%;
+    border: 2px solid #5a5a5a;
+    z-index: -1;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+
+.wj-control input[type="radio"] + span {
+    position: relative;
+    padding-left: 5px;
+    color: rgba(0, 0, 0, 0.87);
+    height: 20px;
+    line-height: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-block;
+    opacity: 1;
+    left: 0;
+    margin-right: 15px;
+}
+
+.wj-control.wj-columnfiltereditor {
+    min-width: 350px;
+}
+
+.wj-control input[type="radio"] {
+    position: absolute !important;
+    left: -99999px !important;
+}
+
+.wj-control .wj-listbox-item.wj-state-selected, .wj-control .wj-state-selected {
+    border: 1px solid $link;
+    color: #333;
+}
+
+.wj-control input[type="checkbox"]:indeterminate:after {
+    border-color: #5a5a5a;
+    border-width: 2px;
+    background-color: $link;
+    height: 16px;
+    width: 16px;
+    top: 0;
+}
+
+.wj-control input[type="checkbox"]:indeterminate::before {
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-color: #fff;
+    border-width: 2px;
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+}
+
+.wj-flexgrid .wj-rowheaders .wj-header.wj-state-multi-selected {
+    border-right: 1px solid #c6c6c6 !important;
+    color: $link !important;
+}
+
+.wj-control .wj-cells .wj-state-multi-selected {
+    background-color: #efefef;
+}
+
+.wj-control div[wj-part='ch'] .wj-cell, .wj-control div[wj-part='ch'], .wj-control div[wj-part='tl'] .wj-cell, .wj-control div[wj-part='tl'] {
+    background-color: #fff;
+    color: #5e5e5e;
+}
+
+.wj-control div[wj-part='ch'] .wj-cell {
+    font-size: 12px;
+    font-weight: normal;
+    border-right: none;
+    border-left: none;
+    padding: 5px 20px 5px 10px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.wj-sTable-cell {
+    padding: 12px 10px !important;
+    color: #212121;
+    border-right: none;
+}
+
+.wj-header .wj-glyph-check[style*="opacity:1"], .wj-header .wj-glyph-check[style*="opacity: 1"] {
+    color: $link;
+}
+
+.wj-header .wj-elem-filter {
+    font-size: 16px;
+    margin-top: -4px;
+    margin-right: -10px;
+    background-color: #fff;
+    position: relative;
+}
+
+.wj-lg-select {
+    .wj-content {
+        border: none;
+    }
+
+    div[wj-part="rh"], div[wj-part="rh"] .wj-cell.wj-header {
+        text-align: right !important;
+    }
+
+   
+    .wj-control .wj-cells .wj-state-multi-selected, .wj-cell.wj-sTable-cell.wj-state-selected {
+        background-color: #efefef;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+
+
+
+.wj-lg-select-catalog {
+
+    .wj-control {
+        [wj-part='cells'] {
+            overflow: hidden;
+            width: 100% !important;
+        }
+
+        [wj-part='ch'] {
+            width: 100% !important;
+        }
+    }
+
+    .wj-glyph-down {
+        border-top: .4em solid;
+    }
+
+    .wj-control .wj-input-group-btn:last-child > .wj-btn {
+        border-left: none;
+    }
+
+    .wj-content {
+        background: transparent;
+    }
+
+   .wj-control .wj-input-group input.wj-form-control {
+        background: transparent;
+    }
+
+    .wj-content .wj-input-group-btn > .wj-btn {
+        color: #000000;
+        background: transparent;
+
+        &:hover {
+            background: transparent;
+            color: #000000;
+        }
+    }
+
+    .wj-content .wj-btn-group > .wj-btn:hover {
+        background: transparent;
+        color: #000000;
+    }
+
+    .wj-content:not(.wj-dropdown-panel):not(.wj-listbox):not(.wj-flexgrid):not(.wj-calendar-outer) {
+        border: none;
+    }
+
+    .wj-cell.wj-sTable-cell.wj-state-selected {
+        background-color: #efefef;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .wj-flexgrid {
+        border-radius: 0 !important;
+    }
+
+    .wj-cell.wj-frozen-col {
+        border-right: 1px solid #ccc;
+    }
+
+    .wj-overflow-vis, .wj-input-btm-border {
+        overflow: visible;
+
+        .cart-wrapper {
+            width: 110px !important;
+        }
+
+        input[type=tel]:not([readonly]):focus, input[type=text]:not([readonly]):focus {
+            border-bottom: 1px solid $link;
+        }
+    }
+
+    .wj-flexgrid .wj-frozen.wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected),
+    .wj-frozen.wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background: #f7f7f7;
+    }
+
+    .catalog-card-item-type {
+        z-index: 0;
+    }
+
+    .wj-content {
+        border: none;
+    }
+
+    div[wj-part="rh"] {
+        z-index: 9;
+
+        .wj-cell.wj-header {
+            text-align: right !important;
+        }
+    }
+
+    .setupMngrAction {
+        margin: -3px 0 0 0;
+        padding-left: 0;
+
+        .select-wrapper span.caret {
+            top: 0;
+        }
+
+        input[type=text][readonly].select-dropdown {
+            margin: 0;
+            border-bottom: none;
+        }
+    }
+
+    .description-cnt {
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        float: left;
+    }
+
+    .dropdown-content--size-wj {
+        min-width: 185px;
+        left:calc( 100% - 208px)!important;
+    }
+
+    .tableDropdown .line-height0 {
+        line-height: 0;
+    }
+}
+
+.wj-setup-manager {
+    margin: 0;
+    height: calc(100% - 170px);
+
+    .wj-content {
+        border: none;
+        height: 100%;
+        width:100%;
+    }
+
+    .wj-glyph-down-right, 
+    .wj-glyph-right {
+        display: none;
+    }
+
+    .expandCollapseIcon {
+        display: inline-block !important;
+    }
+
+    .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell {
+        overflow: visible;   
+    }
+
+    .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell.child-node {
+        border-top: none;
+        padding-left:35px !important;
+        background-color:#f0f0f0;
+    }
+
+    .wj-control div[wj-part='ch'] .wj-cell, .wj-control div[wj-part='ch'] .wj-cell:hover {
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+        border-left: none;
+        padding: 5px 20px 5px 10px;
+    }
+
+    .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected), .wj-control .wj-cells .wj-state-multi-selected {
+        background: #fff;
+    }
+    
+    .wj-control div[wj-part='ch']{
+        z-index:1;
+    }
+
+    .wj-control .wj-listbox-item.wj-state-selected, .wj-control .wj-state-selected {
+        border: none;
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .wj-control input[type="checkbox"]:not(:checked), .wj-control input[type="checkbox"]:checked {
+        visibility: hidden;
+        left: -99999px;
+    }
+
+    .setupMngrAction {
+        margin: -3px 0 0 0;
+        padding-left: 0;
+
+        .select-wrapper span.caret {
+            top: 0;
+        }
+
+        input[type=text][readonly].select-dropdown {
+            height: auto;
+            margin: 0;
+            border-bottom: none;
+        }
+
+        &.setupMngrSetting {
+            .select-wrapper span.caret {
+                display: none;
+            }
+
+            input[type=text][readonly].select-dropdown {
+                color: $link;
+            }
+        }
+    }
+
+    .description-cnt {
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .configure-btn {
+        line-height: 24px;
+        height: 24px;
+        width: 24px;
+        position: relative;
+        top: -2px;
+    }
+
+    .add-sub-record {
+        line-height: 24px;
+        height: 24px;
+        width: 24px;
+        position: relative;
+        top: -2px;
+    }
+
+    &.wj-add-feature {
+        .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell:nth-last-child(-n + 9) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell:nth-child(-n + 9) {
+            border-top: none;
+        }
+    }
+
+    &.wj-configure-feature {
+        .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell:nth-last-child(-n + 9) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .wj-control [wj-part='root'] .wj-cell.wj-sTable-cell:nth-child(-n + 9) {
+            border-top: none;
+        }
+    }
+
+    .wj-sTable-cell .lookupCnt {
+        display: inline-block;
+        width: 100%;
+
+        .lookup-popup {
+            width: 100%;
+            left: 0 !important;
+            padding: 10px;
+        }
+
+        input[type="text"]:focus {
+            border-bottom: 1px solid #e0e0e0;
+        }
+    }
+}
+
+div[wj-part='container'] > div:first-child {
+    padding-bottom: 3px;
+}
+.wj-cell .infotip-popover-container{white-space:normal;}
+
+.adrMapping.wj-lg-select div[wj-part="rh"] .wj-cell.wj-header{text-align:center !important; padding-top:9px;}
+.wj-control.wj-columnfiltereditor input[type="checkbox"]{margin-top:-5px !important;}

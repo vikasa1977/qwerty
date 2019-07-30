@@ -1,0 +1,389 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back" smart-tooltip position="bottom" delay="50" message="{{ 'Back' || translate }}">
+                <i class="icon small ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xlink:href="#icon_Order"></use>
+                </svg>
+            </i>
+        
+            <span class="extra-nav-title--text ng-cloak"  ng-if="!showBtn">{{ 'CHANGE REQUEST (PO123456)' || translate }}</span>
+            <span class="extra-nav-title--text ng-cloak" ng-if="showBtn">{{ 'CHANGE HISTORY (PO123456)' || translate }}</span>
+        </div>
+        <ul class="extra-nav-right-icon extra-nav-action">
+            
+            <li class="extra-nav-icon">
+                <a class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="{{ 'Download' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            
+            <li class="extra-nav-icon ">
+                <a class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="{{ 'Print' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Print"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="extra-nav-icon">
+                <a class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="{{ 'Comments' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Comments"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<section class="clearfix viewChangePg viewchangePg--bottom-padding-change  ">
+
+    <div class="docListWrap clearfix white"  >
+
+        <div class="row docInfoWrap docInfoWrap--main" ng-show="showBtn">
+            <div class="docInfo">
+                <label class="docInfo-lbl">{{'Req Number:' || translate}}</label>
+                <span class="docInfo-val">{{'2014.09099' || translate}}</span>
+            </div>
+          
+            <div class="docInfo notification-massage">
+                <label class="docInfo-lbl">{{'Supplier Name:' || translate}}</label>
+                <span class="docInfo-val">{{'Quanta' || translate}}</span>
+            </div>
+     
+            <div class="docInfo">
+                <label class="docInfo-lbl">{{'Last Modified Date:' || translate}}</label>
+                <span class="docInfo-val">{{'25 July 2017' || translate}}</span>
+            </div>
+        </div>
+
+        <p class="marginBtm25 grey-text text-darken-4 fontSize18 docListWrap-hdr">{{'SUMMARY' || translate}}</p>
+
+        <ul class="row docList marginBtm0">
+            <li class="col l3 m4 s12 list white docList-li" data-ng-repeat="doc in docObj" ng-show="doc.isVisible">
+                <div class="docList-li-pad">
+                    <div class="docList-hdr">
+                        <div class="docList-hdr-left">
+                            <div class="docList-hdr-left-lbl">{{'Document Number' || translate}}</div>
+                            <div class="docList-hdr-left-val">{{doc.number || translate}}</div>
+                        </div>
+                        <span class="docList-hdr-chkWrap">
+                            <!--<smart-checkbox checked='false' fill='true' disable='false' label='' data-ng-model="checkval" class="filled-in docList-hdr-chk" data-ng-change="docselectclick()"></smart-checkbox>-->
+							<smart-checkbox disable="{{doc.isDisabled}}" ng-model="doc.isChecked" on-change="docCheckOnChange()"></smart-checkbox>
+                        </span>
+
+                        <div class="docList-hdr-left paddingRight10">
+                            <!--<div class="docList-hdr-left-lbl">{{'Change order amount' || translate}}</div>-->
+                            <div class="docList-hdr-left-val">
+                                <span class="doc-hdr-status">{{doc.status || translate}}</span>
+                                <span class="text-darken-3 right"><span class="bold">{{doc.orderAmountChanged || translate}}</span>  USD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="docList-cnt" data-ng-show="!isCompared">
+                        <div class="docList-cnt-field clearfix">
+                            <div class="d-c-f-label col s12 m4 paddingRight0">{{'Amount Changed ' || translate }}</div>
+                            <div  class="col s12 m8"><span class="value-divider left">:</span><span class="docList-value left">{{doc.amountChanged || translate}} {{'USD' || translate}}</span></div>
+                        </div>
+                        <div class="docList-cnt-field clearfix">
+                            <div  class="d-c-f-label col s12 m4 paddingRight0">{{'Created by' || translate}}</div>
+                            <div  class="col s12 m8"><span class="value-divider left">:</span><span class="docList-value left truncate" smart-tooltip position="bottom" message="{{doc.createdBy || translate}}">{{doc.createdBy || translate}}</span></div>
+                        </div>
+                        <div class="docList-cnt-field clearfix">
+                            <div class="d-c-f-label col s12 m4 paddingRight0">{{'Created on' || translate}}</div>
+                            <div class="col s12 m8"><span class="value-divider left">:</span><span class="docList-value left">{{doc.createdOn || translate}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+			<li class="col l3 m4 s12 list white btnHolder" data-ng-show="isCompared">
+				<smart-button config='{"title":"Change"}' background-color='" "' flat='"true"' data-ng-click="changeDocs()"  class="changeLnk"></smart-button>
+			</li>
+        </ul>
+        <!--<div ng-show="showBtn"><smart-button config='{"title":"Change"}' background-color='" "' flat='"true"' data-ng-click="changeDocs()" data-ng-show="isCompared" class="changeLnk"></smart-button></div>-->
+    </div>
+
+    <div class="compareDocResults accountDetails " data-ng-show="isCompared">
+        <div smart-sortable>
+        <!--HEADER CHANGES-->
+        <smart-section is-header="true" is-collapsible="true" is-draggable="true" label="{{'HEADER CHANGES' | translate}}" is-active="false">
+         
+            <smart-section-content>
+                <table class="bordered">
+                    <thead>
+                        <tr>
+                            <th>{{ 'Attribute' || translate}}</th>
+                            <th>{{ 'Modified From' || translate}}</th>
+                            <th>{{ 'Modified To' || translate}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="header in headers" ng-class="{'grey lighten-4':header.isSubHeader}">
+                            <td ng-class="{'paddingLeft40':header.isSubChild}">{{ header.attributes || translate}}</td>
+                            <td>{{ header.modifiedFrom || translate}}</td>
+                            <td>{{ header.modifiedTo || translate}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </smart-section-content>
+        </smart-section> 
+        <!--LINE CHANGES-->
+        <smart-section is-header="true" is-collapsible="true" is-draggable="true" label="{{'LINE CHANGES' | translate}}" is-active="true" header-template="lineChanges.html" on-header-click="lineChangesFilterShow()">
+          
+            <smart-section-content>
+                <table class="bordered" sticky-header scroll-type="page">
+                    <thead>
+                        <tr>
+                            <!--<th>
+                    <smart-checkbox checked='false' fill='true' disable='false' label='' ng-model="selectAllLineList" on-change="onSelAllLineListChange()"  class="filled-in"></smart-checkbox>-->
+                            <!--<input type="checkbox" id="checkboxGLine" class="filled-in" />
+                <label for="checkboxGLine" class="checkbox-with-empty-label black-text"></label>-->
+                            <!--</th>-->
+                            <th class="sts" ng-show='stsList'>
+
+                                <smart-dropdown>
+                                    <a href="javascript:void(0)" class="stsCir dropdown-button" data-activates="gStsDropdown">
+                                        <span class="stsCir--icon" ng-class="setAllStatus.statusIcon"></span>
+                                        <span class="arr arr--down arr--grey"></span>
+                                    </a>
+                                    <ul class="sts-list dropdown-content " id="gStsDropdown">
+                                        <li class="clearfix sts-li" ng-repeat="state in statusConfig" ng-click="setAllList($index)">
+                                            <a href="javascript:void(0)" class="stsCir">
+                                                <span class="stsCir--icon" ng-class="state.statusIcon"></span>
+                                            </a>
+                                            <div class="sts-cnt">
+                                                <div class="sts-cnt-hdr">{{ state.name  || translate}}</div>
+                                                <div class="sts-cnt-info">{{ state.statusSummary || translate}}</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </th>
+                            <th>{{ 'Action' || translate}}</th>
+                            <th>{{ 'Line Description' || translate}}</th>
+                            <th class="right-align">{{ 'Item Number' || translate}}</th>
+                            <th class="right-align">{{ 'Contract Number' || translate}}</th>
+                            <th class="right-align">{{ 'Unit Price (USD)' || translate}}</th>
+                            <th class="right-align">{{ 'Quantity' || translate}}</th>
+                            <th> UOM</th>
+                            <th class="right-align">{{ 'Total (USD)' || translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="item in lineItems">
+                            <!--<td>
+                    <smart-checkbox checked='false' fill='true' disable='false' label='' ng-model="item.select" on-change="changeItemSelect(item.select)" class="filled-in"></smart-checkbox>-->
+                            <!--<input type="checkbox" id="checkboxLine{{$index}}" class="filled-in" />
+                <label for="checkboxLine{{$index}}" class="checkbox-with-empty-label black-text"></label>-->
+                            <!--</td>-->
+                            <td class="sts" ng-show='stsList'>
+                                <smart-dropdown>
+                                    <a href="javascript:void(0)" class="stsCir dropdown-button" data-activates="stsDropdown{{$index}}">
+                                        <span class="stsCir--icon" ng-class="item.status.statusIcon"></span>
+                                        <span class="arr arr--down"></span>
+                                    </a>
+                                    <ul class="sts-list dropdown-content" id="stsDropdown{{$index}}" ng-init="parentloopIndex = $index">
+                                        <li class="clearfix sts-li" ng-repeat="state in statusConfig" ng-click="setStatus($index, parentloopIndex)">
+                                            <a href="javascript:void(0)" class="stsCir">
+                                                <span class="stsCir--icon" ng-class="state.statusIcon"></span>
+                                            </a>
+                                            <div class="sts-cnt">
+                                                <div class="sts-cnt-hdr">{{ state.name  || translate}}</div>
+                                                <div class="sts-cnt-info">{{ state.statusSummary || translate}}</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </td>
+                            <td>{{item.action}}</td>
+                            <td>
+                                <a href="javascript:void(0)" ng-click="opentempPopup(e)">{{item.name}}</a>
+                            </td>
+                            <td class="right-align">{{item.itemNo || translate}}</td>
+                            <td class="right-align">{{item.contractNo || translate}}</td>
+                            <td class="right-align">{{item.price || translate}}</td>
+                            <td class="right-align">{{item.quantity || translate}}</td>
+                            <td>{{item.uom}}</td>
+                            <td class="right-align">{{item.total || translate}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="10">
+                                <ul class="table-pagination right" ng-init="selecteNumPages = 10">
+                                    <li class="t-p-content">
+                                        <div class="t-p-label">
+                                            Rows Per Page:
+                                        </div>
+                                        <div class="t-p-dropdown">
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a class="dropdown-button  black-text right " href="javascript:void(0);" data-activates="lineItemPagination1" data-constrainwidth="false" data-alignment="right">
+                                                    <span class="t-p-dd-label">{{ currentNumofItem.number  || translate}}</span>
+                                                    <i class="icon iconSmall grey-text right marginLeft0">
+                                                        <svg class="left ">
+                                                            <use xlink:href="#icon_DropArrow"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <ul id='lineItemPagination1' class='dropdown-content'>
+                                                    <li ng-repeat="item in numberOptions">
+                                                        <a href="javascript:void(0)" ng-click="setTheItemWithNumber(item.number)">
+                                                            {{  item.number }}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+
+                                        </div>
+                                    </li>
+
+                                    <li class="t-p-content">
+                                        1-10 out of 50
+                                    </li>
+                                    <li class="t-p-content">
+                                        <a href="javascript:void(0)" class="page-back is-disabled waves-effect waves-circle waves-grey">
+                                            <i class="icon chevron_left">
+                                                <svg>
+                                                    <use xlink:href="#icon_DownChevron">
+                                                    </use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                        <a href="javascript:void(0)" class="page-next waves-effect waves-circle waves-grey">
+                                            <i class="icon chevron_right">
+                                                <svg>
+                                                    <use xlink:href="#icon_DownChevron">
+                                                    </use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </smart-section-content>
+        </smart-section>
+            </div>
+        <smart-popup template-url="{{lineItemPop}}" show='{{lineItemPopup}}' on-hide="lineItemPopOnHideCallback" type="large"></smart-popup>
+     
+    </div>
+
+    <footer class="page-footer bounceInUp animated" ng-if="!hideFooter">
+        <div class="clearfix row">
+            <div class="left left-align col s4">
+                <a ui-sref="p2p.order.vChangePreview" data-ng-show="isCompared" class="waves-effect btn-flat wave-effect">{{'Preview' || translate}}</a>
+            </div>
+                <div class="col s8 right">
+                    <div class="row marginBtm0">
+                        <div class="col s12 right-align">
+                            <smart-button disable="compareDisable" config='{"title":"Compare"}' flat="false" data-ng-show="!isCompared" callback="compareDocs"></smart-button>
+                            <a href="javascript:void(0)" data-ng-show="isCompared" class="waves-effect hoverable white blue-text marginRight10 btn wave-effect ng-binding">{{'Reject' || translate}}</a>
+                            <a href="javascript:void(0)" data-ng-show="isCompared " class="waves-effect hoverable btn wave-effect ng-binding" ng-click="createChangeOrder(e)">{{'Create Change Order' || translate}}</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    </footer>
+</section>
+
+<smart-pop-up header-url='""' content-url='""' cancel-button='"true"' is-show='false'></smart-pop-up>
+
+
+<!-- SAVED VIEW -->
+<!---model view slider--->
+<div ng-show="openPopuFlag">
+    <a href="javascript:void(0);" class="slide-view-modal-next" ng-click="next($event)" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RightChevro"></use>
+            </svg>
+        </i>
+    </a>
+    <a href="javascript:void(0);" class="slide-view-modal-previous" ng-click="prev()" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_LeftChevron"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="slide-view-modal-overlay" ng-click="closeSlideView();" ng-class="{'overlay-show' : previewFlag}"></div>
+
+    <div class="slide-view-modal modal " ng-class="[slide{{$index + 1}}, openSlideModal]" ng-hide="slideHide{{$index  + 1}}" ng-repeat="item in [1,2,3]">
+        <div ng-include="'p2p/order/views/popupLineItem.html'">
+
+        </div>
+    </div>
+
+
+</div>
+<script type="text/ng-template" id="lineChanges.html">
+    <div>
+   
+    <span class="fontSize18 left grey-text text-darken-4 ">{{ 'LINE CHANGES' || translate}}</span>
+    
+    <div class="right marginLeft5 relative zIndex1" ng-show="$parent.$parent.$parent.$parent.lineChangesFilter">
+        <smart-dropdown stop-prog="true">
+            <a class="dropdown-button  black-text right fontSize16 " href="javascript:void(0);" data-activates="lineFilterDropdown"  data-constrainwidth="false" data-alignment="right">
+                <span class="left">{{ 'Show' || translate}}</span>
+                <i class="icon iconSmall black-text marginLeft10 marginTop8">
+                    <svg class="left ">
+                        <use xlink:href="#icon_DropArrow"></use>
+                    </svg>
+                </i>
+            </a>
+            <ul id='lineFilterDropdown' class='dropdown-content lookup-popup lookupInline dd-close-off' style="z-index:inherit;">
+                <li>
+                    <a href="javascript:void(0)">
+                        <smart-checkbox fill="true" class="input-chk" label="All" ng-click="$event.stopPropagation()"></smart-checkbox>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <smart-checkbox fill="true" class="input-chk" label="Added" ng-click="$event.stopPropagation()"></smart-checkbox>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <smart-checkbox fill="true" class="input-chk" label="Modified" ng-click="$event.stopPropagation()"></smart-checkbox>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <smart-checkbox fill="true" class="input-chk" label="Cancelled" ng-click="$event.stopPropagation()"></smart-checkbox>
+                    </a>
+                </li>
+                <li>
+                    <div class="col l7 s6 right-align">
+
+                        <smart-button flat="true" class="modal-close" config='{"title":"Cancel" || translate}' callback="closePopOver"></smart-button>
+                        <smart-button flat="true" class="modal-close" config='{"title":"Done" || translate}' disable="true"  callback="closePopOver"></smart-button>
+                    </div>
+                </li>
+            </ul>
+
+        </smart-dropdown>
+    </div>
+ 
+        </div>
+    </script>

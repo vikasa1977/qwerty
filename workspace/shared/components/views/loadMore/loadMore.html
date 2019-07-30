@@ -1,0 +1,77 @@
+<!-- load more HTML -->
+<li class="listLoader collection-item">
+     <a href="#" class="waves-effect waves-teal btn-flat loadMoreBtn">LOAD MORE ACTIVITIES</a>
+     <div class="preloader-wrapper small active" style="display: none;">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+          <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+          <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+          <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+          <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+            </li>
+
+<!-- Js Code -->
+<script>
+$(document).ready(function () {
+    //Load More Code
+    $('.loadMoreBtn').click(function (e) {
+        e.preventDefault();
+        var el = $(this);
+        el.hide();
+        el.siblings('.preloader-wrapper').show();
+        setTimeout(function () {
+            el.show();
+            el.siblings('.preloader-wrapper').hide();
+            $('.hideForLoad')
+            .velocity({ translateX: "-" + $(document).width() / 4 })
+            .velocity('transition.slideLeftIn', {
+                delay: 0, duration: 100, stagger: 100, complete: function () {
+                    $(this).removeAttr('style').removeClass('hideForLoad');
+                }
+            });
+        },500);
+    });
+});
+</script>

@@ -1,0 +1,39 @@
+<div class="modal-header dropdown-title clearfix">
+  <div class="searchSlideMain zIndex1 searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+    <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+      <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+        <i class="icon iconSmall center grey-text">
+          <svg>
+            <use xlink:href="#icon_Close"></use>
+          </svg>
+        </i>
+      </a>
+
+      <smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearch"></smart-textfield>
+      <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip="" position="bottom" delay="50" message="Search" ng-click="showSearch()">
+        <i class="icon iconSmall center grey-text">
+          <svg>
+            <use xlink:href="#icon_Search"></use>
+          </svg>
+        </i>
+      </a>
+    </div>
+  </div>
+  <i class="icon iconSmall grey-text left">
+    <svg>
+      <use xlink:href="#icon_Lookup"></use>
+    </svg>
+  </i>
+  <smart-select  class="left col s4 margin0" label="" ng-model="selectedDivision" options="divisionOptions" datakey="name" on-change="onChange(selectedDivision)"></smart-select>
+
+
+</div>
+
+<div class="modal-content padding0  is-scrolled">
+  <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback" class="tree-component"></smart-hierarchy-component>
+</div>
+<div class="modal-footer right-align is-scrolled">
+  <smart-button config='{"title":"ADD"}' flat="true" ng-class="modal-close"></smart-button>
+  <smart-button config='{"title":"CANCEL"}' flat="true" ng-class="modal-close"></smart-button>
+</div>
+

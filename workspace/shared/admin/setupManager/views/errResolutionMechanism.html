@@ -1,0 +1,73 @@
+﻿<div ng-controller="errApprovalCtrl">
+    <smart-textfield class="col 13 m3 l3 xl3 xxl3 line-height-manager input-field" readonly="true" ng-if="parentScope.basicDetail.selectedExceptionType.id == '3'" ng-model="parentScope.resolutionMechanism.ResolveByOptions[1].name" label="Resolve by"></smart-textfield>
+    <smart-select class="col 13 m3 l3 xl3 xxl3 line-height-manager input-field" label="Resolve by" is-mandatory='true' ng-if="parentScope.basicDetail.selectedExceptionType.id != '3'" ng-model="parentScope.resolutionMechanism.selectedResolveBy" options="parentScope.resolutionMechanism.ResolveByOptions" datakey="name" on-change="onResolveByChange(parentScope.resolutionMechanism.selectedResolveBy)"></smart-select>
+    <div class="col 14 m4 l4 xl4 xxl4 line-height-manager left marginLeft25 marginTop20 marginRight5" ng-if="parentScope.basicDetail.selectedExceptionType.id=='1'" ng-repeat="item in parentScope.resolutionMechanismCheckBox">
+        <smart-checkbox class="left" label="{{item.label}}" on-change="onResolveByCheckboxChange(item)" ng-model="item.checked"></smart-checkbox>
+        <a href="javascript:void(0);" class="marginLeft10 left marginTop3">
+            <i class="marginTop0 icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="top" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." is-fixed="true">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div class="col 14 m4 l4 xl4 xxl4 line-height-manager marginTop20 left marginLeft25 marginRight5" ng-if="parentScope.basicDetail.selectedExceptionType.id=='3'" ng-repeat="item in parentScope.resolutionMechanismCheckBox">
+        <smart-checkbox class="left" label="{{item.label}}" on-change="onResolveByCheckboxChange(item)" ng-model="item.checked"></smart-checkbox>
+        <a href="javascript:void(0);" class="marginLeft10 left marginTop3">
+            <i class="marginTop0 icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="top" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." is-fixed="true">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div class="col 14 m4 l4 xl4 xxl4 line-height-manager marginTop20 left marginLeft25" ng-if="parentScope.basicDetail.selectedExceptionType.id=='2' && parentScope.resolutionMechanism.selectedResolveBy.id == '1'" ng-repeat="item in parentScope.resolutionMechanismCheckBox">
+        <smart-checkbox class="left" label="{{item.label}}" on-change="onResolveByCheckboxChange(item)" ng-model="item.checked"></smart-checkbox>
+        <a href="javascript:void(0);" class="marginLeft10 left marginTop3">
+            <i class="marginTop0 icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="top" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." is-fixed="true">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div class="col 14 m4 l4 xl4 xxl4 line-height-manager marginTop20 left marginLeft25" ng-if="parentScope.basicDetail.selectedExceptionType.id=='2' && parentScope.resolutionMechanism.selectedResolveBy.id == '2'" ng-repeat="item in parentScope.resolutionMechanismCheckBox">
+        <smart-checkbox class="left" label="{{item.label}}" on-change="onResolveByCheckboxChange(item)" ng-model="item.checked"></smart-checkbox>
+        <a href="javascript:void(0);" class="marginLeft10 left marginTop3">
+            <i class="marginTop0 icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="top" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." is-fixed="true">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+
+    <br>
+    <div class='left width100P marginLeft5' ng-if="parentScope.basicDetail.selectedExceptionType.id=='1' && parentScope.resolutionMechanism.selectedResolveBy.id == '1'">
+        <label class="left fontSize12" data-position="left" style="position: absolute;margin-top: 15px;margin-left: 5px;color: rgba(0, 0, 0, 0.64);">Resolver</label><br>
+        <div class="col 13 m3 l3 xl3 xxl3 padding0" style="position: relative;">
+            <smart-checkbox class="line-height-manager left" label="User with activity" on-change="onResolverChangeMRE(item)" style="width:50%" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox1"></smart-checkbox>
+            <smart-typeahead class="col 13 m3 l3 xl3 xxl3 input-field line-height-manager" style="width:49%" ng-show="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox1" is-mandatory="true" lookup-Hide="onActivityTypeChange(data)" titleofmodel="{{parentScope.resolutionMechanism.ResolverActivityOptions[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{parentScope.resolutionMechanism.ResolverActivityOptions[0].displaytext}}" ng-model="parentScope.resolutionMechanism.ResolverActivityOptions[0].selectedoption" options="parentScope.resolutionMechanism.ResolverActivityOptions[0].options" filterkeys="['name']" label="{{'Activity' || translate}}"></smart-typeahead>
+        </div>
+
+        <div class="col 13 m3 l3 xl3 xxl3 marginLeft30 padding0" style="position: relative;">
+            <smart-checkbox class="line-height-manager left" label="Entity owner" on-change="onResolverChangeMRE(item)" style="width:40%" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox2"></smart-checkbox>
+            <smart-typeahead class="col 13 m3 l3 xl3 xxl3 input-field line-height-manager" style="width:59%" ng-show="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox2" is-mandatory="true" lookup-Hide="onEntityTypeChange(data)" titleofmodel="{{parentScope.resolutionMechanism.ResolverEntityOptions[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{parentScope.resolutionMechanism.ResolverEntityOptions[0].displaytext}}" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions[0].selectedoption" options="parentScope.resolutionMechanism.ResolverEntityOptions[0].options" filterkeys="['name']" label="{{'Entity type' || translate}}"></smart-typeahead>
+        </div>
+    </div>
+    <div class='left width100P marginLeft5' ng-if="parentScope.basicDetail.selectedExceptionType.id=='2' && parentScope.resolutionMechanism.selectedResolveBy.id == '1'">
+        <label class="left fontSize12" data-position="left" style="position: absolute;margin-top: 15px;margin-left: 5px;color: rgba(0, 0, 0, 0.64);">Resolver</label><br>
+        <div class="col 13 m3 l3 xl3 xxl3 padding0" style="position: relative;">
+            <smart-checkbox class="line-height-manager left" label="Order contact" on-change="onResolverChangeMRE(item)" style="width:42%" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox1"></smart-checkbox>
+            <smart-typeahead class="col 13 m3 l3 xl3 xxl3 input-field line-height-manager" style="width:57%" ng-show="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox1" is-mandatory="true" lookup-Hide="onActivityTypeChange(data)" titleofmodel="{{parentScope.resolutionMechanism.ResolverActivityOptions[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{parentScope.resolutionMechanism.ResolverActivityOptions[0].displaytext}}" ng-model="parentScope.resolutionMechanism.ResolverActivityOptions[0].selectedoption" options="parentScope.resolutionMechanism.ResolverActivityOptions[0].options" filterkeys="['name']" label="{{'Activity' || translate}}"></smart-typeahead>
+        </div>
+        <div class="col 13 m3 l3 xl3 xxl3 marginLeft30 padding0" style="position: relative;">
+            <smart-checkbox class="line-height-manager left" label="Entity owner" on-change="onResolverChangeMRE(item)" style="width:40%" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox2"></smart-checkbox>
+            <smart-typeahead class="col 13 m3 l3 xl3 xxl3 input-field line-height-manager" style="width:59%" ng-show="parentScope.resolutionMechanism.ResolverEntityOptions.resolverCheckbox2" is-mandatory="true" lookup-Hide="onEntityTypeChange(data)" titleofmodel="{{parentScope.resolutionMechanism.ResolverEntityOptions[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{parentScope.resolutionMechanism.ResolverEntityOptions[0].displaytext}}" ng-model="parentScope.resolutionMechanism.ResolverEntityOptions[0].selectedoption" options="parentScope.resolutionMechanism.ResolverEntityOptions[0].options" filterkeys="['name']" label="{{'Entity type' || translate}}"></smart-typeahead>
+        </div>
+    </div>
+    <div class='left width100P marginLeft10' ng-if="parentScope.basicDetail.selectedExceptionType.id=='3'">
+        <label class="left fontSize12" data-position="left" style="position: absolute;margin-top: 15px;color: rgba(0, 0, 0, 0.64);">Resolver</label><br>
+        <smart-textfield class="col 13 m3 l3 xl3 xxl3 line-height-manager input-field paddingLeft0" readonly="true" ng-model="'User with override exception activity'" label=""></smart-textfield>
+    </div>
+</div>

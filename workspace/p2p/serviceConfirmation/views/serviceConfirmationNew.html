@@ -1,0 +1,135 @@
+<!--sub header-->
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <!--<span class="extra-nav-title--text ng-cloak" ng-if="!istest1">{{'CREATE SERVICE CONFIRMATION (DRAFT)' || translate}}</span>-->
+                <span class="extra-nav-title--text ng-cloak myTest1" ng-if="myTest1 && mode != 'supplierInvoice'">{{'SERVCONF0010' || translate}} - {{serComStatus}}</span>
+                <span class="extra-nav-title--text ng-cloak myTest2" ng-if="!myTest1 && mode != 'supplierInvoice'">{{'UC-8 Service Order For Fracking Services (Accepted)' || translate}}</span>
+                <span class="extra-nav-title--text ng-cloak myTest1" ng-if="mode == 'supplierInvoice'">{{'INVOICE for PO 0015278031' || translate}}  (Draft)</span>
+            </div>
+
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon marginTop10" id="formSearchDv">
+                </li>
+
+                <li class="extra-nav-title--text marginLeft10 marginRight10">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class='dropdown-button left btn-in-header white-text' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+                            <span ng-if="!addTask && !(statefrom == 'buyerLoginSC') && !(mode == 'supplierInvoice')">{{ '0.00'}} {{ 'USD' || translate }}</span>
+                            <span ng-if="addTask || statefrom == 'buyerLoginSC' || mode == 'supplierInvoice'">{{ '40,000.00'}} {{ 'USD' || translate }}</span>
+                        </a>
+                    </smart-dropdown>
+                </li>
+                <li class="extra-nav-title--text ">
+                    |
+                </li>
+                <li class="extra-nav-icon ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <!--<li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="trackStatusPopupCallback(e)">
+                                    Track Status
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback(e)">
+                                    Manage Approvals
+                                </a>
+                            </li>-->
+                            <li ng-hide="statefrom == 'buyerLoginSC'">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback(e)">
+                                    Delete
+                                </a>
+                            </li>
+
+                        </ul>
+                    </smart-dropdown>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="row paddingBtm40 smartFormWidgetContainer">
+        <smart-form-widget form-config="config" model-data="dataModel" search-holder="formSearchDv" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+    </div>
+</div>
+<!--sub header end-->
+
+
+
+
+
+<footer class="page-footer">
+    <div class="row">
+
+        <div class="col s12 normalMode" ng-if="statefrom != 'buyerLoginSC'">
+            <div class="left-align col s3">
+                <smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false" callback="showPreview"></smart-button>
+            </div>
+            <div class="right-align col s9">
+				<smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false"></smart-button>
+                <smart-button config='{"title":"SAVE","allignRight":"false"}' disable="false" class="whiteSecondaryBtn marginRight10"></smart-button>
+				
+                <!--<smart-button flat="true" config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false"></smart-button>-->
+                <smart-button flat="true" config='{"title":"REJECT","allignRight":"false"}' ng-if="istest1" disable="false"></smart-button>
+                <!--<smart-button config='{"title":"ACCEPT test","allignRight":"false"}' ng-if="istest11" disable="false" ng-click="acceptReq()"></smart-button>-->
+
+
+                <smart-button config='{"title":"ACCEPT","allignRight":"false"}' ng-if="istest1" disable="false" ng-click="ChangeStatus()"></smart-button> <!--ng-click="acceptReq()"-->
+                <smart-button config='{"title":"SUBMIT","allignRight":"false"}' ng-if="!istest1" disable="false" ng-click="submitSC()"></smart-button>
+            </div>
+        </div>
+        <div class="col s12 normalMode right-align" ng-if="statefrom == 'buyerLoginSC'">
+                <smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false"  class="left"></smart-button>        
+            <smart-button config='{"title":"REJECT","allignRight":"false"}' disable="false" class="whiteSecondaryBtn marginRight10" ng-click="rejectCall()"></smart-button>
+            <smart-button config='{"title":"APPROVE","allignRight":"false"}'  disable="false" ng-click="approveCall()"></smart-button>
+        </div>
+        </div>
+</footer>
+
+<!---model view slider--->
+
+<div ng-show="openPopuFlag">
+    <a href="javascript:void(0);" class="slide-view-modal-next" ng-click="next($event)" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RightChevro"></use>
+            </svg>
+        </i>
+    </a>
+    <a href="javascript:void(0);" class="slide-view-modal-previous" ng-click="prev()" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_LeftChevron"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="slide-view-modal-overlay" ng-click="closeSlideView();" ng-class="{'overlay-show' : previewFlag}"></div>
+
+    <div class="slide-view-modal modal " ng-class="[slide{{$index + 1}}, openSlideModal]" ng-hide="slideHide{{$index  + 1}}" ng-repeat="item in [1,2,3]">
+        <div ng-include="'p2p/shared/views/templateAttibuteContent.html'">
+
+        </div>
+    </div>
+</div>
+<smart-popup template-url="{{trackStatusPopupUrl}}" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)"></smart-popup>

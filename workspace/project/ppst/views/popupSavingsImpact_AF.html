@@ -1,0 +1,44 @@
+<div>
+	<div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_savings"></use></svg>
+        </i>
+
+		<span class="title">
+			SAVINGS TYPE &amp; IMPACT
+		</span>
+	</div>
+	<div class="modal-content padding0 noBottomBorder">
+        <table class="bordered sTable fixedTbl">
+            <thead class="borderTopLight">
+                <tr>
+                    <th width="40%"></th>
+                    <th class="left-align center" width="20%">One Time - First Month</th>
+                    <th class="left-align center" width="20%">One Time - Last Month</th>
+                    <th class="left-align center" width="20%">Recurring</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="savingsData in savingsImpactData_AF track by $index">
+                    <td>{{::savingsData.title}}</td>
+                    <td class="left-align">
+                        <smart-checkbox class="center" ng-model="savingsData.otfmValue" ng-if="savingsData.otfmFlag" on-change="updateOtfm($index, savingsData.otfmValue)"></smart-checkbox>
+                    </td>
+                    <td class="left-align">
+                        <smart-checkbox class="center" ng-model="savingsData.otlmValue" ng-if="savingsData.otlmFlag" on-change="updateOtlm($index, savingsData.otlmValue)"></smart-checkbox>
+                    </td>
+                    <td class="left-align">
+                        <smart-checkbox class="center" ng-model="savingsData.recurringValue" ng-if="savingsData.recurringFlag" on-change="updateRecurring($index, savingsData.recurringValue)"></smart-checkbox>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+</div>
+	<div class="modal-footer noTopBorder">
+		<div class="right">
+			<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+			<smart-button flat="true" class="left" config='{"title":"DONE"}' ng-click="doneCallBack()" ng-class="{'modal-close': selectedSavings > 0, 'disabled':selectedSavings == 0}"></smart-button>
+		</div>
+	</div>
+</div>

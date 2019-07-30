@@ -1,0 +1,62 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		
+		<i class="left icon iconSmall grey-text">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title">REPEATABILTY FACTOR ({{rfpopupData.option.length}})</span>
+	</div>
+    <div class="modal-content padding0">
+        <table class="bordered fixedTbl fixedTableHeaderShadow sTable">
+            <thead>
+                <tr>
+                    <th class="left-align" style="width: 55px;"></th>
+                    <th class="left-align" style="width:30%;" ng-if="::rfpopupData.option[0].category">
+                        Category
+                    </th>
+                    <th class="left-align" style="width:30%;"  ng-if="::rfpopupData.option[0].businessunit">
+                        Business Unit
+                    </th>
+                    <th class="left-align" style="width:30%;" ng-if="::rfpopupData.option[0].region">
+                        Region
+                    </th>
+                </tr>
+            </thead>
+        </table>
+        <smart-scroll height="330px">
+            <table class="bordered fixedTbl sTable" ng-if="rfpopupData.option.length">             
+                <tbody>
+                    <tr  ng-repeat="rfDataList in ::rfpopupData.option">
+                        <td style="width: 55px;" class="left-align">
+                           <div class="left paddingTop5 redio-chanel ng-scope">
+						     <input id="radio-{{$index}}" ng-disabled="option.isdisabled" type="radio" data-ng-model="rfpopupData.selectedOption" data-ng-value="rfDataList" ng-click="repeatabilityonChangeItem($index)" name="a" class="with-gap"> 
+						     <label for="radio-{{$index}}" ng-class="{'grey-text' : option.isdisabled}"></label>
+						   </div>
+
+                        </td>
+                        <td class="left-align" style="width:30%;" ng-if="::rfpopupData.option[0].category">
+                            <span class="truncate" title="{{ ::rfDataList.category }}">{{ ::rfDataList.category }}</span>
+                        </td>
+                        <td class="left-align" style="width:30%;" ng-if="::rfpopupData.option[0].businessunit">
+                            <span class="truncate" title="{{ ::rfDataList.businessunit }}">{{ ::rfDataList.businessunit }}</span>
+
+                        </td>
+                        <td class="left-align" style="width:30%;" ng-if="::rfpopupData.option[0].region">
+                            <span class="truncate" title="{{ ::rfDataList.region }}">{{ ::rfDataList.region }}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </smart-scroll>
+    </div>
+	<div class="modal-footer modal-footer-normalScroll">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}' ng-click="rfpopupDataSave(rfpopupData);"></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

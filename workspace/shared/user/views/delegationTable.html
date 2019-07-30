@@ -1,0 +1,168 @@
+﻿<div class="row white card-panel item-details-template-wrap" ng-controller="userProfileCtrl">
+  <div class="center action-block" ng-class="{'is-hide' : delegationData}">
+    <a href="javascript:void(0);" ng-click="addNewDelegationCallback(e)" class="action-block-cont">
+      <span class="action-block-cont-icon">
+        <i class="icon icon--xLarge">
+          <svg>
+            <use xlink:href="#icon_CirclePlus"></use>
+          </svg>
+        </i>
+      </span>
+      <span class="action-block-cont-lbl">Add</span>
+    </a>
+  </div>
+
+
+
+    <div ng-class="{'is-hide' : !delegationData}">
+
+<div class="row">
+<a ng-click="addNewDelegationCallback(e)" class="add-new-row" href="javascript:void(0)" smart-tooltip="" position="bottom" delay="50" message="{{'Add New Row'|| translate}}">
+    <i class="icon iconSmall  blue-text">
+      <svg>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_CirclePlus"></use>
+      </svg>
+    </i>
+</a>
+</div>
+
+  <smart-scroll height="500px">
+		<table class="bordered highlight uploadDownloadLog borderTopLight">
+			<thead>
+				<tr>
+					<th class="left-align" style="width:15%;">
+						{{'Document Type' || translate}}						
+					</th>
+					<th class="left-align" style="width:18%;">
+						{{'Activity' || translate}}						
+					</th>
+					<th class="left-align"  style="width:15%;">
+						{{'Delegate To' || translate}}
+					</th>
+					<th class="left-align" style="width:18%;">
+						{{'From' || translate}}					
+					</th>
+                    <th class="left-align" style="width:18%;">
+						{{'Set Up By' || translate}}						
+					</th>
+                      <th class="left-align" style="width:18%;">
+						{{'Set Up On' || translate}}						
+					</th>
+					<th class="left-align" style="width:10%;">
+							{{'Revoked By' || translate}}
+					</th>
+					<th class="left-align" style="width:10%;">
+							{{'Revoked On' || translate}}
+					</th>
+                    <th class="left-align" style="width:10%;">
+							{{'Status' || translate}}
+					</th>
+                 
+                    <th class="left-align" style="width:10%;">
+							{{'Edit' || translate}}
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="delegationLog in uploadData">
+					<td class="left-align">                        
+						 {{delegationLog.documentType}}
+					</td>
+					<td class="left-align">
+						<div class="truncate">
+							{{delegationLog.activity}}
+						</div>
+					</td>			
+                    <td class="left-align">
+						<div class="truncate">{{delegationLog.delegateTo}}</div>
+					</td>
+                    <td class="left-align">
+						<div class="truncate">{{delegationLog.from}}</div>
+					</td>
+                    <td class="left-align">
+						<div class="truncate">{{delegationLog.to}}</div>
+					</td>
+                    <td class="left-align">
+						<div class="truncate">{{delegationLog.setUpBy}}</div>
+					</td>                 
+                       <td class="left-align">
+						<div class="truncate">{{delegationLog.setUpOn}}</div>
+					</td>
+                    <td class="left-align">
+						<div class="truncate">{{delegationLog.revokedBy}}</div>
+					</td>
+                      <td class="left-align">
+						<div class="truncate">{{delegationLog.revokedOn}}</div>
+					</td>
+                      
+                    <td  class="left-align">
+                        <a ng-click="addNewDelegationCallback(e)" href="javascript:void(0)" smart-tooltip position="bottom" delay="50" message="{{'Edit'|| translate}}">
+                            <i class="icon iconSmall editProfileImage blue-text"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_editPen"></use></svg></i>
+                        </a>
+
+                        </td>
+				</tr>
+			</tbody>
+             <tfoot>
+                <tr>
+                    <td colspan="10" class="paddingBtm0">
+                        
+                        <ul class="table-pagination right" ng-init="selecteNumPages = 10">
+                        <li class="t-p-content">
+                            <div class="t-p-label">
+                         Rows Per Page:
+                                </div>
+                            <div class="t-p-dropdown">
+                                <smart-dropdown config="{{dropDownConfig}}">
+                                    <a class="dropdown-button  black-text right " href="javascript:void(0);" data-activates="lineItemPagination1" data-constrainwidth="false" data-alignment="right">
+                                        <span class="t-p-dd-label">{{ currentNumofItem.number  || translate}}</span>
+                                        <i class="icon iconSmall grey-text right marginLeft0">
+                                            <svg class="left ">
+                                                <use xlink:href="#icon_DropArrow"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                    <ul id='lineItemPagination1' class='dropdown-content'>
+                                        <li ng-repeat="item in numberOptions">
+                                            <a href="javascript:void(0)" ng-click="setTheItemWithNumber(item.number)">
+                                              {{  item.number }}
+                                            </a>
+                                        </li>                                      
+                                    </ul>
+                                </smart-dropdown>
+                                
+                                </div>
+                        </li>
+                            
+                        <li class="t-p-content">
+                          1-10 out of 50
+                        </li>
+                            <li class="t-p-content">
+                        <a href="javascript:void(0)" class="page-back is-disabled waves-effect waves-circle waves-grey">
+                            <i class="icon chevron_left">
+                                <svg>
+                                    <use xlink:href="#icon_DownChevron">
+                                    </use>
+                                </svg>
+                            </i>
+                        </a>
+                        <a href="javascript:void(0)" class="page-next waves-effect waves-circle waves-grey">
+                            <i class="icon chevron_right">
+                                <svg>
+                                    <use xlink:href="#icon_DownChevron">
+                                    </use>
+                                </svg>
+                            </i>
+                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tfoot>
+		</table>
+	</smart-scroll>
+	
+  </div>
+  <smart-popup template-url="{{addNewDelegationPopup}}" show="{{addNewDelegation}}" on-hide="hideSelectaddNewDelegation()"></smart-popup>
+</div>

@@ -1,0 +1,212 @@
+<div>
+    <div class="clearfix secContentWithBorder borderTopLight" ng-controller="milestonesHeaderCntrl" ng-if="!noMilestonesFound">
+        <div class="right savable">
+            <a href="javascript:void(0);" class="marginLeft10 right" ng-click="addEditMilestone($event);" ng-if="!noMilestonesFound">
+                <i class="icon left margin0" smart-tooltip message="Add Milestone" position="bottom">
+                    <svg>
+                        <use xlink:href="#icon_CirclePlus"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="javascript:void(0)" class="right" ng-click="openMilestonePage()" ng-if="!noMilestonesFound">
+                <i class="icon" smart-tooltip message="Show More" position="bottom">
+                    <svg>
+                        <use xlink:href="#icon_showMore"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+        <smart-popup template-url="project/ppst/views/editMilestone.html" show='{{editMilestonePopup}}' on-hide="onHideEditMilestone(e)"></smart-popup>
+        <smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadContractPopupCallback(e)"></smart-popup>
+    </div>
+    <div class="clearfix milestonesContainer" ng-if="!noMilestonesFound">
+        <div class="milestoneSection">
+            <div class="totalText">Total</div>
+        </div>
+        <div class="milestoneSection" ng-repeat="summary in milestonesSummary track by $index">
+            <div class="center">{{summary.phaseName}}</div>
+            <div class="center phaseCount">
+                <a class="phaseCountLink" href="javascript:void(0)" ng-click="showPhaseWiseTable(summary)" ng-class="{'active' : summary.showArrowPointer}">{{summary.achieved.length + summary.notAchieved.length}}</a>
+            </div>
+        </div>
+    </div>
+    <table class="bordered sTable left fixedTbl" ng-if="!noMilestonesFound">
+        <thead>
+            <tr>
+                <th class="left-align"><span class="left paddingTop2">Milestone Name</span></th>
+                <th class="left-align">Assigned to
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='assignedTo' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="assignedTo">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'All' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Assigned To Me' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <th class="left-align"> Milestone Type
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='MSType' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="MSType">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Mandatory' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Non-Mandatory' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <th class="left-align" width="155px">Due By
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='filterOptions' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="filterOptions">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'This Month' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'All' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <th class="left-align" width="155px">Status
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='statusFilterOptions' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="statusFilterOptions">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Achieved' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Not - Achieved' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'All' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <th class="left-align">
+                    Approval Status
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='approvalStatusFilterOptions' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="approvalStatusFilterOptions">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Not Required' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Approval Required' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Approval Pending' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Approval Withdrawn' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Approved' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Rejected' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr pagination-id="projectSummaryTable" dir-paginate="summaryItem in projectSummaryData | itemsPerPage: selectedOption.size | orderBy:sortKey:reverse">
+                <td class="left-align"><a href="javascript:void(0)" class="paddingTop5 truncate" ng-click="openMilestonePage({phaseName : summaryItem.phaseName, id:summaryItem.id})"><span>{{summaryItem.milestoneName}}</span><span class="error-status-text" ng-if="summaryItem.type == 'Mandatory'">*</span></a></td>
+                <td class="left-align">
+                    {{summaryItem.assignedTo}}
+                </td>
+                <td class="left-align">
+                    {{summaryItem.type}}
+                </td>
+                <td class="left-align">{{summaryItem.dueBy}}</td>
+                <td class="left-align achieved" ng-if="summaryItem.achieved == 'true'">Achieved</td>
+                <td class="left-align notAchieved" ng-if="summaryItem.achieved == 'false'">Not - Achieved</td>
+                <td class="left-align">{{summaryItem.approvalStatus}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="clearfix paginationWrapper right" ng-if="!noMilestonesFound">
+        <span class="left rowsToShow">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts track by option.size" ng-model="selectedOption"></select>
+        </span>
+        <dir-pagination-controls class="left" pagination-id="projectSummaryTable" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+    <div ng-if="noMilestonesFound">
+        <div class="center action-block">
+            <a href="javascript:void(0);" class="action-block-cont" ng-click="addEditMilestone(false, true)">
+                <span class="action-block-cont-icon">
+                    <i class="icon icon--xLarge">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </span>
+                <span class="action-block-cont-lbl">Add Milestone</span>
+            </a>
+        </div>
+    </div>
+</div>
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadContractPopupCallback(e)"></smart-popup>
+<smart-popup template-url="project/ppst/views/editMilestone.html" show='{{editMilestonePopup}}' on-hide="onHideEditMilestone(e)"></smart-popup>

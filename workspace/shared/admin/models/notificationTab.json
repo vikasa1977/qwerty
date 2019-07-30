@@ -1,0 +1,29 @@
+{
+  "formConfig": {
+    "sections": [
+      {
+        "label": "Notification Details",
+        "isMandatory": true,
+        "isCollapsible": false,
+        "isDraggable": false,
+        "isHeader": true,
+        "rows": [
+          {
+            "properties": [
+          
+               {
+              "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "emailLogData",
+                "templateUrl": "shared/admin/views/notificationView.html"
+               }
+            ]
+          }
+        ]
+      }
+    ]
+},
+
+  "isSequenceToBeMaintained": true
+}

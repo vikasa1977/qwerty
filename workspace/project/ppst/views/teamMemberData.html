@@ -1,0 +1,123 @@
+<div class="clearfix" ng-class="{'borderTopLight' : teamMemberData}">
+	<smart-popup template-url="{{contactInfoPopupUrl}}" show="{{contactInfoPopup}}" on-hide="contactInfoPopupOnHideCallback(e)"></smart-popup>
+
+	<div class="center action-block" ng-show="!teamMemberData">
+		<a href="javascript:void(0);" ng-click="addTeamMemberFromRepoCall()" class="action-block-cont">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Add from Repository</span>
+		</a>
+	</div>
+	<div ng-show="teamMemberData">
+		<div class="clearfix secContentWithBorder fontSize12">
+			<div class="right savable">
+				<smart-dropdown ng-if="supplierView" class="right">
+					<a href="javascript:void(0)" class="right">
+						<i class="icon left dropdown-button marginRight0" data-constrainwidth="false" data-activates="addNewTeamMember" data-alignment="left" position="bottom" smart-tooltip message="Add Team Member">
+							<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+						</i>
+					</a>
+					<ul id="addNewTeamMember" class="padding0 dropdown-content zIndex10">
+						<li class="margin0 list-item"><a href="javascript:void(0)" ng-click="addTeamMemberFromRepoCall()">Add from Repository</a></li>
+						<li class="margin0 list-item"><a href="javascript:void(0)" ng-click="openContactInfoPopup()">New Team Member</a></li>
+					</ul>
+				</smart-dropdown>
+				<a href="javascript:void(0);" ng-if="! (supplierView || buyerPreview)" class="right" ui-sref="projects.addTeamMember" smart-tooltip message="Add Team Member" position="bottom">
+					<i class="icon left margin0">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>
+				<a href="javascript:void(0)" ng-if="!buyerPreview" class="marginLeft10 right" ng-class="{'disabled': !teamMemberSelected}" smart-tooltip message="Delete" position="bottom" ng-click="deleteMultiTeamMember($event)">
+					<i class="icon left">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>
+				
+			</div>
+		</div>
+		<table class="bordered sTable ">
+			<thead>
+				<tr>
+                    <th class="left-align" width="5%" ng-if="teamMemberList.length>1" ng-class="{'filled-partial' : fillpartialTeamMember == true }" ng-hide="mode == 'supervisorInProgress' || mode == 'completedRequester' || mode == 'requestCanceled'">
+                        <smart-checkbox class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+                    </th>
+                    <th class="left-align" width="5%" ng-if="teamMemberList.length<=1" ng-class="{'filled-partial' : fillpartialTeamMember == true }" ng-hide="mode == 'supervisorInProgress' || mode == 'completedRequester' || mode == 'requestCanceled'">
+                        <smart-checkbox class="left paddingTop5" disable="true"></smart-checkbox>
+                    </th>
+					<th class="left-align" width="20%">
+						<span class="left paddingTop2">
+							Name
+                            <a href="javascript:void(0)" ng-click="sort('title')" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use ng-if="sortKey!='title'" xlink:href="#icon_Sort" smart-tooltip message="Duplicate" position="bottom"></use>
+                                        <use ng-if="sortKey=='title'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+                                    </svg>
+                                </i>
+                            </a>
+						</span>
+					</th>
+					<th class="" ng-if="!supplierView" width="22%">Role</th>
+					<th class="center-align" width="12%">View</th>
+					<th class="center-align" ng-if="!supplierView" width="13%">Co-author</th>
+					<th class="center-align" ng-if="!supplierView" width="15%">Team Management</th>
+					<th class="center-align" ng-if="!supplierView" width="13%">Approver</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="teamMember in teamMemberList | itemsPerPage: selectedOption.size | orderBy:sortKey:reverse" pagination-id="teamMember" ng-class="{'highlightRow': teamMember.highlight}">
+                    <td class="left-align" ng-if="!teamMember.disable">
+                        <smart-checkbox class="left paddingTop5" ng-model="teamMember.check" on-change="teamMemberListChange(teamMember.check)"></smart-checkbox>
+                    </td>
+                    <td class="left-align" ng-if="teamMember.disable">
+                        <smart-checkbox class="left paddingTop5" disable="true"></smart-checkbox>
+                    </td>
+					<td class="left-align">
+						<i class="icon iconSmall grey-text" ng-if="supplierView && teamMember.isPrimary" smart-tooltip message="Primary Supplier" position="bottom">
+							<svg><use xlink:href="#icon_PrimaryContact"></use></svg>
+						</i>
+						{{teamMember.title}}	
+						<span ng-if="supplierView && teamMember.isPrimary">
+							(<a href="javascript:void(0)" ng-click="changePrimaryContactPopupCallback()">Change</a>)
+						</span>
+					</td>
+					<td class="left-align">
+						<a href="javascript:void(0)" ng-click="showteamRolePopup($index, teamMember.teamMemberId)" ng-if="teamMember.finalselectedRole.length != 0">{{teamMember.roletitle}}</a>
+						<a href="javascript:void(0)" ng-click="showteamRolePopup($index, teamMember.teamMemberId)" ng-if="teamMember.finalselectedRole.length == 0">Select Role</a>
+					</td>
+					<td class="center-align"> 
+						<smart-checkbox class="paddingTop5" disable="true" ng-model="teamMember.viewer"></smart-checkbox>
+					</td>
+					<td class="center-align">
+						<smart-checkbox class="paddingTop5" ng-model="teamMember.coAuthor" disable="{{supplierView}}"  ng-if="(supplierView && $index > 0) || !supplierView"></smart-checkbox>
+						<smart-checkbox class="paddingTop5" ng-model="true" disable="true" ng-if="supplierView && $index==0"></smart-checkbox>
+					</td>
+					<td class="center-align" ng-if="!supplierView">
+						<smart-checkbox class="paddingTop5" ng-model="teamMember.evaluator" disable="{{buyerPreview}}"></smart-checkbox>
+					</td>
+					<td class="center-align" ng-if="!supplierView">
+						<smart-checkbox class="paddingTop5" ng-model="teamMember.approver" disable="{{buyerPreview}}"></smart-checkbox>
+					</td>
+				</tr>
+				<tr class="noResultsBar" ng-hide="teamMemberList.length">
+					<td class="noResultsBar-cell" colspan="8">No Team Members found.</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="clearfix paginationWrapper savable right" ng-show="teamMemberList.length > 5">
+            <div class="left selectPaginationDropDown">
+                <span class="rowsToShow"> Rows Per Page:</span>
+                <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts" ng-model="selectedOption" datakey="size"></smart-select>
+            </div>
+			<dir-pagination-controls class="left" pagination-id="teamMember" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+		</div>
+	</div>
+</div>
+
+<smart-popup template-url="project/ppst/views/selectRolePopup.html" show="{{roleSelectedPopup}}" type="small" on-hide="projectRolePopuponHide()"></smart-popup>
+<smart-popup template-url="sourcing/rfx/views/popupChangePrimaryContact.html" show="{{changePrimaryContactPopup}}" on-hide="changePrimaryContactPopupHideCallback()" type="small"></smart-popup>
+<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showSmartHierarchyTreePopup}}" on-hide="hideSmartHierarchyTreePopupCallback(e)"></smart-popup>

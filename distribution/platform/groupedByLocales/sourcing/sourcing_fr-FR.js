@@ -1,0 +1,21 @@
+if (typeof Resources$fr_FR  === 'undefined' || Resources$fr_FR ===null ){ Resources$fr_FR = [];  } Resources$fr_FR.push({
+	"requestorName": "French Sourcing Requestor Name",
+	"businessUnit": "French Sourcing Business Unit",
+	"currency": "French Sourcing Currency",
+	"item": "French Sourcing Item",
+	"locationName": "French Sourcing Location Name",
+	"locationCode": "French Sourcing Location Code",
+	"addressLine1": "French Sourcing Address Line 1",
+	"addressLine2": "French Sourcing Address Line 2",
+	"city": "French Sourcing City",
+	"country": "French Sourcing Country",
+	"zipCode": "French Sourcing Zip Code",
+	"state": "Sourcing State",
+	"contactPerson": "French Sourcing Contact Person",
+	"telephoneNumber": "French Sourcing Telephone Number",
+	"requisitionName": "French Sourcing Requisition Name",
+	"requisitionNumber": "French Sourcing Requisition Number",
+	"DocumentName": "French Sourcing Document Name",
+	"configure": "French Sourcing Configure",
+	"addAName": "French Sourcing Add a name"
+});

@@ -1,0 +1,20 @@
+<!-- warning Notification HTML -->
+<div class="modal-content padding0 notification-massage">
+	  <div class="cart">
+		 <div class="card-header notify-warning notify-header">
+		   <p class="center-align"><i class="icon icon-head"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Warning"></use></svg></i>
+		   </p>
+		   
+		   <i class="icon icon-bg"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Warning"></use></svg></i>
+		   <span class="center-align notify-text">{{notifObj.displayTitle}}</span>
+		  </div>
+		 
+		 <div class="card-content padding25"> 
+		   <p class="grey-text">{{notifObj.displayContent}}</p>
+		 </div>
+	  </div>
+ </div>
+<div class="modal-footer"> 
+  <a href="javascript:void(0);" ng-click="confirmAndTakeAction(true)" class=" modal-action modal-close waves-effect   btn-flat">{{notifObj.displayAffirmative}}</a>
+  <a href="javascript:void(0);" ng-click="confirmAndTakeAction(false)" class=" modal-action modal-close waves-effect   btn-flat">{{notifObj.displayNegative}}</a>
+</div>

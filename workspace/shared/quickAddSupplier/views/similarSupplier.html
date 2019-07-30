@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left paddingTop4">
+        <svg>
+            <use xlink:href="#icon_Supplier"></use>
+        </svg>
+    </i>
+    <span class="title">SIMILAR SUPPLIER</span>
+</div>
+<div class="modal-content padding0 comment-poup-content similarsupplier-popup">
+    <div class="row margin0">
+        <div class="col m4 padding0 similar-supplier-tab">
+            <div class="vertical-tabs supplier-vertical-tabs">
+                <div class="scrollbar-outer">
+                    <smart-scroll height="380px">
+                        <ul class="vertical_tab_wrapper clearfix">
+                            <li ng-repeat="tab in similarSupplierData" ng-click="activeTab($index)">
+                                <a href="javascript:void(0)" class="vertical__tab" ng-class="{'is-active':tab.show}">
+                                    <span>{{tab.title}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    <smart-scroll>
+                </div>
+            </div>
+        </div>
+        <div  class="col m8 similar-supplier-tab-content loader-center" ng-hide="!showloader">
+            <div class="circle-loading-container">
+                <div class="preloader-wrapper x-small active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper circle-clipper--x left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper circle-clipper--x right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col m8 similar-supplier-tab-content" ng-show="similarSupplierData[$index].show" ng-repeat="tabData in similarSupplierData">
+            <smart-scroll height="380px">
+                <div class="vertical-tabs-content">
+                    <div class="vertical_tab_content_wrapper clearfix">
+                        <!--<a href="javascript:void(0);" ng-click="profileLink('Globus')" class="right profileText">View Profile</a>-->
+                        <div class="row" ng-repeat="tabRow in tabData.data">
+                            <a ng-if="$index == 0" href="javascript:void(0);" ng-click="profileLink('Globus')" class="right profileText">View Profile</a>
+                            <div class="col s6 field-cols" ng-repeat="rowControl in tabRow">
+                                <smart-textfield ng-if="rowControl.control == 'textbox'" type="text" readonly="true" disable="true" label="{{rowControl.name}}" ng-model="rowControl.value"></smart-textfield>
+                                <div ng-if="rowControl.control == 'listview'">
+                                    <div class="grey-text fontSize12">{{rowControl.name}}</div>
+                                    <span id="{{rowControl.controlConfig.id}}" data-target="{{rowControl.controlConfig.dataTarget}}" class="catpopup-title">
+                                        <span class="paddingRight8">{{rowControl.value}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </smart-scroll>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align">
+                    <smart-button config='{"title":"CLOSE"}' class="right-align modal-close" flat="true" ng-click="commentsPopUpOnHideCallback(e)"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

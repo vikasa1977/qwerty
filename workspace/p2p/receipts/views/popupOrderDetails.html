@@ -1,0 +1,190 @@
+<style>td{padding:5px;}</style>
+<div>
+    <div class="modal-header">
+        <i class="icon grey-text iconSmall left ng-scope">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Ordered"></use></svg>
+        </i>
+        <span class="title">Select Lines</span>
+        <!--<div class="autoSuggest">
+        
+            <smart-typeahead class="col s12 templatize-field line-height-manager" multiselect="true" addnew="false" titleofmodel="Select Order Number" show-lookup="true" placeholder="" readonly="false" is-mandatory="true" disable="false" selecttypeoption="modelData.mSelectedTypeOrder" ng-model="modelData.mSelectedOrder" options="modelData.orderOptions" filterkeys="['OrderNumber']" lookup-Open="hideOrderDetailsPopupCallback(e)" lookup-Hide="orderDetailsPopupCallback(e)" on-select="selectedItem(0)" label="Order Number"></smart-typeahead>
+        </div>-->
+</div>
+    <div class="modal-content padding0 is-scrolled">
+        <div class="wrapper clearfix wrapper--withSidebar padding0">
+            <div class="sidebar sidebar--left Set-Top" style="min-height:353px;">
+                <div class="panel-content">
+                    
+                    <smart-scroll height="320px">
+                        <ul class="panel-content-iteamList">
+                            <li class="clearfix panel-content-iteamList-item marginTop10 paddingBtm7 paddingLeft5 paddingRight0">
+                                <div>
+                                    <smart-typeahead class="col s12"  multiselect="true" addnew="false" titleofmodel="Select Order Number" show-lookup="true" placeholder="" readonly="false" is-mandatory="true" disable="false" selecttypeoption="modelData.mSelectedTypeOrder" ng-model="modelData.mSelectedOrder" options="modelData.orderOptions" filterkeys="['OrderNumber']" lookup-Open="hideOrderDetailsPopupCallback(e)" lookup-Hide="orderDetailsPopupCallback(e)" on-select="selectedItem(0)" label="Order Number"></smart-typeahead>
+                                 
+                                </div>
+                            </li>
+                            <li custom-tab tabindex="{{ ($index == indexToShow ) ? 0 : -1 }}" ng-repeat="n in modelData.mSelectedOrder" class="manage-panel-iteamList-item panel-content-iteamList-item " ng-class="($index == indexToShow ) ? 'selected' : 'cursorPointer'" ng-click="selectedItem($index)">
+                                <span>{{n.OrderNumber}}</span>
+                            </li>
+                        </ul>
+                     </smart-scroll>
+                </div>
+            </div>
+            <div class="content left padding0 scroll-inner-container" style="min-height:353px;">
+                <smart-scroll height="353px">
+                    <div class="panel-content marginBtm0" ng-if="modelData.mSelectedOrder.length > 0" style="width:1400px">
+                        <div class="filterView is-floating-menu-active padding0 marginBtm0 padding0 no-animate">
+                            <div class="row rightPanelHeader marginBottom0" style="background-color: #efefef; line-height: 51px;">
+                                <div class="s9 m9 l9 left paddingLeft0 marginLeft15 fontSize16">
+                                    <span class="left paddingLeft5 milestoneTitle truncate cursorDefault" title="{{selectedPO.OrderNumber}}">{{selectedPO.OrderNumber}}</span>
+                                    <span class="listTbl-meta left marginLeft10">({{totalChecked}} of {{selectedPO.OrderDetails.length}} selected)</span>
+                                </div>
+                                <div class="right s4 paddingRight15">
+                                    <ul class="activityHeaderNav">
+
+                                        <li>
+                                            <a href="javascript:void(0)" ng-click="deleteCurrentOrder(indexToShow)">
+                                                <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                                    <svg>
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                
+                                    
+                                        <table class="bordered" ng-if="modelData.mSelectedOrder.length > 0">
+                                                <colgroup>
+                                                    <col style="width:25px;" />
+                                                    <col style="width:75px;" />
+                                                    <col style="width:100px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:150px;" />
+                                                    <col style="width:100px;" />
+                                                    <col style="width:200px;" />
+                                                    <col style="width:100px;" />
+                                                    <col style="width:150px;" />
+                                                   
+                                                </colgroup>
+                                            <thead class="paddingBtm0">
+                                                <tr>
+                                                    <th class="right-align">
+                                                        <smart-checkbox ng-model="chkBoxObj.checkedAll" class="left" smart-selectall data="selectedPO.OrderDetails|.orderDetailChk" checker-flag="checked" on-change="onChangeCheckAll(selectedPO.OrderDetails)"></smart-checkbox>
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Line No.
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Order Quantity
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Received Quantity
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Accepted Quantity
+                                                    </th>
+                                                    <th class="right-align">
+                                                        UOM
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Previously Accepted Quantity
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Received Date
+                                                    </th>
+                                                    <th class="right-align">
+                                                        Additional Information
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="orderDetail in selectedPO.OrderDetails">
+                                                    <td>
+                                                        <div>
+                                                            <smart-checkbox class="paddingTop5 orderDetailChk" ng-model="orderDetail.checked" on-change="onChangePOItem(selectedPO.OrderDetails)"></smart-checkbox>
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <div class="truncate">
+                                                            {{orderDetail.LineNo}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <div class="truncate paddingLeft10">
+                                                            {{orderDetail.orderQuantity}}
+                                                        </div>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" data-activates='unitPrice_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.receivedQuantity">Enter Value</span>
+                                                                <span ng-if="orderDetail.receivedQuantity">{{orderDetail.receivedQuantity}}</span>
+                                                            </a>
+                                                            <div id='unitPrice_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="orderDetail.receivedQuantity" focus="orderDetail.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+                                                    </td>
+                                                    <td class="right-align">
+                                                        <smart-dropdown config="{{dropDownConfig}}" fixed="true" class="table-dropdown relative">
+                                                            <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(selectedPO)" ng-class="{'invalid-field': conNum.errorMsg}" data-activates='charges_{{$index}}' style="width: 100%; display: inline-block;">
+                                                                <span ng-if="!orderDetail.acceptedQuantity">Enter Value</span>
+                                                                <span ng-if="orderDetail.acceptedQuantity">{{orderDetail.acceptedQuantity}}</span>
+                                                            </a>
+                                                            <div id='charges_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                                                                <div class="row marginBtm0">
+                                                                    <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="orderDetail.acceptedQuantity" focus="selectedPO.qtyfocus" class="col s12" align="right"></smart-textfield>
+                                                                </div>
+                                                            </div>
+                                                        </smart-dropdown>
+                                                    </td>
+                                                    <td class="right-align">
+                                                            {{orderDetail.uom}}
+                                                       
+                                                    </td>
+                                                    <td class="right-align">
+                                                        {{orderDetail.previouslyAcceptedQuantity}}
+                                                    </td>
+
+                                                    <td class="right-align">
+                                                        <smart-textfield type="date" label="" ng-model="date"><smart-textfield>
+                                                    </td>
+
+                                                    <td class="right-align">
+                                                        <a ui-sref='p2p.receipt.receiptAddInfo({id: {{orderDetail.LineNo}} })'>
+                                                                <span ng-if='orderDetail.LineNo == 1'>Add</span>  <span ng-if='orderDetail.LineNo != 1'>Edit </span> ({{orderDetail.additionalInformation.length}})
+                                                         </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                           </div>
+                        </div>
+                    </div>
+                </smart-scroll>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+
+                    <smart-button flat="true" class="left modal-close" config='{"title":"ADD LINES"}'></smart-button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

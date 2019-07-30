@@ -1,0 +1,10 @@
+<div ng-controller="supplierCreationController" class="">
+	<!--<a href="javascript:void(0)" class="col s4 marginBtm8">
+        <span class="grey-text fontSize12 displayBlock" ng-show="showFormSM">Supplier Manager</span>
+		<span id="suppliermBtn" data-target="supplierm" class="catpopup-title" ng-class="{'marginTop0' : !showFormSM}">{{ supplierminitialDisplayText }}</span>
+	</a>
+	<smart-list-popup template-url="{{smartCatPopupSingleLevel}}" default-text="Supplier Manager" show="showFormSM" mode="false" selected-value="suppliermData" modal-content="supplierm" modal-button="suppliermBtn" initial-display-text="supplierminitialDisplayText"></smart-list-popup>-->
+    <smart-typeahead is-mandatory = "true" class="col s12 m4 marginBtm8 line-height-manager" multiselect="true" addnew="false" show-lookup="true" titleofmodel="Choose Supplier Managers" placeholder="" ng-model="suppliermselectedData" options="suppliermData" filterkeys="['name']" label="{{supplierminitialDisplayText}}"></smart-typeahead>
+    
+</div>
+

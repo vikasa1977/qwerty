@@ -1,0 +1,9 @@
+<div class="slick-slide cards-slide">
+    <div id="{{cardItemId}}" ng-class="{'expand-card-transition': true, 'expanded-card-item': isExpanded}" ng-init="parentDivIndex = $index">
+        <section class="card dev_cardParent" ng-class="{'scrolledCard':parallaxMode}">
+            <div ng-class="cardClassByDocType" ng-include="cardHeaderTemplate" ng-if="showHeader"></div>
+            <div class="card-content"><div id="{{cardContentId}}" ng-include="cardContentTemplate"></div></div>
+            <div class="card-action right-align" ng-if="showHeader" ng-include="cardFooterTemplate"></div>
+        </section>
+    </div>
+</div>

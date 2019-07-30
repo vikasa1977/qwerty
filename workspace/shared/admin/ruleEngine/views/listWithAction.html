@@ -1,0 +1,122 @@
+<!-- scanned Img -->
+<div class="row marginBtm6 marginTop6" ng-if="scannedImg">
+    <a href="javascript:void(0)" class="avatarWithImgThumbnail valign-wrapper" ng-click="previewCurrentScannedInvoice($index)">
+        <img src="{{item.scannedImg}}" alt="" class="valign" />
+    </a>
+    <div class="avatarWithImgContent">
+        <a ui-sref="{{ item.docLink }}">
+            <span class="title grey-text text-darken-4 displayBlock">{{item.docName | translate }}  </span>
+            <span class="collecton-item-secondary-text-wrapper"> <span> {{item.docNumber | translate | uppercase}}</span> </span>
+            <span class="collecton-item-secondary-text-wrapper">
+                <span ng-if="item.docStatus"> {{ item.docStatus | translate }}</span>
+                <span ng-if="item.docStatus">|</span>
+                <span ng-repeat="attrib in item.attributes | limitTo : 8">
+                    <span ng-if="attrib.datakey == 'Uploaded_by'">{{ 'Uploaded by' | translate }}</span>
+                    <span ng-if="attrib.datakey == 'Uploaded_On'">{{ 'on' | translate }}</span>
+                    {{attrib.value | translate}}
+                </span>
+            </span>
+        </a>
+    </div>
+</div>
+<!-- end scanned Img -->
+
+<div class="row marginBtm6 marginTop6" ng-if="!scannedImg">
+    <div class="checkboxWithIconGroup checkboxOnLanding" ng-click="$event.stopPropagation();" ng-if="!item.itemImage">
+        <div class="checkboxWithIcon" ng-class="{'showCheckboxOnly': ShowCheckboxs}">
+            <i class="icon iconSmall circle iconItem catalog" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+                <svg>
+                    <use xlink:href="{{setValue(item.docType)}}"><></use>
+                </svg>
+                <img ng-src="shared/resources/images/{{item.itemImage}}" ng-if="item.itemImage" />
+            </i>
+            <smart-checkbox checked='false' fill='true' disable='false' label="" class="inputField" ng-model="item.isdocSelected" on-change="selectCurrent(item.isdocSelected);" input-field="false"></smart-checkbox>
+        </div>
+    </div>
+    <i class="icon iconSmall circle iconItem catalog" ng-if="item.itemImage">
+        <img ng-src="shared/resources/images/{{item.itemImage}}" />
+    </i>
+    <a ng-click="docLinkCall(item)" href="javascript:void(0);">
+        <span class="title grey-text text-darken-4 displayBlock">{{item.docName}}  </span>
+        <span class="collecton-item-secondary-text-wrapper"> <span ng-class="getStatusColor(item.docStatus)"> {{item.docStatus | uppercase}}</span> <span ng-if="item.catalogType">|</span> <span ng-if="item.catalogType"> {{item.catalogType | uppercase}}</span></span>
+        <span class="collecton-item-secondary-text-wrapper">
+            <span ng-if="item.collection">
+                {{item.collection}} : 
+            </span>
+            <span ng-repeat="attrib in item.attributes | limitTo : 8">
+                <span ng-if="attrib.datakey == 'Order Number' ||
+                                attrib.datakey == 'Supplier' ||
+                                attrib.datakey == 'Order Total'||
+                                attrib.datakey == 'Created On' ||
+                                attrib.datakey == 'Sent On' ||
+                                attrib.datakey == 'Purchase Type' ||
+                                attrib.datakey == 'Order Contact' ||
+                                attrib.datakey == 'Supplier Item Number' ||
+                                attrib.datakey == 'Line Receiving Status' ||
+                                attrib.datakey == 'Line Invoicing Status'||
+                                attrib.datakey == 'Line Number' ||
+                                attrib.datakey == 'Order Status' ||
+                                attrib.datakey == 'Category' ||
+                                attrib.datakey == 'Unit Price' ||
+                                attrib.datakey == 'Line Total USD' ||
+                                attrib.datakey == 'Need by Date' ||
+                                 attrib.datakey == 'Supplier Name' ||
+                                attrib.datakey == 'Created by'
+                    ">
+                    {{ attrib.datakey || translate }}:
+                </span>
+
+                <!--<span ng-if="attrib.datakey == 'Rule_number'">
+                    {{ 'Rule Number:' || translate }} 
+                </span>-->
+                <span ng-if="attrib.datakey == 'Conditions'">
+                    {{ 'Conditions:' || translate }}
+                </span>
+                <span ng-if="attrib.datakey == 'Updated_by'">
+                    {{ 'Updated by' || translate }}
+                </span>
+                <span ng-if="attrib.datakey == 'Updated_on'">
+                    {{ 'Updated on' || translate }}
+                </span>
+                {{attrib.value || translate}}
+                <span ng-if="!$last">|</span>
+            </span>
+        </span>
+
+    </a>
+</div>
+<div class="secondary-content" ng-init="actionUniqueID=actionElementID()">
+    <smart-dropdown config="{{dropDownConfig}}" ng-if="!scannedImg">
+        <a ui-sref="{{ item.docLink }}" class="dropdown-button waves-effect waves-circle" data-activates='{{actionUniqueID}}'>
+            <i class="icon iconSmall">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_MenuKebab"></use>
+                </svg>
+            </i>
+        </a>
+        <ul id='{{actionUniqueID}}' class='dropdown-content' style="min-width:180px;">
+            <li ng-repeat="eachAction in item.actions track by $index" ng-click="actionSelectedCallback(eachAction, $parent.$index)">
+                <a>{{eachAction.key}}</a>
+            </li>
+            <li ng-repeat="rule in item.rules track by $index" ng-click="actionSelectedCallback(rule, $parent.$index, item)">
+                <span ng-if="item.docStatus == 'Active' && rule.key == 'Activate_Rule'">
+                    {{ 'Deactivate' || translate }}
+                </span>
+                <span ng-if="item.docStatus == 'Inactive' && rule.key == 'Deactivate_Rule'">
+                    {{ 'Activate' || translate }}
+                </span>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </smart-dropdown>
+</div>
+
+<div class="secondary-content" ng-if="scannedImg">
+    <a href="javascript:void(0)" ng-click="deleteItem($index)" class="waves-effect waves-circle" ng-if="item.actions">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_TrashCan"></use>
+            </svg>
+        </i>
+    </a>
+</div>

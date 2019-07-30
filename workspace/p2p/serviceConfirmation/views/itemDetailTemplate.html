@@ -1,0 +1,277 @@
+<div class="row white card-panel item-details-template-wrap" data-ng-controller="itemDetailsServConfCtrl">
+    <div class="line-detail-view">
+        <div class="section-container">
+            <div class="row marginBtm0 paddingBtm0">
+                <div class="col s12 relative">
+                    <a class="collapse-view grey-text" ng-class="{'expand':minimizePanel}" ng-click="collapseView(minimizePanel)">
+                        <i class="icon iconSmall"><svg><use xlink:href="#icon_DownChevron"></use></svg></i>
+
+                    </a>
+                    <div class="section-title">
+                        <span class="number"> 1</span>
+                        <p>
+                            (500438-009) ADVANCED SEALING/ KAMMPROFILE/ RTJ SPACERSTHIS IS A LUMP SUM CONTRACT FOR ADVANCED SEALING TO MACHINE/KAMMPROFILE A QUANTITY OF 3 - 8" 304SS RTJ TYPE ORIFICE SPACERS AND INSTALL IDENTIFICATION TABS ON EACH. THE WORK WILL HAPPEN ON A EXPEDITED BASIS AND IS REFLECTED IN THE COST ABOVE, AS WELL AS THE ATTACHED QUOTE. OTR REP JEFF GRUDER (510) 242-3120 (707) 332-0967
+                            <a href="javascript:void(0)" ng-click="showSection(isShowSection)">
+                                <span ng-show="!isShowSection">More Details</span><span ng-show="isShowSection">Less Details</span>
+                            </a>
+                        </p>
+                    </div>
+
+                    <a href="javascript:void(0)" class="delete-section disabled" ng-click="deleteSection()">
+                        <i class="icon iconSmall"><svg><use xlink:href="#icon_TrashCan"></use></svg></i>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="row marginBtm0 marginTop25" ng-show="isShowSection">
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Line Type" ng-model="'Fixed Service'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Contract Number" ng-model="'C798482-V7'" readonly="true"></smart-textfield>
+
+            </div>
+
+            <div class="add-tasks" ng-if="!addTask">
+                <div class="center action-block">
+                    <a href="javascript:void(0);" class="action-block-cont" ng-click="addTasks()">
+                        <span class="action-block-cont-icon">
+                            <i class="icon icon--xLarge">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </span>
+                        <span class="action-block-cont-lbl">Add Tasks</span>
+                    </a>
+                </div>
+            </div>
+            <div class="white margin10" ng-if="addTask">
+
+                <div class="row marginBtm0">
+                    <div class="clearfix secContentWithBorder ">
+                        <div class="left">
+                            <span class="contracted-line"></span>
+                            <span>Contracted Task</span>
+                            <!--<div class="toggel-contracted">
+                            <smart-switch ng-model="statusMode" options="statusOptions" left-label="status" right-label="emptyText" on-change="showContracted(addTaskData)"></smart-switch> </div>-->
+
+                        </div>
+                        <ul class="panelBox-header--action">
+                            <li class="panelBox-header--aLink">
+                                <a href="javascript:void(0)" class="fontSize14" ng-click="addTasks()">
+                                    Add Tasks
+                                </a>
+                            </li>
+                            <li class="panelBox-header--aLink">
+                                |
+                            </li>
+                            <li class="panelBox-header--aLink">
+                                <a href="javascript:void(0)" ng-class="{'disabled':erpFullTableDelete}" smart-tooltip message="Delete Selected" position="bottom" ng-click="erpAllDelete()">
+                                    <i class="icon blue-text">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="panelBox-header--aLink">
+                                <a href="javascript:void(0)" smart-tooltip message="Manage Columns" position="bottom" ng-click="erpNewDetail()">
+                                    <i class="icon blue-text">
+                                        <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div class="row marginBottom0">
+                    <div class="tableFixedScrollcolumn">
+
+                        <table class="bordered sTable table-data" style="min-width:1300px">
+                            <thead>
+                                <tr>
+                                    <th class="table-header-checkbox erpTableCheckBox fixed-column" width="35px">
+                                        <div class="inline-div">
+                                            <smart-checkbox ng-model="selectAllErp.checkedAll" smart-selectall data="erpData|.isDataCheck" checker-flag="isChecked" get-checkbox-info="getDataCheckInfo()"></smart-checkbox>
+                                        </div><span style="width:65px;margin-right:10px">Task No.</span>
+                                        <span style="width:150px">Task Description</span>
+                                    </th>
+                                    <th width="200px">Type</th>
+                                    <th>Contract Number</th>
+                                    <th class="right-align" style="width:160px">Quantity/ Efforts</th>
+                                    <th width="150px">UOM</th>
+                                    <th class="right-align" width="150px">Price(USD)</th>
+                                    <th class="right-align" width="150px">Line Value(USD)</th>
+                                    <th>Custom Attribute 1</th>
+                                    <th>Custom Attribute 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="data in addTaskData | itemsPerPage: selectedOption.size | orderBy:sortKey:reverse" pagination-id="teamMember" ng-if="!data.isContracted">
+                                    <td class="fixed-column" ng-class="{'contracted' : !data.readonly}">
+                                        <div class="inline-div left">
+                                            <smart-checkbox class="isDataCheck" ng-model="data.isChecked"></smart-checkbox>
+                                        </div>
+                                        <div class="left" style="width:65px;margin-top:6px;text-align: center;">{{$index+1}}</div>
+                                        <div class="left" style="width:150px;margin-top:6px;">
+                                            <span ng-if="data.readonly !== true" class="truncate">{{data.description}}</span>
+
+                                            <smart-dropdown ng-if="data.readonly == true" fixed="true" class="relative">
+                                                <a class='dropdown-button btn-in-header truncate' href='javascript:void(0)' data-activates='description_{{$index}}' data-constrainwidth="false">
+                                                    {{data.description}}
+                                                </a>
+                                                <div id="description_{{$index}}" single-element-dropdown="true" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off dropdown-content--size-medium">
+                                                    <smart-textfield type="type" placeholder="Enter Value" ng-model="data.description"></smart-textfield>
+                                                </div>
+                                            </smart-dropdown>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div ng-if="data.readonly !== true">{{data.type}}</div>
+                                        <smart-select ng-if="data.readonly == true" label="" ng-model="div" options="divOptions" datakey="code" displaykey="name" on-change="onChange(divOptions)" class="line-height-30"></smart-select>
+                                    </td>
+                                    <td width="150px">
+                                        <div ng-if="data.readonly !== true">{{data.taskContractNumber}}</div>
+                                        <div ng-if="data.readonly == true">--</div>
+                                        
+                                    </td>
+
+                                    <td class="right-align" style="width:160px">
+                                        <div ng-if="data.readonly !== true && data.type != 'Variable Service'">--</div>
+                                        <smart-dropdown ng-if="data.readonly == true || data.type =='Variable Service'" fixed="true" class="relative">
+                                            <a class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='quantityEfforts_{{$index}}' data-constrainwidth="false">
+                                                {{data.quantityEfforts}}
+                                            </a>
+                                            <div id="quantityEfforts_{{$index}}" single-element-dropdown="true" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off dropdown-content--size-medium">
+                                                <smart-textfield type="number" placeholder="Enter Value" ng-model="data.quantityEfforts" align="right"></smart-textfield>
+                                            </div>
+                                        </smart-dropdown>
+                                    </td>
+                                    <td class="relative" width="150px">
+                                        <!--<smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                            <a ng-show="!data.plantcodeerp.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="parentScope.makegridFocuse('dropdowngrid-plantcodeerp-'+ $index);" href='javascript:void(0)' data-activates='dropdowngrid-plantcodeerp-{{$index}}' data-constrainwidth="false">
+                                                {{data.plantcodeerp.selectedoption[0].name  || data.plantcodeerp.placeholderText }}
+                                            </a>
+                                            <div ng-class="{'table-typeahead-lookup--active' : data.plantcodeerp.selectedoption[0].name}" id="dropdowngrid-plantcodeerp-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off paddingLeft0 paddingRight10">
+                                                <smart-typeahead class="col s12" is-mandatory="true" error-model="data.plantcodeerp.errorMsg" defaultselectiontext="data.plantcodeerp.defaultName" defaultselectoption="radioDefault{{$index}}" is-default-mandatory="true" titleofmodel="Plant Code" multiselect="true" addnew="false" show-lookup="true" placeholder="{{data.plantcodeerp.displaytext}}" ng-model="data.plantcodeerp.selectedoption" options="data.plantcodeerp.options" filterkeys="['name']" label="{{supplierminitialDisplayText}}"></smart-typeahead>
+                                            </div>
+                                        </smart-dropdown>-->
+                                      
+                                        <div ng-if="data.readonly !== true && data.type !='Variable Service'">--</div>
+                                        <smart-select ng-if="data.readonly == true || data.type =='Variable Service'" label="" ng-model="uomTask" options="uomOptionstask" datakey="code" displaykey="name" on-change="onChange(uomOptionstask)" class="line-height-30"></smart-select>
+                                    </td>
+
+                                    <td class="right-align" width="150px">
+                                        <smart-dropdown fixed="true" class="relative">
+                                            <a class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='price_{{$index}}' data-constrainwidth="false">
+                                                {{data.price}}
+                                            </a>
+                                            <div id="price_{{$index}}" single-element-dropdown="true" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off dropdown-content--size-medium">
+                                                <smart-textfield type="number" placeholder="Enter Value" ng-model="data.price" align="right"></smart-textfield>
+                                            </div>
+                                        </smart-dropdown>
+                                    </td>
+
+                                    <td class="right-align" width="150px">{{data.lineValue}}</td>
+
+                                    <td>
+                                        <smart-dropdown fixed="true" class="relative">
+                                            <a class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='atttribute1_{{$index}}' data-constrainwidth="false">
+                                                <span ng-if="data.atttribute1 == ''">{{ 'Enter Value'}}</span>
+                                                {{data.atttribute1}}
+                                            </a>
+                                            <div id="atttribute1_{{$index}}" single-element-dropdown="true" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off dropdown-content--size-medium">
+                                                <smart-textfield type="text" placeholder="Enter Value" ng-model="data.atttribute1"></smart-textfield>
+                                            </div>
+                                        </smart-dropdown>
+                                    </td>
+                                    <td>
+                                        <smart-dropdown fixed="true" class="relative">
+                                            <a class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='atttribute2_{{$index}}' data-constrainwidth="false">
+                                                <span ng-if="data.atttribute2 == ''">{{ 'Enter Value'}}</span>
+                                                {{data.atttribute2}}
+                                            </a>
+                                            <div id="atttribute2_{{$index}}" single-element-dropdown="true" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off dropdown-content--size-medium">
+                                                <smart-textfield type="text" placeholder="Enter Value" ng-model="data.atttribute2"></smart-textfield>
+                                            </div>
+                                        </smart-dropdown>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="row marginBtm0">
+                    <div class="clearfix paginationWrapper savable right marginBtm15">
+                        <div class="left selectPaginationDropDown">
+                            <span class="rowsToShow"> Rows Per Page:</span>
+                            <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts" ng-model="selectedOption" datakey="size"></smart-select>
+                        </div>
+                        <dir-pagination-controls class="left" pagination-id="teamMember" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--<div class="section-container">
+            <div class="row marginBtm0 paddingBtm0">
+                <div class="col s12 relative">
+                    <div class="section-title">
+                        <span class="number next-question"> 2</span>
+                        <p class="paddingLeft0">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+                        </p>
+                    </div>
+                    <a href="javascript:void(0)" class="delete-section" ng-click="deleteSection()">
+                        <i class="icon iconSmall"><svg><use xlink:href="#icon_TrashCan"></use></svg></i>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="row marginBtm0 marginTop25">
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Line Type" ng-model="'Material'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Contract Number" ng-model="'--'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Quantity/ Efforts" ng-model="'5'" readonly="true"></smart-textfield>
+                <smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager" label="UOM" ng-model="selectedUOM" options="UOMOptions" datakey="name" on-change="onChange(selectedUOM)"></smart-select>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Price(USD)" ng-model="'100,000'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Line Value(USD)" ng-model="'100,000'" readonly="true"></smart-textfield>
+
+            </div>
+
+        </div>
+        <div class="section-container">
+            <div class="row marginBtm0 paddingBtm0">
+                <div class="col s12 relative">
+                    <div class="section-title">
+                        <span class="number next-question"> 3</span>
+                        <p class="paddingLeft0">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+                        </p>
+                    </div>
+                    <a href="javascript:void(0)" class="delete-section" ng-click="deleteSection()">
+                        <i class="icon iconSmall"><svg><use xlink:href="#icon_TrashCan"></use></svg></i>
+
+                    </a>
+                </div>
+            </div>
+
+            <div class="row marginBtm0 marginTop25">
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Line Type" ng-model="'Material'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Contract Number" ng-model="'--'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Quantity/ Efforts" ng-model="'5'" readonly="true"></smart-textfield>
+                <smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager" label="UOM" ng-model="selectedUOM" options="UOMOptions" datakey="name" on-change="onChange(selectedUOM)"></smart-select>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Price(USD)" ng-model="'100,000'" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Line Value(USD)" ng-model="'100,000'" readonly="true"></smart-textfield>
+
+            </div>
+
+        </div>-->
+
+    </div>
+
+</div>

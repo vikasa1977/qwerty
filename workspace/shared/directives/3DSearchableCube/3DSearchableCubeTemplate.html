@@ -1,0 +1,50 @@
+<div class="mainScreen" smart-infotip position="top" mode="canvas" eltype="canvas" interesect='{"x": 0, "y": 0}' isFixed="true">
+    <div class="searchElement white-text">
+        <!--<input id="searchElementText" type="text" placeholder="Select a cube to proceed" name="search" />-->
+        <smart-typeahead class="dIBlock width245" show-lookup="false" placeholder="{{'Search' || translate}}" ng-model="selectedCube"
+                         filterkeys="['name']" optionformat="<span>{name}</span>" displayformat="{name}"
+                          options="options" min-char-for-trigger="0" on-change="searchElementByValue()" on-select="searchElement(selectedCube.id)"
+                          on-enter="onEnter()" on-focus="onFocusAutoSuggest($event)" label="{{typeaheadLabel}}"></smart-typeahead>
+
+
+        <!--<smart-textfield class="dIBlock width245" type="autocomplete" placeholder="{{'Search' || translate}}" ng-model="selectedCube"
+                         filterkeys="['name']" optionformat="<span>{name}</span>" displayformat="{name}"
+                          options="options" minchars="0" on-change="searchElementByValue()" on-select="searchElement(selectedCube.id)"
+                          on-enter="onEnter()" on-focus="onFocusAutoSuggest($event)">
+        </smart-textfield>-->
+        <a href="javascript:void(0)" class="waves-circle waves-effect search-icon black-text" smart-tooltip 
+           position="bottom" delay="50" message="{{'Search'|| translate}}" ng-click="searchElement(selectedCube.id)">
+            <i class="icon iconSmall center white-text">
+                <svg><use xlink:href="#icon_Search"></use></svg>
+            </i>
+        </a>
+
+
+        <!--<div id="search-cublet" ng-click="searchElement();">
+            <i class="icon iconSmall">
+                <svg><use xlink:href="#icon_Search"></use></svg>
+            </i>
+        </div>-->
+    </div>
+    <button class="slick-prev slick-arrow navBtn" ng-mousedown="handleRotation('left');" id="left">
+            <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+        </i>
+    </button>
+    <button class="slick-next slick-arrow navBtn" ng-mousedown="handleRotation('right');" id="right">
+            <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_RightChevro"></use></svg>
+        </i>
+     </button>
+    <button class="slick-arrow navBtn" ng-mousedown="handleRotation('top');" id="top">
+            <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_UpChevron"></use></svg>
+        </i>
+     </button>
+    <button class="slick-arrow navBtn" ng-mousedown="handleRotation('bottom');" id="bottom">
+            <i class="icon iconSmall">
+            <svg><use xlink:href="#icon_DownChevron"></use></svg>
+        </i>
+     </button>
+    <div id="container"></div>
+</div>

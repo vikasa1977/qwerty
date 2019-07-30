@@ -1,0 +1,56 @@
+<div class="row marginBtm0 varianceDCC marginTop10 marginBtm20">
+    <div class="col s12 m12 l12 paddingLeft5 bold">
+        Recommended Items
+    </div>
+</div>
+<table class="bordered sTable">
+
+    <thead>
+        <tr class="is-scrolled">
+            <th width="5%"></th>
+            <th width="15%">Item Number</th>
+            <th width="15%" class="">Supplier</th>
+            <th width="15%" class="">Currency</th>
+            <th width="15%" class="">Price (Supplier Currency)</th>
+            <th width="15%" class="">Price (SEK)</th>
+            <th width="15%" class="">Match Confidence Level </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in ExcCriteriaData">
+            <td width="5%">
+                <smart-checkbox class="left" ng-model="supplierRecomm.check" on-change="supplierRecommChange(supplierRecomm.check)"></smart-checkbox>
+            </td>
+            <td width="15%" class=""><a href="javascript:void(0);" ui-sref="mdm.itemDetails">{{x.itemNo}}</td></a></td>
+            <td width="15%">{{x.supplier}}</td>
+            <td width="15%">{{x.currency}}</td>
+            <td width="15%">{{x.price}}</td>
+            <td width="15%">{{x.approx}}</td>
+            <td width="15%">{{x.level}}</td>
+
+
+
+        </tr>
+    </tbody>
+</table>
+<div class="row marginBtm0 varianceDCC marginTop30 marginBtm45">
+    <div class="col s12 m12 l12 paddingLeft5 bold divider-line">
+        <span>OR</span>
+    </div>
+</div>
+
+<div class="row marginBtm0 varianceDCC marginTop30 marginBtm20">
+    <div class="col s12 m12 l12 paddingLeft5 bold">
+        Enter Details
+    </div>
+</div>
+<div class="row marginBtm0">
+    <smart-textfield is-mandatory="true" class="col s3 m3 l3 xl3 xxl3 line-height-manager input-field" label="Item Number" readonly="false"
+        ng-model="businUit"></smart-textfield>
+    <smart-textfield is-mandatory="true" class="col s3 m3 l3 xl3 xxl3 line-height-manager input-field" label="Supplier" readonly="false"
+        ng-model="businUit"></smart-textfield>
+    <smart-textfield is-mandatory="true" class="col s3 m3 l3 xl3 xxl3 line-height-manager input-field" label="Price" readonly="false"
+        ng-model="businUit"></smart-textfield>
+        <smart-select class="col s3 m3 l3 xl3 xxl3 line-height-manager input-field" label="Currency" ng-model="selectedCurrencyData" datakey="name" options="currencyDataOptions" on-change="onChange(selectedCurrencyData)"></smart-select>
+</div>

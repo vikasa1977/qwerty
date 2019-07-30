@@ -1,0 +1,126 @@
+﻿<div class="scrollableModel">
+    <div class="modal-header">
+        <i class="left icon iconSmall grey-text">
+            <svg><use xlink:href="#icon_share"></use></svg>
+        </i>
+        <span class="title">SHARE REPORT</span>
+    </div>
+    <div class="modal-content padding0 fixedShareReportPopupDivHeight" height="323px">
+        <div class="row manage-border padding20 marginBtm0 paddingTop10 paddingBtm10">
+             <div class="col s12 padding0">
+                  <div class="col s8 padding0">
+                    <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;" ng-if="vm.shareReportData.length != 0 ">
+                        <div class="searchWithHiddenTextField" ng-class="{'active': vm.isActiveSearch}">
+                            <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="vm.showSearch()">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Search"></use></svg>
+                                </i>
+                            </a>
+                            <smart-textfield class="input-field" focus="vm.focusSearch" ng-model="vm.searchinList"></smart-textfield>
+                            <a href="javascript:void(0)" ng-class="vm.showMe" ng-click="vm.searchinList='';vm.hideSearch()" smart-tooltip position="Close" message="{{'Close' || translate }}" delay="250" ng-show="vm.hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <span class="title fixedShareReportPopuTitleFontSize">Shared with {{vm.shareReportData.length}} Member(s)</span>
+                   </div> 
+                  <div class="col s4 padding0">
+                      <div class="col right">
+                          <a href="javascript:void(0)" ng-click="vm.searchinListData=''; vm.hideSearchData(); vm.addNewShareReport()" smart-tooltip message="Add Members" position="left">
+                              <i class="icon iconSmall center">
+                                  <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                              </i>
+                          </a>
+                      </div>
+                      <div class="col right">
+                          <a href="javascript:void(0)" ng-click="vm.searchinListData=''; vm.hideSearchData(); vm.unShareReportData(vm.shareReportData,$index,vm.disableUnShareIcon)" smart-tooltip message="Unshare" position="bottom" ng-class="{'disabled' : vm.disableUnShareIcon}">
+                              <i class="icon iconSmall center">
+                                  <svg><use xlink:href="#icon_unShare"></use></svg>
+                              </i>
+                          </a>
+                      </div>
+                      <div class="col right">
+                          <a href="javascript:void(0)" class="left" smart-tooltip message="Share via Email" position="bottom">
+                              <i class="left icon iconSmall marginRight0">
+                                  <svg><use xlink:href="#icon_email"></use></svg>
+                              </i>
+                          </a>
+                      </div> 
+                  </div> 
+             </div>            
+        </div>    
+        <div ng-class="{'filled-partial':vm.isShareReportPartiallySelected}" ng-if=" vm.shareReportData.length != 0 && !(vm.searchinList.length >= 1 && ( vm.shareReportData | filter: vm.searchinList).length == 0)" class="ng-scope padding10 manage-border"><input class="filled-in ng-scope" ng-model="vm.selectAllShareReportCheckbox" ng-click="vm.selectShareReportAll(vm.selectAllShareReportCheckbox)" type="checkbox" id="selectShareReportAll" checked="checked"><label for="selectShareReportAll" ng-style="{'background':category.bgColor, 'color':'black'}" style="padding-left: 36px; color: black;" class="ng-binding ng-scope">Select All</label></div>
+        <div class="row marginBtm0" ng-if="vm.shareReportData.length != 0">
+            <smart-scroll height="250px">
+               <ul class="collection filter-list noBorder is-overflowHidden fixedShareReportPopupHeight">
+                    <li  class="collection-item col s12 padding10" ng-repeat="n in vm.shareReportData |
+                        filter:  vm.searchinList">
+                        <span class="left">
+                            <input type="checkbox" id="repoChk_{{::n.name}}" class="filled-in" ng-model="n.isChecked" ng-change="vm.checkShareReportData(n, n.isChecked)" />
+                            <label for="repoChk_{{::n.name}}"></label>
+                        </span>
+                        <div class="left">
+                            <span ng-bind-html="n.name | highlights: vm.searchinList" class="truncate" title="{{::n.name}}"></span>
+                            <span ng-bind-html="n.email | highlights: vm.searchinList" class="truncate" title="{{::n.email}}"></span>
+                         </div>
+                       <!-- <div class="right">
+                            <a href="javascript:void(0)" class="left" smart-tooltip message="Unshare" position="left" ng-click="vm.deleteshareData(n, $index)">
+                                <i class="left icon iconSmall marginRight0">
+                                    <svg><use xlink:href="#icon_unShare"></use></svg>
+                                </i>
+                            </a>
+                        </div>-->
+                    </li> 
+                   <li class="marginTop40 colorError alignErrorMsg blank-section-message" ng-if="vm.searchinList.length >= 1 && ( vm.shareReportData | filter: vm.searchinList).length == 0">
+                        <span class="marginTop50 displayBlock center-align">
+                            {{'No Records Found' || translate }}
+                        </span>
+                   </li>   
+               </ul>
+            </smart-scroll>
+        </div>
+        <div class="row marginBtm0" ng-if="vm.shareReportData.length == 0">
+            <div class="center padding70 fixedAddMembersDivHeight">
+                <a ng-click="vm.searchinListData=''; vm.hideSearchData(); vm.addNewShareReport()" class="action-block-cont">
+                    <span class="action-block-cont-icon">
+                        <i class="icon icon--xLarge">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </span>
+                    <span class="action-block-cont-lbl">Add Members</span>
+                </a>
+            </div>
+        </div>
+            <div class="row" ng-if="vm.addNewShareReportPopup">
+                <div class="col s12 marginTop20" ng-repeat="n in vm.newShareData">
+                    <smart-checkbox label="{{n.title}}" ng-model="n.isChecked"></smart-checkbox>
+                </div>
+            </div>
+            <div ng-if="vm.isLoading && vm.shareReportData.length != 0" class="clearfix grey lighten-3 Category_Component_Loader fixedSharePopHeighWithLoader">
+                <div class="preloader-wrapper x-small marginRight10 active left" style="top:2px;">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper circle-clipper--x left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper circle-clipper--x right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <span class="marginLeft5">{{'loadingMsg' | translate}}</span>
+            </div>
+        </div>
+    <div class="modal-footer modal-footer-normalScroll shareReportPopupFooter">
+        <div class="row marginBottom0">
+            <div class="col s12 paddingRight2">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

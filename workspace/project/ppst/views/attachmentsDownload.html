@@ -1,0 +1,52 @@
+<div class="marginBtm0">
+			<div class="file-field input-field">
+				<smart-dropdown class="left" config="{{dropDownConfig}}">
+					<a href="javaScript:void(0)" class="dIBlock dropdown-button" data-activates="uploadedFiles{{index}}" data-constrainwidth="false" data-alignment="left">
+						<i class="icon small grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+						<span class="dIBlock marginTop17" ng-if="attachments.length > 0 ">{{attachments[0].fileName}} + {{attachments.length}}more</span>
+                        <span class="dIBlock marginTop17" ng-if="attachments.length == 0 ">No attachments</span>
+					</a>
+					<div id="uploadedFiles{{index}}" class="dropdown-content dd-close-off">
+						<table>
+							<thead>
+								<tr>
+									<th class="paddingBtm10 paddingTop10">File Name</th>
+									<th class="paddingBtm10 paddingTop10 paddingLeft10">
+										<i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+											<svg><use xlink:href="#icon_Download"></use></svg>
+										</i>
+									</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td class="paddingBtm10 paddingTop10">document_name.doc</td>
+									<td class="paddingBtm10 paddingTop10 paddingLeft10">
+										<i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+											<svg><use xlink:href="#icon_Download"></use></svg>
+										</i>
+									</td>
+								</tr>
+								<tr>
+									<td class="paddingBtm10 paddingTop10">document.doc</td>
+									<td class="paddingBtm10 paddingTop10 paddingLeft10">
+										<i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+											<svg><use xlink:href="#icon_Download"></use></svg>
+										</i>
+									</td>
+								</tr>
+								<tr>
+									<td class="paddingBtm10 paddingTop10">Document.pdf</td>
+									<td class="paddingBtm10 paddingTop10 paddingLeft10">
+										<i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+											<svg><use xlink:href="#icon_Download"></use></svg>
+										</i>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</smart-dropdown>
+			</div>			
+		</div>

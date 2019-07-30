@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left"><svg><use xlink:href="#icon_Preview"></use></svg></i>
+    <span class="title ">PREVIEW</span>
+</div>
+    <div class="modal-content is-scrolled paddingBtm0" ng-if="showPreviewPopupFlag">
+        <smart-scroll height="350px">
+            <div class="itemPopup--tabContentHeight clearfix">
+                <div class="question text-justify paddingRight20">
+                    <span class="left marginRight10">{{questionItem.name}}.</span>
+                    
+                    <span class="left questionstitle">
+                        <span class="cursorPointer" title="{{questionItem.title}}">{{questionItem.title}}</span>
+                        <sup ng-if="questionItem.mandatory" class="red-text mandatoryField"> *</sup>
+                        <span smart-tooltip position="top" message="Answer to this question will not have any impact on the scores." ng-if="questionItem.nonScoring" class="markText chip center zIndex0">Informative</span>
+                        <span smart-tooltip position="top" message="This question is conditional to &quot;option 2&quot; of question 1" ng-if="questionItem.conditional.check" class="markText chip center zIndex0">Conditional</span>
+                    </span>
+
+                </div>
+                <div class="clearfix questionStatusWrapper">
+                    <div class="type">
+                        <div class="left paddingTop14 grey-text">Type: {{questionItem.questionType.name}} <span class="marginLeft9 marginRight9" ng-if="questionItem.attachment.fileUploadVal.length"> |</span></div>
+                        <div class="left" ng-if="questionItem.attachment.fileUploadVal.length" ng-include="'attachment-display'"></div>
+                    </div>
+                </div>
+                <div class="row" ng-if="showPreviewPopupFlag">
+                    <div class="row col s12 questionnaireBox marginBtm0 padding0 singleResponse" ng-include="questionItem.questionType.template"></div>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 paddingRight10">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>

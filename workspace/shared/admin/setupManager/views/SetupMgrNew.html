@@ -1,0 +1,89 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon red-text">
+                <svg><use xlink:href="#icon_Configure"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">New Project</span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row paddingBtm40 smartFormWidgetContainer">
+<div class="row paddingTop20 marginBtm0">
+    <div class="col s12">PROJECT DETAILS</div>
+    <smart-textfield class="col s12 m4 l4 xl3 xxl2 marginTop15  line-height-manager input-field" label="Project Name"></smart-textfield>
+    <smart-textfield label="{{'Start Date'|| translate}}" type="date" ng-model="startDate" class="col s12 m4 l4 xl3 xxl2 marginTop15  line-height-manager input-field" onfocus="true"></smart-textfield>
+    <smart-textfield label="{{'End Date'|| translate}}" type="date" ng-model="endDate" class="col s12 m4 l4 xl3 xxl2 marginTop15  line-height-manager input-field" onfocus="true"></smart-textfield>
+</div>
+<div class="row">
+    <smart-textfield type="area" charactercounter="true" maxlength="4000" class="col s12 xxl11 fieldEditable marginBtm0" label="Description" ng-model="questionItem.description"></smart-textfield>
+</div>
+<div class="row">
+    <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Operator" is-mandatory='true' ng-model="defaultSelectedOperator1" options="projectDetail" datakey="operatorName" on-change="onChangeFilterType(defaultSelectedOperator)"></smart-select>
+</div>
+<div class="row">
+    <div class="col s12">PRODUCTS</div>
+    <smart-radio label="" class="col s8 marginTop15 marginBtm15" gap="true" ng-model="selectedCurrency1" options="currencyOptions1" datakey="name" on-change="selectOn(selectedCurrency1)"></smart-radio>        
+
+    <div class="col s12">
+        <div class="box-solid paddingTop30 col s6 box-switch">
+            <smart-switch left-label="projectText" right-label="emptyText"  ng-model="projectToggle" class="col s12 m6 l4 paddingBtm15" on-change="onChangeProduct(projectToggle, sourcingToggle, contractToggle, supplierToggle, p2pToggle)"></smart-switch>
+            <smart-switch left-label="sourcingText" right-label="emptyText" ng-model="sourcingToggle" class="col s12 m6 l4 paddingBtm15" on-change="onChangeProduct(projectToggle, sourcingToggle, contractToggle, supplierToggle, p2pToggle)"></smart-switch>
+            <smart-switch left-label="contractText" right-label="emptyText" ng-model="contractToggle" class="col s12 m6 l4 paddingBtm15" on-change="onChangeProduct(projectToggle, sourcingToggle, contractToggle, supplierToggle, p2pToggle)"></smart-switch>
+            <smart-switch left-label="supplierText" right-label="emptyText" ng-model="supplierToggle" class="col s12 m6 l4 paddingBtm15" on-change="onChangeProduct(projectToggle, sourcingToggle, contractToggle, supplierToggle, p2pToggle)"></smart-switch>
+            <smart-switch left-label="p2pText" right-label="emptyText" ng-model="p2pToggle" class="col s12 m6 l4 paddingBtm15" on-change="onChangeProduct(projectToggle, sourcingToggle, contractToggle, supplierToggle, p2pToggle)"></smart-switch>
+        </div>
+    </div>
+</div>
+<div class="row action-content-center center">
+    <div class="center action-block ">
+        <a href="javascript:void(0);" class="action-block-cont" disable="stateChange" ng-click="addFeature(e)" ng-class="{'disabled': stateChange}">
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_Feature"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">ENABLE FEATURE</span>
+        </a>
+        <a href="javascript:void(0);" class="action-block-cont" disable="stateChange" ng-click="addConfig(e)" ng-class="{'disabled': stateChange}">
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_Feature-Man"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">MANAGE PRODUCT SETTINGS</span>
+        </a>
+     
+        <a href="javascript:void(0);" class="action-block-cont" ng-click="addTask(e)" ng-disabled="stateChange" ng-class="{'disabled': stateChange}">
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_LpWorkQ"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">MANAGE TASK LIST</span>
+        </a>
+    </div>
+</div>
+</div>
+<footer class="page-footer footerSpace">
+    <div class="row marginBtm0">
+        <!--<smart-button class="left footerBtn marginRight0"  flat="true" config='{"title":"FEATURE"}' disable="stateChange" on-click="addFeature(e)"></smart-button>
+        <smart-button class="left footerBtn" flat="true" config='{"title":"CONFIGURE"}' disable="stateChange" on-click="addConfig(e)"></smart-button>
+        <smart-button class="left footerBtn" flat="true" config='{"title":"TASK"}' disable="stateChange" on-click="addTask(e)"></smart-button>-->     
+        <smart-button class="right footerBtn marginRight0" config='{"title":"CREATE"}' ng-click="success(e)"></smart-button>
+        <smart-button class="right footerBtn whiteSecondaryBtn" config='{"title":"SAVE"}'></smart-button>
+        <smart-button class="right footerBtn" flat="true" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</footer>
+
+
+    
+

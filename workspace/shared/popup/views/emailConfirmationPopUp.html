@@ -1,0 +1,59 @@
+<div class="notification-massage" onclick="event.stopPropagation();" ng-if="emailConfContactlist">
+    <div class="modal notificationanimate modal-sm notify-confirm notificationanimate--active custom-notification-msg overflowHidden" tabbing-group tabgroupfocustrigger="{{ bindforTab }}" delay-time="100">
+        <div class="modal-content1 padding0">
+            <div class="cart">
+                <span class="session-image"></span>
+                <div class="card-header notify-header">
+                    <p class="center-align  notify-header-cont">
+                        <i class="icon icon-head">
+                            <svg>
+                                <use xlink:href="#icon_Help"></use>
+                            </svg>
+                        </i>
+                        <span class="center-align notify-text">CONFIRMATION</span>
+                    </p>
+                    <i class="icon icon-bg">
+                        <svg>
+                            <use xlink:href="#icon_Help"></use>
+                        </svg>
+                    </i>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="card-content padding20" style="max-height: 334px;">
+            <div ng-if="showRegisteredContactList">
+                <div>The following contacts are already having login credentials, If you send them an invite a new login would be created for them.</div>
+                <div class="paddingTop10 paddingBtm10">Do you still want to send them the email invitation?</div>
+                <a href="javascript:void(0);" ng-if="!showHideLilst" ng-click="showHideContactList();">View Registered Contact List</a>
+                <a href="javascript:void(0);" ng-if="showHideLilst" ng-click="showHideContactList();">Hide Registered Contact List</a>
+                <div class="paddingBtm5 fontSize12"  ng-if="showHideLilst">(Uncheck to remove  specific contact from mailing list)</div>
+
+                <smart-scroll height="160px" ng-show="showHideLilst">
+                    <ul class="collection noBorder">
+                        <li ng-repeat="list in contactList " class="collection-item clearfix  padding0 paddingTop5">
+                            <smart-checkbox class="chklink left" label="{{list.title}}" ng-model="list.isChecked" on-change="ContactListChange(list.isChecked)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+
+            </div>
+            <div ng-if="showConfirmationPopUp">
+                <div>The login credentials for this contact have already been created.</div>
+                <div class="paddingBtm10">Do you still want to send the email invitation?</div>
+                
+            </div>
+        </div>
+        <div class="width100P padding10 borderTopLight left">
+        <div class="right">
+            <smart-button ng-if="showRegisteredContactList" flat="true" config='{"title":dontSend,"allignRight":"false"}' disable="false"  ng-click="dontSendInvite()"></smart-button>
+            <smart-button ng-if="showRegisteredContactList"  flat="true" config='{"title":"send Invite","allignRight":"false"}' disable="!contListCount"  ng-click="sendInvite()"></smart-button>
+
+            <smart-button ng-if="showConfirmationPopUp" class="right"  flat="true" config='{"title":"Yes","allignRight":"false"}' disable="false" ng-click="sendInvite()"></smart-button>
+            <smart-button ng-if="showConfirmationPopUp"  class="right marginRight5"   flat="true" config='{"title":"No","allignRight":"false"}' disable="false" ng-click="closeInvite()"></smart-button>
+        </div>
+    </div>
+    </div>
+    <!-- <div class="lean-overlay"style="z-index:2004; display: block; opacity: 0.5;" ng-click="overlayCLicked()"></div> -->
+</div>

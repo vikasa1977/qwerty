@@ -1,0 +1,53 @@
+<div class="clearfix">    
+    <smart-dropdown class="left questionrespNav" on-hide="onHide()" config="{{dropDownConfig}}">
+        <span class="go-to-question-header">
+            <a href="javascript:void(0);" id="questionnaireresponseNav-dropdown-button" class="dropdown-button" data-activates="questionnaireresponseNav" data-constrainwidth="false" data-alignment="right">
+            </a>
+        </span>
+        <div class="searchSlideMain dd-close-off questionnaire-response-nav">
+            <div class="searchWithHiddenTextField active">
+                <a href="javascript:void(0)" ng-click="hideSearchHeaderNav('questionnaireresponseNav-dropdown-button')" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield placeholder="Search Question" ng-model="treeSearchModel.title" class="input-field"></smart-textfield>
+                <a href="javascript:void(0)" class="search-icon btn-flat waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="Search">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div id="questionnaireresponseNav" class="questionnaireresponseNav-dropdown-content dropdown-content dd-close-off dropdown-content--size-medium">
+            <smart-scroll height="400px">
+                <div class="row questionnaireResponse">
+                    <div class="questionnaire-section" ng-if="isActiveHeaderNav">
+                        
+                        <div class="questionnaire-section-question" ng-if="question.questionType.type !== 'label-type'" ng-repeat="question in questionnaireDataList.kpicompareData | filter : {title : treeSearchModel.title} as kpilistDataFilter track by $index">
+                            <div class="clearfix row paddingTop24 margin0 paddingBtm20 collapse-header">
+                                <div class="col s11 questionWidthResponsive">
+                                    <div class="question text-justify action-close-dropdown" ng-click="questionGoTo($event,'questionnaire-section-question-' + $index)">
+                                        <span class="left marginRight10">{{question.name}}.</span>
+                                        <span class="left questionstitle">
+                                            <span class="cursorPointer" title="{{question.title}}">{{question.title}}</span>
+                                            <sup ng-if="question.mandatory" class="red-text mandatoryField"> *</sup>
+                                            <span smart-infotip position="right" message="Answer to this question will not have any impact on the scores." ng-if="question.nonScoring" class="markText chip center zIndex0">Informative</span>
+                                            <span smart-infotip position="top" message="This question is conditional to &quot;option 2&quot; of question 1" ng-if="question.conditional.check" class="markText chip center zIndex0">Conditional</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div ng-if="!kpilistDataFilter.length" class="norecordfoundContainer">
+                            <div class="norecordfoundContainer-title">
+                                <span>No records found</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </smart-scroll>
+        </div>
+    </smart-dropdown>
+</div>

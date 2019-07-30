@@ -1,0 +1,42 @@
+  <div id="reviewsPopup" class="scrollableModel" >
+        <div class="modal-header">
+            <i class="icon iconSmall left modal-header--Icon grey-text">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ReviewView"></use>
+                </svg></i>
+            <span class="title">{{'Reviews' || translate  }} (15)</span>
+        </div>
+        <div class="modal-content" >	
+			<div class="model_body">
+				<smart-scroll  height="350px">
+					<div>
+						<div class="row" ng-repeat="reviews in reviewData">
+							<div class="col s12 fontSize16 grey-text text-darken-3">{{reviews.title}}</div>
+							<div class="col s12">
+								<div class="left rating marginRight20" ng-include="'catalog/requestercatalog/views/ratingTemplate.html'" ng-init="currentRating = '60%'">
+                                   
+								</div>
+								<div class="left inlineLabelList">By : <span>{{reviews.creator}}</span>, <span>{{reviews.date}}</span> </div>
+							</div>
+							<div class="col s12 marginTop5 marginBtm15 grey-text text-darken-1">
+								{{reviews.review}}
+							</div>
+							<div class="col s12">
+								<span class="left marginTop7">Find this review useful? </span>
+								<a href="javascript:void();" class="btn-flat waves-effect ng-binding">YES</a>
+								<a href="javascript:void();" class="btn-flat waves-effect ng-binding">NO</a>
+							</div>
+						</div>
+					</div>
+				</smart-scroll>
+			</div>
+                   </div>
+        <div class="modal-footer">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align">
+					   <smart-button flat="true" class="modal-close" config='{"title":"CLOSE"}'></smart-button>
+               </div>
+            </div>
+        </div>
+    </div>
+

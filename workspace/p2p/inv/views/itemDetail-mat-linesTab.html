@@ -1,0 +1,273 @@
+<div id="tabItemDetails">
+    <div class="col s12 paddingTop10" data-ng-init='taxExemptOpts=[{"title": "NO","selected": true}, {"title": "YES","selected": false}];matchingOpts=[{"title": "3 Way","selected": true}, {"title": "2 Way","selected": false}]'>
+        <div class="container">
+
+            <div class="clearfix hide marginBtm10">
+                <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top info-bar">
+                    <span class="left fontSize12">
+                        <i class="icon small left marginLeft10">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>Include diverse suppliers in event
+                    </span>
+                </div>
+            </div>
+
+            <div class="row marginBtm10">
+                <div class="col s12 m6 l7 xl6 xxl6 fontSize12">
+                    <div  class="">
+                        {{'Lines'|| translate}} (42) : {{'Materials'|| translate}} (19) +  {{'Variable Services'|| translate}} (23) | <a href="javascript:void(0)" class="red-text" ng-click="showErrorAlert = !showErrorAlert">60 errors</a>
+
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l5 xl6 xxl6 right-align">
+                    <ul class="panelBox-header--action">
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="showChangeLineMapping(e)">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Change Lines Mapping'|| translate}}">
+                                    <svg><use xlink:href="#icon_changeLineMapping"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTBulkAdd" data-constrainwidth="false" data-alignment="right">
+                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Multiple Lines">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+
+                                <ul id="tabMatLineTBulkAdd" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                                    <li><span class="center-align fontSize16">{{'ADD MULTIPLE LINES'|| translate}}</span></li>
+                                    <li>
+                                
+                                        <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                                    
+                                    </li>
+                                    <li class="marginTop17">
+                                        <div class="right">
+                                            <a href="javascript:void(0)" ng-click="cancelBulkRow()" class="waves-circle  waves-effect waves-grey left">
+                                                <i class="icon iconSmall  blue-text" smart-tooltip position="bottom" delay="50" message="Cancel">
+                                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" ng-click="addBulkRow()" class="waves-circle waves-effect waves-grey left">
+                                                <i class="icon iconSmall  blue-text addBulkRow" smart-tooltip position="bottom" delay="50" message="Add">
+                                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="calculateTaxCalled()">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Calculate Tax'|| translate}}">
+                                    <svg><use xlink:href="#icon_calculateTax"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Duplicate Selected Lines'|| translate}}">
+                                        <svg><use xlink:href="#icon_Duplicate"></use></svg>
+                                    </i>
+                                </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete Selected Lines'|| translate}}">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                        </li>
+
+                        
+                        <li class="panelBox-header--aLink hide">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTBulkEd" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Manage Lines">
+                                        <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+                                    </i>
+                                </a>
+                                <div id="tabMatLineTBulkEd" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup">
+                                    <smart-scroll height="200px">
+                                        <ul>
+                                            <li><span class="left-align fontSize16">Manage Lines</span> </li>
+                                            <li>
+                                                <smart-textfield class="col s6" label="Supplier Item Number"></smart-textfield>
+                                                <smart-textfield class="col s3" label="Quantity"></smart-textfield>
+                                                <smart-textfield class="col s3" label="UOM"></smart-textfield>
+                                                <div class="col s6 input-field">
+                                                    <div class="grey-text fontSize12">Taxes</div>
+                                                    <smart-button flat="true" class="textCapitalize" config='{"title":"Add Taxes"}' callback="showTaxesPopupCallback"></smart-button>
+                                                </div>
+                                                <smart-select class="col s6 input-field" label="Tax Exempt" options="taxExemptOpts"></smart-select>
+                                                <smart-textfield class="col s6" label="Other Charges"></smart-textfield>
+                                                <smart-textfield class="col s6" label="Freight Charges(USD)"></smart-textfield>
+                                                <smart-textfield class="col s6" type="date" label="Requested Date"></smart-textfield>
+                                                <smart-textfield class="col s6" type="date" label="Need by Date"></smart-textfield>
+                                                <div class="col s6 input-field">
+                                                    <div class="grey-text fontSize12">Category</div>
+                                                    <smart-button flat="true" class="textCapitalize" config='{"title":"Choose Category"}' callback="showCategoryPopupCallback"></smart-button>
+                                                </div>
+                                            <li>
+                                                <smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+                                            </li>
+                                        </ul>
+                                    </smart-scroll>
+                                </div>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns()">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Columns' | translate}}">
+                                        <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabMatLineTFilter" class="dropdown-content  dd-close-off">
+                                    <li class="dropdown-content-header ">
+                                        <div class="title">{{'MANAGE COLUMNS' | translate}}</div>
+                                    </li>
+                                    <li class="padding0 is-scrolled">
+                                        <ul class="collection">
+                                            <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                                <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                                <span class="right padding0" ng-if="selectedCount > 0">({{selectedCount}}) Selected</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                        <smart-scroll height="230px" class="inlineList">
+                                            <div class="listHolder" ng-style="listHolderWidth">
+                                                <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init = "myIndex = $index">
+                                                    <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                                    <smart-checkbox class="label-truncate" title="{{field.lable}}" fill="true" ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </smart-scroll>
+                                    </li>
+                                    <li class="dropdown-content-footer is-scrolled">
+                                        <smart-button  config='{"title":"APPLY"}' disable="(!fillpartial  && !selectedAll.selection)" flat="true" ng-click="applyCurrentFields()" class="right"></smart-button>
+                                        <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup" ng-click="cancelAllFields()" ></smart-button>
+                                        <smart-button  config='{"title":"Reset","flat":true}' disable="(!fillpartial  && !selectedAll.selection)" flat="true" ng-click="resetAllFields()" class="left"></smart-button>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabItemDetailsAction" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon iconSmall tooltipped" smart-tooltip position="bottom" delay="50" message="Action">
+                                        <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabItemDetailsAction" class="dropdown-content">
+                                    
+                                    <li><a href="javaScript:void(0)" ng-click="applyToAllPopUpCallback(e)">Edit Multiple Lines</a></li>
+                                    <!--<li><a href="javaScript:void(0)">Delete</a></li>-->
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container alert-bar-wrap"  ng-show="showErrorAlert">
+        <div class="row marginBtm0">
+            <div class="col s12">
+                <div class="alert-bar alert-bar--warning alert-bar--with-button">
+
+                    <div class="left red-text">
+                        <span class="left">Exception: Please choose</span>
+                        <div class="left dropdown-wrap">
+                            <smart-select class="margin0" label="" ng-model="selectOverrideExc" options="overrideExcOptions" datakey="name" displaykey="name" on-change="overrideExc(selectOverrideExc)"></smart-select>
+                        </div>
+                        <span class="left">to override the exception.</span>
+                    </div>
+                    <div class="right">
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Previous">
+                            <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Next">
+                            <svg><use xlink:href="#icon_RightChevro"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Close" ng-click="showErrorAlert = false">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="row marginBtm0 clearfix">
+        <smart-ui-grid col-def="{{itemConfig}}" model="itemModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition"></smart-ui-grid>
+        <script type="text/ng-template" id="taxCellTemp.html">
+            <div ng-if="row.entity[col.field].isMultiselect">
+                <a class="blue-text padding0 " href="javascript:void(0)" ng-click="grid.appScope.$parent.$parent.$parent.$parent.$parent.$parent.openPopupTax(rowRenderIndex, col)">
+                    {{ 'Multiple' | translate }}
+                </a>
+                </div>
+                <div ng-if="!row.entity[col.field].isMultiselect">
+                    <smart-dropdown fixed="true">
+                        <a class="dropdown-button proc-profile-selector marginLeft5" data-activates="taxDropdown_{{ col.field }}_{{rowRenderIndex}}" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            {{ row.entity[col.field].selected.name | translate }}
+                            <span class="caret">
+                                <i class="icon iconSmall">
+                                    <svg focusable="false">
+                                        <use xlink:href="#icon_DropArrow"></use>
+                                    </svg>
+                                </i>
+                            </span>
+                        </a>
+                        <ul class='dropdown-content dd-close-off' id="taxDropdown_{{ col.field }}_{{rowRenderIndex}}">
+                            <li class="dropdown-content-content">
+                                <smart-scroll height="200px">
+                                    <ul>
+                                        <li ng-class="{ 'selected' : opt.name == row.entity[col.field].selected.name }" ng-repeat="opt in row.entity[col.field].options" menu-item-list>
+                                            <a href="javascript:void(0)" class="grey-text text-darken-4 listLinkContent truncate actionCloseDropdown" ng-click="grid.appScope.$parent.$parent.$parent.$parent.$parent.$parent.selectCurrentTax(rowRenderIndex, col.field, opt)">
+                                                {{ opt.name | translate }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                  </smart-scroll>
+
+                            </li>
+                            <li class="dropdown-content-footer clearfix">
+                                <a class="link-btn right waves-effect waves-light blue-text" href="javascript:void(0)" ng-click="grid.appScope.$parent.$parent.$parent.$parent.$parent.$parent.openPopupTax(e, rowRenderIndex, col.field)">
+                                    {{ 'Add Multiple Tax Codes' | translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </div>
+        </script>   
+    </div>
+</div>
+<!-- popup -- apply to all -->
+<smart-popup template-url="{{addLinesFormUrl}}" show="{{addLinesFormPopUp}}" on-hide="addLinesFormPopUpClose(e)" type="small"></smart-popup>
+<!-- popup -- apply to all -->
+<smart-popup template-url="shared/popup/views/popupLinesBulkEditUser.html" show="{{applyToAllPopUp}}" on-hide="applyToAllPopUpClose(e)"></smart-popup>
+<!-- popup -- apply to all -- Select Items -->
+<smart-popup template-url="{{applyToAllItemsUrl}}" show="{{applyToAllItemPopUp}}" on-hide="applyToAllItemPopUpClose(e)" type="small"></smart-popup>
+
+<!-- popup -- manufacturer details -->
+<smart-popup template-url="{{manufatureDetails}}" show='{{manufatureDetailsPopup}}' on-hide="manufatureDetailsPopupHideCallback(e)" type="large"></smart-popup>
+
+<smart-popup template-url="shared/popup/views/popupShowAddedSandP.html" show='{{showGridSandPPopup}}' on-hide="showGridSandPPopupHideCallback(e)" ></smart-popup>
+<smart-popup template-url="shared/popup/views/popupStandardAndProcedure.html" show="{{showSPPopup}}" on-hide="hideSPPopupCall(e)" ></smart-popup>
+<smart-popup template-url="p2p/req/views/reqTemplatePopupContent.html" show="{{showReqTemp}}" on-hide="hideReqTempCallback(e)"></smart-popup>
+<smart-popup template-url="{{excTypePopupUrl}}" show="{{showExcTypePopup}}" on-hide="hideExcTypePopupCallback()" type="medium"></smart-popup>
+<smart-popup template-url="{{changeLineMappingPopupUrl}}" show="{{showChangeLineMappingPopup}}" on-hide="hideChangeLineMapping(e)" type="large"></smart-popup>

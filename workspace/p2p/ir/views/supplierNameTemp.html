@@ -1,0 +1,16 @@
+<div ng-controller="p2pIRBasicDetailsCtrl">
+    <!--<smart-typeahead class="col s12 line-height-manager" multiselect="false" show-lookup="true" ng-model="selectedOrderNumber" options="orderNumOptions" filterkeys="['number']" optionformat="<span>{number}</span>" displayformat="{number}" label="Order Number" callback-on-icon-click="myTestCallback($event)"></smart-typeahead>-->
+    <div class="p2pIrSupplierName">
+        <smart-textfield class="col s12" ng-model="supplierName" label="Supplier Name" readonly="true"></smart-textfield>
+        <a class="formFieldFixIcon" href="javascript:void(0)" ng-click="showSupplierIcard(e)" smart-tooltip position="bottom" message="iCard">
+            <i class="icon small">
+                <svg>
+                    <use xlink:href="#icon_ContactCard"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <smart-popup template-url="shared/popup/views/popupSupplierIcard.html" show="{{showSupplierIcardPopup}}" on-hide="hideSupplierIcardPopupCallback(e)" class="supplier-icard-popup"></smart-popup>
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback(e)" cancel-button="true"></smart-popup>
+    
+</div>

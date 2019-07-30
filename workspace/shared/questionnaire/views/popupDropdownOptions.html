@@ -1,0 +1,52 @@
+﻿<div class="scrollableModel dropdownPop removePopBorder">
+	<div class="modal-header paddingLeft22">
+		<i class="left icon iconSmall blue-text">
+			<svg>
+				<use xlink:href="#icon_Settings"></use>
+			</svg>
+		</i>
+		<span class="title">DROPDOWN OPTIONS</span>
+	</div>
+	<div class="modal-content padding0 paddingLeft24 is-scrolled">
+
+		<smart-scroll height="155px" class="clearfix clear">
+			<div class="scroll-inner-container">
+                <div class="paddingTop20 paddingBtm25">
+				<div class="row marginBtm0 griddropdownContainer" ng-repeat="gridDropdownData in dropdownPopupData.type.config">
+					<smart-checkbox checked='false' fill='true' disable='true' class="left paddingTop15" ng-model="gridDropdownData.check" input-field="false"></smart-checkbox>
+					<smart-textfield type="text" class="col s7 line-height-manager marginBtm0" label="{{ 'Option ' + ($index + 1) }}" focus="gridDropdownData.isfocus" validate="gridDropdownData.isvalidate" is-mandatory="true" ng-model="gridDropdownData.name"></smart-textfield>
+					<div smart-tooltip position="top" delay="50" message="Please enter numeric value" class="col s2 padding0">
+						<smart-textfield type="text" class="col line-height-manager marginBtm0" ng-if="!scoreFlag" label="Score" ng-model="gridDropdownData.score" on-key-up="validateNum(gridDropdownData, 'score')"></smart-textfield>
+					</div>
+					<div class="col s2 padding0 paddingLeft5">
+						<a href="javascript:void(0)" smart-tooltip position="top" delay="50" ng-click="deleteDropdownOption($event,dropdownPopupData.type.config,$index)" message="Delete Option" ng-if="dropdownPopupData.type.config.length !== 1">
+							<i class="icon small left blue-text smallest paddingTop12 marginRight0" delay="50" position="bottom">
+								<svg><use xlink:href="#icon_TrashCan"></use></svg>
+								</i>
+							</a>
+							<a href="javascript:void(0)" class="left paddingTop12" smart-tooltip position="top" delay="50" ng-click="addDropdownOption($event,dropdownPopupData.type.config)" message="Add Option" ng-if="($index + 1) === dropdownPopupData.type.config.length">
+								<i class="icon small right blue-text smallest" delay="50" position="bottom">
+									<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+								</i>
+							</a>
+						</div>
+					</div>
+                    </div>
+			</div>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer is-scrolled">
+		<div class="row marginBottom0">
+            <div class="col l5 s6 paddingLeft4">
+				<smart-button flat="true" class="left modal-close" config='{"title":"RESET"}'></smart-button>
+			</div>
+			<div class="col l7 s6 right-align">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close marginRight15" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left" ng-click="applyDropdownOption(dropdownPopupData.type.config)" config='{"title":"APPLY"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

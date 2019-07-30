@@ -1,0 +1,862 @@
+<link type="text/css" rel="stylesheet" href="shared/resources/css/noto.css" media="screen,projection" />
+<style>
+	@media print {
+		body * {
+			visibility: hidden;
+		}
+
+		.extra-nav-wrap, .page-footer, .extraHeader, .headerWrapper {
+			display: none;
+		}
+
+		.pdf-container * {
+			visibility: visible;
+		}
+		table { page-break-after:auto;}
+		tr { page-break-inside:avoid; page-break-after:auto }
+		td { page-break-inside:avoid; page-break-after:auto }
+		thead { display:table-header-group }
+		tfoot { display:table-footer-group }
+		* {
+			-webkit-print-color-adjust: exact;
+		}
+
+		table {
+			margin-bottom: 20px;
+		}
+	}
+
+	.pdf-container {
+		color: #000000;
+	}
+
+	.pdf-container .pdf-title {
+		padding: 0;
+		font-size: 18px;
+		color: #000000;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.pdf-container .invoice-table {
+		width: 40%;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		font-family: Noto Sans;
+	}
+
+	.pdf-container .invoice-details-table {
+		width: 40%;
+		font-family: Noto Sans;
+		color: #000000;
+	}
+
+	.pdf-container .shipping-details-table {
+		width: 45%;
+		font-family: Noto Sans;
+		color: #000000;
+	}
+
+	.border-grey {
+		border: 1px solid #A2A2A2;
+	}
+
+	.background-grey {
+		background: #E8E8E8;
+	}
+
+	.table-title {
+		font-size: 14px;
+		text-align: left;
+		background: #E8E8E8;
+		color: #000000;
+	}
+
+	.table-header {
+		font-size: 12px;
+		padding: 10px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		line-height: 20px;
+	}
+
+	.table-data {
+		font-size: 14px;
+		padding: 10px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		line-height: 20px;
+	}
+
+	.table-data-para {
+		font-family: Noto Sans;
+		font-size: 14px;
+		padding: 10px !important;
+		line-height: 25px;
+		color: #000000;
+	}
+
+	.terms {
+		font-family: Noto Sans;
+		font-size: 14px;
+		padding: 24px;
+		line-height: 25px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+	}
+
+	.direct-inquiries {
+		font-size: 14px;
+		padding: 24px;
+		line-height: 25px;
+		color: #000000;
+	}
+</style>
+<!--new sub header-->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Order"></use>
+                </svg>
+                </i>
+            <span class="extra-nav-title--text ng-cloak">{{'PO-12:15-001401' | translate}} - {{'ORDER-PO-12:15-001401' | translate}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Download">
+                    <i class="icon iconSmall">
+                <svg>
+                <use xlink:href="#icon_Download"></use>
+                </svg>
+                </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a href="javascript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-activates='dropdown21' data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="Share">
+                        <i class="icon iconSmall ">
+                <svg>
+                <use xlink:href="#icon_Share"></use>
+                </svg>
+                </i>
+                    </a>
+                    <ul id='dropdown21' class='dropdown-content'>
+                        <li>
+                            <a href="javascript:void(0)" class="modal-trigger">
+                                <i class="icon iconSmall left blue-text">
+                                        <svg>
+                                        <use xlink:href="#icon_Email"></use>
+                                        </svg>
+                                 </i>{{'Email' || translate}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left blue-text">
+                <svg>
+                <use xlink:href="#icon_Chat"></use>
+                </svg>
+                </i>{{'Chat' || translate}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left blue-text">
+                <svg>
+                <use xlink:href="#icon_Discuss"></use>
+                </svg>
+                </i>{{'Discussion Forum' || translate}}
+                            </a>
+                    </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" onclick="window.print()" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Print">
+                    <i class="icon iconSmall">
+                <svg>
+                <use xlink:href="#icon_Print"></use>
+                </svg>
+                </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--end sub header-->
+
+<!-- PDF Content Starts -->
+<div class="col s12 l12 m12">
+	<div id="pdfContainer" class="row card ng-cloak pdf-container" style="width: 885px; margin: 20px auto;">
+		<table width="100%" align="center" rules="none">
+			<tr>
+				<td>
+					<table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans;">
+						<tbody>
+							<tr>
+								<th width="60%" align="left" valign="bottom" scope="col" style="padding: 10px !important; border-bottom: 1px solid #A2A2A2;">
+									<img src="shared/theme1/user/logo/peco-logo.png" alt="" height="39">
+								</th>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;">
+						<tbody>
+							<tr>
+								<th style="padding: 0;font-size: 18px;color: #000000;font-weight: bold;text-align: center;" width="60%" align="center">PURCHASE ORDER</th>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table style="width: 40%; border: 1px solid #A2A2A2; color: #000000; font-family: Noto Sans;" width="40%" align="left" cellspacing="0" cellpadding="0" rules="none">
+						<tbody>
+							<tr>
+								<td style="font-size:14px;padding:10px; background: #E8E8E8;"><b>Mail Invoice To :</b></td>
+							</tr>
+							<tr>
+								<td style="font-family: Noto Sans; font-size: 14px; padding: 10px !important; line-height: 25px; color: #000000;">
+									EXELON BUSINESS SERVICES CO.
+									<br>AN EXELON COMPANY
+									<br>P.O. BOX 17456
+									<br>BALTIMORE MD 2455
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table style="width: 40%; font-family: Noto Sans; color: #000000;" width="40%" align="right" cellspacing="0" cellpadding="0" rules="none">
+						<tbody>
+							<tr>
+								<td class="padding0 fontSize14" style="font-size:14px; padding: 0;">
+									<table width="100%" align="left" border="1" cellspacing="0" cellpadding="2" rules="all">
+										<tbody>
+											<tr style="height:40px;">
+												<td align="left" style="padding: 0 10px 0 10px;background: #E8E8E8; border: 1px solid #A2A2A2;">PURCHASE ORDER</td>
+												<td align="right" style="padding: 0 10px 0 10px; border: 1px solid #A2A2A2;">012458</td>
+											</tr>
+											<tr style="height:40px;">
+												<td align="left" style="padding: 0 10px 0 10px;background: #E8E8E8; border: 1px solid #A2A2A2;">REVISION</td>
+												<td align="right" style="padding: 0 10px 0 10px; border: 1px solid #A2A2A2;">-</td>
+											</tr>
+											<tr style="height:40px;">
+												<td align="left" style="padding: 0 10px 0 10px;background: #E8E8E8; border: 1px solid #A2A2A2;">RELEASE</td>
+												<td align="right" style="padding: 0 10px 0 10px; border: 1px solid #A2A2A2;">-</td>
+											</tr>
+											<tr style="height:40px;">
+												<td align="left" style="padding: 0 10px 0 10px;background: #E8E8E8; border: 1px solid #A2A2A2;">PRINTED</td>
+												<td align="right" style="padding: 0 10px 0 10px; border: 1px solid #A2A2A2;">01/01/1991</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="padding0 paddingLeft20">
+					<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" rules="none" bordercolor="#bbb" style="font-family: Noto Sans;">
+						<tbody>
+							<tr>
+								<td style="font-size: 14px; padding: 24px; line-height: 25px; color: #000000;" width="40%" align="left">
+									<b>Please Direct Inquiries to :</b>
+									<br>CHRIS R. HINCKLEY<br>
+									<table align="left" border="0" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;">
+										<tbody>
+											<tr style="height: 25px;">
+												<td style="padding:0;"><b>Title</b></td>
+												<td style="padding:0;"> : ACTIVE FOR GO LIVE</td>
+											</tr>
+											<tr style="height: 25px;">
+												<td style="padding:0;"><b>Phone</b></td>
+												<td style="padding:0;"> : 610-645-1549</td>
+											</tr>
+											<tr style="height: 25px;">
+												<td style="padding:0;"><b>Fax</b></td>
+												<td style="padding:0;"> : TD1234</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td width="40%" style="font-size:15px;padding: 24px 24px 24px 90px;" valign="top">
+									<table align="left" border="0" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;">
+										<tbody>
+											<tr>
+												<td style="line-height: 25px; padding:0;"><b>Vendor :</b><br>TIM O REALLY<br>C &amp; D TECHNOLOGIES<br>SATND BY POWER SYSTEM<br>PO IL 9909</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!--<font face="Noto Sans" style="font-size: 14px;">
+						<b>DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS</b>
+					</font>
+					<br />
+					<br />-->
+					<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr style="font-size: 14px; text-align: left; background: #E8E8E8; color: #000000;">
+								<td style="padding:10px; border: 1px solid #A2A2A2" colspan="8">
+									<span style="float: left;"><b>DRAFT ONLY ** STATUS PENDING</b></span>
+									<span style="float:right;"><b>** TO BE PAID BY ERS</b></span>
+								</td>
+							</tr>
+							<tr>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Payment Terms</td>
+								<!--<td class="table-header">Days</td>
+								<td class="table-header">Net</td>-->
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">ERS</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Reference Contract</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Inco Terms</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Transit Type</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">FOB</td>
+							</tr>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">2.00% 10 <b>Days Net</b> 45 Days</td>
+								<!--<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">10</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">45 Days</td>-->
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Y</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">1234</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;background: #E8E8E8;" width="150">Primary Ship To :</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+									AN EXELON COMPANY, P.O. BOX 17456, BALTIMORE MD 2455
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td style="padding: 10px 20px; text-align:justify;">
+					<font face="Noto Sans" style="font-size: 14px; color: #000000;">
+						** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+						DRAFT ONLY ** STATUS PENDING ** TO BE PAID BY ERS
+					</font>
+
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<font face="Noto Sans" style="font-size: 14px;">
+						<b>Instruction : </b> From PO P3112 Instruct & Notes PRT A
+					</font>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+
+						<tr>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;"></td>
+							<td  style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">
+								Quantity
+							</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">
+								UOM
+							</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">
+								Header Additional Charges
+							</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">
+								Unit Price
+							</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">
+								Extension
+							</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">DOC</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								1
+							</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								UP
+							</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								Header Additional Charges
+							</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								$45.00
+							</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								$66.55
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5" style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; text-align: right;">Total Additional Charges</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+								$66.55
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6" style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; text-align:center;">Added Subline P323 Prt Code A</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">FAC</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Standard Name</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Rev</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">S/P</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Text</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Header Terms &amp; Conditions - Text at End</td>
+								<!--<td class="table-header background-grey">Extension</td>-->
+							</tr>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">ADD SHIP</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">000</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">V</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Y</td>
+								<!--<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Y</td>-->
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Additional Shipping Instructions</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Line</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Quantity</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">UOM</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Item Description</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Unit Price</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Extension</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Taxable</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Request Type</td>
+							</tr>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">001</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">10</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">PC</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Catalog ID: 00114444</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">$45.56</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">$1,455.5</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">NON-TAX</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Repair</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<tr style="line-height:11px">
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Schedule</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Quantity</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Date</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Manufacturer</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Model</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Part</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Description</td>
+							</tr>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">10</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">08/05/2000</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">ABC INC.</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">4545A4345</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Description Description Description Description Description Description</td>
+							</tr>
+							<tr>
+								<td colspan="7" style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; text-align:center;">Added Subline P323 Prt Code A</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<!--<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size:12px;text-align:left;padding:10px;background: #E8E8E8;">Description</td>
+								<td style="font-size:14px;text-align:left;padding:10px;">Description Description Description Description Description Description</td>
+							</tr>
+							<tr>
+								<td style="font-size:12px;text-align:left;padding:10px;background: #E8E8E8;">Manufacturer</td>
+								<td style="font-size:14px;text-align:left;padding:10px;">ABC INC.</td>
+							</tr>
+							<tr>
+								<td style="font-size:12px;text-align:left;padding:10px;background: #E8E8E8;">Model</td>
+								<td style="font-size:14px;text-align:left;padding:10px;"></td>
+							</tr>
+							<tr>
+								<td style="font-size:12px;text-align:left;padding:10px;background: #E8E8E8;">Part</td>
+								<td style="font-size:14px;text-align:left;padding:10px;">4545A4345</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tr>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;"></td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Quantity</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">UOM</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">PO Lines Sublines</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Unit Price</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Extension</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MISC</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">1</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">UP</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MISCELLANCEOUS</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">$3.2300</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">$66.55</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; text-align:center;" colspan="6" align="center">
+								Added Subline P323 Prt Code A
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tr>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">FAC</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Standard Name</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Rev</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">S/P</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Text</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Line Terms & Conditions - Text at End</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Conversion 01</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">000</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">V</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Y</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">CONVERSION DOC 1</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MSDS-PO</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">000</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">V</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Y</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MSDS-PO Clause- See Attachment</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table style="font-family:'Noto Sans'" width="100%">
+						<tr>
+							<td style="font-size:14px; padding: 5px;" width="250">
+								<b>Comments</b>
+							</td>
+							<td style="font-size:14px; padding: 5px;">
+								: Comments here!
+							</td>
+						</tr>
+						<tr>
+							<td valign="top" style="font-size:14px; padding: 5px;">
+								<b>Total Order Amount</b>
+							</td>
+							<td style="font-size:14px; padding: 5px;">
+								: $4545
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<table style="height:100px;width:400px" border="1" bordercolor="#bbb" rules="none">
+									<tr>
+										<td valign="top" style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">
+											Authorize Signature
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!--<tr style="line-height:11px">
+							<td>
+								<br />
+							</td>
+						</tr>-->
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tbody>
+							<tr>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Line</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Fac</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Standard Name</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Rev</td>
+								<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Variable Terms & Conditions</td>
+							</tr>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;"></td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;"></td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">ADD SHIP</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">000</td>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">Additional Shipping Instruction</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table align="left" border="1" cellspacing="0" cellpadding="0" rules="none" bordercolor="#bbb" style="width: 45%;font-family: Noto Sans; color: #000000;">
+						<tbody>
+							<tr>
+								<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;"><b>Additional Shipping Instruction</b></td>
+							</tr>
+							<tr>
+								<td style="font-family: Noto Sans; font-size: 14px; padding: 10px !important; line-height: 25px; color: #000000; border: 1px solid #A2A2A2;">
+									PO Header P312 S&P Print Code
+									<br>0001    Conversion01   000    Conversion Document 1 (BGE)
+									<br>Added S&P to Po Line
+									<br>P321 Print Code
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#bbb" style="font-family: Noto Sans;" rules="all">
+						<tr>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">FAC</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Standard Name</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Rev</td>
+							<td style="font-size: 12px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px; background: #E8E8E8;">Terms & Conditions</td>
+						</tr>
+						<tr>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">-</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MSDS - PO</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">000</td>
+							<td style="font-size: 14px; padding: 10px; border: 1px solid #A2A2A2; color: #000000; line-height: 20px;">MSDS-PO Clause- See Attachment</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!--<tr style="line-height:11px">
+				<td>
+					<br />
+					<br />
+					<br />
+					<br />
+				</td>
+			</tr>-->
+			<tr>
+				<td>
+					<table rules="none" border="1" bordercolor="#bbb" width="100%">
+						<tbody>
+							<tr>
+								<td style="font-family: Noto Sans; font-size: 14px; padding: 24px; line-height: 25px; border: 1px solid #A2A2A2; color: #000000;" align="left">
+									<b>Mail Invoice To :</b><br>EXELON BUSINESS SERVICES CO.
+									<br>AN EXELON COMPANY
+									<br>P.O. BOX 17456
+									<br>BALTIMORE MD 2455
+									<br>
+									<br>
+									<font>PECO ENERGY COMPANY <br>Standard Name - MSDS PO (REVISION DATE : 10/5/2200)</font>
+									<br>
+									<br>
+									<font>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula dolor, rutrum ornare mauris vitae, rhoncus pulvinar eros. Donec eu condimentum turpis, ac bibendum ante.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula dolor, rutrum ornare mauris vitae, rhoncus pulvinar eros. Donec eu condimentum turpis, ac bibendum ante.
+									</font>
+									<br>
+									<br>
+									<font>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula dolor, rutrum ornare mauris vitae, rhoncus pulvinar eros. Donec eu condimentum turpis, ac bibendum ante.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ligula dolor, rutrum ornare mauris vitae, rhoncus pulvinar eros. Donec eu condimentum turpis, ac bibendum ante.
+									</font>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" bordercolor="#bbb" style="font-family: Noto Sans;">
+						<tbody>
+							<tr>
+								<th style="padding: 0;font-size: 18px;color: #000000;font-weight: bold;text-align: center;" width="60%" align="center">END OF PURCHASE ORDER</th>
+							</tr>
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- PDF Content Ends -->
+	<!--<footer class="page-footer bounceInUp animated">
+		<div class="clearfix row">
+			<div class="left left-align col s6">
+				<smart-button flat="true" class="editRequest" config='{"title":"EDIT"}' callback="editOrder"></smart-button>
+			</div>
+			<div class="right right-align col s6">
+				<smart-button class="right" config='{"title":"SUBMIT"}' callback="" ng-click="submitReq()"></smart-button>
+				<smart-button flat="true" class="right" config='{"title":"SAVE AS DRAFT"}' callback=""></smart-button>
+			</div>
+		</div>
+	</footer>-->

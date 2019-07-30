@@ -1,0 +1,69 @@
+<div class="row" ng-controller="footerCtrl">
+
+    <!--footer for userprofile-->
+    <div class="col s12 normalMode"  ng-if="pageName == 'user.profile'">
+        <div class="left-align col s6">
+            <div class="left green-text text-darken-1 profile-percentage">75<span>%</span> </div>
+            <div class="left profile-status black-text">
+                PROFILE<br />
+                COMPLETENESS
+            </div>
+        </div>
+        <div class="right-align col s6">
+            <smart-button config='{"title":"save"}' disable='"true"'></smart-button>
+            <smart-button config='{"title":"Cancel"}' background-color='"white"'></smart-button>
+        </div>
+
+    </div>
+
+    <div class="col s12 normalMode" ng-if="false">
+
+        <div class="left-align col s5 marginTop15">
+            <a href="javascript:void(0)" class="waves-circle waves-effect tooltipped" data-position="top" data-delay="50" data-tooltip="{{$label.wishlist}}"><i class="icon small blue-text">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Wishlist"></use></svg></i></a>
+            <a href="#!" class="waves-circle waves-effect tooltipped" data-position="top" data-delay="50" data-tooltip="{{$label.compare}}"><i class="icon small blue-text">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Compare"></use></svg></i></a>
+        </div>
+        <div class="right-align col s7">
+
+            <div class="row marginBottom0">
+
+                <div class="input-field col s3">
+                    <input id="last_name" type="text" class="right-align">
+                    <label for="last_name" class=" black-text">{{ $label_FU.qty }}</label>
+                </div>
+                <div class="input-field col s3 top">
+                    <select id="UOM1">
+                        <option value="" selected>{{ $label_FU.uom }}</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="input-field col s3 top">
+                    <select id="currency1">
+                        <option value="0" selected>{{ $label_FU.currency }} </option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="col s3 ">
+                    <a href="#!" class="_addToCartSelectedOnDetails btn hoverable waves-effect wave-light marginTop15">ADD TO CART </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer for landing pages-->
+        <div class="col s12 right-align" ng-if="pageName == 'landing'">
+                <smart-button config='{"title":"SEND FOR APPROVAL"}' ></smart-button>
+        </div>
+
+    <div class="col s12 right-align" ng-if="pageName == 'inv.excel'">
+        <smart-button config='{"title":"UPLOAD SCANNED IMAGES"}'></smart-button>
+    </div>
+
+</div>

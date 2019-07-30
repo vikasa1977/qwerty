@@ -1,0 +1,84 @@
+<div ng-controller="p2pOrderNewCtrl">	
+		
+	<div class="row paddingLeft5 paddingRight5 lifecycleBoxWrap marginBtm10">   
+        <div ng-repeat="lifeCycle in lifeCycleData" class="col" ng-class="{'short-box': lifeCycle.docName == 'Requested' || lifeCycle.docName == 'Ordered', 'regular-box': lifeCycle.docName == 'Fulfilled' || lifeCycle.docName == 'Invoiced'}">
+            <div class="lifecycleBox">
+                <div class="row margin0">
+                    <div class="lc_boxHeading col" ng-class="lifeCycle.legends? 's6' : 's12'">
+                        <span class="left">{{lifeCycle.docName}}</span>
+                        <a href="javascript:void(0)" class="left info-icon-wrap">
+                            <i class="icon small grey-text" smart-infotip position="top" mode="mouseover" template-url="lifeCycleInfoTemplate.html" is-fixed="true">
+                                <svg>
+                                    <use xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                    <div class="col s6 legends-wrap" ng-if="lifeCycle.legends">
+                        <div ng-repeat="legend in lifeCycle.legends" class="right" ng-class="{'marginLeft10': $first}">
+                            <span class="circle" ng-class="{'orange-bg': legend.name == 'Draft' || legend.name == 'In Process', 'green-bg': legend.name == 'Finalized' || legend.name == 'Paid'}"></span>
+                            <span>{{legend.name}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin0 lifecycle-details-wrap">
+                    <div class="col s7" ng-class="lifeCycle.chartValue? 'col s7' : 'col s12'">
+                        <ul>
+                            <li ng-repeat="detail in lifeCycle.data.details">
+                                <div>{{detail.name}} ({{detail.currency}})</div>
+                                <div class="clearfix">
+                                    <div class="left primary-value" ng-show="detail.value">{{detail.value}}</div>
+                                    <div class="left primary-value" ng-show="detail.finalizedValue">{{detail.finalizedValue}}</div>
+                                    <div class="left primary-value" ng-show="detail.paidValue">{{detail.paidValue}}</div>
+
+                                    <div class="left secondary-value" ng-show="detail.draftValue">{{detail.draftValue}}</div>
+                                    <div class="left secondary-value" ng-show="detail.inProcessValue">{{detail.inProcessValue}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s5 center-align" ng-if="lifeCycle.chartValue">
+                        <div class="displayInlineBlock">
+                            <progress-meter percent="lifeCycle.chartValue"></progress-meter>
+                        </div>
+                        <div class="center-align">
+                            <span ng-show="lifeCycle.docName == 'Fulfilled'">Fulfilled</span> <span ng-show="lifeCycle.docName == 'Invoiced'">Invoiced</span> against Ordered Value
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row lifecycle-other-details-wrap" ng-if="lifeCycle.data.otherDetails">
+                    <div class="col s12">
+                        <ul>
+                            <li ng-repeat="otherDetail in lifeCycle.data.otherDetails">
+                                <div class="clearfix">
+                                    <div class="left other-detail-name">{{otherDetail.name}}</div>
+                                    <div class="left other-detail-value">{{otherDetail.value}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix right-align marginRight10">
+        <a href="javascript:void(0)" ng-click="viewAll()">{{'View All'}}</a>
+    </div>
+
+    <script id="lifeCycleInfoTemplate.html" type="text/ng-template">
+        <div class="minWidth200 padding15">
+            <div>Value = Price X Quantity</div>
+            <div class="marginTop10">Total = Value + Taxes + Shipping Charges + Other Charges (wherever applicable)</div>
+            <div ng-if="lifeCycle.docName == 'Fulfilled'">
+                <div class="marginTop10">'Fullfilled' denotes the Accepted Value/Total or Quantity</div>
+                <div class="marginTop10">% Fulfilled does not include the draft documents</div>
+            </div>
+            <div ng-if="lifeCycle.docName == 'Invoiced'">
+                <div class="marginTop10">'Invoiced' denotes the Invoiced less the credited</div>
+                <div class="marginTop10">Invoiced does not include the draft documents</div>
+            </div>
+        </div>
+    </script>
+</div>

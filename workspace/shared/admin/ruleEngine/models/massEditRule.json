@@ -1,0 +1,71 @@
+{
+  "formConfig": {
+    "sections": [
+      {
+        "label": "SUMMARY",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "massEditRuleBasicDetailsCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/massEditRuleBasicDetails.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ACTION TYPES",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "massRuleEditMethodCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/massEditRuleActionType.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "CONDITIONS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "massRuleEditMethodCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/massEditRuleconditions.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

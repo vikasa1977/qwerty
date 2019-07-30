@@ -1,0 +1,256 @@
+<div class="clearfix" ng-class="{'borderTopLight' : supplierData}">
+    <smart-popup template-url="{{addSupplierPoupUrl}}" show="{{addSupplierPopup}}" on-hide="hideAddSupplierPopupCallback(e)"></smart-popup>
+	
+    <div class="center action-block" ng-show="!supplierData">
+		<a href="javascript:void(0);" class="action-block-cont" ui-sref="projects.addSupplier">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Add from Repository</span>
+		</a>
+		<a href="javascript:void(0);" class="action-block-cont" ui-sref="supplier.new">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">New Supplier</span>
+		</a>
+	</div>
+	
+	<div ng-show="supplierData">
+		<!--<div class="clearfix">
+			<div class="alert-bar alert-bar--with-button enter-from-top info-bar">
+				<span class="left fontSize12">
+					<i class="icon small left marginLeft10">
+						<svg><use xlink:href="#icon_Info"></use></svg>
+					</i>Include diverse suppliers in event
+				</span>
+			</div>
+		</div>-->
+		<div class="clearfix secContentWithBorder fontSize12" ng-show="!buyerPreview">
+			<!--<div class="sectionSearch sectionSearch-supplier">
+				<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+					<div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+						<a href="javascript:void(0)" ng-class="showMeM" ng-click="columnSearchKey='';hideSearchM()" ng-show="hideCloseM" class="waves-circle marginTop3 waves-effect cancel-icon black-text">
+							<i class="icon iconSmall center" smart-tooltip position="bottom" message="Close" ng-class="isActiveM ? 'blue-text' : 'grey-text'">
+								<svg><use xlink:href="#icon_Close"></use></svg>
+							</i>
+						</a>
+						<smart-textfield placeholder={{columnSearchKey}} ng-model="supplierSearchTxt.title" class="input-field" focus="focusSearchM"></smart-textfield>
+						<a href="javascript:void(0)" class="search-icon marginTop8 black-text" smart-tooltip position="bottom" message="Search" ng-click="searchTextValue='';showSearchM()">
+							<i class="icon iconSmall center" ng-class="isActiveM ? 'grey-text' : 'blue-text'">
+								<svg><use xlink:href="#icon_Search"></use></svg>
+							</i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="left marginTop1">
+				<i class="icon iconSmall left marginRight5">
+					<svg><use xlink:href="#icon_Info"></use></svg>
+				</i>
+				<span class="fontSize14">Include diverse suppliers in event</span>
+			</div>-->
+			<div class="right">
+				<!--<a href="javascript:void(0);" class="left marginTop2 marginLeft16" ng-class="{'disabled': !supplierSelected}" smart-tooltip message="Invite" position="bottom" ng-click="inviteMultiSupplier()">
+					<i class="icon left margin0">
+						<svg><use xlink:href="#icon_Email"></use></svg>
+					</i>
+				</a>
+				<a href="javascript:void(0);" class="left marginTop1 marginLeft18" ng-class="{'disabled': !supplierSelected}" smart-tooltip message="Delete" position="bottom" ng-click="deleteMultiSupplier($event)">
+					<i class="icon left margin0">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>
+				<a href="javascript:void(0);" class="left marginTop2 marginLeft16" smart-tooltip message="Configure" position="bottom" ng-click="configureSupplier()">
+					<i class="icon left margin0">
+						<svg><use xlink:href="#icon_Configure"></use></svg>
+					</i>
+				</a>-->
+				<smart-dropdown class="left marginTop2 marginLeft20">
+					<a href="javascript:void(0)" class="right" ui-sref="projects.addSupplier">
+						<i class="icon left dropdown-button marginRight0" data-constrainwidth="false" data-activates="createSupplier" data-alignment="left" position="bottom" smart-tooltip message="Add from Repository">
+							<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+						</i>
+					</a>
+					<!--<ul id="createSupplier" class="padding0 dropdown-content zIndex10">
+						<li class="margin0 list-item"><a href="javascript:void(0)" ui-sref="projects.addSupplier">Add from Repository</a></li>
+						<li class="margin0 list-item"><a href="javascript:void(0)" ui-sref="supplier.new">New Supplier</a></li>
+					</ul>-->
+				</smart-dropdown>
+			</div>
+		</div>
+		<table class="bordered sTable fixedTbl sd">
+			<thead>
+				<tr>
+					<th class="left-align" width="25%">
+						Name
+                        <a href="javascript:void(0)" ng-click="sort('title')" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use ng-if="sortKey!='title'" xlink:href="#icon_Sort" smart-tooltip message="Duplicate" position="bottom"></use>
+                                        <use ng-if="sortKey=='title'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+                                    </svg>
+                                </i>
+                            </a>
+						<!--<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="Sort" position="bottom" ng-click="ascDescToggler(sortIcon1)">
+							<i class="icon iconSmall"><svg><use xlink:href="" data-ng-href="{{ '#'+sortIcon1.icon }}"></use></svg></i>
+						</a>-->
+					</th>
+					<!--<th class="left-align" width="28%">
+						Primary Contact
+						<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="Sort" position="bottom" ng-click="ascDescToggler(sortIcon)">
+							<i class="icon iconSmall"><svg><use xlink:href="" data-ng-href="{{ '#'+sortIcon.icon }}"></use></svg></i>
+						</a>
+					</th>
+					<th class="left-align" width="22%">Secondary Contacts</th>-->
+					<th class="left-align" width="25%">
+						Participation Status
+						<smart-dropdown>
+							<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="Filter" position="bottom" data-alignment="left" data-activates="filterOfParticipationStatus" data-constrainwidth="false">
+								<i class="icon iconSmall">
+									<svg><use xlink:href="#icon_Filter"></use></svg>
+								</i>
+							</a>
+							<ul id="filterOfParticipationStatus" class="dropdown-content collection noBorder dd-close-off">
+								<li class="collection-item"><smart-checkbox label="Invited"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Not Invited"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Acknowledgement Received"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Participation Accepted"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Participation Declined"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Revoked"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Response Withdrawn"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Response Submitted"></smart-checkbox></li>
+							</ul>
+						</smart-dropdown>
+					</th>
+                    <th class="left-align" width="15%"> SupplierContact</th>
+                    <th class="left-align" width="15%"> Added By</th>
+                    <th class="left-align" width="15%"> Added On</th>
+					<th style="width:100px" ng-if="!buyerPreview"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="supplier in filteredList = (supplierList | filter:supplierSearchTxt) | orderBy:sortKey:reverse | itemsPerPage:rowsToShowOpts.selectedOption.size" pagination-id="supplier" current-page="currentPage" ng-class="{'highlightRow': supplier.highlight}">
+					<td class="left-align">
+						<span ng-bind-html="supplier.title | highlights: supplierSearchTxt.title" class=""></span>	
+                        <a href="javascript:void(0)" class="blue-text">
+                            <i class="icon" smart-tooltip position="bottom" message="{{supplier.diversityToolTip}}" ng-if="supplier.diversity">
+                                <svg><use xlink:href="#icon_DiversitySu"></use></svg>
+                            </i>
+                        </a>
+                        <!--<a href="javascript:void(0)" class="blue-text">-->
+                            <i class="blue-text icon" smart-tooltip position="bottom" message="{{supplier.disqualifiedToolTip}}" ng-if="supplier.disqualifiedSupplier">
+                                <svg><use xlink:href="#icon_DisqualifiedSupplier"></use></svg>
+                            </i>
+                        <!--</a>-->
+                        <a href="javascript:void(0)" class="blue-text" ng-click="showSupplierIcard()">
+                            <i class="icon" smart-tooltip position="bottom" message="I-Card">
+                                <svg><use xlink:href="#icon_ContactCard"></use></svg>
+                            </i>
+                        </a>
+                    </td>
+					<!--<td class="left-align"><span class="fontSize14"><a href="mailto:{{supplier.email}}" smart-tooltip message="{{supplier.email}}" position="bottom">{{supplier.contact}}</a></span><br /><span class="fontSize12 grey-text">{{supplier.phone}}</span></td>
+					<td class="left-align"><a href="javaScript:void(0)" class="dropdown-button" data-activates="secondaryContact_{{::$index}}" data-constrainwidth="false">{{supplier.secondaryContact[0].name}} + {{supplier.secondaryContact.length - 1 + " more"}}</a>
+						<div id="secondaryContact_{{::$index}}" class="dropdown-content width400">
+							<smart-list model="{{supplier.secondaryContact}}"
+										style-class="collection noBorder"
+										item-class="collection-item model_body"
+										template="secondaryContacts"
+										height="250px">
+							</smart-list>
+							<div class="row marginBtm0 paddingTop10 paddingBtm10 is-scrolled">
+								<div class="right">
+									<smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+									<smart-button flat="true" class="left" config='{"title":"EDIT"}' ng-click="showSecondaryContactsPopupCallback(supplier.title)"></smart-button>
+								</div>
+							</div>
+						</div>
+					</td>-->
+					<td class="left-align red-text" ng-if="!supplier.invitedOn && !supplier.participationStatus && !supplier.invitationDeclined && !supplier.revokedOn">Not Invited</td>
+					<td class="left-align green-text" ng-if="supplier.invitedOn && !supplier.revokedOn">Invited on {{supplier.invitedOn}}</td>
+					<td class="left-align" ng-if="supplier.participationStatus">{{supplier.participationStatus}}</td>
+					<td class="left-align red-text" ng-if="supplier.invitationDeclined">
+						{{supplier.invitationDeclined}}
+						<a href="javascript:void(0);" smart-tooltip message="View Comments" ng-click="addDeclineCommentPopup()" position="bottom">
+							<i class="icon small">
+								<svg><use xlink:href="#icon_Commented"></use></svg>
+							</i>
+						</a>
+					</td>
+					<td class="left-align red-text" ng-if="supplier.revokedOn">
+						{{supplier.revokedOn}}
+						<a href="javascript:void(0);" smart-tooltip message="View Comments" ng-click="revokeSupplierReadonly()" position="bottom">
+							<i class="icon small">
+								<svg><use xlink:href="#icon_Commented"></use></svg>
+							</i>
+						</a>
+					</td>
+    <td class="left-align"><a href="javaScript:void(0)" class="dropdown-button" ng-click="showSecondaryContactsPopupCallback($index)">{{supplier.secondaryContact[0].name}} + {{supplier.secondaryContact.length - 1 + " more"}}</a>
+        
+    </td>
+                    <td class="left-align">{{supplier.addedBy}}</td>
+                    <td class="left-align">{{supplier.addedOn | date : "dd/MM/yyyy hh:mm a"}}</td>
+<td class="left-align" ng-if="!buyerPreview">
+						<!--<a href="javascript:void(0);" class="marginRight10" smart-tooltip message="Invite" position="bottom" ng-click="emailNotifyCallback(supplier.title, $index)" ng-if="!supplier.invitedOn && !supplier.invitationDeclined">
+							<i class="icon small">
+								<svg pointer-events="none"><use xlink:href="#icon_Email"></use></svg>
+							</i>
+						</a>-->
+						<a href="javascript:void(0);" smart-tooltip message="Delete" position="bottom" ng-click="deleteSupplier(supplier.title, $index)" ng-if="!supplier.invitedOn && !supplier.invitationDeclined">
+							<i class="icon small">
+								<svg pointer-events="none"><use xlink:href="#icon_TrashCan"></use></svg>
+							</i>
+						</a>
+						<a href="javascript:void(0);" class="marginRight10" smart-tooltip message="Re-Invite" position="bottom" ng-click="reInviteSupplier(supplier.title, $index)" ng-if="supplier.invitedOn || supplier.invitationDeclined">
+							<i class="icon small">
+								<svg pointer-events="none"><use xlink:href="#icon_EmailResend"></use></svg>
+							</i>
+						</a>
+						<a href="javascript:void(0);" smart-tooltip message="Revoke" position="bottom" ng-click="revokeSupplier(supplier.title, $index)" ng-if="supplier.invitedOn && !supplier.invitationDeclined">
+							<i class="icon small">
+								<svg pointer-events="none"><use xlink:href="#icon_Revoke"></use></svg>
+							</i>
+						</a>
+					</td>
+				</tr>
+				<tr class="noResultsBar" ng-hide="filteredList.length">
+					<td class="noResultsBar-cell" colspan="6">No Suppliers found!</td>
+				</tr>
+			</tbody>
+		</table>
+        <div class="clearfix paginationWrapper savable right" ng-show="filteredList.length > 5">
+            <div class="left selectPaginationDropDown">
+                <span class="rowsToShow"> Rows Per Page:</span>
+                <smart-select class="col s12 m4 l4 xl3 xxl2 input-field" options="rowsToShowOpts.availableOptions" ng-model="rowsToShowOpts.selectedOption" datakey="size"></smart-select>
+            </div>
+			<dir-pagination-controls class="left" pagination-id="supplier" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+		</div>
+
+        <!--<div class="clearfix paginationWrapper savable right" ng-show="filteredList.length > 5">
+            <span class="rowsToShow">
+                Rows per page:
+                <select name="mySelect1" id="mySelect1" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+            </span>
+            <dir-pagination-controls class="left" pagination-id="supplier" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChangeHandler()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div>-->
+	</div>
+    <smart-popup template-url="shared/popup/views/popupSupplierIcard.html" show="{{showSupplierIcardPopup}}" on-hide="hideSupplierIcardPopupCallback(e)" class="supplier-icard-popup"></smart-popup>
+	<smart-popup template-url="project/ppst/views/popupSupplierSecondaryContacts.html" show="{{showSecondaryContactsPopup}}" on-hide="onSecondaryContactsPopupHide()" type="large"></smart-popup>
+	<smart-popup template-url="{{emailNotifyPopupUrl}}" show='{{emailNotify}}' on-hide="emailNotifyOnHideCallback(e)" modal-type="large"></smart-popup>
+    <smart-popup template-url="sourcing/rfx/views/popupSupplierDecline.html" show="{{addDeclineCommentPeriod}}" on-hide="addDeclineCommentPopupHide(e)"></smart-popup>
+
+	<smart-popup template-url="{{commentsPopupgTabUrl}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+	<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+
+	<smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)"></smart-popup>
+	<smart-popup template-url="{{addAttachmentPopupUrl}}" show="{{showAddAttachmentPopup}}" on-hide="hideaddAttachmentPopupUrlCallback(e)"></smart-popup>
+</div>
+<script type="text/ng-template" id="secondaryContacts">
+	<div item="{{item}}">
+		<span class="fontSize14"><a href="mailto:{{item.email}}" smart-tooltip message="{{item.email}}" position="bottom">{{item.name}}</a></span><br/><span class="fontSize12 grey-text">{{item.contact}}</span>
+	</div>
+</script>

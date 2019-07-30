@@ -1,0 +1,43 @@
+<div class="help-center" ng-controller="sideNavCtrl">
+    <div class="col s12">    
+        <div class="title support-title">Support
+            <a href="https://smartdev.gep.com/HelpCenter/HelpCenter?oloc=101" class="help-center-link">
+                <span>Help Center</span>
+            </a>
+        </div>
+        <smart-scroll height="100%" v-offset="114px">
+            <div class="smartCoachLogo icon iconSmall">
+                <svg>
+					<use xlink:href="#icon_bulb"></use>
+				</svg>
+            </div>
+            <div class="smartCoachSwitchContainer">
+                <span>Smart Coach</span>
+                <smart-switch class="col s12 m3 l4 xl3 xxl2 displayInlineBlock smartCoachSwitch" on-change="onSmartCoachSwitchClick(SmartCoachSwitch)" ng-model="SmartCoachSwitch" left-label="''" right-label="''"></smart-switch>
+            </div>
+            <div class="title">Telephone:</div>
+            <ul class="collection row">
+                <li ng-repeat="contact in phoneContacts">
+                    <div class="support-li">
+                        <span class="country-list truncate">{{contact.country}}</span>
+                        <span>:</span>
+                        <span class="number-list"  ng-repeat="phoneNumber in contact.phoneNumbers">
+                            <span> + {{phoneNumber.isdCode}}</span>
+                            <span>{{phoneNumber.number}}</span>
+                        </span>
+                           
+                        </div>
+                </li>
+            </ul>
+            <div class="email-info row">
+                <div class="title">E-Mail:</div>
+                <ul class="collection">
+                    <li class="paddingLeft25" ng-repeat="contact in emailContacts">
+                        <div>{{contact.country}}</div>
+                        <a href="#">{{contact.email}}</a>
+                    </li>
+                </ul>
+            </div>
+        </smart-scroll>
+        </div>
+</div>

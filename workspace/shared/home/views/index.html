@@ -1,0 +1,218 @@
+﻿<div class="introjsButtonOverlay marginLeft20 marginBtm20 hide">
+    <smart-checkbox class="left marginTop5 marginRight15 inverseCheckBox" ng-model="dontShowIntro" on-change="onDontShowIntro()" label="Dont show again"></smart-checkbox>
+    <smart-button class="left marginRight20 fontSize14 inverseButton" config='{"title":"OK, GOT IT"}' flat="false" ng-click="onIntroOkGotIt()" disable="false"></smart-button>
+</div>
+<div ng-click="hideFabButton()" style="height:100%;overflow:hidden;">
+
+    <div ng-if="showMessageBanner && bannerData.length > 0" class="messageBannerContainer alert-bar--warning left width100P" message-banner>
+        <div class="messageIconContainer left paddingTop5" ng-class="{'hideVisibility':bannerData.length == 1}">
+            <span ng-click="showPopUp();" class="z-depth-1 small-notification-bubble circle g-animate fade-in-small-bubble">{{bannerData.length}}</span>
+            <a ng-click="showPopUp();" href="javascript:void(0)" class="showBannerPopUp waves-effect waves-block waves-light right-side-nav tooltipped waves-circle left" smart-tooltip="" position="bottom" delay="250" message="Message">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Email"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+
+        <ul class="adminMessageContainer left paddingLeft20" ng-class="{'closeMessageBanner' : (!showReadMore && bannerData.length == 1) || allButtonsClicked}">
+            <li class="adminMessage truncate" ng-repeat="data in bannerData" ng-show="$first">
+                <span class="bold">{{data.title}}: </span>
+                <span>{{data.message}}</span>
+            </li>
+        </ul>
+        <a ng-if="showReadMore" ng-click="showPopUp();" class="displayInlineBlock bold cursorPointer readMoreLink">{{ 'READ MORE' | translate }}</a>
+
+        <a ng-if="(!showReadMore && bannerData.length == 1) || allButtonsClicked" ng-click="hideMessageBanner();" href="javascript:void(0)" class="paddingRight50 paddingTop5 heightAuto waves-effect waves-block waves-light right-side-nav tooltipped waves-circle right" smart-tooltip="" position="bottom" delay="250" message="Close">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div data-ng-include="'shared/home/views/searchBox.html'" style="height: 26%;"></div>
+    <div data-ng-include="'shared/home/views/navCircle.html'" style="margin-top: 150px;" class="circleContainer marginTop215"></div>
+    <smart-popup template-url="{{popupMessageURL}}" show='{{showCongratulationAlert}}' on-hide="popupHideFunction(e)"></smart-popup>
+    <img class="footerLogoImg" ng-if="!showHideSlider" style="position:fixed;left:10px;bottom:10px;" ng-src="{{$root.logoImage}}" />
+    <!--<div class="footerLogo" title="GEP"></div>-->
+
+    <div class="fixedBottom" recent-doc-slider>
+        <!--<a href="javascript:void(0);" class="sliderTitle" ng-click="showSlider();">Recent Documents</a>-->
+
+        <div><span class="clLeft"></span><a href="javascript:void(0);" class="sliderTitle" ng-click="showSlider();">Recent Documents</a><span class="clRight"></span></div>
+
+        <div class="recentDocSlider" style="display: none;">
+            <div class="recentSliderItem" ng-repeat="sliderItem in recentDocData">
+                <div class="checkboxWithIcon">
+                    <i class="icon iconSmall circle iconItem catalog white-text" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}"  smart-tooltip="" position="top" delay="250" message="{{sliderItem.docType}}">
+                        <svg><use xlink:href={{setValue(sliderItem.docType)}}></use></svg>
+                    </i>
+                </div>
+                <a ui-sref="{{sliderItem.docLink}}" class="sliderItemCont" href="javascript:void(0);" title="{{sliderItem.docName}}">
+                    <span class="title  blue-text truncate  displayBlock">{{sliderItem.docName}}</span>
+                </a>
+                <span class="collecton-item-secondary-text-wrapper text-darken-4 grey-text  truncate  displayBlock">Last Accessed : {{sliderItem.lastSeen}}</span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="blue-overlay animated" tabbing-group  ng-class="{'fadeIn':animateDelayFlag && animationRemoved,'bounceOut':!animateDelayFlag, 'singleLineRecords' : creationPhaseConfiguration.length <= 5, 'doubleLineRecords' : creationPhaseConfiguration.length > 5  }" ng-if="isCreationActive" ng-click="closeCreationPhase('cancel',false,$event)">
+        <div class="centered">
+            <div class="white-text center-align action-box-wrap">
+                <h5 class="marginBtm20">{{creationMsg}}</h5>
+                <div class="white action-box z-depth-3 animated" ng-show="animateDelayFlag" ng-class="{'flipInX':animateDelayFlag,'flipOutX':!animateDelayFlag,'action-block-disable':actionBlock.isDisable}" ng-repeat="actionBlock in creationPhaseConfiguration" ng-click="closeCreationPhase(actionBlock.result,actionBlock.isDisable,$event)">
+                    <a href="javascript:void(0)">
+                    <span class="action-box-icon">
+                        <i class="icon iconSmall action-icon" ng-class="{'blue-text':!actionBlock.isDisable,'action-block-disable':actionBlock.isDisable}">
+                            <svg focusable="false">
+                                <use xlink:href="{{actionBlock.icon}}"></use>
+                            </svg>
+                        </i>
+                    </span>
+                    <span class="action-box-text">
+                        <span ng-class="{'action-block-disable':actionBlock.isDisable}" focus="true">{{actionBlock.title}}</span>
+                    </span>
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="right-align">
+            <a class="white waves-effect blue-text btn overlay-okay-button" ng-click="closeCreationPhase('cancel',false,$event)"  ng-blur="onFocusOutOverlay($event)">CANCEL</a>
+            <!--<smart-button class="whiteSecondaryBtn overlay-okay-button" config='{"title":"CANCEL","allignRight":"false"}' disable="false" ng-click="closeCreationPhase('cancel',false,$event)" ng-keypress="onEnterPress($event)"></smart-button>-->
+        </div>
+    </div>
+
+    <div class="blue-overlay animated" ng-class="{'fadeIn':animateDelayFlag && animationRemoved,'bounceOut':!animateDelayFlag}" ng-if="isCubeActive">
+        <searchable-cube cubelet-list="cubeletList" enable-proceed="enableCubeProceed" format-key="name" selected-cube="selectedCube" class="displayBlock"></searchable-cube>
+        <div class="right-align">
+            <a class="white waves-effect blue-text btn overlay-okay-button marginRight100" ng-click="closeCubeCreationPhase('cancel',false,$event)">CANCEL</a>
+            <a ng-class="{'disabled' : !isCubeProceedEnabled}" class="white waves-effect blue-text btn overlay-okay-button" ng-click="routeToReport();">PROCEED</a>
+        </div>
+    </div>
+
+    <div class="home-page hide-on-down fixed-action-btn homePageFixedActionBtn" ng-class="{'activeOnClick':isAciveFab, 'sliderOpened' : showHideSlider}">
+        <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger" ng-click="fabbclicked($event)">
+            <i class="icon icon-fix-overlay iconSmall">
+                <svg>
+                    <use xlink:href="#icon_grid"></use>
+                </svg>
+            </i>
+        </a>
+        <ul ng-if="isAciveFab">
+
+            <li>
+                <a class="btn-floating overflowVisible" ng-class="{'stayStyleFab':isAciveFab}" ui-sref="projects.requester">
+
+                    <i class="icon icon-fix-overlay iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_projects"></use>
+                        </svg>
+                    </i>
+                    <div class="subFabLblContainer">
+                        <div class="subFabLblContainer-label">{{'Project Request' || translate}}</div>
+                    </div>
+                </a>
+            </li>
+
+
+            <li>
+                <a class="btn-floating overflowVisible" ng-class="{'stayStyleFab':isAciveFab}" ui-sref="p2p.paymentReq.new">
+
+                    <i class="icon icon-fix-overlay iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_PaymentReq"></use>
+                        </svg>
+                    </i>
+                    <div class="subFabLblContainer">
+                        <div class="subFabLblContainer-label">{{'Payment Request' || translate}}</div>
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a class="btn-floating overflowVisible" ng-class="{'stayStyleFab':isAciveFab}" ui-sref="contract.request">
+
+                    <i class="icon icon-fix-overlay iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Contract"></use>
+                        </svg>
+                    </i>
+                    <div class="subFabLblContainer">
+                        <div class="subFabLblContainer-label">{{'Contract Request' || translate}}</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating overflowVisible" ng-class="{'stayStyleFab':isAciveFab}" ui-href="javascript:void(0);">
+                    <i class="icon icon-fix-overlay iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Auction"></use>
+                        </svg>
+                    </i>
+                    <div class="subFabLblContainer">
+                        <div class="subFabLblContainer-label">{{'Auction Request' || translate}}</div>
+                    </div>
+                </a>
+
+
+
+            </li>
+
+            <li>
+                <a class="btn-floating overflowVisible" ng-class="{'stayStyleFab':isAciveFab}" ui-href="sourcing.rfx.new">
+                    <i class="icon icon-fix-overlay iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                        </svg>
+                    </i>
+                    <div class="subFabLblContainer">
+                        <div class="subFabLblContainer-label">{{'RFx Request' || translate}}</div>
+                    </div>
+                </a>
+
+
+
+            </li>
+
+        </ul>
+    </div>
+
+    <smart-popup template-url="shared/popup/views/userConcentPopUp.html" dismissible="false" show="{{userConcentPopUp}}" on-hide="onHideConfidentialityPopUp(e)"></smart-popup>
+
+    <smart-popup template-url="shared/popup/views/confidentialityNoticePopUp.html" dismissible="false" show="{{showConfidentialityPopUp}}" on-hide="onHideConfidentialityPopUp(e)"></smart-popup>
+
+    <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadlogpopuprootCall}}" on-hide="onUploadlogpopupHideRootCall(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupExpressQuickBuy.html" show='{{expressReqPopupRootCall}}' on-hide="expressReqPopupHideRootCall(e)" type="large"></smart-popup>
+    <smart-popup type="large" template-url="contract/views/contractQuickCreate.html" show="{{contractQuickCreateRootCall}}" on-hide="contractQuickCreateHideRootCall(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupUploadExcel.html" show="{{showUploadExcelrootCall}}" on-hide="onUploadlExcelHideRootCall(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showAddAttachmentPopup}}" on-hide="showAddAttachmentPopupHideCall(e)"></smart-popup>
+
+    <smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Category" default-text="Choose Category" show="showFormRootC" mode="true" selected-value="categoryRootData" modal-content="category" modal-button="categoryBtn" initial-display-text="categoryDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+    <smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormRootBU" mode="true" selected-value="businessUnitRootData" modal-content="businessUnit" modal-button="businessUnitBtn" initial-display-text="businessUnitDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+    <smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Region" default-text="Choose Region" show="showRegionRoot" mode="true" selected-value="regionRootData" modal-content="region" modal-button="regionBtn" initial-display-text="RegionDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+    <style>
+        .home-page.active .is-action-btn-trigger i.icon {
+            transform: rotate(0deg);
+            margin: 0;
+        }
+
+        .stayStyleFab {
+            transform: scaleY(1) scaleX(1) translateY(0px) translateX(0px) !important;
+            opacity: 1 !important;
+        }
+
+        .fixed-action-btn.activeOnClick ul {
+            visibility: visible !important;
+        }
+
+        .home-page.hide-on-down.fixed-action-btn.sliderOpened {
+            bottom: 110px;
+        }
+        .modal {
+            z-index: 9999999999999 !important;
+        }
+    </style>
+</div>

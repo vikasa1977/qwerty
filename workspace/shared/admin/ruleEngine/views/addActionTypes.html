@@ -1,0 +1,197 @@
+﻿<div>
+   
+    <div class="modal-header">
+        <i class="icon  grey-text left">
+            <svg>
+                <use xlink:href="#icon_Configure"></use>
+            </svg>
+        </i>
+        <span class="title">Configure {{configurationName}}</span>
+        <i class="icon  blue-text right" smart-tooltip message="{{'Create Approval Group' || translate }}" position="bottom">
+            <svg>
+                <use xlink:href="#icon_CirclePlus"></use>
+            </svg>
+        </i>
+    </div>
+    <div class="info-action-bar paddingLeft20 is-scrolled">
+        <i class="icon grey-text left">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+            </svg>
+        </i>
+        <span class="ng-binding">{{helpText}}</span>
+    </div>
+    <smart-scroll height="300px">
+        <div class="scroll-inner-container" style="min-height: 250px;">
+            <table class="bordered sTable  approvalGroupTable"ng-if="showRaiseException">
+                <thead>
+                    <tr>
+                        <th ng-repeat="header in tableHeaderData" ng-class="{'left-align': header.leftAlign, 'center-align': header.centerAlign, 'right-align': header.rightAlign}">{{header.Name}}
+                          
+                            <i class="icon iconSmall blue-text titleIcon" ng-if="header.Name.length > 0" is-fixed="true" message="{{header.Filter}}" smart-infotip position="bottom"  style="top:8px;color: #066dfe;-webkit-tap-highlight-color: transparent;"> 
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="listData in identificationData track by $index">
+                        <td class="left-align" width="15%">
+
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-actionCode-'+$index, listData.identificationData);" href='javascript:void(0)' data-activates='gridTextField-actionCode-{{$index}}' data-constrainwidth="false">
+                                    {{listData.identificationno.actionCode || 'Please Enter'}}
+                                </a>
+                                <div id="gridTextField-actionCode-{{$index}}" ng-class="{'identificationno-show': listData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="listData.identificationno.actionCode"></smart-textfield>
+                                </div>
+                            </smart-dropdown>
+
+                        </td>
+                        <td class="left-align" width="20%">
+                            <smart-select class="marginBtm10 marginTop9" is-mandatory='true' ng-model="listData.approvalType.selectedoption.name" options="listData.approvalType.options" datakey="name"></smart-select>
+                        </td>
+                        <td class="left-align relative" width="15%">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a ng-show="!listData.group.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-group-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-group-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{listData.group.selectedoption[0].name  || listData.group.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : listData.group.selectedoption[0].name}" id="dropdowngrid-group-{{parentIndex}}-{{$index}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" titleofmodel="{{listData.group.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.group.displaytext}}" ng-model="listData.group.selectedoption" options="listData.group.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="left-align relative" width="15%">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a ng-show="!listData.leadApprovalGroup.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-leadApprovalGroup-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-leadApprovalGroup-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{listData.leadApprovalGroup.selectedoption[0].name  || listData.leadApprovalGroup.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : listData.leadApprovalGroup.selectedoption[0].name}" id="dropdowngrid-leadApprovalGroup-{{parentIndex}}-{{$index}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" titleofmodel="{{listData.leadApprovalGroup.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.leadApprovalGroup.displaytext}}" ng-model="listData.leadApprovalGroup.selectedoption" options="listData.leadApprovalGroup.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="center-align" width="15%">
+                            <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                        </td>
+                        <td class="center-align" width="15%">
+                            <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                        </td>
+                        <td class="left-align selectPoolType" width="15%" ng-if="listData.poolTypeShow">
+                            <smart-select class="marginBtm10 marginTop9" is-mandatory='true' ng-model="listData.poolTypeOptions.selectedoption.name" on-change="onChange(listData.poolTypeOptions.selectedoption.name, $index)" options="listData.poolTypeOptions.options" datakey="name"></smart-select>
+                        </td>
+                        <td class="left-align" width="15%" ng-if="listData.poolValueShow">
+                            <smart-dropdown config="{{dropDownConfig}}" ng-show="listData.poolValueShow">
+                                <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-poolValue-'+$index, listData.identificationData);" href='javascript:void(0)' data-activates='gridTextField-poolValue-{{$index}}' data-constrainwidth="false">
+                                    {{listData.identificationno.poolValue || 'Please Enter'}}
+                                </a>
+                                <div id="gridTextField-poolValue-{{$index}}" ng-class="{'identificationno-show': listData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="listData.identificationno.poolValue"></smart-textfield>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                       
+                      
+
+                        <td class="right-align" width="5%">
+                            <a ng-show="($index + 1) != identificationData.length ||($index + 1) === identificationData.length || ($index + 1) === identificationData.length && $index != 0" href="javascript:void(0)" class="right" ng-click="copyData(listData, identificationData, $index)">
+                                <i class="icon left marginRight0" smart-tooltip message="{{'Copy' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_Copy"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+                        <td class="right-align" width="5%" ng-show="($index + 1) != identificationData.length || ($index + 1) === identificationData.length && $index != 0">
+                            <a href="javascript:void(0)" class="right" ng-click="deleteConditionData(identificationData, $index)">
+                                <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+
+                        <td class="right-align" width="5%">
+                            <a ng-show="($index + 1) === identificationData.length" href="javascript:void(0)" class="marginLeft10 right" ng-click="addidentificationData(identificationData)">
+                                <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="bordered sTable  approvalGroupTable" ng-if="!showRaiseException">
+                <thead>
+                    <tr>
+                        <th ng-repeat="header in tableHeaderData">
+                            {{header.Name}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="listData in matchStatusData track by $index">
+                        <td class="left-align" width="30%" style="height: 50px;">
+
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('abc-' + $index, listData.identificationno);" href='javascript:void(0)' data-activates='abc-{{$index}}' data-constrainwidth="false">
+                                    {{listData.identificationno.actionCode || 'Please Enter'}}
+                                </a>
+                                <div id="abc-{{$index}}" ng-class="{'identificationno-show': listData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="listData.identificationno.actionCode"></smart-textfield>
+                                </div>
+                            </smart-dropdown>
+
+                        </td>
+                         
+                        <td class="left-align relative" width="30%">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a ng-show="!listData.group.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-group-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-group-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{listData.group.selectedoption[0].name  || listData.group.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : listData.group.selectedoption[0].name}" id="dropdowngrid-group-{{parentIndex}}-{{$index}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" titleofmodel="{{listData.group.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.group.displaytext}}" ng-model="listData.group.selectedoption" options="listData.group.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="left-align relative" width="30%">
+                             
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a ng-show="!listData.leadApprovalGroup.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-leadApprovalGroup-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-leadApprovalGroup-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{listData.leadApprovalGroup.selectedoption.name  || listData.leadApprovalGroup.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : listData.leadApprovalGroup.selectedoption[0].name}" id="dropdowngrid-leadApprovalGroup-{{parentIndex}}-{{$index}}" class="paddingTop11 dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" call-add-new="addNewException($index)" addnew="true" titleofmodel="{{listData.leadApprovalGroup.displaytext}}" multiselect="false" show-lookup="true" placeholder="{{listData.leadApprovalGroup.displaytitle}}" ng-model="listData.leadApprovalGroup.selectedoption" options="listData.leadApprovalGroup.options" filterkeys="['name']" lookup-hide="onConfigureGroupLookUpHide()" lookup-Open="onConfigureGroupLookUpShow()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+
+                        </td>
+
+                        <td class="right-align" width="5%">
+                            <a href="javascript:void(0)" class="right" ng-click="deleteConditionData(matchStatusData, $index)"  ng-show="($index + 1) != matchStatusData.length || ($index + 1) === matchStatusData.length && $index != 0">
+                                <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+
+                        <td class="right-align" width="5%">
+                            <a ng-show="($index + 1) === matchStatusData.length" href="javascript:void(0)" class="marginLeft10 right" ng-click="addMatchStatusData(matchStatusData)">
+                                <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </smart-scroll>
+    <div class="modal-footer is-scrolled paddingLeft4">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="addTeamComplete()"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+    <!--<smart-popup template-url="shared/admin/ruleEngine/views/addException.html" type="large" show="{{showAddExceptionPopUp}}" on-hide="configureApprovalGroupPopupHideCallback(e)"></smart-popup>-->
+</div>
+
+

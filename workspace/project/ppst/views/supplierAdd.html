@@ -1,0 +1,312 @@
+<div class="row marginBtm0 extra-nav-wrap subHeader-strip" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone':showFilter}">    
+    <div class="col s12 subHeaderWithFilter subHeader">
+		<div class="extra-nav-title">
+			<a href="javascript:void(0);" ng-click="backToPrevPage()" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+				<i class="icon small">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small extra-nav-title--icon">
+				<svg><use xlink:href="#icon_Supplier"></use></svg>
+			</i>
+			<span class="extra-nav-title--text">{{'ADD SUPPLIER' || translate}}</span>
+		</div>
+		<div class="extra-nav-action">
+			<ul class="right extra-nav-right-icon">
+                <!--<li class="extra-nav-icon relative">
+                    <search-header placeholder="{{search}}" ng-model="test2" is-active-header="false" search-id="addSupplier" width-manage="20"></search-header>
+                </li>-->
+				<li class="extra-nav-icon">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle waves-effect waves-light dropdown-button " data-activates='sortbyDropdown' data-position="bottom" data-delay="50" data-constrainwidth="true">
+                            <i class="icon iconSmall" smart-tooltip position="Down" delay="250" message="{{'Sort' || translate }}">
+                                <svg><use xlink:href="#icon_Sort"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='sortbyDropdown' class='dropdown-content dropdown-content--size-medium dd-close-off relative sort-dropdown-callout'>
+                            <li class="dropdown-content-header">
+                                <div class="title"> {{ 'Sort By' | translate }}</div>
+                            </li>
+                            <li class="dropdown-content-content">
+                                <ul ng-class="styleClass">
+                                    <li class="collection-item" ng-repeat="item in listSortWith track by $index" ng-click="ascDescToggler($index, item);itemClicked($index, item);" smart-tooltip position="bottom" delay="50" message="{{ item.tooltip }}">
+                                        <label for="getsortBy-{{ $index }}" ng-class="{'s-dd-icon-wth-color': $index == selectedIndex }" class="grey-text text-darken-4 truncate width88P cursorPointer">{{ item.name}}</label>
+                                        <div class="secondary-content">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon iconSmall grey-text" ng-class="{'s-dd-icon-wth-color': $index == selectedIndex }">
+                                                    <svg>
+                                                        <use xlink:href="{{ setSortAsicon(item.sortas) }}"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-content-footer">
+                                <div class="right">
+                                    <a href="javascript:void(0)" class="fontSize14  waves-effect waves-light btn-flat action-close-dropdown ng-scope" ng-click="resetSort();">CANCEL</a>
+                                    <a href="javascript:void(0)" class="fontSize14  waves-effect waves-light btn-flat action-close-dropdown ng-scope" ng-class="{'disabled':enableSortButton}" ng-click="applySort();">DONE</a>
+                                    <!--<smart-button config='{"title":"Close"}' flat="true" class="fontSize14 action-close-dropdown"  disable="false"></smart-button>
+                                    <smart-button config='{"title":"Done"}' flat="true" class="fontSize14 action-close-dropdown" ng-click="applySort(isSavedView);applyFilter(true);" disable='enableSortButton'></smart-button>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+				</li>
+				<li class="extra-nav-icon">
+					<a class="waves-circle waves-effect waves-light" ng-click="toggleFilter(e);" smart-tooltip position="bottom" message="{{'Filter' || translate }}">
+						<i class="icon iconSmall ">
+							<svg><use xlink:href="#icon_Filter"></use></svg>
+						</i>
+					</a>
+				</li>
+				<li class="extra-nav-icon" ng-if="scannedImg">
+					<a class="waves-circle waves-effect waves-light" smart-tooltip position="bottom" message="{{'Upload' || translate }}" ng-click="addDocumentPopupCallback(e)">
+						<i class="icon iconSmall ">
+							<svg><use xlink:href="#icon_Upload"></use></svg>
+						</i>
+					</a>
+				</li>
+				<li class="extra-nav-icon" ng-if="docType !== 'supplier' && !scannedImg ">
+					<smart-dropdown config="{{dropDownConfig}}">
+						<a class="waves-circle waves-effect waves-light dropdown-button" data-activates="landingPageAction" data-position="bottom" data-constrainwidth="false">
+							<i class="icon iconSmall" message="{{'Actions' || translate }}">
+								<svg><use xlink:href="#icon_MenuKebab"></use></svg>
+							</i>
+						</a>
+						<ul id="landingPageAction" class="dropdown-content">
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback()">
+									<i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+										<svg><use xlink:href="#icon_SavedView"></use></svg>
+									</i>
+									{{ 'Saved Views' || translate }}
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageFieldsPopupCallback(e, isSavedView)">
+									<i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+										<svg><use xlink:href="#icon_ManageFields"></use></svg>
+									</i>
+									{{ 'Manage Fields' || translate }}
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4">
+									<i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+										<svg><use xlink:href="#icon_ExcelView"></use></svg>
+									</i>
+									{{ 'Table View' || translate }}
+								</a>
+							</li>
+							<li ng-if="docType === 'order'">
+								<a ui-sref="p2p.order.mass" class="grey-text text-darken-4">
+									<i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+										<svg><use xlink:href="#icon_BulkEdit"></use></svg>
+									</i>
+									{{ 'Mass Update' || translate }}
+								</a>
+							</li>
+						</ul>
+					</smart-dropdown>
+				</li>
+			</ul>
+            <div class="src-addSupplier-search searchSlideMain headersearch searchSlideMain--inputBdrBNone">
+                <div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+                    <a href="javascript:void(0)" ng-click="hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon waves-light white-text">
+                        <i class="icon iconSmall center white-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+                    <smart-textfield class="input-field" focus="focusSearchHeader" ng-model="addsupplierSearch" placeholder="Search"></smart-textfield>
+                    <a href="javascript:void(0)" class="waves-circle  waves-effect search-icon waves-light white-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchHeader()">
+                        <i class="icon iconSmall center white-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+		</div>	
+	</div>
+
+    <div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" ng-show="initialFlag" class="panelBox-withSpace panelBox--filter padding0">
+        <div class="enter-from-top" ng-include="'sourcing/rfx/views/sourcingSupplierFilters.html'"></div>
+    </div>
+
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+<smart-global-loader ng-show="supplierIncoLineLoader" config="supplierLineLoaderFlag"></smart-global-loader>
+
+<div class="clearfix alert-bar--fixed relative is-overflowHidden" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+	<div class="alert-bar alert-bar-rfx paddingLeft35 borderBtmLight alert-bar--warning alert-bar--with-button enter-from-top zIndex99 relative" ng-class="{'show-dv-msg': alertBarFilter}">
+		<a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a>
+		<div class="right">
+			<a href="javascript:void(0)"  ng-click="hideFilters()" class="left paddingRight55  blue-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="10" message="{{'Close'|| translate}}">
+				<i class="icon small">
+					<svg>
+						<use xlink:href="#icon_Close"></use>
+					</svg>
+				</i>
+			</a>
+		</div>
+	</div>
+    <!--<div ng-class="{'show-dv-msg': diversitySupplierAlert}" class="sourcingActionBar padding0 paddingLeft30">
+        <i class="icon">
+            <svg>
+                <use xlink:href="#icon_Info"></use>
+            </svg>
+        </i>
+        <span>Include diverse suppliers in event</span>
+    </div>-->
+</div>
+
+
+<!--<div class="enter-from-top" ng-if="showFilter" ng-include="'sourcing/rfx/views/sourcingSupplierFilters.html'"></div>-->
+
+<div class="extendBg" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader}">
+	<div class="wrapper clearfix">
+		<ul class="compactListView margin0">
+            <li class="list white" ng-class="{'listHeadingFixed': fixedSubHeader, 'borderBtmLight': fixedSubHeader, 'filterApplied': isApplyFilters}">
+                <div class="cardList relative">
+                    <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="!showSelectedMasterList">
+                        <div class="row margin0 listTbl listTbl--withChk" ng-class="{'filled-partial' : fillpartialMasterSupplier == true }">
+                            <smart-checkbox class="left listTbl-chk" ng-model="supplierMasterHead.check" on-change="onChangeMasterSupplier(supplierMasterHead.check)"></smart-checkbox>
+                            <div class="left marginTop2 marginLeft5">
+                                <span class="listTbl-meta">({{listCount.length}} of {{supplierMasterList.length}} selected)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="showSelectedMasterList">
+                        <div class="row marginBtm6">
+                            <div class="left relative" style="top: 3px;">
+                                {{supplierMasterListCheckedCount}} Selected
+                            </div>
+                            <!--<div class="right">
+                                <a href="javascript:void(0)" ng-class="{'disabled': teamMemberMasterListCheckedCount == 0}" ng-click="showAllCallback()">Show All</a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="showSelectCheckboxWrap">
+                        <smart-checkbox label="Show Selected" disable="{{teamMemberMasterListCheckedCount == 0}}" ng-model="showSelected.check" on-change="showSelectedCallback(showSelected.check)"></smart-checkbox>
+                    </div>
+                </div>
+            </li>
+            <li ng-class="{'whenHeaderFixed': fixedSubHeader, 'withFilter': isApplyFilters}">
+                <ul class="collection with-header" ng-if="!showSelectedMasterList">
+                    <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in filteredData.tml = (supplierMasterList | limitTo: totalDisplayed | filter: {'title': addSupplierSearch})">
+                        <div class="cardList">
+                            <div class="cardListContent">
+                                <div class="row margin0 listTbl listTbl--withChk">
+                                    <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="supplierMasterListChange(item.check, $index)" disable="{{item.added}}" style="margin-top: -2px;"></smart-checkbox>
+                                    <a href="javascript:void(0)" class="fontSize16" ng-click="showSupplierIcard(e)" ng-bind-html="item.title | highlights: addSupplierSearch"></a>
+                                    <!--<div ng-bind-html="item.title | highlights: addSupplierSearch"></div>-->
+                                    <div class="listTbl-meta">Status: {{item.status}} | Primary Contact Name: {{item.contact}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="collection with-header" ng-if="showSelectedMasterList">
+                    <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in selectedSupplierMasterList">
+                        <div class="cardList">
+                            <div class="cardListContent">
+                                <div class="row margin0 listTbl listTbl--withChk">
+                                    <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="supplierMasterListChange(item.check, $index)" style="margin-top: -2px;"></smart-checkbox>
+                                    <div>{{item.title}}</div>
+                                    <div class="listTbl-meta">Status: {{item.status}} | Primary Contact Name: {{item.contact}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+			<!--<smart-list item-class="collection-item" model="{{supplierMasterList | limitTo: totalDisplayed | filter: addsupplierSearch}}" style-class="collection with-header" template="list.html"></smart-list>-->
+			<li class="row borderBtmLight" ng-hide="totalDisplayed >= supplierMasterList.length" ng-if="!showSelectedMasterList">
+				<div class="col s12 center-align marginTop10 marginBtm10">
+					<smart-button flat="true" config='{"title":"LOAD MORE ACTIVITIES"}' ng-click="loadMore()"></smart-button>
+					<div class="preloader-wrapper small active" ng-if="loderIcon">
+						<div class="spinner-layer spinner-blue">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+						<div class="spinner-layer spinner-red">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+						<div class="spinner-layer spinner-yellow">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+						<div class="spinner-layer spinner-green">
+							<div class="circle-clipper left">
+								<div class="circle"></div>
+							</div>
+							<div class="gap-patch">
+								<div class="circle"></div>
+							</div>
+							<div class="circle-clipper right">
+								<div class="circle"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<footer class="page-footer paddingLeft10 footerSpace" ng-show="supplierMasterSelected">
+	<smart-button class="right footerBtn" config='{"title":"ADD"}' ng-click="addSupplierCallback()"></smart-button>
+	<smart-button class="right footerBtn whiteSecondaryBtn" ui-sref="projects.new" config='{"title":"CANCEL"}'></smart-button>
+</footer>
+
+<smart-popup  type="large" template-url="shared/popup/views/addNewSupplierPopup.html" show="{{addNewSuppliersPopup}}" on-hide="addNewSuppliersPopupHideCallback()"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupSupplierIcard.html" show="{{showSupplierIcardPopup}}" on-hide="hideSupplierIcardPopupCallback(e)" class="supplier-icard-popup"></smart-popup>
+<smart-popup type="small" template-url="shared/popup/views/popupSaveView.html" show="{{saveViewPopUp}}" on-hide="saveViewPopupHideCallback()"></smart-popup>
+<smart-popup type="large" template-url="shared/popup/views/popupSavedView.html" show="{{savedViewPopup}}" on-hide="savedViewPopupHideCallback()"></smart-popup>
+<smart-popup type="small" template-url="shared/popup/views/popupManageFields.html" show="{{manageFieldsPopup}}" on-hide="manageFieldsPopupHideCallback()"></smart-popup>
+
+<script type="text/ng-template" id="list.html">
+
+	<li class="col l6 xl4 xxl3 m6 s12 list white padding0">
+		<div class="cardList">
+			<div class="cardListContent">
+				<div class="row margin0 listTbl listTbl--withChk">
+					<smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="supplierMasterListChange(item.check, $index, item.diversity)" disable="{{item.added}}"></smart-checkbox>
+					<!--<a href="javascript:void(0)" ng-click="showSupplierIcard(e)">
+						<img alt="" ng-src="{{item.logoUrl}}" src="">
+					</a>-->
+					<a href="javascript:void(0)" class="fontSize16" ng-click="showSupplierIcard(e)" ng-bind-html="item.title | highlights: addSupplierSearch"></a>
+					<i class="icon grey-text" smart-tooltip position="bottom" message="{{item.diversityToolTip}}" ng-if="item.diversity">
+						<svg><use xlink:href="#icon_DiversitySu"></use></svg>
+					</i>
+					<div class="listTbl-meta">Status: {{item.status}} | Primary Contact Name: {{item.contact}}</div>
+				</div>
+			</div>
+		</div>
+	</li>
+
+</script>

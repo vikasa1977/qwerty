@@ -1,0 +1,20 @@
+﻿.tree-view-str [type="radio"] + label {
+    margin-top: 9px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.tree-view-str [type="radio"] + label:before {
+    margin: 2px 0 !important;
+}
+
+.tree-view-str [type="radio"] + label:after {
+    margin: 2px 0 !important;
+}
+
+.selectAllToggle {
+    .input-field {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+    }
+}

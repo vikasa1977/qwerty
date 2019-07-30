@@ -1,0 +1,29 @@
+﻿<div class="trackStatus" ng-controller="trackStatusCtrl">
+    <div class="modal-header" ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <a href="javascript:void(0)" id="trackStatusPopup" ng-click="goToTracksatusDetail(e)" class="right blue-text waves-effect waves-light">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Fullscreen" ng-if="!isFullscreen"></use>
+                    <use xlink:href="#icon_Minimize" ng-if="isFullscreen"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="valign-wrapper">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_TrackStatus"></use>
+                </svg>
+            </i>
+            <span class="title">TRACK STATUS</span>
+        </div>        
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+            <div ng-include="'shared/trackStatus/views/Newtrackstatus.html'" class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="modal-footer_new is-scrolled">        
+        <smart-button flat="true" class="modal-close right" config='{"title":"CLOSE"}'></smart-button>
+    </div>
+</div>
+

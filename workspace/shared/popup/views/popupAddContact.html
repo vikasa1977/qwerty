@@ -1,0 +1,38 @@
+<div>
+	<div class="modal-header">
+		<i class="icon iconSmall left grey-text">
+			<svg>
+				<use xlink:href="#icon_AddSupplier"></use>
+			</svg>
+		</i>
+		<span class="title">ADD NEW CONTACT</span>
+	</div>
+	<div class="modal-content padding0 is-scrolled">			
+		<div class="row marginTop15 " >			
+				<div class="col s12 ">				
+					<div class="row  marginBtm0">
+						<smart-textfield label="First Name" ng-model="" class="col s12 m6  marginBtm25"></smart-textfield>
+						<smart-textfield label="Last Name" ng-model="" class="col s12 m6 marginBtm25"></smart-textfield>
+					</div>	
+					<div class="row ">		
+						<smart-textfield label="Email ID" ng-model="" class="col s12 m6  marginBtm25 valid"></smart-textfield>
+                        <smart-textfield label="Primary Business Phone No" ng-model="" class="col s9 m4 marginBtm25"></smart-textfield>
+                        <smart-textfield label="Extn." ng-model="" class="col s3 m2  marginBtm25"></smart-textfield>					</div>
+					<div class="row ">	
+						<smart-checkbox class="col s12" label="Send Invitation"></smart-checkbox>				 
+					</div>	
+				</div>		
+			</div>	
+	</div>
+	<div class="modal-footer is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"ADD"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="row white card-panel item-details-template-wrap" ng-controller="rNoteItemDetailCtrl">
+	<!--<div class="col s12 paddingLeft25 paddingTop20" >
+		<smart-radio gap="true" ng-model="ngModel.selectedItemDetailfor" options="ngModel.itemDetailfor"></smart-radio>
+	</div>-->	
+
+	<div id="materialsRadioContent" class="materialsRadioContent addClassAfterHeaderFixed">
+		<div class="_dev_addScrollForTop">			
+			<smart-tabs tab-config="{{itemDetailMaterialTabDataset}}" width="40%" ></smart-tabs>
+		</div>
+	</div>
+	<!--<div id="servRadioContent" class="servRadioContent addClassAfterHeaderFixed" data-ng-show="ngModel.selectedItemDetailfor.key == 'services'">
+		<div class="_dev_addScrollForTopSr">
+			<smart-tabs tab-config="{{itemDetailServiceTabDataset}}" config="{{itemDetailServiceTabDataset}}"></smart-tabs>
+		</div>
+	</div>-->
+
+	<smart-popup template-url="{{copyPopupUrl}}" show="{{showCopyPopup}}" on-hide="copyPopupOnHideCallback(e)"></smart-popup>
+
+	<smart-popup template-url="{{taxesPopupUrl}}" show="{{showTaxesPopup}}" on-hide="taxesPopUpOnHideCallback"></smart-popup>
+
+	<smart-popup template-url="{{categoryPopupUrl}}" show="{{showCategoryPopup}}" on-hide="categoryPopUpOnHideCallback"></smart-popup>
+
+	<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+
+	<smart-popup template-url="{{attachmentPopUpUrl}}" show="{{attPopUp}}" on-hide="attachmentPopUpClose()"></smart-popup>
+
+	<smart-popup template-url="{{approverPopupUrl}}" show="{{approverPopup}}" on-hide="approverOnHideCallback"></smart-popup>
+
+</div>

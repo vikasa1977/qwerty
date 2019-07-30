@@ -1,0 +1,458 @@
+<div id="categoryPopup">
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+				<a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+			
+				<smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearch"></smart-textfield>
+				<a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<i class="icon iconSmall grey-text left">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title">
+			ADD CATEGORY
+		</span>
+	</div>
+
+
+
+
+    <div class="modal-content is-scrolled padding0">
+        <div class="model_body" style="height:350px;" ><!-- temporary hieght applied till the time directive get updated for fixed height-->
+            <smart-scroll height="320px" > 
+                <ul class="tree-view-str">
+                    <li>
+                        <div class="tree-view-str-item waves-effect">
+
+                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                <svg>
+                                    <use xlink:href="#icon_CirclePlus"></use>
+                                </svg>
+                            </i>
+                            <span class="tree_view_content">
+                                <input type="checkbox" class="filled-in" id="filled-in-box1" name="level-1" />
+                                <label for="filled-in-box1" class="black-text"><a href="javascript:void(0);" >CAPITAL</a></label>
+                                <i class="icon iconSmall right icon-check is-hide">
+                                    <svg>
+                                        <use xlink:href="#icon_Check"></use>
+                                    </svg>
+                                </i>
+
+                            </span>
+
+
+                        </div>
+                        <ul class="is-hide">
+                            <li>
+                                <div class="tree-view-str-item waves-effect">
+
+                                    <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                        <svg>
+                                            <use xlink:href="#icon_CirclePlus"></use>
+                                        </svg>
+                                    </i>
+
+                                    <span class="tree_view_content">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box2" name="level-2" />
+                                        <label for="filled-in-box2" class="black-text"><a href="javascript:void(0);" >ELECTRICAL MACHINERY</a></label>
+
+                                        <i class="icon iconSmall right icon-check  is-hide">
+                                            <svg>
+                                                <use xlink:href="#icon_Check"></use>
+                                            </svg>
+                                        </i>
+
+                                    </span>
+                                </div>
+
+                                <ul class="is-hide">
+                                    <li>
+                                        <div class="tree-view-str-item waves-effect">
+
+                                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                                <svg>
+                                                    <use xlink:href="#icon_CirclePlus"></use>
+                                                </svg>
+                                            </i>
+
+                                            <span class="tree_view_content">
+                                                <input type="checkbox" class="filled-in" id="filled-in-box3" name="level-3" />
+                                                <label for="filled-in-box3" class="black-text">Shane Bond</label>
+
+                                                <i class="icon iconSmall right icon-check is-hide">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Check"></use>
+                                                    </svg>
+                                                </i>
+
+                                            </span>
+                                        </div>
+                                        <ul class="is-hide">
+                                            <li>
+                                                <div class="tree-view-str-item-leaf waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box4" />
+                                                        <label for="filled-in-box4" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall icon-check is-hide right">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item-leaf waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box5" />
+                                                        <label for="filled-in-box5" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item-leaf waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box6" />
+                                                        <label for="filled-in-box6" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="tree-view-str-item waves-effect">
+
+                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                <svg>
+                                    <use xlink:href="#icon_CirclePlus"></use>
+                                </svg>
+                            </i>
+
+                            <span class="tree_view_content">
+                                <input type="checkbox" class="filled-in filled-partial" id="filled-in-box7" checked="checked" />
+                                <label for="filled-in-box7" class="black-text">Fleet and Vehicles</label>
+                                <i class="icon iconSmall right icon-check is-hide">
+                                    <svg>
+                                        <use xlink:href="#icon_Check"></use>
+                                    </svg>
+                                </i>
+
+                            </span>
+                        </div>
+                        <ul class="is-hide">
+                            <li>
+                                <div class="tree-view-str-item waves-effect">
+
+                                    <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                        <svg>
+                                            <use xlink:href="#icon_CirclePlus"></use>
+                                        </svg>
+                                    </i>
+
+                                    <span class="tree_view_content">
+                                        <input type="checkbox" class="filled-in filled-partial" id="filled-in-box8" checked="checked" />
+                                        <label for="filled-in-box8" class="black-text">Robin Ross</label>
+
+                                        <i class="icon iconSmall right icon-check  is-hide">
+                                            <svg>
+                                                <use xlink:href="#icon_Check"></use>
+                                            </svg>
+                                        </i>
+
+                                    </span>
+                                </div>
+
+                                <ul class="is-hide">
+                                    <li>
+                                        <div class="tree-view-str-item waves-effect">
+
+                                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                                <svg>
+                                                    <use xlink:href="#icon_CirclePlus"></use>
+                                                </svg>
+                                            </i>
+
+                                            <span class="tree_view_content">
+                                                <input type="checkbox" class="filled-in" id="filled-in-box9" checked="checked" />
+                                                <label for="filled-in-box9" class="black-text">Shane Bond</label>
+
+                                                <i class="icon iconSmall right icon-check is-hide">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Check"></use>
+                                                    </svg>
+                                                </i>
+
+                                            </span>
+                                        </div>
+                                        <ul class="is-hide">
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box10" checked="checked" />
+                                                        <label for="filled-in-box10" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall icon-check is-hide right">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box11" />
+                                                        <label for="filled-in-box11" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box12" />
+                                                        <label for="filled-in-box12" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="tree-view-str-item waves-effect">
+
+                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                <svg>
+                                    <use xlink:href="#icon_CirclePlus"></use>
+                                </svg>
+                            </i>
+
+                            <span class="tree_view_content">
+                                <input type="checkbox" class="filled-in" id="filled-in-box13" />
+                                <label for="filled-in-box13" class="black-text">Fleet and Vehicles</label>
+
+                                <i class="icon iconSmall right icon-check is-hide">
+                                    <svg>
+                                        <use xlink:href="#icon_Check"></use>
+                                    </svg>
+                                </i>
+
+                            </span>
+                        </div>
+                        <ul class="is-hide">
+                            <li>
+                                <div class="tree-view-str-item waves-effect">
+
+                                    <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                        <svg>
+                                            <use xlink:href="#icon_CirclePlus"></use>
+                                        </svg>
+                                    </i>
+
+                                    <span class="tree_view_content">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box14" />
+                                        <label for="filled-in-box14" class="black-text">Robin Ross</label>
+
+                                        <i class="icon iconSmall right icon-check  is-hide">
+                                            <svg>
+                                                <use xlink:href="#icon_Check"></use>
+                                            </svg>
+                                        </i>
+
+                                    </span>
+                                </div>
+
+                                <ul class="is-hide">
+                                    <li>
+                                        <div class="tree-view-str-item waves-effect">
+
+                                            <i class="icon iconSmall left tree-view-str-collapsible-trigger">
+                                                <svg>
+                                                    <use xlink:href="#icon_CirclePlus"></use>
+                                                </svg>
+                                            </i>
+
+                                            <span class="tree_view_content">
+                                                <input type="checkbox" class="filled-in" id="filled-in-box16" />
+                                                <label for="filled-in-box16" class="black-text">Shane Bond</label>
+
+                                                <i class="icon iconSmall right icon-check is-hide">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Check"></use>
+                                                    </svg>
+                                                </i>
+
+                                            </span>
+                                        </div>
+                                        <ul class="is-hide">
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box17" />
+                                                        <label for="filled-in-box17" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall icon-check is-hide right">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box18" />
+                                                        <label for="filled-in-box18" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-view-str-item waves-effect">
+                                                    <span class="tree_view_content">
+                                                        <input type="checkbox" class="filled-in" id="filled-in-box19" />
+                                                        <label for="filled-in-box19" class="black-text">Fleet and Vehicles</label>
+
+                                                        <i class="icon iconSmall right icon-check is-hide">
+                                                            <svg>
+                                                                <use xlink:href="#icon_Check"></use>
+                                                            </svg>
+                                                        </i>
+
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <script>
+                    $(function () {
+                        /***SCRIPT FOR TREE VIEW POPUP***/
+                        $('.tree-view-str-collapsible-trigger').on("click",
+                       function (event) {
+
+                           event.stopPropagation();
+                           var thisHasClass = $(this).hasClass('is-Expended');
+                           if (!thisHasClass) {
+                               $(this).find('use').attr('xlink:href', "#icon_CircleMinus").end()
+                               .parent().next().removeClass('is-hide').end();
+                               $(this).addClass("is-Expended");
+                           } else {
+                               $(this).find('use').attr('xlink:href', "#icon_CirclePlus").end()
+                              .parent().next().addClass('is-hide');
+                               $(this).removeClass("is-Expended");
+                           }
+                       });
+
+                        $('.tree_view_content').on("click",
+                            function (event) {
+                                event.stopPropagation();
+                                var thisParent = $(this).closest('li');
+                                if (thisParent.has("ul")) {
+
+                                    thisParent.toggleClass('is-select is-mainParent')
+                                    .find('li').toggleClass('is-select')
+                                    .end().find('.icon-check').toggleClass('is-hide');
+
+
+                                } else {
+                                    $(this).closest('li').toggleClass('is-select')
+                                     .end().find('icon-check').toggleClass('is-hide');
+                                }
+
+                            });
+
+
+                        $("input[type='checkbox']").change(function () {
+                            $(this).parent().parent().siblings('ul')
+                                .find("input[type='checkbox']")
+                                .prop('checked', this.checked);
+                        });
+                        /***SCRIPT FOR TREE VIEW END HERE***/
+
+                        
+
+
+                    });
+
+                </script>
+
+
+            </smart-scroll>
+
+
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col l5 s6"><a href="javascript:void(0)" class="waves-effect   btn-flat">Reset</a></div>
+                <div class="col l7 s6 right-align">
+                    <a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect">Cancel</a>
+                    <a href="javascript:void(0)" class=" modal-action modal-close waves-effect btn-flat">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

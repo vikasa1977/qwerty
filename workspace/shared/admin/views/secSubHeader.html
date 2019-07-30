@@ -1,0 +1,26 @@
+<div class="col s12 requesting-self">
+    <div class="col input-field s12">
+        <smart-dropdown config="{{dropDownConfig}}" class="left marginRight10">
+            <span data-activates='savedViewChanges' class="saved-view-content dropdown-button black-text fontSize14" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                {{ selectedSavedview.name || translate}}
+            </span>
+            <ul id='savedViewChanges' class='dropdown-content'>
+                <li ng-repeat="item in savedViews">
+                    <a href="javascript:void(0)" class="black-text" ng-click="changeSavedView(item.name)">
+                        {{ item.name || translate }}
+                    </a>
+                </li>
+            </ul>
+        </smart-dropdown>
+
+        <div id="OnBehalfOfUser" class="input-field fontSize14 left" ng-if="showOnBehalf">
+            <span class="black-text"> {{ 'ON BEHALF OF' || translate }}</span>
+            <a href="javascript:void(0)" ng-bind="selectedPerson.name" ng-click="popupOnBehalfOfCall(e)"></a>
+        </div>
+    </div>
+    <div class="black-text">
+        window.height: {{widthOffset}} <br />
+        style: {{ changeHeight()}}
+    </div>
+    
+</div>

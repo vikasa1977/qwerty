@@ -1,0 +1,94 @@
+<div>
+    <div class="modal-header">
+        <i class="icon  grey-text left marginTop2">
+            <svg>
+                <use xlink:href="#icon_prosummary"></use>
+            </svg>
+        </i>
+        <span class="title">Project Summary</span>
+    </div>
+    <div class="modal-content padding0 is-scrolled project-summary">
+        <smart-scroll height="350px">
+            <div class="padding15">
+                <div class="row marginTop20">
+                    <smart-textfield class="col s12 discussionArea" label="Project Description" type="area" charactercounter="true" rows="2" ng-model="projectDescription" readonly="true"></smart-textfield>
+                </div>
+                <div class="row">
+                    <smart-textfield class="col s6" label="Milestone Name" type="text" ng-model="milestoneName" readonly="true"></smart-textfield>
+                </div>
+                <div class="row">
+                    <smart-textfield class="col s12 discussionArea marginTop0" label="Milestone Description" type="area" charactercounter="true" rows="2" ng-model="milestonetDescription" readonly="true"></smart-textfield>
+                </div>
+                <div class="row marginBtm5">
+                    <smart-textfield class="col l4 m4 margin" label="Assigned To" type="text" ng-model="assignedName" readonly="true"></smart-textfield>
+                    <smart-textfield class="col l4 m4" label="Evaluator" type="text" ng-model="evaluatorName" readonly="true"></smart-textfield>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <span class="fontSize12 grey-text marginTop3 marginRight5 left">Attachment (s) :</span>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <smart-dropdown class="left" config="{{dropDownConfig}}" fixed="true">
+                                <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="surveyresponseAttchmnt{{questionItem.name}}" data-constrainwidth="false" data-alignment="left">
+                                    <!--<i class="icon small grey-text marginRight3 icon-line-height" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>-->
+
+                                    <span class="dIBlock">Document1.doc+3 more..</span>
+                                </a>
+                                <div id="surveyresponseAttchmnt{{questionItem.name}}" class="dropdown-content dd-close-off">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="paddingBtm10 paddingTop10">File Name</th>
+                                                <th class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                    <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="paddingBtm10 paddingTop10">Document1.doc</td>
+                                                <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="paddingBtm10 paddingTop10">document2.doc</td>
+                                                <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="paddingBtm10 paddingTop10">Document3.pdf</td>
+                                                <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </smart-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <smart-textfield class="col s12 discussionArea" label="{{commentBy}}" type="area" charactercounter="true" rows="2" ng-model="commentDes" readonly="true"></smart-textfield>
+                </div>
+            </div>
+
+        </smart-scroll>
+    </div>
+    <div class="modal-footer is-scrolled paddingLeft8">
+        <smart-button flat="true" config='{"title":"Close"}' class="modal-close"></smart-button>
+    </div>
+</div>

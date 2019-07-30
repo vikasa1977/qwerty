@@ -1,0 +1,98 @@
+﻿<div class="modal-header">
+<i class="left icon iconSmall grey-text">
+	<svg>
+		<use xlink:href="#icon_logFile"></use>
+	</svg>
+</i>
+<span class="title">UPLOAD/ DOWNLOAD LOG</span>
+</div>
+	<div class="modal-content padding0 is-scrolled">
+			<div>
+				<div class="table-header row">
+					<div class="table-header-column col s2">
+						{{'Status' || translate}}
+						<smart-dropdown>
+                                <a href="javascript:void(0)" class="dropdown-button" data-alignment="left" data-activates='filterOfDocumentStatus' data-constrainwidth="false">
+                                    <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                        <svg>
+                                            <use xlink:href="#icon_Filter"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul id="filterOfDocumentStatus" class='dropdown-content dd-close-off'>
+                                    <li><smart-checkbox ng-model="uploadSFilter" label="Success" class="padding10"></smart-checkbox></li>
+                                    <li><smart-checkbox ng-model="uploadFFilter" label="Failed" class="padding10"></smart-checkbox></li>
+                                    <li><smart-checkbox ng-model="downloadSFilter" label="In progress" class="padding10"></smart-checkbox></li>
+                                   
+                                </ul>
+                            </smart-dropdown>
+					</div>
+					<div class="table-header-column col s3">
+						{{'File Name' || translate}}						
+					</div>
+					<div class="table-header-column col s3">
+						{{'Date & Time' || translate}}
+						<a href="javascript:void(0);" ng-click="sortToggle()">
+							<i class="icon iconSmall blue-text" smart-tooltip position="bottom" delay="50" message="{{sortMessage || translate }}">
+								<svg><use xlink:href="{{sortSingleCurrent}}"></use></svg>
+							</i>
+						</a>
+					</div>
+					<div class="table-header-column col s3">
+						{{'Downloaded / Uploaded by' || translate}}
+						<smart-dropdown>
+                            <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='filterOfNameByUploaded' data-constrainwidth="false">
+                                <i class="icon iconSmall blue-text "  smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                    <svg><use xlink:href="#icon_Filter"></use></svg>
+                                </i>
+                            </a>
+                            <ul id="filterOfNameByUploaded" class='dropdown-content dd-close-off'>
+                                <li><smart-checkbox ng-model="user1" label="John Miller" class="padding10"></smart-checkbox></li>
+                                <li><smart-checkbox ng-model="user2" label="Franko Miles" class="padding10"></smart-checkbox></li>
+                                <li><smart-checkbox ng-model="user3" label="David Chills" class="padding10"></smart-checkbox></li>
+                            </ul>
+                        </smart-dropdown>
+					</div>
+					<div class="table-header-column col s1">&nbsp;</div>
+				</div>
+				<smart-scroll height="250px">
+					<div class="table-body">
+						<div class="row table-body-row" ng-repeat="uploadLog in uploadData">
+							<div class="table-body-row-cell col s2">
+								<span ng-class="(uploadLog.status=='success') ? 'green-text' : (uploadLog.status=='In progress') ? 'orange-text' : 'red-text'">
+									<span> {{uploadLog.statusText}}</span>
+								</span>
+							</div>
+							<div class="table-body-row-cell col s3">
+								<div class="truncate">
+									<a href="javascript:void(0)">{{uploadLog.documentName}}</a>
+								</div>
+							</div>
+							<div class="table-body-row-cell col s3">
+								<div class="truncate">{{uploadLog.date}}</div>
+							</div>
+							<div class="table-body-row-cell col s3">
+								<div class="truncate">{{uploadLog.createdUploadedby}}</div>
+							</div>
+							<div class="table-body-row-cell col s1 center">
+								<a href="javascript:void(0)" class="icon iconSmall" ng-if="uploadLog.status=='failed'" smart-tooltip position="bottom" delay="50" message="{{'Download Log' || translate }}">
+									<svg>
+										<use xlink:href="#icon_ErrorLogFil"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</smart-scroll>
+			</div>
+	</div>
+	<div class="modal-footer is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}' ng-click="closeFilter()"></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+

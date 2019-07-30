@@ -1,0 +1,271 @@
+﻿.filterWraper {
+    margin-bottom:24px;
+    
+	.filterItem {
+		padding: 5px 30px;
+		display: none;
+        float:left;
+       box-sizing:border-box;
+		&.currentDisplay {
+			display: block;
+
+			+ .filterItem {
+				display: block;
+
+				+ .filterItem {
+					display: block;
+				}
+			}
+		}
+
+		.option-container {
+			padding: 5px;
+			overflow: auto;
+			max-height: 245px;
+		}
+	}
+
+	.arrowWraper {
+		float: right;
+		text-align: right;
+		margin-right: 15px;
+
+		span {
+			width: 25px;
+			height: 25px;
+			line-height: 23px;
+			text-align: center;
+			margin-right: 10px;
+			display: inline-block;
+			float: right;
+			border: 1px solid gray;
+			cursor: pointer;
+
+			&.disabled {
+				opacity: 0.3;
+				cursor: not-allowed;
+			}
+		}
+	}
+}
+
+/** filter**/
+.filterContainer {
+	padding: 25px;
+	background: #F7F6F6;
+
+	.filterHeaderAction {
+		float: left;
+		width: 100%;
+		padding: 0px 34px 6px;
+		margin-bottom: 10px;
+
+		> .right {
+			margin-top: 20px;
+
+			.filterTopIcon {
+				display: block;
+				float: left;
+				margin-left: 25px;
+
+				&.disabled {
+					opacity: 0.3;
+					cursor: not-allowed;
+				}
+			}
+		}
+
+		.dropdown-content {
+			li {
+				> a, > span {
+					color: #5A5A5A;
+				}
+			}
+		}
+	}
+
+	.filterFooterAction {
+		padding: 25px 15px 0px 35px;
+	}
+}
+
+.filterAppliedIndicator {
+	display: none;
+	padding: 6px;
+	background: #FFF9C4;
+	z-index: 9;
+	opacity: 0.99;
+	border-bottom: 2px solid #e7e7e7;
+	text-transform: uppercase;
+	font-weight: bolder;
+	line-height: 36px;
+}
+
+.filterHeaderAction > .right {
+	margin-top: 20px;
+}
+
+.filterHeaderAction .right .filterTopIcon {
+	display: block;
+	float: left;
+	margin-left: 25px;
+}
+
+.filterHeaderAction .right .filterTopIcon.disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
+
+.filterSection pre {top: -10px;}
+/** filter**/
+.next_arrow{
+   width: 25px;
+    height: 25px;
+    line-height: 23px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #2196F3;
+    cursor: pointer;
+    &.right{
+       margin-right: 10px;
+       &:first-child{margin-right:0;}
+    }
+    
+}
+.prev_arrow{
+     @extend .next_arrow;
+}
+.arrow--disabled{
+    border-color: #ccc;
+    color: #ccc;
+    cursor: default;
+}
+.filter-item{ float:left}
+.filter-item--container{ padding-right:1.5rem; box-sizing:border-box}
+.withSearchIcon input{margin-top:0;}
+.filter-item .filter-Managetitle{
+		line-height: 2rem;
+		padding: 0 10px;
+		margin-top: 0.2rem;
+	}
+.secondary-filter-container{margin:24px; }
+.input-field.withSearchIcon input { 
+	height: 2.65rem;
+}
+.catalog-filter .withSearchIcon.input-field .iconFix.active ~ input{
+    padding-left:30px;
+}
+
+
+/*Email Log filtter and req Workbench header icon toggle css*/
+.filter-overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.panelBox--filter{
+    clear: both;
+    width: 100%;
+    z-index: 2;
+    font-size: 14px;
+    color: #000;
+}
+.panelBox-withSpace.bottom-to-top-slide{
+    transition: all 0.5s ease;
+    position: absolute;
+    top: -480px;
+}
+.panelBox-withSpace.top-to-bottom-slide{
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 50px;
+    background-color: #0067b0;
+}
+.panelBox-withSpace.workbench-bottom-to-top-slide {
+    transition: all 0.5s ease;
+    position: relative;
+    top: -480px;
+}
+.workbench-top-to-bottom-slide {
+    transition: all 0.5s ease;
+    position: relative;
+    top: 0;
+    background-color: #0067b0;
+    box-shadow: 30px 0 15px 0 rgba(0, 0, 0, 0.16), 30px 0 15px 0 rgba(0, 0, 0, 0.12);
+}
+.slide--Bottom--Panel, .workbench--slide--Bottom--Panel{
+    top:-468px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+.radio-vertical.radio-block > div > div > div{
+    margin:14px 0 0 8px !important;
+}
+.boxShadowNone{
+    box-shadow:none !important;
+}
+/*.panel-tab-align .tabs-vertical {
+    padding-left: 302px;
+}*/
+
+/* workbench icon toggle css */
+.workbench-top-to-bottom-slide {
+    background-color: #ffffff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2) inset;
+}
+.workbench-icon-focus-on {
+    background:rgba(255, 255, 255, 0.24);
+}
+.workbench-icon-focus-off {
+    background:transparent;
+}
+
+@media only screen and (max-width: 600px) {
+    .workbench--slide--Bottom--Panel {
+        top: -827px;
+    }
+    .panelBox-withSpace.workbench-bottom-to-top-slide {
+        top:-794px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .workbench--slide--Bottom--Panel {
+        top: -488px;
+    }
+    .panelBox-withSpace.workbench-bottom-to-top-slide {
+        top:-455px;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    .workbench--slide--Bottom--Panel {
+        top: -352px;
+    }
+    .panelBox-withSpace.workbench-bottom-to-top-slide {
+        top:-387px;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .workbench--slide--Bottom--Panel {
+        top: -284px;
+    }
+    .panelBox-withSpace.workbench-bottom-to-top-slide {
+        top:-319px;
+    }
+}
+
+@media only screen and (min-width: 1501px) {
+    .workbench--slide--Bottom--Panel {
+        top: -217px;
+    }
+    .panelBox-withSpace.workbench-bottom-to-top-slide {
+        top:-251px;
+    }
+}

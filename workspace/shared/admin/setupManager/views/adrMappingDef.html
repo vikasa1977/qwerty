@@ -1,0 +1,14 @@
+﻿<div ng-controller="adrCtrl">
+    <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Accounting Segment" is-mandatory='true' ng-model="basicDetail.selectedTargetSeg[0]" lookup-Hide="accSourceCallback(data)" on-change="changeTargetSeg(basicDetail.selectedTargetSeg[0])" options="basicDetail.targetSegOptions" datakey="name"></smart-select>
+    <smart-typeahead class="col s12 m4 l4 xl3 xxl2 input-field line-height-manager"  is-mandatory="true" lookup-Hide="accSourceCallback(data)" titleofmodel="{{accountingSrcData[0].displaytitle}}" multiselect="true" show-lookup="true" placeholder="{{accountingSrcData[0].displaytext}}" ng-model="accountingSrcData[0].selectedoption" options="accountingSrcData[0].options" filterkeys="['name']" label="{{'Accounting Source' || translate}}"></smart-typeahead>
+    <div class="col s12 m4 l4 xl3 xxl2">
+        <smart-checkbox class="line-height-manager left" label="Use Default Mapping" ng-model-resolve="ngModelResolveFun($event)" ng-model="basicDetail.isDefaultMapping" on-change="confirmMapping()"></smart-checkbox>
+        <a href="javascript:void(0);" class="left marginLeft10 marginTop15">
+            <i class="icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="top" message="Based on accounting source selection, one of the default mapping will be rendered- Item master, Org mapping, user mapping" is-fixed="true">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+</div>

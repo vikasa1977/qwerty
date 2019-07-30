@@ -1,0 +1,38 @@
+<div>
+    <div class="modal-header">       
+        <span class="title">{{ 'ERP SUPPLIER LOCATION CODE' || translate }} </span>
+    </div>  
+    <div class="modal-content padding0 is-scrolled" style="min-height:300px" is-fixed-header="true">
+		<smart-scroll height="300px" is-fixed-header="true">
+			<table class="bordered sTable ">
+			    <thead>
+				    <tr>
+                        <th width="50px"></th>
+					    <th>ERP Supplier Location Code</th>
+					    <th>ERP Supplier Name</th>
+					    <th>ERP Supplier Code</th>
+					    <th>Ordering Location</th>
+                     </tr>
+			    </thead>
+			    <tbody>
+				    <tr ng-repeat="item in erploc">
+                        <td>
+                             <input class="with-gap" type="radio" name="selectERPReference"  id="erploc-{{ $index }}"  ng-click="getErpLocData(item)" ng-value="getValue"/>
+                             <label for="erploc-{{ $index }}"></label>
+                        </td>
+                        <td>{{item.supplierLocationCode}}</td>
+                        <td>{{item.supplierName}}</td>
+                        <td>{{item.supplierCode}}</td>
+                        <td>{{item.OrderingLocation}}</td>
+                     </tr>
+			    </tbody>
+            </table>
+		</smart-scroll>
+    </div>
+    <div class="modal-footer is-scrolled">   
+        <smart-button flat="true" class="modal-close" config='{"title":"Done"}' ng-click="setErpLocData()"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"Cancel"}'></smart-button>  
+    </div>
+</div>
+
+

@@ -1,0 +1,497 @@
+{
+	"datalist": [
+    {
+      "docName": "RFx for ATL Marketing - North America",
+      "docStatus": "Draft",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Event Code",
+          "value": "821452"
+        },
+        {
+          "datakey": "Category",
+          "value": "Marketing"
+        },
+        {
+          "datakey": "Amount",
+          "value": "JPY 1,100,011.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Jacqualine Roehl"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "08/15/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Conference Communications",
+      "docStatus": "Awarding",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Event Code",
+          "value": "859562"
+        },
+        {
+          "datakey": "Category",
+          "value": "IT/Telecom + 25 more"
+        },
+        {
+          "datakey": "Amount",
+          "value": "USD 1,022,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Data Centers",
+      "docStatus": "Awarded",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Event Code",
+          "value": "885264 + 13 more"
+        },
+        {
+          "datakey": "Category",
+          "value": "IT Networking"
+        },
+        {
+          "datakey": "Amount",
+          "value": "USD 1,001,156.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Candace Bruder"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "06/30/2017"
+        }
+      ]
+    },
+        {
+      "docName": "I1 for Consulting",
+      "docStatus": "Draft",
+      "isdocSelected": false,
+      "docType": "invoice",
+      "docLink": "p2p.inv.create",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Supplier",
+          "value": "JD Supplier 10"
+        },
+        {
+          "datakey": "Invoice Total",
+          "value": "0.00 USD"
+        },
+        {
+          "datakey": "Invoiced On",
+          "value": "Jan 26 2017"
+        }
+      ]
+    },
+    {
+      "docName": "Invoice1 for IR MRO Category",
+      "docStatus": "Exception",
+      "isdocSelected": false,
+      "docType": "invoice",
+      "docLink": "p2p.inv.create",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Supplier",
+          "value": "JD Supplier 3"
+        },
+        {
+          "datakey": "Invoice Total",
+          "value": "18,400.00 USD"
+        },
+        {
+          "datakey": "Invoiced On",
+          "value": "Jan 25 2017"
+        }
+      ]
+    },
+    {
+      "docName": "Invoice1 for Order1 for Jan 25 MRO",
+      "docStatus": "Exception",
+      "isdocSelected": false,
+      "docType": "invoice",
+      "docLink": "p2p.inv.create",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Supplier",
+          "value": "JD Supplier 3"
+        },
+        {
+          "datakey": "Invoice Total",
+          "value": "94,875.00 USD"
+        },
+        {
+          "datakey": "Invoiced On",
+          "value": "Jan 25 2017"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Macbook Pro",
+      "docStatus": "Draft",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Polycom IP Phone",
+      "docStatus": "Draft",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Dell Keyboard",
+      "docStatus": "Draft Withdrawn",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Macbook Pro",
+      "docStatus": "Draft Withdrawn",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Polycom IP Phone",
+      "docStatus": "Rejected",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    },
+    {
+      "docName": "Req for Dell Keyboard",
+      "docStatus": "Approval Pending",
+      "isdocSelected": false,
+      "docType": "requisition",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "1"
+        },
+        {
+          "datakey": "Summary",
+          "value": "0 Non Procurement Activity Summary"
+        },
+        {
+          "datakey": "Amount",
+          "value": "10.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Gep Admin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "Sep 1, 2015"
+        }
+      ]
+    }
+	]
+
+ }

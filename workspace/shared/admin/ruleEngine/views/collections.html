@@ -1,0 +1,81 @@
+<div class="sidepanel-filter-wrapper clearfix sidepanel-filter-noIcons" ng-init="isActive=true;" ng-class="{'sidepanel-filter-open':isActive}">
+    <div class="sidepanel-filter" ng-style="{'top':(showFilter === true) ? 0 : (fixedSubHeader  === true) ? (100 + bandHeight) + 'px' : (165 + bandHeight - pageYOffset) + 'px','position':(showFilter === true ? 'relative' : 'fixed')}">
+        <a href="javascript:void(0)" class="sidebar-btn white-text" ng-click="isActive = !isActive;$event.stopPropagation();">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_RightChevro"></use>
+                </svg>
+            </i>
+        </a>
+        <ul class="sidepanel-filter-itemList">
+            <li class="sidepanel-filter-itemList-item paddingLeft20" ng-class="{'isSelected':isAllFilterSelected}" ng-click="allFilterClicked()">
+                <span class="sidepanel-filter-itemList-item-name">All</span>
+                <span class="sidepanel-filter-item-count" ng-if="dataLength < 100">{{dataLength}}</span>
+                <span class="sidepanel-filter-item-count" ng-if="!dataLength > 99">99+</span>
+            </li>
+            <li class="sidepanel-filter-itemList-item paddingLeft20 clearfix" ng-repeat="item in landingFilterList" smart-tooltip position="right" delay="50" message="{{item.name}}" ng-class="{'isSelected':item.isSelected}" ng-click="filteByStatusClicked($index,item)">              
+                <span class="sidepanel-filter-itemList-item-name">
+                    {{item.name}}
+                </span>
+                <span class="sidepanel-filter-item-count">
+                    {{item.itemCount}}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="hideHorizontalScroll" ng-class="{'right-panel-filter-open':isActive}" style="transition: 0.5s ease">
+        <smart-list item-class="collection-item avatar collection-item--animate"
+                    model="{{doclists | limitTo : totalDisplayed }}"
+                    style-class="collection with-header"
+                    template="shared/admin/ruleEngine/views/listWithAction.html">
+        </smart-list>
+    </div>
+    <div class="row" ng-hide="totalDisplayed >= doclists.length || doclists.length < 7">
+        <div class="col s12 center-align marginTop10 marginBottom10">
+            <smart-button flat="true" config='{"title":"LOAD MORE ACTIVITIES"}' ng-click="loadMore()"></smart-button>
+            <div class="preloader-wrapper small active" ng-if="loderIcon">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

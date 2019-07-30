@@ -1,0 +1,33 @@
+<div class="setupManager-selactValuePopUp">
+    <div class="modal-header">
+        <!--<i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_EmailResend"></use></svg>
+        </i>-->
+        <span class="title">
+            SELECT DIVISION
+        </span>
+    </div>
+
+    <div class="modal-content is-scrolled padding0">
+        <smart-scroll height="400px">
+            <div class="model_body">
+                <div class="notification-tab">
+                    <div class="row marginBottom0">
+                        <!--<ul>
+                            <li ng-repeat="value in selectValues">
+                                <smart-checkbox fill="true" label="{{value.division}}" ng-model="value.isChecked"></smart-checkbox>
+                            </li>
+                        </ul>-->
+                        <smart-radio class="col s12 m12 selectDivisionPopup" label="" gap="true" ng-model="selectedOption" options="popupOptions" datakey="division" on-change="selectedDivisionCallBack(selectedOption)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <smart-button flat="true" config="{'title':'SAVE'}" class="right marginRight5"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

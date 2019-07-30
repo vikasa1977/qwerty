@@ -1,0 +1,12 @@
+﻿ table{
+     &.cke_dialog tr td{           
+        padding-left:0;padding-right:0;
+     } 
+     &.cke_dialog_contents tr td.cke_dialog_contents_body{
+       padding:0 20px;
+     }
+     input.cke_dialog_ui_input_text{
+         margin-top:0;
+     }
+ }
+ 

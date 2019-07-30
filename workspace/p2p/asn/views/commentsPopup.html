@@ -1,0 +1,523 @@
+<!--<style>.vertical-tabs smart-scroll {top: 0 !important;}</style>-->
+<div class="trackStatus">
+ <div class="modal-header" ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <a href="javascript:void(0)" id="{{showCommentsPopupexpand}}" ng-click="goToTracksatusDetail(e)" class="right blue-text waves-effect waves-light">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Fullscreen" ng-if="!isFullscreen"></use>
+                    <use xlink:href="#icon_Minimize" ng-if="isFullscreen"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="valign-wrapper">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_Comments"></use>
+                </svg>
+            </i>
+            <span class="title">COMMENTS</span>
+        </div>
+    </div>
+
+
+    <div class="modal-content padding0 comment-poup-content">
+        <div class="model_body">
+            <div class="wrapper row marginBtm0 clearfix padding0" ng-class="{'wrapper--withSidebar':!isActive,'marginLeft0':withoutTabSelect}" style="transition: all 0.5s ease;">
+                <div class="vertical-tabs" ng-hide="withoutTabSelect">
+                    <smart-scroll height="100%" v-offset="399px" class="sidebar sidebar--left">
+                        <ul class="vertical_tab_wrapper">
+                            <li ng-repeat="module in modules">
+                                <a href="javascript:void(0)" ng-click="modulesetActiveListTab($index)" class="vertical__tab" ng-class="{'is-active' : $index == moduleactiveListTabs}">
+                                    <span class="truncate">{{module.name}} - ( {{module.count}} )</span>
+                                    <span class="small-text">{{module.number}}</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </smart-scroll>
+
+
+                </div>
+                <div class="col s12 m12">
+                    <div class="vertical-tabs-content">
+                        <div class="vertical_tab_content_wrapper">
+                            <smart-scroll height="330px">
+                               
+                                    <div class="alert-massage-absolute-parent">
+                                        <a href="javascript:void(0)" class="alert-warning alert-massage-absolute-top">
+                                            LOAD EARLIER COMMENTS
+                                        </a>
+                                    </div>
+
+                                    <div ng-include="modulecurrentTab"></div>
+
+                               
+                            </smart-scroll>
+                        </div>
+                        <div class="vertical-tabs-footer col s12">
+
+                            <div class="row vertical_tab_footer_comment_input margin0">
+
+                                <div class="input-field col s11  m11 commentFieldContainer">
+
+                                    <smart-textfield type="area" ng-model="commentInpt" charactercounter="true" maxlength="400" class="col s12 l12  fieldEditable commentField" label="" placeholder="Type your comment here" cols="40"></smart-textfield>
+                                </div>
+                                <div class="col s1 m1 attachIconNum">
+                                    <!--<a href="javascript:void(0)" class="dropdown-button"  ng-click="adduploadCallback(e, 'comment')" smart-tooltip message="{{tooltip}}" custom-cSS="custum-backdrop tooltip-left" custom-style="customStyle" is-arrow="true">
+                                       
+                                    </a>-->
+									<smart-dropdown class="left" config="{{dropDownConfig}}">
+                                        <a href="javascript:void(0)" ng-click="adduploadCallback(e, 'comment')" smart-tooltip position="left" message="{{tooltipText}}" class="dropdown-button tooltipped" data-activates="atttachmentList" data-constrainwidth="false" data-alignment="right">
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_Attachment"></use>
+                                                </svg>
+                                            </i>
+                                            <span class="z-depth-1 small-notification-bubble circle g-animate ng-binding ng-scope fade-in-small-bubble">5</span>
+                                        </a>
+										<div id="atttachmentList" class="dropdown-content dd-close-off">
+											<table>
+												<thead>
+													<tr>
+														<th class="paddingBtm10 paddingTop10">File Name</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="paddingBtm10 paddingTop10">document_name.doc</td>
+													</tr>
+													<tr>
+														<td class="paddingBtm10 paddingTop10">document.doc</td>
+													</tr>
+													<tr>
+														<td class="paddingBtm10 paddingTop10">Document.pdf</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</smart-dropdown>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+ 
+    </div>
+    <div class="modal-footer_new padding0 vertical-tabs-footer v-t-footer-with-form-element clearfix" ng-init='shareWithOpts=[{"title": "Internal users and suppliers","selected": true}, {"title": "Suppliers","selected": false}, {"title": "Approvers Only","selected": false}, {"title": "Buyers Only","selected": false}, {"title": "Requesters Only","selected": false}, {"title": "Payable Users Only","selected": false}]'>
+        <div class="row margin0">
+            <div class="col s6 m8 marginBtm0  relative" style="position: relative !important;">
+                <smart-select label="Share with" class="col s12 m6 input-field marginBtm0 dropdownOpenUp" options="shareWithOpts" ng-hide="withoutTabSelect && !withoutChk"></smart-select>
+				<smart-checkbox label="Visible for internal users and suppliers" ng-show="withoutTabSelect && !withoutChk" class="marginTop12"></smart-checkbox>
+            </div>
+
+            <div class="col s6 m4 right-align marginTop8">
+                <smart-button config='{"title":"CANCEL"}' class="right-align modal-close" flat="true" ng-click="commentsPopUpOnHideCallback(e)"></smart-button>
+                <smart-button config='{"title":"POST"}' disable="!commentInpt" class="right-align" flat="true"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/ng-template" id="requisition.html">
+        <ul class="comment-user-box">
+            <!--<li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>-->
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Items in this order are needed to fulfill IT requirements for new employees.
+                    </div>
+                    <div class="right-align small-text">
+                        <span class="paddingRight5">10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" smart-tooltip position="bottom" message="Delete" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" alt="Delete">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_TrashCan"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <div class="user_box">
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        As communicated with supplier's representative, the additional documents around product specifications have been attached to this order 
+                    </div>
+                    <div class="right-align small-text">
+                        <span class="paddingRight5">10/12/2015</span>
+                        <span>03:58 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Please ensure proper receipt done for this supplier, as there were certain items missing in their last order
+                    </div>
+                    <div class="right-align small-text">
+                        <span class="paddingRight5">10/12/2015</span>
+                        <span>04:02 PM</span>
+                    </div>
+                </div>
+            </li>
+            <!--<li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+    </script>
+
+    <script type="text/ng-template" id="order.html">
+        <ul class="comment-user-box">
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </script>
+
+    <script type="text/ng-template" id="invoice.html">
+        <ul class="comment-user-box">
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user_comment clearfix">
+                <div class="user_comment_container">
+                    <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </a>
+                    <div class="user_box">
+
+                        <span class="small-text">Internal Users and Suppliers</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                    <div class="attachment-box row " id="attachmentAdd" style="display: none;">
+                        <div class="col s12 attachment_items">
+                            <a href="javascript:void(0)">File Name.xsl</a>
+                            <a href="javascript:void(0)" class="iconSmall icon right function_delete tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" alt="Delete">
+                                <svg>
+                                    <use xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="other_user_comment clearfix">
+                <div class="user_comment_container">
+                    <div class="user_box">
+                        <span class="user_name">Joseph Powell</span> <span class="small-text">- Internal Users</span>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium aliquam ultrices.
+                        Proin est ipsum, venenatis id sollicitudin quis, sagittis vitae arcu. Sed bibendum sapien felis,
+                        eu venenatis sem vehicula a. Donec et augue in sapien finibus tincidunt rutrum eu dui.
+                    </div>
+                    <div class="right-align small-text">
+                        <span>10/12/2015</span>
+                        <span>03:54 PM</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </script>

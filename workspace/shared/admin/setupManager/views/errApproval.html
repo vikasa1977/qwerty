@@ -1,0 +1,108 @@
+﻿<!-- This is Header -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <!--<i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_RfxReq"></use></svg>
+            </i>-->
+            <span class="extra-nav-title--text">Exceptions Routing & Resolution</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <!--<li class="extra-nav-icon">
+                <a class="waves-circle  white-text  waves-effect waves-light" ng-click="toggleFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Filter"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>-->
+
+            <!--<li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-class="{'disabled': showAllCheckbox}" ng-click="downloadTemplate()">
+                    <i class="icon iconSmall white-text" message="Download" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Download"></use></svg>
+                    </i>
+                </a>
+            </li>-->
+
+            <li class="extra-nav-icon">
+                <a class="waves-circle  white-text waves-effect waves-light" ng-class="{'disabled': showAllCheckbox}" smart-tooltip position="Down" delay="250" message="{{'Delete Selected Rules' || translate }}" ng-click="deleteRowWj(e)">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- This is when there is no approval found -->
+<div ng-if="isEmptyState" class="marginTop114">
+    <div class="center action-block">
+        <a href="javascript:void(0);" class="action-block-cont" ui-sref="admin.setupManager.createErrApproval">
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">Add Approval</span>
+        </a>
+    </div>
+</div>
+
+<!-- This fixed add button -->
+<div class="fixed-action-btn" ng-if="!isEmptyState">
+    <a class="btn-floating btn-large waves-effect waves-light" href="javascript:void(0)" ui-sref="admin.setupManager.createErrApproval" message="Add Rules" smart-tooltip data-position="top" delay="50">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_LpAdd"></use>
+            </svg>
+        </i>
+    </a>
+</div>
+
+<!-- This is when there is approval -->
+<div class="row wj-lg-select noFilter adrMapping" ng-if="!isEmptyState">
+    <wj-flex-grid items-source="data" item-formatter="itemFormatter" allow-sorting="false" Allow-resizing="none" allowDragging="false" initialized="init(s, e)" is-read-only="true">
+        <wj-flex-grid-column header="S.No" width="70">{{$item.srNo}}</wj-flex-grid-column>
+        <wj-flex-grid-column header="Rule Name" width="*" binding="ruleName"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Exception Type" width="*">
+            <a class="truncate" href="javascript:void(0)"  message={{$item.exceptionType}} smart-tooltip data-position="bottom" delay="50" ui-sref="admin.setupManager.createErrApproval">{{$item.exceptionType}}</a>
+        </wj-flex-grid-column>
+        <wj-flex-grid-column header="Division" width="*" binding="division"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Category" width="*" binding="category"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Supplier" width="*" binding="supplier"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Resolution" width="*" binding="resolution"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Resolver" width="*" binding="resolver"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Status" width="80" is-read-only="true" align="center">
+            <smart-switch ng-model=$item.status left-label="''" right-label="''" style="margin-top: -5px;"></smart-switch>
+        </wj-flex-grid-column>
+        <!--<wj-flex-grid-column header="" width="50">
+            <a href="javascript:;">
+                <i class="icon iconSmall left blue-text tooltipped" message="Download" smart-tooltip data-position="bottom" delay="50">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Download"></use>
+                    </svg>
+                </i>
+            </a>
+        </wj-flex-grid-column>-->
+        <wj-flex-grid-column header="" width="57">
+            <a href="javascript:void(0);" ng-if=$item.removeable ng-click="onDeleteClick($item.srNo)">
+                <i class="icon iconSmall left blue-text tooltipped" message="Delete" smart-tooltip data-position="bottom" delay="50">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                    </svg>
+                </i>
+            </a>
+        </wj-flex-grid-column>
+
+    </wj-flex-grid>
+</div>

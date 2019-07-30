@@ -1,0 +1,133 @@
+<div id="tabAccounting">
+    <div class="col s12 paddingTop10" data-ng-init='taxExemptOpts=[{"title": "NO","selected": true}, {"title": "YES","selected": false}];matchingOpts=[{"title": "3 Way","selected": true}, {"title": "2 Way","selected": false}]'>
+        <div class="container">
+            <div class="row marginBtm10">
+                <div class="col s12 m6 l6 xl6 xxl6 fontSize12">
+                    <div ng-init="showErrorAlert = false" class="">
+                        {{'Lines'|| translate}} (42) : {{'Materials'|| translate}} (19) +  {{'Variable Services'|| translate}} (23) | <a href="javascript:void(0)" class="red-text" ng-click="showErrorAlert = !showErrorAlert">60 errors</a>
+
+                    </div>
+                </div>
+                <div class="col s12 m6 l6 xl6 xxl6 right-align">
+                    <ul class="panelBox-header--action">
+                        <li class="panelBox-header--aLink hide">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMateLineTUlkEdittt" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Manage Lines">
+                                        <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+                                    </i>
+                                </a>
+                                <div id="tabMateLineTUlkEdittt" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup">
+                                    <ul id="tabMateLineTUlkEdittt" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup" style="width: 400px;">
+                                        <li>
+                                            <span class="col s12 left-align fontSize16">EDIT MULTIPLE LINES</span>
+                                            <smart-textfield class="col s6" label="Requester"></smart-textfield>
+                                            <smart-textfield class="col s6" label="Legal Entity"></smart-textfield>
+                                            <smart-textfield class="col s6" label="Business Unit"></smart-textfield>
+                                            <smart-textfield class="col s6" label="Cost Center"></smart-textfield>
+                                            <smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Reset Accounts Defaulting">
+                                    <svg><use xlink:href="#icon_resetAccount"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Default Accounts">
+                                    <svg><use xlink:href="#icon_defaultAccount"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns('accounting')">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Columns '|| translate}}">
+                                        <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabMatLineTFilter" class="dropdown-content dropdown-content-large  dd-close-off">
+                                    <li class="dropdown-content-header ">
+                                        <div class="title">{{'MANAGE COLUMNS'|| translate}}</div>
+                                    </li>
+                                    <li class="padding0 is-scrolled">
+                                        <ul class="collection">
+                                            <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                                <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                                <span class="right padding0">({{selectedCount}}) Selected</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                        <smart-scroll height="230px" class="inlineList">
+                                            <div class="listHolder" ng-style="listHolderWidth">
+                                                <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init="myIndex = $index">
+                                                    <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                                        <smart-checkbox ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </smart-scroll>
+                                    </li>
+                                    <li class="dropdown-content-footer is-scrolled">
+                                        <smart-button config='{"title":"APPLY"}' disable="selectedCount == 0" flat="true" class="right"></smart-button>
+                                        <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup" ng-click="cancelAllFields()"></smart-button>
+                                        <smart-button config='{"title":"Reset","flat":true}' disable="selectedCount == 0" flat="true" class="left" ng-click="reset()"></smart-button>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="applyToAllSplitsPopUpCallback(e)">
+                                <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Edit Multiple Splits">
+                                    <svg><use xlink:href="#icon_BulkApply"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="Delete Selected Lines">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-show="showErrorAlert">
+        <div class="row marginBtm0">
+            <div class="col s12">
+                 <div class="alert-bar alert-bar--warning alert-bar--with-button">
+
+                    <div class="left red-text"><span>Validation Error message goes here</span></div>
+                    <div class="right">
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete">
+                            <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete">
+                            <svg><use xlink:href="#icon_RightChevro"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Delete" ng-click="showErrorAlert = false">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+          <smart-ui-grid col-def="{{accountingConfig}}" model="accountingModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition"></smart-ui-grid>
+
+    </div>
+</div>
+<!-- popup -- Accounting split -->
+<smart-popup template-url="{{splitPopupUrl}}" show='{{splitPopupPopup}}' on-hide="splitPopupPopupHideCallback(e)" type="medium"></smart-popup>
+<smart-popup template-url="{{applyToAllSplitsUrl}}" show="{{applyToAllSplitsPopUp}}" on-hide="applyToAllSplitsPopUpClose(e)"></smart-popup>

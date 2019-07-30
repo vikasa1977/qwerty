@@ -1,0 +1,191 @@
+  <div id="approver" >
+        <div class="modal-header">
+            <div class="regularSearch">
+                <a href="#" class="waves-circle waves-effect wave-blue search-icon btn-flat black-text tooltipped"  data-position="bottom" data-delay="50" data-tooltip="{{$label.search}}" alt="Search">
+
+                    <i class="icon iconSmall left grey-text">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+                <a href="#" class="waves-circle waves-effect wave-blue cancel-icon btn-flat black-text tooltipped"  data-position="bottom" data-delay="50" data-tooltip="{{$label.reset}}" alt="Reset">
+                    <i class="icon iconSmall left grey-text">
+                        <svg>
+                            <use xlink:href="#icon_Close"></use>
+                        </svg>
+                    </i>
+
+                </a>
+                <div class="input-field">
+                    <input id="Text3" type="text" class="validate" placeholder="{{$label_U.approvalPendingWith}}">
+                </div>
+            </div>
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_Lookup"></use>
+                </svg>
+            </i>
+            <span class="title">APPROVER
+            </span>
+
+
+
+
+        </div>
+        <div class="modal-content padding0">		
+         
+            <div class="scrollingPopup">
+                <div class="scrollingList" ng-style="myStyle">
+                
+                    <div class="paddingBtm10 paddingTop10 scrollingListBg paddingLeft20 borderBtmGray">
+                        <smart-checkbox fill="true" label='All' ng-model="selectedAll" ng-click="checkAll1($event)" class="test"></smart-checkbox>
+                    </div>
+                    <smart-list  class="borderBtmGray" model="{{approvers}}"
+                                style-class="collection noBorder margin0"
+                                item-class="collection-item scrollingListBg"
+                                template="p2p/ir/views/approversList.html"
+                                >
+                    </smart-list>
+                    <a href="javascript:void(0);" ng-click="myStyle={height:'300px'}" ng-class="{'showCountOpen':selectedIt.length>0,'showCountHide':selectedIt.length<1}"><span>15 More</span><i class="drop-arrow grey-text text-darken-1 marginLeft10"></i></a>
+             </div>
+
+
+                
+                    <smart-list model="{{selectedIt}}"
+                                style-class="collection noBorder"
+                                item-class="collection-item"
+                                template="p2p/ir/views/approversList.html"
+                                height="200px">
+                    </smart-list>
+                
+
+                </div>
+
+
+             
+
+
+
+
+
+
+            <div class="selector-main-wrapper hide" ng-init="shwMore=false" >	
+						
+                <div class="option-container s-selected" ng-class="{'selected-active' : shwMore}"  style="background:#f6f6f6">
+                    <ul class="collection">
+                        <li class="collection-item waves-effect">
+                            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='All'></smart-check-box>
+                        </li>
+                    </ul>
+                    <ul class="collection noBorder">
+                        <li class="collection-item waves-effect">
+							<smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='William Faze'></smart-check-box>                          
+                        </li>
+                         <li class="collection-item waves-effect">
+	                        <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>     
+                        </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Chris Harris'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='William Faze'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Chris Harris'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='William Faze'></smart-check-box>
+						 </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                        <li class="collection-item waves-effect">
+							<smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                        <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                          <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                         </li>
+                          <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                          <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                         <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                       </li>
+                         <li class="collection-item waves-effect">
+				            <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='John Doe'></smart-check-box>
+                        </li>
+                    </ul>
+					  
+                </div>
+					
+                <div class="see-more-divider center-align"  > 
+					<smart-button flat="true" config='{"title":shwMore == true ? "SEE LESS" : "15 MORE"}' ng-click="shwMore=!shwMore"></smart-button>
+                </div> 
+				<smart-scroll class="s-more" >
+                   <ul class="collection noBorder" >
+                        <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Phil James'></smart-check-box>                          
+                        </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Robin Ross'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Shane Anderson'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Shane Bond'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Phil Huges'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Phil James'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Shane Bond'></smart-check-box>
+                         </li>
+                         <li class="collection-item waves-effect">
+							 <smart-check-box class="manageChk" checked='false' fill='true' disable='false' label='Shane Anderson'></smart-check-box>
+                         </li>
+
+                    </ul>
+					</smart-scroll>           
+              
+               </div>
+    	  
+                   </div>
+        <div class="modal-footer">
+            <div class="row marginBottom0">
+                <div class="col s12">
+					<smart-button flat="true" class="left" config='{"title":"RESET"}'></smart-button>               
+					<div class="right">
+					   <smart-button flat="true"  class="left" config='{"title":"CANCEL"}'></smart-button>
+					   <smart-button flat="true" class="left" config='{"title":"DONE"}'></smart-button>
+					</div>                   
+               </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+	/*temporary css*/
+	.manageChk {
+		margin-bottom: 0 !important;
+	}
+
+		.manageChk label {
+			top: 0;
+		}
+
+	.approver-content-height{height:400px;}
+</style>

@@ -1,0 +1,19 @@
+﻿.daterangepicker.ltr .ranges,
+.daterangepicker.single.ltr .ranges {
+	float: none;
+	clear: both;
+	text-align: right;
+}
+
+.daterangepicker.ltr .ranges .btn {
+	background: #fff;
+	color: $link;
+	box-shadow: none;
+	line-height: 30px;
+	padding: 0 10px;
+	height: 30px;
+	float: right;
+}
+.daterangepicker{
+     box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+}

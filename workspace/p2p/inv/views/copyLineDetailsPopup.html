@@ -1,0 +1,72 @@
+<div>
+	<div class="modal-header">
+		<i class="icon iconSmall grey-text left marginTop7">
+			<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Comments"></use></svg>
+		</i>
+		<span class="title">COPY LINE DETAILS</span>
+	</div>
+	<div class="modal-content padding0 comment-poup-content">
+		<div class="row margin0 equal-height">
+			<div class="col s6 m7 paddingTop10">
+				<smart-textfield class="col s6" label="Supplier Item Number"></smart-textfield>
+				<smart-textfield class="col s3" label="Quantity"></smart-textfield>
+				<smart-textfield class="col s3" label="UOM"></smart-textfield>
+				<div class="col s6 input-field">
+					<div class="grey-text fontSize12">Taxes</div>
+					<smart-button flat="true" class="textCapitalize" config='{"title":"Add Taxes"}' callback="showTaxesPopupCallback"></smart-button>
+				</div>
+				<smart-textfield class="col s6" label="Tax Exempt"></smart-textfield>
+				<smart-textfield class="col s6" label="Other Charges (USD)"></smart-textfield>
+				<smart-textfield class="col s6" label="Freight"></smart-textfield>
+				<smart-textfield class="col s6" type="date" label="Requested Date"></smart-textfield>
+				<smart-textfield class="col s6" type="date" label="Need by Date"></smart-textfield>
+				<div class="col s6 input-field">
+					<div class="grey-text fontSize12">Category</div>
+					<smart-button flat="true" class="textCapitalize" config='{"title":"Choose Category"}' callback="showCategoryPopupCallback"></smart-button>
+				</div>
+				<smart-textfield class="col s6" label="Procurement Option"></smart-textfield>
+				<smart-textfield class="col s6" label="Inventory Type"></smart-textfield>
+			</div>
+			<div class="col s6 m5 vertical-tabs-content">
+				<div class="vertical_tab_content_wrapper modal-header" style="position: relative;">
+					<div class="borderBtmGray paddingBtm20 marginBtm20">
+						<span class="title paddingLeft10">SELECT ITEMS</span>
+						<div class="regularSearch">
+							<a href="javascript:void(0);" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{$label.search}}">
+								<i class="icon iconSmall grey-text">
+									<svg><use xlink:href="#icon_Search"></use></svg>
+								</i>
+							</a>
+							<a href="javascript:void(0);" class="cancel-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{$label.reset}}">
+								<i class="icon iconSmall grey-text">
+									<svg><use xlink:href="#icon_Close"></use></svg>
+								</i>
+							</a>
+							<div class="input-field">
+								<input id="Text9" type="text" class="validate" placeholder="Search Items">
+							</div>
+						</div>
+					</div>
+					<smart-scroll height="400px">
+						<smart-check-box class="paddingLeft10" fill="true" label="All"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 1"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 2"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 3"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 4"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 5"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 6"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 7"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 8"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 7"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 9"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 10"></smart-check-box>
+						<smart-check-box class="paddingLeft10" fill="true" label="Line Item 11"></smart-check-box>
+					</smart-scroll>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<smart-button flat="true" class="textCapitalize" config='{"title":"APPLY","flat":true}'></smart-button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,536 @@
+{
+  "datalist": [
+    {
+      "docName": "SERVCONF0010",
+      "docStatus": "Approval Pending",
+      "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+        {
+          "key": "Withdraw",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "0015278031"
+        },       
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "40,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "11/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF002",
+      "docStatus": "Draft",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [       
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO458567"
+        },
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "5,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "16/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF003",
+      "docStatus": "Rejected",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+       {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO887645"
+        },
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "10,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "12/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF004",
+      "docStatus": "Draft",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO459283"
+        },      
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "4,400.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "08/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF005",
+      "docStatus": "Approval Pending",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+       {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO465922"
+        },        
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "2,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "05/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF006",
+      "docStatus": "Draft",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+       {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO743256"
+        },       
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "1,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "02/03/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF007",
+      "docStatus": "Approved",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+       {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO663544"
+        },     
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "3,000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "25/02/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF008",
+      "docStatus": "Approved",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+      {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO456212"
+        },
+      
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "1,500.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "15/02/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    },
+    {
+      "docName": "SERVCONF009",
+      "docStatus": "Approval Pending",
+       "hideCheckbox": true,
+      "system": "",
+      "isdocSelected": false,
+      "docType": "order",
+      "docLink": "",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Order Number",
+          "value": "PO492732"
+        },      
+         {
+          "datakey": "Service Confirmation Total",
+          "value": "5000.00 USD"
+        },{
+          "datakey": "Created By",
+          "value": "Emily Ross"
+        },
+        {
+          "datakey": "Submitted On",
+          "value": "10/02/2018"
+        },
+         {
+          "datakey": "Supplier",
+          "value": "Advanced Sealing LLC Lewis Goetz & Co Inc."
+        }
+      ]
+    }
+  ],
+
+  "listViewlists": [
+    {
+      "docName": "Assembly Mechanic (WBS001)",
+	  "isdocSelected": false,
+      "docType": "order",
+      "docStatus": "Partially Logged",
+      "docLink": "p2p.timesheet.new",
+      "actions": [
+        {
+		  "key": "Create Asn",
+		  "value": ""
+		},{
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Close",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Contingent Worker",
+          "value": "Richard Holt"
+        },
+        {
+          "datakey": "Quantity/Effort",
+          "value": "100"
+        },
+        {
+          "datakey": "Completed Hours",
+          "value": "60"
+        },
+        {
+          "datakey": "Remaining Hours",
+          "value": "40"
+        },
+        {
+          "datakey": "Start Date",
+          "value": "Jan 01, 2018"
+        },
+        {
+          "datakey": "End Date",
+          "value": "Mar 03, 2018"
+        }
+      ]
+    },
+    {
+      "docName": "Assembly Mechanic (WBS002)",
+      "isdocSelected": false,
+      "docType": "order",
+      "docStatus": "Fully Logged",
+      "docLink": "p2p.timesheet.new",
+      "actions": [
+        {
+		  "key": "Create Asn",
+		  "value": ""
+		},{
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Close",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Contingent Worker",
+          "value": "Steeve O'Keefe"
+        },
+        {
+          "datakey": "UOM",
+          "value": "Hour"
+        },
+        {
+          "datakey": "Quantity/Effort",
+          "value": "100"
+        },
+        {
+          "datakey": "Completed Hours",
+          "value": "100"
+        },
+        {
+          "datakey": "Remaining Hours",
+          "value": "0"
+        },
+        {
+          "datakey": "Start Date",
+          "value": "Jan 01, 2018"
+        },
+        {
+          "datakey": "End Date",
+          "value": "Mar 03, 2018"
+        }
+      ]
+    },
+    {
+      "docName": "Assembly Mechanic (WBS003)",
+
+      "isdocSelected": false,
+      "docType": "order",
+      "docStatus": "Yet to start",
+      "docLink": "p2p.timesheet.new",
+      "actions": [
+        {
+		  "key": "Create Asn",
+		  "value": ""
+		},{
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Close",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "Job Title",
+          "value": "Assembly Mechanic"
+        },
+        {
+          "datakey": "WBS Element/Project",
+          "value": "WBS001"
+        },
+        {
+          "datakey": "Order Number",
+          "value": "PO123"
+        },
+        {
+          "datakey": "Contingent Worker",
+          "value": "Steeve O'Keefe"
+        },
+        {
+          "datakey": "UOM",
+          "value": "Hour"
+        },
+        {
+          "datakey": "Quantity/Effort",
+          "value": "100"
+        },
+        {
+          "datakey": "Completed Hours",
+          "value": "60"
+        },
+        {
+          "datakey": "Remaining Hours",
+          "value": "40"
+        },
+        {
+          "datakey": "Start Date",
+          "value": "Jan 01, 2018"
+        },
+        {
+          "datakey": "End Date",
+          "value": "Mar 03, 2018"
+        }
+      ]
+    }
+  ]
+
+ }

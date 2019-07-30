@@ -1,0 +1,12 @@
+﻿<div class="row basic-details-sup-layout" ng-controller="supplierProfileBasicDetailsCtrl">
+    <div class="col s12 line-height-manager relative marginTop2 padding0">       
+        <smart-list-lookup readonly="{{(!status.selectedoption.approved || parentScope.readOnlyPage)}}" class="paddingLeft10 left  paddingRight10 line-height-manager marginBtm0" titleofmodel="Choose Status" selecttypeoption="selectTypeOption" multiselect="false"  is-mandatory="true" label="{{status.displaytext}}" addnew="false" ng-model="status.selectedoption" options="status.options" displayformat="['name']" lookup-hide="reasonPoup(data)"></smart-list-lookup>
+			
+        <i class="icon left marginRight0 marginTop17 blue-text" smart-infotip message="{{status.selectedoption.description}}" position="right">
+            <svg><use xlink:href="#icon_Info"></use></svg>
+        </i>
+        <div ng-if="!status.selectedoption.approved" smart-infotip message="This status is under approval and cannot be changed."  position="left" class="statusTypeAhead grey-text">
+            &#40<a href="javascript:void(0)">Under Approval</a>&#41 
+        </div>
+    </div>
+</div>

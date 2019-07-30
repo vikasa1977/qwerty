@@ -1,0 +1,61 @@
+/*file for divBased Table*/
+  .divAsTable :after, .dtHeader :after {
+                        clear: both;
+                        content: '';
+                        width: 100%;
+                        height: 0;
+                    }
+
+                    .divAsTR.row {
+                        margin-bottom: 0;
+                    }
+
+                    .bordered .divAsTR.row{
+                        border-bottom: 1px solid #e0e0e0;
+                    }
+
+                    .bordered .dtBody.divAsTR.row:last-child{
+                        border-bottom: none;
+                    }                        
+
+
+                    .dtHeaderTD.col {
+                        font-size: 0.8571rem;
+                        color: #5e5e5e;
+                        padding:1.2rem 0.75rem;
+                        min-height:56px;
+
+                        &:first-child{
+                        padding-left:1.7143rem;
+                        }
+                        &:last-child{
+                        padding-right:1.7143rem
+
+                        }
+
+
+
+                    }
+
+                    .dtBodyTD.col {
+                        padding: 0.960rem 0.75rem;
+                        min-height:48px;
+                           &:first-child{
+                        padding-left:1.7143rem
+                        }
+                        &:last-child{
+                        padding-right:1.7143rem
+
+                        }
+                    }
+                    .dtBodyTDWithIconCircle.col{
+                        padding:0.38rem 0.75rem;
+                    }
+                    .dtBodyTDWithIcon.col{
+                        padding:0.80rem 0.75rem;
+                    }
+                    .dtHeaderWithIcon.col{
+                        padding:1.2rem 0.75rem 1rem;
+                    }
+
+.highlight .dtBody .divAsTR:hover{ background:#fafafa}

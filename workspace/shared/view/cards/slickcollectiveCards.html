@@ -1,0 +1,150 @@
+<style>
+    /* Slider */
+.slick-slider { position: relative; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -ms-touch-action: none; touch-action: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+.slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
+.slick-list:focus { outline: none; }
+.slick-loading .slick-list { background: white url(./ajax-loader.gif) center center no-repeat; }
+.slick-list.dragging { cursor: pointer; cursor: hand; }
+
+.slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+
+.slick-track { position: relative; left: 0; top: 0; display: block; zoom: 1; }
+.slick-track:before, .slick-track:after { content: ""; display: table; }
+.slick-track:after { clear: both; }
+.slick-loading .slick-track { visibility: hidden; }
+
+.slick-slide { float: left; height: 100%; min-height: 1px; display: none; }
+.slick-slide img { display: block; }
+.slick-slide img.slick-loading { background: white url(./ajax-loader.gif) center center no-repeat; padding-bottom: 100%; }
+.slick-slide.dragging img { pointer-events: none; }
+.slick-initialized .slick-slide { display: block; }
+.slick-loading .slick-slide { visibility: hidden; }
+.slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; }
+
+/* Icons */
+@font-face { font-family: "slick"; src: url("./fonts/slick.eot"); src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg"); font-weight: normal; font-style: normal; }
+
+/* Arrows */
+.slick-prev, .slick-next { position: absolute; display: block; height: 20px; width: 20px; line-height: 0; font-size: 0; cursor: pointer; background: transparent; color: transparent; top: 50%; margin-top: -10px; padding: 0; border: none; }
+.slick-prev:focus, .slick-next:focus { outline: none; }
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before { opacity: 0.25; }
+
+.slick-prev:before, .slick-next:before { font-family: "slick"; font-size: 20px; line-height: 1; color: white; opacity: 0.85; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.slick-prev { left: -25px; }
+.slick-prev:before { content: '\8592'; }
+
+.slick-next { right: -25px; }
+.slick-next:before { content: '\8594'; }
+
+/* Dots */
+.slick-slider { margin-bottom: 30px; }
+
+.slick-dots { position: absolute; bottom: -45px; list-style: none; display: block; text-align: center; padding: 0px; width: 100%; }
+.slick-dots li { position: relative; display: inline-block; height: 20px; width: 20px; margin: 0px 5px; padding: 0px; }
+.slick-dots li a { display: block; height: 20px; width: 20px; outline: none; line-height: 0; font-size: 0; color: transparent; padding: 5px; }
+.slick-dots li a:before { content: '\8226'; font-family: "slick"; font-size: 6px; line-height: 2; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.slick-dots li.slick-active a:before { opacity: 0.75; }
+
+</style>
+
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}" ng-if="cardManageDraftSubheader">
+
+<div class="right col input-field card-subhedear">
+        <span class="left">Currently Showing :</span>
+        <div class="right">
+            <smart-dropdown config="{{dropDownConfig}}">
+                    <span data-activates='savedViewChanges' class="saved-view-content dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                       {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+                    </span>
+                    <ul id='savedViewChanges' class='dropdown-content'>
+                        <li ng-repeat="item in savedViews">
+                            <a href="javascript:void(0)" class="black-text" ng-click="changeSavedView(item.name)">
+                                 {{ item.name || translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+        </div>
+
+    </div>
+
+    <div class="left" ng-if="cardManageSubheader">
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped white-text" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+        </span><span class="headingText ng-cloak">MANAGE</span>
+    </div>
+
+
+     <div class="left" ng-if="cardworkQueueSubheader">
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped white-text" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_LpWorkQ"></use>
+                </svg>
+            </i>
+        </span><span class="headingText ng-cloak">TASK (10 Cards)</span>
+    </div>
+
+
+</div>
+
+
+
+
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}" ng-if="cardSearchSubheader">
+
+    <div class="left">
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped white-text" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        </div>
+            
+      <div class="input-field card-search-subheader">
+                <input id="search" type="text" required placeholder="1143 (123 Found)" class="white-text">
+                <label for="search">
+                    <i class="icon iconSmall white-text">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </label>
+            </div>
+  
+    
+</div>
+
+<div id="card-slider">
+    <slick init-onload="false" data="allCardsContent.length" dots="true" infinite="true" slides-to-show="3" slides-to-scroll="3">
+        <smart-card-item ng-repeat="eachCardContent in allCardsContent track by $index" header-template="{{headerHTMLTemplate}}" content-template="shared/view/cards/cardListContent.html" footer-template="{{footerHTMLTemplate}}" card-identifer="{{eachCardContent.groupName}}" expand="{{eachCardContent.expand}}">
+        </smart-card-item>
+    </slick>
+</div>
+
+
+

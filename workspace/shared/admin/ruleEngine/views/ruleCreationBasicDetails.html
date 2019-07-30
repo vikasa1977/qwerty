@@ -1,0 +1,20 @@
+﻿<div ng-controller="ruleCreationBasicDetailsCtrl">
+    <smart-textfield readonly="{{parentScope.pageType.historymode}}" class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" is-mandatory="true" ng-model="parentScope.basicDetail.ruleName.title" label="Rule Name"></smart-textfield>
+    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" ng-model="parentScope.basicDetail.ruleNumber.title" label="Rule Number" readonly="true"></smart-textfield>
+    <smart-textfield is-mandatory="true" readonly="{{parentScope.pageType.historymode}}" class="col s12 line-height-manager input-field" ng-model="parentScope.basicDetail.description.title" type="area" label="Description"></smart-textfield>
+    <smart-select preview="{{parentScope.pageType.historymode}}" disable="{{parentScope.pageType.historymode}}" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field marginTop15" label="Rule Category" is-mandatory='true' ng-model="parentScope.basicDetail.businessCase" options="businessCaseOption" datakey="name" on-change="parentScope.changeActionTypeData(parentScope.basicDetail.businessCase)"></smart-select>
+    <smart-select preview="{{parentScope.pageType.historymode}}" disable="{{parentScope.pageType.historymode}}" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field marginTop15" label="Document Group" ng-model="parentScope.selectedDocumentGroup" options="documentGroup" datakey="name" on-change="parentScope.changeDocumentGroup(parentScope.selectedDocumentGroup)"></smart-select>
+    <div class="row marginBtm0 marginTop15" ng-hide="parentScope.showDoucmentType" ng-class="{'left': parentScope.documentType.length === 1}">
+        <div class="col s12 ng-isolate-scope input-field">
+            <span class="documentTypeValue" ng-class="{'docuementTypeLabel' :parentScope.documentType.length === 1}">Document Type</span>
+            <ul class='documentTypeDropDown'>
+                <li ng-repeat="item in parentScope.documentType" class="col s12 m6 l4 xl3 xxl2 line-height-manager marginBtm0 padding0" ng-class="{'documentTypeList' :parentScope.documentType.length === 1}">
+                    <span ng-if="parentScope.documentType.length > 1">
+                        <smart-checkbox fill="true" ng-model="item.ischeck" label="{{item.name}}"></smart-checkbox>
+                    </span>
+                    <span ng-if="parentScope.documentType.length === 1" ng-class="{'documentTypeListValue documentTypeList' : parentScope.documentType.length === 1}">{{item.name}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿<div id="categoryPopup" class="rearrangePopup">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_QuestArrang"></use>
+            </svg>
+        </i>
+        <span class="title">
+            REARRANGE QUESTIONS
+        </span>
+    </div>
+    <div class="modal-content is-scrolled padding0">
+        <div class="model_body" style="height:350px;">
+            <!-- temporary height applied till the time directive get updated for fixed height-->
+            <smart-scroll height="350px">
+                <ul class="tree-view-str" smart-sortable on-sort="onSort($event,'newDragDrop')" tolerance="pointer">
+                    <li class="tree-view-container rowClass" ng-repeat="sectionItemChild in rearrangePopupData[0].question">
+                        <div class="tree-view-str-item">
+
+                            <div class="order left">
+                                <span class="left">
+                                    <icon class="icon ui-dragger collapsible-header-drag-icon ui-sortable-handle">
+                                        <svg>
+                                            <use xlink:href="#icon_Drag"></use>
+                                        </svg>
+                                    </icon>
+                                </span>
+
+                                <span class="left">
+                                    {{sectionItemChild.name}}
+                                </span>
+
+                            </div>
+                            <span class="tree_view_content">
+                                <smart-checkbox checked='false' fill='true' disable='false' label="{{sectionItemChild.title}}" title="{{sectionItemChild.title}}" class="left" ng-model="sectionItemChild.check" on-change="onChildChange(rearrangePopupData,sectionItemChild.check, $index, 0)" input-field="false"></smart-checkbox>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+
+            </smart-scroll>
+        </div>
+        <div class="rearrangeNavPanel" ng-if="shiftSection || shiftQuestion">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align paddingLeft25 paddingRight25">
+                    <div class="left">
+                        <div class="left rearrange-selection-nav">
+                            <span class="left paddingRight8">Move after</span>
+                            <smart-select ng-model="moveAfterDD.selectedOption" options="moveAfterDD.options" class="left selectQuestion marginBottom0 paddingTop8" displaykey="name" datakey="title"></smart-select>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <a href="javascript:void(0)" class="left paddingRight30" smart-tooltip position="left" delay="50" message="Cancel" ng-click="cancelMoveAfter(rearrangePopupData[0].question)">
+                            <i class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Close"></use></svg>
+                            </i>
+                        </a>
+                        <a href="javascript:void(0)" ng-class="{'disabled': moveAfterDD.selectedOption.length < 1}" class="right paddingTop2" smart-tooltip position="left" delay="50" message="Apply" ng-click="moveAfter(rearrangePopupData[0].question, moveAfterDD.selectedOption)">
+                            <i class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Check"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align">
+
+                    <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" config='{"title":"DONE"}' disable="!isRearrangeSelected" ng-class="{'modal-close':isRearrangeSelected}" ng-click="rearrangeConfirm()"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

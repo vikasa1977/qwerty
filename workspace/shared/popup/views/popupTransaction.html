@@ -1,0 +1,30 @@
+<div>
+    <div class="modal-header">
+        <i class="icon  grey-text left marginTop2">
+            <svg>
+                <use xlink:href="#icon_CirclePlus" ng-if="iconUpdate"></use>
+                <use xlink:href="#icon_editPen" ng-if="!iconUpdate"></use>
+            </svg>
+        </i>
+        <span class="title">{{popupTitle}}</span>
+    </div>
+    <div class="modal-content padding0 is-scrolled padding15 height300" ng-if="showTransactionPopup">
+        <div class="row">
+            <smart-textfield class="col s12 line-height-manager" label="Enter Description" type="area" charactercounter="true" maxlength="2000" rows="2" ng-model="transactionData.viewDescription" is-mandatory="true" validate="viewDescription"></smart-textfield>
+        </div>
+        <div class="row">
+            
+            <smart-select class="col s6 line-height-manager" label="Transaction Type" ng-model="transactionData.viewType" options="transactionType" datakey="type" on-change="onChangeType(transactionData.viewType)" is-mandatory="true" validate="td.viewType"></smart-select>
+            <smart-textfield class="col s6 line-height-manager" label="Date" type="date" ng-model="transactionData.date" is-mandatory="true" validate="date"></smart-textfield>
+        </div>
+     <div class="row">
+            <smart-select class="col s6 line-height-manager" label="Transaction Value Type" ng-model="transactionData.selectedCurrency" options="currencyOptions"  datakey="name" on-change="onChange(transactionData.selectedCurrency)" is-mandatory="true" validate="td.selectedCurrency"></smart-select>
+            <smart-textfield class="col s6 line-height-manager text-right" label="Transaction Value" type="number" ng-model="transactionData.getValue" on-change="updatedValue()" ng-show="isShowing"  is-mandatory="true" validate="getValue"><smart-textfield>
+        </div>
+       
+    </div>
+    <div class="modal-footer is-scrolled paddingLeft8">
+        <smart-button flat="true" config='{"title":"DONE"}' ng-click="addTransactionData(transactionData, $index)"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

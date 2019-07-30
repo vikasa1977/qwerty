@@ -1,0 +1,93 @@
+<div>
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+				<a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<!--<div class="input-field" >
+					<input id="Text2" type="text">
+				</div>-->
+				<smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+				<a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<span class="title">
+			EDIT - {{supplierList[index].title}}
+		</span>
+	</div>
+	<div class="modal-content padding0 noBottomBorder">
+		<smart-scroll height="360px" >
+			<table class="bordered sTable fixedTbl">
+				<thead class="borderTopLight">
+					<tr>
+						<th width="45px"></th>
+						<th class="left-align" width="25%">
+							Name & Contact
+							<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom" ng-click="ascDescToggler(typeSortIcon)"><i class="icon iconSmall blue-text"><svg><use xlink:href="{{ '#'+typeSortIcon.icon }}"></use></svg></i></a>
+						</th>
+						<th class="left-align" width="14%">
+							Role
+								<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="Filter" position="bottom" data-alignment="left" data-activates="contactRoles" data-constrainwidth="false">
+									<i class="icon iconSmall">
+										<svg><use xlink:href="#icon_Filter"></use></svg>
+									</i>
+								</a>
+								<ul id="contactRoles" class="dropdown-content collection noBorder dd-close-off">
+									<li class="collection-item"><smart-checkbox label="Primary Responder"></smart-checkbox></li>
+									<li class="collection-item"><smart-checkbox label="Collaborator 1"></smart-checkbox></li>
+									<li class="collection-item"><smart-checkbox label="Viewer 1"></smart-checkbox></li>
+								</ul>
+						</th>
+						<th class="left-align paddingLeft20" width="12%">Added By</th>
+						<th class="left-align" width="16%">
+							Invited On
+							<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="Filter" position="bottom" data-alignment="left" data-activates="invitationStatus" data-constrainwidth="false">
+								<i class="icon iconSmall">
+									<svg><use xlink:href="#icon_Filter"></use></svg>
+								</i>
+							</a>
+							<ul id="invitationStatus" class="dropdown-content collection noBorder dd-close-off">
+								<li class="collection-item"><smart-checkbox label="Invited"></smart-checkbox></li>
+								<li class="collection-item"><smart-checkbox label="Not Invited"></smart-checkbox></li>
+							</ul>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="secondaryContacts in supplierList[index].secondaryContact">
+						<td class="left-align">
+							<smart-checkbox class="left" ng-model="secondaryContacts.check" ng-class="(secondaryContacts.check ? '' : 'disabled')"></smart-checkbox>
+						</td>
+						<td><span class="fontSize14">{{secondaryContacts.name}}</span><br /><span class="fontSize12 grey-text"><a href="mailto:{{secondaryContacts.email}}">{{secondaryContacts.email}}</a> | {{secondaryContacts.contact}}</span></td>
+						<td><smart-select class="marginTop10" options="secondaryContactsRole" ng-model="secondaryContacts.role" is-mandatory="true" disable="{{!secondaryContacts.check}}"></smart-select></td>
+						<td class="paddingLeft20" ng-class="(secondaryContacts.check ? '' : 'disabled')"><span>{{secondaryContacts.name}}</span></td>
+						<td class="left-align" ng-if="!secondaryContacts.invitedOn">
+							<div>
+								<a href="javascript:void(0);" class="marginRight10" smart-tooltip message="Invite" position="bottom" ng-click="emailerPopupCallback(e)" ng-class="(secondaryContacts.check ? '' : 'linkdisabled')">
+									<i class="icon small">
+										<svg pointer-events="none"><use xlink:href="#icon_Email"></use></svg>
+									</i>
+								</a>
+							</div>
+						</td>
+						<td class="left-align" ng-if="secondaryContacts.invitedOn" ng-class="(secondaryContacts.check ? '' : 'disabled')"><span>{{secondaryContacts.invitedOn}}</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</smart-scroll>
+			</div>
+
+	<div class="modal-footer noTopBorder">
+		<div class="right">
+			<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+			<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+		</div>
+	</div>
+</div>

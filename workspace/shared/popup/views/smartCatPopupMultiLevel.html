@@ -1,0 +1,170 @@
+<div class="categoryPopup multilevelPopup" ng-class="{'readMode' : !writemode.state, 'writeMode' : writemode.state}">
+	<div class="modal-header clearfix">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+				<a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Close">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearchHeader"></smart-textfield>
+				<a href="javascript:void(0)" class="search-icon waves-circle waves-effect btn-flat black-text write-mode" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<i class="icon iconSmall grey-text left">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title write-mode left">
+			{{ defaultText }}
+		</span>
+		<span class="title read-mode left">
+			{{readModeText}}
+		</span>
+
+		<span class="grey-text title left marginLeft6" ng-if="selectedValueTrue >= 1 && writemode.state">
+			({{ selectedValueTrue }}/{{TotalList}})
+		</span>
+		<span class="grey-text title left marginLeft6" ng-if="selectedValueTrue >= 1 && !writemode.state">
+			({{ selectedValueTrue }})
+		</span>
+	</div>
+
+	<div class="modal-content is-scrolled padding0">
+		<div class="model_body" style="height:350px;">
+			<!-- temporary hieght applied till the time directive get updated for fixed height-->
+			<smart-scroll height="350px">
+				<ul class="tree-view-str">
+					<li ng-repeat="additionalForm in $parent.selectedValue" class="tree-view-container" ng-if="writemode.state">
+						<div class="tree-view-str-item waves-effect" >
+							<i class="icon iconSmall left tree-view-str-collapsible-trigger blue-text" style="transform: rotate(-90deg);">
+								<svg ng-if="additionalForm.value">
+									<use xlink:href="#icon_DropArrow"></use>
+								</svg>
+							</i>
+							<span class="tree_view_content" ng-class="{'filled-partial' : additionalForm.fillpartial}">
+								<smart-checkbox checked='false' fill='true' disable='false' label="{{additionalForm.name}}" class="left" ng-model="additionalForm.check" on-change="onChange(additionalForm.check,$index)" input-field="false"></smart-checkbox>
+							</span>
+						</div>
+						<ul class="is-hide tree-view-container-child">
+							<li ng-repeat="additionalFormChild in additionalForm.value">
+								<div class="tree-view-str-item waves-effect">
+									<i class="icon iconSmall left tree-view-str-collapsible-trigger blue-text" style="transform: rotate(-90deg);" ng-if="additionalFormChild.value">
+										<svg >
+											<use xlink:href="#icon_DropArrow"></use>
+										</svg>
+									</i>
+									<span class="tree_view_content" ng-class="{'filled-partial' : (additionalFormChild.fillpartial == true ), 'paddingLeft35': !additionalFormChild.value}">
+										<smart-checkbox checked='false' fill='true' disable='false' label="{{additionalFormChild.name}}" class="left" ng-model="additionalFormChild.check" on-change="onChangeChild(additionalFormChild.check,$index, $parent.$index)" input-field="false"></smart-checkbox>
+									</span>
+								</div>
+
+								<ul class="is-hide tree-view-container-grand-child">
+									<li ng-repeat="additionalFormGrandChild in additionalFormChild.value">
+										<div class="tree-view-str-item waves-effect">
+											<span class="tree_view_content paddingLeft35">
+												<smart-checkbox checked='false' fill='true' disable='false' label="{{additionalFormGrandChild.name}}" class="left"  ng-model="additionalFormGrandChild.check" on-change="onChangeGrandChild(additionalFormGrandChild.check, $index, $parent.$index, $parent.$parent.$index)" input-field="false"></smart-checkbox>
+											</span>
+										</div>
+								
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</li>
+					<li ng-repeat="additionalForm in $parent.selectedValue" class="tree-view-container readModeComp" ng-if="!writemode.state && (additionalForm.fillpartial || additionalForm.check)">
+						<div class="tree-view-str-item waves-effect">
+							<i class="icon iconSmall left tree-view-str-collapsible-trigger blue-text" style="transform: rotate(-90deg);">
+								<svg ng-if="additionalForm.value">
+									<use xlink:href="#icon_DropArrow"></use>
+								</svg>
+							</i>
+							<span class="tree_view_content" ng-class="{'filled-partial' : additionalForm.fillpartial }">
+								 {{additionalForm.name}}
+							</span>
+						</div>
+						<ul class="is-hide tree-view-container-child">
+							<li ng-repeat="additionalFormChild in additionalForm.value" ng-if="!writemode.state && (additionalFormChild.fillpartial || additionalFormChild.check)">
+								<div class="tree-view-str-item waves-effect">
+									<i class="icon iconSmall left tree-view-str-collapsible-trigger blue-text" ng-if="additionalFormChild.value" style="transform: rotate(-90deg);">
+										<svg>
+											<use xlink:href="#icon_DropArrow"></use>
+										</svg>
+									</i>
+									<span class="tree_view_content" ng-class="{'filled-partial' : additionalFormChild.fillpartial}">
+										  {{additionalFormChild.name}}
+									</span>
+								</div>
+
+								<ul class="is-hide tree-view-container-grand-child paddingLeft21">
+									<li ng-repeat="additionalFormGrandChild in additionalFormChild.value | filter : { 'check' : true}">
+										<div class="tree-view-str-item waves-effect cusror-default">
+											<span class="tree_view_content" data-class="">
+                                                {{ additionalFormGrandChild.name }}
+											</span>
+										</div>
+
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+			</smart-scroll>
+		</div>
+		<div class="modal-footer_new is-scrolled">
+			<div class="row marginBottom0 write-mode">
+				<div class="col l4 s4"><a href="javascript:void(0)" class="waves-effect btn-flat" ng-click="additionalFormPopUpReset()">Reset</a></div>
+				<div class="col l8 s8 right-align">
+					<a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect">Cancel</a>
+					<a href="javascript:void(0)" class="modal-action modal-close waves-effect btn-flat" ng-click="additionalFormPopUpOnHideCallback(e)">Done</a>
+				</div>
+			</div>
+			<div class="row marginBottom0 read-mode">
+				<div class="col s12 right-align">
+					<a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect" ng-hide="!readMode">Close</a>
+					<a href="javascript:void(0)" class="btn-flat editRequest modal-close waves-effect" ng-hide="readMode">Cancel</a>
+					<a href="javascript:void(0)" class="modal-action waves-effect btn-flat" ng-hide="readMode" ng-click="writemode.state = true">Edit</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		setTimeout(function () { 
+			$('html').off('click').on("click", '.tree-view-str-collapsible-trigger', function (event) {
+    				event.stopPropagation();
+					var thisHasClass = $(this).hasClass('is-Expended');
+					if (!thisHasClass) {
+						$(this).attr('style', "")
+						$(this).parent().next().removeClass('is-hide');
+						$(this).addClass("is-Expended");
+					} else {
+						$(this).attr('style', "transform: rotate(-90deg);")
+						$(this).parent().next().addClass('is-hide');
+						$(this).removeClass("is-Expended");
+					}
+				});
+			});
+		}, 2000)
+</script>
+
+<style>
+.multilevelPopup .tree-view-str-item i {
+    color: #757575;
+    margin: 0 !important;
+    position: relative;
+    top: 7px;
+    left: 0 !important;
+}
+
+.multilevelPopup .readModeComp .tree-view-str-item i {
+    top: 0;
+}
+</style>

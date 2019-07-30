@@ -1,0 +1,97 @@
+<div id="approvalPending">
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <!--<div class="input-field" >
+                    <input id="Text2" type="text">
+                </div>-->
+                <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_Lookup"></use></svg>
+        </i>
+        <span class="title">
+            MUTI-ORG ENTITY SELECTION
+        </span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body is-scrolled">
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 m4 padding0">
+
+                        <div class="vertical-tabs">
+                            <smart-scroll height="260px">
+                                <ul class="vertical_tab_wrapper" ng-repeat="filters in createdByList">
+                                    <li>
+                                        <a href="javscript:void(0)" ng-click="setActiveListTab($index)" class="vertical__tab  paddingBtm15  paddingTop15" ng-class="{'is-active' : $index == activeListTabs}">
+                                            <span>{{filters.filterLabel}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </smart-scroll>
+                        </div>
+                    </div>
+                    <div class="col s12 m8">
+                        <div class="vertical-tabs-content  minHeight-tabs-content padding0">
+
+                            <div ng-include="currentTab"></div>
+                        </div>
+                    </div>
+
+                    <script type="text/ng-template" id="category.html">
+
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+
+                    </script>
+                    <script type="text/ng-template" id="region.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+                    <script type="text/ng-template" id="businessUnit.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+                    <script type="text/ng-template" id="sourceType.html">
+
+                        <div class="padding10 marginTop15 marginLeft15">
+                            <smart-scroll height="260px">
+                                <ul class="margin0">
+                                    <li><smart-checkbox label="Select All" class="grey-text"></smart-checkbox></li>
+                                </ul>
+                                <ul>
+                                    <li class="marginBtm8" ng-repeat="filters in createdByList">
+                                        <smart-checkbox label="{{filters.filterLabel}}" class="grey-text"></smart-checkbox>
+                                    </li>
+                                </ul>
+                            </smart-scroll>
+                        </div>
+
+
+
+
+                    </script>
+                    <script type="text/ng-template" id="supplierStatus.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <smart-button flat="true" config="{'title':'RESET'}" class="left"></smart-button>
+                <smart-button flat="true" config="{'title':'SELECT ITMES'}" class="right"></smart-button>
+                <smart-button flat="true" config="{'title':'CANCEL'}" class="right"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

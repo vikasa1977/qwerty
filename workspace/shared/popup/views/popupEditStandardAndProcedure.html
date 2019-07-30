@@ -1,0 +1,33 @@
+<div>
+    <div class="modal-header">
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xlink:href="#icon_ToEdit"></use>
+            </svg>
+        </i>
+        <span class="title">ADDITIONAL INFORMATION</span>
+    </div>
+    <div class="modal-content padding0 is-scrolled">
+
+        <div class="row marginTop15">
+            <div class="col s12 ">
+                <div class="row">
+                    <smart-textfield type="area" charactercounter="true" maxlength="4000" class="col s12" placeholder="Add"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" ng-click="addInfoSaved(addInfoPopupText)" config='{"title":"SAVE"}' ng-hide="isEditMode"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

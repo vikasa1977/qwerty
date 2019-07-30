@@ -1,0 +1,50 @@
+﻿
+.ui-slider {
+	border-top: 3px solid #9b9b9b;
+	height: 1px;
+	position: relative;
+}
+
+.ui-slider-handle {
+	z-index: 2;
+	cursor: default;
+	-ms-touch-action: none;
+	touch-action: none;
+	top: 0;
+	margin-left: -.6em;
+	position: absolute;
+}
+
+
+.ui-slider-tip {
+	top: -40px;
+	position: absolute;
+	left: 0;
+	background: #323232;
+	color: #fff;
+	width: 40px;
+	text-align: center;
+	border-radius: 3px;
+	padding: 2px 3px 2px 3px;
+}
+
+.ui-slider-tip:after {
+	content: "";
+	background: #106cc8;
+	border-radius: 30px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	position: absolute;
+	left: 8px;
+	top: 28px;
+}
+
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	top: -3px;
+	border-top: 3px solid #4CAF50;
+}

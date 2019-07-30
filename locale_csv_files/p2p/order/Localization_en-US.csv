@@ -1,0 +1,358 @@
+﻿PartitionKey,RowKey,Timestamp,Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,requestorName,18-06-2015 11:37,Order Requestor Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,businessUnit,19-06-2015 11:37,Order Business Unit
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,currency,20-06-2015 11:37,Order Currency
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,item,21-06-2015 11:37,Order Item
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,locationName,22-06-2015 11:37,Order Location Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,locationCode,23-06-2015 11:37,Order Location Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,addressLine1,24-06-2015 11:37,Order Address Line 1
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,addressLine2,25-06-2015 11:37,Order Address Line 2
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,city,26-06-2015 11:37,Order City
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,country,27-06-2015 11:37,Order Country
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,zipCode,28-06-2015 11:47,Order Zip Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,state,29-06-2015 11:47,Order State
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,contactPerson,30-06-2015 11:37,Order Contact Person
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,telephoneNumber,1/7/2015 11:37,Order Telephone Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,requisitionName,16.6.15 11:37,Order Requisition Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,requisitionNumber,17.6.15 11:37,Order Requisition Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,DocumentName,17.6.15 11:37,Order Document Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,DocumentNumber,17.6.15 11:37,Order Document Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,requestorName,18.6.15 11:37,Order Requestor Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,businessUnit,19.6.15 11:37,Order Business Unit
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,currency,20.6.15 11:37,Order Currency
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_BasicDetails,6/5/2016,Basic Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderNumber,6/5/2016,Order Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RevisionNumber,6/5/2016,Revision Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderName,6/5/2016,Order Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderEmail,19/12/2016,Contact Mail
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderContact,6/5/2016,Order Contact
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PurchaseType,6/5/2016,Purchase Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Signatory,6/5/2016,Signatory
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Program,6/5/2016,Program
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreationDate,6/5/2016,Creation Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OriginalIssueDate,6/5/2016,Original Issue Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierAcknowledgedDate,6/5/2016,Supplier Acknowledged Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Department,6/5/2016,Department
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeOrderDetails,6/5/2016,Change Order Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeOrderNumber,6/5/2016,Change Order Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeOrderDescription,6/5/2016,Change Order Description
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreatedBy,6/5/2016,Created By
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AmountChanged,6/5/2016,Amount Changed(USD)
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierDetails,6/5/2016,Supplier Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierName,6/5/2016,Supplier Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Email,6/5/2016,Supplier EmailId
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Phone,6/5/2016,Supplier Phone
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Fax,6/5/2016,Fax
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierLocation,6/5/2016,Supplier Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DispatchMode,6/5/2016,Dispatch Mode
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierContact,6/5/2016,Supplier Contact
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Terms,6/5/2016,Terms
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PaymentTerms,6/5/2016,Payment Terms
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_FOB,6/5/2016,FOB
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_FrieghtTerms,6/5/2016,Freight Terms
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InvoicingAndDeliveryDetails,6/5/2016,Invoicing And Delivery Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Matchtype,6/5/2016,Match Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeliverTo,6/5/2016,Deliver To
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeliverToAddress,6/5/2016,Deliver To Address
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AdditionalInformation,6/5/2016,Additional Information
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_WorkOrderNo,6/5/2016,Work Order No
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErpOrderType,6/5/2016,Erp Order Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InvoicingMatchingTolerance,6/5/2016,Invoicing Matching tolerance
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderTotal,6/5/2016,Order Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderValue,6/5/2016,Order Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderFreightCharges,6/5/2016,Order Freight charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderOtherCharges,6/5/2016,Order Other charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SubTotal,13/2/2017,Sub Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineTotal,6/5/2016,Line Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineQuantity,6/5/2016,Line Quantity
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LinePrice,6/5/2016,Line Price
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineTaxes,6/5/2016,Line Taxes
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineFreightCharges,6/5/2016,Line Freight Charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineOtherCharges,6/5/2016,Line Other Charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ReceivingTolerance,6/5/2016,Receiving Tolerance
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Material,6/5/2016,Material
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderTotal,6/5/2016,Order Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_MaterialReceiving,6/5/2016,Material Receiving
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ServiceReceiving,6/5/2016,Service Receiving
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_TermsAndCondition,6/5/2016,Terms And Condition
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Attachments,6/5/2016,Attachments
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineDetails,6/5/2016,Line Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineNo,6/5/2016,Line
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineType,6/5/2016,Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ItemNumber,6/5/2016,Item Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PartnerItemName,6/5/2016,Line Description
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierName,6/5/2016,Supplier Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PartnerItemNumber,6/5/2016,Supplier Item Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Category,6/5/2016,Category
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Quantity,6/5/2016,Quantity
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_UOM,6/5/2016,UOM
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_UnitPrice,6/5/2016,Unit Price
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_StartDate,6/5/2016,Start Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_EndDate,6/5/2016,End Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineTotal,6/5/2016,Line Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Taxes,6/5/2016,Taxes
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OtherCharges,6/5/2016,Other Charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ShippingCharges,6/5/2016,Freight
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RequestedDate,6/5/2016,Requested Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_NeedByDate,6/5/2016,Need By Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ShippingMethod,6/5/2016,Shipping Method
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ShipTo,6/5/2016,Ship To
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ShipToAddress,6/5/2016,Ship To Address
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeliverTo,6/5/2016,Deliver To
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ReceivingStatus,6/5/2016,Receiving Status
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InvoicingStatus,6/5/2016,Invoicing Status
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Split,6/5/2016,Split
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SplitNumber,6/5/2016,Split Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Quantity,6/5/2016,Quantity
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SplitValue,6/5/2016,Split Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Taxes,6/5/2016,Taxes
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_TotalSplitValue,6/5/2016,Total Split Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Requester,6/5/2016,Requester
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Department,6/5/2016,Department
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_BusinessUnit,6/5/2016,Business Unit
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AccountNumber,6/5/2016,Account Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ProjectId,6/5/2016,Project ID
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_GLCode,6/5/2016,GL Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Period,6/5/2016,Period
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderValue,6/5/2016,Order Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderTotal,6/5/2016,Order Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ShippingCharges,6/5/2016,Freight
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Prorate,6/5/2016,Prorate
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Taxes&Charges,6/5/2016,Taxes & Charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_TransitType,6/5/2016,Transit
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_FOBLocation,6/5/2016,Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Carriers,6/5/2016,Carriers
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SupplierCode,6/5/2016,Supplier Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderingLocation,6/5/2016,Ordering Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Address,6/5/2016,Address
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Currency,6/5/2016,Currency 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_OrderRejectedSuccessfully,10/08/16,The Order is rejected.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_FailedinRejectingOrder,10/08/16,The Order is not rejected. 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_OrderApprovedSuccessfully,10/08/16,The Order is approved.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_FailedinApprovingOrder,10/08/16,The Order is not approved. 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_Approve,10/08/16,APPROVE 	
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_Reject,10/08/16,REJECT
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SendApprovalFailure,12/8/2016,Error in send approval
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SaveOrderFailure,12/8/2016,Error while saving order.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AcknowledgeOrder,10/8/2016,Acknowledge Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderAcknowledgedSuccessfully,10/8/2016,The Order is acknowledged.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderAcknowledgedError,10/8/2016,An internal error occurred while acknowledging orders. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderSavedSuccess,10/8/2016,Order Saved Successfully
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderSavedError,10/8/2016,An internal error occurred while saving orders. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_TrackStatus,18/8/2016,Track Status
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderSubmittedSuccessfully,19/08/2016,The document is submitted.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Send_To_Supplier,17/08/16,SEND TO SUPPLIER
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_ErroroccuredwhileSendingOrdertoPartner,17/08/16,An internal error occurred while sending the Order to the Supplier. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_OrderSenttoBuyerSuccessfully,17/08/16,Order sent to buyer successfully.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_ErroroccuredwhileSendingOrdertoBuyer,20/09/16,An internal error occurred while sending the Order to the Buyer. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_OrderSenttoPartnerSuccessfully,17/08/16,The Order is sent to Supplier.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LeadTime,23/08/16,Lead Time
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_EstimatedDeliveryDate,23/08/16,Estimated Delivery Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PromisedDate,23/08/16,Promised Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_RequisitionNumber,1/09/16,Requisition Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ERS,31/08/2016,ERS
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LOB,09/09/2016,LOB
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Organization,09/09/2016,Organization
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_GroupCompany,09/09/2016,Group Company
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Site,09/09/2016,Site
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SubAccount,09/09/2016,Sub Account
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ProjectCode,09/09/2016,Project Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OperationUnit,09/09/2016,Operation Unit
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Manufacturer_Details,09/09/2016,Manufacturer Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ERSConfirmationMessage,31/08/2016,The blankets referenced on lines allow automatic creation of invoices upon receipt of goods or services. Consider enabling it on the purchase order.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Invoice,31/08/2016,Create Invoice
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreateInvoiceMessage,06/09/2016,You cannot manually create an invoice against the purchase order because the purchase order is enabled for automatic creation of invoices upon receipt of goods or services.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_WithdrawOrder,07/09/2016,Withdraw Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_withdrawOrderMessage,07/09/2016,The document is withdrawn.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_withdrawOrderError,07/09/2016,
+Une erreur interne s'est produite lors du retrait de l'ordre. Contactez le helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AddLineButton,07/09/2016,Add Button
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeleteButton,07/09/2016,Delete Button
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ManageColumnButton,07/09/2016,Manage Column Button
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DuplicateLineItemButton,07/09/2016,Duplicate Line Item
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CommentsAndAttachments,07/09/2016,Comments
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_PurchaseTypeChange,07/09/2016,Attributes not relevant to the new Purchase Type selection will be deleted. Do you want to continue?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ExternalChangeOrder,14/09/2016,External Change Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ExternalChangeOrderCreatedSuccessfully,14/09/2016,A change order is created.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileCreatingExternalChangeOrder,14/09/2016,Error Occured While Creating Change Order.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrder,14/09/2016,Internal Change Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrderCreatedSuccessfully,14/09/2016,The Internal Change Order is created.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileCreatingInternalChangeOrder,14/09/2016,An internal error occurred while creating the Change Order. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RevokeExternalChangeOrder,14/09/2016,Revoke External Change Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RevokeInternalChangeOrder,14/09/2016,Revoke Internal Change Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RevokeConfirmation,14/09/2016,Do you want to revoke changes?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ExternalChangeOrderRevokedSuccessfully,14/09/2016,The External Change Order is revoked.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrderRevokedSuccessfully,14/09/2016,The Internal Change Order is revoked.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileRevokingExternalChangeOrder,14/09/2016,An internal error occurred while revoking the External Change Order. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileRevokingInternalChangeOrder,14/09/2016,An internal error occurred while revoking the Internal Change Order. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequest,14/09/2016,Change Request
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequestCreatedSuccessfully,14/09/2016,Draft Change Request created.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileCreatingChangeRequest,14/09/2016,An internal error occurred while creating the Change Request. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequestAlreadyExsits,14/09/2016,A pending change request already exists. You cannot create another one.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeOrderAlreadyExsits,14/09/2016,A pending change order already exists. You cannot create another one.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrderAlreadyExsits,14/09/2016,A pending Internal change order already exists. You cannot create another one.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RevokeChangeRequest,14/09/2016,Revoke Change Request
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequestRevokedSuccessfully,14/09/2016,The Change Request is revoked.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileRevokingChangeRequest,14/09/2016,An internal error occurred while revoking the Change Request. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AcceptChanges,14/09/2016,Create Change Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AcceptChangeRequestSuccessfully,14/09/2016,The Draft Change Order is created.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileAcceptChangeRequest,14/09/2016,An internal error occurred while creating the Change Order. Contact the helpdesk
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RejectChanges,14/09/2016,Reject Changes
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequestRejectedSuccessfully,14/09/2016,Change Request Rejected Successfully.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileChangeRequestReject,14/09/2016,Error Occured While Change Request Reject.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_ChangeOrderSend_To_Supplier,14/09/2016,Change Order Sent To Supplier.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Send_To_Buyer,14/09/2016,Send To Buyer
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CommentsAndAttachments,07/09/2016,Comments
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_UnableToCreateInvoice,20/9/2016,Unable To Create Invoice
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreateInvoiceError,20/9/2016,An internal error occurred while creating the invoice. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_CreateInvoiceSuccessfully,21/9/2016,The Invoice is created.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ManufacturerModelNumber,31/08/2016,Manufacturer Model Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_IntegratedSupplierMsg,19/10/2016,Line items should not have service item(s)
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Autosave_Return_Confirmation,13/10/2016,The application found unsaved changes from a previous session. Do you want to retain or discard the previous changes?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AutoSaveSuccessMessage,13/10/16,Your changes are saved automatically.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Exelon,28-10-2016 11:37,Exelon
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Product,28-10-2016 11:37,Product
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CustomerSegment,28-10-2016 11:37,Customer Segment
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CompanyCode,11-04-2016 11:37,Company Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CostCenter,11-04-2016 11:37,Cost Center
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RejectChangeRequestSuccessfully,07/11/2016,Reject Change Request Successfully
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ErrorOccuredWhileRejectChangeRequest,07/11/2016,Error Occured While Reject ChangeRequest
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_SectionLabel,10/11/2016,Charges And Allowances
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_SublinelineNumber,10/11/2016,Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_ChargeName,10/11/2016,Charge Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_ChargeDescription,10/11/2016,Description
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_ChargeAmount,10/11/2016, Amount (USD)
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_EditableOnInvoice,10/11/2016,Editable on Invoice
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_IsAllowance,10/11/2016,Is Allowance
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_ChargeTypeName,10/11/2016,Charge Type Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_TolerancePercentage,10/11/2016,Tolerance Percent
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChargeForHeader_AdditionInfo,10/11/2016,Additional Information
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeOrderType,15/11/2016,Change Order Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrderValidationMessage,10/11/2016,You are changing a critical attribute such as price on the change order. The Change Order Type will be set to External.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Save,10/11/2016,SAVE
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_FINALIZE,10/11/2016,FINALIZE
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_RemitToLocation,08-11-2016 11:37,Remit To Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CodeCombinationSuccess,19-11-2016 11:37,The Accounting Fields are valid.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CodeCombinationError,19-11-2016 11:37,The Accounting Fields are invalid.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CodeCombinationInternalError,19-11-2016 11:37,There is an internal error while validating Accounting Fields.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_MaintainRevision,19-11-2016 11:37,Revert PO Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Order_Details,19-11-2016 11:37,Order Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Supplier_Name_Address,19-11-2016 11:37,Supplier Name and Address
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Supplier_Contact_Name,19-11-2016 11:37,Supplier Contact Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Supplier_Contact_Email,19-11-2016 11:37,Supplier Contact Email/Phone
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Supplier_Ordering_Location,19-11-2016 11:37,Supplier Ordering Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Summary,19-11-2016 11:37,Summary
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Purchase_Order_Value,19-11-2016 11:37,Purchase Order Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Freight_Charges,19-11-2016 11:37,Freight Charges
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Purchase_Order_Total,19-11-2016 11:37,Purchase Order Total
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Cancellation_Date,19-11-2016 11:37,Cancellation Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Creation_Date,19-11-2016 11:37,Creation Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Issue_Date,19-11-2016 11:37,Issue Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Acknowledge_Date,19-11-2016 11:37,Acknowledge Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Order_Status,19-11-2016 11:37,Order Status
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Order_Type,19-11-2016 11:37,Order Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Order_Contact_Name,19-11-2016 11:37,Order Contact Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Requester_Name_Email_Phone,19-11-2016 11:37,Requester Name, Email, Phone
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Delivery_and_Payment,19-11-2016 11:37,Delivery and Payment
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Bill_To,19-11-2016 11:37,Bill To
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Quantity_Effort,19-11-2016 11:37,Quantity/Efforts
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Price,19-11-2016 11:37,Price
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Additional_Charges,19-11-2016 11:37,Additional Charges 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Shipping_Charges,19-11-2016 11:37,Shipping Charges 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Line_Total ,19-11-2016 11:37,Line Total 
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Supplier_Part_Number,19-11-2016 11:37,Supplier Part Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Ship_to_Location,19-11-2016 11:37,Ship to Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Deliver_To,19-11-2016 11:37,Deliver To
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Deliver_to_Location,19-11-2016 11:37,Deliver to Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Billable,19-11-2016 11:37,Billable
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Capitalized,19-11-2016 11:37,Capitalized
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Capital_Code,19-11-2016 11:37,Capital Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Contract_Number,19-11-2016 11:37,Contract Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Matching_Type,19-11-2016 11:37,Matching Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Accounting_Details,19-11-2016 11:37,Accounting Details
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Purchasing_Organization,19-11-2016 11:37,Purchasing Organization
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Account_Assignment_Category,19-11-2016 11:37,Account Assignment Category
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Plant_Code,19-11-2016 11:37,Plant Code
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Internal_Order,19-11-2016 11:37,Internal Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_WBS_Element,19-11-2016 11:37,WBS Element
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Purchasing_Group,19-11-2016 11:37,Purchasing Group
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Username,19-11-2016 11:37,User Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DateTime,19-11-2016 11:37,Date and Time
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Visiblity,19-11-2016 11:37,Visibility
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Comment,19-11-2016 11:37,Comment
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Amount,19-11-2016 11:37,Amount
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Tax,19-11-2016 11:37,Tax
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_OrderText,6/5/2016,Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineNumber,6/5/2016,Line No.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeleteOrderConfirm,6/5/2016,The order will be deleted. Do you want to continue?.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeleteOrderSuccess,6/5/2016,The order is deleted successfully.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DeleteOrderError,6/5/2016,An internal error occurred while deleteing order. Contact the helpdesk.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ConfirmDeleteItem,20/12/2016,Are you sure you want to delete this line item?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CannotCancelItemwhichAlreadyReceived,20/12/2016,Cannot cancel the line item which is already received
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CannotCancelItemwhichAlreadyInvoiced,20/12/2016,Cannot cancel the line item which is already invoiced
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ChangeRequestContainAtleast1lineItem,20/12/2016,Change Request should contain atleast 1 line item
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ConfirmCancelItemAndOrder,20/12/2016,Cancelling/Deleting the all line items would also cancel the Order. Do you want to continue?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CancelOrderMessage,20/12/2016,Order Cancelled successfully
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CancelOrderError,20/12/2016,Error occured while canceling the order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CopyOrder,20/12/2016,Copy Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CopyOrderSuccess,20/12/2016,Successfully copy order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CopyOrderError,20/12/2016,Unable to copy order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CloseOrder,20/12/2016,Close Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CloseOrderSuccess,20/12/2016,Successfully close order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CloseOrderError,20/12/2016,Unable to close order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CancelOrder,20/12/2016,Cancel Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ReOpenOrder,20/12/2016,Re-Open Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ReOpenOrderSuccess,20/12/2016,Successfully re-open order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ReOpenOrderError,20/12/2016,Unable to re-open order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Doyouwantdeletethosereceipt,20/12/2016,Closing the order will restrict further receipt creation. All the draft receipts, if any, will be deleted. Invoice creation will be allowed only for accepted quantities which are not invoiced. Do you still want to close the order?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DoyouwantcloseorderFor2Way,20/12/2016,Closing the order will only allow invoice creation for accepted quantities which are not invoiced. Do you still want to close the order?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Doyouwantcloseorder,20/12/2016,Closing the order will restrict further receipt creation. Invoice creation will be allowed only for accepted quantities which are not invoiced. Do you still want to close the order?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ConfirmCancelOrder,20/12/2016,Are you sure you want to cancel this order?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SplitAccountingDescription,01/04/2017,Description
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_splitTypeName,01/04/2017,Split Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineItemSplitNumber,01/04/2017,Split
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SublineValue,01/04/2017,Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CalculationBasis,01/04/2017,Calculation Basis
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_IncludeForTax,01/04/2017,Include For Tax
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Plant,01/04/2017,Plant
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Region,01/04/2017,Region
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_StorageLocation,01/04/2017,Storage Location
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_MaterialGroup,01/04/2017,Material Group
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ValidateASLError,01/19/2017,You cannot source this item from the supplier.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContractNumber,01/2/2017,Contract Number
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContractName,01/2/2017,Contract Name
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContractValue,01/2/2017,Contract Value
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContractExpiryDate,01/2/2017,Contract Expiry Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InternalChangeOrderValidationMessageForNA,20/2/2016,You are changing a critical attribute such as share with external users on the change order. The Change Order Type will be set to External.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ASNValidation,02/20/2017,All line items of this Order are Shipped. You cannot create a Shipping Note
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_CreateASN,1/20/2016,Create Shipping Note
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Corporation,17/6/16,Corporation
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreateReceiptFromOrderError,17/6/16,Unable to Create Receipt from Closed Order
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Common_TotalAmountNegativeWarning,17/6/16,The total value of the document cannot be negative
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Common_CantFlipMaterial,17/6/16,You can receive service items only. This receipt does not contain service items
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_CreateReceipt,17/6/16,Create Receipt
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CancellationDate,17/6/16,Cancellation Date
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineItemCancellationSuccess,17/6/16,Line item cancelled successfully.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineItemCancellationError,17/6/16,Error while cancelling Line Item
+
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ConfirmCancelItem,7/3/17,Are you sure you want to cancel this line item?
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CancelItemSuccess,8/3/17,Line item cancel successfully.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContactEmail,19/12/2016,Contact Email
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_SelectLineItemsToCancel,19/12/2016,Please Select Line Items to Cancel/Delete
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CreateRecieptValidationMessage,24/3/2017,You cannot Create Reciept for selected requisition Type
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_LineStatus,20/3/17,Line Status
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CombinationOfNew_SS_SA,20/3/17,Action cannot be performed due to combination selected. Filter the lines by Line Status column and try again.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_CombinationOfInvoiceReceipt,20/3/17,Action cannot be performed since some/ all of the selected lines are received or invoiced.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InvalidChangeOrderQuantity,24/3/17, You cannot reduce PO line quantity less than Shipped quantity.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_AddLineItem,12/4/17,Please add atleast one line Item
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ContractUtilizationMessage,14/4/17,There are no sufficient funds available against the following contracts
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_InvoiceApprover,28/4/17,Invoice Approver
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Portal,28/4/17,Portal
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Cxml,28/4/17,Cxml
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_DirectEmail,28/4/17,Direct Email
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Call,28/4/17,Call
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Fax,28/4/17,Fax
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_Order_ErroroccureGettingEmailSubjectBody,28/4/17,P2P_Order_ErroroccureGettingEmailSubjectBody
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_Call&SubmitMessage,28/4/17,You will have to submit the order details offline & order will be marked as Acknowledged.
+0.GEP.Cumulus.Reports.P2P.Resources.en-US,P2P_PO_ResentToPartner,28/2/17,Resend order to supplier
+

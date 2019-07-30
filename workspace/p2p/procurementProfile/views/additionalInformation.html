@@ -1,0 +1,8 @@
+<div ng-controller="p2pReqAdditionalInformationCtrl" class="padding15">
+    <div ng-if="dataModel">
+        <custom-field config="dataModel" use-with-form-widget="true"></custom-field>
+    </div>
+    <div class="clearfix right-align" ng-if="fieldCout(dataModel) != 0">
+        <a href="javascript:void(0)" ng-click="moreFieldsClick()">{{'20 fields more...'}}</a>
+    </div>
+</div>

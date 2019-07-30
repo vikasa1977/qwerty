@@ -1,0 +1,63 @@
+<div class="row marginBtm6 marginTop6">
+    <i class="icon iconSmall circle iconItem" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+        <svg>
+            <use xlink:href="#icon_Draft"></use>
+        </svg>
+    </i>
+    <a href="javascript:void(0);" ng-click="showTemplate($index)">
+            <span class="title grey-text text-darken-4 ">{{item.docName}}  </span>
+        <span class="collecton-item-secondary-text-wrapper">
+            <!-- <span ng-class="getStatusColor(item.docStatus)"> {{item.docStatus | uppercase}}</span></span> <span ng-if="item.catalogType">|</span> <span ng-if="item.catalogType"> {{item.catalogType | uppercase}}</span></span> -->
+            <span class="collecton-item-secondary-text-wrapper">
+                <span ng-repeat="attrib in item.attributes | limitTo : 8">
+                    <span ng-if="attrib.datakey == 'Order Number' ||
+                                    attrib.datakey == 'Supplier' ||
+                                    attrib.datakey == 'Order Total'||
+                                    attrib.datakey == 'Created On' ||
+                                    attrib.datakey == 'Sent On' ||
+                                    attrib.datakey == 'Purchase Type' ||
+                                    attrib.datakey == 'Order Contact' ||
+                                    attrib.datakey == 'Supplier Item Number' ||
+                                    attrib.datakey == 'Line Receiving Status' ||
+                                    attrib.datakey == 'Line Invoicing Status'||
+                                    attrib.datakey == 'Line Number' ||
+                                    attrib.datakey == 'Order Status' ||
+                                    attrib.datakey == 'Category' ||
+                                    attrib.datakey == 'Unit Price' ||
+                                    attrib.datakey == 'Line Total USD' ||
+                                    attrib.datakey == 'Need by Date' ||
+                                     attrib.datakey == 'Supplier Name' ||
+                                    attrib.datakey == 'Created by' ||
+                                 attrib.datakey == 'Organization Entity' ||
+                           attrib.datakey == 'Sharing Type' ||
+                                 attrib.datakey == 'Owned by'
+                        ">
+                        {{ attrib.datakey || translate }}:
+                    </span>
+                    <span ng-if="attrib.datakey == 'createdOn'">
+
+                        {{ 'Created on' || translate }}
+                    </span>
+                  
+                    {{attrib.value || translate}}
+                    <span ng-if="attrib.datakey == 'items'">
+                        {{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+                    </span>
+
+                    <span ng-if="!$last">|</span>
+                </span>
+            </span>
+
+</a>   
+    <div class="secondary-content">
+        <a href="javascript:void(0);" class="dropdown-button waves-effect waves-circle left" smart-tooltip message="{{ item.isDefualt ?  'Unmark as Default' : 'Mark as Default'  }} " position="bottom" ng-click="markThisDefualt($index)">
+            <i class="icon iconSmall">
+                <svg focusable="false" >
+                    <use xlink:href="{{ item.isDefualt ?  '#icon_StarFill' :'#icon_Star' }}"></use>
+                </svg>
+            </i>
+        </a>
+        <span class="vDivider left marginTop6  marginRight10 marginLeft10"></span>
+        <smart-button flat="true" config='{"title":"USE PROFILE"}' ng-click="useTempCall()" class="left"></smart-button>
+        </div>
+</div>

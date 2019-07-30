@@ -1,0 +1,757 @@
+﻿<link type="text/css" rel="stylesheet" href="shared/resources/css/noto.css" media="screen,projection" />
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .extra-nav-wrap, .page-footer, .extraHeader, .headerWrapper {
+            display: none;
+        }
+
+        .pdf-container * {
+            visibility: visible;
+        }
+
+        table {
+            page-break-after: auto;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        td {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-footer-group;
+        }
+
+        * {
+            -webkit-print-color-adjust: exact;
+        }
+
+        table {
+            margin-bottom: 20px;
+        }
+
+        .thin-border-table tr td {
+            border: 1px solid #c2c2c2;
+            padding: 5px 15px;
+        }
+
+        .thik-border-table tr th, .thik-border-table tr td {
+            border: 1px solid #c2c2c2;
+            padding: 10px 5px;
+            height: 50px;
+        }
+    }
+
+    .pdf-container {
+        color: #000000;
+    }
+
+        .pdf-container .pdf-title {
+            padding: 0;
+            font-size: 18px;
+            color: #000000;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .pdf-container .invoice-table {
+            width: 40%;
+            border: 1px solid #A2A2A2;
+            color: #000000;
+            font-family: Noto Sans;
+        }
+
+        .pdf-container .invoice-details-table {
+            width: 40%;
+            font-family: Noto Sans;
+            color: #000000;
+        }
+
+        .pdf-container .shipping-details-table {
+            width: 45%;
+            font-family: Noto Sans;
+            color: #000000;
+        }
+
+    .border-grey {
+        border: 1px solid #A2A2A2;
+    }
+
+    .background-grey {
+        background: #E8E8E8;
+    }
+
+    .table-title {
+        font-size: 14px;
+        text-align: left;
+        background: #E8E8E8;
+        color: #000000;
+    }
+
+    .table-header {
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+        line-height: 20px;
+    }
+
+    .table-data {
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+        line-height: 20px;
+    }
+
+    .table-data-para {
+        font-family: Noto Sans;
+        font-size: 14px;
+        padding: 10px !important;
+        line-height: 25px;
+        color: #000000;
+    }
+
+    .terms {
+        font-family: Noto Sans;
+        font-size: 14px;
+        padding: 24px;
+        line-height: 25px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+    }
+
+    .direct-inquiries {
+        font-size: 14px;
+        padding: 24px;
+        line-height: 25px;
+        color: #000000;
+    }
+
+    .thin-border-table tr td {
+        border: 1px solid #c2c2c2;
+        padding: 5px 15px;
+    }
+
+    .thik-border-table tr th, .thik-border-table tr td {
+        border: 1px solid #c2c2c2;
+        padding: 10px 5px;
+        height: 50px;
+    }
+</style>
+<!--new sub header-->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Order"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'PO-12:15-001401' | translate}} - {{'ORDER-PO-12:15-001401' | translate}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Download">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" onclick="window.print()" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Print">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Print"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--end sub header-->
+<!-- PDF Content Starts -->
+<div class="col s12 l12 m12">
+    <div class="row card ng-cloak pdf-container" style="width: 931px; margin: 20px auto;">
+        <table width="100%" align="center" rules="none">
+            <thead style="border: none;">
+                <tr>
+                    <td>
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; border-bottom: 1px solid #e0e0e0;">
+                            <tbody>
+                                <tr>
+                                    <th width="40%" align="left" valign="bottom" style="padding: 20px 10px !important;">
+                                        <img src="shared/theme1/user/logo/MyLan_logo.png" alt="" height="50">
+                                    </th>
+                                    <th width="30%" align="right" valign="middle" style="padding: 10px !important; text-align: right;">
+                                        <span style="color: #0177d6; font-size: 20px; font-weight: bold; margin-right: 10px;">PURCHASE ORDER</span>
+                                    </th>
+                                    <th width="30%" align="left" valign="middle" style="padding: 10px !important; color: #fff; font-size: 14px; background-color: #0177d6;">
+                                        <div><strong>PO Number: </strong>4900003071</div>
+                                        <div><strong>PO DATE: </strong>Jan 16, 2018 | 2:18 PM</div>
+                                        <div><strong>VAT REG: </strong>SE556279034401</div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%">VENDOR</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%;">BUYER VAT NUMBER</td>
+                                    <td style="font-weight:bold; background-color: #ebebeb; width: 25%;">CHANGE ORDER VERSION NUMBER</td>
+
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">1194 - Mylan S.A.S, 117 Allée des Parcs, Saint Priest, -, France, 69800</td>
+                                    <td>1100-MylanPhara-HQ</td>
+                                    <td>EUR</td>
+
+                                </tr>
+                                <tr>
+                                    <td  style="font-weight: bold; background-color: #ebebeb;">SUPPLIER CONTACT NAME</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%;">SUPPLIER CONTACT PHONE NUMBER</td>
+                                </tr>
+                                <tr>
+                                    <td>Z005 - NET 45 DAYS</td>
+                                    <td>123456789</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb;">BILL TO</td>
+
+                                    <td colspan="1" style="font-weight: bold; background-color: #ebebeb;">SUPPLIER VAT NO</td>
+                                    <td colspan="1" style="font-weight: bold; background-color: #ebebeb;">CURRENCY</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">MYLAN S.A.S., 117 all�e des Parcs, CS 60081, 69792 Saint Priest Cedex, France, France</td>
+                                    <td>1100-MylanPhara-HQ</td>
+                                    <td>EUR</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="1" style="font-weight: bold; background-color: #ebebeb;">PAYMENT</td>
+                                    <td colspan="1" style="font-weight: bold; background-color: #ebebeb;">TYPE</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">Z005 - NET 45 DAYS</td>
+                                    <td colspan="1">New Order</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb;" colspan="12">INCO TERMS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%">CODE</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%;">POINT</td>
+                                </tr>
+                                <tr>
+                                    <td>Free Carrier</td>
+                                    <td>PROUVY</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%">DELIVERY</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%;">CONTACT INFORMATION</td>
+                                </tr>
+                                <tr>
+                                    <td>2009497 :: ROTTENDORF PHARMA SAS, ZI N° 2 - BATTERIE 1000, VALENCIENNES CEDEX, -, France, 59309</td>
+                                    <td>rittika.buyervat 1 | rittika.kumari@gep.com | rkumari@gep.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">COMMENTS</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px; word-wrap:break-word;">
+                                        1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at viverra metus. Curabitur porttitor tincidunt nulla. Praesent odio neque, ultrices sed vulputate vitae, elementum in erat. Mauris consectetur, mi vel auctor condimentum, odio neque scelerisque orci, at laoreet ex nisl vel augue. Pellentesque quis sapien ultrices, egestas dui eget, placerat sapien. Aliquam iaculis elementum tortor, eget hendrerit lectus ultricies nec. Fusce semper nisl elit, ut consequat velit molestie eget. Cras quis interdum sapien, in sollicitudin nunc. Vivamus convallis in velit vel tincidunt. Praesent luctus dignissim quam.<br />
+                                        2. Nulla rutrum sollicitudin rhoncus. Maecenas feugiat suscipit mauris ac facilisis. Duis nec mauris tempus, gravida augue non, facilisis mauris. Fusce eu arcu quis mi varius volutpat sit amet eu massa. Donec efficitur sollicitudin augue sit amet placerat. Suspendisse non lacus sit amet orci volutpat suscipit sed sed nibh. Integer egestas justo quis est ultrices sollicitudin. Donec et massa eget leo euismod fringilla non sit amet felis. Aliquam eu felis nec felis dapibus viverra. Etiam leo nisi, placerat vel elit nec, dictum pharetra velit. Vestibulum eleifend consectetur felis ac venenatis.<br />
+                                        3. In hac habitasse platea dictumst. Pellentesque sed arcu eu eros dictum tincidunt nec quis nulla. Nam facilisis porta massa. Maecenas at enim et orci volutpat tempus. Nam eget convallis tellus. Nullam sed dolor mattis, fermentum erat vel, vulputate enim. Vivamus egestas augue sit amet purus bibendum, at dignissim metus euismod. Nulla facilisi. Duis tortor nunc, ullamcorper eget pulvinar vitae, lobortis id mi. Etiam tincidunt pretium tristique. Duis vestibulum pretium mattis. Aenean scelerisque quis ligula rhoncus egestas. In a maximus enim, a efficitur lectus. Duis nec massa quis sapien egestas bibendum. Suspendisse non porttitor augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.<br />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="12" valign="top" style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">ITEM DETAILS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px;">Line No.</td>
+                                    <td style="font-size: 11px;">Line Type</td>
+                                    <td style="font-size: 11px;">Supplier Item Number</td>
+                                    <td style="font-size: 11px;">Item Description</td>
+                                    <td style="font-size: 11px;">Delivery Date</td>
+                                    <td style="font-size: 11px;">Need By Date</td>
+                                    <td style="font-size: 11px;">Start Date</td>
+                                    <td style="font-size: 11px;">End Date</td>
+                                    <td style="font-size: 11px;">Quantity</td>
+                                    <td style="font-size: 11px;">UOM</td>
+                                    <td style="font-size: 11px;">Unit Price</td>
+                                    <td style="font-size: 11px;">Net Amount</td>
+                                    <!--<td style="font-size: 11px;">Comment</td>-->
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="vertical-align:top">1</td>
+                                    <td>Material</td>
+                                    <td>--</td>
+                                    <td>Spira/Metro Bidose Lot Y1251 ogs2014 T36</td>
+                                    <td>15/12/2014</td>
+                                    <td>22/12/2017</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>1.00</td>
+                                    <td>Each</td>
+                                    <td>2,300.00</td>
+                                    <td>2,300.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="10" style="padding:0;">
+                                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px; ">Comment</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0; border:none">
+                                                        <table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px; border-left:none; border-top:none; height:31px;">User Name</td>
+                                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px;">Date and Time</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-left:none; padding: 5px 15px;">Gaelle PRIMAUT </td>
+                                                                    <td style="border-right:none; padding: 5px 15px;">April 18, 2017 12:34:58 PM UTC</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px;">Requisition</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="border-left:none; padding: 5px 15px;">REQ-2017.037364</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="border-left:none; border-right:none; border-bottom:none; padding: 5px 15px;">
+                                                                        Devis n° :464496 - Quantité : 70 000 exemplaires <br />
+                                                                        Format : 15,0 x 21,0 cm (à la française)<br />
+                                                                        INTERIEUR, 12 pages<br />
+                                                                        Papier : Couché DEMI MAT blanc, 200 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso<br />
+                                                                        CHEMISE, 4 pages, 24,5 x 33,5 cm<br />
+                                                                        Papier : Couché DEMI MAT blanc, 200 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso<br />
+                                                                        DEPLIANT 4 PAGES, 4 pages, 21,0 x 29,0 cm ouvert<br />
+                                                                        Papier : Couché DEMI MAT blanc, 170 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" style="vertical-align:top">2</td>
+                                    <td>Fixed Service</td>
+                                    <td>--</td>
+                                    <td>Spira/Metro monodose 1 Lot ogs2014 T36</td>
+                                    <td>15/12/2014</td>
+                                    <td>--</td>
+                                    <td>15/12/2014</td>
+                                    <td>30/12/2017</td>
+                                    <td>1.00</td>
+                                    <td>Each</td>
+                                    <td>2,300.00</td>
+                                    <td>2,300.00</td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="10" style="padding:0; ">
+                                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px; ">Comment</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="padding:0; border:none">
+                                                     
+                                                        <table  width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                                                            <tbody ng-if="false">
+                                                                <tr>
+                                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px; border-left:none; border-top:none; height:31px;">User Name</td>
+                                                                    <td style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px;">Date and Time</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="border-left:none; padding: 5px 15px;">Gaelle PRIMAUT </td>
+                                                                    <td style="border-right:none; padding: 5px 15px;">April 18, 2017 12:34:58 PM UTC</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb; padding: 5px 15px;  border-left:none; border-right:none; border-top:none; height:31px;">Requisition</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="border-left:none; padding: 5px 15px;">REQ-2017.037364</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" style="border-left:none; border-right:none; border-bottom:none; padding: 5px 15px;">
+                                                                        Devis n° :464496 - Quantité : 70 000 exemplaires <br/>
+                                                                        Format : 15,0 x 21,0 cm (à la française)<br />
+                                                                        INTERIEUR, 12 pages<br />
+                                                                        Papier : Couché DEMI MAT blanc, 200 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso<br />
+                                                                        CHEMISE, 4 pages, 24,5 x 33,5 cm<br />
+                                                                        Papier : Couché DEMI MAT blanc, 200 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso<br />
+                                                                        DEPLIANT 4 PAGES, 4 pages, 21,0 x 29,0 cm ouvert<br />
+                                                                        Papier : Couché DEMI MAT blanc, 170 g/m²<br />
+                                                                        Prépresse : FICHIER PDF fourni par vos soins ( CROMALIN EN SUPPLEMENT )<br />
+                                                                        Impression : quadri recto, quadri verso<br />
+                                                                        Finition : Vernis acrylique recto/verso
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody ng-if="true">
+                                                                <tr>
+                                                                    <td colspan="2" style="border-top:none; border-left:none; border-right:none; border-bottom:none; padding: 5px 15px;">
+                                                                      --
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+</table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="11" style="font-weight: bold; background-color: #ebebeb; text-align: right;">TOTAL</td>
+                                    <td>4,600.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="padding-top: 0; padding-bottom: 0;">To ensure prompt processing of your Invoice, please always mention the Purchase Order number on the Packing Slips include with your material and on the Invoices.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">GENERAL TERMS OF PROCUREMENT</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px;">
+                                        1. Applicability. These General Terms and Conditions of Purchase (these "Terms" or "Agreement") are incorporated by reference and, together with the terms and conditions on the purchase order placed by the buyer identified on the order ("Buyer''), establish the terms and conditions for the purchase of goods ("Goods") or services ("Services") specified on the face of the Order, by the Buyer from the party to whom the purchase order is addressed ("Seller''). These General Terms and Conditions, together with the terms and conditions on the face of the purchase order shall be referred to as the "Order''. Any reference to Goods herein shall also include reference to Services where Services are to be provided. Seller shall be deemed to have accepted these Terms in addition to those stated on the face of this Order by retaining and/or filling any portion of this Order or by failing to promptly make known to Buyer in writing Seller's refusal to be bound<br />
+                                        hereby, or by any other act or omission inconsistent with a rejection of this Order.<br />
+                                        2. Precedence. This Order, together with any documents incorporated herein by reference, constitutes the sole and entire agreement of the parties with respect to the Order and supersedes all prior or contemporaneous understandings, agreements, negotiations, representations and warranties, and communications, both written and oral, with respect to the subject matter of the Order, unless a separate overriding master agreement has been entered into by the parties.<br />
+                                        3. Rejection of Seller's Terms. Seller agrees that this Order, including these Terms, expressly limits Seller's acceptance to the terms of the Order. These Terms expressly exclude any of Seller's terms and conditions of sale or any other document issued by Seller in connection with this Order. Without limiting the generality of the foregoing, no additional terms contained in any 'click-to-agree', Seller url or website, or 'shrink-wrapped' or similar purported agreement, or boilerplate terms printed on any invoice, order acknowledgment, or any other correspondence, will be valid, and such additional or conflicting terms are rejected by the parties; provided however, that any additional Seller representations or warranties set forth in any such agreements shall apply to the extent not diminishing Buyer's rights hereunder. All written instructions, specifications and other communications from Buyer regarding all Goods covered by this Order or any other matters arising under or relating to this Order, before or after the Seller's acceptance of this Order, shall be deemed incorporated as additional terms and conditions of this Order unless expressly rejected in a signed writing by Seller within five (5) calendar days after receipt thereof.<br />
+                                        4. Delivery and Acceptance. All shipments of Goods shall be made F.O.B. to the destination indicated on the face of this Order, and if not specified thereon, Seller shall be responsible to obtain written delivery instructions from Buyer. Seller shall prepay all transportation charges and all applicable customs duties and tariffs. Any excess transportation charges will be charged to Seller. Buyer's determination of count and/or weight shall be deemed to be conclusive and the price shall be adjusted for any shortage. Any overage shall be provided to Buyer free of charge. Seller shall be responsible for filing and recovering loss and/or damage claims from carriers and for freight costs of replacement articles. It is Seller's responsibility to pack and crate shipments to ensure receipt of Goods in perfect condition and the price  shall be adjusted for any damaged Goods. The provisions for payment of transportation charges relate to the price of the Goods only and have no effect on the passage of title. Until Buyer shall have inspected the Goods and thereafter accepted them, delivery thereof shall not be deemed completed nor shall title thereto pass to Buyer. Acceptance of the Goods by Buyer after inspection shall not release or discharge Seller from liability for its breach of any promise or warranty, express or implied, with respect to Goods. Buyer or its representatives shall have the right to inspect and examine, and Seller shall make available immediately upon demand, any and all Goods and materials used<br />
+                                        during any phase of or after production. Buyer or its representative shall also have the right to inspect Seller's facilities at which goods are or will be manufactured, assembled or packaged at any time and Seller shall provide Buyer or its representative access to such facilities. The exercise by Buyer of any such inspection right shall in no way relieve Seller of any of its obligations, representations, warranties or covenants under the Order or this Agreement. It is understood that none of the following actions by Buyer or its representatives shall be deemed to constitute acceptance of any Goods by Buyer: inspection or approval of any samples or Goods prior to shipment; execution of any inspection certificates; approval or payment for shipment or shipment audit; or payment of any Goods.<br />
+                                        5. Time and Mode of Delivery. Any transportation routing instructions specified by Buyer must be adhered to. In the absence of such instruction, Seller shall use the least expensive method of transportation. Excess transportation cost for failure to comply with these Terms will be automatically charged back to Seller.<br />
+                                        6. Changes and cancellation; returns. Buyer may change the drawings, specifications, quantities, delivery schedules or place of delivery
+                                        and the methods of shipment or packaging or other performance at any time and seller agrees to make such changes. If such changes result
+                                        in an increase or decrease in cost, an equitable adjustment of the price may be made. Seller must assert claims for equitable adjustment
+                                        within ten (10) days after its receipt of the change, and such claims are waived by seller after such time. Buyer shall have the right to cancel
+                                        any order (in whole or in part) at any time without cause and in such event buyer's liability shall be limited to the lesser of (i) seller's
+                                        actual cost for work and materials, applicable solely to such order (excluding fixed costs), which have been reasonably expended in good
+                                        faith by seller through the date of such cancellation and which cannot be recouped by seller by making best efforts to mitigate its damages
+                                        or (ii) the purchase price for the cancelled goods. At buyer's request, all or any part of completed work, work-in-process and/or materials
+                                        associated with such cancelled order will become the property of buyer. Also, buyer may, at its option and in addition to any other rights
+                                        or remedies, cancel any order (in whole or in part) without any liability to seller (except for conforming goods and services previously
+                                        accepted by buyer) if seller shall cease to exist or become insolvent or the subject of bankruptcy or insolvency proceedings or shall commit
+                                        a breach of the order. All claims for incidental, special, exemplary, indirect or consequential damages,
+                                        whether based upon theories of contract, tort, or otherwise, are hereby waived by seller. Buyer
+                                        may return goods purchased hereunder to seller for any reason; provided that buyer returns the goods unused and undamaged within ten
+                                        (10) days of receipt and pays for shipping. For each returned good, seller shall refund the purchase price to buyer. <br />
+                                        7. Payment. Unless indicated otherwise on the face of this order: (i) if buyer pays seller via e-payables, then the payment terms shall be
+                                        1% 15 days, net 45 days after the date of buyer's receipt of the invoice; (ii) if buyer pays seller via automated clearing house, the
+                                        payment terms shall be 2% 15 days, net 45 after the date of buyer's receipt of the invoice; and (iii) if this order does not indicate any early
+                                        payment discount, then the payment terms shall be 60 days after the date of buyer's receipt of the invoice. If the day that any payment by
+                                        buyer is due is not a business day, then such payment shall be due the following business day. The purchase price for this order shall be
+                                        payable in united states dollars. Seller may not issue any invoice to seller more than twelve (12) months after the invoiced services have
+                                        been rendered or goods have been delivered. Seller agrees to notify buyer's accounts payable department in writing two (2) business days
+                                        prior to the due date of any payment to be made by buyer in every instance where the invoice therefore has not been paid. Buyer shall be
+                                        under no obligation to pay seller without a timely invoice, timely written notice to buyer's accounts payable department and proof of
+                                        delivery of the goods. Buyer may set-off any claims buyer has against seller against any amount due to seller. No payment however, final<br />
+                                        or otherwise, shall operate to release the seller from any liabilities or obligations arising as a result of the order.<br />
+                                        8. Representations and warranties of seller. Seller represents and warrants that in addition to any representations or warranties given by
+                                        seller to buyer, whether written or oral, statutory, express or implied, all goods are: (1) new; (2) of the highest quality; (3) fit for the
+                                        purpose intended; (4) free from defects in design, materials and workmanship; and (5) conform with all drawings, specifications, samples
+                                        and other descriptions applicable thereto unless the goods are specifically designated on this order to be "irregular" and, for only such
+                                        goods, seller represents and warrants that such irregular goods will have only slight imperfections that are barely perceptible and
+                                        otherwise will conform with all drawings, specifications, samples or other descriptions applicable thereto. Seller further represents and
+                                        warrants that: (a) it has good and marketable title to the goods free and clear of all liens, claims, charges and encumbrances, including,
+                                        without limitation, any claims of copyright infringement, trademark infringement, patent infringement or other violation of intellectual
+                                        property rights, whether such infringement is direct, indirect, contributory, induced or based on any other theory of liability; (b) all goods delivered hereunder, and the wrappers and containers thereof, bear all proper marking and labels required by, and otherwise comply with,All applicable local, domestic, foreign and other laws, rules, regulations, ordinances and orders (collectively, "applicable laws"), including,
+                                        without limitation, those related to fiber content, shrinkage and country of origin; (c) that seller, and the manufacture, sale and shipment of
+                                        the goods and all labels affixed thereto (if any), are and will be in conformity and compliance with all applicable laws, including, without
+                                        limitation: (i) the federal trade commission act (including the care labeling regulations issued pursuant thereto), the fair labor standards
+                                        act, as amended, wage and hour, child labor, osha and all other labor laws (including if any aspect of the manufacturing process of the
+                                        goods, including assembling, attaching labels, packaging or packing, making repairs, etc. , occurs anywhere in new york state, seller
+                                        agrees to place the following statement on its invoice: "the seller represents and warrants that, to the extent any of the goods and services
+                                        covered by this invoice were processed in new york state, such goods and services were produced in compliance with all applicable labor
+                                        laws of the state of new york."); (ii) price discrimination laws, (iii) those laws relating to standards for weights, measures, sizes, quantities
+                                        and ingredients, (iv) trademark, copyright, patent, unfair competition and all other intellectual property laws, (v) the federal hazardous
+                                        substances act, food, drug and cosmetic act, consumer product safety act, and poison prevention packaging act, and (vi) and all other
+                                        applicable laws relating to export or import licenses or quotas, customs duties, tariffs and the like or otherwise relating to the export,
+                                        import, advertising, purchase, use or sale of the goods or seller's activities in connection therewith and that the goods or the sale thereof
+                                        by buyer does not and will not violate any such laws (including all custom laws applicable to the export of the goods from country of
+                                        manufacture or assembly, and import laws applicable to the entry of the goods into the united states and, if applicable, any other country
+                                        of importation, including, if applicable, section 304 of the tariff act of 1930 as amended, and all country of origin requirements set forth
+                                        therein), (d) seller has completed and provided all necessary export licenses, certificates of origin and other documentation required by law
+                                        and/or buyer in a timely, comprehensive and accurate manner, that all country of origin and like declarations fully and accurately describe
+                                        the goods and seller has not relied upon any representation or advice by buyer and accepts sole responsibility for the accuracy of such
+                                        information, (e) all goods shipped pursuant to an order will clear customs in the united states and, if applicable, at any other country of
+                                        importation, and will not be seized or embargoed, (f) the goods shall, where applicable, be accompanied by such other materials necessary
+                                        for the goods and/or buyer to comply with the laws, rules, regulations, ordinances, requirements and other standards referred to herein, (g)
+                                        all goods shipped pursuant to the order, and seller's activities in connection therewith, meet all industry and buyer requirements and
+                                        quality standards (including the then current policies of buyer, whether store policies, corporate social responsibility policies, or otherwise),
+                                        and (h) all prices, discounts and other benefits offered to buyer shall comply with all federal, state and local laws (including without
+                                        limitation the sherman, clayton and robinson patman acts) and all rules, regulations and guides applicable thereto.
+                                        seller agrees that it shall be solely responsible for the payment of all wages, fringe benefits, social security, unemployment and similar
+                                        taxes applicable to the performance of services under the order. As required by any applicable law, seller shall procure and maintain in
+                                        effect full statutory coverage for workers' compensation, employer's liability and disability insurance for all its employees. Seller
+                                        represents, warrants and agrees that it has complied with and will continue to comply with all state, federal, foreign and other applicable
+                                        wage and hour laws, including child labor, minimum wage and overtime requirements of said laws. Seller further agrees that any allegation
+                                        or claim of a violation by seller of any such laws, requirements and/or provisions made by a governmental or regulatory agency shall
+                                        constitute a material breach of the order and entitle buyer, at its option, to terminate any and all business with seller and/or deposit any
+                                        amount claimed in escrow pursuant to terms established by buyer, and that such deposit will satisfy buyer's payment obligations under the
+                                        order or any other outstanding commitment with seller, to the extent of the amount of the escrow. Seller agrees to defend, indemnify and
+                                        hold harmless buyer of any and all losses, costs and attorney fees and expenses arising out of any claim or allegation that seller or any of
+                                        its agents, subcontractors or representatives has not fully discharged all obligations under said laws or this paragraph.
+                                        if buyer or its agents provide any piece, semi-finished or finished goods, raw materials or other materials to seller to produce goods under
+                                        an order, seller agrees to take delivery of, store and hold said materials as trustee and agent for buyer. Seller shall have no right, title or
+                                        interest in such materials and agrees to keep them free and clear of all liens, security interest, and encumbrances. Seller agrees that it shall
+                                        immediately return all such material upon demand by buyer, whether in the event of a dispute or for any reason and in the sole discretion of
+                                        buyer. Buyer shall retain title to all materials unless and until buyer is paid the actual or replacement cost or retail value (whichever is
+                                        greater) in full for all materials. Seller shall be liable and shall compensate buyer for all damages and expenses arising from any damage to
+                                        or loss of any such materials. Seller shall be liable and shall compensate buyer for all damages and expenses arising from any damage to or
+                                        loss of any such materials delivered to seller and seller represents and warrants that seller has and shall maintain insurance in keeping with
+                                        the requirements of this agreement and adequate to cover the market value, actual cost or replacement cost (whichever is greater) of all
+                                        materials for and on behalf of buyer.
+                                        each of the seller's representations and warranties provided in this order shall survive any inspection, delivery, acceptance or payment by
+                                        buyer. Seller's warranties are assignable by buyer and shall run to buyer, its successors and assigns, customers and any users of the goods.<br />
+                                        9. Confidentiality. Seller, for itself and its principals, parent company(ies), affiliates, subsidiaries, officers, directors, employees and agents
+                                        (the "seller related parties"), agrees to treat as strictly confidential all specifications, drawings, samples, models, designs, price lists and business information provided by buyer to seller. Such information will remain the exclusive property of buyer and will only be disclosed to the extent reasonably necessary for seller's employees and agents to perform seller's obligations hereunder, and seller will ensure that the recipients of such information protect the confidentiality thereof. Seller will not make any public disclosure of any order and shall not use buyer's name or any signs, markings, symbols, or brand names from which a connection to buyer may be inferred. At any time upon buyer's request, seller shall promptly return to buyer all forms of buyer's confidential information, including all copies thereof. Seller
+                                        Acknowledges that buyer's confidential information is unique and that monetary damages would be insufficient to compensate buyer for
+                                        any breach of this section by any seller related party. Accordingly, seller agrees that, in addition to any other available remedy, buyer
+                                        will be entitled to injunctive and other special and equitable relief in connection with any such breach. Seller agrees to incorporate into its
+                                        agreements with its direct and indirect vendors, contractors, subcontractors and suppliers, and to enforce for its benefit and the benefit of
+                                        buyer, the terms of this section. Seller agrees that any breach of this section is a material breach. The provisions of this section shall
+                                        continue and remain in full force and effect into perpetuity.<br />
+                                        10. Indemnification. Seller agrees to indemnify, defend and hold harmless buyer, its successors, assigns and customers and the users of the
+                                        goods from and against any and all actions, claims, liabilities, losses, damages (whether direct or indirect, incidental, consequential or
+                                        otherwise), and expenses of every character (including, without limitation, attorneys' fees, costs and expenses incurred in the investigation
+                                        and litigation of all claims, preparation for, and defense against, the same and/or settlement thereof) which may arise out of, relate to or be
+                                        connected in any way with any alleged or actual: (i) breach of any of seller's representations, warranties or obligations contained in this
+                                        order; (ii) violation of any applicable law; (iii) infringement or any alleged infringement of any patent, trademark, copyright, patent,
+                                        design right or any other right or form of intellectual property whatsoever, whether such infringement is direct, indirect, contributory,
+                                        induced or based on any other theory of liability; (iv) injury to any persons (including, without limitation, buyer's and seller's employees
+                                        and customers) or property caused by, relating to or arising out of the sale, resale, manufacture, storage, shipment or use by anyone of any
+                                        of the goods, or (v) dispute with a subcontractor, employee, independent contractor, manufacturer, agent, supplier or other person related in
+                                        any way to the order or any commercial transaction with buyer. Buyer, at its election, may hire counsel of its choosing to represent and
+                                        defend buyer against any such claims or may require seller to appear and defend buyer through counsel retained by seller, provided such
+                                        counsel is reasonably satisfactory to buyer, and seller hereby waives any rights it may have under section 2-607(5)(b) of the uniform
+                                        commercial code ("ucc"). The foregoing notwithstanding: (i) seller shall not settle any such claims, actions or proceedings without
+                                        buyer's prior written consent to the terms thereof, and (ii) buyer may, at its sole option, provide for its own defense and seller shall pay
+                                        any and all liabilities, loses, damages, penalties, fines, costs and expenses (including reasonable attorneys' fees and expenses) incurred by
+                                        buyer in the protection of its interests. Buyer, at its election, may suspend and withhold payment of any amounts owed to seller by buyer if
+                                        buyer, in its sole discretion, deems the suspension reasonably necessary to ensure that sufficient amounts will be available to satisfy seller's
+                                        continuing obligations to indemnify buyer for expenses identified above. If any complaint or claim is made or asserted against buyer or
+                                        any of buyer's customers by reason of any of the foregoing, seller agrees that, in addition to its other rights, buyer shall have the right to
+                                        cancel any undelivered portion of this order and to return all prior deliveries to seller for credit or payment. The obligations set forth in this
+                                        section shall survive any delivery and acceptance of the goods.<br />
+                                        11. Nonconforming goods. All goods received by buyer are subject to buyer's inspection and acceptance, but neither acceptance of the
+                                        goods nor payment therefore shall preclude buyer or buyer's customers from asserting claims based upon breaches of seller's
+                                        representations or warranties or any other omissions or defaults by seller. Acceptance of all or part of the goods shall not bind buyer to
+                                        accept future shipments and shall not be deemed to be a waiver of buyer's right to cancel this order or to return all or any part of the goods
+                                        (whether or not already accepted) due to seller's failure to comply with the terms and conditions of this order or the discovery of latent or
+                                        patent defects in the goods. All rejected goods shall be subject to seller's risk and liability. Seller shall pay buyer on demand for all
+                                        charges for storage or disposal of rejected goods, whether stored at buyer's premises or elsewhere, and seller shall pay and reimburse
+                                        buyer for the cost of returning any rejected goods and for all other costs and expenses incurred by buyer in connection with the rejected
+                                        goods, regardless of whether the rejection is accepted by seller. Seller shall refund to buyer all funds paid to seller by buyer for any
+                                        rejected goods. Buyer also reserves the right to receive from seller additional or increased insurance coverage beyond the amounts
+                                        specified in section 14 should buyer, in its sole discretion, determine that the return of rejected goods to seller or seller's resale of such
+                                        goods to others would create or increase any potential liability for buyer.<br />
+                                        12. Breach by seller. (a) if seller breaches any of the terms, conditions or warranties of this or any other order (including, without
+                                        limitation, an individual shipment under an order requiring delivery in multiple shipments, installments or "upon demand"), (b) if there is
+                                        insolvency or commission of an act of bankruptcy of seller or commencement of proceedings by, for or against seller under any law
+                                        relating to bankruptcy or the relief of debtors, or (c) if there is determination by buyer, in its sole judgment, that seller's financial condition
+                                        is such as to endanger its performance hereunder, buyer shall have the right, in addition to its other rights and remedies, to refuse to accept
+                                        the goods or to revoke its prior acceptance of the goods, and, at its election, this order shall be deemed breached by seller in its entirety
+                                        and seller shall compensate buyer for all losses sustained by buyer by reason of such default or cancellation. Seller hereby waives the right
+                                        to cure and any other rights available under section 2-612(2) of the ucc. Seller agrees to pay all attorneys' fees and legal expenses incurred
+                                        by buyer in enforcing the terms of this order or in any litigation resulting from seller's breach.<br />
+                                        13. Buyer's liability. Buyer's liability for loss or damage directly or indirectly resulting from a breach of this order by buyer shall be
+                                        limited to the amount of the purchase price of the goods that are the subject of the loss or damage.<br />
+                                        14. Insurance. Seller shall procure and maintain in effect, at all times, suitable products liability, and other insurance coverages, in adequate
+                                        amounts as specified from time to time by buyer and pursuant to buyer's sole discretion, providing for the investigation, defense and
+                                        satisfaction (by settlement or otherwise), of any claims, suits, liabilities, damages, costs and expenses asserted against or incurred by buyer
+                                        and shall furnish buyer with certificate evidence of such coverage. Without limiting the foregoing, seller represents and warrants that it
+                                        carries products liability insurance with limits of no less than five million dollars ($5,000,000) per occurrence for bodily injury and property
+                                        damage and five million dollars ($5,000,000) annual aggregate. Such insurance shall contain a Broad Form Seller's endorsement naming
+                                        Buyer as an additional insured and shall be primary and not contribute with any insurance carried by Buyer, whose insurance shall be
+                                        excess. Such insurance shall include a provision that the insurance company will not cancel, reduce or materially change the policy without
+                                        giving at least thirty (30) days prior written notice to Buyer. Seller shall present each such certificate of insurance to Buyer upon demand.<br />
+                                        15. Compliance Documentation. Hazardous or Toxic materials (as defined by any Applicable Law) must be shipped in accordance with all
+                                        Applicable Laws. Seller shall provide at the time of delivery all required notices and information, including, without limitation, all Material
+                                        Safety Data Sheets (if any) in approved form. Seller agrees to keep such information current and up-to-date and shall provide Buyer with
+                                        any amended, altered or revised information on a timely basis. Seller shall procure and maintain such licenses and permits as are required to
+                                        fully perform this Order and will assist Buyer with the preparation of any documents, licenses, permits or tax filings required by Applicable
+                                        Law. At Buyer's request, Seller will promptly provide Buyer with information, documents, and business reports concerning (a) the available
+                                        reduction or elimination of U.S. withholding taxes; (b) Buyer's information reporting obligations imposed on or with respect to payments
+                                        made pursuant to or in connection with this Order; and (c) the presence in Goods of "conflict minerals," as that term is defined by Section
+                                        13(p) of the Securities Exchange Act of 1934 and related regulations of the U.S. Securities and Exchange Commission (SEC) at 17 C.F.R.
+                                        Part 240, as well as the sources and chain of custody of such conflict minerals. Seller acknowledges that Buyer, in meeting its legal
+                                        obligations and for other purposes, will rely on the accuracy and completeness of information furnished by Seller. When this Order or the
+                                        specifications require the procurement or production of (or assistance in preparing or obtaining) documentation or licensure, each of these
+                                        requirements is a material requirement and Seller's failure to provide such prior to or at the time of delivery may result in withholding of payment until such is provided.<br />
+                                        16. Cumulative Remedies. If Seller does not strictly comply with any terms, conditions or warranties, expressed or implied, of this or any
+                                        other Order, Buyer shall have the right, in addition to all other rights and remedies to which it may be entitled, to refuse to accept any
+                                        further deliveries or installments of Goods from Seller, and Seller hereby waives the right to cure and any other rights available under
+                                        section 2-612(2) of the UCC. The acceptance by Buyer of any such delivery or installment(s) shall not be deemed a waiver by Buyer of its
+                                        right to refuse any further delivery or installment(s) of Goods, nor any of its other rights.<br />
+                                        17. Force Majeure. In the event any place of business or other premises of Buyer shall be affected by lockouts, strikes, riot, act of terror,
+                                        war, fire, civil insurrection, flood, earthquake or other casualty or cause beyond Buyer's reasonable control, which might reasonably tend to
+                                        impede or delay the reception, handling, inspecting, making, processing, or marketing of the Goods by the Buyer, Buyer shall have the right
+                                        to cancel all or any part of this Order by giving written notice to Seller and, upon the giving of such notice, shall not be obligated to receive
+                                        or accept such Goods or be obligated for any part of the purchase price therefore.<br />
+                                        18. No Assignment. This Order and any rights hereunder are not assignable by Seller. Buyer shall not be obligated to recognize any
+                                        assignment of monies payable hereunder, or of any rights in the Goods ordered herein, or of any other rights arising hereunder.<br />
+                                        19. No Waiver. Inclusion herein of express warranties and representations by Seller shall not be deemed to be a waiver of other warranties
+                                        implied by law or fact or provided for by Applicable Law. All of Seller's warranties, express and implied, shall survive inspections,
+                                        acceptance and payment by Buyer and Buyer's customers. No waiver of any breach or of any term or condition of this Order shall be
+                                        construed as a waiver of any subsequent breach of that term or condition or any other term or condition of a similar or different nature of
+                                        this or any other Order.<br />
+                                        20. Survival. These Terms shall remain in effect for a period of five (5) years, except for the provisions of Sections 8, 9, 10, 14, 15, 16, this
+                                        Section 20 and Section 21 which are unlimited in duration.<br />
+                                        21. Choice of Law. This Order shall be construed and enforced in accordance with the laws of the State of New York (including, without
+                                        limitation, the UCC as adopted by the State of New York). Seller and Buyer agree that the state and federal courts located in the borough of
+                                        Manhattan shall have exclusive jurisdiction over any controversies, claims or lawsuits arising out of or related to this Order and Seller
+                                        hereby submits to the personal jurisdiction of such courts. Seller further irrevocably consents to the service of process in any such action or
+                                        proceeding upon it by the mailing of a copy of process to Seller to the address then-currently reflected in Buyer's records as Seller's
+                                        principal place of business. The United Nations Convention on Contracts for the International Sale of Goods shall not apply to this Order.<br />
+                                        22. Electronic Communications and Agreements. Seller agrees that Buyer may deliver this Agreement and all purchase orders to Seller by
+                                        email (each such purchase order an "Electronic Purchase Order" or "EPO"). Seller shall accept this Agreement and each EPO by
+                                        confirming (via email) its receipt and acceptance of the Agreement and EPO. Seller agrees that electronically accepting this Agreement or
+                                        any EPO, to the fullest extent permitted by applicable state and federal law, is commensurate with executing a legally binding printed copy
+                                        of the Agreement or purchase order, as applicable. As a condition of doing business with Buyer, Seller agrees, if so required by Buyer, to
+                                        utilize the computer network of a third party provider designated by Buyer (the "Provider Network") to automate certain operations
+                                        allowing for electronic communications with respect to the purchase process, payment process or any portion of either such process or both
+                                        such processes. Each party shall, at its own expense (with no pass through by Seller to Buyer of any such expense), (i) purchase or acquire
+                                        a license and provide and maintain the equipment, software and services and (ii) train Seller personnel, each as necessary to effectively and
+                                        reliably utilize the Provider Network as required by Buyer. In addition, Seller shall be solely responsible for the cost of routing and storing
+                                        information or documents on the Provider Network, which information or documents may be retrieved by Buyer at no additional charge to
+                                        Buyer by Seller. Buyer shall not be responsible for Seller's failure to pay fees due to, or adhere to the terms and conditions of its
+                                        agreements with, the third party provider. In the event Seller fails to maintain a relationship, or breaches or defaults on its agreements, with
+                                        the third party provider, Buyer may deem such failure a breach of this Agreement. The transmission of any documentation through the
+                                        Provider Network shall have the same validity and enforceability as if they were delivered as signed, written paper documents.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td style="padding: 0;">
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 20px; background-color: #ebebeb;">
+                                        Sociedad Unipersonal. Inscrita en el Registro Mercantil de Barcelona. Inscripcion 1a, hoja nD B240742, folio nD 75, tomo nD 34115. (N.I.F.B62735675) Mylan Pharmaceuticals S.L, C/Plom 2-4, 5a planta, 08038 Barcelona, Espana. Tel: +(34) 933786400. Fax: +(34) 933786401
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</div>

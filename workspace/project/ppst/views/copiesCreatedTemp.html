@@ -1,0 +1,12 @@
+<div class="col s12 input-field line-height-manager">
+    <label class="active" ng-if="copiesData.length > 0">Copies Created</label>
+    <a href="javascript:void(0)" ng-click="viewCopies()" ng-if="copiesData.length == 1">{{copiesData[0].projectName || translate}}</a>
+    <a href="javascript:void(0)" ng-click="viewCopies()" ng-if="copiesData.length > 1" smart-infotip position="top" template-url="copiesTemplate.html" bind-on="mouseover">{{copiesData[0].projectName + " + " + (copiesData.length - 1) + " More" || translate}}</a>
+</div>
+<!-- popup -- Assign / Re-assign -->
+<smart-popup template-url="project/ppst/views/popupCopiesCreated.html" show='{{copiesPopup}}' on-hide="copiesPopupOnHideCallback(e)" type="small"></smart-popup>
+<script id="copiesTemplate.html" type="text/ng-template">
+    <div class="infotip-popover-template">
+        <div ng-repeat="copies in copiesData">{{ copies.projectName || translate}}</div>
+    </div>
+</script>

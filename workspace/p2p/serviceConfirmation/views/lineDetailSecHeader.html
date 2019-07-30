@@ -1,0 +1,13 @@
+<div ng-controller="itemDetailsServConfCtrl">
+    <div class="left secHeader">
+        <span class="left">LINE DETAILS</span>
+    </div>
+    <!--<div class="right">
+        <a href="javascript:void()" ui-sref="">
+            Add Lines From PO
+        </a>
+    </div>-->
+
+    <smart-popup template-url="contract/views/popupChangeLanguageMode.html" show="{{modeTypePopup}}" on-hide="modeTypePopUpOnHideCallback(e)" ng-click="$event.stopPropagation()"></smart-popup>
+
+</div>

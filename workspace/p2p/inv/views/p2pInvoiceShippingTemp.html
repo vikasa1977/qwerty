@@ -1,0 +1,4 @@
+<div ng-controller="popupInvShipToCtrl">
+    <smart-typeahead class="col s12 m6 l4 xl3 xxl2" multiselect="false" addnew="true" show-lookup="true"  ng-model="selected" options="options" filterkeys="['shipTo']" label="{{typeaheadLabel}}" callback-on-icon-click="callAfterClickedOnRightSideIcon(e)"  call-add-new="showLocationPopupFn(e)"></smart-typeahead>
+    <smart-textfield class="col s12 m12 l8" label="Ship To Address" readonly="true" ng-model="selected.shipToAdd"></smart-textfield>
+</div>

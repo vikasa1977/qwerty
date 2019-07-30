@@ -1,0 +1,136 @@
+<div class="projectsPopup">
+    <div class="modal-header">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_BulkEdit"></use>
+            </svg>
+        </i>
+        <span class="title">{{bulkEditActivityHdr}} </span>
+    </div>
+    <smart-scroll height="500px">
+        <div class="alert-bar alert-bar--warning enter-from-top">
+            <span ng-if="cntSelActivity > 1">{{cntSelActivity}} Activities Selected</span>
+            <span ng-if="cntSelActivity <= 1">{{cntSelActivity}} Activity Selected</span>
+        </div>
+        <div class="modal-content padding0" ng-class="{'is-scrolled': true}">
+            <div class="model_body padding10">
+                
+                <!--changeAssignee-->
+                <div ng-if="changeAssignee">
+                    <div class="row">
+                        <smart-typeahead class="col s6 m6 l6 line-height-manager" multiselect="false" on-blur="editBMilestone('bulkEditActivity')"
+                                         show-lookup="true" ng-model="editBulkActivity.assignedTo" options="addEditActivityModel.assignees" titleofmodel="Assignee"
+                                         filterkeys="['name']" displayformat="{name}" label="Assignee" lookup-open="onOpenBulkEdtAct(e)" lookup-hide="editBMilestone('bulkEditActivity');switchBlkEditActPopup();">
+                        </smart-typeahead>
+                        <smart-textfield label="E-mail" class="col s6 m6 l6 input-field line-height-manager" ng-model="editBulkActivity.email" readonly="true" type="text" ng-if="editBulkActivity.email">
+</div>
+                    <div class="row">
+                        <span class="col s12">
+                            <i class="icon iconSmall gray-text titleIcon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                            {{'Assignee for already completed activities cannot be changed.'|| translate}}
+                        </span>
+                    </div>
+                </div>
+                
+                
+                <!--changeDueDate-->
+                <div ng-if="changeDueDate">
+                    <div class="row">
+                        <div class="col s12 input-field line-height-manager">
+                            <label class="active">Start Date</label>
+                            <smart-radio gap="true" class="marginLeft4N marginTop10" ng-model="editBulkActivity.selectedStartDate" options="startOptions" on-change="startDateChangeCallback(editBulkActivity.selectedStartDate)" datakey="name" is-mandatory="true">
+                            </smart-radio>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row" ng-if="editBulkActivity.selectedStartDate.code == 'prepone' || editBulkActivity.selectedStartDate.code == 'postpone'">
+                        <div class="col s12 clearfix">
+                            <div class="col line-height-manager paddingLeft0 paddingRight0">By</div>
+                            <smart-textfield class="col s3 line-height-manager paddingRight0" is-mandatory="true" ng-model="activeStartDaysCount.daysmonthsCount" type="text" smart-character-restrict patternreg="[^0-9,]">
+                            </smart-textfield>
+                            <smart-select class="col s4 line-height-manager" is-mandatory="true" ng-model="editBulkActivity.selectedStartOption" options="selectedStartOptions" datakey="name" on-change="onChangeStartOption(editBulkActivity.selectedStartOption)">
+                            </smart-select>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="selectedStartDate.code == 'date'">
+                        <smart-textfield label="Start Date" class="col s5 m5 l5 input-field line-height-manager" is-mandatory="true" ng-model="editBulkActivity.startBy" type="date">
+                        </smart-textfield>
+                    </div>
+                  
+                    
+                    
+                    
+                    <div class="row marginTop10 is-scrolled marginTop20 paddingTop20">
+                        <div class="col s12 input-field line-height-manager">
+                            <label class="active">End Date</label>
+                            <smart-radio gap="true" class="marginLeft4N marginTop10" ng-model="editBulkActivity.selectedEndDate" options="endDateOptions" on-change="endDateChangeCallback(editBulkActivity.selectedEndDate)" datakey="name" is-mandatory="true">
+                            </smart-radio>
+                        </div>
+                    </div>
+                   
+
+                    <div class="row" ng-if="editBulkActivity.selectedEndDate.code == 'prepone' || editBulkActivity.selectedEndDate.code == 'postpone'">
+                        <div class="col s12 clearfix">
+                            <div class="col line-height-manager paddingLeft0 paddingRight0">By</div>
+                            <smart-textfield class="col s3 line-height-manager paddingRight0" is-mandatory="true" ng-model="activeStartDaysCount.daysmonthsCount" type="text" smart-character-restrict patternreg="[^0-9,]">
+                            </smart-textfield>
+                            <smart-select class="col s4 line-height-manager" is-mandatory="true" ng-model="editBulkActivity.selectedStartOption" options="selectedStartOptions" datakey="name" on-change="onChangeStartOption(editBulkActivity.selectedStartOption)">
+                            </smart-select>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="editBulkActivity.selectedEndDate.code == 'date'">
+                        <smart-textfield label="Due by" class="col s5 m5 l5 input-field line-height-manager" is-mandatory="true" ng-model="editBulkActivity.endBy" type="date">
+                        </smart-textfield>
+                    </div>
+
+
+                    <div class="row">
+                        <span class="col s12">
+                            <i class="icon iconSmall gray-text titleIcon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                            {{'Start Date cannot be set beyond the End Date.'|| translate}}
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--updateStatus-->
+                <div ng-if="updateStatus">
+                    <div class="row">
+                        <smart-textfield class="col s3 line-height-manager paddingRight0" label="Activity Status" is-mandatory="true" ng-model="editBulkActivity.status" type="text" maxlength="3" smart-character-restrict patternreg="[^0-9,]">
+                        </smart-textfield>
+                        <span class="fontSize14 dIBlock marginTop15">%</span>
+                      </div>
+                    <div class="row">
+                        <span class="col s12">
+                            <i class="icon iconSmall gray-text titleIcon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                                </svg>
+                            </i>
+                            {{'Completed Mandatory Activity(s) will not be updated if the milestone is already achieved.'|| translate}}
+                        </span>
+                    </div>
+                  </div>
+                
+            </div>
+        </div>
+        </smart-scroll>
+        <div class="modal-footer is-scrolled paddingRight20">
+            <div class="clearfix">
+                <smart-button flat="true" class="modal-close right" disable="disbaleUpdateBtn" ng-click="bulkEditActivities(editBulkActivity)" config='{"title":"Update"}'></smart-button>
+                <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+            </div>
+        </div>
+</div>
+

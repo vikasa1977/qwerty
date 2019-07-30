@@ -1,0 +1,515 @@
+<div class="panelBox-withSpace">
+	<div class="panelBox-content">
+		<div class="panelBox-header clearfix row marginBottom0">
+			<div class="panelBox-header--title col s12 m6 l2 xl3 xxl2">
+				<span ng-show="isPricesheetFilter || isContract">{{ 'FILTERS' || translate }}</span>
+				<smart-select ng-model="selectedCurrentFilter" options="savedFilterListOption" datakey="name" on-change="onChangeSavedFilter(selectedCurrentFilter.name)" ng-hide="isPricesheetFilter || isContract"></smart-select>
+
+			</div>
+			<div class="col s12 m6 l10 xl9 xxl10 ng-binding right" ng-hide="isPricesheetFilter">
+                <div class="panelBox-header--action">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javascript:void(0)"
+                           data-activates='shareDropDown'
+                           class="waves-circle  waves-effect waves-dark-light  dropdown-button" 
+                           data-position="bottom"
+                           data-delay="50"
+                           data-constrainwidth="false">
+                            <i class="icon iconSmall  " smart-tooltip position="bottom" delay="10"
+                           message="{{'Share' || translate }}">
+                                <svg><use xlink:href="#icon_Share"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='shareDropDown' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    <i class="icon iconSmall dropdown-button right" data-activates='sharePopOver' delay="250" data-position="bottom" data-delay="50" data-constrainwidth="true">
+                                        <svg><use xlink:href="#icon_Email"></use></svg>
+                                    </i>
+                                    {{ 'Email' || translate }}
+                                    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    <i class="icon iconSmall dropdown-button right" data-activates='sharePopOver' delay="250" data-position="bottom" data-delay="50" data-constrainwidth="true">
+                                        <svg><use xlink:href="#icon_Chat"></use></svg>
+                                    </i>
+                                    
+                                    {{ 'Chat' || translate }}
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    <i class="icon iconSmall dropdown-button right" data-activates='sharePopOver' delay="250" data-position="bottom" data-delay="50" data-constrainwidth="true">
+                                        <svg><use xlink:href="#icon_Discuss"></use></svg>
+                                    </i>searchTextContractSupplier
+                                    {{ 'Discussion Forum' || translate }}
+                                    
+                                </a>
+
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+
+                    <a href="javascript:void(0)" class="waves-circle  waves-effect waves-dark-light">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_FilterReset"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="waves-circle  waves-effect waves-dark-light" ng-click="toggleFilter(e);">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Close"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </div>
+			</div>
+		</div>
+		<div class="panelBox-body">
+			<div class="smartslider row margin0" smart-slider="" slidenumber="{{FilterNumber}}" space="0" steps="1" slidecontainer="smartslider-container" slidecontainerlist="smartslider-container-list" slidecontainerlistitem="currentDisplay" leftbtn="prev_arrow" rightbtn="next_arrow">
+				<div class="smartslider-container">
+                
+					<div class="smartslider-container-list clearfix" ng-if="docType != 'order'">
+						<div class="filter-item currentDisplay" ng-if="isContract">
+							<div class="filter-item--container">
+								<div class="row">
+									<h6 class="dark-text filter-Managetitle">{{'MY ROLE'|| translate}}</h6>
+									<smart-radio class="col s12" layout="vertical" gap="true" options='[{title : "As Author"},{title : "As Owner"}]'></smart-radio>
+								</div>
+
+								<div class="row">
+									<h6 class="dark-text filter-Managetitle">{{'SHOW ONLY'|| translate}}</h6>
+									<smart-radio class="col s12" layout="vertical" gap="true" options='[{title : "All Contracts"},{title : "Open Contracts"},{title : "Closed Contracts"}]'></smart-radio>
+								</div>
+							</div>
+						</div>
+						<div class="filter-item currentDisplay" ng-if="isPricesheetFilter">
+							<div class="filter-item--container">
+								<div class="row panelBox-field ">
+									<h6 class="dark-text filter-Managetitle">{{'TYPE'|| translate}}</h6>
+									<smart-radio class="col s12" gap="true" ng-model="selectedPricesheetType" options="pricesheetType"></smart-radio>
+								</div>
+								<div class="row panelBox-field ">
+									<h6 class="dark-text filter-Managetitle">{{'CREATION DATE'|| translate}}</h6>
+									<smart-textfield type="date" label="{{'From'|| translate}}" class="col s6" ng-model="fromDate"></smart-textfield>
+									<smart-textfield type="date" label="{{'To'|| translate}}" ng-model="toDate" class="col s6"><smart-textfield>
+									
+									<!--<smart-textfield label="{{'TO'|| translate}}" class="col s6"></smart-textfield>-->
+								</div>								
+							</div>
+						</div>
+							<div class="filter-item currentDisplay" ng-if="isPricesheetFilter">
+							<div class="filter-item--container">								
+								<div class="row">
+									<div class="col s12 input-field panelBox-field ">
+										<div class="grey-text fontSize12" ng-show="showFormC">Category</div>
+										<span id="categoryBtn" data-target="category" class="catpopup-title" ng-class="{'marginTop16' : !showFormC}">{{ categoryDatainitialDisplayRootText }}</span>
+									</div>
+									<div class="col s12 input-field panelBox-field ">
+										<div class="grey-text fontSize12" ng-show="showFormBU">Business Unit</div>
+										<span class="catpopup-title left" id="BUBtn" data-target="BU" ng-class="{'marginTop16' : !showFormBU}">{{ businessUnitDatainitialDisplayRootText }}</span>
+									</div>
+									<div class="col s12 input-field ">
+										<div class="grey-text fontSize12" ng-show="showRegion">Region</div>
+										<span class="catpopup-title left" id="regionBtn" data-target="region" ng-class="{'marginTop16' : !showRegion}">{{ RegionDatainitialDisplayRootText }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="filter-item currentDisplay" ng-if="isContract">
+							<div class="filter-item--container">
+								<div class="row">
+									<smart-textfield label="Contract Name" class="col s12"></smart-textfield>
+								</div>
+								<div class="row">
+									<h6 class="dark-text filter-Managetitle">{{'CONTRACT VALUE'|| translate}}</h6>
+									<smart-textfield label="{{'FROM'|| translate}}" class="col s6"></smart-textfield>
+									<smart-textfield label="{{'TO'|| translate}}" class="col s6"></smart-textfield>
+								</div>
+								<div class="row">
+									<h6 class="dark-text filter-Managetitle">{{'CONFIDENTIALITY'|| translate}}</h6>
+									<smart-radio class="col s12" layout="vertical" gap="true" options='[{title : "Confidential"},{title : "Non-Confidential"}]'></smart-radio>
+								</div>
+							</div>
+						</div>
+						<div class="filter-item currentDisplay" ng-repeat="filter in filters">
+
+							<div class="filter-item--container">
+								<div class="row">
+									<div class="col s12">
+										<div class="input-field withSearchIcon " ng-if="filter.filterAction">
+											<i class="icon iconFix iconSmall filterSearchIcon">
+												<svg>
+													<use xlink:href="#icon_Search"></use>
+												</svg>
+											</i>
+											<i class="icon iconFix iconSmall filterCloseIcon" ng-click="filter.filterVal = '';searchfocusOut(filter)">
+												<svg>
+													<use xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+											<input id="text_type_" type="text" class="validate noBorder" ng-model="filter.filterVal" placeholder="{{filter.searchType}}">
+											<label for="text_type"></label>
+										</div>								
+										<div class="collection  noBorder">
+											<div class="paddingLeft0 collection-item">
+												<smart-checkbox label="All" fill="true" ng-model="filter.filterCheckedAll" on-change="checkedAll(filter.filterCheckedAll, $index)"></smart-checkbox>
+											</div>
+										</div>
+										<smart-list model="{{ filter.filterLists }}"
+											style-class="collection noBorder"
+											item-class="collection-item paddingLeft0"
+											template="shared/filter/views/filterList.html"
+											height="{{filter.listHeight}}">
+										</smart-list>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+                    <div class="smartslider-container-list clearfix" ng-if="docType == 'order'">
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+                                    
+                                        <smart-textfield label="Order Number" ng-model="orderNumber" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    
+                                  
+                                        <smart-select label="My Role" class="col s12 input-field panelBox-field" ng-model="selectedmyRole" options="myRoleOptions" datakey="name" on-change="onChangeRole(selectedmyRole)"></smart-select> 
+                                  
+                                   
+                                    <div class="col s12 input-field panelBox-field">
+                                        <div class="grey-text fontSize12" ng-show="showFormBU2">Business Unit</div>
+										<span id="BUBtn2" data-target="BU2" class="catpopup-title" ng-class="{'marginTop16' : !showFormBU2}">{{ businessUnitDatainitialDisplayRootText }}</span>
+                                    </div>
+                                 
+                                        <h6 class="dark-text filter-Managetitle">{{'Amount'|| translate | uppercase }}</h6>
+                                        <smart-textfield label="{{'FROM'|| translate}}" class="col s6"></smart-textfield>
+                                        <smart-textfield label="{{'TO'|| translate}}" class="col s6"></smart-textfield>
+                                
+
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item--container">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon " >
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextContractSupplier='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextContractSupplier" placeholder="{{ 'SUPPLIER' || translate }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true" ></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ contractSupplier }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="250px">
+                                        </smart-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item--container">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextStatus='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextStatus" placeholder="{{ 'Status' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true" ></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ contractSupplier }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="250px">
+                                        </smart-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+
+                                    <smart-textfield label="Need By Date" type="date" ng-model="needByDate" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextOrderContact='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextOrderContact" placeholder="{{ 'Order Contact' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true" ></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ orderContact }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="180px">
+                                        </smart-list>
+                                    </div>
+                                    
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+
+                                    <smart-select label="Order Type" class="col s12 input-field panelBox-field" ng-model="selectedOrderType" options="orderTypeOptions" datakey="name" on-change="onChangeorderType(selectedOrderType)"></smart-select> 
+
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextRequestedBy='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextRequestedBy" placeholder="{{ 'Requested By' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true"></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ requestedBy }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="180px">
+                                        </smart-list>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+                                    <smart-textfield type="date" label="Created Between" ng-model="createdBetween" class="col s12 input-field panelBox-field"></smart-textfield>
+
+                                    <smart-select label="Order Invoicing Status" class="col s12 input-field panelBox-field" ng-model="selectedorderInvStatus" options="orderInvStatusOptions" datakey="name" on-change="onChangeorderInvStatus(selectedorderInvStatus)"></smart-select> 
+
+                                <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextAuthor='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextAuthor" placeholder="{{ 'Author' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true"></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ requestedBy }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="112px">
+                                        </smart-list>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+                                  
+
+                                    <smart-select label="Matching type" class="col s12 input-field panelBox-field" ng-model="selectedMatchingType" options="matchingTypeOptions" datakey="name" on-change="onChangeMatchingType(selectedMatchingType)"></smart-select>
+                                    <smart-textfield label="Item Number" ng-model="itemNumber" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextSourceSystem='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextSourceSystem" placeholder="{{ 'Source System Name' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true"></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ sourcingSysName }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="112px">
+                                        </smart-list>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+                                    <div class="col s12 input-field panelBox-field ">
+										<div class="grey-text fontSize12" ng-show="showFormC2">Category</div>
+										<span id="categoryBtn2" data-target="category2" class="catpopup-title" ng-class="{'marginTop16' : !showFormC2}">{{ categoryDatainitialDisplayRootText }}</span>
+									</div>
+                                    <smart-textfield label="Requisition Number" ng-model="requisitionNumber" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    <div class="col s12">
+                                        <div class="input-field withSearchIcon ">
+                                            <i class="icon iconFix iconSmall filterSearchIcon">
+                                                <svg>
+                                                    <use xlink:href="#icon_Search"></use>
+                                                </svg>
+                                            </i>
+                                            <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextShipTo='';searchfocusOut(e)">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </i>
+                                            <input id="text_type_{{ $index }}" type="text" class="validate" ng-model="searchTextShipTo" placeholder="{{ 'Ship To Location' || translate | uppercase }}">
+                                            <label for="text_type_{{ $index }}"></label>
+                                        </div>
+                                        <div class="collection  noBorder">
+                                            <div class="paddingLeft0 collection-item">
+                                                <smart-checkbox label="All" fill="true"></smart-checkbox>
+                                            </div>
+                                        </div>
+                                        <smart-list model="{{ shipToLoc }}"
+                                                    style-class="collection noBorder"
+                                                    item-class="collection-item paddingLeft0"
+                                                    template="shared/filter/views/filterList.html"
+                                                    height="112px">
+                                        </smart-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-item currentDisplay">
+                            <div class="filter-item-container">
+                                <div class="row">
+                                    <div class="col s12  panelBox-field">
+                                    <smart-checkbox label="Include Closed Orders" ng-model="incClosedOrder" on-change="onChangeincClosedOrder(incClosedOrder)"></smart-checkbox>
+                                        </div>
+                                    <div class="col s12  panelBox-field">
+                                        <smart-checkbox label="Orders with Urgent Requisition" ng-model="orderswithUrgentReq" on-change="onChangeOrderswithUrgentReq(orderswithUrgentReq)"></smart-checkbox>
+                                    </div>
+                                    <smart-select label="Order Receiving Status" class="col s12 input-field panelBox-field" ng-model="selOrdRecSts" options="selOrdRecStsOptions" datakey="name" on-change="onChangeselOrdRecSts(selectedOrdRecSts)"></smart-select>
+                                    <smart-textfield label="Supplier Item Number" ng-model="supplierItemNumber" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    <smart-textfield label="Order Name" ng-model="orderName" class="col s12 input-field panelBox-field"></smart-textfield>
+                                    </div>
+                            </div>
+                        </div>
+				</div>
+				<div class="row marginTop20" ng-hide="isPricesheetFilter">
+					<div class="col s12">
+						<span class="next_arrow right blue-text">
+							<i class="icon iconSmall">
+								<svg>
+									<use xlink:href="#icon_RightChevro"></use>
+								</svg>
+							</i>
+						</span>
+						<span class="prev_arrow blue-text right arrow--disabled">
+							<i class="icon iconSmall">
+								<svg>
+									<use xlink:href="#icon_LeftChevron"></use>
+								</svg>
+							</i>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+		<div class="panelBox-footer row footerSpace ">			
+				<smart-checkbox fill="true" class="left" label="{{ 'Urgent Requisition'  || translate   }}" ng-model="isUrgentRequisition" on-change="setUrgentRequisition(urgentRequisition)" ng-if="isSearchPage"></smart-checkbox>
+				<smart-button flat="true" class="footerBtn left" config='{"title":"RESET"}' ng-if="isPricesheetFilter"></smart-button>
+			    <smart-button flat="true" class="modal-close footerBtn right marginRight0"  config='{"title":"APPLY"}' ng-click="applyCurrentFilter(e, isSavedView)"></smart-button>	
+				<smart-button flat="true" class="modal-close footerBtn right"  config='{"title":"CANCEL"}' ng-click="toggleFilter(e);" ng-if="isPricesheetFilter"></smart-button>
+				<!--<smart-button flat="true" class="modal-close footerBtn right"  config='{"title":"SAVE"}' ng-click="saveFilterPopupCallback(e)" ng-hide="isPricesheetFilter"></smart-button>-->
+				
+		</div>
+		</div>
+</div>
+<smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Category" default-text="Choose Category" show="showFormC" mode="true" selected-value="categoryRootData" modal-content="category" modal-button="categoryBtn" initial-display-text="categoryDatainitialDisplayRootText"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormBU" mode="true" selected-value="businessUnitRootData" modal-content="BU" modal-button="BUBtn" initial-display-text="businessUnitDatainitialDisplayRootText"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Region" default-text="Choose Region" show="showRegion" mode="true" selected-value="regionRootData" modal-content="region" modal-button="regionBtn" initial-display-text="RegionDatainitialDisplayRootText"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Category" default-text="Choose Category" show="showFormC2" mode="true" selected-value="categoryRootData" modal-content="category2" modal-button="categoryBtn2" initial-display-text="categoryDatainitialDisplayRootText"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormBU2" mode="true" selected-value="businessUnitRootData" modal-content="BU2" modal-button="BUBtn2" initial-display-text="businessUnitDatainitialDisplayRootText"></smart-list-popup>

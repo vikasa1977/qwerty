@@ -1,0 +1,1159 @@
+{
+  "datalist": [
+     {
+      "docName": "RFx for ATL Marketing - North America",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 821452"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Marketing"
+        },
+        {
+          "datakey": "amount",
+          "value": "JPY 1,100,011.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Jacqualine Roehl"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "08/15/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Conference Communications",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859562"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT/Telecom + 25 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,022,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Data Centers",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 885264 + 13 more"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT Networking"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,001,156.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Candace Bruder"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "06/30/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for IT Hardware & Peripherals",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859572"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT/Telecom + 12 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Malcolm Kegler"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "07/30/2016"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Soap Products",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 823422"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Chemicals + 25 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,111,119.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Darcel Kellar"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "12/30/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Domestic Air Travel - North America",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 850062"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Business Travel + 16 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,580.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Air Travel - EMEA & APAC",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859562"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Business Travel"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,025,050.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Wrapping Goods",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 821292"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Packaging Material + 12 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,119,000.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Danielle Bradfield"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "01/26/2017"
+        }
+      ]
+    },
+   
+    {
+      "docName": "RFx for Equipment Maintenance ",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 876452"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: MRO + 18 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "EUR 1,000,015.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Emily Wenz"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "06/26/2017"
+        }
+      ]
+    },
+
+
+    {
+      "docName": "RFx for Die Cast Mould Maintenance",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 826692"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Manufacturing + 19 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "12.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Delmy Sillman"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "12/15/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Foils and Tin Products",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code:821292"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Packaging Material + 22 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "13.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Mercedez Boss"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "01/26/2017"
+        }
+      ]
+    },
+    
+
+    {
+      "docName": "RFx for Network Switches - EMEA",
+      "docStatus": "Response In Progress",
+      "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 853562"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT/Telecom + 24 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,870.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Epoxies & Hydroxides - New Products",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 821452"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Chemicals"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,151,130.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Darcel Kellar"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "08/15/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for ATL Marketing - UK",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "items",
+          "value": "821452"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Marketing + 12 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "50.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Tera Brannon"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "04/14/2017"
+        }
+      ]
+    },
+     {
+      "docName": "RFx for PDT Products",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 823452"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: MRO + 14 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "EUR 1,115,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Taneka Lightford"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "06/15/2017"
+        }
+      ]
+    },
+
+
+
+    {
+      "docName": "RFx for Industrial Supplies ",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 825622"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: MRO + 19 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,185.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Scotty Otey"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "01/25/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for IT Hardware & Peripherals",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859572"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT/Telecom + 12 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Malcolm Kegler"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "07/30/2016"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Equipment Repair - Mid West Plant",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 827592"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: MRO + 13 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "15.00 EUR"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Bert Matthes"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "01/29/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for North East Fleet Management",
+     "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 845124"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Road Fleet + 16 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,111,150.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Emelia Auzenne"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "12/30/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Southern Region Fleet Management",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 847521"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Road Fleet + 25 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "45.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Otelia Linney"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "11/04/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Mid West Fleet Management",
+     "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 845584"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Road Fleet + 19 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "80.00 USD"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Lettie Spaeth"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "01/15/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Conference Communications",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 823454"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT Networking"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,156,254.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Justina Yelverton"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "12/18/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for JKPC Marketing - APAC",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 821234"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Marketing + 12 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,000,113.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Danielle Bradfield"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "12/30/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Conference Communications",
+            "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859562"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT/Telecom + 25 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,022,000.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Toshia Lofland"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/12/2017"
+        }
+      ]
+    },
+
+        {
+      "docName": "RFx for Hotels - North America",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 859561"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Business Travel + 16 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,780,000.00 "
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Karina Godin"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "09/08/2017"
+        }
+      ]
+    },
+
+    {
+      "docName": "RFx for Server Hardware",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 823454"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: IT Networking + 29 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,111,023.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Bert Matthes"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "05/26/2017"
+        }
+      ]
+    },
+    {
+      "docName": "RFx for Office Stationery",
+           "isdocSelected": false,
+      "docType": "RFX",
+      "docLink": "sourcing.rfx.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Event Code: 823454"
+        },
+        {
+          "datakey": "summary",
+          "value": "Category: Office Supplies + 30 more"
+        },
+        {
+          "datakey": "amount",
+          "value": "USD 1,111,056.00"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Delmy Sillman"
+        },
+        {
+          "datakey": "createdOn",
+          "value": "05/26/2017"
+        }
+      ]
+    }
+  ]
+}

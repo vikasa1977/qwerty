@@ -1,0 +1,71 @@
+<div>
+    <div class="modal-header clearfix">
+
+
+            <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate}}" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+            <i class="icon grey-text iconSmall left">
+                <svg><use xlink:href="#icon_Lookup"></use></svg>
+            </i>
+        
+            <span class="title">SELECT PO</span>
+
+
+
+    </div>
+    <div class="modal-content is-scrolled padding0" style="min-height:300px">
+        <smart-scroll height="300px">
+            <div class="model_body">
+                <div class="divAsTable bordered highlight">
+                    <!--table with body-->
+                    <div class="dtBody">
+                        <div class="divAsTR row triggerr" ng-repeat-start="item in POItemList track by $index" ng-click="showDetails($index);" ng-class="{'is-cartItemLast':$last}">
+                            <div class="dtBodyTD col s12 dtBodyTDWithIconCircle">
+                                <i class="icon iconSmall marginTop6 left  marginRight15" ng-class="item.isSelectPO ? 'arrow-Dir--btm': 'arrow-Dir--right' ">
+                                    <svg>
+                                        <use xlink:href="#icon_DownChevron"></use>
+                                    </svg>
+                                </i>
+                                <div class="left marginTop6" ng-click="$event.stopPropagation();">
+                                    <input class="with-gap" type="radio" ng-checked="item.isSelectPO" ng-click="radChangeCall(item.isSelectPO,$index);"  name="selectPOItem" ng-value="item.name" id="poItem-{{ $index }}">
+                                    <label for="poItem-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.name  || translate }}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divAsTR row sectionContentWithShadow grey lighten-5" ng-repeat-end ng-if="item.isSelectPO" ng-init="dataKey = $index">
+                            <div class="dtBodyTD col s12  paddingBtm0">
+                                <div class="row marginBtm0">
+                                    <smart-textfield class="col s3 m3 l4 line-height-manager" label="Supplier Name" readonly="true" ng-model="item.supplierName"></smart-textfield>
+                                    <smart-textfield class="col s3 m3 l4 line-height-manager" label="Business Unit" readonly="true" ng-model="item.BU"></smart-textfield>
+                                    <smart-textfield class="col s3 m3 l4 line-height-manager" label="Currency" readonly="true" ng-model="item.currency"></smart-textfield>
+                                    <!--<smart-textfield class="col s3 m3 l4 line-height-manager" label="Selected Item" readonly="true" ng-model="item.selectedItem"></smart-textfield>
+                                    <smart-textfield class="col s3 m3 l4 line-height-manager" label="Included" readonly="true" ng-model="item.include"></smart-textfield>
+                                    <smart-textfield class="col s3 m3 l4 line-height-manager" label="Excluded" readonly="true" ng-model="item.exclude"></smart-textfield>
+									<smart-textfield class="col s3 m3 l4 line-height-manager" label="Purchase Type" readonly="true" ng-model="item.purchaseType"></smart-textfield>
+									<smart-textfield class="col s3 m3 l4 line-height-manager" label="Program" readonly="true" ng-model="item.program"></smart-textfield>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>        
+    </div>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="selectPODone()"></smart-button>
+    <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+</div>

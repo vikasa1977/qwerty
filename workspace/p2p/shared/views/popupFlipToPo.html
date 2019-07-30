@@ -1,0 +1,30 @@
+<div id="approvalPending">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_Order"></use></svg>
+        </i>
+        <span class="title">Create PO</span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body is-scrolled paddingTop20">
+            <smart-scroll height="250px">
+                <div class="row popup-flip-to">
+                    <div class="col s12">
+                        <smart-typeahead class="col s12 line-height-manager" multiselect="false" show-lookup="true" ng-model="selectedFlipToPoSupplier" options="flipToPoSupplierOptions" filterkeys="['supplierName']" optionformat="<span>{supplierName}</span>" displayformat="{supplierName}" label="Supplier" lookup-hide="onFlipToPoSupplierLookUpHide(data)" lookup-Open="onFlipToPoSupplierLookUpShow()" on-select="callAfterAddNewFuncClick(e)"></smart-typeahead>
+                    </div>
+
+                    <div class="col s12">
+                        <smart-typeahead class="col s12 line-height-manager" multiselect="false" show-lookup="true" ng-model="selectedFlipToPoOrderLoc" options="flipToPoOrderLocOptions" filterkeys="['orderLocName']" optionformat="<span>{orderLocName}</span>" displayformat="{orderLocName}" label="Ordering Location" lookup-hide="onFlipToPoOrderLocLookUpHide(data)" lookup-Open="onFlipToPoOrderLocLookUpShow()" disable="{{isSupplierSelected}}"></smart-typeahead>
+                    </div>
+                </div>
+            </smart-scroll>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <!--<smart-button flat="true" config="{'title':'RESET'}" class="left"></smart-button>-->
+                <smart-button flat="true" config="{'title':'CREATE PO'}" class="right marginRight5" disable="createPoDisable" ng-click="createPoCallback()"></smart-button>
+                <smart-button flat="true" config="{'title':'CANCEL'}" class="right" ng-click="flipToPoOnHideCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

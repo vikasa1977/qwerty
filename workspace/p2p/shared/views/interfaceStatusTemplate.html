@@ -1,0 +1,12 @@
+
+<div ng-controller="commonInterfaceStatusCtrlr" class="col s12 line-height-manager input-field">
+    <label class="active">Interface Status</label>
+    <span class="blue-text cursorPointer paddingRight5 paddingTop2" style="top: -3px" smart-infotip position="right" template-url="rejectByERPTemplate.html" bind-on="click" mode="click" is-fixed="true">{{ ngModel.data.name | translate }}</span>
+
+    <script type="text/ng-template" id="rejectByERPTemplate.html">
+        <div class="width260 padding10">
+            <span class="grayed-text">Date and Time: </span><span>{{ formatedInterfaceDate }}</span><br />
+            <span class="grayed-text">Reason: </span><span>{{ interfaceComment }}</span>
+        </div>
+    </script>
+</div>

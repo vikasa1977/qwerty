@@ -1,0 +1,9 @@
+<div ng-controller="buCntrl">	
+    <div class="col s12  paddingTop10 paddingBtm5 input-field  marginBtm25">      
+        <label class="active" ng-if="selectedBUNodes.length > 0">Business Unit</label>
+        <a href="javascript:void(0)" ng-click="treeOpenCallback('bu')">{{selectedBUTxt}}</a>
+    </div>
+
+    <!-- popup --cbr -->
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback(e)" cancel-button="true"></smart-popup>
+</div>

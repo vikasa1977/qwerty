@@ -1,0 +1,105 @@
+<div class="notes-section-wrapper" ng-controller="adminItemMasterNotesCtrl">
+    <div class="row marginBtm0 borderTopLight">
+        <div class="clearfix secContentWithBorder fontSize12">
+            <div class="right ">
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-click="notesAddRowCallback()">
+                    <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Attachments" position="bottom">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled': !(notesSelectAll || notesPartiallyFill)}" smart-tooltip message="Delete Selected" position="bottom" ng-click="notesDeleteRowCallback()">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <table class="bordered sTable">
+        <colgroup>
+            <col style="width:5%" />
+            <col style="width:20%" />
+            <col style="width:7%" />
+            <col style="width:12%" />
+            <col style="width:12%" />
+            <col style="width:12%" />
+            <col style="width:22%" />
+            <col style="width:10%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th ng-class="{'filled-partial': notesPartiallyFill}">
+                    <!--<smart-checkbox class="" ng-model="notesSelectAll" smart-selectall data="notesData|.notesListchk" get-checkbox-info="notesGetCheckedInfo()" checker-flag="isChecked"></smart-checkbox>-->
+                    <smart-checkbox class="" ng-model="notesSelectAll" on-change="notesSelectAllChanged(notesSelectAll)"></smart-checkbox>
+                </th>
+                <th>Name</th>
+                <th>&nbsp;</th>
+                <th>Business Unit</th>
+                <th>Classification</th>
+                <th class="center-align">Internal</th>
+                <th class="center-align">Editable</th>
+                <th>Include On</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="notes in notesData | itemsPerPage:selectedOption.size" pagination-id="notesAttachment" >
+                <td ng-class="{'highlight': notes.highlight}">
+                    <!--<smart-checkbox class="notesListchk" ng-model="notes.isChecked"></smart-checkbox>-->
+                    <smart-checkbox class="" ng-model="notes.isChecked" on-change="notesListChanged(notes.isChecked)"></smart-checkbox>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(notes)" ng-class="{'invalid-field': notes.notesName.errorMsg}" data-activates='notesName_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!notes.notesName.name">Enter Value</span>
+                            <span ng-if="notes.notesName.name">{{notes.notesName.name}}</span>
+                        </a>
+                        <div id='notesName_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="notes.notesName.name" error-model="notes.notesName.errorMsg" focus="notes.qtyfocus" class="col s12" on-blur="updatedNotes_Name()" rules="{{notes.notesName.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}">
+                    <a href="javascript:void(0)" ng-click="attchUploadPopupCallback(notes)">
+                        <i class="icon left blue-text  marginRight0" smart-tooltip message="{{notes.uploadTooltip}}" position="bottom">
+                            <svg><use xlink:href="{{'#'+notes.uploadIcon}}"></use></svg>
+                        </i>
+                    </a>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}">
+                    <smart-list-lookup readonly="false" disable="false" class="left marginBtm0 titleless-typeahead" titleofmodel="Select Business Unit" multiselect="false" is-mandatory="true" label="" addnew="false" selecttypeoption="notes.bu.selectTypeOption" ng-model="notes.bu.selectedOption" options="notes.bu.options" displayformat="['name']"></smart-list-lookup>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}">
+                    <div class="classificationCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="notes.classification" options="notes.classificationOpt" datakey="name" displaykey="name" on-change="changedClassification(notes.classification)"></smart-select>
+                    </div>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}" class="center-align">
+                    <smart-checkbox ng-model="notes.internalChk"></smart-checkbox>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}" class="center-align">
+                    <smart-checkbox ng-model="notes.editableChk"></smart-checkbox>
+                </td>
+                <td ng-class="{'highlight': notes.highlight}">
+                    <div class="includeOnCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="notes.includeOn" options="notes.includeOnOpt" datakey="name" displaykey="name" on-change="changedincludeOn(notes.includeOn)"></smart-select>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="clearfix paginationWrapper" ng-show="notesData.length>defaultOption.size">
+        <span class="rowsToShow" style="display: none">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+        </span>
+        <div class="clearfix paginationWrapper savable right">
+            <div class="left selectPaginationDropDown">
+                <span class="rowsToShow"> Rows Per Page:</span>
+                <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts" ng-model="selectedOption" datakey="size"></smart-select>
+            </div>
+            <dir-pagination-controls class="left" pagination-id="notesAttachment" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div>
+    </div>
+</div>

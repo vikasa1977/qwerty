@@ -1,0 +1,1056 @@
+{
+  "modelData": {
+    "ProjectLegacyCode": "",
+    "DocumentNumber": "",
+    "Title": "",
+    "ProjectTypeId": "",
+    "DocumentDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "ProgramNameCode": "",
+    "ProjectCurrencyId": "",
+    "ProjectCurrency": "",
+    "ProjectAmount": "",
+    "BuyerConfidenceValue": "",
+    "Stakeholders": "",
+    "ContactName": "",
+    "IsConfidential": false,
+    "CopiedFrom" :  "Project ABC",
+    "ExecutionStartDate": "",
+    "ExecutionEndDate": "",
+    "CreateDate": "",
+    "milestonesExeDate": "",
+    "perField": "",
+    "prSegRiskScore":"2"
+  },
+  "formConfig": {
+    "sections": [
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "id": "basic_details",
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Project Legacy Code",
+                "type": "textfield",
+                "isMandatory": false,
+                "data": "ProjectLegacyCode",
+                "focus": false,
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Project Number",
+                "type": "textfield",
+                "isMandatory": false,
+                "data": "DocumentNumber",
+                "isVisible": false,
+                "disable": true,
+                "onChange": "onChange",
+                "attributes": {
+                  "maxlength": 50,
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Project Title",
+                "type": "textfield",
+                "isMandatory": false,
+                "data": "Title",
+                "isVisible": true,
+                "focus": true,
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Project Type",
+                "type": "dropdown",
+                "isVisible": false,
+                "isMandatory": true,
+                "data": "ProjectTypeId",
+                "colspan": 1,
+                "onChange": "onChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "stDisableType",
+                      "name": "Savings Tracking - Disable Type"
+                    },
+                    {
+                      "code": "stEnableProject",
+                      "name": "Savings Tracking - Enabled on projects"
+                    },
+                    {
+                      "code": "stEnableSavings",
+                      "name": "Savings Tracking - Enabled on Savings"
+                    },
+                    {
+                      "code": "stEnableProjects",
+                      "name": "Savings Tracking - 2 - Enabled on projects"
+                    }
+                  ],
+                  "datakey": "name",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Description",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": true,
+                "data": "DocumentDescription",
+                "colspan": 6,
+                "onChange": "onChange",
+                "attributes": {
+                  "charactercounter": "true",
+                  "maxlength": 4000,
+                  "type": "area",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Program Name",
+                "type": "dropdown",
+                "isVisible": true,
+                "isMandatory": false,
+                "data": "ProgramNameCode",
+                "colspan": 1,
+                "onChange": "onChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "approvals",
+                      "name": "Approvals"
+                    },
+                    {
+                      "code": "bugTest",
+                      "name": "Bug Test"
+                    },
+                    {
+                      "code": "preSales",
+                      "name": "Demo PreSales"
+                    },
+                    {
+                      "code": "demoNotification",
+                      "name": "Demo for notification"
+                    },
+                    {
+                      "code": "execution",
+                      "name": "Execution"
+                    }
+                  ],
+                  "datakey": "name",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Project Strategy",
+                "editable": true,
+                "isMandatory": false,
+                "isVisible": false,
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "project/ppst/views/projectStrategyTemp.html"
+              },
+              {
+                "label": "Project Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "ProjectCurrencyId",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "USD",
+                      "selected": true
+                    },
+                    {
+                      "title": "DNY"
+                    },
+                    {
+                      "title": "RUPEE"
+                    }
+                  ],
+                  "readonly": false,
+                  "maxlength": 10
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ],
+                "readonly": true
+              },
+              {
+                "label": "Buyer Confidence",
+                "type": "dropdown",
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "BuyerConfidenceValue",
+                "colspan": 1,
+                "onChange": "onChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "S",
+                      "name": "Select"
+                    },
+                    {
+                      "code": "0",
+                      "name": "0"
+                    },
+                    {
+                      "code": "25",
+                      "name": "25"
+                    },
+                    {
+                      "code": "50",
+                      "name": "50"
+                    },
+                    {
+                      "code": "75",
+                      "name": "75"
+                    },
+                    {
+                      "code": "100",
+                      "name": "100"
+                    }
+                  ],
+                  "datakey": "name",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Baseline Savings Type and Impact",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 1,
+                "type": "subsection",
+                "controller": "SavingsImpCtrl",
+                "templateUrl": "project/ppst/views/savingsImpactTemp.html"
+              },
+              {
+                "label": "Stakeholders",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "Stakeholders",
+                "colspan": 6,
+                "onChange": "onChange",
+                "attributes": {
+                  "charactercounter": "true",
+                  "maxlength": 4000,
+                  "type": "area"
+                }
+              },
+              {
+                "label": "Project Owner",
+                "type": "textfield",
+                "data": "prOwner",
+                "isVisible": true,
+                "attributes": {
+                  "maxlength": 100,
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Mark as Confidential",
+                "type": "checkbox",
+                "editable": true,
+                "isMandatory": true,
+                "data": "IsConfidential",
+                "attributes": {
+                  "readonly": false,
+                  "fill": true
+                }
+              },
+              {
+                "label": "Copied From",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 1,
+                "type": "subsection",
+                "controller": "PPSTCtrl",
+                "templateUrl": "project/ppst/views/copiedFromTemp.html"
+              },
+              {
+                "label": "Copies Created",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 1,
+                "type": "subsection",
+                "controller": "PPSTCtrl",
+                "templateUrl": "project/ppst/views/copiesCreatedTemp.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Applicable for",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": true,
+        "isDraggable": true,
+        "id": "applicable_for",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/categoryTemp.html"
+              },
+              {
+                "colspan": 1,
+                "label": "Choose Business Unit",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/buTemp.html"
+              },
+              {
+                "colspan": 1,
+                "label": "Choose Region",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": true,
+                "id" :  "applicable_for-region",
+                "templateUrl": "project/ppst/views/regionTemp.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Timelines",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "id": "timelines",
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Project Created On",
+                "type": "textfield",
+                "editable": true,
+                "data": "CreateDate",
+                "isVisible": false,
+                "isMandatory": true,
+                "id": "projCreatedOn",
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Execution Start Date",
+                "type": "textfield",
+                "editable": true,
+                "data": "ExecutionStartDate",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Execution End Date",
+                "type": "textfield",
+                "editable": true,
+                "data": "ExecutionEndDate",
+                "id" :  "timelines-executionEndDate",
+                "isVisible": true,
+                "isMandatory": false,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Realization Start Month (Baseline)",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": true,
+                "controller": "BaseLineCntrl",
+                "id" :  "timelines-relizationStartMonth",
+                "templateUrl": "project/ppst/views/baselineRSM.html",
+                "colspan": 2
+              },
+              {
+                "label": "Realization Period (Baseline)",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": true,
+                "controller": "BaseLineCntrl",
+                "id" :  "timelines-relizationPeriod",
+                "templateUrl": "project/ppst/views/baselineRP.html",
+                "colspan": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Additional Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "id": "additional_fields",
+        "rows": [
+          {
+            "properties": [{
+                "label": "Sum of %Opex and %Capex",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": true,
+                "colspan": 6,
+                "groupName":"Opex Group Name",
+                "templateUrl": "project/ppst/views/groupLabels.html"
+
+              },{
+                "label": "Currency",
+                "type": "dropdown",
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "ProjectCurrency",
+                "colspan": 1,
+                "onChange": "onChangeCurrency",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "USD",
+                      "name": "US Dollar (USD)"
+                    },
+                    {
+                      "code": "EUR",
+                      "name": "Euro (EUR)"
+                    },
+                    {
+                      "code": "GBP",
+                      "name": "British Pound (GBP)"
+                    },
+                    {
+                      "code": "ADF",
+                      "name": "Andorran Franc (ADF)"
+                    },
+                    {
+                      "code": "AED",
+                      "name": "Utd. Arab Emir.Dirham. (AED)"
+                    },
+                    {
+                      "code": "ANG",
+                      "name": "NL Antillian Guilder (ANG)"
+                    },
+                    {
+                      "code": "CNY",
+                      "name": "Chinese Yuan Renminbi (CNY)"
+                    },
+                    {
+                      "code": "INR",
+                      "name": "Indian Rupee (INR)"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Amount",
+                "type": "textfield",
+                "editable": true,
+                "data": "ProjectAmount",
+                "isVisible": true,
+                "isMandatory": true,
+                "currencySymbol": "selectedProjectCurrency",
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number",
+                  "minmaxprecision": [ 2, 2 ],
+                  "readonly":  false
+                }
+              }
+
+            ]
+          },{
+            "properties": [
+              {
+                "label": "IR&S Projects Involvement",
+                "type": "dropdown",
+                "data": "IRSInvolvement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Ys",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "No",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Contract Type",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prContractType",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "A",
+                      "name": "Addendum"
+                    },
+                    {
+                      "code": "CA",
+                      "name": "Consulting Agreement"
+                    },
+                    {
+                      "code": "CAM",
+                      "name": "Consulting Amendment"
+                    },
+                    {
+                      "code": "CE",
+                      "name": "Contract Extension"
+                    },
+                    {
+                      "code": "EULA",
+                      "name": "EULA"
+                    },
+                    {
+                      "code": "Ext",
+                      "name": "Extension"
+                    },
+                    {
+                      "code": "MSA",
+                      "name": "MSA"
+                    },
+                    {
+                      "code": "NDA",
+                      "name": "NDA"
+                    },
+                    {
+                      "code": "Other",
+                      "name": "Other"
+                    },
+                    {
+                      "code": "SFPA",
+                      "name": "SFPA"
+                    },
+                    {
+                      "code": "SOW",
+                      "name": "SOW/ER"
+                    },
+                    {
+                      "code": "SA",
+                      "name": "Supplier Agreement"
+                    },
+                    {
+                      "code": "SC",
+                      "name": "Supplier Contract"
+                    },
+                    {
+                      "code": "TL",
+                      "name": "Termination Letter"
+                    },
+                    {
+                      "code": "VA",
+                      "name": "Variation Agreement"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Project Segmentation Risk Score",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prSegRiskScore",
+                "isVisible": true,
+                "isMandatory": true,
+                "onChange": "showFields",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "1",
+                      "name": "1"
+                    },
+                    {
+                      "code": "2",
+                      "name": "2"
+                    },
+                    {
+                      "code": "3",
+                      "name": "3"
+                    },
+                    {
+                      "code": "4",
+                      "name": "4"
+                    },
+                    {
+                      "code": "5",
+                      "name": "5"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "IR&S Rating",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prIRSRating",
+                "isVisible": false,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "L",
+                      "name": "Low"
+                    },
+                    {
+                      "code": "M",
+                      "name": "Medium"
+                    },
+                    {
+                      "code": "H",
+                      "name": "High"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "IR&S Contact",
+                "type": "textfield",
+                "editable": true,
+                "data": "prIRSContact",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number"
+                }
+              },
+              {
+                "label": "If Sourcing, more than 2 suppliers invited",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prSuppliersInvited",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "If Sourcing, did you use SMART?",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prUsedSmart",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Rationale for IR&S engagement",
+                "type": "textfield",
+                "editable": true,
+                "data": "prRationaleIRSEngagement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Legal Involvement",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prLegalInvolvement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Date Legal first involved",
+                "type": "textfield",
+                "editable": true,
+                "data": "prDateLegalFirstInvolved",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Legal Rating",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prLegalRating",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "L",
+                      "name": "Low"
+                    },
+                    {
+                      "code": "M",
+                      "name": "Medium"
+                    },
+                    {
+                      "code": "H",
+                      "name": "High"
+                    }
+                  ],
+                  "datakey": "name"
+
+                }
+              },
+              {
+                "label": "Legal Contact",
+                "type": "textfield",
+                "editable": true,
+                "data": "prLegalContact",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number"
+                }
+              },
+              {
+                "label": "Rationale for legal Engagement",
+                "type": "textfield",
+                "editable": true,
+                "data": "prRationaleLegalEngagement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Business Led or Procedure Led?",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prBLorPL",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "BL",
+                      "name": "Busness Led"
+                    },
+                    {
+                      "code": "PL",
+                      "name": "rocurement Led"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/signOffBaselineTemp.html"
+              },
+              {
+                "label": "VPM Date",
+                "type": "textfield",
+                "editable": true,
+                "data": "prVPMDate",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Lorem Ipsum(%)",
+                "type": "textfield",
+                "editable": true,
+                "data": "perField",
+                "isVisible": true,
+                "isMandatory": false,
+                "attributes": {
+                  "type": "number"
+                }
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/multiChoiceSingleRadio.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/multiChoiceMultiSelect.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/categoryTemp.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/categorySingleTemp.html"
+              },
+              {
+                "label": "Savings Type And Impact",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 1,
+                "type": "subsection",
+                "controller": "multiChoiceCtrl",
+                "templateUrl": "project/ppst/views/savingsImpactTemp_AF.html"
+              },
+              {
+                "label": "Lorem Ipsum",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "DocumentDescription",
+                "colspan": 6,
+                "onChange": "onChange",
+                "attributes": {
+                  "charactercounter": "true",
+                  "maxlength": 4000,
+                  "type": "area"
+                }
+              },
+              {
+                "colspan": 6,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/ppst/views/richTextArea.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Milestones Summary",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/ppst/views/milestonesHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": false,
+        "isDraggable": true,
+        "id": "milestones",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "controller": "milestonesCntrl",
+                "templateUrl": "project/ppst/views/milestones.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Linked Documents",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/ppst/views/linkedDocumentsHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": false,
+        "isDraggable": true,
+        "id": "linked_documents",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "controller": "linkedDocsCntrl",
+                "templateUrl": "project/ppst/views/linkedDocuments.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Attachments",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/ppst/views/attachmentSecHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": false,
+        "isDraggable": true,
+        "id": "attachments",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "project/ppst/views/attachmentSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Team Members",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/ppst/views/teamMemberSecHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": false,
+        "isDraggable": true,
+        "id": "team-members-section",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "controller": "teamMemberCtrlProj",
+                "templateUrl": "project/ppst/views/teamMemberData.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Suppliers",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/ppst/views/supplierSecHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": false,
+        "isDraggable": true,
+        "id": "suppliers-section",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "controller": "supplierCtrlProj",
+                "templateUrl": "project/ppst/views/supplierData.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

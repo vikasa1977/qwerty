@@ -1,0 +1,17 @@
+<div class="borderTopLight">
+    <div class="center action-block" ng-if="!showTimeLinePeriod">
+        <a class="action-block-cont" href="javascript:void(0)" ng-click="showAddTimeLine()">
+            <!--ui-sref="admin.notificationView"-->
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">Add Timeline</span>
+        </a>
+    </div>
+    <div class="row margin0" ng-if="showTimeLinePeriod">
+        <smart-timeline class="padding0 col s12" ng-model="timelinePeriod" on-select ="onSelectTimeline($res)" date-format="DD/MM/YY hh:mm a"></smart-timeline>
+    </div>
+    <smart-popup template-url="project/ppst/views/popupAddTimeline.html" show="{{addTimLinePeriod}}" on-hide="addTimeLinePopupHide(e)"></smart-popup>
+</div>

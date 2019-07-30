@@ -1,0 +1,147 @@
+{
+  "dataModel": {
+    "setup": {
+			"firstName": "Emily",
+			"lastName": "Ross",
+			"email": "emaily.ross@domain.com",
+			"defaultCategory": "emaily.ross@domain.com",
+			"defaultRegion": "Asia",
+			"defaultBU": "1700-Avox",
+			"phoneNum":"",
+			"defaultCur":"",
+			"shippingLoc":"",
+			"timeZone":"",
+			"elecSign":"",
+			"language":""
+    }
+  },
+  "formConfig": {
+    "sections": [
+      {
+		"plain": true,
+        "isMandatory": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "First Name 1",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.firstName",
+                "focus": true
+              },
+			  {
+                "label": "Last Name",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.lastName"
+              }
+            ]
+          },
+		  {
+            "properties": [
+              {
+                "label": "Email",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.email"
+              }
+            ]
+          },
+		   {
+            "properties": [
+              {
+                "label": "Deault Category",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.defaultCategory"
+              },
+			     {
+                "label": "Deault Region",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.defaultRegion"
+              }
+            ]
+          },
+		   {
+            "properties": [
+              {
+                "label": "Deault Serving Business Unit",
+                "type": "textfield",
+                "isMandatory": true,
+                "colspan": 6,
+                "data": "setup.defaultBU"
+              }
+            ]
+          },
+		   {
+            "properties": [
+              {
+                "label": "Phone Number",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.phoneNum"
+              },
+			    {
+                "label": "Default Currency",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.defaultCur"
+              }
+            ]
+          },
+		   {
+            "properties": [
+              {
+                "label": "Shipping Location",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.shippingLoc"
+              },
+			    {
+                "label": "Time Zone",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.timeZone"
+              }
+            ]
+          },
+		   {
+            "properties": [
+              {
+                "label": "Electronic Signature",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.elecSign"
+              },
+			    {
+                "label": "Language",
+                "type": "textfield",
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "setup.language"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "rule": "this.setup.reqName == \"sushant\" && this.setup.reqNumber == \"111\"",
+        "error": "Name and number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone">
+            <div class="searchWithHiddenTextField " ng-class="{'active':isSearchOpen}">
+                <a id="btnSearchTextbox" href="javascript:void(0)" class="search-icon btn-flat waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="{{'searchMsg' | translate}}" ng-click="searchToggle()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg focusable="false"><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+
+                <smart-textfield id="expectionSearch" placeholder="{{ 'searchMsg' | translate }}" ng-model="searchText.title" is-search="true" class="input-field" no-trim="true" ng-show="isSearchOpen"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{cancelTitle}}" ng-show="isSearchOpen" ng-click="closeSearch();">
+                    <i class="icon iconSmall center grey-text">
+                        <svg focusable="false"><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    
+        <i class="icon iconSmall grey-text left">
+            <svg focusable="false"><use xlink:href="#icon_Lookup"></use></svg>
+        </i>
+        <span class="title truncate left title-of-model" smart-tooltip position="bottom" message="{{ titleOfModel | translate}}">
+            {{ "Expection Status" | translate }}
+        </span>
+
+</div>
+    <div class="modal-content padding0 is-scrolled">
+        <smart-scroll height="300px">
+                <div class="row">
+                    <table class="bordered">
+                        <colgroup>
+                            <col style="width:40%;" />
+                            <col style="width:40%;" />
+                            <col />
+                        </colgroup>
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    {{'User Name' || translate}}
+                                </th>
+                                <th>
+                                    {{'Status Changed On' || translate}}
+                                </th>
+                                <th>
+                                    {{'Status' || translate}}
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="r in resolverUserList | filter: searchText.title">
+
+                                <td>
+                                    <div class="truncate">
+                                        {{r.name}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="truncate">
+                                        {{ r.statusChangedOn | date:"dd MMM yyyy 'at' h:mma" }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="truncate" ng-class="getStatusColor(r.status)">
+                                        {{r.status}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                     
+                    </table>
+                </div>
+       </smart-scroll>
+</div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"Done"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

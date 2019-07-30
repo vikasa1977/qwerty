@@ -1,0 +1,132 @@
+﻿<div class="trackStatus">
+    <div class="modal-header" ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <a href="javascript:void(0)" id="trackStatusPopup" ng-click="goToTracksatusDetail(e)" class="right blue-text waves-effect waves-light">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Fullscreen" ng-if="!isFullscreen"></use>
+                    <use xlink:href="#icon_Minimize" ng-if="isFullscreen"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="valign-wrapper">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_TrackStatus"></use>
+                </svg>
+            </i>
+            <span class="title">TRACK STATUS</span>
+        </div>        
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+            <div ng-init="locationFn()">
+                <section class="section-container">
+                    <div class="divider"></div>
+                    <div class="row add-verticle-divider">
+                        <div class="col l4 m4 s12">
+                            <div class="section-part">
+                                <span>Document Name</span><br/>
+                                <span>{{headerSecData.documentName}}</span>
+                            </div>
+                        </div>
+                        <div class="col l4 m4 s12">
+                            <div class="section-part">
+                            <span class="grey-text left fontSize14">
+                                Created On
+                            </span>
+                            <smart-dropdown config="{{dropDownConfig}}" class="right">
+                                <a href="javascript:void(0)" class="dropdown-button" 
+                                   data-activates="trackStatusComment" data-hover="true"                data-alignment="right" data-constrainwidth="false">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_Commented"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <div id="trackStatusComment" class="dropdown-content dd-close-off row shades white" style="width:40%">
+                                    <div class="col s12 padding20 dropdown-content-header">
+                                        <div class="light">
+                                            <div class="shade black-text">
+                                                {{headerSecData.Comments.commentBy}}
+                                                <span class="grey-text">
+                                                    - {{headerSecData.Comments.Designation}}
+                                                </span>
+                                            </div>
+                                            <div>{{headerSecData.Comments.comment}}</div>
+                                            <div class="right">
+                                                <span class="red-text">
+                                                    {{headerSecData.Comments.status}}
+                                                </span>
+                                                <span> 
+                                                    on {{headerSecData.Comments.date}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </smart-dropdown>
+                            <br/>
+                            <span class="truncate">
+                                {{getDate(docCreatedOn)}}  by {{headerSecData.createdBy}}
+                            </span>
+                        </div>
+                    </div>
+                        <div class="col l4 m4 s12">
+                            <div class="section-part">
+                                <span class="grey-text fontSize14">
+                                    Current Status
+                                </span><br />
+                                <span class="color-approved-pending">
+                                    {{headerSecData.currentStatus}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row paddingTop5 relative">
+                        <smart-dropdown config="{{dropDownConfig}}" class="right">
+                            <a href="javaScript:void(0)" class="dropdown-button absolute legend-dropdown" data-activates="tabMatLineTReqSending" data-constrainwidth="false" data-alignment="right">
+                                {{'Legend'|| translate}}
+                            </a>
+                            <div id="tabMatLineTReqSending" class="dropdown-content dd-close-off row shades white paddingBtm15" style="width:550px">
+                            <!-- for legend -->
+                            <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                                <li class="paddingTop10 paddingBtm10 left valign-wrapper"               ng-repeat="approvarType in approverTypes">
+                                    <i class="icon iconMedium left {{approvarType.color}}">
+                                        <svg>
+                                            <use xlink:href="{{approvarType.icon}}"></use>
+                                        </svg>
+                                    </i>
+                                    <div class="white-space-normal">
+                                        {{approvarType.text}}
+                                    </div>
+                                </li>
+                            </ul>
+                                <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                                <li class="paddingTop10 paddingBtm10 left valign-wrapper"               ng-repeat="status in legend2">
+                                    <i class="icon iconMedium left {{status.color}}">
+                                        <svg>
+                                            <use xlink:href="{{status.icon}}"></use>
+                                        </svg>
+                                    </i>
+                                    <div class="white-space-normal">
+                                        {{status.text}}
+                                    </div>
+                                </li>
+                            </ul>
+                            </div>
+                        </smart-dropdown>
+                    <div class="col m12 s12 padding0">
+                    <smart-tabs tab-config="{{trackStatusTabs}}" width="350px" class="marginBtm0" on-select="tabClickCallback1(e)">
+                    </smart-tabs>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer_new is-scrolled">        
+        <smart-button flat="true" class="modal-close right" config='{"title":"CLOSE"}'></smart-button>
+    </div>
+</div>
+

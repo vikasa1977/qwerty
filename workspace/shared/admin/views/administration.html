@@ -1,0 +1,37 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader,'z-depth-0':isApplyFilters || isSavedView || isUploadStatus}">
+    <div class="col s12">
+        <!--leftSide content-->
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle sh-icon waves-effect waves-light  extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+          
+            <span class="extra-nav-title--text ng-cloak">{{ 'Administration' || translate | uppercase }}</span>
+        </div>
+
+    </div>
+</div>
+<!--sub header end here-->
+<div class="paddingTop24">
+    <div class="row">
+        <div class="col s10 centered">
+            <table class="table bordered white">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a ui-sref="expandedLandingList({ doctype: 'catalog'  })">
+                                Catalog Management
+                            </a>
+                            </td>
+                        <td></td>
+</tr>
+                    </tbody>
+                </table>
+       
+            </div>
+    </div>
+</div>

@@ -1,0 +1,318 @@
+{
+  "dataModel": {
+    "setup": {
+      "reqNo": "REQ-2016.989098",
+      "requestorName": "Warren Mark",
+      "BusinessUnit": "Technology",
+      "businessUnit": "101-BrassCraft Manufacturing",
+      "reqName": "Macbook Pro",
+      "currency": "USD",
+      "LegalEntity": "GEP Inc",
+      "ShipTo": "Clark, New Jersey",
+
+      "shipTo": "Mumbai",
+      "ShipToAdd": "100 Walnut Ave #304, Clark, NJ 07066, United States"
+
+    },
+     "attachementObj": [
+      {
+        "FileName": "EXrate.png",
+        "CreatedBy": 48670040000001,
+        "DateCreated": "\/Date(1464700666713)\/",
+        "FileID": 2331389,
+        "FileUri": "buyersqlconn/4867/Attachment/EXrate_5f288d7080dc4d69b1e923ac78db714e.png"
+      },
+      {
+        "FileName": "EXrate1.png",
+        "CreatedBy": 48670040000001,
+        "DateCreated": "\/Date(1464700666713)\/",
+        "FileID": 2331358,
+        "FileUri": "buyersqlconn/4867/Attachment/EXrate_5f288d7080dc4d69b1e923ac78db714e.png"
+      }
+    ],
+    "itemDetails": {
+      "itemType": [
+        {
+          "key": "materials",
+          "title": "Materials",
+          "selected": true
+        },
+        {
+          "key": "services",
+          "title": "Services"
+        }
+      ],
+      "selectedOption": {
+        "key": "materials",
+        "title": "Materials",
+        "selected": true
+      }
+    },
+    "items": {
+      "shipTo": [
+        {
+          "key": "headerLevel",
+          "title": "Specify at Header",
+          "selected": true
+        },
+        {
+          "key": "lineItemLevel",
+          "title": "Different for Each Line Item"
+        }
+      ],
+      "location": {
+        "locationName": "Vashi",
+        "locationCode": "1234",
+        "addressLine1": "Vashi sector 17",
+        "addressLine2": "",
+        "city": "Navi Mumbai",
+        "country": "India",
+        "zipCode": "234567",
+        "state": "MH",
+        "contactPerson": "Sushant Ahirrao",
+        "telephoneNumber": "1234567890"
+      }
+    }
+  },
+  "formConfig": {
+    "sections": [
+      {
+        "label": "BASIC DETAILS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": true,
+        "isDraggable": true,
+        "rows": [
+          {
+            "colspan": 12,
+            "properties": [
+              {
+                "label": "Requisition Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.reqName",
+                 "focus": true,
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Requisition Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.reqNo",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+              {
+                "label": "Requestor's Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.requestorName",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+              {
+                "label": "Business Unit",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.BusinessUnit",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+
+              {
+                "label": "Currency",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.currency",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+
+              {
+                "label": "Legal Entity",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.LegalEntity",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+
+              {
+                "label": "Mark as Urgent",
+                "type": "checkbox",
+                "editable": false,
+                "isMandatory": true,
+                "data": "true",
+                "attributes": {
+                  "readonly": false,
+                  "fill": true
+                }
+              },
+
+               {
+                "label": "Ship To",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.LegalEntity",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              }
+            ]
+          }
+        ]
+      },
+     
+	    {
+        "label": "DELIVERY & INVOICING DETAILS",
+        "isMandatory": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "colspan": 12,
+            "properties": [
+              {
+                "label": "Ship To",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.shipTo",
+                "focus": true,
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Ship To Address",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.ShipToAdd",
+                "attributes": {
+                  "readonly": true
+                }
+              }
+            ]
+          },
+          {
+            "colspan": 12,
+            "properties": [
+              {
+                "label": "Bill To",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.shipTo",
+                "focus": true,
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "colspan": 9,
+                "label": "Bill To Address",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.ShipToAdd",
+                "attributes": {
+                  "readonly": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "label": "Notes and Attachments",
+        "isDraggable": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "p2p/req/views/notesAndAttachmentSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "LINES DETAILS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/req/views/itemDetailTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+	    {
+        "label": "Additional Information",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Work Order Type",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.ERPOrderTypeName"
+              },
+              {
+                "label": "ERP Order Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.WorkOrderNumber"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

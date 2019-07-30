@@ -1,0 +1,107 @@
+<div >
+    <!-- modal -- header -->
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left modal-header--Icon">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use>
+            </svg>
+        </i>
+        <span class="title">{{'EDIT MULTIPLE LINES'|| translate}}</span>
+</div>
+
+    <!-- modal -- content -->
+    <div class="modal-content padding0 is-scrolled paddingLeft10">
+			<!-- vertical tabs -->
+			<div class="left marginTop25 paddingRight20" style="width:65%;">
+				<!-- vertical tabs -- left sidebar -->
+				<!-- vertical tabs -- content -->
+                <div class="row formEdit">
+                    <smart-textfield type="date" class="col s12 m6 l6" label="Start Date" ng-model="updateLineData.startDate"></smart-textfield>
+                    <smart-textfield type="date" class="col s12 m6 l6" label="End Date" ng-model="updateLineData.endDate"></smart-textfield>
+                </div>
+
+                <div class="row formEdit">
+                    <!--<smart-textfield type="date" label="{{ 'Need by Date' || translate }}" ng-model="needbyDate" class="col s12 m6 l6" disable="true"></smart-textfield>-->
+                    <smart-textfield label="{{ 'Ship To' || translate }}" ng-model="updateLineData.shipto" class="col s12 m6 l6"></smart-textfield>
+                    <smart-textfield label="{{ 'Deliver to' || translate }}" ng-model="updateLineData.deliverTo" class="col s12 m6 l6"></smart-textfield>
+                </div>
+
+				<div class="row formEdit marginBtm0">
+					<smart-typeahead class="col s12 m6 l6 line-height-manager" multiselect="false" show-lookup="true" ng-model="updateLineData.selectedcontractNumber" options="contractNumber" filterkeys="['FirstName', 'LastName']" optionformat="<span>{UserId} {UserName}</span>" displayformat="{UserId} {UserName}" label="Contract Number" lookup-open="onSmartTypeHeadOpen()" lookup-hide="onSmartTypeHeadClose(data)"></smart-typeahead>
+                    <smart-typeahead class="col s12 m6 l6 line-height-manager" multiselect="false" show-lookup="true" ng-model="updateLineData.selectedtaxCode" options="taxCode" filterkeys="['FirstName', 'LastName']" optionformat="<span>{UserId}{UserName}</span>" displayformat="{UserId} {UserName}" label="Tax Code" lookup-open="onSmartTypeHeadOpen()" lookup-hide="onSmartTypeHeadClose(data)"></smart-typeahead>
+                </div>
+
+                <div class="row formEdit marginBtm0">
+                    <div class="col s12 m6 l6 input-field marginTop30 marginBtm0">
+                        <label class="active" ng-if="selectedCategoriesTxt.length > 0">Category</label>
+                        <a href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{selectedCategoriesTxt}}</a>
+                    </div>
+                    
+                </div>
+
+			</div>
+			<div class="right border-left " style="width:35%;">
+				<!-- Tabs Content -->
+				<div class="clearfix">
+					<div class="collection">
+                        <div class="black-text ng-binding padding15 nowrap borderBtmLight fontSize14 paddingLeft24">
+                            {{'ITEM NUMBER / DESCRIPTION'|| translate}}
+                        </div>
+                        <div class="collection-item clearfix paddingBtm5">
+                            <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex2" data-ng-init="mysearch=false;">
+                                <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                                    <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch(); mysearch = false" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                                        <i class="icon iconSmall center grey-text">
+                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                        </i>
+                                    </a>
+
+                                    <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="mysearch"></smart-textfield>
+                                    <a href="javascript:void(0)" class="search-icon waves-circle waves-effect btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch(); mysearch = true">
+                                        <i class="icon iconSmall center grey-text">
+                                            <svg><use xlink:href="#icon_Search"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div ng-class="{'filled-partial' : fillpartialBulkEdit == true }" class="marginBtm15 clearfix">
+                                <smart-checkbox label="{{'All' | translate }}" ng-model="selectAllEditBulk.checkedAll" class="left marginTop5" on-change="editbulkItemSelectAll(selectAllEditBulk.checkedAll)"></smart-checkbox>
+                            </div>
+                            <div class="borderBtmLight clearfix"></div>
+                        </div>
+
+                        </div>
+					<div>
+                        <smart-scroll height=250px">
+                            <smart-list model="itemList"
+                                        style-class="collection noBorder "
+                                        item-class="collection-item clearfix"
+                                        template="orderItems.html">
+                            </smart-list>
+
+                            </smart-scroll>
+</div>
+				</div>
+			</div>
+	</div>
+
+    <!-- modal -- footer -->
+    <div class="modal-footer_new is-scrolled">
+		<div class="right">
+			<smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+			<smart-button flat="true" class="modal-close" config='doneBtnConfig'></smart-button>
+		</div>
+    </div>
+</div>
+<script id="orderItems.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+<div ng-class="{'checkboxWithInfo': item.isDisabled}">
+        <smart-checkbox titile="{{item.label}}" label="{{item.label}}" ng-model="item.selected" fill="true" on-change="selectCurrent(item.selected, itemList)" disable="{{ item.isDisabled }}" class="truncate"> </smart-checkbox>
+        </div>
+ <a href="javascript:void(0);" ng-if="item.isDisabled" class="marginLeft10 marginTop4 right" smart-infotip position="right" is-fixed="true" message="{{ 'You cannot select this item as at least one of the entered fields is not applicable for this type of item. Clear all non-applicable fields and try to select this item again.' }}" mode="mouseover">
+        <i class="icon iconSmall grey-text">
+            <svg><use xlink:href="#icon_Info"></use></svg>
+        </i>
+    </a>
+    </div>
+</script>

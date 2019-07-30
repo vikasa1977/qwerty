@@ -1,0 +1,38 @@
+<div ng-controller="plantSupAssoCtrl" class="marginbtm10">
+    <table class="bordered sTable fixedTbl marginTop10" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:15%"/>
+                <col style="width:10%"/>
+                <col style="width:10%"/>
+                <col style="width:10%"/>
+                <col style="width:13%"/>
+                <col style="width:12%"/>
+            </colgroup>
+            <thead>
+                <tr class="is-scrolled">
+                    <th class="left-align">Sequence</th>
+                    <th class="left-align">Plant</th>
+                    <th class="left-align">Supplier Name</th>
+                    <th class="left-align">Currency</th>
+                    <th class="left-align">Part Cost</th>
+                    <th class="left-align">Tooling Cost</th>
+                    <th class="left-align">Development Cost</th>
+                    <th class="left-align">Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="plantSup in plantSupplierList">
+                    <td class="left-align"><a ui-sref="mdm.itemDetails">{{plantSup.sequence}}</a></td>
+                    <td class="left-align">{{plantSup.plant}}</td>
+                    <td class="left-align">{{plantSup.supName}}</td>
+                    <td class="left-align">{{plantSup.currency}}</td>
+                    <td class="left-align">{{plantSup.partCost}}</td>
+                    <td class="left-align">{{plantSup.toolingCost}}</td>
+                    <td class="left-align">{{plantSup.devCost}}</td>
+                    <td class="left-align">{{plantSup.totalCost}}</td>
+                </tr>
+            </tbody>
+    </table>
+</div>

@@ -1,0 +1,75 @@
+<div class="blueOverlay" id="profileOverlayUniId" style="display:none;">
+    <style>
+        .profile-o-slider{
+            border:none !important;
+        }
+        .profile-o-slider .slider-contnainer{max-width:870px;font-size:1.2rem;}
+        .notifications-slider .arrow--disabled {display:none;}
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col centered" style="margin-top: 10vh;width:900px">
+                <div class="white-text center-align">
+                    <img src="shared/resources/images/dummyImage.jpg" class="circle layOutProfileImage" style="opacity:0">
+                    <div class="caption center-align">
+                        <h4>{{welcome}} Emily</h4>
+                    </div>
+                    <div class="caption center-align"><a class="cyan-text text-lighten-3" href="javascript:void(0)" ng-click="hideProfileOverlayCall('gotoProfile')">Profile</a> 75% Complete</div>
+                </div>
+                <div class="sliderContainer">
+                    <div class="itemImageCaroselList notifications-slider smartslider" smart-slider ng-model="ab" slideNumber="1" slidesToShow="3" space="10" steps="1" slideContainer="smartslider-container" slideContainerList="smartslider-container-list" slideContainerListItem="imageCarousel" leftBtn="leftArrow" rightBtn="rightArrow">
+                        <a href="javascript:void(0)" class="cyan-text text-lighten-3 icon iconLarge right imgCarosalArrowBlue rightArrow" smart-tooltip position="bottom" delay="10" message="{{'Next'|| translate}}">
+                            <svg>
+                                <use xlink:href="#icon_RightChevro"></use>
+                            </svg>
+                        </a>
+                        <div class="slider slider-nav">
+                            <div class="smartslider-container">
+                                <ul class="imgList smartslider-container-list paddingTop10">
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div>Contract Number <a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('contract')">2015.000123</a> is in draft mode</div>
+                                        </div>
+                                    </li>
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div>More than <a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('pending')">10 Requests</a> are pending your acceptance</div>
+                                        </div>
+                                    </li>
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div><a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('opportunities')">22 New Opportunities</a> found on your Spend Analysis</div>
+                                        </div>
+                                    </li>
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div>You have <a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('catalogcart')">10 Items</a> added in your catalog cart</div>
+                                        </div>
+                                    </li>
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div>Your supplier <a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('supplire')"> Evertek's profile</a> is only incomplete</div>
+                                        </div>
+                                    </li>
+                                    <li class="imageCarousel profile-o-slider" getWidth>
+                                        <div class="white-text slider-contnainer">
+                                            <div>Yesterday you were working on a <a href="javascript:void(0)" class="cyan-text text-lighten-3" ng-click="hideProfileOverlayCall('pricesheet')">Price sheet for IT / Telecom</a></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0)" class="cyan-text text-lighten-3 icon iconLarge right imgCarosalArrowBlue leftArrow arrow--disabled" smart-tooltip position="bottom" delay="10" message="{{'Previous'|| translate}}">
+                            <svg>
+                                <use xlink:href="#icon_LeftChevron"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col s12 right-align">
+                    <a class="white waves-effect   blue-text btn overlayOkayButton" ng-click="hideProfileOverlayCall('cancel')">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

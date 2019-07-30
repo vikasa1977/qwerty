@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left">
+        <svg>
+            <use xlink:href="#icon_SentToRequester"></use>
+        </svg>
+    </i>
+    <span class="title">{{'SEND FOR RESOLUTION'|| translate}}</span>
+</div>
+<div class="modal-content padding0 is-scrolled">
+    <smart-scroll height="346px" class="clearfix" is-fixed-header="true">
+        <table class="bordered">
+            <thead>
+                <tr>
+                    <th class="left-align" style="width: 60%">{{'Exception Type'|| translate}}</th>
+                    <th class="left-align" style="width: 40%">{{'Resolver'|| translate}}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="item in resolutionData">
+                    <td class="paddingTop0 paddingBtm0">{{item.excType || translate}}</td>
+                    <td class="paddingTop0 paddingBtm0 "><smart-typeahead titleofmodel="Select Resolver" class="margin0 showLookupHeight" multiselect="false" show-lookup="true" ng-model="item.selectedResolver" options="item.resolverOpt" lookup-Open="hideSendResolutionPopupCallback()" lookup-hide="showSendResolutionPopupCallback()" filterkeys="['id', 'name']" optionformat="<span>{name}</span>" displayformat="{name}"></smart-typeahead></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </smart-scroll>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='sendBtnConfig'></smart-button>
+    <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+</div>
+
+

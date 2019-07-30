@@ -1,0 +1,74 @@
+<div>
+    <div class="modal-header">
+        <i class="icon grey-text iconSmall left marginTop2">
+            <svg><use xlink:href="#icon_Supplier"></use></svg>
+        </i>
+        <span class="title">CHANGE OWNERSHIP</span>
+
+    </div>
+
+    <div class="modal-content is-scrolled padding15">
+
+        <div class="row marginBtm0">
+            <smart-typeahead class="col s12 line-height-manager marginBtm0" multiselect="false" lookup-open="oldHide()" lookup-hide="oldShow(data)" show-lookup="true" ng-model="changeOwnerText.selectedchangeHistory" options="changeHistoryOptions" titleofmodel="New Owner Name" filterkeys="['name']" optionformat="<span>{name} </span>" displayformat="{name}" label="New Owner Name"></smart-typeahead>
+        </div>
+        <div class="row">
+               <smart-textfield type="area" class="col s12 discussionArea" rows="2" ng-model="changeOwnerText.attachNotesDesp" label="Reason for Change" charactercounter="true" maxlength="2000"></smart-textfield>
+        </div>
+
+        <div class="row" ng-show="checkPrivilege">
+            <smart-checkbox label="Retain current privileges for existing owner" ng-model="isUrgent" on-change="onChange(isUrgent)"></smart-checkbox>
+        </div>
+
+    </div>
+
+    <div class="row marginBtm0 ownership-history-data" ng-if="isOwershipHistoryData">
+        <table class="bordered" sticky-header>
+            <thead>
+                <tr>
+                    <th style="width:20%;">From</th>
+                    <th style="width:20%;">To</th>
+                    <th style="width:20%;">Changed on</th>
+                    <th style="width:268px;">Reason for Change </th>
+                </tr>
+            </thead>
+        </table>
+        <smart-scroll height="125px">
+            <table class="bordered" sticky-header>
+                <tbody>
+                    <tr ng-repeat="item in changeownership">
+                        <td style="width:20%;vertical-align:top;">{{item.owner}}</td>
+                        <td style="width:20%;vertical-align:top;">{{item.changedBy}}</td>
+                        <td style="width:20%;vertical-align:top;">{{item.changedOn}}</td>
+                        <td style="width:268px;vertical-align:top;">
+                            <div class="questContent change-ownership">
+                                <div id="" class="questContentPara" ng-class="{'ellipsis questContentPara1': !item.readMore, 'questContentPara2': item.readMore}">
+                                    {{item.comment}}
+                                    <span ng-if="item.comment.length > 100">
+                                        <a href="javascript:void(0);" ng-click="showLess(item);">Show Less</a>
+                                    </span>
+                                </div>
+                                <span class="more" ng-if="item.comment.length > 100">
+                                    <a href="javascript:void(0);" class="showMore"
+                                       ng-click="showMore(item);">Show More</a>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </smart-scroll>
+    </div>
+
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+
+                <div class="right">
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"DONE"}' ng-class="{'disabled' : !appDisAddOwner}" disable="!appDisAddOwner" ng-click="changingOwnership()"></smart-button>
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

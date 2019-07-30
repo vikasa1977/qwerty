@@ -1,0 +1,312 @@
+﻿<style>
+    .ui-grid-column-menu-button-last-col {
+        margin-right: 0px !important;
+    }
+</style>
+<!-- subheader -->
+<!--<div class="row extra-nav-wrap marginBtm0" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small left">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'Requisition Workbench' || translate | uppercase}}</span>
+        </div>
+
+    </div>
+</div>-->
+
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader,'z-depth-0':isApplyFilters || isSavedView || isUploadStatus}">
+    <div class="col s12">
+        <!--leftSide content-->
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle  waves-effect waves-light  extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small left">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'Requisition Workbench' || translate | uppercase}}</span>
+        </div>
+
+        <!--rightSide content-->
+        <div class="extra-nav-action">
+            <ul class="right extra-nav-right-icon">
+                <!--<li class="extra-nav-icon">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-activates='sortbyDropdown' data-position="bottom" data-delay="50" data-constrainwidth="true">
+                            <i class="icon iconSmall" smart-tooltip position="Down" delay="250" message="{{'Sort By' || translate }}">
+                                <svg><use xlink:href="#icon_Sort"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='sortbyDropdown' class='dropdown-content dropdown-content--size-medium dd-close-off '>
+                            <li class="dropdown-content-header ">
+                                <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+                                    <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                                        <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" smart-tooltip position="Down" message="{{'Close' || translate }}" delay="250" ng-show="hideClose" class="cancel-icon btn-flat black-text waves-circle waves-effect">
+                                            <i class="icon iconSmall center grey-text">
+                                                <svg><use xlink:href="#icon_Close"></use></svg>
+                                            </i>
+                                        </a>
+
+                                        <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                                        <a href="javascript:void(0)" class="search-icon btn-flat waves-light black-text waves-circle waves-effect" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="showSearch()">
+                                            <i class="icon iconSmall center grey-text">
+                                                <svg><use xlink:href="#icon_Search"></use></svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="title"> {{ 'SORT BY' | translate }}</div>
+
+                            </li>
+                            <li class="dropdown-content-content" ng-class="{ 'is-scrolled': true}">
+                                <smart-list model="{{listSortWith}}"
+                                            style-class="collection noBorder "
+                                            item-class="collection-item"
+                                            height="230px" template="shared/landingPage/views/sortbyListing.html">
+                                </smart-list>
+                            </li>
+                            <li class="dropdown-content-footer">
+                                <div class="right">
+                                    <smart-button config='{"title":"Cancel"}' flat="true" class="fontSize14" ng-click="applySort();" disable="false"></smart-button>
+                                    <smart-button config='{"title":"Done"}' flat="true" class="fontSize14" ng-click="applySort();" disable="false"></smart-button>
+                                </div>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+
+
+                </li>-->
+                <!--<li class="extra-nav-icon">
+                    <a class="waves-circle sh-icon  white-text waves-block waves-effect waves-light" ng-click="toggleFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Filter"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>-->
+                <li class="extra-nav-icon" ng-if="docType !== 'supplier' && !scannedImg ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-activates='landingPageAction' data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            <i class="icon iconSmall" message="{{'Actions' || translate }}">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback(e)">
+                                    <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                        <svg>
+                                            <use xlink:href="#icon_SavedView"></use>
+                                        </svg>
+                                    </i>
+                                    {{ 'Saved Views' || translate }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback(e)">
+                                    <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                        <svg>
+                                            <use xlink:href="#icon_ManageFields"></use>
+                                        </svg>
+                                    </i>
+                                    {{ 'Manage Fields' || translate }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                        <svg>
+                                            <use xlink:href="#icon_ExcelView"></use>
+                                        </svg>
+                                    </i>
+                                    {{ 'Table View' || translate }}
+                                </a>
+                            </li>
+                            <li class="divider" ng-if="docType === 'order'"></li>
+                            <li ng-if="docType === 'order'">
+                                <a ui-sref="p2p.order.mass" class="grey-text text-darken-4">
+                                    <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                        <svg>
+                                            <use xlink:href="#icon_BulkEdit"></use>
+                                        </svg>
+                                    </i>
+                                    {{ 'Order Processing Workbench' || translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+            </ul>
+        </div>
+        <!--<div class="searchSlideMain headersearch landinglistheadersearch searchSlideMain--inputBdrBNone headersearch">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+                <a href="javascript:void(0)" ng-click="pagesearch='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon btn-flat black-text ">
+                    <i class="icon iconSmall center white-text">
+                        <svg>
+                            <use xlink:href="#icon_Close"></use>
+                        </svg>
+                    </i>
+                </a>
+
+                <smart-textfield class="input-field" ng-model="pagesearch" focus="focusSearchHeader"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+                    <i class="icon iconSmall center white-text">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top" ng-if="isApplyFilters">
+
+        <a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a>
+        <div class="right">
+            <smart-button flat="true" class="modal-close marginRight5" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+        <div>
+            <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+            </span>
+            <div class="right" ng-if="isSavedViewModified">
+                <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isUploadStatus">
+        <div>
+            <span>Error in upload. </span>
+
+            <div class="right">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page content -->
+<section class="white clearfix">
+    <div class="page-container" style="padding:0px 24px 24px;">
+        <div class="panelBox paddingTop3 ">
+            <div class="panelBox-content">
+                <!-- panel Box-- body -->
+                    <div class="container">
+                        <div class="marginBtm10">
+                            <div class="row">
+                                <div class="col s12 right">
+                                        <ul class="panelBox-header--action ">
+                                            <li>
+                                                <smart-dropdown config="{{dropDownConfig}}">
+                                                    <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns()">
+                                                        <i class="icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Attributes'|| translate}}">
+                                                            <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                    <ul id="tabMatLineTFilter" class="dropdown-content dropdown-content-large  dd-close-off">
+                                                        <li class="dropdown-content-header ">
+                                                            <div class="title">{{'SHOW / HIDE OPTIONAL FIELDS'|| translate}}</div>
+                                                        </li>
+                                                        <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                                            <smart-scroll height="230px" class="inlineList">
+                                                                <div class="col s12 m6 l4 inlineList-item staggeredRight" ng-repeat="accfield in accfields">
+                                                                    <smart-checkbox fill="true" label="{{accfield.lable}}"></smart-checkbox>
+                                                                </div>
+                                                            </smart-scroll>
+                                                        </li>
+                                                        <li class="dropdown-content-footer is-scrolled">
+                                                            <smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right close-lookup"></smart-button>
+                                                            <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup"></smart-button>
+                                                        </li>
+                                                    </ul>
+                                                </smart-dropdown>
+                                            </li>
+                                        </ul>
+                                        <smart-select class="right marginRight15" ng-model="selectedCurrency" options="currencyOptions" on-change="onChange(selectedCurrency)"style="margin-top:-10px;"></smart-select> 
+                                        <span class="right grey-text text-darken-4 marginRight15">{{ 'Group By' || translate}}</span>
+                                </div>
+                            </div>
+
+                            <div class="panelBox-body padding0 ">
+                                <div class="col s12 padding0" ui-grid="gridOptionsUserInfo" ui-grid-pagination ui-grid-selection ui-grid-resize-columns ui-grid-edit ui-grid-cellNav ui-grid-move-columns ui-grid-pinning style="height:600px;"> </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<style>.test {display:none;}</style>ng-class="{'test' : test1 }"-->
+<footer class="page-footer" ng-show="showAllCheckbox" >
+    <div class="row">
+        <div class="col s12 right-align ">
+            <div class="btn-group">
+                <smart-button config='{"title":"ASSIGN"}' ng-class="btn-first-button" ng-click="popupOnBehalfOfCall(e)" disable="false"></smart-button>
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a data-activates='exportActionBtn' class="white-text dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                        </i>
+                    </a>
+                    <ul id='exportActionBtn' class='dropdown-content footer-dropdown-for-landing'>
+                        <li ng-repeat="item in exportActions">
+                            <a href="javascript:void(0)" class="black-text"> {{  item.key }}</a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<!--pop up-->
+<!-- SAVED VIEW -->
+<smart-popup template-url="{{savedViewPopupUrl}}" show='{{savedViewPopUp}}' on-hide="savedViewPopupHideCallback(e)"></smart-popup>
+<!--Save view-->
+<smart-popup type="small" template-url="{{saveViewPopupUrl}}" show='{{saveViewPopUp}}' on-hide="saveViewPopupHideCallback(e)"></smart-popup>
+
+<!-- Manage Attributes -->
+<smart-popup type="small" template-url="{{manageAttributesPopupUrl}}" show='{{manageAttributesPopUp}}' on-hide="manageAttributesPopupHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{uploadPoupUrl}}" show="{{showUploadlogpopup}}" on-hide="onUploadlogpopupHide(e)"></smart-popup>
+<!-- save filter--->
+<smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+
+<!-- Upload / Download Log -->
+<smart-popup template-url="contract/views/popupUploadExcelLog.html" type="large" show="{{uploadDownloadLogPopup}}" on-hide="uploadDownloadLogPopupHide(e)"></smart-popup>
+
+<!-- Contract Popups-->
+<smart-popup template-url="contract/views/contractQuickCreate.html" show="{{contractQuickCreateRootCall}}" on-hide="contractQuickCreateHideRootCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupUploadExcel.html" show="{{showUploadExcelrootCall}}" on-hide="onUploadlExcelHideCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showAddAttachmentPopup}}" on-hide="showAddAttachmentPopupHideCall(e)"></smart-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Category" default-text="Choose Category" show="showFormRootC" mode="true" selected-value="categoryRootData" modal-content="category" modal-button="categoryBtn" initial-display-text="categoryDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormRootBU" mode="true" selected-value="businessUnitRootData" modal-content="businessUnit" modal-button="businessUnitBtn" initial-display-text="businessUnitDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Region" default-text="Choose Region" show="showRegionRoot" mode="true" selected-value="regionRootData" modal-content="region" modal-button="regionBtn" initial-display-text="RegionDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-popup template-url="{{addDocumentPoupUrl}}" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>
+
+<!-- popup -- on behalf of -->
+<smart-popup template-url="{{popupOnBehalfOfUrl}}" show='{{popupOnBehalfOf}}' on-hide="popupOnBehalfOfCallback(e)" type="small"></smart-popup>
+

@@ -1,0 +1,64 @@
+<div>
+    <div class="extraHeader white-header-container" >
+        <nav>
+            <div class="nav-wrapper row">
+                <div class="col s12">
+                    <a href="javascript:void(0)" ng-click="gotoHomePage()" class="brand-logo left" tabindex="1">
+                        <img src="shared/resources/images/gepLogo_40px.png" alt="{{ label.home|translate}}" class="left tooltipped" smart-tooltip position="bottom" delay="250" message="{{ label.home|translate}}" />
+                        <!--<span class="left ">
+                            <span class="user-name ng-cloak">
+                                {{ 'EMILY' | uppercase }}'S
+                            </span>
+                        <span class="product-name  ng-cloak">
+                                {{ 'WORKSPACE' | uppercase }}
+                            </span>
+                        </span>-->
+                    </a>
+                    <!--<ul class="right nav-right-buttons" >
+                        <li></li>
+                        <li>
+                           <a href="javascript:void(0)" class="waves-effect waves-block waves-light right-side-nav waves-circle">
+                               <i class="icon iconSmall" smart-tooltip position="down"  delay="50" message="{{'Help' || translate }}">
+                                   <svg>
+                                       <use  xlink:href="#icon_Help"></use>
+                                   </svg>
+                               </i>
+                           </a> 
+                        </li>
+                        <li>
+                            <a href="index_launcher.html#/" class="waves-effect waves-block waves-light right-side-nav waves-circle">
+                                <i class="icon iconSmall" smart-tooltip position="down" delay="50" message="{{'Login' || translate }}">
+                                    <svg>
+                                        <use xlink:href="#icon_Login"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index_launcher.html#/supplier/prf" class="waves-effect waves-block waves-light right-side-nav waves-circle">
+                                <i class="icon iconSmall" smart-tooltip position="down"  delay="50" message="{{'Register' || translate }}">
+                                    <svg>
+                                        <use xlink:href="#icon_Registration"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                    </ul>-->
+					 <span smart-tooltip position="left" message="Close" class="supportCloseIconWrapper" ng-show="isSideMenuOpen" ng-if='!config.isUserProfile && !config.isExternalLink' href="javascript:void(0)" class="waves-effect waves-block waves-light right-side-nav tooltipped waves-circle" ng-click="resetPanes()"  tabindex="{{config.tabIdx}}" style=''>
+     <i class="icon supportCloseIcon">
+            <svg>
+                <use xlink:href="#Icon_MultiplyRFX"></use>
+            </svg>
+        </i>
+    </span>
+                    <ul class="right public-rfx-header-action nav-right-buttons" ng-class="{'nav-slide-active':lastHeaderBtnClicked,'side-nav-active':sidePaneVisible}">
+                       <header-button show-cross-icon="showCrossIcon" config="value" remaining-items="buttonsObjects" idx="{{$index}}" is-last="{{$last}}" ng-repeat="(key, value) in buttonsObjects track by key" reset-panes="resetPanes($last)" toggle-overlay="toggleOverlay(val,config)" clicked-on-profile="showProfileOverlayCall()" />
+                    </ul>
+                </div>
+            </div>    
+            <smart-sliding-menu tab-data="announcement" id="slide-out-bookmark" ng-class="{'right-sidebar-nav side-nav right-aligned zIndex0 collapsible side-out-bm-nf-ct': true}" detach-default-class='true' style="z-index:998; width:320px; transition: all 0.2s ease-in-out;" top="0" right="0" show="value.showPane" include-template="{{value.templateURL}}" ng-repeat="(key, value) in buttonsObjects track by key" model='{{value}}' modify-parent-style='false'>
+            </smart-sliding-menu>  
+        </nav>
+    </div>
+</div>
+<div id="sidenav-overlay" style="opacity: 1;" class="" ng-click='resetPanes()' ng-if='sidePaneVisible'></div>

@@ -1,0 +1,70 @@
+
+	<!-- Open on click of Deep Groove -->
+	<table class="bordered sTable fixedTbl" ng-if="deepGroove">
+		<thead>
+			<tr>
+				<th class="left-align" width="30%"><span class="left paddingTop2">Item Attribute</span></th>
+				<th class="left-align" width="20%">Value</th>
+				<th class="left-align" width="20%">
+					<!-- <a href="javascript:void(0)" ng-click="sort('createdBy')" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom">
+						<i class="icon iconSmall">
+							<svg>
+								<use ng-if="sortKey!='createdBy'" xlink:href="#icon_Sort"></use>
+								<use ng-if="sortKey=='createdBy'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+							</svg>
+						</i>
+					</a> -->
+				</th>
+				<th class="left-align" width="30%">Comments
+					<!-- <a href="javascript:void(0)" ng-click="sort('createdOn')" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom">
+						<i class="icon iconSmall">
+							<svg>
+								<use ng-if="sortKey!='createdOn'" xlink:href="#icon_Sort"></use>
+								<use ng-if="sortKey=='createdOn'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+							</svg>
+						</i>
+					</a> -->
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in deepGrooveData | orderBy:sortKey:reverse">
+				<td class="left-align"><a href="javascript:void(0)" class="paddingTop5"><span class="truncate">{{data.documentName}}</span></a></td>
+				<td class="left-align">{{data.documentType}}</td>
+				<td class="left-align">
+					<smart-select class="col s12 m12 l12 line-height-manager selectDimeter"  ng-model="selectedDimension" options="dimeter"></smart-select>
+				</td>
+				<td class="left-align">{{data.createdOn}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- Open on click of Deep Groove -->
+
+	<!-- Open on click of Ball Trust -->
+	<table class="bordered sTable fixedTbl marginTop20" ng-if="ballTrust">
+		<thead>
+			<tr>
+				<th class="left-align" width="30%">Thrust Bearing Type</th>
+				<th class="left-align" width="20%">Fillet Radius</th>
+				<th class="left-align" width="20%">Inside Diameter</th>
+				<th class="left-align" width="30%">Outside Diameter</th>
+				<th class="left-align" width="20%">Width</th>
+				<th class="left-align" width="20%">Static Load Capacity (N)</th>
+				<th class="left-align" width="20%">Comments</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in ballTrustData | orderBy:sortKey:reverse">
+				<td class="left-align">{{data.thrustBearing}}</td>
+				<td class="left-align">{{data.filletRadius}}</td>
+				<td class="left-align">{{data.insideDiameter}}</td>
+				<td class="left-align">{{data.outsideDiameter}}</td>
+				<td class="left-align">{{data.width}}</td>
+				<td class="left-align">{{data.staticLoad}}</td>
+				<td class="left-align">{{data.comments}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- /Open on click of Ball Trust -->
+
+	<!-- <smart-popup template-url="mdm/views/popupDownload.html" type="medium" show="{{showDownloadPopup}}" on-hide="downloadPopupOnHideCallback()"></smart-popup> -->

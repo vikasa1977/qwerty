@@ -1,0 +1,27 @@
+<div>
+    <div class="extraHeader">
+        <nav>
+            <div class="nav-wrapper row">
+                <div class="col s12">
+                    <a href="javascript:void(0)" ng-click="gotoHomePage()" class="brand-logo left">
+                        <img src="https://gepmtstorage.blob.core.windows.net/smartcontent/workspace/shared/theme/images/logo_new.png" alt="{{ label.home|translate}}" class="left tooltipped" smart-tooltip position="bottom" delay="250" message="{{ label.home|translate}}" />
+                        <span class="left ">
+                            <span class="user-name ng-cloak">
+                                {{ userName | uppercase }}'S
+                            </span>
+                        <span class="product-name  ng-cloak">
+                                {{ label.workspace | uppercase }}
+                            </span>
+                        </span>
+                    </a>
+                    <ul class="right nav-right-buttons" ng-class="{'nav-slide-active':lastHeaderBtnClicked}">
+                        <header-button class="headerIcon_{{$index+1}}" config="value" remaining-items="buttonsObjects" idx="{{$index}}" is-last="{{$last}}" ng-repeat="(key, value) in buttonsObjects track by key" reset-panes="resetPanes($last)" toggle-overlay="toggleOverlay(val)" clicked-on-profile="showProfileOverlayCall()" />
+                    </ul>
+                </div>
+            </div>
+            <smart-sliding-menu tab-data="announcement" id="slide-out-bookmark" ng-class="{'right-sidebar-nav side-nav right-aligned zIndex0 collapsible side-out-bm-nf-ct': true}" detach-default-class='true' style="z-index:998; width:320px; transition: all 0.2s ease-in-out;" top="0" right="0" show="value.showPane" include-template="{{value.templateURL}}" ng-repeat="(key, value) in buttonsObjects track by key" model='{{value}}' modify-parent-style='false'>
+            </smart-sliding-menu>
+        </nav>
+    </div>
+</div>
+<div id="sidenav-overlay" style="opacity: 1;" class="" ng-click='resetPanes()' ng-if='sidePaneVisible'></div>

@@ -1,0 +1,2597 @@
+{
+  "dataModel": {
+    "supplier": {
+      "supplierOptions": [
+        {
+          "UserId": 28360,
+          "UserName": "SRUser1@outlook.com",
+          "FirstName": "Global Edge Solutions",
+          "LastName": ""
+        },
+        {
+          "UserId": 28977,
+          "UserName": "SRUser1@outlook.com11",
+          "FirstName": "Cap Supplier 2",
+          "LastName": ""
+        },
+        {
+          "UserId": 28978,
+          "UserName": "SRUser1@outlook.com234",
+          "FirstName": "APL Supplier 3",
+          "LastName": "Chi"
+        },
+        {
+          "UserId": 28979,
+          "UserName": "SRUser1@outlook.com342",
+          "FirstName": "WG Supp1",
+          "LastName": ""
+        },
+        {
+          "UserId": 28980,
+          "UserName": "SRUser1@outlook.com342",
+          "FirstName": "Avishek",
+          "LastName": "Jana"
+        },
+        {
+          "UserId": 28981,
+          "UserName": "SRUser1@outlook.com342",
+          "FirstName": "Sachin",
+          "LastName": "Kurkute"
+        },
+        {
+          "UserId": 28982,
+          "UserName": "SRUser1@outlook.com342",
+          "FirstName": "Karthic",
+          "LastName": "Muthuraman"
+        },
+        {
+          "UserId": 28983,
+          "UserName": "SRUser1@outlook.com342",
+          "FirstName": "Rahul",
+          "LastName": "Kardekar"
+        }
+      ],
+      "selectedSupplier": {
+        "UserId": 28360,
+        "UserName": "SRUser1@outlook.com",
+        "FirstName": "Global Edge Solutions",
+        "LastName": ""
+      },
+      "showwarning": "Global Edge Solutions",
+      "clienterror":  true
+    },
+    "paymentTerm": {
+      "paymentTermOptions": [
+        {
+          "name": "Z006 - NET 30 DAYS"
+        },
+        {
+          "name": "Z007 - NET 40 DAYS"
+        },
+        {
+          "name": "Z008 - NET 50 DAYS"
+        },
+        {
+          "name": "Z009 - NET 60 DAYS"
+        }
+      ],
+      "selectedPaymentTerm": {
+        "name": "Z009 - NET 60 DAYS"
+      }
+    },
+    "organization": {
+      "orgOptions": [
+        {
+          "UserId": 28360,
+          "name": "GEP India"
+        },
+        {
+          "UserId": 28977,
+          "name": "GEP Hyderabad"
+        },
+        {
+          "UserId": 28978,
+          "name": "GEP Mumbai"
+        },
+        {
+          "UserId": 28979,
+          "name": "GSPL Inc"
+        },
+        {
+          "UserId": 28979,
+          "name": "GEP Ventures"
+        }
+      ],
+      "selectedOrganization": {
+        "UserId": 28360,
+        "name": "GEP India"
+      }
+    },
+    "supplierName": "Global Edge Solutions",
+    "supContactEmailPhone": "emily.ross@GBS.com, 562-802-7782 ",
+    "remitToLocation": "GATE 31 CASTRO ST AT MILLS ST RICHMOND, CA 94802 United State",
+    "supplierAddress": "NORWALK 15500 BLACKBURN AVE NORWALK, CA 90650-6845 United States",
+    "orderSupplierNameAndAddress": "YBS, 2nd Avenue, New York",
+    "supplierContact": [
+      {
+        "title": "contact 1"
+      }
+    ],
+    "supplierPhoneEmailAddress": "xyz@gmail.com",
+    "supplierDetails": [
+      {
+        "PartnerCode": 4875,
+        "LocationId": 48750130000014,
+        "LocationName": "Mumbai",
+        "Address": {
+          "AddressCode": 125043,
+          "Addressline1": "Airoli Mindspace Sector 4 Navi-Mumbai",
+          "Addressline2": "",
+          "Addressline3": null,
+          "City": "Navi Mumbai",
+          "ZipCode": "421301",
+          "StateInfo": {
+            "StateCode": 1,
+            "StateName": "Alaska",
+            "CountryId": 221,
+            "IsActive": true,
+            "IsDeleted": false,
+            "StateAbbrevationCode": "AK",
+            "StateOther": null,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "CountryInfo": {
+            "CountryId": 221,
+            "CountryCode": "US",
+            "CountryName": "United States",
+            "CountryCultureInfo": null,
+            "CurrencyCode": null,
+            "IsActive": true,
+            "IsDeleted": false,
+            "PreferenceOrder": 0,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "PhoneNo1": "",
+          "ExtenstionNo1": "",
+          "PhoneNo2": "",
+          "ExtenstionNo2": "",
+          "MobileNo": null,
+          "FaxNo": "",
+          "GeographyDetail": null,
+          "Latitude": null,
+          "Longitude": null,
+          "County": "",
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "IsRegistered": false,
+        "IsDeleted": false,
+        "LocationType": null,
+        "LocationTypeIds": null,
+        "ListLocationType": null,
+        "ClientLocationCode": "LC-2015.000008",
+        "ListContactRole": null,
+        "BankingInformationStatusId": 0,
+        "LocationIdentificationDetailsList": null,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      }
+    ],
+    "objInvoice": {
+      "itemDetails": {
+        "itemType": [
+          {
+            "key": "materials",
+            "title": "Materials",
+            "selected": true
+          },
+          {
+            "key": "services",
+            "title": "Services"
+          }
+        ],
+        "selectedOption": {
+          "key": "materials",
+          "title": "Materials",
+          "selected": true
+        }
+      },
+      "organization": "GEP india - GEP Organization",
+      "PartnerInvoiceNumber": "10594412",
+      "purchaseOrg": "CHEV PRODUCTS CO: DPDS",
+      "purchaseGrg": "DRRI PASSPORT ORDR: PP3",
+      "supplierName": "Advanced Sealing LLC Lewis Goetz & Co Inc.",
+      "purchaseType": "Service Request",
+      "invoiceCreationDate": "11/03/2018",
+      "supplierInvoiceDate": "11/03/2018",
+      "invoiceReceivedOn": "11/03/2018",
+      "ClientPartnerCode": "SUPP001",
+      "orderNum": "0015278031",
+      "orderName": "Chemical Testing and Analysis",
+      "PartnerCode": 28806,
+      "PartnerContactCode": 288060040000001,
+      "RemittoLocationId": 288060130000003,
+      "ShiptoLocationId": 0,
+      "supCode": "SUPP001",
+      "supContact": "Emily Ross",
+      "pmtTerms": "Due in 30 days",
+      "incoTerms": "Ex Works, The Woodlands, TX",
+      "DelivertoLocationId": 0,
+      "PaymentTerms": "Z006 - NET 60 DAYS",
+      "PartnerInvoiceDate": "/Date(1520101800000)/",
+      "nonPOInvoiceDetails": {
+        "nonPOInvoice": true,
+        "singlePOInvoice": true,
+        "warningMessage": "Received Value: 500.00",
+        "invoiceTypeOptions": [
+          {
+            "name": "Single PO invoice",
+            "invoiceType": "Single"
+          },
+          {
+            "name": "Multi PO invoice",
+            "invoiceType": "Multi"
+          }
+        ],
+        "selectedInvoiceTypeCheckbox":false,
+        "selectedInvoiceType": {
+          "name": "Single PO invoice",
+          "invoiceType": "Single"
+        },
+        "selectTypeOption": {
+          "name": "Order Number",
+          "selectiontext": "PO-80.1004876"
+        },
+        "orderOptions": [
+          {
+            "orderId": 28360,
+            "OrderNumber": "PO-80.1004876",
+            "OrderName": "Order1004876VATTest",
+            "OrderDetails":[
+              {
+                "LineNo": "32",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              },
+              {
+                "LineNo": "32",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              }]
+            
+          },
+          {
+            "orderId": 28977,
+            "OrderNumber": "PO-80.1004884",
+            "OrderName": "Order1004884VATTest",
+            "OrderDetails":[
+              {
+                "LineNo": "25",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              },
+              {
+                "LineNo": "25",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              }]
+          },
+          {
+            "orderId": 57950,
+            "OrderNumber": "PO-80.1004891",
+            "OrderName": "Order271016377VATTest",
+            "OrderDetails":[
+              {
+                "LineNo": "10",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              },
+              {
+                "LineNo": "10",
+                "Description": "Dell Laptop",
+                "ItemNo": "0001",
+                "SupplierItemNo": "98457632",
+                "UnitPrice": "100",
+                "Quantity": "100",
+                "Taxes": "Exempt",
+                "Charges": "5",
+                "ShippingCharges": "10",
+                "OtherCharges": "11",
+                "checked": false
+              }]
+          }
+        ],
+        "selectedOrder": {
+          "orderId": 28360,
+          "OrderNumber": "PO-80.1004876",
+          "OrderName": "Order1004876VATTest",
+          "LineNo": "10",
+            "Description": "Dell Laptop",
+            "ItemNo": "0001",
+            "SupplierItemNo": "98457632",
+            "UnitPrice": "100",
+            "Quantity": "100",
+            "Taxes": "Exempt",
+            "Charges": "5"
+        },
+        "mSelectedOrder": [ ]
+      },
+      "OrderNumber": {
+        "orderId": 28360,
+        "OrderNumber": "PO-80.1004876"
+      },
+      "BusinessUnitId": 7,
+      "PartnerName": "McMaster-Carr",
+      "ShiptoLocation": {
+        "ShiptoLocationId": 95,
+        "ShiptoLocationName": "Airoli",
+        "ShiptoLocationNumber": "LOC245",
+        "Address": {
+          "AddressId": 0,
+          "AddressLine1": "12 � New Street",
+          "AddressLine2": "",
+          "AddressLine3": "",
+          "City": "Navi Mumbai",
+          "State": "California",
+          "Zip": "45125-0000",
+          "Country": null,
+          "CountryCode": null,
+          "StateCode": null,
+          "StateName": null,
+          "FaxNo": null,
+          "EmailAddress": null
+        },
+        "IsAdhoc": false,
+        "AllowForFutureReference": false,
+        "ContactPerson": null,
+        "TelephoneNumber": null,
+        "IsDeleted": false,
+        "MappingEntity": null
+      },
+      "DelivertoLocation": {
+        "DelivertoLocationId": 0,
+        "ShiptoLocationId": 0,
+        "DelivertoLocationName": "",
+        "DelivertoLocationNumber": "",
+        "IsDeleted": false,
+        "Address": {
+          "AddressId": 0,
+          "AddressLine1": "",
+          "AddressLine2": "",
+          "AddressLine3": "",
+          "City": "",
+          "State": "",
+          "Zip": "",
+          "Country": null,
+          "CountryCode": null,
+          "StateCode": null,
+          "StateName": null,
+          "FaxNo": null,
+          "EmailAddress": null
+        },
+        "DeliverTo": ""
+      },
+      "BuyerId": 286290040000001,
+      "MatchStatus": [
+        {
+          "Key": 42,
+          "Value": 0
+        }
+      ],
+      "OrderName": "Order271016377",
+      "OrderDocumentCode": 34710,
+      "BilltoLocation": {
+        "BillToOptions": [
+          {
+            "billTo": "GEP, Mozambique Area1",
+            "billToAdd": "JN3412 Office park, Maouto, NUIT 40016261",
+            "emailFax": "Avenida.Julius.Nyerere@gep.com"
+          },
+          {
+            "billTo": "Apple Inc",
+            "billToAdd": "P.O. Box 4258",
+            "emailFax": "888.385.0848"
+          },
+          {
+            "billTo": "Excon Inc",
+            "billToAdd": "P.O. Box 3348",
+            "emailFax": "888.385.0848"
+          },
+          {
+            "billTo": "Amazon Inc",
+            "billToAdd": "P.O. Box 1868",
+            "emailFax": "888.385.0848"
+          }
+        ],
+        "selectedBillTo": {
+          "billTo": "Chevron Products Company",
+          "billToAdd": "GATE 31 CASTRO ST AT MILLS ST RICHMOND, CA 94802 United States",
+          "emailFax": "JGGD@chevron.com"
+        }
+      },
+      "ExtendedStatus": 2,
+      "PartnerContactName": "McMaster Carr",
+      "IsMemo": false,
+      "InvoiceItems": null,
+      "InvoiceSource": 1,
+      "OrderTotal": 10,
+      "OrderDate": "/Date(1464087650943)/",
+      "UpdateStakeHolderDetail": false,
+      "FileDetails": null,
+      "InvoiceOrigin": 1,
+      "ReceivedDate": "/Date(1520101800000)/",
+      "UseTax": 0,
+      "OrderContact": "286290040000001",
+      "OrderId": 34710,
+      "BusinessUnitName": "1100-Mylan Pharmaceuticals Inc",
+      "PaymentTermId": 151,
+      "InvoiceCreatedFrom": 1,
+      "OrderStatus": 25,
+      "OrderPartnerCode": 0,
+      "OrderPartnerName": "",
+      "ClosingOrderStatus": 0,
+      "InvoiceAmount": {
+        "InvoiceTotalAmount": "40000.00",
+        "RecievedValue": "500.00"
+      },
+      "OrderContactDetails": null,
+      "ProgramId": 0,
+      "AmountDifferenceBetweenOrderInvoice": 0,
+      "OrderSourceSystemId": 0,
+      "OrderingLocation": {
+        "PartnerCode": 0,
+        "LocationId": 288060130000002,
+        "LocationName": "Town Center - II",
+        "Address": {
+          "AddressCode": 0,
+          "Addressline1": "add line Ordering1",
+          "Addressline2": "",
+          "Addressline3": "",
+          "City": "Orderoateuu",
+          "ZipCode": "233412",
+          "StateInfo": {
+            "StateCode": 0,
+            "StateName": "California",
+            "CountryId": 0,
+            "IsActive": true,
+            "IsDeleted": false,
+            "StateAbbrevationCode": "CA",
+            "StateOther": null,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "CountryInfo": {
+            "CountryId": 0,
+            "CountryCode": "US",
+            "CountryName": null,
+            "CountryCultureInfo": null,
+            "CurrencyCode": null,
+            "IsActive": true,
+            "IsDeleted": false,
+            "PreferenceOrder": 0,
+            "CompanyName": "United States of America",
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "PhoneNo1": null,
+          "ExtenstionNo1": null,
+          "PhoneNo2": null,
+          "ExtenstionNo2": null,
+          "MobileNo": null,
+          "FaxNo": null,
+          "GeographyDetail": null,
+          "Latitude": null,
+          "Longitude": null,
+          "County": null,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "IsRegistered": false,
+        "IsDeleted": false,
+        "LocationType": null,
+        "LocationTypeIds": null,
+        "ListLocationType": null,
+        "ClientLocationCode": "LC-2015.000008",
+        "ListContactRole": null,
+        "BankingInformationStatusId": 0,
+        "LocationIdentificationDetailsList": null,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "OrderingLocationId": 0,
+      "ErrorList": [ ],
+      "OrderPaymentTermId": 151,
+      "OrderCurrency": "USD",
+      "RemittoLocation": null,
+      "RemittoLocationCode": null,
+      "OrderContactName": null,
+      "ShiptoLocationName": null,
+      "DelivertoLocationName": null,
+      "BilltoLocationName": null,
+      "PartnerOrderContactName": null,
+      "Action": null,
+      "OperationType": 0,
+      "CurrentDateMinusInvoiceDate": 0,
+      "IsOrderAndInvoiceContactSame": 0,
+      "IsOrderAndInvoiceCurrencySame": 0,
+      "IsPCardSupported": false,
+      "ExceptionOverride": [
+        {
+          "Key": 13,
+          "Value": false
+        },
+        {
+          "Key": 19,
+          "Value": false
+        },
+        {
+          "Key": 22,
+          "Value": false
+        },
+        {
+          "Key": 25,
+          "Value": false
+        },
+        {
+          "Key": 42,
+          "Value": false
+        },
+        {
+          "Key": 48,
+          "Value": false
+        },
+        {
+          "Key": 49,
+          "Value": false
+        },
+        {
+          "Key": 50,
+          "Value": false
+        },
+        {
+          "Key": 51,
+          "Value": false
+        }
+      ],
+      "InvoiceStatus": 0,
+      "SubmittedOn": "/Date(-62135596800000)/",
+      "PaymentRequestNumber": "",
+      "PaymentRequestName": "",
+      "PaymentRequestContact": 0,
+      "ReferenceNumber": 0,
+      "BilltoLocationId": 0,
+      "ShowInternalCancelAction": true,
+      "InvoiceTotalAmountText": null,
+      "PurchaseType": "Standard",
+      "ItemExtendedTypeIds": null,
+      "PartnerReconMatchTypeId": 0,
+      "InvoiceType": 1,
+      "BuyerVATNumber": "1100-MylanPhara-HQ",
+      "DocumentId": 34716,
+      "Currency": "USD",
+      "ItemTotalAmount": 10,
+      "Tax": 0,
+      "Shipping": 0,
+      "AdditionalCharges": 0,
+      "TotalAmount": 10,
+      "AdvanceTotalAmount": null,
+      "IsDeleted": false,
+      "ApproveURL": null,
+      "RejectURL": null,
+      "CreatedByName": "3FName 3LNsmr",
+      "DocumentType": 0,
+      "ApproverName": null,
+      "QueryString": null,
+      "ClientContactCode": null,
+      "PreDocumentCode": 0,
+      "InterfaceStatus": 2,
+      "TaxesAndCharges": null,
+      "MaterialItemCount": 1,
+      "ServiceItemCount": 0,
+      "AdvanceItemCount": 0,
+      "IsCatalogItemsExists": false,
+      "Precision": 0,
+      "Comments": null,
+      "ValidationInfo": [ ],
+      "WorkOrderNumber": null,
+      "ERPOrderType": 0,
+      "PaymentTermsDetails": {
+        "PaymentTermId": 151,
+        "NoOfDays": 0,
+        "Discount": 0,
+        "DiscountDays": 0,
+        "PaymentTermCode": "Z006",
+        "PaymentTermName": null,
+        "IsDefault": false,
+        "PartnerCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "CommentCount": 0,
+      "IsUrgent": false,
+      "CapitalCode": null,
+      "SentForApprovalDate": "/Date(-62135596800000)/",
+      "ApprovedRejectedDate": "/Date(-62135596800000)/",
+      "NextLineNumber": 2,
+      "Operation": null,
+      "BudgetId": 0,
+      "ERPOrderTypeName": null,
+      "BudgetDescription": "",
+      "EntitySumList": null,
+      "DocumentSourceSystemId": 0,
+      "ERPProcessStatus": null,
+      "CustomAttrFormId": 31554,
+      "CustomAttrFormIdForItem": 31555,
+      "FOBCodeID": 0,
+      "FOBLocationID": 0,
+      "CarriersID": 0,
+      "TransitTypeID": 0,
+      "FreightTermsID": 0,
+      "FOBCodeDescription": null,
+      "FOBLocationDescription": null,
+      "CarriersDescription": null,
+      "TransitTypeDescription": null,
+      "FreightTermsDescription": null,
+      "CustomAttributes": null,
+      "IsPunchoutItemExists": false,
+      "CustomAttrFormIdForSplit": 30705,
+      "DateCreated": "/Date(1520101800000)/",
+      "SecondLevelAcknowledgement": null,
+      "FOBCode": null,
+      "FOBLocationCode": null,
+      "FreightTermsCode": null,
+      "TransitTypeCode": null,
+      "CarriersCode": null,
+      "isAdvanced": false,
+      "DocumentAdditionalEntitiesInfoList": [
+        {
+          "EntityId": 7,
+          "EntityDetailCode": 7,
+          "EntityDisplayName": "1100-Mylan Pharmaceuticals Inc",
+          "EntityCode": "1100",
+          "ParentEntityDetailCode": 0
+        }
+      ],
+      "DocumentCode": 34716,
+      "DocumentName": "INVOICE for PO 0015278031",
+      "DocumentNumber": "INV32605377",
+      "DocumentDescription": null,
+      "DocumentTypeInfo": 0,
+      "DocumentStatusInfo": 68,
+      "NumberofItems": -1,
+      "NumberofSurveys": -1,
+      "NumberofSections": -1,
+      "NumberofPartners": -1,
+      "NumberofAttachments": -1,
+      "DocumentPASList": [ ],
+      "DocumentRegionList": [ ],
+      "DocumentBUList": [
+        {
+          "BusinessUnitCode": 7,
+          "BusinessUnitName": "Mylan Pharmaceuticals Inc",
+          "BusinessUnitEntityCode": "1100"
+        }
+      ],
+      "DocumentStakeHolderList": [ ],
+      "DocumentAdditionalFieldList": [ ],
+      "DocumentLinkInfoList": [ ],
+      "IsTemplate": false,
+      "IsConfidential": false,
+      "IsDocumentDetails": false,
+      "IsStakeholderDetails": false,
+      "IsAddtionalDetails": false,
+      "SearchKey": null,
+      "AllowDuplicateDocumentName": true,
+      "GPNPasInCSV": null,
+      "LinkedDocumentCode": 0,
+      "LinkedDocumentTypeCode": 0,
+      "GenerateDocumentName": false,
+      "DocumentSourceTypeInfo": 0,
+      "InterfaceDocumentStatus": 0,
+      "EntityId": 1,
+      "EntityDetailCode": [
+        1
+      ],
+      "DocumentLOBDetails": [
+        {
+          "EntityDetailCode": 1,
+          "EntityCode": "Mylan",
+          "EntityDisplayName": "Mylan",
+          "EntityId": 1
+        }
+      ],
+      "ACEntityId": 0,
+      "SourceSystemInfo": {
+        "SourceSystemId": 0,
+        "SourceSystemName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "SelectedPasCode": null,
+      "SelectedRegionCode": null,
+      "IsFilterByBU": true,
+      "CompanyName": null,
+      "ClientID": 0,
+      "PageIndex": 0,
+      "PageSize": 0,
+      "TotalRecords": 0,
+      "SortBy": null,
+      "SortOrder": null,
+      "CultureCode": "en-US",
+      "CreatedOn": "/Date(1464088675163)/",
+      "UpdatedOn": "/Date(1464159589590)/",
+      "CreatedBy": 288060040000004,
+      "ModifiedBy": 0,
+      "DefaultCurrencyCode": null
+    },
+    "objLstERPOrderType": [
+      {
+        "ERPOrderTypeId": 1,
+        "ErpOrderType": "Internal Order"
+      },
+      {
+        "ERPOrderTypeId": 2,
+        "ErpOrderType": "Sales Order"
+      },
+      {
+        "ERPOrderTypeId": 3,
+        "ErpOrderType": "Cost Centre Order"
+      },
+      {
+        "ERPOrderTypeId": 4,
+        "ErpOrderType": "MRP Order"
+      },
+      {
+        "ERPOrderTypeId": 5,
+        "ErpOrderType": "Work Order"
+      }
+    ],
+    "AllDocumentItemsCheckedStatus": null,
+    "lstRemitToLocations": null,
+    "lstPartnerContacts": null,
+    "objPartnerDetails": {
+      "IsDiverse": "0",
+      "PartnerCode": 28806,
+      "LegalCompanyName": "McMaster-Carr",
+      "NormalizedName": "",
+      "Address": {
+        "AddressCode": 118131,
+        "Addressline1": "Add lien1",
+        "Addressline2": "",
+        "Addressline3": "",
+        "City": "calis",
+        "ZipCode": "133212",
+        "StateInfo": {
+          "StateCode": 5,
+          "StateName": "California",
+          "CountryId": 221,
+          "IsActive": true,
+          "IsDeleted": false,
+          "StateAbbrevationCode": "CA",
+          "StateOther": null,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "CountryInfo": {
+          "CountryId": 221,
+          "CountryCode": "US",
+          "CountryName": "United States of America",
+          "CountryCultureInfo": "en-US",
+          "CurrencyCode": "USD",
+          "IsActive": true,
+          "IsDeleted": false,
+          "PreferenceOrder": 0,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "PhoneNo1": "898-787-3543",
+        "ExtenstionNo1": "",
+        "PhoneNo2": "",
+        "ExtenstionNo2": "",
+        "MobileNo": "",
+        "FaxNo": "",
+        "GeographyDetail": null,
+        "Latitude": "",
+        "Longitude": "",
+        "County": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "DunAndBradNumber": "23454",
+      "YearOfEstablishment": 0,
+      "ParentCompanyName": "Lionbridge Technologies",
+      "ParentCompanyCode": 28660,
+      "CompanyWebsite": "www.mcmaster.com",
+      "PartnerStatus": {
+        "PartnerStatusCode": 2,
+        "PartnerStatusDisplayName": "Registered",
+        "ReasonCount": 0,
+        "IsChangeLinkVisible": true,
+        "IsEditable": true,
+        "PreviousPartnerStatusCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "IsPRFInvited": false,
+      "IsDeleted": false,
+      "IsVisibleToBuyer": true,
+      "TypeOfPartner": 1,
+      "Contacts": [ ],
+      "Location": null,
+      "PASCodeList": [ ],
+      "RegionsList": [ ],
+      "ParentChildTree": [ ],
+      "Region": null,
+      "Comments": null,
+      "ImageURL": "https://gepqcsmartmtstorage.blob.core.windows.net/cumuluscontent/logo/28806_logo.png",
+      "ClientPartnerCode": "PC-2015.000009",
+      "PartnerLocations": null,
+      "PASMappingDetails": null,
+      "OrgMappingDetails": null,
+      "DoingBusinessAs": "DBAS",
+      "PartnerIdentificationDetailsList": [
+        {
+          "PartnerCompanyIdentificationId": 14,
+          "PartnerCode": 28806,
+          "IdentificationType": {
+            "CompanyIdentificationTypeId": 8,
+            "CompanyIdentificationTypeDisplayName": "TIN Number",
+            "IsEditableBy": 0,
+            "IsMasked": false,
+            "IsMapLocation": false,
+            "ClientLocationCode": null,
+            "LocationId": 0,
+            "PartnerCode": 0,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "CompanyIdentification": "234-908-2345",
+          "IsDeleted": false,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(1443080176210)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 286290040000001,
+          "ModifiedBy": -9223372036854776000,
+          "DefaultCurrencyCode": null
+        }
+      ],
+      "PartnerRiskTypeInfo": {
+        "PartnerRiskTypeId": 0,
+        "PartnerRiskTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerSourceTypeInfo": {
+        "PartnerSourceTypeId": 0,
+        "PartnerSourceTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerBusinessCriticalityInfo": {
+        "PartnerBusinessCriticalityId": 0,
+        "PartnerBusinessCriticalityName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerRelationshipTypeInfo": {
+        "PartnerRelationshipTypeId": 0,
+        "PartnerRelationshipTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "CreaterName": "Mylan Admin",
+      "ApprovalType": 0,
+      "PartnerFinancialDetail": null,
+      "MarketingDetail": null,
+      "PartnerManagers": null,
+      "PartnerStatusChangeReasonInfo": {
+        "ReasonId": 0,
+        "ReasonName": "",
+        "PartnerStatusCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "IsDirectLink": false,
+      "IsAllLocationORGMapped": true,
+      "PartnerReconMatchTypeInfo": {
+        "PartnerReconMatchTypeId": 1,
+        "PartnerReconMatchTypeValue": "2-way match",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerSourceSystemList": null,
+      "IgnoreDuplicatePartnerCheck": false,
+      "EngagementType": null,
+      "IsPreferredSupplier": false,
+      "CompanyName": null,
+      "ClientID": 0,
+      "PageIndex": 0,
+      "PageSize": 0,
+      "TotalRecords": 0,
+      "SortBy": null,
+      "SortOrder": null,
+      "CultureCode": "en-US",
+      "CreatedOn": "/Date(1440656113053)/",
+      "UpdatedOn": "/Date(1461867090307)/",
+      "CreatedBy": 286290040000001,
+      "ModifiedBy": 286290040000001,
+      "DefaultCurrencyCode": null
+    },
+    "objBuyerContactDetails": {
+      "ContactCode": 286290040000001,
+      "PartnerCode": 28629,
+      "FirstName": "Mylan",
+      "LastName": "Admin",
+      "EmailAddress": "mylan.admin@gep.com",
+      "Address": {
+        "AddressCode": 117233,
+        "Addressline1": "Airoli Station",
+        "Addressline2": "Thane - Belapur Road",
+        "Addressline3": "Mind Space",
+        "City": "Navi Mumbai",
+        "ZipCode": "400708",
+        "StateInfo": {
+          "StateCode": 7450,
+          "StateName": "New State4 Of US",
+          "CountryId": 0,
+          "IsActive": true,
+          "IsDeleted": false,
+          "StateAbbrevationCode": "CA",
+          "StateOther": null,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "CountryInfo": {
+          "CountryId": 221,
+          "CountryCode": "US",
+          "CountryName": "United States of America",
+          "CountryCultureInfo": "en-US",
+          "CurrencyCode": "USD",
+          "IsActive": true,
+          "IsDeleted": false,
+          "PreferenceOrder": 0,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "PhoneNo1": "10000002",
+        "ExtenstionNo1": "5165",
+        "PhoneNo2": "91 (22) 100002",
+        "ExtenstionNo2": "5165",
+        "MobileNo": null,
+        "FaxNo": "91 (22) 6137 2122",
+        "GeographyDetail": null,
+        "Latitude": "",
+        "Longitude": "",
+        "County": null,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "Designation": "Admin",
+      "Department": "",
+      "EmployeeCode": "2102",
+      "IsPrimary": true,
+      "IsDeleted": false,
+      "IsActive": false,
+      "ActivationMailSend": false,
+      "UserInfo": null,
+      "ContactPASCodeList": [ ],
+      "ContactRegionsList": [ ],
+      "ClientContactCode": null,
+      "ContactManagerList": null,
+      "IsContactManagerDetails": false,
+      "IsContactActivity": false,
+      "ContactLocations": null,
+      "MapAllRegion": false,
+      "MapAllPAS": false,
+      "OrgEntitiesTypeIds": null,
+      "LegalCompanyName": "Mylan",
+      "IsStrikeOut": false,
+      "UserLOBMapping": null,
+      "PASName": null,
+      "PASCount": 0,
+      "RegionName": null,
+      "RegionCount": 0,
+      "IsNew": false,
+      "HasAdminActvity": false,
+      "ContactDefaultRole": null,
+      "CompanyName": null,
+      "ClientID": 0,
+      "PageIndex": 0,
+      "PageSize": 0,
+      "TotalRecords": 0,
+      "SortBy": null,
+      "SortOrder": null,
+      "CultureCode": "en-US",
+      "CreatedOn": "/Date(1437733326797)/",
+      "UpdatedOn": "/Date(-62135596800000)/",
+      "CreatedBy": 0,
+      "ModifiedBy": 0,
+      "DefaultCurrencyCode": null
+    },
+    "objBuyerPartnerDetails": {
+      "IsDiverse": "0",
+      "PartnerCode": 28629,
+      "LegalCompanyName": "Mylan",
+      "NormalizedName": "",
+      "Address": {
+        "AddressCode": 117232,
+        "Addressline1": "Airoli Station",
+        "Addressline2": "Thane - Belapur Road",
+        "Addressline3": "Mind Space",
+        "City": "Navi Mumbai",
+        "ZipCode": "400708",
+        "StateInfo": {
+          "StateCode": 7450,
+          "StateName": "New State4 Of US",
+          "CountryId": 221,
+          "IsActive": true,
+          "IsDeleted": false,
+          "StateAbbrevationCode": "CA",
+          "StateOther": null,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "CountryInfo": {
+          "CountryId": 100,
+          "CountryCode": "IN",
+          "CountryName": "Republic of India",
+          "CountryCultureInfo": "hi-IN",
+          "CurrencyCode": "INR",
+          "IsActive": true,
+          "IsDeleted": false,
+          "PreferenceOrder": 0,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "PhoneNo1": "91 (22) 6137 2100",
+        "ExtenstionNo1": "5165",
+        "PhoneNo2": "91 (22) 276\n4 9100",
+        "ExtenstionNo2": "5165",
+        "MobileNo": "",
+        "FaxNo": "91 (22) 6137 2121",
+        "GeographyDetail": null,
+        "Latitude": "",
+        "Longitude": "",
+        "County": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "DunAndBradNumber": "32333",
+      "YearOfEstablishment": 2012,
+      "ParentCompanyName": "",
+      "ParentCompanyCode": 0,
+      "CompanyWebsite": "",
+      "PartnerStatus": {
+        "PartnerStatusCode": 1,
+        "PartnerStatusDisplayName": "Invited",
+        "ReasonCount": 0,
+        "IsChangeLinkVisible": true,
+        "IsEditable": true,
+        "PreviousPartnerStatusCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "IsPRFInvited": false,
+      "IsDeleted": false,
+      "IsVisibleToBuyer": true,
+      "TypeOfPartner": 0,
+      "Contacts": [ ],
+      "Location": null,
+      "PASCodeList": [ ],
+      "RegionsList": [ ],
+      "ParentChildTree": [ ],
+      "Region": null,
+      "Comments": null,
+      "ImageURL": "",
+      "ClientPartnerCode": "",
+      "PartnerLocations": null,
+      "PASMappingDetails": null,
+      "OrgMappingDetails": null,
+      "DoingBusinessAs": "",
+      "PartnerIdentificationDetailsList": [ ],
+      "PartnerRiskTypeInfo": {
+        "PartnerRiskTypeId": -2147483648,
+        "PartnerRiskTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerSourceTypeInfo": {
+        "PartnerSourceTypeId": -2147483648,
+        "PartnerSourceTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerBusinessCriticalityInfo": {
+        "PartnerBusinessCriticalityId": -2147483648,
+        "PartnerBusinessCriticalityName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerRelationshipTypeInfo": {
+        "PartnerRelationshipTypeId": -2147483648,
+        "PartnerRelationshipTypeName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "CreaterName": "",
+      "ApprovalType": 0,
+      "PartnerFinancialDetail": null,
+      "MarketingDetail": null,
+      "PartnerManagers": null,
+      "PartnerStatusChangeReasonInfo": {
+        "ReasonId": 0,
+        "ReasonName": "",
+        "PartnerStatusCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "IsDirectLink": false,
+      "IsAllLocationORGMapped": true,
+      "PartnerReconMatchTypeInfo": {
+        "PartnerReconMatchTypeId": 0,
+        "PartnerReconMatchTypeValue": "Not Applicable",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "PartnerSourceSystemList": null,
+      "IgnoreDuplicatePartnerCheck": false,
+      "EngagementType": null,
+      "IsPreferredSupplier": false,
+      "CompanyName": null,
+      "ClientID": 0,
+      "PageIndex": 0,
+      "PageSize": 0,
+      "TotalRecords": 0,
+      "SortBy": null,
+      "SortOrder": null,
+      "CultureCode": "en-US",
+      "CreatedOn": "/Date(1437733326577)/",
+      "UpdatedOn": "/Date(1464014061267)/",
+      "CreatedBy": 0,
+      "ModifiedBy": 286290040000001,
+      "DefaultCurrencyCode": null
+    },
+    "allServingUserLOBMapping": [
+      {
+        "ContactLOBMappingId": 0,
+        "EntityDetailCode": 1,
+        "EntityCode": "Mylan",
+        "EntityDisplayName": "Mylan",
+        "EntityId": 1,
+        "PreferenceLobType": 2,
+        "IsDefault": true
+      }
+    ],
+    "company": {
+      "companyOptions": [
+        {
+          "companyName": "GEP",
+          "code": "GEP"
+        },
+        {
+          "companyName": "German Shepard",
+          "code": "GS - 005"
+        },
+        {
+          "companyName": "Victory Sales",
+          "code": "VS - 770"
+        }
+      ],
+      "selectedCompany": {
+        "companyName": "GEP",
+        "code": "GEP"
+      }
+    },
+    "organizationNew": {
+      "name": "GEP india - GEP Organization",
+      "code": "GEP - 001"
+    },
+    "partnerNameNew": {
+      "name": "McMaster-Carr"
+    },
+    "tolerancesSection": {
+      "orderTotal": {
+        "fieldLabel": "Supplier Contact",
+        "fieldValue": "Supplier Contact",
+        "warningMessage": "Received Value: 500.00",
+        "optionSelected": {
+          "code": "Cont1",
+          "name": "Contact 1",
+          "emailContact": "paul.leah@dell.com / +1-541-754-3010"
+        },
+        "options": [
+          {
+            "code": "Cont1",
+            "name": "Contact 1",
+            "emailContact": "paul.leah@dell.com/+1-541-754-3010"
+          },
+          {
+            "code": "cont2",
+            "name": "Contact 2",
+            "emailContact": "bob.lewis@ibm.com/+1-541-854-1010"
+          },
+          {
+            "code": "cont3",
+            "name": "Contact 3",
+            "emailContact": "laura.pete@ibm.com/+1-561-154-7242"
+          }
+        ]
+      }
+    },
+    "additionalInfo": {
+      "data": [
+        {
+          "id": 1,
+          "sectionName": "",
+          "questions": [
+            {
+              "question": "Work Order Type",
+              "type": "single-text",
+              "questionResponse": "",
+              "options": [ ]
+            },
+            {
+              "question": "ERP Order Number ",
+              "type": "single-response-radio",
+              "questionResponse": "",
+              "options": [
+                {
+                  "code": "A",
+                  "name": "Option A"
+                },
+                {
+                  "code": "B",
+                  "name": "Option B"
+                }
+              ]
+            },
+            {
+              "question": "",
+              "type": "multi-response",
+              "questionResponse": "",
+              "options": [
+                {
+                  "label": "Urgent",
+                  "data": ""
+                }
+              ]
+            },
+            {
+              "question": "Item Description",
+              "type": "multi-text",
+              "questionResponse": "",
+              "options": [ ]
+            },
+            {
+              "question": "Enter Order Number",
+              "type": "multi-text-with-icon",
+              "questionResponse": "",
+              "icon": "#icon_Info",
+              "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+              "options": [ ]
+            }
+          ]
+        }
+      ]
+    },
+    "LineLeveladditionalInfo": [
+      {
+        "title": "Dell Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "Section 1",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "sectionName": "Section 2",
+            "questions": [
+              {
+                "question": "loram ispum",
+                "type": "single-response-drop",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "Add Date",
+                "type": "date-time",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "Please provide us your Order numbers associated with the current document.(separated by comma)",
+                "type": "multi-text-format",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Add Item Number",
+                "type": "numeric",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Add Attachment",
+                "type": "attachment-only",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "sectionName": "Section 3",
+            "questions": [
+              {
+                "question": "Question with SubQuestion multi-numeric",
+                "type": "multi-numeric",
+
+                "options": [ ],
+                "questionResponse": [
+                  {
+                    "question": "sub Question 1",
+                    "type": "numeric",
+                    "questionResponse": ""
+                  },
+                  {
+                    "question": "sub Question 2",
+                    "type": "numeric",
+                    "questionResponse": ""
+                  }
+                ]
+              }
+
+
+            ]
+          },
+          {
+            "id": 4,
+            "sectionName": "Section 4",
+            "questions": [
+              {
+                "question": "Grid type combination",
+                "type": "grid-type-combination",
+                "options": [ ],
+                "questionResponse": {
+                  "cols": [
+                    {
+                      "title": "col 1",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Checkbox"
+                        },
+                        "check": false
+                      }
+
+                    },
+                    {
+                      "title": "col 2",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Dropdown"
+                        },
+                        "check": false,
+                        "configSelect": "",
+                        "config": [
+                          {
+                            "name": "Option 1"
+                          },
+                          {
+                            "name": "Option 2"
+                          }
+                        ]
+                      }
+
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "title": "row 1",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 2",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 3",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 4",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "sectionName": "Section 5",
+            "questions": [
+              {
+                "question": "Table Type",
+                "type": "grid-type-wrow-combination",
+                "options": [ ],
+                "questionResponse": {
+                  "cols": [
+                    {
+                      "title": "col 1",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Text field"
+                        },
+                        "Textfield": ""
+                      }
+
+                    },
+                    {
+                      "title": "col 2",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Text field"
+                        },
+                        "Textfield": ""
+                      }
+
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        }
+                      ]
+
+
+
+                    }
+                  ]
+
+                }
+              },
+
+              {
+                "question": "List box",
+                "type": "list-box",
+                "options": [ ],
+                "questionResponse": {
+                  "selected": [ ],
+                  "config": [
+                    {
+                      "title": "Option 01",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 02",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 03",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 04",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 05",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 06",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 07",
+                      "isChecked:": false
+                    }
+                  ]
+
+                }
+              }
+            ]
+          }
+
+
+        ]
+
+      },
+      {
+        "title": "Lenovo Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Asus Laptop",
+        "showContent": false,
+        "questions": [
+          {
+            "question": "Work Order Type",
+            "type": "single-text",
+            "questionResponse": "",
+            "options": [ ]
+          },
+          {
+            "question": "ERP Order Number ",
+            "type": "single-response-radio",
+            "questionResponse": "",
+            "options": [
+              {
+                "code": "A",
+                "name": "Option A"
+              },
+              {
+                "code": "B",
+                "name": "Option B"
+              }
+            ]
+          },
+          {
+            "question": "",
+            "type": "multi-response",
+            "questionResponse": "",
+            "options": [
+              {
+                "label": "Urgent",
+                "data": ""
+              }
+            ]
+          },
+          {
+            "question": "Item Description",
+            "type": "multi-text",
+            "questionResponse": "",
+            "options": [ ]
+          },
+          {
+            "question": "Enter Order Number",
+            "type": "multi-text-with-icon",
+            "icon": "#icon_Info",
+            "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+            "questionResponse": "",
+            "options": [ ]
+          }
+        ]
+      },
+      {
+        "title": "IBM Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "formConfig": {
+    "sections": [   
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isActive": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "Invoice Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.DocumentName",
+                "attributes": {
+                  "maxlength": 35
+                }
+              },
+              {
+                "label": "Invoice Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.DocumentNumber",
+                "attributes": {
+                  "readonly": true,
+                  "disable": true,
+                  "maxlength": 20
+                }
+
+              },
+                {
+                "label": "Invoice Amount",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.InvoiceAmount.InvoiceTotalAmount",
+                "attributes": {
+                  "type": "number",
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Supplier Invoice Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.PartnerInvoiceNumber",
+                "attributes": {
+                }
+              },            
+              {
+                "label": "Invoice Creation Date",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.invoiceCreationDate",
+                "attributes": {
+                  "readonly": true,
+                  "disable": true
+                }
+              },
+                 
+              {
+                "label": "Order Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.orderNum",
+                "attributes": {
+                 "readonly": true,
+                  "disable": true
+                }
+              },
+              {
+                "label": "Order Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.orderName",
+                "attributes": {
+                  "readonly": true,
+                  "disable": true
+                }
+              },
+              {
+                "label": "Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.Currency",
+                "attributes": {
+                  "disable": true,
+                  "options": [
+                    {
+                      "title": "USD",
+                      "selected": true
+                    },
+                    {
+                      "title": "DNY"
+                    },
+                    {
+                      "title": "RUPEE"
+                    }
+                  ],
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Supplier Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "isHidden": true,
+                "data": "objInvoice.supplierName",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20,
+                  "showwarning": "500.00"
+                }
+              },
+              {
+                "label": "Purchase Type",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.purchaseType",
+                "attributes": {
+                  "readonly": true,
+                  "disable": true
+                }
+              }
+            ]
+          }
+        ]
+      },  
+      {
+        "label": "Supplier Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isActive": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "Remit To Location",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "remitToLocation",
+                "colspan": "12",
+                "attributes": {
+                 
+                }
+              },
+              {
+                "label": "Supplier Address",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "supplierAddress",
+                "colspan": "1",
+                "isVisible": true,
+                "attributes": {
+                  "disable": true,
+                  "readonly": true
+                }
+
+              }
+           
+            ]
+          },
+             {
+            "colspan": "12",
+            "properties": [            
+              {
+                "label": "Supplier Contact",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "objInvoice.supContact",
+                "colspan": "1",
+                "isVisible": true
+               
+              },
+              {
+                "label": "Supplier Contact Email & Phone",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "supContactEmailPhone",
+                "colspan": "1",
+                "isVisible": true,
+                "attributes": {
+                  "disable": true
+                }
+              }
+            ]
+          }
+        ]
+      },   
+      {
+        "label": "Payment and Delivery Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "objInvoice.ShiptoLocation",
+                "templateUrl": "p2p/inv/views/p2pInvoiceShippingTemp.html"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "objInvoice.BilltoLocation",
+                "templateUrl": "p2p/inv/views/p2pInvoiceBillTemp.html"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "paymentTerm",
+                "templateUrl": "p2p/inv/views/paymentTermFieldTemp.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Additional Information",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isActive": false,
+        "isVisible": false,
+        "headerTemplate": "p2p/inv/views/additionalInfoHeader.html",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "templateUrl": "p2p/inv/views/additionalInformation.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "LINE DETAILS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/inv/views/itemDetailTemplate.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

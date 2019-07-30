@@ -1,0 +1,223 @@
+<div class="row marginBottom0" data-ng-controller="itemDetailsCtrl">
+    <div class="col s12">
+        <!--<label style="color:black;font-size:18px; line-height: 1.5; font-family: 'Noto Sans', sans-serif; font-weight: normal;">Material Item Count: </label>
+        <label style="color:#159dfc;font-size:18px; line-height: 1.5; font-family: 'Noto Sans', sans-serif; font-weight: normal;"></label>-->
+        <smart-radio gap="true" options="itemType" ng-model="rItem"></smart-radio>
+    </div>
+    <div id="servRadioContent" class="servRadioContent addClassAfterHeaderFixed">
+        <div class="col s12 padding0 _dev_addScrollForTopSr">
+            <div class="col s12 borderBtmGray">
+                <fixed-position></fixed-position>
+                <smart-tabs stick-tabs="{{$root.stickGridContents}}"  tab-config="{{itemDetailTabDataset}}" ng-click="selectTab(this)" width="60%"></smart-tabs>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script id="tabs1.html" type="text/ng-template">
+    <div ng-include="'controls.html'"></div>
+    <div ng-include="'content.html'"></div>
+</script>
+<script id="tabs2.html" type="text/ng-template">
+    <div ng-include="'controls.html'"></div>
+    <div ng-include="'content.html'"></div>
+</script>
+<script id="tabs3.html" type="text/ng-template">
+    <div ng-include="'controls.html'"></div>
+    <div ng-include="'content.html'"></div>
+</script>
+<script id="tabs4.html" type="text/ng-template">
+    <div ng-include="'controls.html'"></div>
+    <div ng-include="'content.html'"></div>
+</script>
+
+<script id="controls.html" type="text/ng-template">
+    <div class="col s12 padding10 borderBtmGray">
+        <div class="left paddingLeft10">
+            <input type="checkbox" class="filled-in" id="materialCountChk1All" ng-checked="isSelectAll()" ng-click="toggleAll()">
+            <label for="materialCountChk1All">All</label>
+        </div>
+        <div class="right">
+            <smart-dropdown config="{{dropDownConfig}}">
+                <i class="add-row icon iconSmall left dropdown-button blue-text" data-activates="tabMatLineTBulkAdd" data-alignment="right" data-constrainwidth="false" smart-tooltip position="bottom" delay="50" message="Add Multiple Lines">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+                <ul id="tabMatLineTBulkAdd" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                    <li><span class="center-align fontSize16">ADD MULTIPLE LINES</span></li>
+                    <li>
+                        <smart-textfield class="col s12" label="Add" type="number" ng-model="itemsToAdd.no"></smart-textfield>
+                    </li>
+                    <li>
+                        <div class="right">
+                            <a ng-click="closeDialog()">
+                                <i class="icon iconSmall left blue-text">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+                            <a ng-click="addItem()">
+                                <i class="icon iconSmall left blue-text addBulkRow">
+                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </smart-dropdown>
+            <a class="hideImportIcon" ng-if="hide">
+                <i class="icon iconSmall left dropdown-button blue-text tooltipped" data-activates="importLineItems" data-alignment="right" data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="Import Line Items" data-tooltip-id="da308f1f-1aef-3cdf-be0d-c2be4d1f4a18">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkImport"></use>
+                    </svg>
+                </i>
+            </a>
+            <smart-dropdown config="{{dropDownConfig}}">
+                <i class="icon iconSmall left dropdown-button blue-text" data-activates="tabMateLineTUlkEdittt" data-constrainwidth="false" smart-tooltip position="bottom" delay="50" message="Edit Multiple Lines" data-alignment="right">
+                    <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+                </i>
+                <ul id="tabMateLineTUlkEdittt" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup" style="width: 400px;">
+                    <li>
+                        <span class="col s12 left-align fontSize16">EDIT MULTIPLE LINES</span>
+                        <!--<smart-textfield class="col s6 marginBtm15" label="Requester" ng-model="bkEdit.requester"></smart-textfield>
+                        <smart-textfield class="col s6 marginBtm15" label="Legal Entity" ng-model="bkEdit.legalEntity"></smart-textfield>
+                        <smart-textfield class="col s6 marginBtm15" label="Cost Center" ng-model="bkEdit.costCenter"></smart-textfield>
+                        <smart-textfield class="col s6 marginBtm15" label="Project Code" ng-model="bkEdit.projectCode"></smart-textfield>
+                        <smart-textfield class="col s6 marginBtm15" label="GL Code" ng-model="bkEdit.glCode"></smart-textfield>-->
+                        <!--<smart-form-widget model-data="bkEdit.data" form-config="bkEdit.config"></smart-form-widget>-->		    			
+                        <smart-textfield ng-repeat="bkprop in bkEdit.config.sections[0].rows[0].properties" class="col s6 marginBtm15" label="{{bkprop.label}}" ng-model="bkEdit.data[bkprop.data]" type="{{bkprop.attributes.type}}"></smart-textfield>
+                        <smart-button config='{"title":"DONE","flat":true}' flat="true" class="col s12 right" ng-click="bulkEdit()"></smart-button>
+                    </li>
+                </ul>
+            </smart-dropdown>
+            <a class="hideShippingIcon" ng-if="hide">
+                <i class=" icon iconSmall left dropdown-button blue-text tooltipped" data-activates="blkEditShipping" data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="Bulk Edit Shipping" data-tooltip-id="46f2476e-6196-d7b6-2f0d-0c1ce02c1e3c">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkEdit"></use>
+                    </svg>
+                </i>
+            </a>
+            <a class="hideAccountingIcon" ng-if="hide">
+                <i class=" icon iconSmall left dropdown-button blue-text tooltipped" data-activates="blkEditAccountion" data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="Bulk Edit Accounting" data-alignment="right" data-tooltip-id="c3744dc5-d267-360b-d49c-cc4f15a2d568">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkEdit"></use>
+                    </svg>
+                </i>
+            </a>
+            <a class="hideBulkAddIcon" ng-if="hide">
+                <i class="icon iconSmall left dropdown-button blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Bulk Add" data-tooltip-id="da3fafc3-396b-8722-8f9f-3b16dd5bd292">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkAdd"></use>
+                    </svg>
+                </i>
+            </a>
+            <a class="hideUploadIcon" ng-if="hide">
+                <i class="icon iconSmall left blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload" data-tooltip-id="293888cc-a3cd-b281-867e-5da4e246263b">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Upload"></use>
+                    </svg>
+                </i>
+            </a>
+            <a ng-if="hide">
+                <i class="icon iconSmall left blue-text tooltipped dropdown-button" data-position="bottom" data-delay="50" data-tooltip="Filter" data-activates="FilterForItemMaterialService" data-constrainwidth="false" data-alignment="right" data-tooltip-id="04cc0563-98ae-7376-eab5-2ebcd1550098">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter"></use>
+                    </svg>
+                </i>
+            </a>
+            <a ng-click="deleteItems()" style="cursor:pointer;">
+                <i class="icon iconSmall left blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete" data-tooltip-id="f94bbe04-2d7b-86b7-138e-801485f9c16c">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+    </div>
+</script>
+
+<script id="content.html" type="text/ng-template">
+	
+    <div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+        <div class="row marginBtm0 requItemWrap ng-scope" ng-repeat="item in items track by $index" id="{{'itemId_'+item.id}}">
+            <div class="col l3 m4 s6 requItemContainerLeft">
+                <div class="col s12 paddingRight0">
+                    <input type="checkbox" class="filled-in" id="{{'materialCountChk1_'+$index}}" value="{{item.name}}" ng-checked="isSelected(item.id)">
+                    <label ng-click="toggleSeln(item.id, $event)">{{$index+1}}</label>
+                    <span class="right" ng-if="hide">
+                        <a href="#TestModel" class="modal-trigger add-row  right dropdown-button tooltipped" data-position="bottom" data-delay="50" data-tooltip="Copy Line Details" data-tooltip-id="f241c8ee-1b4e-4c62-373a-26580dd4fc72">
+                            <i class="icon iconSmall ">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use>
+                                </svg>
+                            </i>
+                        </a>
+                        <a class="add-row right dropdown-button marginRight20 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Duplicate Line" data-tooltip-id="ac006d73-7189-6031-abe6-00e115f895a0">
+                            <i class="icon iconSmall ">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Copy"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </span>
+                </div>
+
+                <smart-textfield class="col s12" label="Item Name" type="text" ng-model="item.name" decimalprecision="2"></smart-textfield>
+                <smart-textfield class="col s12" label="Item Number" type="text" ng-model="item.partnerItemNumber"></smart-textfield>
+                <smart-textfield class="col s12 l4 m12" label="Unit Price (USD)" type="number" ng-model="item.unitPrice" decimalprecision="2"></smart-textfield>
+                <smart-textfield class="col s6 l4 m6" label="UOM" type="text" ng-model="item.uom.name"></smart-textfield>
+                <smart-textfield class="col s6 l4 m6" label="Quantity" type="number" ng-model="item.quantity" decimalprecision="2"></smart-textfield>
+            </div>
+            <div class="col l9 m8 s6 padding0" >
+                <div class="col s12 right relative padding10 borderBtmGraye7">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <span class="right">
+                            LINE TOTAL:
+                            <a href="javascript:void(0)" class="dropdown-button" data-activates="{{'dropdownUSD_Line'+$index}}" data-constrainwidth="false" data-alignment="right">USD {{getLineValue(item)}}</a>
+                        </span>
+                        <ul id="{{'dropdownUSD_Line'+$index}}" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+                            <li>
+                                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">{{item.unitPrice}}</span> </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">{{item.quantity}}</span> </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">{{item.taxes}}</span> </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">{{getLineValue(item)}}</span> </div>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </smart-dropdown>
+                    <span class="right" ng-if="hide">
+                        <a href="javascript:void(0)" ng-click="showCommentsPopupCallback()" class="add-row icon iconSmall left dropdown-button modal-trigger marginRight20" smart-tooltip position="bottom" delay="50" message="Comments">
+                            <svg><use xlink:href="#icon_Comments"></use></svg>
+                        </a>
+                    </span>
+                </div>
+                <div class="row" ng-if="isVisible(0)">
+                    <smart-form-widget class="marginTop10" form-config="conf" model-data="item" show-widget="false" style="width:100%;"></smart-form-widget>
+                </div>
+                <div ng-repeat="split in item.splits track by $index" class="row" ng-if="isVisible(1)">
+                    <div class="col s12 padding10">
+                        <div class="left">
+                            <span class="">Split {{$index+1}}: {{splitType(item)}} </span>
+                            <span class="input-field">
+                                <input ng-model="split.quantity" id="Text10" type="number" style="width: 50px; height: 16px;">
+                                <label for="Text10" class="active"></label>
+                            </span>
+                        </div>
+                        <div class="right">
+                            <span>
+                                Split Value : <a class="dropdown-button ng-binding" data-activates="dropdownUSD_" data-constrainwidth="false" data-alignment="right">USD {{splitValue(item,split)}}</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col s12 padding0">
+                        <smart-form-widget class="marginTop10" form-config="conf" model-data="split" show-widget="false"></smart-form-widget>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

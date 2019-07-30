@@ -1,0 +1,80 @@
+<!-- modal  -->
+<div>
+    <!-- modal -- header -->
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left modal-header--Icon">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use>
+            </svg>
+        </i>
+        <span class="title">{{'APPLY TO ALL - SELECTED ITEMS'|| translate}}</span>
+
+
+    </div>
+
+    <!-- modal -- content -->
+    <div class="modal-content is-scrolled padding0">
+        <div class="clearfix">
+            <div class="collection">
+                <div class="collection-item clearfix">
+                    
+                        <div class="grey-text">
+                            {{'Following are the details selected to apply'|| translate}}
+                        </div>
+                        <div class="marginBtm4 marginTop3  black-text">
+                            <span ng-repeat="n in iteams" smart-tooltip position="bottom" delay="50" message="{{ n.title || translate }}">{{n.title}}, </span>
+                        </div>
+                    
+                </div>
+                <div class="collection-item clearfix">
+                    <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex1" data-ng-init="mysearch=false;">
+                        <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                            <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-effect cancel-icon btn-flat black-text">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+
+                            <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="focusSearch"></smart-textfield>
+                            <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Search"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <smart-checkbox label="{{'All' || translate }}" ng-model="selectedAll" ng-click="checkAllC(selectedAll)" class="left marginTop5" fill='true'></smart-checkbox>
+                </div>
+            </div>
+            <div class="is-scrolled">
+                <smart-list model="{{itemList}}"
+                            style-class="collection noBorder"
+                            item-class="collection-item clearfix"
+                            height="245px" template="orderItems.html">
+                </smart-list>
+                <div class="modal-footer--notification">Applying will replace Existing values</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- modal -- footer -->
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s6 left-align">
+                <smart-button flat="true" class="modal-close" ng-click="applyToAllPopUpCallback(e)" config='backBtnConfig'></smart-button>
+            </div>
+            <div class="col s6 right-align">
+                <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+                <smart-button flat="true" class="modal-close" config='ApplyBtnConfig'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD LINES FROM popover -- requisition List -->
+<script id="orderItems.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+            <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+    </div>
+</script>

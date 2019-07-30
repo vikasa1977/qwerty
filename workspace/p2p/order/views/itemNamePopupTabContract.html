@@ -1,0 +1,25 @@
+<div class="clearfix itemPopup--tabContentHeight">
+    <smart-scroll  height="{{templateListHeight}}" is-fixed-header="true">
+        <table class="table bordered">
+            <colgroup>
+                <col style="width:40%">
+                <col style="width:30%">
+                <col style="width:30%">
+            </colgroup>
+            <thead>
+                <tr ng-repeat="item in lineDetailContractTabTHeadDataData">
+                    <th>{{item.attributes}}</th>
+                    <th>{{item.modifiedFrom}}</th>
+                    <th>{{item.modifiedTo}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in lineDetailContractTabTbodyDataData">
+                    <td>{{item.attributes}}</td>
+                    <td>{{item.modifiedFrom}}</td>
+                    <td>{{item.modifiedTo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </smart-scroll>
+</div>

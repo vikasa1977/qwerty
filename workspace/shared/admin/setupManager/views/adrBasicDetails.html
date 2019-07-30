@@ -1,0 +1,12 @@
+﻿<div ng-controller="adrCtrl">
+    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" is-mandatory="true" ng-model="basicDetail.mappingSetName.title" label="Mapping Set Name"></smart-textfield>
+    <smart-textfield class="col s12 m6 l4 xl6 xxl2 line-height-manager input-field" is-mandatory="true" ng-model="basicDetail.mappingSetDesc.title" label="Mapping Set Description"></smart-textfield>
+    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" readonly="true" ng-model="basicDetail.mappingsetID.title" label="Mapping Set Code"></smart-textfield>
+    <smart-select disable="{{basicDetail.LOBOptions}}" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field marginTop15" label="Division" is-mandatory='true' ng-model="basicDetail.selectedLOB" options="basicDetail.LOBOptions" datakey="name"></smart-select>
+    <!--<smart-select disable="{{basicDetail.OrgEntityOptions}}" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field marginTop15" label="Org Entity" is-mandatory='true' ng-model="basicDetail.selectedOrgEntity" options="basicDetail.orgEntityOptions" datakey="name"></smart-select>-->
+    <div class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field marginTop15">
+        <label class="active" ng-if="selectedRegionNodes.length > 0">Choose Org Entity</label>
+        <a href="javascript:void(0)" ng-click="treeOpenCallback('region')">{{selectedRegionTxt}}</a>
+    </div>
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div>

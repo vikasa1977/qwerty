@@ -1,0 +1,38 @@
+<div class="scrollableModel">
+    <div class="modal-header">
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_FilterAppli"></use>
+            </svg>
+        </i>
+        <span class="title">
+            {{'APPLIED FILTERS' || translate}}
+        </span>
+    </div>
+    <div class="modal-content paddingTop5 paddingBottom0 paddingRight0">
+        <div class="model_body ">
+            <smart-scroll height="250px">
+                <div ng-repeat="filterItem  in filterItems " class="chip hoverable">
+                    <a ui-sref="catalog.search" class="chips-link">
+                        {{filterItem.filterKey}}
+                    </a>
+                    <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="bottom" delay="50" message="{{'Remove' || translate}}">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                        </svg>
+                    </i>
+                </div>
+            </smart-scroll>
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <smart-button flat="true" class="modal-close left s3" ng-click="resetFilter();" config='{"title":"RESET ALL"}'></smart-button>
+            <div class="col s9 right-align right">
+                <smart-button flat="true" class="modal-close right" config='{"title":"DONE"}'></smart-button>
+                <smart-button flat="true" class="modal-close marginRight2 right" config='{"title":"CANCEL"}'></smart-button>
+                
+            </div>
+        </div>
+    </div>
+</div>

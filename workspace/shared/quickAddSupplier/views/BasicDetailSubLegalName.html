@@ -1,0 +1,31 @@
+
+<div ng-controller="supplierCreationController">
+	<div class="row legalNameContainer marginBtm10">
+		<smart-textfield type="text" focus="true" class="col s12 marginTop5 line-height-manager" is-mandatory='true' label="Supplier Legal Name" ng-model="parentScope.name" on-blur="parentScope.supplierLoader = false;" on-key-up="	parentScope.SupplierCheck($event);"></smart-textfield>
+		<div class="circle-loading-container fieldloader" ng-show="parentScope.supplierLoader">
+			<div class="preloader-wrapper x-small active ">
+				<div class="spinner-layer spinner-green-only">
+					<div class="circle-clipper circle-clipper--x left">
+						<div class="circle"></div>
+					</div><div class="gap-patch">
+						<div class="circle"></div>
+					</div><div class="circle-clipper circle-clipper--x right">
+						<div class="circle"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="parentScope.supplierListAll" class="col paddingTop20">
+			Similar Suppliers
+			<a href="javascript:void(0);" class="marginTop8 marginLeft10" ng-click="showsupplierPopupCallback()"> Globus + 4 more</a>
+		</div>
+	</div>
+	<smart-popup template-url="{{supplierPopupUrl}}" show="{{showsupplierPopup}}" class="similarPopup" type="large" on-hide="supplierPopUpOnHideCallback(e)"></smart-popup>
+
+	<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" read-mode="true" openpopup="supplierPopUpOnHideCallback(e)" callback="showsupplierPopupCallback()" class="similarPopup" type="small" read-mode-text="Category"default-text="Choose Category" show="true" mode="true" selected-value="categoryDataRead" modal-content="categoryRead" modal-button="categoryBtnRead"></smart-list-popup>
+	<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" read-mode="true" openpopup="supplierPopUpOnHideCallback()" callback="showsupplierPopupCallback()" class="similarPopup" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="true" mode="true" selected-value="businessUnitDataRead" modal-content="businessUnitRead" modal-button="businessUnitBtnRead"></smart-list-popup>
+	<smart-list-popup template-url="{{smartCatPopupSingleLevel}}" read-mode="true" openpopup="supplierPopUpOnHideCallback()" callback="showsupplierPopupCallback()" class="similarPopup" type="small" default-text="Supplier Managers" show="true" mode="false" selected-value="suppliermDataRead" modal-content="suppliermRead" modal-button="suppliermBtnRead" initial-display-text="supplierminitialDisplayText"></smart-list-popup>
+
+</div>
+

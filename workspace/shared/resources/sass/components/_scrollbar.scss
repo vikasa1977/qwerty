@@ -1,0 +1,197 @@
+﻿
+/*scrollbar responsive css starts*/
+/*************** SCROLLBAR BASE CSS ***************/
+
+.scroll-wrapper {
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: relative;
+
+	> .scroll-content {
+		border: none !important;
+		height: auto;
+		left: 0;
+		margin: 0;
+		max-height: none;
+		max-width: none !important;
+		overflow: scroll !important;
+		padding: 0;
+		position: relative !important;
+		top: 0;
+		width: auto !important;
+        margin-bottom: 0 !important;
+        margin-right: 0 !important;
+
+		&::-webkit-scrollbar {
+			height: 0;
+			width: 0;
+		}
+	}
+}
+
+@supports (-ms-ime-align:auto) {
+    .scroll-wrapper {
+        > .scroll-content {
+	        overflow: auto !important;
+        }
+    }
+}
+
+.scroll-element {
+	display: none;
+	@extend %scrollElementDv;
+
+	&.scroll-x.scroll-scrollx_visible,
+	&.scroll-y.scroll-scrolly_visible {
+		display: block;
+	}
+
+	.scroll-bar {
+		cursor: default;
+	}
+
+	.scroll-arrow {
+		cursor: default;
+	}
+}
+
+.scroll-element div, %scrollElementDv {
+	box-sizing: content-box;
+}
+
+.scroll-textarea {
+	border: 1px solid #ccc;
+	border-top-color: #999;
+
+	> .scroll-content {
+		overflow: hidden !important;
+
+		> textarea {
+			border: none !important;
+			box-sizing: border-box;
+			height: 100% !important;
+			margin: 0;
+			max-height: none !important;
+			max-width: none !important;
+			overflow: scroll !important;
+			outline: none;
+			padding: 2px;
+			position: relative !important;
+			top: 0;
+			width: 100% !important;
+
+			&::-webkit-scrollbar {
+				height: 0;
+				width: 0;
+			}
+		}
+	}
+}
+.scroll-inner-container{
+	display: inline-block;
+	width: 100%;
+}
+
+/*************** SCROLLBAR MAC OS X ***************/
+//colors
+$color_bon_jour_approx: rgba(0, 0, 0, 0.05);
+$color_silver_sand_approx: #9e9e9e;
+$color_mountain_mist_approx: #757575;
+
+//@extend-elements
+//original selectors
+//.scrollbar-inner >.scroll-element, .scrollbar-inner >.scroll-element div
+%extend_1 {
+	border: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 10;
+}
+
+
+.scrollbar-outer > .scroll-element {
+	@extend %extend_1;
+	div {
+		@extend %extend_1;
+		display: block;
+		height: 100%;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	&.scroll-x {
+		bottom: 0;
+		height: 10px;
+		left: 0;
+		width: 100%;
+		&.scroll-scrolly_visible {
+			.scroll-element_track {
+				left: -12px;
+			}
+			.scroll-element_size {
+				left: -12px;
+			}
+		}
+
+		.scroll-bar{
+			top:1px;
+			height:80%;
+		}
+	}
+	&.scroll-y {
+		height: 100%;
+		right: 0;
+		top: 0;
+		width: 10px;
+		&.scroll-scrollx_visible {
+			.scroll-element_track {
+				top: -12px;
+			}
+			.scroll-element_size {
+				top: -12px;
+			}
+		}
+
+		.scroll-bar{
+			left:1px;
+			width:80%;
+            min-height: 50px !important;
+		}
+	}
+	.scroll-element_outer {
+		overflow: hidden;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		/*border-radius: 8px;*/
+	}
+	.scroll-element_track {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				/*border-radius: 8px;
+		filter: alpha(opacity=40);
+		opacity: 0.4;*/
+		background-color: $color_bon_jour_approx;
+	}
+	.scroll-bar {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			/*border-radius: 8px;
+		filter: alpha(opacity=40);
+		opacity: 0.4;*/
+
+		background-color: $color_silver_sand_approx;
+	}
+	&:hover .scroll-bar{
+		background-color: $color_mountain_mist_approx;
+	}
+	&.scroll-draggable .scroll-bar {
+		background-color: $color_mountain_mist_approx;
+	}
+}
+ .scrollingInProcess 
+.scrollbar-outer > .scroll-element .scroll-bar{background-color: $color_mountain_mist_approx;}
+
+/* Browser specific issue (TWO-3649) resolution for MS Edge Browser */
+@supports (-ms-accelerator:true){
+    .scroll-wrapper > .scroll-content{
+        margin:0 -12px -12px 0!important;
+    }
+}

@@ -1,0 +1,118 @@
+<div>
+	<div class="modal-header">
+		<i class="icon  grey-text left" ng-hide="isTeamEditMode">
+			<svg>
+				<use xlink:href="#icon_AddTeam"></use>
+			</svg>
+		</i>
+		<i class="icon  grey-text left" ng-if="isTeamEditMode">
+			<svg>
+				<use xlink:href="#icon_ToEdit"></use>
+			</svg>
+		</i>
+		<span class="title">{{teamPopupTitle}}</span>
+     
+	</div>
+   
+
+	<div class="modal-content padding0 is-scrolled">
+        <div class="info-action-bar">
+            <i class="icon">
+                <svg focusable="false">
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+            <span>{{'maximumOf' | translate}}  {{label}} {{'canBeSelected' | translate}} </span>
+        </div>	
+		<div class="stepper-container">
+			<span class="stepper-container-step" ng-repeat="step in steps" ng-class="{'active':step.stepContainer==selectedStep.stepContainer,'disable':step.isDisabled}" ng-click="selectStep(step)">
+				<span class="step-state">
+					<span ng-if="!step.isVisited">{{$index + 1}}</span>
+					<i class="icon icon-small step-icon white-text" ng-if="step.isVisited">	
+						<svg>
+							<use xlink:href="#icon_ToEdit"></use>
+						</svg>
+					</i>
+				</span>
+				<span class="step-state-title">{{step.title}}</span>
+			</span>
+		</div>
+		
+			<div class="scroll-inner-container" style="min-height:299px;">
+				<div ng-if="selectedStep.stepContainer=='managerTeam'">
+					<div class="clearfix contract-add-team-name">
+						<smart-textfield  label="Team Name" class="marginBtm0" ng-model="editModeTeamName"></smart-textfield>
+					</div>	
+					<div class="blockSeparator margin0"></div>
+					    <smart-accumulator class="padding15"  options="teamMemberList" left-loader="isLeftLoader" model-count="isModelCount" option-count="isOptionCount" right-loader="isRightLoader" max-limit="label" scroll-end-left-callback="scrollLeftCallBack()" scroll-end-right-callback="scrollRightCallBack()"   search-callback="searchCallBack($data)" is-lazy-loading-enabled="true" height="200" label="Select Members" add-keys="['name']" ng-model="addedTeamMembers"></smart-accumulator>
+                    </div>
+				<div ng-if="selectedStep.stepContainer=='defineAccess'">
+					<smart-scroll height="299px">
+						<div class="scroll-inner-container">
+							<table class="bordered sTable ">								
+								<thead>
+									<tr >
+										<th style="width:50px" ng-class="{'filled-partial' : fillpartial == true }"><smart-checkbox  ng-model="selectAllMembers.checkedAll" class="left" on-change="checkedAllMembers(selectAllMembers.checkedAll)"></smart-checkbox></th>
+										<th >Team Members</th>
+										<th  class="center-align">Viewer</th>
+										<th  class="center-align">Terms Reviewer</th>
+                                        <th class="center-align">Lines Reviewer</th>
+										<th  class="center-align">
+											<a href="javascript:void();"  ng-class="{'disabled':!fillpartial && !selectAllMembers.checkedAll}"  ng-click="deleteSelectedTeamMember()">
+												<i class="icon  blue-text" smart-tooltip message="{{'Delete' || translate}}" delay="50" position="bottom">
+													<svg>
+														<use xlink:href="#icon_TrashCan"></use>
+													</svg>
+												</i>
+											</a>		
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="n in addedTeamMember">
+										<td style="width:50px"><smart-checkbox  ng-model="n.isChecked" ng-change="membersListChange(n.isChecked)"></smart-checkbox></td>
+										<td >{{n.name}}</td>
+										<td class="center-align">
+											<smart-checkbox   ng-model="true" disable="true"></smart-checkbox>
+										</td>
+										<td  class="center-align">
+											<smart-checkbox></smart-checkbox>
+										</td>
+                                        <td class="center-align">
+                                            <smart-checkbox></smart-checkbox>
+                                        </td>
+										<td  class="center-align">
+											<!--<a href="javascript:void(0)"  ng-click="deletedMember(n,$index);">
+												<i class="icon blue-text" smart-tooltip message="{{'Delete' || translate}}" delay="50" position="bottom">
+													<svg>
+														<use xlink:href="#icon_TrashCan"></use>
+													</svg>
+												</i>
+											</a>-->
+										</td>
+									</tr>
+								</tbody>
+							</table>							
+						</div>
+					</smart-scroll>
+				</div>
+				<div ng-if="selectedStep.stepContainer=='assignDocuments'" ng-init="docFlag=true">
+                  <smart-scroll height="299px">
+						<ul class="collection noBorder paddingTop10 scroll-inner-container">
+                            <smart-global-loader class="marginTop5" ng-if="sectionLoader" config="sectionloaderFlag"> </smart-global-loader> 
+							<li class="collection-item waves-effect" ng-repeat="doc in contractDocuments">
+								<smart-checkbox label="{{doc.title}}" fill="true" ng-model="docFlag"></smart-checkbox>
+							</li>
+						</ul>
+					</smart-scroll>
+				</div>
+			</div>
+		
+	</div>
+	<div class="modal-footer is-scrolled paddingLeft8">
+		<smart-button flat="true" class="left" ng-click="backToPrevious(selectedStep.stepContainer)"  config='{"title":"BACK"}' ng-hide="firstStep"></smart-button>
+		<smart-button flat="true" ng-click="continueToNext(selectedStep.stepContainer)"  config='{"title":"CONTINUE"}' ng-hide="lastStep"></smart-button>
+		<smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-show="lastStep" ng-click="addTeamComplete(paramsKey,editModeTeamName)"></smart-button>
+		<smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+	</div>
+</div>

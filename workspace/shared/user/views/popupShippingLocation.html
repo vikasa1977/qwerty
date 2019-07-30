@@ -1,0 +1,124 @@
+
+
+<div class="modal-header">
+    <div class="regularSearch">
+        <a href="#" class="waves-circle waves-effect  search-icon btn-flat black-text" title="Search" alt="Search">
+
+            <i class="icon iconSmall left grey-text">
+                <svg>
+                    <use xlink:href="#icon_Search"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="#" class="waves-circle waves-effect cancel-icon btn-flat black-text" title="Reset" alt="Reset">
+            <i class="icon iconSmall left grey-text">
+                <svg>
+                    <use xlink:href="#icon_Close"></use>
+                </svg>
+            </i>
+
+        </a>
+        <div class="input-field">
+            <input id="Text2" type="text" class="validate valid" placeholder="Search Location">
+        </div>
+    </div>
+    <i class="icon iconSmall grey-text left">
+        <svg>
+            <use xlink:href="#icon_Lookup"></use>
+        </svg>
+    </i>
+    <span class="title">Shipping Location</span>
+</div>
+<smart-form-widget class="modal-content padding10">
+    <div id="locationMapContainer" style="width:100%;height:100%;"></div>
+</smart-form-widget>
+<div class="modal-footer">
+    <div class="row marginBottom0">
+        <smart-button config='{"title":"save"}' disable='"false"' ng-click="onDoneButtonClick()"></smart-button>
+        <smart-button config='{"title":"Cancel"}' background-color='"white"' ng-click="onCancelButtonClick()"></smart-button>
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    //Map Start
+    var styleArray = [
+    {
+        featureType: "all",
+        stylers: [
+        { saturation: -50 }
+        ]
+    }, {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [
+        { hue: "#00ffee" },
+        { saturation: 50 }
+        ]
+    }, {
+        featureType: "poi.business",
+        elementType: "labels",
+        stylers: [
+        { visibility: "off" }
+        ]
+    }
+    ];
+
+    var locations = [
+                ['Clark, NJ, USA', 40.6195409, -74.3169885, 'Clark (Global Headquarters), 100 Walnut Avenue,  Clark, NJ 07066'],
+                ['Princeton, NJ, USA', 40.3534264, -74.6737054, "Carnegie Center, Princeton, NJ 08540"],
+                ['Mexico City, Mexico', 19.4165048, -99.175037, 'Torre Esmeralda II Blvd. Manuel Avila Camacho No 36 pisos 10 y 12 Col. Lomas de Chapultepec, Mexico DF CP 11000'],
+                ['Sao Paulo, Brazil', -23.5822968, -46.6949008, 'Av. Paulista, 1079 7° /8° Andar CEP: 01311-200 S. Paulo, Brazil'],
+                ['Costa Rica', 10.0366838, -84.7362652, 'Lindora Park, Edificio B, Primer piso. Pozos de Santa Ana, San Jose'],
+                ['Mumbai, India', 19.1631417, 73.002021, '701, Mindspace, Airoli, Navi Mumbai - 400708']
+    ];
+
+    var map, myLatLng = { lat: 25, lng: -60 };
+
+
+    function initialize() {
+        var mapProp = {
+            center: myLatLng,
+            zoom: 2,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: styleArray
+        };
+        map = new google.maps.Map(document.getElementById("locationMapContainer"), mapProp);
+    }
+
+    var setMap = function () {
+        google.maps.event.trigger(map, 'resize');
+        setMarkers(map, locations);
+        map.setCenter(myLatLng);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function setMarkers(map, locations) {
+        var marker, i
+        for (i = 0; i < locations.length; i++) {
+            var bu = locations[i][0]
+            var lat = locations[i][1]
+            var long = locations[i][2]
+            var add = locations[i][3]
+            var image = "../theme/images/marker.png";
+            latlngset = new google.maps.LatLng(lat, long);
+            var marker = new google.maps.Marker({
+                map: map, title: bu, position: latlngset, icon: image
+            });
+            map.setCenter(marker.getPosition())
+            var parentC = '<div style="width:200px;"><h6>' + bu + '</h6><div>' + add + '</div><button onclick="getData(\'' + add + '\');" class="btn hoverable waves-effect wave-light">Get Address</button></div>';
+            var content = parentC;
+            var infowindow = new google.maps.InfoWindow()
+            google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+                return function () {
+                    infowindow.setContent(content);
+                    infowindow.open(map, marker);
+                };
+            })(marker, content, infowindow));
+        }
+    }
+    //Map End
+
+    </script>

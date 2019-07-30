@@ -1,0 +1,48 @@
+<!--<div ng-controller="shipToCtrl">
+	<div class="row" ng-show="selectedShipToOption.key == 'headerLevel'">
+		<div class="shipTo1-container">
+			<div class="input-field col s12 m6">
+				<i class="icon iconSmall iconFix second-icon" data-ng-click="showLocationPopupFn()" smart-tooltip message="Add" delay="50" position="bottom">
+					<svg><use xlink:href="#icon_Location"></use></svg>
+				</i>
+				<input id="entity_name" type="text" class="validate" ng-focus="showLocationPopupFn()">
+				<label for="entity_name" class="ng-binding">Ship To</label>
+			</div>
+			<smart-textfield disabled="true" class="col s12 m6" label="Ship To Address"></smart-textfield>
+		</div>
+	</div>
+	<smart-popup template-url="addLocation.html" show="{{showLocationPopup}}" on-hide="showLocationPopupClBack(e)"></smart-popup>
+
+	<script id="addLocation.html" type="text/ng-template">
+		<div id="add-address-detail" class="">
+			<div class="modal-header">
+				<span class="title">Add New Ship to Location</span>
+			</div>
+			<div class="modal-content padding10">
+				<div class="row">
+					<smart-textfield class="col s12 l6 m6" label="Location Name"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Location Code"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Address Line 1"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Address Line 2"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="City"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Country"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Zip Code"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="State"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Contact Person"></smart-textfield>
+					<smart-textfield class="col s12 l6 m6" label="Telephone Number"></smart-textfield>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row marginBottom0">
+					<smart-button config='{"title":"DONE","flat":true}' flat="true"></smart-button>
+				</div>
+			</div>
+		</div>
+	</script>
+
+</div>-->
+<div ng-controller="popupShipToLocCtrl">
+    <smart-typeahead class="col s6 m6 l3 xl3 xxl3" multiselect="false" addnew="true" show-lookup="true" ng-model="selectedShipToLocation" options="options" filterkeys="['deliverTo']" label="Ship to Location" callback-on-icon-click="callAfterClickedOnRightSideIcon(e)" call-add-new="showLocationPopupFn(e)"></smart-typeahead>
+    <smart-textfield class="col s12 m12 l9 xl9 xl9" label="Ship To Address" readonly="true" ng-model="selectedShipToLocation.deliverToAdd"></smart-textfield>
+    <smart-popup template-url="p2p/req/views/shipToPopup.html" show="{{ showLocationPopup }}" on-hide="showLocationPopupClBack()"></smart-popup>
+</div>

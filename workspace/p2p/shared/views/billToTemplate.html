@@ -1,0 +1,25 @@
+
+<div ng-controller="billToCtrlr">
+    <div class="row optionalField">
+        <div class="optionalFieldHover ng-scope" ng-if="isMandatory == 'false'" ng-include="'shared/directives/uiElements/commonTemplates/optionalFieldRemoveButton.html'">
+            <i class="closingOpt icon iconSmall blue-text ng-scope" ng-click="$parent.$parent.isVisible = !$parent.$parent.isVisible">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                </svg>
+            </i>
+        </div>
+        <div class="input-field col s12 l4 m12">
+            <input disabled="" value="{{ngModel.name}}" id="btname" type="text" class="validate">
+            <label for="btname" class="active ng-binding">Bill to</label>
+        </div>
+        <div class="input-field col s12 l4 m12">
+            <input disabled="" value="{{ngModel.address}}" id="btaddress" type="text" class="validate">
+            <label for="btaddress" class="active ng-binding">Bill to Address</label>
+        </div>
+        <div class="input-field col s12 l4 m12">
+            <input disabled="" value="{{ngModel.contact}}" id="btcontact" type="text" class="validate">
+            <label for="btcontact" class="active ng-binding">E-mail ID / Fax Number</label>
+        </div>
+    </div>
+</div>
+

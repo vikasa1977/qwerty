@@ -1,0 +1,94 @@
+<div class="modal-header">
+    <i class="icon iconSmall left lineHeight30 grey-text">
+        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+    </i>
+    <span class="title">{{ 'Add Approval Level' | uppercase | translate }}</span>
+</div>
+<div class="modal-content padding0 popupWithChangeRadioButton">
+    <div class="model_body" style="min-height: 350px">
+        <div class="radio-tab-header clearfix">
+            <smart-radio ng-model="currentlySelected" options="tabsOptions" datakey="tabName" gap="true" on-change="changeCurrentType(currentlySelected.tabName,selectedForApproval)"></smart-radio>
+        </div>
+        <div class="radio-tab-content">
+            <div class="clearfix">
+                <div class="marginBtm0">
+                    <smart-typeahead class="col s12" multiselect="true" addnew="false" placeholder="{{ autoSuggestPlaceholder }}" show-lookup="true" ng-model="getCurrentSelected" options="suggestedData" filterkeys="['name']" lookup-open="onSmartTypeHeadOpen()" lookup-hide="onSmartTypeHeadClose(data)" min-char-for-trigger="1" on-select="pushCurrent(getCurrentSelected)"></smart-typeahead>
+                </div>
+                <div class="row" ng-if="selectedForApproval.length > 0">
+                    <div class="col s12 marginTop3">
+                        <smart-scroll height="200px">
+                            <div class="scroll-inner-container paddingRight20">
+                                <ul class="collection collection-with-spacing">
+                                    <li class="collection-item avatar" ng-repeat="item in selectedForApproval track by $index">
+                                        <div class="approvalBox">
+                                            <span class="circle">
+                                                {{ item.name | shortname}}
+                                            </span>
+                                            <span class="truncate ">{{ item.name}}  <span ng-if="item.type == 'group'">( {{ item.members.length  }} )</span> </span>
+                                            <div class="secondary-content secondary-content-with-waves ">
+                                                <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="reassignCurrent($index)" ng-class="{'make-it-disabled' : item.reassign }" ng-if="item.type != 'group'" smart-tooltip position="bottom" delay="50" message="{{'Reassign' || translate }}">
+                                                    <i class="icon iconSmall">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Reassign"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="waves-circle waves-effect " smart-tooltip position="bottom" delay="50" message="{{'Delete' || translate }}" ng-click="deleteCurrent($index)">
+                                                    <i class="icon iconSmall">
+                                                        <svg>
+                                                            <use xlink:href="#icon_TrashCan"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div ng-show="item.reassign" class="reassignContentBox clearfix">
+                                            <span class="icon iconSmall iconReassign">
+                                                <svg>
+                                                    <use xlink:href="#icon_DelgtArrow"></use>
+                                                </svg>
+                                            </span>
+                                            <div class="reassignTitle">
+                                                <smart-typeahead multiselect="false" addnew="false" placeholder="{{ 'Search & Re-assign Approval' }}" show-lookup="true" ng-model="item.reassignedTo" options="suggestedDataForReassign" filterkeys="['name']" lookup-open="onSmartTypeHeadOpen()" lookup-hide="onSmartTypeHeadClose()" min-char-for-trigger="1" ng-show="!item.reassignedTo || item.edit" on-select="reassignUpdate($index)"></smart-typeahead>
+                                                <span ng-if="item.reassignedTo && !item.edit"> {{ item.reassignedTo.name }}</span>
+                                            </div>
+                                            <div class="secondary-content secondary-content-with-waves " ng-if="item.reassignedTo && !item.edit">
+                                                <a href="javascript:void(0)" class="waves-circle waves-effect" smart-tooltip position="bottom" delay="50" message="{{'Edit' || translate }}" ng-click="editCurrentReassign($index)">
+                                                    <i class="icon iconSmall">
+                                                        <svg>
+                                                            <use xlink:href="#icon_editPen"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="waves-circle waves-effect " smart-tooltip position="bottom" delay="50" message="{{'Delete' || translate }}" ng-click="deleteCurrentReassign($index)">
+                                                    <i class="icon iconSmall">
+                                                        <svg>
+                                                            <use xlink:href="#icon_TrashCan"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </smart-scroll>
+                    </div>
+                </div>
+				<div class="clearfix" ng-show="selectedForApproval.length > 1  || ( currentlySelected.tabName == 'Groups' && selectedForApproval.length > 1)">
+					<div class="row" >
+						<div class="col s12">
+							<smart-checkbox label="{{ 'Set Approval Limit by' | translate }}" ng-model="setApprovalLimit" class="workAsInput dIBlock left" on-change="setApprovalLimitChange(setApprovalLimit)" style="box-sizing:inherit;"></smart-checkbox>
+							<smart-textfield ng-show="setApprovalLimit" ng-model="userCount" class="left marginLeft15 approval-user-count line-height-manager" align="right" validate="true" rules="{{limitRule}}" maxlength="5" on-blur="changeUserCount(userCount)"></smart-textfield>
+							<smart-select ng-show="setApprovalLimit" ng-model="selectedLimitOption" class="left marginLeft15 input-field line-height-manager" options="approvalLimitOptions" datakey="name" on-change="onChange(selectedLimitOption)" is-mandatory="true"></smart-select>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="addApprovalLevel(selectedForApproval, sliderSetOn, appendAfterThis)"></smart-button>
+    <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+</div>

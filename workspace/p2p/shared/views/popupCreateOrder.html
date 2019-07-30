@@ -1,0 +1,33 @@
+<div ng-controller="popupSavedViewsCtrl">
+    <div class="modal-header">
+
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xlink:href="#icon_Order"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'CREATE ORDER' || translate }} </span>
+    </div>
+
+    <div class="modal-content modal-content-with-form">
+        
+        <div class="row ">
+ 
+                <smart-select label="{{'Select Supplier'}}" ng-model="selectedSupplier" class="col s12" options="selectedSupplierOptions" datakey="name" on-change="onSelectedSupplierChange(selectedSupplier)"></smart-select>
+       
+        </div>
+        <div class="row">
+      
+                <smart-textfield type="autocomplete" label="{{  'Ordering Location' }}" class="col s12"  ng-model="autoOrderingLocCompleteData" filterkeys="['orderingLocation']" optionformat="<span>{orderingLocation}</span>" displayformat="{orderingLocation}" options="OrderingDataOptions" on-change="onOrderingSupChange($event)" on-select="onOrderingSupSelect(autoOrderingLocCompleteData)"></smart-textfield>
+            <!--- disable="{{ orderingSupDisable }}"---->
+       
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <smart-button flat="true" class="modal-close wave-effect grey-color" config='{"title":"CREATE" || translate}' disable="false"></smart-button>
+        <smart-button flat="true" class="modal-close wave-effect grey-color" config='{"title":"CANCEL" || translate}'></smart-button>
+        
+    </div>
+
+</div>

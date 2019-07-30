@@ -1,0 +1,79 @@
+﻿<div class="">
+   <div class="scrollableModel">
+      <div class="modal-header">
+         <i class="left icon grey-text iconSmall">
+            <svg>
+               <use xlink:href="#icon_History"></use>
+            </svg>
+         </i>
+         <span class="title">VIEW HISTORY</span>
+	  	
+      </div>
+      <div class="modal-content padding0">
+
+          <table class="bordered sTable scoreAnalysisEvntSummaryTbl">
+              <tr>
+                  <th class="left-align paddingLeft20" width="30%">
+                      Versions
+                      <!--<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="{{ popupcolNameSortIcon.message }}" position="bottom" ng-click="ascDescToggler(popupcolNameSortIcon)">
+                    <span class="left paddingTop2 grey-text text-darken-4">Source Column Name</span>
+                    <i class="icon iconSmall blue-text"><svg><use xlink:href="{{ popupcolNameSortIcon.icon }}"></use></svg></i>
+                </a>-->
+                  </th>
+                  <!--<th class="left-align" width="25%">
+                <smart-dropdown class="left">
+                    <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates="enableSuppDatatypepopup" data-constrainwidth="false" smart-tooltip message="Enable" position="bottom">
+                        <span class="grey-text text-darken-4">Data Type</span>
+                        <i class="icon iconSmall blue-text">
+                            <svg><use xlink:href="#icon_Filter"></use></svg>
+                        </i>
+                    </a>
+                    <ul id="enableSuppDatatypepopup" class="dropdown-content collection noBorder">
+                        <li class="collection-item" ng-class="{'active': filteText.popupDatatype === 'All'}" ng-click="enableFilterFn('All','popupDatatype')">All</li>
+                        <li class="collection-item" ng-class="{'active': filteText.popupDatatype === 'Nvarchar'}" ng-click="enableFilterFn('Nvarchar','popupDatatype')">Nvarchar</li>
+                        <li class="collection-item" ng-class="{'active': filteText.popupDatatype === 'Float'}" ng-click="enableFilterFn('Float','popupDatatype')">Float</li>
+                        <li class="collection-item" ng-class="{'active': filteText.popupDatatype === 'Date'}" ng-click="enableFilterFn('Date','popupDatatype')">Date</li>
+                    </ul>
+                </smart-dropdown>
+            </th>-->
+                  <th class="left-align" width="35%">Updated on</th>
+                  <th class="left-align" width="35%">Updated by</th>
+              </tr>
+          </table>
+         <smart-scroll height="100%" v-offset="300px" class="clearfix clear">
+            <div class="scroll-inner-container">
+               <div class="outer-row">
+                  <div class="row section-full-wrap-content marginBtm0">
+				  	<table class="bordered sTable scoreAnalysisEvntSummaryTbl">
+				  		<tr ng-repeat="contentList in historyData">
+				  			<td class="left-align" width="30%">
+                                <a href="javascript:void(0)" class="dropdown-button" ng-click="viewhistoryFn(contentList , $index + 1)">
+                                    <span class="left paddingTop2 blue-text text-darken-4">version {{$index + 1}}</span>
+                                </a>
+				  			</td>
+                            <td class="left-align" width="35%">
+                                {{contentList.updatedOn}}
+                            </td>
+				  			<td class="left-align" width="35%">                          
+                                  {{contentList.updatedBy}}
+				  			</td>
+				  		</tr>
+				  	</table>
+                  </div>
+                </div>
+            </div>
+         </smart-scroll>
+      </div>
+   </div>
+	<div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+
+			<div class="col right right-align">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

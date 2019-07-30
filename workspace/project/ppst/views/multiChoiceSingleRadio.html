@@ -1,0 +1,5 @@
+﻿<div class="row marginBtm0" ng-controller="multiChoiceCtrl">
+    <smart-typeahead class="col s12 line-height-manager"  multiselect="false" show-lookup="true" ng-model="party.sponsor" titleofmodel="Contract Sponsor" options="typeOptions" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span><div>{UserName}</div>" displayformat="{FirstName} {LastName}" label="Contract Sponsor" callback-on-icon-click="myTestCallback($event)" ></smart-typeahead>
+           
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>	
+</div>

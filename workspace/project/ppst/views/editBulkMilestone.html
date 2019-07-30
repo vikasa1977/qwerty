@@ -1,0 +1,104 @@
+<div class="projectsPopup">
+    <div class="modal-header">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_BulkEdit"></use>
+            </svg>
+        </i>
+        <span class="title">{{bulkEditMilestoneHdr}} </span>
+    </div>
+    <smart-scroll height="400px">
+        <div class="alert-bar alert-bar--warning enter-from-top">
+            {{selectedMilestonesCnt}} milestones selected.
+        </div>
+        <div class="modal-content padding15" ng-class="{'is-scrolled': true}">
+            <!--<div class="model_body padding10">-->
+                <div class="row" ng-if="editAssignee">
+                    <smart-typeahead class="col s6 m6 l6 line-height-manager" is-mandatory="true" multiselect="false" on-blur="editBMilestone('bulkEdit')" titleofmodel="Assignee"
+                    show-lookup="true" ng-model="editBulkMilestone.assignedTo" options="addEditActivityModel.assignees" filterkeys="['name']" displayformat="{name}" label="Assignee" callback-on-icon-click="myTestCallback($event)" lookup-hide="editBMilestone('bulkEdit');onOpenBlkEdtMile('open');"
+                    lookup-open="onOpenBlkEdtMile('close')">
+                    </smart-typeahead>
+                    <smart-textfield label="E-mail" class="col s6 m6 l6 input-field line-height-manager" ng-model="editBulkMilestone.email" readonly="true" type="text" ng-if="editBulkMilestone.email">
+                    </smart-textfield>
+                </div>
+                <div class="row" ng-if="editAssignee">
+                    <span class="col s12">
+                        <i class="icon iconSmall gray-text titleIcon">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                        {{'Assignee for already achieved milestone(s) cannot be changed.'|| translate}}
+                    </span>
+                </div>
+                <div class="row" ng-if="editDueBy">
+                    <div class="col s12 input-field line-height-manager">
+                        <label class="active">Due Date</label>
+                        <smart-radio gap="true" class="marginLeft4N marginTop10" ng-model="selectedDueBy" options="dueByOptions" on-change="dueByChangeCallback(selectedDueBy)" datakey="name" is-mandatory="true">
+                        </smart-radio>
+                    </div>
+                    
+                    </div>
+                <div class="row" ng-if="editDueBy && (selectedDueBy.code == 'prepone' || selectedDueBy.code == 'postpone')">
+                    <div class="col s12 clearfix">
+                        <div class="col line-height-manager paddingLeft0 paddingRight0">By</div>
+                        <smart-textfield class="col s3 line-height-manager paddingRight0" is-mandatory="true" ng-model="daysCount.daysmonthsCount" type="text" smart-character-restrict patternreg="[^0-9,]">
+                        </smart-textfield>
+                        <smart-select class="col s4 line-height-manager" is-mandatory="true" ng-model="selectedDueOption" options="dueOptions" datakey="name" on-change="onChangeDueOption(selectedDueOption)">
+                        </smart-select>
+                    </div>
+                </div>
+                <div class="row" ng-if="editDueBy && selectedDueBy.code == 'date'">
+                    <smart-textfield label="Due by" class="col s5 m5 l5 input-field line-height-manager" is-mandatory="true" ng-model="editBulkMilestone.dueBy" type="date">
+                    </smart-textfield>
+                </div>
+
+                <div class="row" ng-if="editDueBy">
+                    <span class="col s12">
+                        <i class="icon iconSmall gray-text titleIcon">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                        {{'Due Date for already achieved milestone(s) cannot be changed.'|| translate}}
+                    </span>
+                </div>
+                <div class="row" ng-if="editStatus">
+                    <smart-select class="col s6 line-height-manager" is-mandatory="true" label="Milestone Status" ng-model="selectedStatusOption" options="statusOptions" datakey="name" on-change="onChangeStatusOption(selectedStatusOption); togglePendingStatus(detailedItemData)">
+                    </smart-select>
+                    <!--<div class="col s4">
+                        <label>Status</label>
+                        <smart-switch class="marginLeft20" left-label="'Pending'" right-label="'Achieved'" ng-model="editBulkMilestone.achieved" disable="false" on-change="togglePendingStatus(detailedItemData)">
+                        </smart-switch>
+                        <div ng-if="editBulkMilestone.achieved" class="achievedDate">on {{togglePendingStatus() | date : "dd/MM/yyyy"}}</div>
+                    </div>-->
+                </div>
+                <div class="row" ng-if="editStatus && selectedStatusOption.code == 'achieved'">
+                    <smart-textfield label="Achieved Date" class="col s6 input-field line-height-manager" type="date" ng-model="achievedCommentData.achievedDate" is-mandatory="true"></smart-textfield>
+                </div>
+                <div class="row" ng-if="editStatus && selectedStatusOption.code">
+                    <div class="col s12 marginBtm15">
+                        <a class="fontSize14 line-height-manager" href="javascript:void(0)" ng-click="showCommentsPopupTabCallback(e, 'type1', 'updateStatusPop'); bulkEditMile(editBulkMilestone); addAttachmentComment(achievedCommentData,attachments)">Add Comment</a>
+                    </div>
+                </div>
+                <div class="row" ng-if="editStatus && selectedStatusOption.code == 'achieved'">
+                    <span class="col s12">
+                        <i class="icon iconSmall gray-text titleIcon">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                        {{'Already achieved milestone(s) will not be updated with this change.'|| translate}}
+                    </span>
+                </div>
+            <!--</div>-->
+        </div>
+        </smart-scroll>
+        <div class="modal-footer is-scrolled paddingRight20">
+            <div class="clearfix">
+                <smart-button flat="true" class="modal-close right" disable="disbaleUpdateBtn" ng-click="bulkEditMile(editBulkMilestone)" config='{"title":"Update"}'></smart-button>
+                <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+            </div>
+        </div>
+</div>
+

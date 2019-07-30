@@ -1,0 +1,160 @@
+<div>
+	<div class="modal-header">
+		<i class="icon  grey-text left marginTop4">
+			<svg><use xlink:href="#icon_Certificate"></use></svg>
+		</i>
+		<span class="title">
+			{{pageTitle}}
+		</span>
+	</div>
+	<div class="modal-content padding0 is-scrolled">
+		<div class="wrapper clearfix padding0 certificatePopWrap" ng-if="newCertificatePopup">
+			<smart-tabs class="marginBtm0" tab-config="{{tabsData}}" width="100%"></smart-tabs>
+		</div>
+	</div>
+	<div class="modal-footer paddingLeft1 is-scrolled">
+		<smart-button flat="true" ng-show="certReset" class="left" config='{"title":"RESET"}'></smart-button>
+		<smart-button flat="true" class="modal-close" ng-click="newCertificateAdded(currentCertificate)" config='{"title":"SAVE"}'></smart-button>
+		<smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+	</div>
+
+
+	<script type="text/ng-template" id="certificatesDetails.html">	
+		<div class="paddingTop40 itemPopup--tabContentHeight">
+			<div class="row marginTop20 marginLeft10">
+                <smart-textfield ng-if="!diversityPopup" class="col s12 m6 line-height-manager input-field" label="Certificate Name" readonly="{{currentCertificate.title.selectedType.readonly}}" type="text" ng-model="currentCertificate.title.selectedType.name" is-mandatory="true"></smart-textfield>
+
+				<smart-select ng-if="!diversityPopup" class="col s12 m6 certificate-type line-height-manager input-field" label="Certificate Type" ng-model="currentCertificate.certificatetype.selectedType" options="certificateTypeOptions" datakey="name" on-change="onChange(currentCertificate.type.certificatetype)"></smart-select>
+				<smart-select ng-if="diversityPopup" class="col s12 m6  certificate-type line-height-manager input-field" label="Diversity Type" ng-model="currentCertificate.diversity.selectedType" options="diversityTypeOptions" datakey="name" on-change="onChange(currentCertificate.type.certificatetype)"></smart-select>
+				<smart-textfield class="col s12 m6 line-height-manager input-field" label="Certificate Number" type="text" ng-model="currentCertificate.title.selectedType[0].name" is-mandatory="true"></smart-textfield>
+				<smart-textfield class="col s12 m6 line-height-manager input-field" label="Issuing Authority" type="text" ng-model="currentCertificate.issuingauthority" is-mandatory="true"></smart-textfield>
+				<!--<div class="col s12 padding0">
+					<smart-switch left-label="manForComplience" ng-model="currentCertificate.compliance" right-label="emptyText" class="col paddingBtm5" on-change="onChange()"></smart-switch>
+				</div>-->
+			</div>
+		</div>
+	</script>
+
+
+	<script type="text/ng-template" id="buyerNotification.html">
+			<div class="itemPopup--tabContentHeight paddingTop40">
+				<div class="row marginTop20 marginLeft10">
+					<div class="col s12 m6  input-field">
+						<smart-typeahead loading="loaderBuy" on-key-press="loaderFlagChk()" class="marginBtm0 col s12" multiselect="true" addnew="false" show-lookup="true" lookup-Open="showLookupForContacts()" lookup-Hide="hideLookupForContacts()" placeholder="" titleofmodel="Choose Buyer Contacts" ng-model="currentCertificate.buyercontacts.selectedoption" options="currentCertificate.buyercontacts.options" filterkeys="['name']" label="{{currentCertificate.buyercontacts.displaytext}}"></smart-typeahead>
+					</div>
+					<div class="col s12 m6 input-field">
+						<smart-typeahead loading="loaderSup" on-key-press="loaderFlagChk()" class="marginBtm0 col s12" multiselect="true" addnew="false" show-lookup="true" lookup-Open="showLookupForContacts()" lookup-Hide="hideLookupForContacts()" placeholder="" titleofmodel="Choose Supplier Contacts" ng-model="currentCertificate.suppliercontacts.selectedoption" options="currentCertificate.suppliercontacts.options" filterkeys="['name']" label="{{currentCertificate.suppliercontacts.displaytext}}"></smart-typeahead>
+					</div>
+					<div class="col s12 m6 input-field paddingLeft0 marginBtm0">
+						<smart-checkbox class="marginBtm0" checked='false' fill='true' disable='false' label="Include Supplier Manager" ng-model="currentCertificate.includeSupplierManager"></smart-checkbox>
+					</div>
+				</div>
+				<div class="row certificate-reminder marginLeft10">
+					<div class="col s12 paddingLeft16">
+						<span>Buyer Contacts</span>
+						<smart-textfield type="number" class="col certificateExpiryField" ng-model="currentCertificate.startreminderdate"></smart-textfield>
+						<span>days before certificate expires.</span>
+					</div>
+					<div class="col s12 paddingLeft16">
+						<span>Repeat Every</span>
+						<smart-textfield type="number" class="col certificateExpiryField" ng-model="currentCertificate.recurrencedate"></smart-textfield>
+						<span>days until certificate expires.</span>
+					</div>
+				</div>
+			</div>
+	</script>
+
+
+	<script type="text/ng-template" id="certificatesAttachments.html">
+		<div class="itemPopup--tabContentHeight paddingTop40">
+			
+            <div class="center action-block" ng-if="!currentCertificate.attachmentsData.length">
+                <a href="javascript:void(0);" class="action-block-cont" ng-click="addCertificateDocumentPopupCallback('parent')">
+                    <span class="action-block-cont-icon">
+                        <i class="icon icon--xLarge">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </span>
+                    <span class="action-block-cont-lbl">{{'Add New Attachment' | translate }}</span>
+                </a>
+            </div>
+
+			<div class="marginTop20 marginLeft0" ng-if="currentCertificate.attachmentsData.length">
+				<div class="clearfix secContentWithBorder fontSize12">
+					<div class="right">
+						<a href="javascript:void(0)" class="marginLeft22 right" ng-click="addCertificateDocumentPopupCallback('parent')">
+							<i class="icon left marginRight0" smart-tooltip message="{{'Add New Attachments' | translate }}" position="bottom">
+								<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+							</i>
+						</a>
+
+						<a href="javascript:void(0)" class="marginLeft22 right" ng-class="{'disabled' : (!certificatsDataHead.check && !fillpartialcontentList.check) }" smart-tooltip message="{{'Delete' || translate }}" position="bottom" ng-click="deletetableListCertificateData(currentCertificate.attachmentsData,fillpartialcontentList,certificatsDataHead)">
+							<i class="icon left marginRight0">
+								<svg><use xlink:href="#icon_TrashCan"></use></svg>
+							</i>
+						</a>
+					</div>
+				</div>
+				<table class="fixed-table-layout certificate-attachment-table marginRight17">
+					<thead>
+						<tr>
+							<th width="55px" class="left-align"></th>
+							<th class="left-align" width="15%"><span class="left paddingTop2">Effective from</span></th>
+							<th class="left-align" width="15%">Effective on</th>
+							<th class="left-align" width="15%">Files</th>
+							<th class="left-align" width="15%">Uploaded by</th>
+							<th class="left-align" width="15%">Uploaded on</th>
+							<th class="right-align" width="100px"></th>
+						</tr>
+					</thead>
+				</table>
+				<smart-scroll height="140px" class="certificateTabScroll">
+				    <table class="fixed-table-layout certificate-attachment-table">
+					    <tr>
+						    <td class="left-align padding0" colspan="7">
+							    <table class="fixed-table-layout" ng-class="{'certificate--active' : activeDateFlag[$index], 'borderTopLight' : $index }" ng-repeat="contentListItem in currentCertificate.attachmentsData track by $index">
+								    <tr ng-repeat="contentList in contentListItem">
+									    <td class="left-align paddingBtm9 paddingTop9" width="55px">
+										    <smart-checkbox ng-if="$index === 0" class="left paddingTop5" ng-model="contentList.check" on-change="onChangeAttachmentCertificate(certificatsDataHead, currentCertificate.attachmentsData, fillpartialcontentList)"></smart-checkbox>
+									    </td>
+									    <td class="left-align cartItem-datefield paddingBtm9 paddingTop2 paddingLeft0" width="15%"> <!--ng-class="{'date-placeholder' : !contentList.effectivefrom}"-->
+										    <!--<a href="javascript:void(0);" ng-if="$index === 0" class="date-displaytext paddingLeft5">Choose Date</a>-->
+										    <smart-textfield ng-if="$index === 0" type="date" class="col paddingLeft5 marginBtm0" label="" ng-model="contentList.effectivefrom" max="{{contentList.effectiveon}}" on-change="dateChangefunc(contentList.effectivefrom, contentList.effectiveon, $parent.$parent.$index)"></smart-textfield>
+									    </td>
+									    <td class="left-align cartItem-datefield paddingBtm9 paddingTop2  paddingLeft0" width="15%">
+										    <!--<a href="javascript:void(0);" ng-if="$index === 0" class="date-displaytext paddingLeft5">Choose Date</a>-->
+										    <smart-textfield ng-if="$index === 0" type="date" class="col paddingLeft5 marginBtm0" label="" ng-model="contentList.effectiveon" min="{{contentList.effectivefrom}}" on-change="dateChangefunc(contentList.effectivefrom, contentList.effectiveon, $parent.$parent.$index)"></smart-textfield>
+									    </td>
+									    <td class="left-align" width="15%">
+                                        <!--<a href="javascript:void(0)">{{contentList.filename}}</a>-->
+                                            <a href="javascript:void(0)" class="paddingTop5" title="{{contentList.filename}}" position="bottom">
+                                                <span class="truncate attachment-title attachment-title-width">{{contentList.filename}}</span>
+                                                <span class="attachment-title ng-binding">.jpg</span>
+                                            </a>
+                                        </td>
+									    <td class="left-align" width="15%"><span title="{{contentList.uploadedby}}" class="truncate">{{contentList.uploadedby}}</span></td>
+									    <td class="left-align" width="15%">{{contentList.uploadedon}}</td>
+									    <td class="paddingRight9 paddingTop13" width="100px">
+										    <a ng-if="($index + 1) === contentListItem.length" href="javascript:void(0)" class="right marginLeft22" ng-click="addCertificateDocumentPopupCallback('child',$parent.$parent.$index)">
+											    <i class="icon left marginRight0" smart-tooltip message="{{'Add New Attachments' || translate }}" position="bottom">
+												    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+											    </i>
+										    </a>
+										    <a href="javascript:void(0);" ng-click="deleteAttachment('child',$index,$parent.$index)" smart-tooltip message="Delete" position="bottom" class="right">
+											    <i class="icon">
+												    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+											    </i>
+										    </a>
+									    </td>
+								    </tr>
+							    </table>
+						    </td>
+					    </tr>
+				    </table>
+				</smart-scroll>
+			</div>
+				
+		</div>
+
+</script>
+</div>

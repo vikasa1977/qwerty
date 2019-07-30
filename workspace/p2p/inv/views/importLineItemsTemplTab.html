@@ -1,0 +1,40 @@
+<div class="clearfix">
+    <div class="collection noBorder">
+        <div class="collection-item clearfix">
+            <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex1" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField">
+                    <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="focusSearch"></smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <smart-checkbox label="{{'All' || translate }}" ng-model="selectedAll" ng-click="checkAllTemp(selectedAll)" class="left marginTop5" fill='true'></smart-checkbox>
+        </div>
+    </div>
+    <div class="is-scrolled">
+        <smart-list model="{{importFromTemp}}"
+                    style-class="collection noBorder"
+                    item-class="collection-item clearfix"
+                    height="230px" template="addLinesFromTemp.html">
+        </smart-list>
+    </div>
+        
+    </div>
+
+
+<!-- ADD LINES FROM popover -- template List -->
+<script id="addLinesFromTemp.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+        <div class="grey-text paddingLeft30 fontSize12">{{item.tmptNo}}</div>
+    </div>
+</script>

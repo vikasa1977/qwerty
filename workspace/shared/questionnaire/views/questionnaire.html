@@ -1,0 +1,1482 @@
+<script type="text/javascript" src="shared/libraries/evol-colorpicker.min.js"></script>
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled scroll-call="true " ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xlink:href="#icon_Questionaire"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{pageTitle}}</span>
+        </div>
+
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon relative">
+                <a href="javascript:void(0)" class="white-text waves-circle waves-effect waves-light" smart-tooltip position="left" message="Download">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon" ng-show="!pagePreview || (supplierView || !supplierReadonly)">
+                <a href="javascript:void(0)" class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" message="Upload new version">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Upload"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon" ng-show="pagePrevie && !supplierReadonly">
+                <smart-dropdown class="" config="{{dropDownConfig}}">
+                    <a class="white-text dropdown-button waves-circle waves-effect waves-light" data-activates="filters" data-constrainwidth="false" data-alignment="left" smart-tooltip position="bottom" message="Filters">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_Filter"></use></svg>
+                        </i>
+                    </a>
+                    <ul id="filters" class="dropdown-content dd-close-off dropdown-content--size-medium">
+                        <li class="left"><smart-checkbox class="left marginTop6 padding0 paddingBtm6" label="Mandatory questions"></smart-checkbox></li>
+                        <li class="left"><smart-checkbox class="left marginTop6 padding0 paddingBtm6" label="Pending questions"></smart-checkbox></li>
+                        <li class="dropdown-content-footer">
+                            <div class="left">
+                                <a href="javascript:void(0)" class="fontSize14 bold paddingRight10 paddingLeft10">RESET</a>
+                            </div>
+                            <div class="right">
+                                <a href="javascript:void(0)" class="action-close-dropdown fontSize14 bold paddingRight20">CANCEL</a>
+                                <a href="javascript:void(0)" ng-click="resultFilter()" class="action-close-dropdown fontSize14 bold paddingRight15">APPLY</a>
+                            </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+            <li class="extra-nav-icon" ng-hide="!pagePreview || (supplierView || (supplierReadonly || questionnaireScorecard ))">
+                <a class="white-text dropdown-button waves-circle waves-effect waves-light" smart-tooltip position="bottom" message="Delete">
+                    <i class="icon iconSmall">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="clearfix alert-bar--fixed" ng-if="rfxQuestionnaireFilters" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top">
+        <div class="left">
+            <span>Showing <span class="grey-text">(95 of 100):</span></span><span class="marginLeft10">Mandatory Questions</span>
+        </div>
+        <div class="right">
+            <smart-button flat="true" class="modal-close" config='{"title": "CLOSE" }' ng-click="questionnaireFiltersRfx()"></smart-button>
+        </div>
+    </div>
+</div>
+
+<div class="row z-depth-1 relative zIndex1 scorecard-questionnaire-panel marginBtm0 white" ng-if="pagePreview && questionnaireScorecard" ng-class="{'fixed':fixedSubHeader}">
+    <div class="clearfix secContentWithBorder alert-bar--warning" ng-if="!supplierReadonly">
+        <div class="left paddingLeft10">
+            <span class="fontSize14 left marginTop1 red-text">You have missed (2) mandatory fields, please fill the mandatory fields and submit again</span>
+        </div>
+    </div>
+    <div class='readonlyView clearfix'>
+        <div class="left paddingTop20 paddingLeft0  col s12" ng-if="supplierReadonly">
+            <smart-list-lookup class="paddingLeft10 left paddingRight10 col s6 m4 l4 xl3 xll3  marginBtm0" titleofmodel="Select Supplier" selecttypeoption="questionnaireDataList.supplierList.selectTypeOption" multiselect="false" label="Supplier" addnew="false" ng-model="questionnaireDataList.supplierList.selectedOption" options="questionnaireDataList.supplierList.options" displayformat="['name']" lookup-hide="reasonPoup(data)"></smart-list-lookup>
+            <smart-select label="Responded By" ng-model="questionnaireDataList.supplierList.selectedOption.respondBy.selectedOption" class="col s6  m4 l4 xl3 xll3 gotoOptions marginTop8" options="questionnaireDataList.supplierList.selectedOption.respondBy.options" datakey="name" on-change="respondChangeFn();"></smart-select>
+            <div class="scorecardPanelBorder marginLeft10 marginRight10 col s12"></div>
+        </div>
+        <div class="col s12 paddingTop20 paddingLeft0">
+            <div class="col  s6 m4 l4 xl3 xll3 paddingLeft10">
+                <label class="grey-text displayBlock fontSize12">Repeatability Factor</label>
+                <a href="javascript:void(0);" ng-click="showRepeatabilityPopupCallback(questionnaireDataList.supplierList.selectedOption.respondBy.selectedOption.repeatabilityFactortData);">
+                    {{questionnaireDataList.supplierList.selectedOption.respondBy.selectedOption.repeatabilityFactortData.selectedOption.businessunit}}
+                </a>
+            </div>
+
+            <smart-list-lookup class="paddingLeft10 left paddingRight10 col s6 m4 l4 xl3 xll3  marginBtm0" titleofmodel="KPI" selecttypeoption="kpiDataTypeOption" multiselect="false" label="KPI" addnew="false" ng-model="questionnaireDataList.supplierList.selectedOption.respondBy.selectedOption.repeatabilityFactortData.selectedOption.kpiData.selectedOption" options="questionnaireDataList.supplierList.selectedOption.respondBy.selectedOption.repeatabilityFactortData.selectedOption.kpiData.options" displayformat="['name']" lookup-hide="reasonPoup(data)"></smart-list-lookup>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row marginBtm0  smartFormWidgetContainer extendBg" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader, 'public-rfx-quetionnaire':supplierPublicRfx,'readonlySupDataContainer':readonlySupData}">
+     <div class="card-panel card-container marginTop0 paddingTop20 marginBtm0 questionnaireCardPanel" ng-class="{'questionnairePreviewModeContainer' : pagePreview,'scorecardPageSupplier':questionnaireScorecard}">
+
+        <div class="row paddingRight80" ng-if="!readonlySupData" ng-class="{'marginBtm10' : pagePreview}">
+            <smart-textfield class="col s12 l8 m8 xxl8 fieldEditable questionnaireField marginBtm0 line-height-manager" label="{{fieldName}}" readonly="{{pagePreview}}" validate="isValidate" charactercounter="true" maxlength="100" focus="true" type="text" ng-model="questionnaireTitle" is-mandatory="true"></smart-textfield>
+            <div class="col s12 l4 m8 xxl4 input-field line-height-manager margin0 paddingLeft50" ng-show="isQuestionnaireTypeVisible">
+                <div class="field-label">Type</div>
+                <a href="javascript:void(0);" class="marginTop4 left" ng-click="questionnaireTypePopupCallback(e)" ng-if="!supplierView">
+                    <span>{{questionnaireTypeAdded.title}} </span><!--<span class=" left" ng-if="qualificationCheckContent">Qualification questionnaire</span>-->
+                </a>
+                <span ng-if="supplierView">
+                    <span class="marginTop4 left">Qualification questionnaire</span>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="row paddingRight60 marginBtm20" ng-show="!questionnaireScorecard && !questionnaireForm" ng-class="{'questionnaireEmptyDesc': !questionnaireDesc}">
+            <smart-textfield type="area" charactercounter="true" maxlength="4000" class="col s12 l12 xxl11 fieldEditable readonlySupDataMode questionnaireField marginBtm0 descripCharCount" label="Description" readonly="{{pagePreview}}" ng-model="questionnaireDesc"></smart-textfield>
+        </div>
+        <div id="questionnaire-Attachment-container" ng-show="!questionnaireScorecard && !questionnaireForm && !pageForSourcing">
+            <div class="row paddingRight60 marginBtm30 file-field input-field" ng-if="!pagePreview">
+                <div class="col s12">
+                    <a href="javascript:void(0)" ng-click="addDocumentPopupCallback(b);b.attachDocFlag=true" ng-class="{ 'active pointEventN' : b.attachDocFlag == true}" class="attach-doc-title file-field-title">Add Attachment</a>
+                </div>
+
+                <div ng-show="b.attachDocFlag" class="col s12" ng-include="'shared/popup/views/popupUploadDoc.html'" id="addAttachForPage">
+                </div>
+            </div>
+        </div>
+        <!-- New attachment -->
+        <div class="marginTop10" ng-show="pageForSourcing">
+            <div class="row marginBtm0">
+                <a href="javascript:void(0)" class="col s12 m6 l4 xl3 xxl2" ng-click="addAttachmentCallback('que')" ng-show="!questAttachement">Add Attachment</a>
+                <label class="col s12 fontSize12 black64p paddingLeft12" ng-if="questAttachement">Attachments</label>
+            </div>
+            <div class="col s12 paddingLeft8" ng-if="questAttachement">
+                <div class="fontSize14" add-btn="true" add-uploadcallback="addAttachmentCallback(e, 'comment');" smart-upload-template download-list="attachmentData" attachmenttype="writemode"></div>
+                <!--<div class="clearfix fontSize14" ng-if="attachmentData.length === 1">
+
+                    <style>
+                        .attachmentcontainerfield-title {
+                            float: left;
+                            vertical-align: bottom;
+                            margin: 3px 5px 0 0;
+                            max-width: calc(100% - 140px);
+                        }
+                    </style>
+
+                    <i class="icon left grey-text marginRight3" smart-tooltip position="bottom" message="{{'Attachments' | translate}}"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+
+                    <span title="{{attachmentData[0].title + attachmentData[0].extn}}" class="attachmentcontainerfield-title truncate">
+                        {{attachmentData[0].title + attachmentData[0].extn}}
+                    </span>
+
+                    <a href="javascript:void(0)" class="left">
+                        <i smart-tooltip position="bottom" message="{{'Download' | translate }}" class="icon center blue-text">
+                            <svg><use xlink:href="#icon_Download"></use></svg>
+                        </i>
+                    </a>
+
+                    <a href="javascript:void(0)" ng-click="deleteattchmentFn();" class="left paddingLeft15">
+                        <i smart-tooltip position="bottom" message="{{'Delete' | translate}}" class="icon center blue-text">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+
+                    <a href="javascript:void(0)" ng-click="addAttachmentCallback();" class="left paddingLeft15">
+                        <i smart-tooltip position="bottom" message="{{'Add' | translate}}" class="icon center blue-text">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+
+                </div>
+                <div class="clearfix" ng-if="attachmentData.length > 1">
+                    <smart-dropdown class="left" config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper fontSize14" data-activates="attachmentInfo5{{$index}}{{section.id}}" data-constrainwidth="false" data-alignment="left">
+                            <i class="icon iconSmall grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                            <span title="4 Files" class="marginRight5 truncate vBottom dIBlock">{{attachmentData.length}} Files</span>
+                        </a>
+                        <a href="javascript:void(0)" ng-click="addAttachmentCallback();" class="paddingLeft5">
+                            <i smart-tooltip position="bottom" message="{{'Add' | translate}}" class="icon center blue-text">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                        <div id="attachmentInfo5{{$index}}{{section.id}}" class="dropdown-content dd-close-off attachment-dropdown-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="paddingBtm10 paddingTop10"><span class="fontSize14">{{attachmentData.length}} Attachments</span></th>
+                                        <th class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right" ng-if="attachmentData.length">
+                                            <a href="javascript:void(0)">
+                                                <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text marginRight10">
+                                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" ng-click="deleteAllAttachment()">
+                                                <i smart-tooltip position="bottom" message="Delete All" class="icon iconSmall center blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <smart-scroll height="180px">
+                                <table>
+                                    <tr ng-repeat="attachment in attachmentData">
+                                        <td class="paddingBtm10 paddingTop10">
+                                            <span title="{{attachment.title}}{{attachment.extn}}" position="bottom">
+                                                <span class="truncate attachment-title add-attachment-width">{{attachment.title}}</span>
+                                                <span class="attachment-title">{{attachment.extn}}</span>
+                                            </span>
+                                        </td>
+                                        <td class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right">
+                                            <a href="javascript:void(0)" ng-click="downloadAttachment()">
+                                                <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginRight10">
+                                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" ng-click="deleteAttachment()">
+                                                <i smart-tooltip position="bottom" message="Delete" class="icon iconSmall center blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </smart-scroll>
+                            <table class="is-scrolled">
+                                <tr>
+                                    <td class="paddingBtm9 paddingTop7 paddingRight5">
+                                        <div class="right">
+                                            <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-click="addAttachmentCallback()"></smart-button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </smart-dropdown>
+                </div>-->
+               
+            </div>
+        </div>
+        <!-- /New attachment -->
+        <div ng-if="!pagePreview" ng-class="{ 'switchScorecardContainer': questionnaireScorecard }">
+            <div class="row paddingRight60 marginBtm30" ng-if="!pageForSourcing && !pageForForm">
+                <smart-switch left-label="vSupplierText" right-label="emptyText" ng-model="isVisible" class="col paddingBtm5 switchSupplierContainer" on-change="onChange(isVisible)"></smart-switch>
+                <a href="javascript:void(0)" ng-show="!questionnaireScorecard && !questionnaireForm" ng-click="RatingData(questionnaireRating)" class="rating-title left">{{ questionnaireRating.title }}</a>
+            </div>
+        </div>
+        <div class="row paddingRight60" ng-if="!supplierPublicRfx">
+            <div class="padding10 marginLeft20" ng-show="isApplyFilters"><strong>Showing : </strong><span class="grey-text">25 of 100 Questions</span></div>
+            <div ng-if="!pagePreview && !questionnaireScorecard" class="clearfix row questionnaireSectionNavHeader marginBtm0" scrolled ng-class="{'questionnaireSectionNavHeader-fixed':stickyQuestionHead}">
+                <div class="col s12 m12 l6 marginTop10 marginBtm10">
+                    <div ng-if="questionnaireData[0].question.length > 1 || questionnaireData.length > 1">
+                        <a href="javascript:void(0)" ng-click="showRearrange()" class="paddingBtm5 paddingTop5 switchSupplierContainer paddingRight20 left">Rearrange</a>
+
+                        <div class="questionnaireSectionNav">
+                            <span class="left grey-text paddingTop5">Go To Question: </span>
+                            <!--<smart-select ng-init="sectionSelectedOption = questionnaireData[0]"  label="" ng-model="sectionSelectedOption" class="col s12 m4 l4" options="$parent.questionnaireData" datakey="name" on-change="onChangesectionTypeOptions(sectionSelectedOption)"></smart-select>-->
+                            <smart-select ng-if="questionnaireGoto.option.length" label="" ng-model="questionnaireGoto.questSelectedOption" datakey="questionSectionIndex" displaykey="name" class="col s12 m2 gotoOptions paddingTop5" options="questionnaireGoto.option" datakey="name"></smart-select>
+                            <a href="javascript:void(0)" class="col paddingTop7" ng-click="sectionGoTo(1,questionnaireGoto.questSelectedOption.questionSectionIndex)">GO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l6 marginTop10 marginBtm10 paddingRight35">
+                    <div class="right">
+                        <a href="javascript:void(0)" class="paddingBtm5 paddingTop5 switchSupplierContainer marginRight12 left paddingRight12" ng-click="onChangeWeight(isAutoWeight)">Apply Auto Weight</a>
+                        <div class="left marginTop6">
+                            <span class="grey-text marginRight5">Total Weight: </span>
+                            <span ng-class="{'red-text': (TotalAmount > 100)}">{{TotalAmount}}/100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center paddingTop20 questionnaireSection-content-highlight" ng-if="questionnaireData[0].question.length == 0">
+                <a href="javascript:void(0);" class="action-block-cont" ng-click="addQuestion($event)">
+                    <span class="action-block-cont-icon">
+                        <i class="icon icon--xLarge">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </span>
+                    <span class="action-block-cont-lbl">{{'Add Question' || translate }}</span>
+                </a>
+            </div>
+            <div id="questionnaire-container" class="questionnaireSectionNavContainer" ng-class="{'questionnaireSectionNavContainer-fixed': stickyQuestionHead,'questionnaireSectionNavContainer-preview': pagePreview}">
+                <div id="section-1" class="questionnaireSection marginTop30" smart-sortable>
+                    
+                    <div id="subsection-1-{{$index + 1}}"
+                         ng-init="gridTypeRowsParentIndex = 0; gridTypeRowsChildIndex = $index;" class="questionnaireSection-content paddingTop8 clearfix relative marginBtm6 marginTop6"
+                         ng-class="{'questionnaireSection-content--active paddingBtm10' : questionItem.preview, 'questionnaireSection-content-highlight' : $index == 0}"
+                         ng-repeat="questionItem in questionnaireData[0].question" ng-if="questionItemShow(questionItem.conditional.check ,pagePreview)">
+
+                        <div ng-if="questionItem.questionType.type !== 'label-type'" class="row marginBtm0" ng-class="{'previewWeigtFieldContainer':questionnaireScorecard}" ng-click="questionBlockClick(gridTypeRowsParentIndex, $index,$event)">
+
+
+                            <div class="center row collapsible-header-drag-wrap relative ng-scope marginBtm10">
+                                <a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon questionnaire-drag-icon">
+                                    <svg><use xlink:href="#icon_Drag"></use></svg>
+                                </a>
+                            </div>
+                            <div class="questionnaireSubSection-content clearfix">
+                                <div class="row questionnaireRow">
+                                    <div class="col s12 marginLeft5" ng-class="{'previewModeFieldholder' : !questionItem.preview}">
+                                        <smart-textfield focus="questionItem.isfocus" validate="questionItem.isvalidate" class="col s12 m9 l10 xxl11 fieldEditable questionairefield line-height-manager" label="Question" charactercounter="true" maxlength="2000" type="text" ng-model="questionItem.title" is-mandatory="true"></smart-textfield>
+                                        <div ng-if="!questionItem.preview" class="col s12 m9 l10 xxl11 questionairefield paddingTop13">
+                                            <span class="questionItemTitle"><span class="left questionnaiePreviewMode marginRight10">{{questionItem.name}}.</span>{{questionItem.title}}<sup ng-if="questionItem.mandatory" class="red-text mandatoryField"> *</sup></span>
+                                            <span smart-tooltip position="top" message="Answer to this question will not have any impact on the scores." ng-if="questionItem.nonScoring" class="markText chip center">Informative</span>
+                                            <span smart-tooltip position="top" message="{{stateParamsView === 'supplier' ? 'This question is conditional to the 2nd option of 5th question' : 'Answer to this question will change further questions that appear in this questionnaire.'}}" ng-if="questionItem.conditional.check && !pagePreview" class="markText chip center">Conditional {{$state.params.view}}</span>
+                                        </div>
+                                        <div class="right marginTop10 paddingLeft0 paddingRight0" ng-if="!pagePreview">
+                                            <a href="javascript:void(0);" class="left blue-text questionnaireWeightField" ng-class="{'disabled' : questionnaireData.length === 1 && questionnaireData[0]['question'].length === 1}" ng-click="questionDelete(gridTypeRowsParentIndex,$index)">
+                                                <i class="icon small marginRight10 marginLeft0 right blue-text dropdown-button smallest" data-alignment="right" smart-tooltip message="{{'Delete' || translate}}" position="top">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0);" class="left blue-text questionnaireWeightField">
+                                                <i class="icon small marginRight10 marginLeft0 right blue-text dropdown-button smallest" data-alignment="right" smart-tooltip message="{{'Copy' || translate}}" position="top" ng-click="questionCopy(dataItem.question,questionItem,$index)">
+                                                    <svg><use xlink:href="#icon_Copy"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a ng-if="!questionItem.preview" href="javascript:void(0);" class="right blue-text paddingRight10">
+                                                <i class="icon marginRight2 marginLeft1 blue-text previewModeTrash" data-alignment="right" smart-tooltip message="{{'Edit' || translate}}" position="top">
+                                                    <svg><use xlink:href="#icon_ToEdit"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div ng-if="questionItem.preview" class="col s12 marginTop30">
+                                        <smart-checkbox label="Mandatory" class="col editModeFooterSelect" ng-model="questionItem.mandatory" input-field="false"></smart-checkbox>
+                                        <smart-checkbox label="Informative" class="col editModeFooterSelect" ng-model="questionItem.nonScoring" input-field="false"></smart-checkbox>
+                                        <smart-checkbox disable='{{questionItem.addAttachment.disable}}' label="Allow Attachment" class="col" ng-model="questionItem.addAttachment.check" input-field="false"></smart-checkbox>
+                                    </div>
+                                </div>
+
+                                <div class="col row s12 black-text marginLeft6" ng-if="questionItem.preview">
+
+                                    <smart-select label="" ng-model="questionItem.questionType" class="col questionnaireSelectionbox  paddingBtm20" options="questionTypeOptions" datakey="name" on-change="onQuestionType(questionItem.questionType,questionItem)"></smart-select>
+                                    <a href="javascript:void(0)" class="left score-link questionnaieEditMode" ng-click="showScore()" ng-if="(questionItem.questionType.type === 'numeric' || questionItem.questionType.type === 'multi-numeric') && !questionItem.nonScoring">Score</a>
+                                </div>
+                                <div class="col row s12 black-text marginBtm10 conditionalCheck" ng-if="questionItem.preview">
+                                    <div class="col s12" ng-class="{'conditional-container' : questionItem.conditional.check}">
+                                        <smart-checkbox checked='false' disable="{{!conditionalQuestionTypeOptionsFlag}}" label="Conditional" class="left conditional-container-checklist" ng-model="questionItem.conditional.check" on-change="removeCondition(questionItem)" input-field="false"></smart-checkbox>
+                                        <a href="javascript:void(0)">
+                                            <i ng-if="!conditionalQuestionTypeOptionsFlag" smart-infotip position="bottom" message="Create more questions to make this question conditional" class="marginTop3 icon iconSmall center blue-text paddingLeft10 infoIcon iconDefaultCursor">
+                                                <svg><use xlink:href="#icon_Info"></use></svg>
+                                            </i>
+                                            <i ng-if="conditionalQuestionTypeOptionsFlag" smart-infotip position="bottom" message="Display the above question only if respondent selects following question and its response" class="marginTop3 icon iconSmall center blue-text paddingLeft10 infoIcon iconDefaultCursor">
+                                                <svg><use xlink:href="#icon_Info"></use></svg>
+                                            </i>
+                                        </a>
+                                        <div ng-if="questionItem.conditional.check" class="conditional-check-container clearfix">
+                                            <smart-select label="Select Question" ng-if="conditionalQuestionTypeOptions.length" ng-model="questionItem.conditionalQuestion.selectedquestionType" class="col s11 paddingBtm15 marginBtm10 line-height-manager" options="conditionalQuestionTypeOptions" on-change="onConditionalQuestionTypeChg(questionItem, gridTypeRowsParentIndex, gridTypeRowsChildIndex)" datakey="title"></smart-select>
+
+                                            <a href="javascript:void(0)">
+                                                <i smart-infotip position="bottom" message="Type of questions area allowed are Multiple lines text (Formated), Single response (Radio buttons) and Single response (Drop down)" class="marginTop3 icon iconSmall center blue-text paddingTop18 iconDefaultCursor">
+                                                    <svg><use xlink:href="#icon_Info"></use></svg>
+                                                </i>
+                                            </a>
+
+                                            <smart-select label="Select Response of above Question" ng-model="questionItem.conditionalQuestion.selectedquestionResponse" class="col s11 paddingBtm15 marginBtm10 line-height-manager" options="onConditionalQuestionTypeOption" datakey="title"></smart-select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col s12 marginBtm20 file-field input-field addAttachment" ng-if="questionItem.preview">
+                                    <div class="col s12">
+                                        <div class="responsanceattachmentList surveyCreation">
+
+                                            <!--<div class="clearfix responsanceattachmentList-item" ng-repeat="g in questionItem.attachment.list">
+                                                <div class="left truncate responsanceattachmentList-item-title">{{g.name}}</div>
+                                                <a href="javascript:void(0)" class="left">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="left marginLeft20">
+                                                    <i smart-tooltip position="bottom" message="Delete" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                    </i>
+                                                </a>
+                                            </div>-->
+                                            <div ng-show="!pageForSourcing">
+                                                <div class="responsanceattachmentList-item">
+                                                    <a href="javascript:void(0)" ng-click="addDocumentPopupCallback($index, val);val.attachDocFlag = true" ng-class="{ 'active pointEventN' : val.attachDocFlag == true}" class="attach-doc-title file-field-title questionnaieEditMode">Add Attachment</a>
+                                                </div>
+                                                <div ng-show="val.attachDocFlag" class="paddingLeft25" ng-include="'shared/popup/views/popupUploadDoc.html'" id="addAttachForPage">
+                                                </div>
+                                            </div>
+                                            <!-- New attachment -->
+                                            <div class="marginTop10" ng-show="pageForSourcing">
+                                                <div class="row marginBtm0">
+                                                    <a href="javascript:void(0)" class="col s12 m6 l4 xl3 xxl2" ng-click="addAttachmentCallback('edit')" ng-show="!attachementAdded">Add Attachment</a>
+                                                    <label class="col s12 fontSize12 black64p marginBtm25 paddingLeft22" ng-if="attachementAdded">Attachments</label>
+                                                </div>
+                                                <div class="col s12" ng-if="attachementAdded">
+                                                    <smart-dropdown class="left" config="{{dropDownConfig}}">
+                                                        <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper fontSize14" data-activates="attachmentInfo2{{$index}}{{section.id}}" data-constrainwidth="false" data-alignment="left">
+                                                            <i class="icon small grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                                                            attachment_one.xml+ 4 More
+                                                        </a>
+                                                        <div id="attachmentInfo2{{$index}}{{section.id}}" class="dropdown-content dd-close-off attachment-dropdown-content">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="paddingBtm10 paddingTop10"><span class="fontSize14">{{attachmentData.length}} Attachments</span></th>
+                                                                        <th class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right" ng-if="attachmentData.length">
+                                                                            <a href="javascript:void(0)">
+                                                                                <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text marginRight10">
+                                                                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                                                                </i>
+                                                                            </a>
+                                                                            <a href="javascript:void(0)" ng-click="deleteAllAttachment()">
+                                                                                <i smart-tooltip position="bottom" message="Delete All" class="icon iconSmall center blue-text">
+                                                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                                                </i>
+                                                                            </a>
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+                                                            <smart-scroll height="180px">
+                                                                <table>
+                                                                    <tr ng-repeat="attachment in attachmentData">
+                                                                        <td class="paddingBtm10 paddingTop10">
+                                                                            <span title="{{attachment.title}}{{attachment.extn}}" position="bottom">
+                                                                                <span class="truncate attachment-title add-attachment-width">{{attachment.title}}</span>
+                                                                                <span class="attachment-title">{{attachment.extn}}</span>
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right">
+                                                                            <a href="javascript:void(0)" ng-click="downloadAttachment()">
+                                                                                <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginRight10">
+                                                                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                                                                </i>
+                                                                            </a>
+                                                                            <a href="javascript:void(0)" ng-click="deleteAttachment()">
+                                                                                <i smart-tooltip position="bottom" message="Delete" class="icon iconSmall center blue-text">
+                                                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                                                </i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </smart-scroll>
+                                                            <table class="is-scrolled">
+                                                                <tr>
+                                                                    <td class="paddingBtm9 paddingTop7 paddingRight5">
+                                                                        <div class="right">
+                                                                            <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-click="addAttachmentCallback()"></smart-button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </smart-dropdown>
+                                                </div>
+                                            </div>
+                                            <!-- /New attachment -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row marginBtm0 col s12" ng-if="questionItem.attachment.list.length > 0 && pagePreview || supplierView">
+                                <div class="col s12  file-field input-field" ng-if="questionnaireScorecard">
+                                    <smart-dropdown class="left" config="{{dropDownConfig}}">
+                                        <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="surveyresponseAttchmnt{{questionItem.name}}" data-constrainwidth="false" data-alignment="left">
+                                            <i class="icon small grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                                            <span class="dIBlock marginTop17">Contact.doc+3 more..</span>
+                                        </a>
+                                        <div id="surveyresponseAttchmnt{{questionItem.name}}" class="dropdown-content dd-close-off">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="paddingBtm10 paddingTop10">File Name</th>
+                                                        <th class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">document_name.doc</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">document.doc</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">Document.pdf</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+
+                            </div>
+                            <div class="row col s12 questionnaireBox  singleResponse" onload="templateLoad(questionItem.questionType.type)" ng-include="questionItem.questionType.template" ng-if="questionItem.questionType.type !== 'attachment-only'"></div>
+
+                            <div class="row col s12 marginTop0" ng-if="questionItem.addAttachment.check && pagePreview || supplierView">
+                                <div class="col s12  file-field input-field" ng-if="!readonlySupData">
+                                    <div class="responsanceattachmentList  clearfix">
+                                        <div ng-show="showPreviewAttchmnentList">
+                                            <div class="clearfix responsanceattachmentList-item">
+                                                <div class="left truncate responsanceattachmentList-item-title">attachment1.xlsx</div>
+                                                <a href="javascript:void(0)" class="left fontSize12">
+                                                    Retry
+                                                </a>
+                                                <a href="javascript:void(0)" class="left marginLeft14 marginRight15">
+                                                    <i smart-tooltip position="bottom" message="Cancel Upload" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <div class="attachment-info marginTop3">
+                                                    <span class="red-text left">File upload failed.</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix responsanceattachmentList-item">
+                                                <div class="left truncate responsanceattachmentList-item-title">attachment2.xlsx</div>
+                                                <a href="javascript:void(0)" class="left">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="left marginLeft20">
+                                                    <i smart-tooltip position="bottom" message="Delete" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                            <div class="clearfix responsanceattachmentList-item">
+                                                <div class="left truncate responsanceattachmentList-item-title">attachment3.xlsx</div>
+                                                <a href="javascript:void(0)" class="left disabled">
+                                                    <i smart-tooltip position="bottom" message="Download" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="left marginLeft20 marginRight15">
+                                                    <i smart-tooltip position="bottom" message="Cancel Upload" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <div class="attachment-info marginTop3">
+                                                    <span class="red-text left">The uploaded file exceeds the file size (max 5MB).</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix responsanceattachmentList-item">
+                                                <div class="left truncate responsanceattachmentList-item-title">attachment4.xlsx</div>
+                                                <div class="circle-loading-container marginLeft4  left">
+                                                    <div class="preloader-wrapper x-small active">
+                                                        <div class="spinner-layer spinner-green-only">
+                                                            <div class="circle-clipper circle-clipper--x left">
+                                                                <div class="circle"></div>
+                                                            </div>
+                                                            <div class="gap-patch">
+                                                                <div class="circle"></div>
+                                                            </div>
+                                                            <div class="circle-clipper circle-clipper--x right">
+                                                                <div class="circle"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a href="javascript:void(0)" class="left marginLeft20 marginRight15">
+                                                    <i smart-tooltip position="bottom" message="Cancel Upload" class="icon blue-text iconSmall iconDefaultCursor">
+                                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <div class="attachment-info marginTop3">
+                                                    <span class="grey-text left">This file will take time to upload, please check the status in the log later</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="responsanceattachmentList-item" ng-hide="readonlySupData">
+                                            <div ng-show="!pageForSourcing">
+                                                <a href="javascript:void(0)" ng-click="addDocumentPopupCallback($index,v);v.attachDocFlag=true" ng-class="{ 'active pointEventN' : v.attachDocFlag == true}" class="attach-doc-title file-field-title">Add Attachment</a>
+                                                <div ng-show="v.attachDocFlag" class="paddingRight15" ng-class="{ 'active' : v.attachDocFlag == true}" ng-include="'shared/popup/views/popupUploadDoc.html'" id="addAttachForResponsePage">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- New attachment -->
+                                        <div ng-show="pageForSourcing && pagePreview">
+                                            <div class="row marginBtm0">
+                                                <a href="javascript:void(0)" class="col s12 m6 l4 xl3 xxl2" ng-click="addAttachmentCallback('preview')" ng-show="attachementAdded1">Add Attachment</a>
+                                            </div>
+                                            <div class="col s12" ng-if="!attachementAdded1">
+                                                <smart-dropdown class="left" config="{{dropDownConfig}}">
+                                                    <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper fontSize14 paddingBtm15" data-activates="attachmentInfo1{{$index}}{{section.id}}" data-constrainwidth="false" data-alignment="left">
+                                                        <i class="icon iconSmall grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                                                        attachment_one.xml+ 4 More
+                                                    </a>
+                                                    <div id="attachmentInfo1{{$index}}{{section.id}}" class="dropdown-content dd-close-off attachment-dropdown-content">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="paddingBtm10 paddingTop10"><span class="fontSize14">{{attachmentData.length}} Attachments</span></th>
+                                                                    <th class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right" ng-if="attachmentData.length">
+                                                                        <a href="javascript:void(0)">
+                                                                            <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text marginRight10">
+                                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                                            </i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0)" ng-click="deleteAllAttachment()">
+                                                                            <i smart-tooltip position="bottom" message="Delete All" class="icon iconSmall center blue-text">
+                                                                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                                            </i>
+                                                                        </a>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                        <smart-scroll height="180px">
+                                                            <table>
+                                                                <tr ng-repeat="attachment in attachmentData">
+                                                                    <td class="paddingBtm10 paddingTop10">
+                                                                        <span title="{{attachment.title}}{{attachment.extn}}" position="bottom">
+                                                                            <span class="truncate attachment-title add-attachment-width">{{attachment.title}}</span>
+                                                                            <span class="attachment-title">{{attachment.extn}}</span>
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right">
+                                                                        <a href="javascript:void(0)" ng-click="downloadAttachment()">
+                                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginRight10">
+                                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                                            </i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0)" ng-click="deleteAttachment()">
+                                                                            <i smart-tooltip position="bottom" message="Delete" class="icon iconSmall center blue-text">
+                                                                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                                            </i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </smart-scroll>
+                                                        <table class="is-scrolled">
+                                                            <tr>
+                                                                <td class="paddingBtm9 paddingTop7 paddingRight5">
+                                                                    <div class="right">
+                                                                        <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-click="addAttachmentCallback()"></smart-button>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </smart-dropdown>
+                                            </div>
+                                        </div>
+                                        <!-- /New attachment -->
+                                       
+                                    
+                                    <div class="clearfix" ng-show="questionItem.addAttachment.isVisible" ng-repeat="supData in questionItem.addAttachment.attachmentList | limitTo:questionItem.addAttachment.attachmentListLimit">
+                                        <div class="left marginTop10">{{supData.fileUploadVal}}</div>
+                                        <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginLeft20 paddingTop9 iconDefaultCursor">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                        <i smart-tooltip position="bottom" message="Delete" class="icon iconSmall center blue-text marginLeft20 paddingTop9 iconDefaultCursor">
+                                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                        </i>
+                                    </div>
+                                    <!--<div class="left-align">
+                                        <a href="javascript:void(0)">
+                                            <span ng-if="questionItem.questionResponse.supplierAttachments.attachmentListLimit==2" ng-click="supIncrementLimit(questionItem.questionResponse.supplierAttachments)">View All</span>
+                                            <span ng-if="questionItem.questionResponse.supplierAttachments.attachmentListLimit > 2" ng-click="supDecrementLimit(questionItem.questionResponse.supplierAttachments)">Show Less</span>
+                                        </a>
+                                    </div>-->
+                                    <!--<input class="file-path validate ng-hide" type="text" readonly="readonly" ng-model="questionItem.addAttachment.fileUploadVal" disabled="disabled">
+                                    <div ng-show="questionItem.addAttachment.fileUploadVal">
+                                        <a href="javascript:void(0)" class="black-text">{{ questionItem.attachment.fileUploadVal }}</a>
+                                        <i class="icon small blue-text dropdown-button marginLeft13 smallest" data-constrainwidth="false" data-alignment="top" smart-tooltip message="{{'Download' || translate}}"  position="top">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                        <i class="icon small blue-text dropdown-button marginLeft10 smallest" data-constrainwidth="false" data-alignment="right" smart-tooltip message="{{'Delete' || translate}}"  position="right">
+                                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                        </i>
+                                    </div>-->
+                                </div>
+
+                                <div class="col s12  file-field input-field" ng-if="readonlySupData">
+                                    <smart-dropdown class="left" config="{{dropDownConfig}}">
+                                        <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="surveyresponseAttchmnt{{questionItem.name}}" data-constrainwidth="false" data-alignment="left">
+                                            <i class="icon small grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                                            <span class="dIBlock marginTop17">Contact.doc+3 more..</span>
+                                        </a>
+                                        <div id="surveyresponseAttchmnt{{questionItem.name}}" class="dropdown-content dd-close-off">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="paddingBtm10 paddingTop10">File Name</th>
+                                                        <th class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">document_name.doc</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">document.doc</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="paddingBtm10 paddingTop10">Document.pdf</td>
+                                                        <td class="paddingBtm10 paddingTop10 paddingLeft10">
+                                                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                                                <svg><use xlink:href="#icon_Download"></use></svg>
+                                                            </i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="questionnaireSubSection-footer clearfix" ng-class="{'previewWeightField':questionnaireScorecard}">
+                            <div class="clearfix editModeFooter" ng-if="(pagePreview && questionnaireScorecard) || pageForForm" ng-class="{'previewModeFooter' : !questionItem.preview, 'noBorder' : dataItem.question[$index+1].questionType.type === 'label-type'}">
+                                <div class="col s12 paddingRight0" ng-if="(!pagePreview && !supplierView) || ( questionnaireScorecard || pageForForm )">
+                                    <div class="right questionnaireWeightField">
+                                        <a href="javascript:void(0)" ng-if="!pageForSourcing && (!questionnaireForm && !questionnaireScorecard)" ng-click="RatingData(questionItem.rating,gridTypeRowsParentIndex,$index)" class="rating-title center col paddingTop14">
+                                            {{questionItem.rating.title}}
+                                        </a>
+                                        <div class="col fieldEditable questionnaireWeightFieldArea" ng-class="{'formPreviewMode':readonlyFormData}">
+                                            <smart-textfield id="questionnaireWeightFieldArea-{{$index}}" align="right" label="Weight(0-100)" smart-character-restrict patternreg="[^-0-9]" rules="{{questionnaireWeightRule}}" readonly="{{questionItem.weightFieldReadonly || ( readonlySupData || readonlyFormData )}}" on-blur="onChangeSingleWeight(questionItem)" placeholder="0" ng-model="questionItem.weight" decimalprecision="3"></smart-textfield>
+                                        </div>
+                                        <a href="javascript:void(0)" class="icon iconSmall paddingTop13 paddingLeft10 paddingRight9" ng-if="!questionnaireScorecard && !readonlyFormData"  ng-click="questionLock(questionItem,'questionnaireWeightFieldArea-'+$index,$event);">
+                                            <svg smart-tooltip position="top" message="Unlock" ng-show="!questionItem.lock"><use xlink:href="#icon_Unlock"></use></svg>
+                                            <svg smart-tooltip position="top" message="Lock" ng-show="questionItem.lock"><use xlink:href="#icon_Lock"></use></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col s12 paddingRight0" ng-if="supplierView">
+                                    <!--<div class="right questionnaireWeightField">
+                                        <smart-textfield placeholder="0" align="right" label="Score(out of 100)" typeof="text"></smart-textfield>
+                                    </div>-->
+
+                                    <div smart-tooltip position="top" message="Please enter numeric value" class="right questionnaireWeightFieldArea">
+                                        <smart-textfield id="questionnaireWeightFieldArea-{{$index}}" align="right" label="Score(out of 100)" readonly="{{readonlySupData}}" type="text" on-key-up="validateNum(questionItem, 'score')" placeholder="0" ng-model="questionItem.score"></smart-textfield>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-if="questionItem.questionType.type === 'label-type'" ng-include="questionItem.questionType.template"></div>
+
+                </div>
+
+            </div>
+            <div id="stickyAddPanel" tabbing-group focusonkeypress focusin="q" focusout="Q" altkey="true" ng-if="questionnaireData[0].question.length != 0" class="stickyAddPanel stickyAddPanelFloating shadowContainer" ng-class="{'stickyAddPanel-fixed': stickyAddPanelFixed1}">
+                 <a href="javascript:void(0);" class="icon icon-stickyAddPanel" ng-click="addQuestion($event)" data-alignment="left" smart-tooltip message="{{'Add Question' || translate}}" position="left">
+                    <i class="icon small center white-text smallest" >
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0);" class="icon icon-stickyAddPanel" ng-click="addQuestion($event,true)" data-alignment="left" smart-tooltip message="{{'Add Instruction' || translate}}" position="left">
+                    <i class="icon small center white-text smallest">
+                        <svg><use xlink:href="#icon_Section"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row paddingRight60" ng-if="supplierPublicRfx">
+        <div class="questionnaireSectionNavContainer questionnaireSectionNavContainer-preview">
+            <div class="questionnaireSection-header clearfix">
+                <span class="left questionnaireSection-header-title questionnaireSection-header-title-preview"> QUALIFICATION CRITERIA</span>
+            </div>
+            <div class="questionnaireSection-content paddingTop8 clearfix">
+                <div class="row questionnaireRow">
+                    <div class="col s12 marginLeft5 previewModeFieldholder">
+                        <span class="marginLeft10">Q1.</span>
+                        <span>How many people to you employ including contractors?</span>
+                    </div>
+                    <div class="row col s12 questionnaireBox marginBtm0">
+                        <ul class="collection noBorder marginLeft15 paddingTop10">
+                            <li class="collection-item paddingTop0">
+                                <input class="with-gap" type="radio" name="qualificationView" id="qualificationC-1">
+                                <label for="qualificationC-1" class="grey-text text-darken-4 truncate">0 - 20</label>
+                            </li>
+                            <li class="collection-item paddingTop0">
+                                <input class="with-gap" type="radio" name="qualificationView" id="qualificationC-2">
+                                <label for="qualificationC-2" class="grey-text text-darken-4 truncate">20 - 200</label>
+                            </li>
+                            <li class="collection-item paddingTop0">
+                                <input class="with-gap" type="radio" name="qualificationView" id="qualificationC-3">
+                                <label for="qualificationC-3" class="grey-text text-darken-4 truncate">201 - 500</label>
+                            </li>
+                            <li class="collection-item paddingTop0">
+                                <input class="with-gap" type="radio" name="qualificationView" id="qualificationC-4">
+                                <label for="qualificationC-4" class="grey-text text-darken-4 truncate">Above 500</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="questionnaireSection-content paddingTop25 clearfix">
+                <div class="row questionnaireRow">
+                    <div class="col s12 marginLeft5 previewModeFieldholder">
+                        <span class="marginLeft10">Q2.</span>
+                        <span>Do you have any manufacturing/distribution centers?</span>
+                    </div>
+                    <div class="row col s12 questionnaireBox marginBtm0">
+                        <smart-radio gap="true" class="marginTop15 marginLeft25" ng-model="selectedManufacturingOption" options="manufacturingOptions" datakey="name"></smart-radio>
+                    </div>
+                </div>
+            </div>
+            <div class="questionnaireSection-content paddingTop25 clearfix">
+                <div class="row questionnaireRow">
+                    <div class="col s12 marginLeft5 previewModeFieldholder">
+                        <span class="marginLeft10">Q2.</span>
+                        <span>Do you employ child labour?</span>
+                    </div>
+                    <div class="row col s12 questionnaireBox marginBtm0">
+                        <smart-radio gap="true" class="marginTop15 marginLeft25" ng-model="selectedLabourOption" options="labourOptions" datakey="name"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<footer class="page-footer footerSpace noTransition" ng-class="{'paddingBtm0 paddingTop0':supplierView}">
+    <div class="row marginBtm0">
+        <div class="left" ng-show="supplierView">
+            <smart-dropdown config="{{dropDownConfig}}">
+                <a href="javascript:void(0)" class="dropdown-button" data-activates='response-completeness-action' data-alignment="bottom" data-delay="50" data-constrainwidth="false">
+                    <span class="left fontSize32 percentageVal green-text marginTop5">75%</span>
+                    <span class="left margin10 percentageText black-text">RESPONSE <br />  COMPLETENESS</span>
+                    <span class="profile-down-arrow"></span>
+                </a>
+                <ul class="dropdown-content response-completeness-dropdown" id='response-completeness-action'>
+                    <li ng-repeat="sectionList in responseCompleteData">
+                        <a href="javascript:void(0);" class="grey-text text-darken-4">
+                            <span class="marginLeft10" ng-init="sectionList.respondPercent = (((sectionList.respondData * 100) / sectionList.respondTotalData) | number : 0)">{{sectionList.label}} - ({{sectionList.respondData}} of {{sectionList.respondTotalData}}) {{sectionList.respondPercent}}&#37;</span>
+                            <span ng-class="{'notReceived': sectionList.respondData === 0, 'partiallyReceived': sectionList.respondData === sectionList.respondTotalData, 'overReceived': ((sectionList.respondData < sectionList.respondTotalData) && sectionList.respondData > 0)}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </smart-dropdown>
+        </div>
+        <smart-button class="right marginTop10" config='{"title":"DONE"}' ui-sref="sourcing.rfx.new({'view':'supplierPublicRfx'})" ng-if="supplierPublicRfx"></smart-button>
+        <smart-button class="left modeChangeBtn" flat="true" config='{"title":"PREVIEW"}' ng-click="makeReadonly(questionnaireTitle)" disable="false" ng-show="!pagePreview"></smart-button>
+        <smart-button class="left modeChangeBtn" flat="true" config='{"title":"EDIT"}' ng-click="getEditMode()" ng-show="pagePreview && !supplierView"></smart-button>
+        <smart-button class="right footerBtn marginRight9" ng-show="!supplierView" config='{"title":"SAVE &amp; ClOSE"}' ng-click="supplierConfirm()" disable="false"></smart-button>
+        <smart-button class="right footerBtn whiteSecondaryBtn" config='{"title":"SAVE"}' disable="false" ng-class="{'marginTop10' : supplierView}" ng-click="supplierConfirm()" ng-if="!supplierPublicRfx"></smart-button>
+        <smart-button class="right footerBtn whiteSecondaryBtn" config='{"title":"SAVE"}' disable="false" ng-class="{'marginTop10' : supplierView}" ng-if="supplierPublicRfx"></smart-button>
+        <smart-button class="right footerBtn" flat="true" ng-show="!scoreCardCancelBtn" config='{"title":"CANCEL"}' ng-class="{'marginTop10' : supplierView}" disable="false" ui-sref="{{backTo}}"></smart-button>
+        <smart-button class="right footerBtn" flat="true" config='{"title":"CANCEL"}' ng-class="{'marginTop10' : supplierView}" ng-show="scoreCardCancelBtn" disable="false" ng-click="supplierCancel()"></smart-button>
+        <!--<smart-button class="right footerBtn" ng-show="!pagePreview && pageFor != 'sourcing'" config='{"title":"ClOSE"}' disable="false" ui-sref="{{backTo}}"></smart-button>-->
+
+    </div>
+</footer>
+
+<footer class="page-footer footerSpace noTransition" ng-show="questionnaireScorecard">
+    <smart-button ng-if="!readonlySupData" class="right footerBtn" config='{"title":"SUBMIT"}' ng-click="submitResponseScorecard()"></smart-button>
+    <smart-button ng-if="!readonlySupData" class="right whiteSecondaryBtn footerBtn" config='{"title":"SAVE"}' ng-click="saveResponseScorecard()" disable="false"></smart-button>
+    <smart-button class="right footerBtn" flat="!readonlySupData" config='{"title":"CLOSE"}' ui-sref="supplier.scorecard({'mode':'savedDraft'})"></smart-button>
+
+</footer>
+
+
+<smart-popup template-url="shared/questionnaire/views/popupRepeatabilityFactor.html" show="{{showRepeatabilityPopup}}" on-hide="onRepetabilityHideCallback()" class="questionnairePopup"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupRating.html" show="{{showRatingPopup}}" on-hide="hideRatingPopupCallback(e)" class="questionnairePopup"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupRearrangeQuestions.html" show="{{showRearrangePopup}}" on-hide="hideRearrangePopupCallback(e)" class="questionnairePopup"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupDropdownOptions.html" show="{{showDropdownPopup}}" on-hide="hideDropdownPopupCallback(e)" class="questionnaireSmallPopup"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupScore.html" show="{{showScorePopup}}" on-hide="hideScorePopupCallback(e)" class="scoreSmallPopup"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>
+<smart-popup template-url="questionnaireType.html" show="{{questionnaireTypePopup}}" on-hide="questionnaireTypePopUpOnHideCallback(e)" class="questionnaire-type-popup" type="medium"></smart-popup>
+<smart-popup template-url="{{addAttachmentUrl}}" show="{{addAttachmentPopup}}" on-hide="addAttachmentPopUpOnHideCallback(e)"></smart-popup>
+
+<!--<script type="text/javascript" src="shared/theme1/ckeditor/ckeditor.js"></script>-->
+
+<script type="text/ng-template" id="single-text">
+    <smart-textfield ng-if="pagePreview" class="col s12 readonlySupDataMode l12 xxl11 questionnaiePreviewMode marginBtm0 paddingBtm13" label="" placeholder="Your answer" charactercounter="true" maxlength="100" type="text" ng-readonly="true" ng-model="questionItem.questionResponse.singleText" validate="questionItem.questionResponse.isvalidate" readonly="{{readonlySupData}}" is-mandatory="true"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-text">
+    <smart-textfield ng-if="pagePreview" type="area" placeholder="Your answer" charactercounter="true" maxlength="4000" class="col s12 l12 xxl11 readonlySupDataMode questionnaiePreviewMode marginBtm0 paddingBtm13" label="" ng-model="questionItem.questionResponse.multiText" validate="questionItem.questionResponse.isvalidate" readonly="{{readonlySupData}}" is-mandatory="true"></smart-textfield>
+</script>
+
+<script type="text/ng-template" id="multi-text-format">
+
+    <div ng-if="pagePreview" class="col s12 l12 xxl11 ckeditorContainer questionResponseContainer questionnaiePreviewMode ckeditorBox">
+        <textarea ckeditor="editorOptions" ng-model="questionItem.questionResponse.FormatText" ng-if="!readonlySupData" rows="10" cols="80"></textarea>
+        <div class="paddingLeft6" ng-show="readonlySupData">March 2016 - Maersk corporations established 17th plant in Asia region.</div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="single-response-radio">
+    <!-- New attachment -->
+    <div ng-show="pageForSourcing && pagePreview && attachementAdded">
+        <div class="col s12 paddingTop10 paddingBtm10">
+            <smart-dropdown class="left" config="{{dropDownConfig}}">
+                <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper fontSize14" data-activates="attachmentInfo4{{$index}}{{section.id}}" data-constrainwidth="false" data-alignment="left">
+                    <i class="icon iconSmall grey-text marginRight3" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                    attachment_one.xml+ 4 More
+                </a>
+                <div id="attachmentInfo4{{$index}}{{section.id}}" class="dropdown-content dd-close-off attachment-dropdown-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="paddingBtm10 paddingTop10"><span class="fontSize14">{{attachmentData.length}} Attachments</span></th>
+                                <th class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right" ng-if="attachmentData.length">
+                                    <a href="javascript:void(0)">
+                                        <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text marginRight10">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                    </a>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <smart-scroll height="180px">
+                        <table>
+                            <tr ng-repeat="attachment in attachmentData">
+                                <td class="paddingBtm10 paddingTop10">
+                                    <span title="{{attachment.title}}{{attachment.extn}}" position="bottom">
+                                        <span class="truncate attachment-title add-attachment-width">{{attachment.title}}</span>
+                                        <span class="attachment-title">{{attachment.extn}}</span>
+                                    </span>
+                                </td>
+                                <td class="paddingBtm10 paddingTop10 paddingLeft10 paddingRight11 right">
+                                    <a href="javascript:void(0)" ng-click="downloadAttachment()">
+                                        <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginRight10">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </smart-scroll>
+                </div>
+            </smart-dropdown>
+        </div>
+    </div>
+    <!-- /New attachment -->
+    <div class="dragList" smart-sortable on-sort="onSort($event,'singleResponseRadio')">
+        <div ng-if="pagePreview" ng-repeat="sRadio in questionItem.questionResponse.config" class="questionResponseContainer clearfix singleResponseRadio">
+            <!--<smart-radio gap="true" class="left marginTop5 marginLeft11 questionairefield" datakey="name" group-id="multiResponseDataradioModel" ng-model="questionItem.questionResponse.selected" options="questionItem.questionResponse.config" datakey="name"></smart-radio>-->
+            <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon collection-item-drag-icon collapsible-header-drag-icon">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+            </a>
+
+            <div class="clearfix">
+
+                <smart-radio gap="true" class="left" ng-init="sRadioIndex = 'sRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex;" option-id="{{sRadioIndex + $index}}" group-id="{{sRadioIndex}}" ng-click="showQuestion($event);" ng-model="questionItem.questionResponse.selected" options="sRadio.options" is-mandatory="true" validate="questionItem.questionResponse.isvalidate" datakey="title"></smart-radio>
+                <span smart-tooltip position="top" message="Answer to this question will change further questions that appear in this questionnaire." ng-if="questionItem.conditional.conditionalData.length && pagePreview" class="markText chip marktext-radio-subquestion center">{{ questionItem.conditional.conditionalData.length }} Subquestion</span>
+
+            </div>
+            <div class="subQuestionnarie marginTop20 paddingLeft0 paddingBtm10 marginLeft10 col s11" ng-if="questionItem.conditional.conditionalData.length">
+                <div ng-repeat="questionItem in $parent.questionItem.conditional.conditionalData track by $index" ng-if="pagePreview && $parent.questionItem.conditional.conditionalData.length && sRadio.options[0].title === questionItem['conditionalQuestion']['selectedquestionResponse']['title']">
+                    <div class="question" ng-include="'subquestion-structure'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="questionItem.preview" class="questionnaireResponseContainer">
+        <div class="dragList" smart-sortable on-sort="onSort($event,'singleResponseRadio')">
+            <div ng-init="questionItem.questionResponse.radioModel.config = [{'title': 0,'disable': true}]" ng-repeat="multiResponseData in questionItem.questionResponse.config" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon  collection-item-drag-icon collapsible-header-drag-icon">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                </a>
+
+                <smart-radio gap="true" disable="true" class="left marginTop10 marginLeft11 questionairefield" datakey="title" group-id="multiResponseDataradioModel" ng-model="questionItem.questionResponse.radioModel.selected" options="questionItem.questionResponse.radioModel.config"></smart-radio>
+
+                <smart-textfield type="text" class="col s12 m4 questionResponseRadioTitle questionairefield" label="Option {{$index + 1}}" is-mandatory="true" validate="multiResponseData.options[0].isvalidate" focus="multiResponseData.options[0].isfocus" ng-model="multiResponseData.options[0].title"></smart-textfield>
+                <div smart-tooltip position="top" message="Please enter numeric value" class="col s12 m2 l1 marginTop0 padding0 questionnaieEditMode">
+                    <smart-textfield type="number" ng-if="!questionItem.nonScoring" class="col marginTop0 marginBtm0" label="Score" ng-model="multiResponseData.options[0].score" readonly="{{readonlySupData}}" on-key-up="validateNum(multiResponseData.options[0], 'score')"></smart-textfield>
+                </div>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginRight10 paddingTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.config.length !== 1">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode paddingTop4" ng-click="addquestionResponse($event,questionItem)" ng-if="($index + 1) === questionItem.questionResponse.config.length">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Option' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="single-response-drop">
+    <div ng-if="pagePreview" class="questionResponseContainer clearfix">
+        <div class="clearfix">
+            <smart-select label="Select" ng-model="questionItem.questionResponse.selected" class="col s8 marginBtm0 line-height-manager" options="questionItem.questionResponse.config" datakey="title" ng-click="showQuestion($event);" on-change="onSingleRespChange(questionItem.questionResponse.selected, $event)"></smart-select>
+            <span smart-tooltip position="top" message="Answer to this question will change further questions that appear in this questionnaire." ng-if="questionItem.conditional.conditionalData.length && pagePreview" class="markText chip marktext-subquestion center">{{ questionItem.conditional.conditionalData.length }} Subquestion</span>
+        </div>
+
+        <!--<div ng-if="!questionItem.preview && !pagePreview" class="previewPlaceholder"></div>-->
+        <div class="subQuestionnarie marginTop20 paddingLeft0 paddingBtm10 marginLeft10 col s11" ng-if="questionItem.conditional.conditionalData.length">
+            <div ng-repeat="questionItem in $parent.questionItem.conditional.conditionalData track by $index" ng-if="pagePreview && $parent.questionItem.conditional.conditionalData.length">
+                <div class="question" ng-include="'subquestion-structure'"></div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="questionItem.preview" class="questionnaireResponseContainer">
+        <div class="dragList" smart-sortable on-sort="onSort($event,'singleResponseRadio')">
+            <div ng-repeat="multiResponseData in questionItem.questionResponse.config" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon  collection-item-drag-icon collapsible-header-drag-icon">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                </a>
+                <smart-textfield type="text" class="col s12 m4 questionairefield marginBtm0 marginTop0" label="Option {{$index + 1}}" is-mandatory="true" focus="multiResponseData.isfocus" validate="multiResponseData.isvalidate" ng-model="multiResponseData.title"></smart-textfield>
+                <div smart-tooltip position="top" message="Please enter numeric value" class="col s12 m2 l1 marginTop0 padding0 questionnaieEditMode">
+                    <smart-textfield type="number" ng-if="!questionItem.nonScoring" class="col marginBtm0" label="Score" ng-model="multiResponseData.score" readonly="{{readonlySupData}}" on-key-up="validateNum(multiResponseData, 'score')"></smart-textfield>
+                </div>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginRight10 marginTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.config.length !== 1">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginTop4" ng-click="addquestionResponse($event,questionItem)" ng-if="($index + 1) === questionItem.questionResponse.config.length">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Option' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="multi-response">
+    <div ng-if="pagePreview || questionItem.preview" class="questionnaireResponseContainer ">
+        <div class="row grey-text">
+            <div class="col s12">
+                <i class="icon iconSmall left marginRight5">
+                    <svg>
+                        <use xlink:href="#icon_Info"></use>
+                    </svg>
+                </i>
+                <span class="left">{{ 'Score value should be between 0 to 5 only.' || translate }}</span>
+            </div>
+        </div>
+        <div class="dragList" smart-sortable on-sort="onSort($event,'multiResponse')">
+            <div ng-repeat="multiResponseData in questionItem.questionResponse track by $index" class="questionResponseContainer questionResponseContainerOptionList clearfix ">
+                <div class="clearfix">
+                    <a href="javascript:void(0)" class="icon left iconSmall   questionairefield-drag-icon  collection-item-drag-icon collapsible-header-drag-icon">
+                        <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                    </a>
+                    <smart-checkbox ng-if="!pagePreview" checked='false' disable='{{questionItem.preview}}' label="" class="left marginTop16 marginLeft11" ng-model="multiResponseData.check" input-field="false"></smart-checkbox>
+                    <smart-textfield label="Option {{$index + 1}}" ng-if="!pagePreview" is-mandatory="true" focus="multiResponseData.isfocus" validate="multiResponseData.isvalidate" type="text" class="col s12 m4 fieldEditable questionResponseTitle questionairefield" ng-model="multiResponseData.title"></smart-textfield>
+                    <div smart-tooltip position="top" message="Please enter numeric value" class="col s12 m2 l1 marginTop0 padding0 questionnaieEditMode">
+                        <smart-textfield type="number" ng-if="!questionItem.nonScoring" class="col marginBtm0 marginTop0" label="Score" ng-model="multiResponseData.score" readonly="{{readonlySupData}}" on-key-up="validateNum(multiResponseData, 'score')"></smart-textfield>
+                    </div>
+                    <div ng-if="pagePreview" class="clearfix">
+                        <smart-checkbox checked='false' disable='{{questionItem.preview}}' label="{{multiResponseData.title}}" class="left marginTop12 marginLeft11" ng-model="multiResponseData.check" ng-click="showQuestion($event);" input-field="false"></smart-checkbox>
+                        <span smart-tooltip position="top" message="Answer to this question will change further questions that appear in this questionnaire." ng-if="questionItem.conditional.conditionalData.length && pagePreview && multiResponseData.title === questionItem['conditional']['conditionalData'][0]['conditionalQuestion']['selectedquestionResponse'].title" class="markText chip marktext-subquestion center"> 1 Subquestion</span>
+                    </div>
+                    <a href="javascript:void(0);" class="icon left questionnaieEditMode marginRight10 paddingTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.length !== 1">
+                        <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0);" class="icon left questionnaieEditMode paddingTop4" ng-click="addquestionResponse($event,questionItem)" ng-if="($index + 1) === questionItem.questionResponse.length">
+                        <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Option' || translate}}" position="top">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+                </div>
+                <div class="subQuestionnarie marginTop20 paddingLeft0 paddingBtm10 marginLeft10 col s11" ng-if="questionItem.conditional.conditionalData.length">
+                    <div ng-repeat="questionItem in $parent.questionItem.conditional.conditionalData track by $index" ng-if="pagePreview && $parent.questionItem.conditional.conditionalData.length && multiResponseData.title === questionItem['conditionalQuestion']['selectedquestionResponse']['title']">
+                        <div class="question" ng-include="'subquestion-structure'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="grid-type-combination">
+
+    <div ng-show="pagePreview" class="questionResponseContainer gridTypeCombination">
+        <!--<div ng-if="!questionItem.preview && !pagePreview" class="previewPlaceholder"></div>-->
+        <!--alert validation-->
+        <div class="alert-bar alert-bar--warning enter-from-top hide">
+            <span class="red-text fontSize12">Validation Error Message Goes Here</span>
+        </div>
+        <table class="bordered gridTypeContainer sTable">
+            <thead>
+                <tr>
+                    <th ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'"></th>
+                    <th class="center-align" smart-last-repeater-element parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" data="{{questionItem.questionResponse.cols}}" ng-repeat="gridTypeCols in questionItem.questionResponse.cols track by $index">{{ gridTypeCols.title }} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--gridTypeRows.cols = Object.create(questionItem.questionResponse.cols);-->
+                <tr ng-init="gridTypeRowsIndex = $index;" smart-last-repeater-element parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" ng-repeat="gridTypeRows in questionItem.questionResponse.rows track by $index">
+                    <td class="left-align" ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'">{{gridTypeRows.title}}</td>
+                    <td class="center-align" ng-repeat="gridType in gridTypeRows.cols">
+                        <div ng-if="!readonlySupData" class="" ng-include="'grid-type-structure'"></div>
+                        <div ng-if="readonlySupData" class="" ng-include="'grid-type-readonly-structure'"></div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="questionItem.preview" class="questionnaireResponseContainer">
+        <div class="gridTypeRowColumn">
+
+            <div class="grid-type-row" ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'">
+                <div class="dragList" smart-sortable on-sort="onSort($event,'multiRow')">
+                    <div ng-repeat="multiResponseData in questionItem.questionResponse.rows track by $index" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                        <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon collection-item-drag-icon collapsible-header-drag-icon">
+                            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                        </a>
+                        <smart-textfield type="text" class="col s12 m5 questionairefield marginBtm0 marginLeft8" label="Row {{$index + 1}}" is-mandatory="true" focus="multiResponseData.isfocus" validate="multiResponseData.isvalidate" ng-model="multiResponseData.title"></smart-textfield>
+
+                        <a href="javascript:void(0);" class="icon left marginRight10 marginTop4" ng-click="deletequestionResponse($event,questionItem,$index,'row')" ng-if="questionItem.questionResponse.rows.length !== 1">
+                            <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+
+                        <a href="javascript:void(0);" class="icon left questionnaieEditMode marginTop4" ng-click="addquestionResponse($event,questionItem,'row')" ng-if="($index + 1) === questionItem.questionResponse.rows.length">
+                            <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Row' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'" class="blockSeparator"></div>
+            <div class="grid-type-col">
+                <div class="dragList" smart-sortable on-sort="onSort($event,'multiColumn')">
+                    <div ng-repeat="multiResponseDatacols in questionItem.questionResponse.cols track by $index" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                        <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon collection-item-drag-icon collapsible-header-drag-icon">
+                            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                        </a>
+                        <smart-textfield type="text" class="col s12 m5 questionairefield marginBtm0 marginLeft8" label="Column {{$index + 1}}" is-mandatory="true" validate="multiResponseDatacols.isvalidate" focus="multiResponseDatacols.isfocus" ng-model="multiResponseDatacols.title"></smart-textfield>
+                        <div class="col s12 m3 paddingRight0" ng-if="questionItem.questionType.type === 'grid-type-combination' || questionItem.questionType.type === 'grid-type-wrow-combination'">
+                            <smart-select label="" ng-model="multiResponseDatacols.type.SelectedType" class="col s10 marginBtm0" options="questionItem.questionResponse.optionsType" datakey="name" on-change="gridTypechangeFn(gridTypeRowsChildIndex)"></smart-select>
+                            <a href="javascript:void(0);" class="icon left marginTop4" ng-click="dropdownPopup(multiResponseDatacols,questionItem.nonScoring,gridTypeRowsChildIndex);" ng-show="multiResponseDatacols.type.SelectedType.name === 'Dropdown'">
+                                <i ng-if="!multiResponseDatacols.type.dropdownApplied" class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Option' || translate}}" position="top">
+                                    <svg><use xlink:href="#icon_Settings"></use></svg>
+                                </i>
+                                <i ng-if="multiResponseDatacols.type.dropdownApplied" class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Option' || translate}}" position="top">
+                                    <svg><use xlink:href="#icon_SettingsApp"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                        <a href="javascript:void(0);" class="icon left marginRight10 marginTop4" ng-click="dropdownPopup(multiResponseDatacols,questionItem.nonScoring);" ng-if="questionItem.questionType.type === 'grid-type-drop'">
+                            <i ng-if="!multiResponseDatacols.type.dropdownApplied" class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Option' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_Settings"></use></svg>
+                            </i>
+                            <i ng-if="multiResponseDatacols.type.dropdownApplied" class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Option' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_SettingsApp"></use></svg>
+                            </i>
+                        </a>
+                        <div smart-tooltip position="top" message="Please enter numeric value" class="col s12 m2 l1 questionairefield padding0">
+                            <smart-textfield type="number" ng-if="((questionItem.questionType.type === 'grid-type-check' || questionItem.questionType.type === 'grid-type-radio' || (questionItem.questionType.type === 'grid-type-combination' && (multiResponseDatacols.type.SelectedType.name === 'Checkbox' || multiResponseDatacols.type.SelectedType.name === 'Radio')) || (questionItem.questionType.type === 'grid-type-wrow-combination' && (multiResponseDatacols.type.SelectedType.name === 'Checkbox' || multiResponseDatacols.type.SelectedType.name === 'Radio'))) && !questionItem.nonScoring)" class="col marginBtm0" label="Score" ng-model="multiResponseDatacols.score" readonly="{{readonlySupData}}" on-key-up="validateNum(multiResponseDatacols, 'score')"></smart-textfield>
+                        </div>
+                        <a href="javascript:void(0);" class="icon left marginRight10 marginTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.cols.length !== 1">
+                            <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+
+                        <a href="javascript:void(0);" class="icon left questionnaieEditMode marginTop4" ng-click="addquestionResponse($event,questionItem,'col')" ng-if="($index + 1) === questionItem.questionResponse.cols.length">
+                            <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Column' || translate}}" position="top">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="numeric">
+    <smart-textfield ng-if="pagePreview" class="col readonlySupDataMode s12 l12 xxl11 questionnaiePreviewMode marginBtm0  paddingBtm13" label="" focus="isFirstQuestion" placeholder="Please Enter Number" type="text" ng-model="questionItem.questionResponse.value" is-mandatory="true" readonly="{{readonlySupData}}" validate="questionItem.questionResponse.isvalidate"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-numeric">
+    <div ng-if="pagePreview || questionItem.preview" class="questionnaireResponseContainer">
+        <div class="dragList" smart-sortable on-sort="onSort($event,'multiNumeric')">
+            <div class="questionResponseContainer questionResponseContainerOptionList clearfix paddingBtm0" ng-repeat="multiNumericResponseData in questionItem.questionResponse.value">
+                <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon collection-item-drag-icon collapsible-header-drag-icon">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                </a>
+                <smart-textfield class="col s12 m9 l10 xxl11 fieldEditable questionairefield questList marginBtm0" label="Sub Question {{$index + 1}}" charactercounter="true" maxlength="100" type="text" is-mandatory="true" focus="multiNumericResponseData.isfocus" validate="multiNumericResponseData.isvalidate" ng-model="multiNumericResponseData.question"></smart-textfield>
+                <smart-textfield type="text" placeholder="Please Enter Number" class="col s12 l12 xxl11 questionnaiePreviewMode questField marginBtm20" label="" ng-model="multiNumericResponseData.value"></smart-textfield>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginRight10 marginTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.value.length !== 1">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="left">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginTop4" ng-click="addquestionResponse($event,questionItem)" ng-if="($index + 1) === questionItem.questionResponse.value.length">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Option' || translate}}" position="left">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="date-time">
+    <div ng-if="!pagePreview && questionItem.preview" class="questionnaireResponseContainer marginBtm15 clearfix">
+        <smart-checkbox ng-init="questionItem.checkdate = true" label="Capture Date" disable="true" class="col paddingLeft0 editModeFooterSelect" ng-model="questionItem.checkdate" input-field="false"></smart-checkbox>
+        <smart-checkbox label="Capture Time" class="col editModeFooterSelect" ng-model="questionItem.checktime" on-change="" input-field="false"></smart-checkbox>
+    </div>
+    <div ng-if="pagePreview" class="questionResponseContainer clearfix">
+        <!--<div ng-if="!questionItem.preview && !pagePreview" class="previewPlaceholder"></div>-->
+        <smart-textfield type="date" time-picker="{{questionItem.checktime}}" class="col s8 m5 l2 readonlySupDataMode questionnaiePreviewMode dateTime marginBtm0" ng-model="questionItem.date" readonly={{readonlySupData}} is-mandatory="true"></smart-textfield>
+    </div>
+</script>
+
+<script type="text/ng-template" id="grid-type-structure">
+
+    <smart-checkbox ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true" class="gridTypeCheck"></smart-checkbox>
+    <smart-radio ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+    <smart-select ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" class="col s12" datakey="name"></smart-select>
+
+    <smart-dropdown config="{{dropDownConfig}}" single-element-dropdown="true" ng-if="gridType.type.SelectedType.name === 'Text field'" class="relative displayBlock">
+        <a class='dropdown-button btn-in-header' data-alignment="left" href='javascript:void(0)' data-activates='dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}' data-constrainwidth="false">
+            <span>{{gridType.type.Textfield || 'Please Enter' }}</span>
+        </a>
+        <div id="dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off">
+            <smart-textfield placeholder="Please Enter" ng-model="gridType.type.Textfield" focus="true" id="gridTextField_{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}"></smart-textfield>
+        </div>
+    </smart-dropdown>
+
+</script>
+
+<script type="text/ng-template" id="grid-type-readonly-structure">
+
+    <smart-checkbox disable="true" readonly="true" ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true" class="gridTypeCheck"></smart-checkbox>
+    <smart-radio ng-init="gridType.type.radioOption.config.disable = true;" ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+    <smart-select ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" preview="true" disable="true" class="col s12" datakey="name"></smart-select>
+
+    <span ng-if="gridType.type.SelectedType.name === 'Text field'">{{gridType.type.Textfield || '-' }}</span>
+
+</script>
+
+
+
+
+
+
+<script type="text/ng-template" id="subquestion-structure">
+    <div class="questionnaireSubSection-content clearfix">
+        <div class="row questionnaireRow">
+            <div class="col s12 previewModeFieldholder">
+                <div class="col s12 m9 l10 xxl11 questionairefield paddingTop13">
+                    <span class="questionItemTitle"><span class="left questionnaiePreviewMode marginRight10">Q.</span>{{questionItem.title}}<sup ng-if="questionItem.mandatory" class="red-text mandatoryField"> *</sup></span>
+                    <span smart-tooltip position="top" message="Answer to this question will not have any impact on the scores." ng-if="questionItem.nonScoring" class="markText chip center">Informative</span>
+                </div>
+            </div>
+        </div>
+        <div class="row col s12 marginBtm20 file-field input-field addAttachment">
+            <div class="col">
+                <a href="javascript:void(0)" ng-click="addDocumentPopupCallback()" class="file-field-title questionnaieEditMode">Add Attachment</a>
+                <!--<div ng-show="questionItem.attachment.fileUploadVal">
+                <span class="grey-text fontSize12 questionnaiePreviewMode">Attachment</span>
+                <a href="javascript:void(0)" class="black-text questionnairefileTitle">{{ questionItem.attachment.fileUploadVal }}</a>
+                <i ng-if="!pagePreview" class="icon small blue-text dropdown-button marginLeft13 smallest" data-constrainwidth="false" data-alignment="top" smart-tooltip message="{{'Download' || translate}}" position="top">
+                    <svg><use xlink:href="#icon_Download"></use></svg>
+                </i>
+                <i ng-if="!pagePreview" class="icon small blue-text dropdown-button marginLeft10 smallest" data-constrainwidth="false" data-alignment="right" smart-tooltip message="{{'Delete' || translate}}" position="right">
+                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                </i>
+                </div>-->
+            </div>
+        </div>
+        <div class="row col s12 questionnaireBox marginBtm0 singleResponse" ng-include="questionItem.questionType.template" ng-if="questionItem.questionType.type !== 'attachment-only'"></div>
+        <!--<div class="row col s12 questionnaireBox marginBtm0 singleResponse">
+            <div class="questionnaireResponseContainer">
+                <div ng-repeat="multiResponseDataquestionItem in questionItem.questionResponse" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                    <smart-checkbox checked='false' disable='false' label="" class="left marginTop12 marginLeft11" ng-model="multiResponseDataquestionItem.check" input-field="false"></smart-checkbox>
+                    <smart-textfield is-mandatory="true" focus="multiResponseDataquestionItem.isfocus" validate="multiResponseDataquestionItem.isvalidate" type="text" class="col s12 m4 fieldEditable questionResponseTitle questionairefield" label="Option {{$index + 1}}" ng-model="multiResponseDataquestionItem.title"></smart-textfield>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="row col s12" ng-if="questionItem.addAttachment.check && pagePreview">
+            <div class="col file-field input-field">
+                <a href="javascript:void(0)" ng-click="addDocumentPopupCallback(a);a.attachDocFlag=true" ng-class="{ 'active' : a.attachDocFlag == true}" class="file-field-title">Add Attachment</a>
+            </div>
+            <div ng-show="a.attachDocFlag" class="paddingLeft25" ng-include="'shared/popup/views/popupUploadDoc.html'" id="addAttachForPage">
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<script type="text/ng-template" id="label-type">
+    <div class="questionnaireSection-header clearfix" ng-click="questionBlockClick(gridTypeRowsParentIndex, $index,$event)">
+
+        <span class="left questionnaireSection-header-title questionnaireSection-header-title-preview" ng-if="pagePreview"> {{questionItem.title}}</span>
+        <div class="row col s12 padding0 collapsible-header-drag-wrap relative ng-scope">
+            <span class="left questionnaireSection-header-title" ng-if="!pagePreview">Instruction</span>
+            <a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon questionnaire-drag-icon">
+                <svg><use xlink:href="#icon_Drag"></use></svg>
+            </a>
+            <div class="sectionIcons">
+                <a ng-if="!pagePreview" href="javascript:void(0);" class="right blue-text" ng-click="questionDelete(gridTypeRowsParentIndex,$index)">
+                    <i class="icon blue-text" data-alignment="left" smart-tooltip message="{{'Delete' || translate}}" position="top">
+                        <!--on-->
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div class="row col s12 l12 xxl11 paddingLeft0 paddingRight0 marginTop20" ng-class="{'questionnaireEmptyDesc': !dataItem.title}">
+            <smart-textfield class="col s12 marginBtm0 line-height-manager" label="Title" focus="questionItem.isfocus" charactercounter="true" maxlength="100" type="text" ng-model="questionItem.title" is-mandatory="true"></smart-textfield>
+        </div>
+        <div class="row col s12 l12 xxl11 paddingLeft0 paddingRight0 marginBtm0 paddingBtm10" ng-class="{'questionnaireEmptyDesc': !questionItem.description, 'questionnaireDescPreview' : pagePreview}">
+            <smart-textfield type="area" charactercounter="true" maxlength="4000" class="col s12 fieldEditable marginBtm0" label="Details" readonly="{{pagePreview}}" ng-model="questionItem.description"></smart-textfield>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="list-box">
+    <div ng-if="pagePreview" class="questionResponseContainer clearfix">
+
+        <div class="clearfix">
+            <!--smart accumulator-->
+            <smart-accumulator class="padding20" options="questionItem.questionResponse.config" height="250" label="Available Option(s)" add-keys="['title']" ng-model="questionItem.questionResponse.selected">
+            </smart-accumulator>
+            <!--smart accumulator-->
+
+
+
+            <span smart-tooltip position="top" message="Answer to this question will change further questions that appear in this questionnaire." ng-if="questionItem.conditional.conditionalData.length && pagePreview" class="markText chip marktext-subquestion center">{{ questionItem.conditional.conditionalData.length }} Subquestion</span>
+        </div>
+
+        <!--<div ng-if="!questionItem.preview && !pagePreview" class="previewPlaceholder"></div>-->
+        <div class="subQuestionnarie marginTop20 paddingLeft0 paddingBtm10 marginLeft10 col s11" ng-if="questionItem.conditional.conditionalData.length">
+            <div ng-repeat="questionItem in $parent.questionItem.conditional.conditionalData track by $index" ng-if="pagePreview && $parent.questionItem.conditional.conditionalData.length">
+                <div class="question" ng-include="'subquestion-structure'"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <div ng-if="questionItem.preview" class="questionnaireResponseContainer">
+        <div class="dragList" smart-sortable on-sort="onSort($event,'singleResponseRadio')">
+            <div ng-repeat="multiResponseData in questionItem.questionResponse.config" class="questionResponseContainer questionResponseContainerOptionList clearfix">
+                <a href="javascript:void(0)" class="icon left iconSmall questionairefield-drag-icon  collection-item-drag-icon collapsible-header-drag-icon">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Drag"></use></svg>
+                </a>
+                <smart-textfield type="text" class="col s12 m4 questionairefield marginBtm0 marginTop0" label="Option {{$index + 1}}" is-mandatory="true" focus="multiResponseData.isfocus" validate="multiResponseData.isvalidate" ng-model="multiResponseData.title"></smart-textfield>
+                <div smart-tooltip position="top" message="Please enter numeric value" class="col s12 m2 l1 marginTop0 padding0 questionnaieEditMode">
+                    <smart-textfield type="number" ng-if="!questionItem.nonScoring" class="col marginBtm0" label="Score" ng-model="multiResponseData.score" readonly="{{readonlySupData}}" on-key-up="validateNum(multiResponseData, 'score')"></smart-textfield>
+                </div>
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginRight10 marginTop4" ng-click="deletequestionResponse($event,questionItem,$index)" ng-if="questionItem.questionResponse.config.length !== 1">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Remove' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+
+
+                <a href="javascript:void(0);" class="icon left questionnaieEditMode marginTop4" ng-click="addquestionResponse($event,questionItem)" ng-if="($index + 1) === questionItem.questionResponse.config.length">
+                    <i class="icon small center blue-text" data-alignment="left" smart-tooltip message="{{'Add Option' || translate}}" position="top">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="questionnaireType.html" type="text/ng-template">
+    <div>
+        <div class="modal-header">
+            <i class="icon iconSmall grey-text left marginTop2">
+                <svg><use xlink:href="#icon_Questionaire"></use></svg>
+            </i>
+            <span class="title">{{'QUESTIONNAIRE  TYPE' | translate}}</span>
+        </div>
+        <div class="modal-content padding10 pricesheet-type is-scrolled">
+            <div class="row">
+                <smart-radio vertical="true" class="col s12" gap="true" group-id="questionnaireTypeID" ng-model="selectedquestionnaireType" options="questionnaireTypeOptions01" on-change="questionnaireCheck()"></smart-radio>
+            </div>
+            <div class="row">
+                <smart-radio class="col left" gap="true" group-id="questionnaireTypeID" ng-model="selectedquestionnaireType" options="questionnaireTypeOptions02" on-change="qualificationCheck()"></smart-radio>
+                <a href="javascript:void(0);" class="left marginTop4 marginLeft30N " smart-infotip position="right" template-url="qualificationInfo.html" mode="mouseover">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Info"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+            <div class="row fontSize12 marginBtm7" ng-if="qualificationCheckContent">
+                <div class="col s12 paddingLeft40"> Qualification Rules</div>
+            </div>
+            <div id="conditionDataWrap" class="questionnarie-type-wrap paddingBtm2 ">
+                <div class="row marginBtm0" id="conditionData{{$index}}" ng-repeat="condition in conditionsData" ng-if="qualificationCheckContent">
+                    <span class="left marginTop13 paddingLeft40">Score for </span>
+                    <smart-select class="left marginLeft10 " ng-model="selectedServicesInfo1" options="questionsNo" disable="{{!condition.isVisibleSwitch}}" preview="{{!condition.isVisibleSwitch}}" fixed="true"></smart-select>
+                    <smart-select class="left marginLeft10 " ng-model="selectedServicesInfo2" options="questionsNo2" disable="{{!condition.isVisibleSwitch}}" preview="{{!condition.isVisibleSwitch}}" fixed="true"></smart-select>
+                    <div class="left marginRight10">
+                        <smart-textfield type="number" class="left   questionnaire-range input-field line-height-manager" min="0" max="100" ng-model="condition.fromRange" validate="condition.isValidate" rules="{{emptyRule}}" disable="{{!condition.isVisibleSwitch}}" label="" decimalprecision="3"></smart-textfield>
+                        <span class="left marginTop12">%</span>
+                    </div>
+                    <!--<smart-switch left-label="emptyText" right-label="emptyText" ng-model="condition.isVisibleSwitch" class="left marginTop12  marginRight15 "></smart-switch>-->
+                    <a ng-show="($index + 1) != conditionsData.length || ($index + 1) === conditionsData.length && $index != 0" href="javascript:void(0)" class="left marginTop14 marginRight20" ng-click="deleteConditionData(conditionsData, $index)">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_CircleMinus"></use></svg>
+                        </i>
+                    </a>
+                    <a ng-show="($index + 1) === conditionsData.length " href="javascript:void(0)" class="left marginTop14" ng-click="addConditionData(conditionsData)">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Add new rule' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12">
+                    <smart-button flat="true" config='{"title":"DONE"}' ng-click="popupTypeApplyCallback()"></smart-button>
+                    <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="qualificationInfo.html" type="text/ng-template">
+    <div class="padding10">
+        <ul>
+            <li>Create qualification rules for this event. Suppliers will qualify for event if their qualification questionnaire scores satisfy these rules.</li>
+        </ul>
+    </div>
+</script>

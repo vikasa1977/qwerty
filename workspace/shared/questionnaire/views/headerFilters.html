@@ -1,0 +1,45 @@
+<div class="panelBox-withSpace panelBox--filter">
+	<div class="panelBox-content">
+		<div class="panelBox-header clearfix row marginBottom0">
+			<div class="col s12">
+				<div class="left fontSize16">FILTER</div>
+			</div>
+		</div>
+		<div class="panelBox-body padding0">
+			<div class="row margin0">
+				<div class="col s12 padding0 tabHolderWrap">
+					<smart-tabs tab-config="{{documentFilterTabData}}" width="60%" vertical="true" on-select="documentFilterTabSelectCallback(e)"></smart-tabs>
+					<div class="tabHolder">
+						<ul class="left paddingLeft20" ng-show="documentType">
+							<li class="left filters-list-item" ng-repeat="type in queTypeList">
+								<smart-checkbox class="left marginTop6 padding0 paddingBtm6" ng-model="documentTypeNDA" label="{{type.title}}"></smart-checkbox>
+							</li>
+						</ul>
+						<div class="row margin0" ng-show="documentCreatedBy">
+							<div class="col s12">
+								<smart-scroll height="290px">
+									<ul class="collection noBorder">
+										<li class="collection-item paddingLeft0" ng-repeat="createItem in createdByList">
+											<smart-checkbox label="{{createItem.filterLabel}}"></smart-checkbox>
+										</li>
+									</ul>
+								</smart-scroll>
+							</div>
+						</div>
+						<ul class="left paddingLeft20" ng-show="documentCreationDate">
+							<li class="left filters-list-item">
+								<smart-textfield class="col s6" ng-model="documentCreationDateFrom" label="From" type="date"></smart-textfield>
+								<smart-textfield class="col s6" ng-model="documentCreationDateTo" label="To" type="date"></smart-textfield>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panelBox-footer row footerSpace ">
+			<smart-button flat="true" class="modal-close footerBtn right margin0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+			<smart-button flat="true" class="modal-close footerBtn right" config='{"title":"CANCEL"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+            <smart-button flat="true" class="modal-close footerBtn left margin0" config='{"title":"RESET"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+		</div>
+	</div>
+</div>

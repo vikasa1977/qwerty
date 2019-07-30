@@ -1,0 +1,77 @@
+<div class="col l1 m1 s1 center-align" style="display: none;" id="back-arrow">
+    <a href="#" class="btn waves-effect waves-light btn-floating btn-flat"><i class="material-icons iconSmall ">&#xE317;</i></a>
+</div>
+
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-controller="searchBoxAutoSuggestedCtrl" ng-class="{'Header--Search--Wrapper':showSearch,'Header--Search--Wrapper-hide':!showSearch}">
+    <div class="col s12">
+
+
+
+        <div class="searchSlideMain headersearch wislist--headersearch searchSlideMain--inputBdrBNone homepageSearch ">
+            <div class="searchWithHiddenTextField active" ng-class="{'active': isActiveHeader}">
+                <a href="javascript:void(0)" ng-click="clearSearch()"
+                   class="waves-circle waves-effect cancel-icon black-text" smart-tooltip position="bottom" delay="50" message="{{'Close'|| translate}}">
+                    <i class="icon iconSmall center white-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+
+                <smart-textfield type="autocomplete" placeholder="{{'Search' || translate}}" ng-model="autoCompleteData" filterkeys="['ItemName']" optionformat="<span>{ItemName}</span>" displayformat="{ItemName}" options="options" minchars="0" on-change="onChangeAutoSuggest($event)" on-select="onSelect(autoCompleteData)" on-enter="onEnter()" on-focus="onChangeAutoSuggest($event)"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon black-text" smart-tooltip position="bottom" delay="50" message="{{'Search'|| translate}}" ng-click="showSearchHeader()">
+                    <i class="icon iconSmall center white-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+
+        <div class="extra-nav-title">
+            <a href="javascript:void(0)" onclick="location.reload();" class="left  waves-circle waves-effect waves-light left extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <span class="extra-nav-title--text ng-cloak">{{'BROWSE BY CATEGORY' || translate}}</span>
+        </div>
+
+
+    </div>
+    <!-- sticky select bar -- onchange of select box option changes page content -->
+
+</div>
+
+<div class="row" id="hm-search-box">
+
+    <div class="col l8 m8 s12 centered center-align l5 m5" id="search-container" ng-controller="searchBoxAutoSuggestedCtrl">
+
+
+        <div class="marginBtm15" id="Div1" ng-class="{'searchSlide':showSearch,'':!showSearch}">
+            <div class="searchWrapper z-depth-1 hoverable" style="opacity: 1; position: absolute; width: 64.5%;">
+                <!--<smart-textfield type="autocomplete" placeholder = "{{'Search' || translate}}" ng-model="autoCompleteData" filterkeys="['ItemName']" optionformat="<span>{ItemName}</span>" displayformat="{ItemName}" options="options" on-change="onChangeAutoSuggest()" on-select="onSelectAutoSuggest(autoCompleteData)" focus="focusSearch" on-enter="onEnter"></smart-textfield>-->
+                <smart-textfield type="autocomplete" placeholder="{{'Search' || translate}}" ng-model="autoCompleteData" filterkeys="['ItemName']" optionformat="<span>{ItemName}</span><span class='search-category'>{ItemId}</span>" displayformat="{ItemName}"options="options" minchars="0" on-change="onChangeAutoSuggest($event)" on-select="onSelect(autoCompleteData)" on-enter="onEnter()" on-focus="onChangeAutoSuggest($event)"></smart-textfield>
+
+
+                <a ui-sref="searchCard" class="search" ng-if="!isClear" style="margin-top: 2px;">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+                <a ui-sref="javascript:void(0)" class="search" ng-if="isClear">
+                    <i class="icon iconSmall" ng-if="isClear" ng-click="clearfunction()">
+                        <svg>
+                            <use xlink:href="#icon_Close"></use>
+                        </svg>
+                    </i>
+
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

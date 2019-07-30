@@ -1,0 +1,237 @@
+<div id="addTaxes" ng-click="$event.stopPropagation();">
+    <!-- popup -- add taxes -- modal header -->
+    <div class="modal-header clearfix">
+        <div class="title">
+            <span>
+                <i class="icon iconSmall grey-text left">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Lookup"></use>
+                    </svg>
+                </i>
+            </span>   
+            <span>{{ 'Taxes and charges' || translate | uppercase  }}</span>
+        </div>
+    </div>
+
+    <!-- popup -- add taxes -- modal body -->
+    <div class="modal-content padding0 is-scrolled">
+        
+            <div class="row marginBtm0 border-bottom-dashed">
+                <div class="col s12 paddingTop10 paddingBtm10 paddingLeft25 paddingRight25">
+                    <smart-radio label="" ng-model="selectedViewTax" options="viewTaxOptions" datakey="name" gap="true" on-change="onChange(selectedViewTax)"></smart-radio>
+                </div>
+            </div>
+            <div ng-show="viewable">
+                <div class="row marginBtm0 clearfix is-overflowHidden">
+                    <ul class="marginBtm0">
+                        <li ng-repeat="item in viewTaxConfig">
+
+                            <div class="detail-field-summary height54 relative paddingLeft25 paddingRight25">
+                                <span class="left grey-text">{{item.dataName | translate}} ({{'USD'}}) </span>
+                                <div class="right">
+                                    <div class="right-align">
+                                        {{ item.dataValue | number:2 }}
+                                    </div>
+                                    <div ng-if="item.taxEditable" class="ddSubLinkWrapper"><a href="javascript:void(0)" class="blue-text fontSize12" ng-click="makeEditView($index)">{{'Prorate' | translate}}</a></div>
+                                </div>
+                                <div class="slider-pop" animate-on-load ng-show="item.makeEdit">
+                                    <div class="well single-edit-panel paddingBtm10">
+                                        <div class="single-edit-panel-input-box row">
+                                            <smart-textfield class="col s12" label="{{'Prorate' | translate}}" focus="true" ng-model="newTaxValue"></smart-textfield>
+                                        </div>
+                                        <div class="single-edit-panel-secondary-content">
+
+                                            <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="cancelupdateViewValue($index)">
+                                                <i class="icon iconSmall blue-text padding0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Close"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="updateViewValue($index,newTaxValue)">
+                                                <i class="icon iconSmall blue-text padding0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Check"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row div-table-row marginBtm0 is-scrolled">
+                    <ul class="marginTop0">
+                        <li class="paddingBtm40">
+
+                            <div class="input-field col s12 detail-field-summary">
+                                <span class="left grey-text">{{ "Total Taxes & Charges" | translate}} ({{'USD'}}) </span>
+                                <div class="right">
+                                    <div class="right-align">
+                                        {{ "100" | number:2 }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div ng-show="!viewable">
+                <div class="row marginBtm0 paddingTop12 paddingBtm12 height54 relative border-bottom-dashed">
+                    <a href="javascript:void(0)" class="right marginRight25 marginTop5" ng-class="{'disabled': (viewList.taxCode == '' && viewList.taxDetail == '' && viewList.taxRate == '')}" ng-click="addCurrent()">
+                        {{ 'Prorate' || translate }}
+                    </a>
+                    <div class="slider-pop" animate-on-load ng-show="makeProrateEditable">
+                        <div class="well single-edit-panel paddingBtm10">
+                            <div class="single-edit-panel-input-box row">
+                                <smart-textfield class="col s12" label="{{'Prorate' | translate}}" focus="true" ng-model="taxCodeProrate"></smart-textfield>
+                            </div>
+                            <div class="single-edit-panel-secondary-content">
+
+                                <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="taxCodeCancelProrate(e)">
+                                    <i class="icon iconSmall blue-text padding0">
+                                        <svg>
+                                            <use xlink:href="#icon_Close"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="taxCodeUpdateProrate(e)">
+                                    <i class="icon iconSmall blue-text padding0">
+                                        <svg>
+                                            <use xlink:href="#icon_Check"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row marginBtm0 div-table-row">
+                    <smart-textfield class="col s2 line-height-manager marginTop0 marginBtm0" label="Tax Code" rules="{{textRules}}" ng-model="viewList.taxCode"></smart-textfield>
+                    <smart-textfield class="col s5 line-height-manager marginTop0 marginBtm0" maxlength="100" charactercounter="true" rules="{{textRules}}" label="Tax Description" ng-model="viewList.taxDetail"></smart-textfield>
+                    <smart-textfield type="text" smart-character-restrict patternreg="^[a-zA-z]" rules="{{textRules}}" class="col s3 line-height-manager marginTop0 marginBtm0" label="Tax Rate(%)" ng-model="viewList.taxRate"></smart-textfield>
+                    <div class="col s2 line-height-manager marginBtm0 paddingRight0" ng-class="{'disabled': (viewList.taxCode == '' && viewList.taxDetail == '' && viewList.taxRate == '')}">
+                        <a href="javascript:void(0)" class="right btn-flat paddingTop8" ng-click="addCurrentView()">
+                            {{ 'Add' || translate | uppercase  }}
+                        </a>
+                    </div>
+                </div>
+                <div class="height195">
+                    <smart-scroll height="195px">
+                        <div class="relative div-table-row taxes-list" ng-repeat="viewDetailList in viewDetailLists">
+                            <!-- popup -- add taxes -- modal body -- table row -->
+                            <div class="row marginBtm0  lineHeight31">
+                                <div class="col s2 input-field">
+                                    <span>{{  viewDetailList.taxCode }}</span>
+                                </div>
+                                <div class="col s5 input-field">
+                                    <span>{{  viewDetailList.taxDetail }}</span>
+                                </div>
+                                <div class="col s3 input-field right-align">
+                                    <span>{{ viewDetailList.taxRate }}</span>
+                                </div>
+                                <div class="col s2 right-align icons-wrap">
+                                    <a class="waves-effect waves-circle" ng-click="editCurrentView(viewDetailList)" href="javascript:void(0)">
+                                        <i class="icon iconSmall" smart-tooltip="" position="bottom" delay="50" message="{{ 'Edit' || translate}}">
+                                            <svg>
+                                                <use xlink:href="#icon_editPen"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+
+                                    <a href="javascript:void(0)" class="waves-effect waves-circle" ng-click="deleteCurrentView($index)">
+                                        <i class="icon iconSmall" smart-tooltip="" position="bottom" delay="50" message="{{ 'Delete' || translate}}">
+                                            <svg>
+                                                <use xlink:href="#icon_TrashCan"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- popup -- add taxes -- modal body -- table row edit -->
+                            <div class="slider-pop row grey greyPanel lighten-3 marginBtm0 div-table-row" ng-show="viewDetailList.showEdithCurrentPanel">
+                                <smart-textfield class="col s2 active line-height-manager" label="Tax Code" focus="taxfocus" ng-model="tempViewList.taxCode"></smart-textfield>
+                                <smart-textfield class="col s5 active line-height-manager" maxlength="100" charactercounter="true" label="Tax Description" ng-model="tempViewList.taxDetail"></smart-textfield>
+                                <smart-textfield type="number" class="col s3 active line-height-manager" label="Tax Rate" ng-model="tempViewList.taxRate"></smart-textfield>
+                                <div class="col s2 right-align">
+                                    <a class="icon iconSmall  marginTop5 waves-effect waves-circle" href="javascript:void(0)" ng-click="cancelUpdatedEditedView(tempViewList,viewDetailList)">
+                                        <svg>
+                                            <use xlink:href="#icon_Close"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="javascript:void(0)" class="icon iconSmall marginTop5  waves-effect waves-circle" ng-click="updatedEditedView(tempViewList,viewDetailList) ">
+                                        <svg>
+                                            <use xlink:href="#icon_Check"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </smart-scroll>
+                </div>
+
+                <div class="grey lighten-3 row marginBtm0">
+                    <div class="col s12">
+                        <ul>
+                            <li class="marginBtm10">
+                                <div class="detail-field-summary clearfix paddingLeft15 paddingRight15">
+                                    <span class="left">{{ "Shipping & Freight" | translate}} ({{'USD'}}) </span>
+                                    <div class="right">
+                                        <div class="right-align">
+                                            {{ "0" | number:2 }}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="marginBtm10">
+                                <div class="detail-field-summary clearfix paddingLeft15 paddingRight15">
+                                    <span class="left">{{ "Other Charges" | translate}} ({{'USD'}}) </span>
+                                    <div class="right">
+                                        <div class="right-align">
+                                            {{ "60" | number:2 }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="marginBtm10">
+                                <div class="detail-field-summary clearfix paddingLeft15 paddingRight15">
+                                    <span class="left">{{ "Total Taxes & charges" | translate}} ({{'USD'}}) </span>
+                                    <div class="right">
+                                        <div class="right-align">
+                                            {{ "100" | number:2 }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>     
+          </div>          
+
+            <!-- popup -- add taxes -- modal footer -->
+            <div class="modal-footer is-scrolled paddingLeft8">
+                <div class="row marginBottom0">
+                            
+                            
+
+                    <smart-button flat="true" config='{"title":"DONE"}' class="modal-close wave-effect waves-grey" ng-click="applyFnView()"></smart-button>
+
+                            
+                    <smart-button flat="true" config='{"title":"CANCEL"}' class="modal-close wave-effect waves-grey" ng-click="CloseFnView()"></smart-button>
+
+                </div>
+            </div>
+        </div>
+    

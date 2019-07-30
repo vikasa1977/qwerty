@@ -1,0 +1,366 @@
+<div class="padding15" ng-controller="p2pInvExceptionTypeInfoCtrl">
+    <div class="exceptionHelp slight-dark-grey-border-top clearfix paddingLeft19 paddingRight19 hasOverride">
+        <div class="info-cnt clearfix left">
+            <div class="exceptionHelp_dropdown left">
+                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer">
+                    <a href="javascript:void(0)" data-activates='changeType' class="displayBlock black-text clearfix dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <span smart-tooltip position="bottom" message="{{ selectedExcType.name || translate}}" data-delay="50">
+                            {{ selectedExcType.name || translate}}
+                        </span>
+                        <i class="icon iconSmall black-text">
+                            <svg>
+                                <use xlink:href="#icon_DropArrow"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul id='changeType' class='dropdown-content'>
+                        <li ng-repeat="item in excTypeOptions" ng-class="{'active': selectedExcType.name == item.name}">
+                            <a href="javascript:void(0)" class="black-text paddingTop10 paddingBtm10" ng-click="exceptionTypeChange(item)" ng-class="{'blue-text cusror-default': selectedExcType.name == item.name}">
+                                {{ item.name || translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+            <div class="exceptionHelp_tableWrap left">
+                <div class="flex-container">
+                    <div>
+                        <i class="icon iconSmall black-text">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                    </div>
+                    <div class="desc">
+                        <div ng-repeat="help in selectedExcType.excHelp" class="truncate fontSize12">
+                            <span class="desc-title">{{help.title}}: </span><span smart-tooltip position="bottom" message="{{help.desc}}" data-delay="50">{{help.desc}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overrideIcon-cnt right">
+            <a href="javascript:void(0)" smart-tooltip position="bottom" message="{{ 'Override' || translate}}" data-delay="50">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_override"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+    </div>
+    <div class="tableCnt" ng-switch on="selectedExcType.datakey">
+        <table class="bordered sTable" ng-switch-when="approvalRequiredExcTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:12%" />
+                <!--<col ng-if="excTypeShowColumn" style="width:10%" />-->
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:28%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <!--<th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>-->
+                    <th>Supplier Item Number</th>
+                    <th>Item Type</th>
+                    <th>Item Matching Type</th>
+                    <th class="center-align">Override Exception</th>
+                    <th class="right-align">Item Total</th>
+                    <th>Exception Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="are in exceptionData.approvalRequiredExcData track by $index">
+                    <td ng-if="excTypeShowColumn"><a href="javascript:void(0)" ng-click="">{{::are.orderNumber}}</a></td>
+                    <!--<td ng-if="excTypeShowColumn" class="right-align">{{::are.orderLineNumber}}</td>-->
+                    <td>{{::are.supplierItemNumber}}</td>
+                    <td>{{::are.itemType}}</td>
+                    <td>{{::are.itemMatchingType}}</td>
+                    <td class="center-align">
+                        <div style="width: 70px; display: inline-block;">
+                            <smart-select class="marginBottom0" ng-model="are.overrideExc" options="are.overrideExcOpt" datakey="excOpt" displaykey="excOpt" on-change="overrideExcChange(are.overrideExc)"></smart-select>
+                        </div>
+                    </td>
+                    <td class="right-align">{{::are.itemTotal}}</td>
+                    <td>{{::are.exceptionComment}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="chargesTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col style="width:16%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Item</th>
+                    <th class="right-align">Ordered Charges<br />(USD)</th>
+                    <th class="right-align">Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Total Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="charges in exceptionData.chargesData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::charges.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::charges.orderLineNumber}}</td>
+                    <td>{{::charges.item}}</td>
+                    <td class="right-align">{{::charges.orderedCharges}}</td>
+                    <td class="right-align"><span class="red-text">{{::charges.invoicedCharges}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::charges.totalInvoicedCharges}}</span></td>
+                    <td class="right-align">{{::charges.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="orderTotalTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col style="width:16%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Amount for</th>
+                    <th class="right-align">In Order<br />(USD)</th>
+                    <th class="right-align">In Invoice<br />(USD)</th>
+                    <th class="right-align">Total Invoiced<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ot in exceptionData.orderTotalData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::ot.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::ot.orderLineNumber}}</td>
+                    <td>{{::ot.amount}}</td>
+                    <td class="right-align">{{::ot.inOrder}}</td>
+                    <td class="right-align"><span class="red-text">{{::ot.inInvoice}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::ot.totalInvoice}}</span></td>
+                    <td class="right-align">{{::ot.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="itemMismatchTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col ng-if="excTypeShowColumn" style="width:14%" />
+                <col style="width:16%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+                <col style="width:14%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Quantity / Effort</th>
+                    <th class="right-align">Unit Price / Amount (USD)</th>
+                    <th class="right-align">Item Value (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="im in exceptionData.itemMismatchExcData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::im.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::im.orderLineNumber}}</td>
+                    <td>{{::im.item}}</td>
+                    <td>{{::im.itemType}}</td>
+                    <td>{{::im.quantity}}</td>
+                    <td class="right-align">{{::im.unitPrice}}</td>
+                    <td class="right-align">{{::im.itemValue}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="quantityTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:12%" />
+                <col ng-if="excTypeShowColumn" style="width:10%" />
+                <col style="width:18%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:10%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Items</th>
+                    <th>Order Quantity / Effort</th>
+                    <th>Received Quantity / Effort</th>
+                    <th>Accepted Quantity / Efforts</th>
+                    <th>Invoiced Quantity / Effort</th>
+                    <th>Total Invoiced Quantity / Effort</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="q in exceptionData.quantityData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::q.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::q.orderLineNumber}}</td>
+                    <td>{{::q.item}}</td>
+                    <td>{{::q.orderQuantity}}</td>
+                    <td>{{::q.recQuantity}}</td>
+                    <td>{{::q.acceptedQuantity}}</td>
+                    <td>{{::q.invQuantity}}</td>
+                    <td>{{::q.totalInvoice}}</td>
+                    <td class="right-align">{{::q.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="shippingTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col style="width:25%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Item</th>
+                    <th class="right-align">Order Shipping (USD)</th>
+                    <th class="right-align">Invoiced Shipping (USD)</th>
+                    <th class="right-align">Total Invoiced Shipping (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shp in exceptionData.shippingData track by $index">
+                    <td ng-if="excTypeShowColumn"><a href="javascript:void(0)" ng-click="">{{::shp.orderNumber}}</a></td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::shp.orderLineNumber}}</td>
+                    <td>{{::shp.item}}</td>
+                    <td class="right-align">{{::shp.orderShipping}}</td>
+                    <td class="right-align"><span class="red-text">{{::shp.invShipping}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::shp.totalInvShipping}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="unitPriceTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col style="width:25%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Items</th>
+                    <th>Order Unit Price / Rate (USD)</th>
+                    <th>Invoiced Unit Price / Rate (USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="up in exceptionData.unitPriceData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::up.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::up.orderLineNumber}}</td>
+                    <td>{{::up.item}}</td>
+                    <td>{{::up.orderUnitPrice}}</td>
+                    <td>{{::up.invUnitPrice}}</td>
+                    <td class="right-align">{{::up.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="taxTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col ng-if="excTypeShowColumn" style="width:12%" />
+                <col style="width:25%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Items</th>
+                    <th class="right-align">Ordered Tax (USD)</th>
+                    <th class="right-align">Invoiced Tax (USD)</th>
+                    <th class="right-align">Total Invoiced Tax (USD)</th>
+                    <th class="right-align">Use Tax (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="t in exceptionData.taxData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::t.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::t.orderLineNumber}}</td>
+                    <td>{{::t.item}}</td>
+                    <td class="right-align">{{::t.orderTax}}</td>
+                    <td class="right-align">{{::t.invTax}}</td>
+                    <td class="right-align">{{::t.totalInvTax}}</td>
+                    <td class="right-align">{{::t.useTax}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="uomTbl" sticky-header scroll-type="page">
+            <colgroup>
+                <col ng-if="excTypeShowColumn" style="width:15%" />
+                <col ng-if="excTypeShowColumn" style="width:12%" />
+                <col style="width:25%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+                <col style="width:12%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th ng-if="excTypeShowColumn">Order Number</th>
+                    <th ng-if="excTypeShowColumn" class="right-align">Order Line Number</th>
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Order UOM</th>
+                    <th>Received UOM</th>
+                    <th>Invoice UOM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="uom in exceptionData.uomData track by $index">
+                    <td ng-if="excTypeShowColumn">{{::uom.orderNumber}}</td>
+                    <td ng-if="excTypeShowColumn" class="right-align">{{::uom.orderLineNumber}}</td>
+                    <td>{{::uom.item}}</td>
+                    <td>{{::uom.itemType}}</td>
+                    <td>{{::uom.orderUOM}}</td>
+                    <td>{{::uom.receivedUOM}}</td>
+                    <td>{{::uom.invUOM}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

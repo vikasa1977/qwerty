@@ -1,0 +1,8 @@
+<div ng-controller="supplierCreationController" class="">
+	<!--<a href="javascript:void(0)" class="col s12 input-field marginTop5">
+		<span class="grey-text fontSize12 displayBlock" ng-show="showForm">Additional Form</span>
+		<span id="additionalFormBtn" data-target="additionalForm" class="catpopup-title marginBtm18" ng-class="{'marginTop0' : !showForm}">{{ initialDisplayText }}</span>
+	</a>
+	<smart-list-popup template-url="{{smartCatPopupSingleLevel}}" default-text="Send Additional Forms" type="small" show="showForm" mode="false" selected-value="additionalFormData" modal-content="additionalForm" modal-button="additionalFormBtn" initial-display-text="initialDisplayText" callback="additionalFormPopUpOnHideCallback(e)"></smart-list-popup>-->
+    <smart-typeahead is-mandatory = "true" class="col s12 marginTop0 line-height-manager suppManagerLookup" multiselect="true" addnew="false" show-lookup="true" titleofmodel="Additional Forms" placeholder="" ng-model="additionalForm" options="additionalFormData" filterkeys="['name']" label="{{initialDisplayText}}"></smart-typeahead>
+</div>

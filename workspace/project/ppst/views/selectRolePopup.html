@@ -1,0 +1,24 @@
+    <div>
+        <div class="modal-header borderBtmPop">
+            <i class="icon iconSmall grey-text left">
+            <svg focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_role"></use></svg></i>
+            <span class="title">
+                ROLE
+            </span>
+        </div>
+        <div class="modal-content padding0 noBottomBorder">
+            <smart-scroll class="width100P" height="300px">
+                <div class="row marginBtm0 varianceDCC padding10" ng-repeat="role in roleOptions">
+                    <div class="col s12 m12 l12">
+                        <smart-checkbox label="{{role.name}}" ng-model="role.isChecked" on-change="sheetChecked($index)" class="left" disable="{{role.disable}}"></smart-checkbox>
+                    </div>
+                </div>   
+            </smart-scroll>
+        </div>
+        <div class="modal-footer is-scrolled">
+            <div class="right">
+                <smart-button flat="true" class="left modal-close" ng-click="roleCancelBack()" config='{"title":"CANCEL"}'></smart-button>
+                <smart-button flat="true" class="left" config='{"title":"DONE"}' ng-click="roleDoneCallBack($index)" ng-class="{'disabled': allSheetSlct}"></smart-button>
+            </div>
+        </div>
+    </div>

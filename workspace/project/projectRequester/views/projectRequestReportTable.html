@@ -1,0 +1,45 @@
+<div ng-controller="requesterNewCtrl">
+    <div class="panelBox-body">
+        <table class="bordered sTable">
+            <thead>
+                <tr class="is-scrolled">
+                    <th width="32%">Action Taken</th>
+                    <th width="21%" class="">Action Taken By</th>
+                    <th width="17%" class="">Action Taken On</th>
+                    <th width="25%" class="">Reason</th>
+                    <th width="5%" class="">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="x in projectRequestData | itemsPerPage: selectedProjectOption.size | orderBy:sortKey:reverse" pagination-id="projectReqData">
+                    <td width="32%">{{x.actTaken}}</td>
+                    <td width="21%">{{x.actTakBy}}</td>
+                    <td width="17%">{{x.actTakOn}}</td>
+                    <td width="20%" class=""><div class="left width245"><span title="{{x.reason}}" class="truncate">{{x.reason}}</span></div></td>
+                    <td width="5%" class="center-align">
+                        <span>
+                            <i class="icon" smart-infotip is-fixed="true" message="{{x.comments}}" position="left">
+                                <svg><use xlink:href="#icon_Commented"></use></svg>
+                            </i>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        	
+        <!-- <div class="clearfix paginationWrapper right">
+                <span class="rowsToShow"> Rows Per Page:
+                <smart-select class="col s12 m4 l4 xl4 xxl4 input-field"  options="rowsToShowProjectOpts" ng-model="selectedProjectOption" datakey="size"></smart-select>
+            </span>
+            <dir-pagination-controls class="left" pagination-id="projectReqData" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div> -->
+        <div class="clearfix paginationWrapper right">
+            <span class="left rowsToShow marginTop3">
+                Rows per page:
+                <select name="mySelect" id="mySelect" ng-options="selectedProjectOption.size for selectedProjectOption in rowsToShowProjOpts track by selectedProjectOption.size" ng-model="selectedProjectOption"></select>
+            </span>
+            <dir-pagination-controls class="left" pagination-id="projectReqData" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div>
+    </div>
+	
+</div>	

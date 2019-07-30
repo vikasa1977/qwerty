@@ -1,0 +1,45 @@
+<div id="approvalPending">
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+		   <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+			<a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text" >
+				<i class="icon iconSmall center grey-text">
+					<svg><use xlink:href="#icon_Close"></use></svg>
+				</i>
+			</a>
+			<!--<div class="input-field" >
+				<input id="Text2" type="text">
+			</div>-->
+			   <smart-textfield  class="input-field" focus="focusSearch" ></smart-textfield>
+			<a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+				<i class="icon iconSmall center grey-text">
+					<svg><use xlink:href="#icon_Search"></use></svg>
+				</i>
+			</a>
+		</div>
+		</div>
+		<i class="icon iconSmall grey-text left">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title">APPROVAL PENDING WITH
+		</span>
+	</div>
+	<div class="modal-content padding0">
+		<div class="model_body is-scrolled">
+			<smart-scroll height="250px">
+				<ul class="collection noBorder">
+					<li class="collection-item waves-effect" ng-repeat="item in [{},{},{},{}]">
+						<smart-checkbox label="Phil James" fill="true"></smart-checkbox>
+					</li>
+				</ul>
+			</smart-scroll>
+		</div>
+		<div class="modal-footer_new is-scrolled">
+			<div class="row marginBottom0">
+				<smart-button flat="true" config="{'title':'RESET'}" class="left"></smart-button>
+				<smart-button flat="true" config="{'title':'CANCEL'}" class="right"></smart-button>
+				<smart-button flat="true" config="{'title':'CONTACT'}" class="right"></smart-button>
+			</div>
+		</div>
+	</div>
+</div>

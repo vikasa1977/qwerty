@@ -1,0 +1,111 @@
+﻿<div>
+	<div class="col s12 paddingLeft20 marginBtm20">
+		Update Action Codes
+		<a href="javascript:void(0);" class="right">
+			<i class="icon iconSmall" smart-tooltip position="top" delay="50" message="Add Action Types" ng-click="actionTypeUpdateFn()">
+				<svg>
+					<use xlink:href="#icon_CirclePlus"></use>
+				</svg>
+			</i>
+		</a>
+	</div>
+    <div ng-repeat="actiontypeListData in actionTypeUpdateData">
+		<div class="col s12">
+			<smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="From" ng-model="actiontypeListData.selectedOption" is-mandatory="true" options="actionTypeData.data" datakey="name" on-change="onChang(actiontypeListData.selectedOption, $index)"></smart-select>
+			<smart-select ng-if="actiontypeListData.todata.length" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="To" ng-model="actiontypeListData.toselectedOption" options="actiontypeListData.todata" datakey="name"></smart-select>
+		</div>
+		<div class="col s12 marginBtm20" ng-if="actiontypeListData.toselectedOption.name && actiontypeListData.toselectedOption.name !== 'Auto Approve' && actiontypeListData.toselectedOption.name !== 'Auto Reject'">
+
+			<table class="bordered sTable approvalGroupTable">
+                <thead>
+                    <tr>
+                        <th class="left-align" width="15%"><span class="left paddingTop2">Action Code</span></th>
+                        <th class="left-align" width="15%">Group</th>
+                        <th class="left-align" width="15%">Lead Approval</th>
+                        <th class="center-align" width="10%">Auto Approval</th>
+                        <th class="center-align" width="10%">Self Approval</th>
+                        <th class="left-align" width="10%">Pool Type</th>
+                        <th class="left-align" width="20%">Pool Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="left-align" width="12%">
+                            <smart-dropdown config="{{dropDownConfig}}" ng-show="actiontypeListData.identificationData.actionCodeShow">
+                                <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-identificationData-'+$index, actiontypeListData.identificationData);" href='javascript:void(0)' data-activates='dropdowngrid-act-identificationData-{{$index}}' data-constrainwidth="false">
+                                    {{actiontypeListData.identificationData.identificationno.actionCode || 'Please Enter'}}
+                                </a>
+                                <div id="dropdowngrid-act-identificationData-{{$index}}" ng-class="{'identificationno-show': actiontypeListData.identificationData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-textfield focus="actiontypeListData.identificationData.isFocus" placeholder="Please Enter" type="text" ng-model="actiontypeListData.identificationData.identificationno.actionCode"></smart-textfield>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="left-align" width="15%">
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a ng-show="!actiontypeListData.identificationData.group.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-act-group-' + parentIndex + '-' + $index, actiontypeListData.identificationData);" href='javascript:void(0)' data-activates='dropdowngrid-act-group-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{actiontypeListData.identificationData.group.selectedoption[0].name  || actiontypeListData.identificationData.group.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : actiontypeListData.identificationData.group.selectedoption[0].name}" id="dropdowngrid-act-group-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" titleofmodel="{{actiontypeListData.identificationData.group.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{actiontypeListData.identificationData.group.displaytext}}" ng-model="actiontypeListData.identificationData.group.selectedoption" options="actiontypeListData.identificationData.group.options" filterkeys="['name']"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="left-align" width="15%">
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a ng-show="!actiontypeListData.identificationData.leadApprovalGroup.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-act-leadApprovalGroup-' + parentIndex + '-' + $index, actiontypeListData.identificationData);" href='javascript:void(0)' data-activates='dropdowngrid-act-leadApprovalGroup-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                    {{actiontypeListData.identificationData.leadApprovalGroup.selectedoption[0].name  || actiontypeListData.identificationData.leadApprovalGroup.displaytitle }}
+                                </a>
+                                <div ng-class="{'table-typeahead-lookup--active' : actiontypeListData.identificationData.leadApprovalGroup.selectedoption[0].name}" id="dropdowngrid-act-leadApprovalGroup-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="" titleofmodel="{{actiontypeListData.identificationData.leadApprovalGroup.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{actiontypeListData.identificationData.leadApprovalGroup.displaytext}}" ng-model="actiontypeListData.identificationData.leadApprovalGroup.selectedoption" options="actiontypeListData.identificationData.leadApprovalGroup.options" filterkeys="['name']"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                        <td class="center-align" width="10%">
+                            <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                        </td>
+                        <td class="center-align" width="10%">
+                            <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                        </td>
+                        <td class="left-align selectPoolType" width="10%">
+                            <smart-select is-mandatory='true' class="line-height-manager marginBtm0" ng-model="selectedoption" options="identificationsourcetype" datakey="name"></smart-select>
+                        </td>
+                        <td class="left-align" width="15%">
+                            <smart-dropdown config="{{dropDownConfig}}" ng-show="actiontypeListData.identificationData.poolValueShow">
+                                <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-identificationData-'+$index, actiontypeListData.identificationData);" href='javascript:void(0)' data-activates='dropdowngrid-act-identificationData2' data-constrainwidth="false">
+                                    {{ actiontypeListData.identificationData.identificationno.poolValue || 'Please Enter'}}
+                                </a>
+                                <div id="dropdowngrid-act-identificationData2" ng-class="{'identificationno-show': actiontypeListData.identificationData.poolValueShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                    <smart-textfield focus="actiontypeListData.identificationData.isFocus" placeholder="Please Enter" type="text" ng-model="actiontypeListData.identificationData.identificationno.poolValue" on-key-up="validateNum(actiontypeListData.identificationData.identificationno, 'title')"></smart-textfield>
+                                </div>
+                            </smart-dropdown>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+		</div>
+	</div>
+
+    <div class="contract-mode-type item-details-template-wrap clearfix"></div>
+
+    <div class="col s12 paddingTop20  paddingLeft20 marginBtm20">
+        Update Action Type Parameters
+        <a href="javascript:void(0);" class="right">
+            <i class="icon iconSmall" smart-tooltip position="top" delay="50" message="Add Action Types Parameter" ng-click="actionTypeParameterUpdateFn()">
+                <svg>
+                    <use xlink:href="#icon_CirclePlus"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+
+    <div class="row clearfix paddingLeft10 marginBtm0" ng-repeat="actionParameterList in actionParameterData">
+        <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Action Type" ng-model="actionParameterList.selectedActionOpt" options="actionSelectedType" datakey="name" on-change="actionParameterFn(actionParameterList, 'selectedParameterOpt')"></smart-select>
+        <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" ng-if="actionParameterList.selectedActionOpt.name" label="Parameters" ng-model="actionParameterList.selectedParameterOpt" options="actionParameterList.selectedActionOpt.data" on-change="actionParameterFn(actionParameterList, 'from')" datakey="name"></smart-select>
+
+        <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" ng-if="actionParameterList.selectedParameterOpt.name" label="From" ng-model="actionParameterList.from" options="actionParameterList.selectedParameterOpt.fromData" datakey="name"></smart-select>
+        <smart-textfield class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" ng-if="actionParameterList.selectedParameterOpt.name" label="To" ng-model="actionParameterList.to"></smart-textfield>
+    </div>
+    
+</div>
+

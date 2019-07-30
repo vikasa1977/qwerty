@@ -1,0 +1,63 @@
+<div style="min-height: 250px;">
+    <div class="modal-header borderBtmLight">
+        <i class="icon iconSmall left grey-text paddingTop2">
+            <svg>
+                <use xlink:href="#icon_logFile"></use>
+            </svg>
+        </i>
+        <span class="title">PROJECT LOGS</span>
+    </div>
+
+    <div class="modal-body padding0">
+        <div class="col s12 padding0" ng-if="projectLogsTabData.length > 1">
+            <smart-tabs class="marginBottom0" tab-config="{{projectLogsTabData}}" width="100%" tab-panel-height="100%" on-select="getTabChange(e)"></smart-tabs>
+        </div>
+        <smart-global-loader ng-show="logsLoader" config="logsLoaderConfig"></smart-global-loader>
+        <div ng-if="projectLogsTabData.length < 2">
+            <div class="table-header row">
+                <div class="table-header-column col s3">
+                    {{'Status' || translate}}
+                </div>
+                <div class="table-header-column col s3">
+                    {{'Action Description' || translate}}
+                </div>
+                <div class="table-header-column col s3">
+                    {{'Request Time' || translate}}
+                </div>
+                <div class="table-header-column col s3">
+                    {{'Complete Time' || translate}}
+                </div>
+            </div>
+            <smart-scroll height="250px">
+                <div class="table-body">
+                    <div class="row table-body-row" ng-repeat="uploadLog in uploadData">
+                        <div class="table-body-row-cell col s3">
+                            <span ng-class="(uploadLog.status=='success') ? 'green-text' : (uploadLog.status=='In progress') ? 'orange-text' : 'red-text'">
+                                <span> {{uploadLog.statusText}}</span>
+                                <span ng-if="uploadLog.status=='failed'">({{uploadLog.failed}}/{{uploadLog.total}})</span>
+                                <span ng-if="uploadLog.status=='success'">({{uploadLog.total}})</span>
+                            </span>
+                        </div>
+                        <div class="table-body-row-cell col s3">
+                            <div class="truncate">
+                                <a href="javascript:void(0)">{{uploadLog.documentName}}</a>
+                            </div>
+                        </div>
+                        <div class="table-body-row-cell col s3">
+                            <div class="truncate">{{uploadLog.date}}</div>
+                        </div>
+                        <div class="table-body-row-cell col s3">
+                            <div class="truncate">{{uploadLog.date}}</div>
+                        </div>
+                    </div>
+                </div>
+            </smart-scroll>
+        </div>
+    </div>
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <span class="right"><a href="javascript:void(0)" class="waves-effect waves-light  btn-flat" ng-click="logOnHideCallback(e)">DONE</a></span>
+            </div>
+        </div>
+   
+</div>

@@ -1,0 +1,24 @@
+<div>
+	<div class="modal-header">
+		<i class="icon  grey-text left">
+			<svg>
+				<use xlink:href="#icon_AddSupplier"></use>
+			</svg>
+		</i>
+		<span class="title">ADD TEAM MEMBER</span>
+	</div>
+	<div class="modal-content padding0 is-scrolled">		
+		<smart-accumulator class="padding20" options="teamMemberList" height="350" label="Select Members" add-keys="['name']" ng-model="addedTeamMembers"></smart-accumulator>
+	</div>
+	<div class="modal-footer is-scrolled">
+		<smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="addTeamMemberComplete()"></smart-button>
+	</div>
+</div>
+
+
+<style>
+	.panel-content-iteamList-delete {
+			position:absolute;
+			right:20px;
+	}
+</style>

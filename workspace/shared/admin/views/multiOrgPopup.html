@@ -1,0 +1,185 @@
+<div class="multi-org">
+    <div class="modal-header">
+        <div class="row" style="position:relative;">
+            <search-header placeholder="{{search}}" is-active-header="false"></search-header>
+            
+            <i class="icon iconSmall grey-text left">
+                <svg><use xlink:href="#icon_Lookup"></use></svg>
+            </i>
+            <span class="title">
+                MUTI-ORG ENTITY SELECTION
+            </span>
+        </div>
+      </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+
+
+
+            <div class="panelBox-header info-bar">
+                <ul style="display:flex;" class="margin0 info-message" ng-hide="IsMessage">
+                    <li>
+                        <p>
+                            <i class="icon iconSmall grey-text left">
+                                <svg><use xlink:href="#icon_Info"></use></svg>
+                            </i>
+                        </p>
+
+                    </li>
+                    <li>
+                        <p>
+                            you can make selections from a <b>single</b> organisation/division.
+                            You will lose your selections if you make selections from another organisation/divivsion.
+                        </p>
+                    </li>
+                </ul>
+
+
+                <div ng-hide="IsHidden" ng-class="{'searching':IsHidden,'searching':!IsHidden}">
+
+                    <div class="alert-bar--warning alert-bar--with-button form-widget-animate">
+                        <div ng-show="isResult">50 Results Found across 4 Div-ORGS</div>
+                        <div ng-show="isSaveResult">
+                            You have initiated a new Search ! Would you like to save your current selection ?
+                            <div class="right">
+                                <smart-button flat="true" config="{'title':'NO'}" class="right" ng-click="saveResult()"></smart-button>
+                                <smart-button flat="true" config="{'title':'Yes'}" class="right" ng-click="saveResult()"></smart-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 m4 padding0">
+
+                        <div class="vertical-tabs">
+                            <smart-scroll height="260px">
+                                <ul class="vertical_tab_wrapper">
+                                    <li ng-repeat="filters in createdByList">
+                                        <a href="javscript:void(0)" ng-click="setActiveListTab($index)" class="vertical__tab  paddingBtm15  paddingTop15" ng-class="{'is-active' : $index == activeListTabs}">
+                                            <smart-checkbox fill="true" label="" class="left"></smart-checkbox>
+                                            <span class="truncate left" style="width:calc(100% - 75px);">{{filters.filterLabel}}</span>
+                                            <span class="black-text">{{filters.count}}/250</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </smart-scroll>
+                        </div>
+
+                    </div>
+
+                    <div class="col s12 m8">
+                        <div class="vertical-tabs-content  minHeight-tabs-content padding0">
+                            <div ng-include="currentTab"></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="search-panel" ng-hide="IsHidden">
+
+                        <div class="col s12 m4 padding0">
+
+                            <div class="vertical-tabs">
+                                <smart-scroll height="260px">
+                                    <ul class="vertical_tab_wrapper">
+                                        <li ng-repeat="filters in createdByList">
+
+                                            <a href="javscript:void(0)" ng-click="showSearchTab($index)" class="vertical__tab  paddingBtm15  paddingTop15" ng-class="{'is-active' : $index == activeListTabs}">
+                                                <smart-checkbox fill="true" label="" class="left"></smart-checkbox>
+                                                <span class="truncate left" style="width:calc(100% - 75px);">{{filters.filterLabel}}</span>
+                                                <span class="black-text">{{filters.count}}/2</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </smart-scroll>
+                            </div>
+
+                        </div>
+
+                        <div class="col s12 m8">
+                            <div class="vertical-tabs-content  minHeight-tabs-content padding0">
+                                <div class="circle-loading-container" ng-show="showLoader">
+                                    <div class="preloader-wrapper x-small active ">
+                                        <div class="spinner-layer spinner-green-only">
+                                            <div class="circle-clipper circle-clipper--x left">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="gap-patch">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="circle-clipper circle-clipper--x right">
+                                                <div class="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <smart-scroll height="380px">
+                                    <div ng-repeat="seaches in createdByList" ng-show="seaches.isShowSearch">
+                                        <div class="search-list-header row marginBottom0"><div class="padding15">{{seaches.filterLabel}}</div></div>
+                                        <smart-list model="{{searches}}"
+                                                    style-class="collection noBorder margin0"
+                                                    item-class="collection-item"
+                                                    template="shared/admin/views/dataView.html"
+                                                    height="380px">
+                                        </smart-list>
+                                    </div>
+                                </smart-scroll>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                    <script type="text/ng-template" id="div-org-1.html">
+                        <div class="row marginBottom0"><div class="padding15">Looooooooooooooong Div-Org Name</div></div>
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+
+                    <script type="text/ng-template" id="div-org-2.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+
+                    <script type="text/ng-template" id="div-org-3.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+
+                    <script type="text/ng-template" id="div-org-4.html">
+
+
+                        <ul class="margin0">
+                            <li><smart-checkbox label="Select All" class="grey-text"></smart-checkbox></li>
+                        </ul>
+                        <ul>
+                            <li class="marginBtm8" ng-repeat="filters in createdByList">
+                                <smart-checkbox label="{{filters.filterLabel}}" class="grey-text"></smart-checkbox>
+                            </li>
+                        </ul>
+
+
+                    </script>
+
+                    <script type="text/ng-template" id="div-org-5.html">
+                        <smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <smart-button flat="true" config="{'title':'RESET'}" class="left"></smart-button>
+                <smart-button flat="true" config="{'title':'SELECT ITEMS'}" class="right"></smart-button>
+                <smart-button flat="true" config="{'title':'CANCEL'}" class="right"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

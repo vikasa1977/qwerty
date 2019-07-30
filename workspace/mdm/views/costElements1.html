@@ -1,0 +1,103 @@
+<div ng-controller="costElementCtrl" class="marginbtm10">
+        <div class="row marginBtm0 borderTopLight">
+            <div class="clearfix secContentWithBorder fontSize12">
+                <div class="right">
+    
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0)" class="dropdown-button right" data-activates="tabChargesTBulkAdd1" data-constrainwidth="false" data-alignment="right">
+                            <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Lines">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                        <ul id="tabChargesTBulkAdd1" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                            <li><span class="center-align fontSize16">{{'ADD LINES'|| translate}}</span></li>
+                            <li>
+                                <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                            </li>
+                            <li class="marginTop17">
+                                <div class="right">
+                                    <a href="javascript:void(0)">
+                                        <i class="icon iconSmall left blue-text">
+                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                        </i>
+                                    </a>
+                                    <a href="javascript:void(0)" ng-click="notesAddRowCallback()">
+                                        <i class="icon iconSmall left blue-text addBulkRow">
+                                            <svg><use xlink:href="#icon_Check"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+    
+    
+                    <a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom">
+                        <i class="icon left blue-text">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <table class="bordered sTable fixedTbl">
+            <colgroup>
+                <col style="width:5%" />
+                <col style="width:15%" />
+                <col style="width:7%" />
+                <col style="width:8%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="left-align">SEQ</th>
+                    <th class="left-align">Product</span></th>
+                    <th class="left-align paddingLeft0">UOM</th>
+                    <th class="left-align paddingLeft0">Quantity</th>
+                    <th class="left-align paddingLeft0">Cost Source</th>
+                    <th class="center-align paddingLeft0">Index name</th>
+                    <th class="left-align paddingLeft20">Cost (USD)</th>
+                    <th class="left-align paddingLeft0">Total Cost (USD)</th>
+                    <th class="left-align paddingLeft0"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="costElement in costElementsList">
+                    <td class="left-align">{{costElement.sequence}}</td>
+                    <td class="left-align padding0 paddingLeft10"><a href="javascript:void(0);" ng-click="treeOpenCallback('region')">{{costElement.Product}}</a></td>
+                    <td class="left-align padding0">{{costElement.costelem}}</td>
+                    <td class="left-align padding0">{{costElement.value}}</td>
+    
+                    <td class="left-align padding0">
+                        <smart-select ng-model="costElement.selectedCostSource" options="costSourceOptions" datakey="name" displaykey="name"></smart-select>
+                    </td>
+    
+                    <td class="center-align">{{costElement.currency}}</td>
+    
+                    <td class="left-align padding0">
+                        <smart-textfield class="col s12 validate-bar marginBtm0"  placeholder="Enter Name" ng-model="notes.bu2.questval"></smart-textfield>
+                    </td>
+    
+                    <td class="left-align padding0">
+                        <smart-textfield class="col s12 validate-bar marginBtm0" placeholder="Enter Name" ng-model="notes.bu2.questval"></smart-textfield>
+                    </td>
+    
+                    <td class="left-align padding0">
+                        <a href="javascript:void(0)" class="right" smart-tooltip message="Edit" position="bottom">
+                            <i class="icon left blue-text">
+                                <svg><use xlink:href="#icon_ToEdit"></use></svg>
+                            </i>
+                        </a>
+    
+                    </td>
+    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+    

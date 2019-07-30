@@ -1,0 +1,69 @@
+<div ng-controller="attachmentSectionCtrl">
+    <div class="center action-block" ng-if="!attachmentAdded">
+		<a href="javascript:void(0);" class="action-block-cont" ng-click="adduploadContractCallback(e)">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Add Attachments</span>
+		</a>		
+	</div>
+
+    <div class="panelBox-body" ng-if="attachmentAdded">
+    <div class="row marginBtm0 borderTopLight">
+        <div class="clearfix secContentWithBorder fontSize12">
+            <div class="right">
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+                    <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Attachments" position="bottom">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteAttachments()">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Download Selected" position="bottom">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_Download"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <table class="bordered Table">
+        <thead>
+            <tr>
+                <th ng-class="{'filled-partial' : fillpartial == true }" width="50px">
+                    <smart-checkbox class="paddingTop5" ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+                </th>
+                <th>{{ 'Name' || translate }}</th>
+            
+                <th>{{ 'Uploaded By' || translate }}</th>
+                
+                <th>{{ 'Uploaded On' || translate }}</th>
+				<!-- <th>{{ 'Shared with' || translate }}</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in attachments track by $index">
+                <td>
+                    <smart-checkbox class="paddingTop5" ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+                </td>
+                <td><a href="javascript:void(0);">{{x.name}}</a></td>
+                <td> {{x.createdBy}} </td>
+                <td> <span class="floatL">{{x.uploadDate}}</span><span class="floatL marginLeft10">{{x.uploadTime}}</span> </td>
+				<!-- <td> {{x.sharedWith}} </td> -->
+            </tr>
+        </tbody>
+        </table>
+        <div class="clearfix paginationWrapper right" ng-show="attachments.length>5">
+            <span class="left rowsToShow">Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts track by option.size" ng-model="selectedOption"></select>
+            </span>
+            <dir-pagination-controls class="left" pagination-id="secondTierSupplierPagination" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div>
+    </div>
+    <smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadContractPopupCallback()"></smart-popup>
+</div>

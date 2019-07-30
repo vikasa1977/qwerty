@@ -1,0 +1,55 @@
+<!--<div ng-controller="supplierCreationController" class="">
+	<div class="col s12 m6 paddingTop14 paddingBtm5 input-field margin0">
+		<label class="active" ng-if="selectedCategoryNodes.length > 0">Category</label>
+		<a href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{selectedCategoriesTxt}}</a>
+        <span ng-if="selectedCategoriesValidate && !selectedCategoryNodes.length" class="red-text fontSize12 displayBlock marginBtm5">This is required field.</span>
+	</div>
+	<div class="col s12 m6 paddingTop14 paddingBtm5 input-field margin0">
+		<label class="active" ng-if="selectedBUNodes.length > 0">Business Unit</label>
+		<a href="javascript:void(0)" ng-click="treeOpenCallback('bu')">{{selectedBUTxt}}</a>
+        <span ng-if="selectedBUValidate && !selectedBUNodes.length" class="red-text fontSize12 displayBlock marginBtm5">This is required field.</span>
+
+	</div>
+	<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()"></smart-popup>
+</div>-->
+
+
+<div class="row" ng-controller="supplierCreationController">
+    <div class="col s12 m6 line-height-manager paddingTop9 margin0 hierarchyList" ng-class="selectedCategoriesTxt[0] ? 'fielddata' + selectedCategoriesTxt.length : 'fielddataempty'">
+        <div class="paddingBtm5 input-field margin0 clearfix">
+
+            <label class="active" ng-if="parentScope.readOnlyPage || selectedCategoriesTxt[0] !== 'Choose Category'">Category</label>
+
+            <a ng-if="!parentScope.readOnlyPage || (parentScope.readOnlyPage && selectedCategoriesTxt.length > 1)" href="javascript:void(0)" ng-click="treeOpenCallback('category')">
+                <span class="truncate hierarchyTitle">{{selectedCategoriesTxt[0] }}</span>
+                <span class="listmoreTxt" ng-if="selectedCategoriesTxt.length > 1">{{selectedCategoriesTxt[1]}}</span>
+            </a>
+
+            <span ng-if="selectedCategoriesValidate && !selectedCategoryNodes.length" class="listerrortxt">This is required field.</span>
+
+            <span ng-if="parentScope.readOnlyPage && selectedCategoriesTxt[0] === 'Choose Category'" class="truncate hierarchyTitle marginLeft2">--</span>
+
+            <span ng-if="parentScope.readOnlyPage && selectedCategoriesTxt[0] !== 'Choose Category' && selectedCategoriesTxt.length === 1" class="truncate hierarchyTitle">{{::selectedCategoriesTxt[0]}}</span>
+        </div>
+    </div>
+
+    <div class="col s12 m6 line-height-manager paddingTop9 margin0 hierarchyList" ng-class="selectedBUTxt[0] ? 'fielddata' + selectedBUTxt.length : 'fielddataempty'">
+        <div class="paddingBtm5 input-field margin0 clearfix">
+
+            <label class="active" ng-if="parentScope.readOnlyPage || selectedBUTxt[0] !== 'Choose Business Unit'">Business Unit</label>
+
+            <a ng-if="!parentScope.readOnlyPage || (parentScope.readOnlyPage && selectedBUTxt.length > 1)" href="javascript:void(0)" ng-click="treeOpenCallback('bu')">
+                <span class="truncate hierarchyTitle">{{selectedBUTxt[0] }}</span>
+                <span class="listmoreTxt" ng-if="selectedBUTxt.length > 1">{{selectedBUTxt[1]}}</span>
+            </a>
+
+            <span ng-if="selectedBUValidate && !selectedBUNodes.length" class="listerrortxt">This is required field.</span>
+
+            <span ng-if="parentScope.readOnlyPage && selectedBUTxt[0] === 'Choose Business Unit'" class="truncate hierarchyTitle marginLeft2">--</span>
+
+            <span ng-if="parentScope.readOnlyPage && selectedBUTxt[0] !== 'Choose Business Unit' && selectedBUTxt.length === 1" class="truncate hierarchyTitle">{{::selectedBUTxt[0]}}</span>
+        </div>
+    </div>
+
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div>

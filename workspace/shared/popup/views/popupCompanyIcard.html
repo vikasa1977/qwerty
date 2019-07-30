@@ -1,0 +1,59 @@
+﻿
+
+<div class="icard-container company-icard z-depth-4">
+    <div class="icard-header">
+        <!--<div class="modal-header padding0">
+            <div class="right">
+                <a href="javascript:void(0)">
+                    <i class="right icon white-text iconSmall marginLeft0" smart-tooltip position="bottom" message="Edit">
+			            <svg>
+				            <use xlink:href="#icon_ToEdit"></use>
+			            </svg>
+		            </i>
+                </a>
+            </div>
+	    </div>-->
+        <div class="icard-information paddingTop40 white-text">
+            <div class="icard-title">
+                <span class="left paddingTop1">{{companyIcard.companyName}}</span>
+            </div>
+            <span class="fontSize12 paddingBtm14">{{companyIcard.companyText}}</span>
+            <span>{{companyIcard.location}}</span>
+            <span class="single-line-text fontSize12">Second Tier Supplier</span>
+            <span class="single-line-text">Ph: <span> {{companyIcard.phone}}</span> <span class="seperator-line paddingBtm0">|</span> Fax: <span> {{companyIcard.fax}}</span></span>
+            <!--<span class="markText chip default-location left margin0 marginTop10"></span>-->
+</div>
+        <div class="icard-logo z-depth-1"><span class="company-name-logo">A</span></div>
+    </div>
+    <div class="modal-content supplier-icard-container padding0">
+        <smart-scroll height="250px"> 
+		    <div class="scroll-inner-container">
+                <div class="icard-field">
+                    <div class="row">
+		                <smart-textfield class="col s12 m6" ng-if="companyIcard.primaryContact" label="Primary Contact" ng-model="companyIcard.primaryContact" readonly="true"></smart-textfield>
+                        <div class="col s12 m6 blue-text icard-emailfield" ng-if="companyIcard.email">
+                            <label>Email</label>
+                            <a ng-href="mailto:{{companyIcard.email}}">{{companyIcard.email}}</a>
+                        </div>
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.naiccode" label="NAIC Code" ng-model="companyIcard.naiccode" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.dunscode" label="D-U-N-S No" ng-model="companyIcard.dunscode" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.federalid" label="Federal Tax ID" ng-model="companyIcard.federalid" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.vatno" label="VAT Registartion NO." ng-model="companyIcard.vatno" readonly="true"></smart-textfield>  
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.annualrevenue" label="Annual Revenue" ng-model="companyIcard.annualrevenue" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" ng-if="companyIcard.yearofincorporation" label="Year of Incorporation" ng-model="companyIcard.yearofincorporation" readonly="true"></smart-textfield>
+	                </div>
+                </div>
+            </div>
+		</smart-scroll>
+	</div>
+    <div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12 right right-align padding0">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"Close"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

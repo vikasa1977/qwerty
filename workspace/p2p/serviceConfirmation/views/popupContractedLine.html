@@ -1,0 +1,71 @@
+<div class="scrollableModel splitAccountigModal">
+	<div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+              
+                <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+		<i class="icon iconSmall grey-text left">
+			<svg>
+				<use xlink:href="#icon_CirclePlus"></use>
+			</svg>
+		</i>
+		<span class="title">{{'ADD LINES FROM CONTRACT'|| translate}}</span>     
+	</div>
+    
+	<div class="modal-content is-scolled padding0">   
+		
+                <smart-scroll height="350px" is-fixed-header="true">			
+                    <table class="bordered">
+	                    <colgroup>
+		                    <col style="width:10%"/>
+		                    <col style="width:20%"/>
+		                    <col style="width:25%"/>
+                            <col style="width:25%" />
+                            <col style="width:10%" />
+                            <col style="width:10%" />
+	                    </colgroup>
+	                    <thead>
+		                    <tr>
+                                <th ></th>
+			                    <th>Contract Number</th>
+			                    <th>Line Description</th>
+			                    <th>Line Type</th>
+                                <th class="">Price</th>
+                                <th class="">UOM</th>
+		                    </tr>
+	                    </thead>
+	                    <tbody>
+		                    <tr ng-repeat="line in contractedLines">
+                               <td><smart-checkbox ></smart-checkbox></td>
+                                <td>{{line.contractNumber}}</td>
+			                  <td>{{line.lineDescription}}</td>
+                               <td>{{line.lineType}}</td>
+                               <td>{{line.Price}}</td>
+                               <td>{{line.UOM}}</td>
+		                    </tr> 	
+                          			          
+	                    </tbody>
+                    </table>
+                </smart-scroll>
+			
+	</div>
+    
+	<div class="modal-footer is-scrolled">
+		<smart-button flat="true"  class="modal-close" config='{"title":"DONE"}' ng-click="addSubLineCall()"></smart-button>
+		<smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+	</div>
+</div>
+
+

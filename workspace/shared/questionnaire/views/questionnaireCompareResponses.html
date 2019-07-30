@@ -1,0 +1,440 @@
+
+<div id="fixedSubHeader" class="row extra-nav-wrap marginBtm0">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="extra-nav-title--back waves-block waves-circle sh-icon waves-effect waves-light">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small marginRight8 marginTop1 left paddingTop8">
+                <svg><use xlink:href="#icon_ScoreResponse"></use></svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak truncate supplier-title-name">{{ responseTitle }}</span>
+        </div>
+        <div class="right marginTop12 right-panel padding0">
+            <smart-dropdown config="{{dropDownConfig}}">
+                <a class="dropdown-button waves-effect waves-circle white-text" data-activates='actionExportCompareResponse'>
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_MenuKebab"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul id='actionExportCompareResponse' class='dropdown-content' style="min-width:180px;">
+                    <li ng-repeat="eachAction in actionsExport track by $index" ng-click="exportclick($index)">
+                        <a class="cursorPointer">{{eachAction.export}}</a>
+                    </li>
+                    <li class="divider"></li>
+                </ul>
+            </smart-dropdown>
+        </div>
+        <div class="right" ng-show="!compareForm" >
+            <div class="right marginTop14 right-align">
+                |
+            </div>
+            <div class="right marginTop14 right-align marginRight10" style="width:300px;">
+                <a href="javascript:void(0)" ng-click="selectReccureceCycle()" class="white-text">
+                    Cycle: {{recurrencepopupData.selectedrecurOption.name }}
+                </a>
+            </div>
+        </div>
+    </div>
+<div style="height:50px;" ng-if=""></div>
+</div>
+
+   
+
+
+
+<div class="wrapper clearfix scorecard-wrapper relative" ng-class="{'wrapper--withSidebar compareResponseForm':compareForm}">
+    <div class="col s12 questioncompareresp-container"  id="questioncomparerespHeaderContainer" ng-if="questionnaireDataList.supplierData.selectedOption.length">
+        <div class="col s12 extra-nav-wrap for-compareResponse questionnaire-search-header  questionnaire-bar-overlap relative paddingBtm10">
+            <div class="row relative marginBtm0">
+                <div class="col s12 paddingTop20 questionnaireResponseShadow paddingRight0">
+                    <!--<smart-list-lookup class="paddingLeft10 left paddingRight10 col s6 m3 l3 xl3 xll3 marginBtm0" titleofmodel="Supplier" selecttypeoption="questionnaireDataList.supplierData.selecttypeoption" multiselect="false" label="Supplier" addnew="false" ng-model="questionnaireDataList.supplierData.selectedOption" options="questionnaireDataList.supplierData.options" displayformat="['name']" lookup-hide="supplierSelectionFn(data)"></smart-list-lookup>-->
+
+
+                    <div class="col s11">
+                        <div class="col s3 m3 l3 xl3 xll3">
+                            <label class="grey-text displayBlock fontSize12">Supplier</label>
+                            <a href="javascript:void(0);" ng-click="showSelectSupplierQuestionnaire()">
+                                <span>{{questionnaireDataList.supplierData.selectedOption[0].name}}</span>
+                                <span>+{{(questionnaireDataList.supplierData.selectedOption.length - 1) + ' '}}More</span>
+                            </a>
+                        </div>
+
+                        <div class="col s3 m3 l3 xl3 xll3" ng-show="!compareForm">
+                            <label class="grey-text displayBlock fontSize12">Repeatability Factor</label>
+                            <a href="javascript:void(0);" ng-click="showRepeatabilityPopupCallback(questionnaireDataList.repeatabilityFactortData);">
+                                {{questionnaireDataList.repeatabilityFactortData.selectedOption.businessunit}}
+                            </a>
+                        </div>
+                        <div class="col s3 m3 l3 xl3 xll2 marginBtm11">
+                            <smart-select label="Responded By" ng-model="questionnaireDataList.respondBy.selectedOption" class="col s9 gotoOptions marginTop8" options="questionnaireDataList.respondBy.options" datakey="name"></smart-select>
+                        </div>
+                        <smart-list-lookup class="paddingLeft10 left paddingRight10 col s3 m3 l3 xl3 xll3 marginBtm0" ng-show="!compareForm" titleofmodel="KPI" selecttypeoption="kpiDataTypeOption" multiselect="false" label="KPI" addnew="false" ng-model="questionnaireDataList.kpiData.selectedOption" options="questionnaireDataList.kpiData.options" displayformat="['name']" lookup-hide="kpiDataonHidePoup(data)"></smart-list-lookup>
+                    </div>
+                    <div class="col s1" ng-show="!compareForm">
+                        <smart-button class="footerBtn   right" flat="true" config='{"title":"APPLY"}'></smart-button>
+                    </div>
+                </div>
+                <div class="col s12 paddingRight25 paddingBtm10">
+                    <div id="questioncomparerespNavContainer" class="questioncomparesearchcontainer" smart-questioncompareresp-nav connect="{{connectArrNav}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scorecardsidebar" class="sidebar white  sidebar--left vertical-itemList-tab" ng-show="compareForm">
+        <a href="javascript:void(0)" class="scorecard-response sidebar-btn  white-text" ng-click="activeButton()">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_RightChevro"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="panel-content">
+            <!--<smart-scroll height="468px">-->
+            <ul class="panel-content-iteamList">
+                                <li ng-repeat="n in questionnaireDataList.kpicomparePanelData.options" class="panel-content-iteamList-item panel-content-iteamList-groupItem">
+                    <div class="iteamList-groupItem-content" ng-click="showVaribableCall($index,n.quesionnaireIsVisible)">
+                        <span><strong>{{n.name}}</strong></span>
+                        <i class="icon group-arrow group-arrowDir" ng-class="{'active': n.quesionnaireIsVisible}">
+                            <svg>
+                                <use xlink:href="#icon_DownChevron"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+
+                    <!--<i class="icon iconSmall right red-text" smart-tooltip position="bottom" message="Some mandatory fields are incomplete" ng-if="n.status == 'incomplete'">
+                        <svg><use xlink:href="#icon_Warning"></use></svg>
+                    </i>-->
+                    <ul class="panel-content-iteamList" ng-show="n.quesionnaireIsVisible">
+                        <li ng-repeat="data in n.options" class="panel-content-iteamList-item cursorPointer" ng-class="{selected : ($index == indexToShow.child) && ($parent.$index == indexToShow.parent )}" ng-click="groupLoaderCall($index , $parent.$index)">
+                            <span class="truncate" title="{{data.name}}">{{data.name}}</span>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!--	</smart-scroll>-->
+        </div>
+    </div>
+    <div id="questionnairecontainer" ng-if="questionnaireDataList.kpicompareData.length && !groupLoaderFlag" smart-questioncompareresp-accordian connect="{{connectArr}}" class="row  questionnaireResponse paddingTop0 questionnaire-container-with-header compareresponselist">
+
+        <div class="questionnaire-section" ng-init="qId = $index" ng-repeat="kpiDataList in questionnaireDataList.kpicompareData track by $index">
+
+            <div class="questionnaire-section-header questionnaire-section-label-header" id="questionnaire-section-question-{{qId}}" ng-if="kpiDataList.questionType.type === 'label-type'">
+                <div class="questionnaire-section-header-cnt clearfix">
+                    <div class="questionnaire-section-header-section-name">{{kpiDataList.title}}</div>
+                    <smart-textfield ng-if="kpiDataList.description" type="area" class="col s12 fieldEditable marginBtm0 paddingLeft20" readonly="true" ng-model="kpiDataList.description"></smart-textfield>
+                </div>
+            </div>
+            <div class="questionnaire-section-question" id="questionnaire-section-question-{{qId}}" ng-if="kpiDataList.questionType.type !== 'label-type'">
+                <div class="clearfix row margin0 iconDefaultCursor collapse-header">
+                    <div class="collapse-header-ctn clearfix">
+
+                        <div class="col s10 questionWidthResponsive right-space">
+                            <div class="questions text-justify" ng-click="questionGoToAcc($event)">
+                                <span class="left marginRight10">{{kpiDataList.name}}.</span>
+                                <span class="left questionstitle">
+                                    <span class="cursorPointer" title="{{kpiDataList.title}}">{{kpiDataList.title | limitTo:300}}</span>
+                                    <sup ng-if="kpiDataList.mandatory" class="red-text mandatoryField"> *</sup>
+                                    <span smart-infotip position="top" message="Answer to this question will not have any impact on the scores." ng-if="kpiDataList.nonScoring" class="markText chip center zIndex0">Informative</span>
+                                    <span smart-infotip position="top" message="This question is conditional to &quot;option 2&quot; of question 1" ng-if="kpiDataList.conditional.check" class="markText chip center zIndex0">Conditional</span>
+                                </span>
+
+                            </div>
+                            <div class="clearfix">
+                                <div class="type" ng-click="$event.stopPropagation();">
+
+                                    <div class="left paddingTop14  grey-text">Type: {{kpiDataList.questionType.name}} <span class="marginLeft16 marginRight16" ng-if="kpiDataList.attachment.fileUploadVal.length"> |</span></div>
+                                    <div class="left" ng-if="kpiDataList.attachment.fileUploadVal.length" ng-include="'attachment-display'"></div>
+                                </div>
+
+                                <!--<div class="status grey-text sourcingStatus">Weight: {{kpiDataList.weight}}%</div>-->
+                            </div>
+                        </div>
+                        <div class="left questionnaire-section-view-icon sourcingView">
+                            <a href="javascript:void(0)" ng-click="showQuestionPreview(kpiDataList,qId)" class="icon iconSmall" smart-tooltip position="bottom" message="Preview">
+                                <svg><use xlink:href="#icon_Preview"></use></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="questionnaire-section-question-details collapse-body">
+                    <div class="clearfix row padding0">
+
+                        <!--<div class="clearfix questionnaire-section-question-details-header">
+                            <div class="question-details left">
+                                <span class="grey-text fontSize14 marginLeft12 text-darken-4">Responded: {{kpiDataList.respondedData.currentCount}} of {{kpiDataList.respondedData.respondedDataCount}}</span>
+                            </div>
+
+                        </div>-->
+                        <div ng-init="gridTypeRowsParentIndex = qId + '' + $index;" ng-repeat="supplierListData in kpiDataList.respondedData track by $index" class="clearfix questionnaire-section-question-details-container">
+                            <div class="clearfix questionnaire-section-question-details-hdr" ng-if="supplierListData.supplierName">
+
+                                <span class="grey-text fontSize18 text-darken-4">{{supplierListData.supplierName}}</span>
+                                <span class="grey-text fontSize12"> - Supplier</span>
+
+                            </div>
+                            <div class="clearfix wrap-combogrid" ng-class="{'first':$index == 1}" ng-if="(questionnaireDataList.respondBy.selectedOption.key === key || questionnaireDataList.respondBy.selectedOption.key === 'both') && isArrayCheck(value)" ng-repeat="(key, value) in supplierListData">
+
+                                <div class="questionnaire-section-question-details-content clearfix" ng-init="gridTypeRowsChildIndex = $parent.$index +''+ $index;" ng-repeat="questionItem in value track by $index">
+                                    <div class="row paddingRight24  paddingLeft24 clearfix margin0">
+                                        <div class="clearfix table-border-top-compare-response">
+                                            <div class="left">
+                                                <span>{{questionItem.name}}</span>
+                                                <span class="grey-text fontSize12">{{ key === 'supplierCont' ? ' - Supplier contact' : ' - Evaluator' }} </span>
+                                            </div>
+                                            <div class="supplier-score col right-align input-field readOnlyField">
+                                                <div class="elements-include">
+                                                    <label class="active">Score</label>
+                                                    <span class="truncate readonly-value-manager">{{questionItem.score}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row col s12 questionnaireBox marginBtm0 singleResponse" ng-include="kpiDataList.questionType.template"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="questionnaireBox-ctn"></div>
+                    <!--<div class="center-align question-details-loadmore padding5" ng-if="kpiDataList.respondedData.respondedDataCount > 4">
+                        <smart-button flat="true" config='{"title":"LOAD MORE"}' on-click="loadmoreFn(kpiDataList.respondedData)"></smart-button>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+      
+    </div>
+    <smart-global-loader ng-if="groupLoaderFlag" config="supplierLineLoaderFlag"></smart-global-loader>
+</div>
+
+<smart-popup show="{{showPreviewPopupFlag}}" template-url="shared/questionnaire/views/popupPreviewQuestion.html" on-hide="showPreviewOnHideCallback(e)"></smart-popup>
+<smart-popup show="{{showSelectSupplierQ}}" template-url="shared/questionnaire/views/popupSelectSupplierQuestionnaire.html" on-hide="hideSelectSupplierQuestionnaire()"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupRepeatabilityFactor.html" show="{{showRepeatabilityPopup}}" on-hide="onRepetabilityHideCallback()" class="questionnairePopup"></smart-popup>
+<smart-popup template-url="supplierManagement/scorecard/views/popupSelectRecurrence.html" show="{{reccurenceCyclePopup}}" on-hide="hideReccurenceCyclePopup()" class="questionnaire-type-popup"></smart-popup>
+<smart-popup template-url="supplierManagement/scorecard/views/popupUploadDownlLog.html" show="{{uploadDOwnloadLog}}" on-hide="hideUploadDownloadPopup()" type="large" class="questionnaire-type-popup"></smart-popup>
+<smart-popup template-url="shared/questionnaire/views/popupExportResponse.html" show="{{importResponse}}" on-hide="hideImportResponse()" type="large" class="questionnaire-type-popup"></smart-popup>
+
+<footer class="page-footer footerSpace">
+    <smart-button class="footerBtn right" on-click="backToScoreard()" config='{"title":"DONE"}'></smart-button>
+</footer>
+
+<!-- Templates -->
+<script type="text/ng-template" id="single-text">
+    <smart-textfield class="col s12 l12 xxl11 line-height-manager questionnaiePreviewMode marginBtm0 paddingBtm13" readonly="{{!questionItem.preview}}" type="text" ng-model="questionItem.questionResponse.singleText"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-text">
+    <smart-textfield type="area" class="col s12 l12 xxl11 questionnaiePreviewMode marginBtm0 paddingBtm13" label="" ng-model="questionItem.questionResponse.multiText" readonly="{{!questionItem.preview}}"></smart-textfield>
+</script>
+<script type="text/ng-template" id="numeric">
+    <smart-textfield placeholder="Please Enter Numeric Value" type="number" class="clearfix questionnaiePreviewMode marginBtm0" ng-model="questionItem.questionResponse.value" readonly="{{!questionItem.preview}}"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-numeric">
+    <div class="questionnaireResponseContainer">
+        <div class="questionResponseContainer questionResponseContainerOptionList clearfix paddingBtm0" ng-repeat="multiNumericResponseData in questionItem.questionResponse.value">
+            <smart-textfield type="text" readonly="{{!questionItem.preview}}" class="col s12 l12 xxl11 questionnaiePreviewMode questField marginBtm20" label="{{multiNumericResponseData.question}}" ng-model="multiNumericResponseData.value"></smart-textfield>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="single-response-drop">
+    <div class="questionResponseContainer clearfix">
+        <div ng-if="!questionItem.preview" class="col s12 l12 xxl11 questionResponseContainer questionnaiePreviewMode">
+            {{questionItem.questionResponse.selected.title}}
+        </div>
+        <smart-select ng-if="questionItem.preview" label="Select" ng-model="questionItem.questionResponse.selected" class="col s8 marginBtm0 line-height-manager" options="questionItem.questionResponse.config" datakey="title"></smart-select>
+
+    </div>
+</script>
+<script type="text/ng-template" id="date-time">
+    <div class="questionResponseContainer clearfix">
+        <smart-textfield type="date" time-picker="{{questionItem.questionResponse.checktime}}" class="col s8 m5 l2 questionnaiePreviewMode dateTime marginBtm0" ng-model="questionItem.questionResponse.date" readonly="{{!questionItem.preview}}"></smart-textfield>
+    </div>
+</script>
+<script type="text/ng-template" id="multi-response">
+    <div class="questionnaireResponseContainer ">
+        <div class="dragList">
+            <div ng-repeat="multiResponseData in questionItem.questionResponse track by $index" class="questionResponseContainer questionResponseContainerOptionList clearfix ">
+                <div class="clearfix">
+                    <smart-checkbox checked='false' disable="{{!questionItem.preview}}" label="{{multiResponseData.title}}" class="left marginTop12 marginLeft11" ng-model="multiResponseData.check"></smart-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="single-response-radio">
+
+    <div class="dragList">
+        <div ng-if="true" ng-repeat="sRadio in questionItem.questionResponse.config" class="questionResponseContainer clearfix singleResponseRadio">
+            <div class="clearfix" ng-init="sRadio.options[0].disable = !questionItem.preview">
+                <smart-radio gap="true" class="left" ng-init="sRadioIndex = 'sRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex;" option-id="{{sRadioIndex + $index}}" group-id="{{sRadioIndex}}" ng-model="questionItem.questionResponse.selected" options="sRadio.options" datakey="title"></smart-radio>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="multi-text-format">
+    <textarea ng-if="questionItem.preview" ckeditor="editorOptions" ng-model="questionItem.questionResponse.FormatText" rows="10" cols="80"></textarea>
+    <div ng-if="!questionItem.preview" class="col s12 l12 xxl11 ckeditorContainer questionResponseContainer questionnaiePreviewMode ckeditorBox" ng-bind-html="questionItem.questionResponse.FormatText | unsafe">
+    </div>
+</script>
+<script type="text/ng-template" id="grid-type-combination">
+
+    <div class="questionResponseContainer gridTypeCombination">
+        <table class="bordered gridTypeContainer sTable">
+            <thead>
+                <tr>
+                    <th ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'"></th>
+                    <th class="left-align" parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" data="{{questionItem.questionResponse.cols}}" ng-repeat="gridTypeCols in questionItem.questionResponse.cols track by $index">{{ gridTypeCols.title }} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--gridTypeRows.cols = Object.create(questionItem.questionResponse.cols);-->
+                <tr ng-init="gridTypeRowsIndex = $index;" parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" ng-repeat="gridTypeRows in questionItem.questionResponse.rows track by $index">
+                    <td class="left-align" ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'">{{gridTypeRows.title}}</td>
+                    <td class="left-align" ng-repeat="gridType in gridTypeRows.cols">
+                        <div class="" ng-include="'grid-type-structure'"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</script>
+<script type="text/ng-template" id="grid-type-structure">
+
+    <smart-checkbox class="temp-alignment-fix-compareResponse gridTypeCheck"  ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true"  disable="{{!questionItem.preview}}"></smart-checkbox>
+
+    <smart-radio  class="temp-alignment-fix-compareResponse"  ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+    
+    <smart-select class="left" ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" disable="{{!questionItem.preview}}" preview="{{!questionItem.preview}}"  datakey="name"></smart-select>
+
+    <smart-dropdown config="{{dropDownConfig}}" ng-if="gridType.type.SelectedType.name === 'Text field' && questionItem.preview" class="relative displayBlock">
+        <a class='dropdown-button btn-in-header' data-alignment="left" href='javascript:void(0)' data-activates='dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}' data-constrainwidth="false">
+            <span>{{gridType.type.Textfield || 'Please Enter' }}</span>
+        </a>
+        <div id="dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off">
+            <smart-textfield placeholder="Please Enter" ng-model="gridType.type.Textfield" focus="true" id="gridTextField_{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}"></smart-textfield>
+        </div>
+    </smart-dropdown>
+
+    <span ng-if="gridType.type.SelectedType.name === 'Text field'">{{gridType.type.Textfield}}</span>
+
+</script>
+
+
+<script type="text/ng-template" id="list-box">
+    <div class="questionResponseContainer clearfix">
+        <smart-accumulator class="padding20 compare-response-accumulator" options="questionItem.questionResponse.config" height="250" label="Available Option(s)" add-keys="['title']" ng-model="questionItem.questionResponse.selected">
+        </smart-accumulator>
+    </div>
+</script>
+
+<script type="text/ng-template" id="attachment-only">
+    <div class="row col s12 marginBtm20 file-field input-field addAttachment" ng-if="questionItem.preview">
+        <div class="col s12">
+            <div class="responsanceattachmentList surveyCreation">
+
+                <div class="clearfix responsanceattachmentList-item" ng-repeat="g in questionItem.attachment.list">
+                    <div class="left truncate responsanceattachmentList-item-title">{{g.name}}</div>
+                    <a href="javascript:void(0)" class="left">
+                        <i smart-tooltip position="bottom" message="Download" class="icon blue-text iconSmall iconDefaultCursor">
+                            <svg><use xlink:href="#icon_Download"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="left marginLeft20">
+                        <i smart-tooltip position="bottom" message="Delete" class="icon blue-text iconSmall iconDefaultCursor">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                </div>
+
+                <div class="responsanceattachmentList-item">
+                    <a href="javascript:void(0)" ng-click="questionItem.attachDocFlag = true;" ng-class="{ 'active pointEventN' : questionItem.attachDocFlag == true}" class="attach-doc-title file-field-title">Add Attachment</a>
+                </div>
+                <div ng-show="questionItem.attachDocFlag" class="paddingLeft25" ng-include="'shared/popup/views/popupUploadDoc.html'" id="addAttachForPage">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="questionResponseContainer padding0 clearfix" ng-if="!questionItem.preview">
+        <smart-dropdown class="left" config="{{dropDownConfig}}">
+            <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="contactSuppAtt_{{$index}}_{{gridTypeRowsParentIndex}}_{{gridTypeRowsChildIndex}}" data-constrainwidth="false" data-alignment="left">
+                <i class="icon small grey-text marginRight8" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                <span class="dIBlock marginTop17"><span>{{ questionItem.questionResponse.fileUploadVal[0].name }}</span><span ng-if="questionItem.questionResponse.fileUploadVal.length"> {{'+' + questionItem.questionResponse.fileUploadVal.length}} More</span></span>
+            </a>
+            <div id="contactSuppAtt_{{$index}}_{{gridTypeRowsParentIndex}}_{{gridTypeRowsChildIndex}}" class="dropdown-content dd-close-off">
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="paddingBtm10 paddingTop10">File Name</td>
+                            <td class="paddingBtm10 paddingTop10">
+                                <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="fileItem in questionItem.questionResponse.fileUploadVal track by $index">
+                            <td class="paddingBtm10 paddingTop10">{{fileItem.name}}</td>
+                            <td class="paddingBtm10 paddingTop10">
+                                <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </smart-dropdown>
+    </div>
+</script>
+
+<script type="text/ng-template" id="attachment-display">
+    <div class="questionResponseContainer padding0 clearfix" ng-init="questionItem = !questionItem.preview ? kpiDataList : questionItem">
+        <smart-dropdown class="left" config="{{dropDownConfig}}">
+            <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="contactSuppAtt_{{$index}}_{{gridTypeRowsParentIndex}}_{{gridTypeRowsChildIndex}}" data-constrainwidth="false" data-alignment="left">
+                <i class="icon small grey-text marginRight2" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                <span class="dIBlock marginTop13"><span>{{ questionItem.attachment.fileUploadVal[0].name }}</span><span ng-if="questionItem.attachment.fileUploadVal.length"> {{'+' + questionItem.attachment.fileUploadVal.length}} More</span></span>
+            </a>
+            <div id="contactSuppAtt_{{$index}}_{{gridTypeRowsParentIndex}}_{{gridTypeRowsChildIndex}}" class="dropdown-content dd-close-off">
+                <table>
+                    <thead>
+                        <tr>
+                            <td class="paddingBtm10 paddingTop10">File Name</td>
+                            <td class="paddingBtm10 paddingTop10">
+                                <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="fileItem in questionItem.attachment.fileUploadVal track by $index">
+                            <td class="paddingBtm10 paddingTop10">{{fileItem.name}}</td>
+                            <td class="paddingBtm10 paddingTop10">
+                                <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </smart-dropdown>
+    </div>
+</script>

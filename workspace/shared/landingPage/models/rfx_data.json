@@ -1,0 +1,385 @@
+{
+  "datalist": [
+     {
+      "docName": "Should Cost Analysis: 1234-Acrylonitrile",
+      "docStatus": "product",
+      "status":"draft",
+      "isdocSelected": false,
+      "docType": "product",
+      "docLink": "",
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "14 Nov 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "John Lee"
+        }
+      ],
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: Acrylonitrile"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Samantha Lewis"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Ineos"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: USD 0.97/lb"
+        } 
+      ]
+    },
+    {
+      "docName": "Should Cost Analysis: 1234-Acrylonitrile-Scenario 1",
+      "docStatus": "product",
+      "isdocSelected": false,
+      "docType": "product",
+      "status":"draft",
+      "docLink": "",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "14 Nov 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "John Lee"
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: Acrylonitrile"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Samantha Lewis"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Ineos"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: $ 1.07"
+        } 
+      ]
+    },
+    {
+      "docName": "4,795 SQ FT Restaurant",
+      "docStatus": "services",
+      "isdocSelected": false,
+      "docType": "service",
+      "docLink": "",
+      "status":"draft",
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "16 Jun 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Matthew Perry"
+        }
+      ],
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+         
+        {
+          "datakey": "summary",
+          "value": "Type: Service"
+        },
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Arnold S"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Catalyst Constructions"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: USD 154,699.00"
+        } 
+      ]
+    },
+    {
+      "docName": "DF Fillet Blocks",
+      "docStatus": "product",
+      "isdocSelected": false,
+      "docType": "product",
+      "docLink": "",
+      "status":"draft",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "15 Aug 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Charlie Puth"
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: Fish"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Sara Williams"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: DF Foods"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: USD 4,100"
+        } 
+      ]
+    },
+    {
+      "docName": "Milk",
+      "docStatus": "product",
+      "isdocSelected": false,
+      "docType": "product",
+      "docLink": "",
+      "status":"sent for review",
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "5 Jul 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "George Clooney"
+        }
+      ],
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: Milk"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Sara Williams"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Dairy Farmers of America"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: 15.50 $/cwt"
+        } 
+      ]
+    },
+    {
+      "docName": "Pretzel Analysis",
+      "docStatus": "services",
+      "isdocSelected": false,
+      "docType": "services",
+      "docLink": "",
+      "status":"sent for review",
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "14 Nov 18"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "John Lee"
+        }
+      ],
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: PRETZEL (R/W), NO PHO RED 39039H 550LB"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Samantha Lewis"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Hearthside Food Solutions"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: USD 1.59"
+        } 
+      ]
+    },
+    {
+      "docName": "Poultry",
+      "docStatus": "product",
+      "isdocSelected": false,
+      "docType": "product",
+      "docLink": "",
+      "status":"sent for review",
+      "attributes1": [
+        {
+          "datakey": "createdOn",
+          "value": "18 Aug 2018"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Noah Centineo"
+        }
+      ],
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "summary",
+          "value": "Type: Product"
+        },
+        {
+          "datakey": "",
+          "value": "Product Name: Ketchup"
+        },
+        
+        {
+          "datakey": "amount",
+          "value": "Owner Name: Sara Williams"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Supplier Name: Heinz"
+        },
+        {
+          "datakey": "createdBy",
+          "value": "Should Cost: USD 4.85"
+        } 
+      ]
+    }
+  ]
+}

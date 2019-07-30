@@ -1,0 +1,122 @@
+<!-- modal  -->
+<div>
+    <!-- modal -- header -->
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left modal-header--Icon">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use>
+            </svg>
+        </i>
+        <span class="title">{{'APPLY TO ALL'|| translate}}</span>
+
+
+    </div>
+
+    <!-- modal -- content -->
+    <div class="modal-content padding0 is-scrolled">
+
+        <!-- vertical tabs -->
+        <div class="clearfix fldFxdWrapper-left">
+            <!-- vertical tabs -- left sidebar -->
+            <div class="fldFxdWrapper-left--sideBar">
+                <smart-scroll height="300px">
+                    <div class="collection" id="dyScroll">
+                        <a href="javascript:void(0)" ng-repeat="n in iteams" class="collection-item truncate" ng-class="{active : isSet($index)}" ng-click="setTab($index)" smart-tooltip position="bottom" delay="50" message="{{ n.title || translate }}">
+                            {{n.title}}
+
+                            <i class="icon small green-text fldFxdWrapper--sideBar--icon" ng-class="isChecked[$index] ? 'animated bounceIn' : 'animated bounceOut'">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Check"></use>
+                                </svg>
+                            </i>
+
+                        </a>
+                    </div>
+                </smart-scroll>
+            </div>
+
+            <!-- vertical tabs -- content -->
+            <div class="fldFxdWrapper-content height300">
+                <smart-scroll height="300px">
+                    <div class="padding15">
+
+                        <!-- vertical tabs -- content --first tab -->
+                        <div ng-show="isSet(0)">
+                            <div class="row formEdit">
+                                <smart-checkbox label="{{ 'Check to apply supplier details' || translate }}" class="marginLeft5" ng-model="isChecked[0]"></smart-checkbox>
+                            </div>
+                            <div class="row formEdit">
+                                <smart-textfield label="{{ 'Supplier Name' || translate }}" ng-model="suppName" class="col s12"></smart-textfield>
+                            </div>
+                    
+                            <div class="row formEdit readonly-active">
+                                <smart-textfield label="{{ 'Supplier Code' || translate }}" ng-model="suppCode" class="col s12" readonly="true"></smart-textfield>
+                            </div>
+
+                        </div>
+
+                        <!-- vertical tabs -- content --second tab -->
+                        <div ng-show="isSet(1)">
+                            <div class="row formEdit">
+                                <smart-checkbox label="{{ 'Check to apply supplier details' || translate }}" class="marginLeft5" ng-model="isChecked[1]"></smart-checkbox>
+                            </div>
+                            <div class="row formEdit">
+                                <smart-textfield label="{{ 'Ship to' || translate }}" ng-model="shipto" class="col s12"></smart-textfield>
+
+                                <smart-textfield label="{{ 'Address' || translate }}" ng-model="address" class="col s12"></smart-textfield>
+
+                                <smart-textfield label="{{ 'Deliver to' || translate }}" ng-model="deliverTo" class="col s12"></smart-textfield>
+                            </div>
+                        </div>
+
+                        <!-- vertical tabs -- content --third tab -->
+                        <div ng-show="isSet(2)">
+                            <div class="row formEdit">
+                                <smart-checkbox label="{{ 'Check to apply supplier details' || translate }}" class="marginLeft5 formEdit" ng-model="isChecked[2]"></smart-checkbox>
+                            </div>
+
+                            <div class="row formEdit marginBottom0 readonly-active">
+                                <smart-textfield label="{{ 'Requester' || translate }}" ng-model="requester" class="col s12 " readonly="true"></smart-textfield>
+                            </div>
+                                <div class="row formEdit">
+                                    <smart-textfield label="{{ 'Business Unit' || translate }}" ng-model="bu" class="col s12 m6 "></smart-textfield>
+
+                                    <smart-textfield label="{{ 'Cost Center' || translate }}" ng-model="costCenter" class="col s12 m6"></smart-textfield>
+
+                                    <smart-textfield label="{{ 'GL Code' || translate }}" ng-model="glCode" class="col s12 m6"></smart-textfield>
+
+                                    <smart-textfield label="{{ 'Project Code' || translate }}" ng-model="projectCode" class="col s12 m6"></smart-textfield>
+
+                                    <smart-textfield label="{{ 'Contract Number' || translate }}" ng-model="contractNo" class="col s12 m6"></smart-textfield>
+                                </div>
+                            </div>
+
+                        <!-- vertical tabs -- content --fourth tab -->
+                        <div ng-show="isSet(3)">
+                            <div class="row formEdit">
+                                <smart-checkbox label="{{ 'Check to apply supplier details' || translate }}" class="col s12" ng-model="isChecked[3]"></smart-checkbox>
+                            </div>
+                            <div class="row formEdit">
+                                <smart-textfield type="date" label="{{ 'Need by Date' || translate }}" ng-model="date" class="col s12 m6"><smart-textfield>
+                            </div>
+                        </div>
+
+                    </div>
+                </smart-scroll>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -- footer -->
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s6 left-align">
+                <smart-button flat="true" config='resetBtnConfig'></smart-button>
+            </div>
+            <div class="col s6 right-align">
+                <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+                <smart-button flat="true" class="modal-close" config='selectItemsBtnConfig' ng-click="applyToAllItemPopUpCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

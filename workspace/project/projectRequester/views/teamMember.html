@@ -1,0 +1,432 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone':showFilter}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="extra-nav-title">
+            <a href="javascript:void(0);" ng-click="backToPrevPage()" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_AddTeam"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Add Team Members</span>
+        </div>
+        <ul class="right extra-nav-right-icon">
+            <li class="extra-nav-icon">
+                <a class="waves-circle waves-effect waves-light" ng-click="toggleFilter()" smart-tooltip position="bottom" message="{{'Filter' || translate }}">
+                    <i class="icon iconSmall">
+                        <svg><use xlink:href="#icon_Filter"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+        <div class="searchSlideMain headersearch teamMemberHdrSearch searchSlideMain--inputBdrBNone headersearch">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+                <a href="javascript:void(0)" ng-click="pagesearch='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect waves-light cancel-icon ">
+                    <i class="icon iconSmall center white-text" smart-tooltip position="bottom" message="Close">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" ng-model="addTeamMemberSearch" placeHolder="Search by Name or Email" focus="focusSearchHeader"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon waves-light white-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchHeader()">
+                    <i class="icon iconSmall center white-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" class="panelBox-withSpace panelBox--filter padding0">
+        <div class="enter-from-top" ng-include="'project/ppst/views/teamMemberFilters.html'"></div>
+    </div>
+
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+<div class='alert-bar alert-bar--warning alert-bar--fixed' scrolled ng-class="{'errorAlertBarFixed':fixedSubHeader}" ng-if="disableCheckAllMember">
+    <div class="row">
+        <div class="s4 left">
+            <span>All team memebres are already added.</span>
+        </div>
+        <div class="s8 right">
+            <!--<div class="right">
+                <a href="javaScript:void(0);" class="marginRight10"
+                   ng-click="closeErrorHeader()" smart-tooltip position="bottom" delay="10" message="Close">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xmlns xlink="http://www.w3.org/1999/xlink" href="#icon_Close"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!--<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top alert-bar-rfx" ng-class="{'show-dv-msg': isApplyFilters}">
+        <a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a>
+        <div class="right">
+            <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+        <div>
+            <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                {{ selectedSavedview.name }} <span class="is-modified" ng-if="isSaveViewModified"><em>Modified</em> </span>
+            </span>
+            <div class="right" ng-if="isSavedViewModified">
+                <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top" ng-if="isUploadStatus">
+        <div>
+            <span>Error in upload. </span>
+            <div class="right">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="enter-from-top" ng-if="showFilter" ng-include="'sourcing/rfx/views/teamMemberFilters.html'"></div>-->
+
+
+<div class="extendBg">
+    <div class="wrapper clearfix">
+        <ul class="compactListView margin0">
+            <li class="list white" ng-class="{'listHeadingFixed': fixedSubHeader, 'borderBtmLight': fixedSubHeader, 'filterApplied': isApplyFilters}">
+                <div class="cardList relative">
+                    <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="!showSelectedMasterList">
+                        <div class="row margin0 listTbl listTbl--withChk" ng-class="{'filled-partial' : fillpartialMasterTeamMember == true }">
+                            <smart-checkbox class="left listTbl-chk" ng-model="teamMemberMasterHead.check" on-change="onChangeMasterTeamMember(teamMemberMasterHead.check)" label="Select all"></smart-checkbox>
+                            <div class="left marginTop2 marginLeft5">
+                                <span class="listTbl-meta">({{listCount.length}} of {{teamMemberMasterList.length}} selected)</span>
+                            </div>
+                            <!--<div class="right">
+                                <a href="javascript:void(0)" ng-class="{'disabled': teamMemberMasterListCheckedCount == 0}" ng-click="showSelectedCallback()">Show Selected</a>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="showSelectedMasterList">
+                        <div class="row marginBtm6">
+                            <div class="left relative" style="top: 3px;">
+                                {{teamMemberMasterListCheckedCount}} Selected
+                            </div>
+                            <!--<div class="right">
+                                <a href="javascript:void(0)" ng-class="{'disabled': teamMemberMasterListCheckedCount == 0}" ng-click="showAllCallback()">Show All</a>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="showSelectCheckboxWrap">
+                        <smart-checkbox label="Show Selected" disable="{{teamMemberMasterListCheckedCount == 0}}" ng-model="showSelected.check" on-change="showSelectedCallback(showSelected.check)"></smart-checkbox>
+                    </div>
+                </div>
+            </li>
+            <li ng-class="{'whenHeaderFixed': fixedSubHeader, 'withFilter': isApplyFilters}">
+                <ul class="collection with-header" ng-if="!showSelectedMasterList">
+                    <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in filteredData.tml = (teamMemberMasterList | limitTo: totalDisplayed | filter: {'title': addTeamMemberSearch})">
+                        <div class="cardList">
+                            <div class="cardListContent">
+                                <div class="row margin0 listTbl listTbl--withChk">
+                                    <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="teamMemberMasterListChange(item.check, $index)" disable="{{item.added}}" style="margin-top: -2px;"></smart-checkbox>
+                                    <div ng-bind-html="item.title | highlights: addTeamMemberSearch"></div>
+                                    <div class="listTbl-meta">{{item.designation}} | <a href="mailto:{{item.email}}" ng-bind-html="item.email | highlights: addTeamMemberSearch"></a> | {{item.phone}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="collection with-header" ng-if="showSelectedMasterList">
+                    <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in selectedTeamMemberMasterList">
+                        <div class="cardList">
+                            <div class="cardListContent">
+                                <div class="row margin0 listTbl listTbl--withChk">
+                                    <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="teamMemberMasterListChange(item.check, $index)" style="margin-top: -2px;"></smart-checkbox>
+                                    <div>{{item.title}}</div>
+                                    <div class="listTbl-meta">{{item.designation}} | <a href="mailto:{{item.email}}">{{item.email}}</a> | {{item.phone}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <!--<smart-list item-class="collection-item" model="{{teamMemberMasterList | limitTo: totalDisplayed | filter: addTeamMemberSearch}}" style-class="collection with-header" template="list.html" ng-if="!showSelectedMasterList"></smart-list>-->
+            <!--<smart-list item-class="collection-item" model="{{selectedTeamMemberMasterList | limitTo: selectedTotalDisplayed | filter: addTeamMemberSearch}}" style-class="collection with-header" template="list.html" ng-if="showSelectedMasterList"></smart-list>-->
+            <li class="row borderBtmLight" ng-hide="totalDisplayed >= teamMemberMasterList.length" ng-if="!showSelectedMasterList">
+                <div class="col s12 center-align marginTop10 marginBtm10">
+                    <smart-button flat="true" config='{"title":"LOAD MORE ACTIVITIES"}' ng-click="loadMore()"></smart-button>
+                    <div class="preloader-wrapper small active" ng-if="loderIcon">
+                        <div class="spinner-layer spinner-blue">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="spinner-layer spinner-red">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="spinner-layer spinner-yellow">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="spinner-layer spinner-green">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<footer class="page-footer paddingLeft10 footerSpace" ng-show="teamMemberMasterSelected">
+    <smart-button class="right footerBtn" config='{"title":"ADD"}' ng-click="addTeamMemberCallback()"></smart-button>
+    <smart-button class="right footerBtn whiteSecondaryBtn" ui-sref="projects.new" config='{"title":"CANCEL"}'></smart-button>
+</footer>
+
+<!--<smart-popup type="small" template-url="shared/popup/views/popupSaveView.html" show="{{saveViewPopup}}" on-hide="saveViewPopupHideCallback()"></smart-popup>
+<smart-popup type="large" template-url="shared/popup/views/popupSavedView.html" show="{{savedViewPopup}}" on-hide="savedViewPopupHideCallback()"></smart-popup>-->
+
+<script type="text/ng-template" id="list.html">
+
+    <li class="col l6 xl4 xxl3 m6 s12 list white padding0">
+        <div class="cardList">
+            <div class="cardListContent">
+                <div class="row margin0 listTbl listTbl--withChk">
+                    <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="teamMemberMasterListChange(item.check, $index)" disable="{{item.added}}"></smart-checkbox>
+                    <div class="fontSize16" ng-bind-html="item.title | highlights: addTeamMemberSearch"></div>
+                    <div class="listTbl-meta">{{item.designation}} | <a href="mailto:{{item.email}}" ng-bind-html="item.email | highlights: addTeamMemberSearch"></a> | {{item.phone}}</div>
+                </div>
+            </div>
+        </div>
+    </li>
+
+</script>
+
+<script type="text/ng-template" id="tabHeader1.html">
+    <div>
+        <a>Period<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader2.html">
+    <div>
+        <a>Delivery Status<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader3.html">
+    <div>
+        <a>Recipient Type<span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader4.html">
+    <div>
+        <a>Date Range <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader5.html">
+    <div>
+        <a>Advance Date Range <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabDocument.html">
+    <div>
+        <a>Document Type<span class="right marginLeft20">{{countPricesheetList}}/{{repoList.length}}</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="period.html">
+
+    <div class="row panelBox-field ">
+        <div class="row manage-space radio-vertical radio-block margin0">
+            <smart-radio label="" ng-model="selectedFilter" class="col s12" options="filterOptions" datakey="name" gap="true" on-change="onChange(selectedFilter)"></smart-radio>
+        </div>
+        <div class="row margin0 formEdit">
+            <div ng-show="dateRange" class="col s12 paddingLeft15">
+                <smart-textfield label="{{'From'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+                <smart-textfield label="{{'To'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+            </div>
+        </div>
+    </div>
+
+</script>
+<script type="text/ng-template" id="deliveryStatus.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="documentType.html">
+
+    <div class="row marginBtm0 marginTop10">
+        <div class="col s12">
+            <div class="input-field withSearchIcon paddingLeft15">
+                <i class="icon iconFix iconSmall filterSearchIcon paddingLeft15">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+                <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextF_{{ $index }}='';searchfocusOut(e)">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+                <input id="text_type_" type="text" class="validate" ng-model="searchTextF_" placeholder="Search by Type">
+                <label for="text_type"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <ul class="panel-content-iteamList">
+            <li class="panel-content-iteamList-item paddingLeft20 clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                <smart-checkbox class="left" label="All" ng-model="docAll.checkedAll" on-change="checkedAllDoc(docAll.checkedAll)"></smart-checkbox>
+                <div class="right">
+                    <span><a href="javascript:void(0)" class="" ng-class="{'disabled pointEventN' : showSelect == true}" ng-model="checkElem.checkElemStatus" ng-click="showselected(checkElem.checkElemStatus)">show {{checkElem.text}}</a></span>
+                    <span class="grey-text text-darken-1 marginLeft9 marginRight9">|</span>
+                    <span>
+                        <a href="javascript:void(0)" smart-tooltip position="bottom" message="{{'Reset'|| translate}}" ng-click="resetData()" ng-class="{'disabled pointEventN' : showSelect == true}">
+                            <i class="icon small">
+                                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                            </i>
+                        </a>
+                    </span>
+                </div>
+            </li>
+        </ul>
+        <smart-scroll height="210px">
+            <ul class="collection noBorder">
+                <li ng-repeat="n in repoList track by $index" class="collection-item " ng-class="{'is-hide' : n.isHide == true}">
+                    <span ng-class="{'is-hide' : n.isHide == true}">
+                        <smart-checkbox class="chklink left" ng-model="n.isChecked" on-change="documentListChange(n.isChecked)"></smart-checkbox>
+                    </span>
+                    <span class="item-name">{{n.title}}</span>
+                </li>
+            </ul>
+        </smart-scroll>
+
+    </div>
+</script>
+<script type="text/ng-template" id="recipientType.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="dateRange.html">
+    <div class="row paddingTop5">
+        <div class="operatorsDropDown">
+            <div class="row marginLeft15 formEdit marginBottom0">
+                <smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" label="Operator" is-mandatory='true' ng-model="defaultSelectedOperator" options="operatorsList" datakey="name" on-change="onChangeFilterType(defaultSelectedOperator)"></smart-select>
+                <smart-textfield ng-show="operatorRange" label="From" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" type="date" ng-model="startDate"></smart-textfield>
+                <smart-textfield ng-show="operatorRange" label="To" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                <smart-textfield ng-show="!operatorRange" label="From" type="date" ng-model="fromDate" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field"></smart-textfield>
+            </div>
+        </div>
+        <div class="col s12 marginTop15" ng-hide="hideDateRow">
+            <div class="col s12">
+                <div class="row marginTop10">
+                    <smart-textfield label="From" class="col s12 l4" type="date" ng-model="startDate"></smart-textfield>
+                    <smart-textfield label="To" class="col s12 l4" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="advanceDateRange.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <smart-radio gap="true" class="left line-height-manager" ng-model="advanceDateType" options="advanceDateTypeOptions" on-change="onChangeadvanceDateType(advanceDateType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="row">
+                <smart-textfield label="From" class="col m4 s12 l4" type="date" ng-model="advancestartDate"></smart-textfield>
+                <smart-textfield label="To" class="col m4 s12 l4" min="{{advancestartDate}}" type="date" ng-model="advanceendDate" ng-if="advanceDateType.code=='dr'"></smart-textfield>
+                <div class="col s12 m4 l4" ng-if="advanceDateType.code=='p'">
+                    <div class="row">
+                        <div class="col line-height-manager grey-text padding0">To Next</div>
+                        <div class="col s5"><smart-select options="nextDayOptions" is-mandatory="true" ng-model="nextDays"></smart-select></div>
+                        <div class="col line-height-manager grey-text padding0">Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

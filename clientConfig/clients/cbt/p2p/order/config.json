@@ -1,0 +1,1878 @@
+{
+  "specificSettings": {
+    "isIntegratedPartnerRule": false,
+    "allowASLValidation": false,
+    "utilazationDocumentType": "blanket",
+    "invoiceERS": false,
+    "ItemInventoryType": 1,
+    "allowGridPersistence": true,
+    "allowCopy": true,
+    "allowCreateReceipt": true,
+    "allowCancelOrder": true,
+    "supplierNameRules": [ "supplierNameRules" ],
+      "CustomAttributeValidatableKeyAndRules": {
+        "P2P_Order_CreateReceipt": [
+          {
+            "Key": "Requisition Type",
+            "rule": [ "serviceCreateReceipt" ]
+          }
+        ]
+    },
+    "multiOrgEntitySettings": [ 10 ],
+    "columnDefTemplate": {
+      "field": "{{name}}",
+      "width": 150,
+      "displayName": "{{displayName}}",
+      "isVisible": "p2pValidationService.isVisibleForGrid",
+      "isReadOnly": "p2pValidationService.isReadOnly",
+      "isRegFocusCol": true,
+      "type": "editable",
+      "isCustomError": true,
+      "rules": [],
+      "attributes": {
+        "type": "autocomplete",
+        "model": "{{modelKey}}",
+        "filterkeys": [ "name", "entityCode" ],
+        "displayformat": "{entityCode}:{name}",
+        "optionformat": "{entityCode}:{name}",
+        "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ],
+        "isEditable": [ "{{isEditable}}" ]
+      },
+      "filterObject": { "enableFiltering": true }
+
+    },
+    "columnDefHeaderTemplate": {
+      "label": "{{fieldName}}",
+      "type": "textfield",
+      "isMandatory": true,
+      "isVisible": true,
+      "data": "{{orderData}}",
+      "onChange": "headerEntityOnChange($event,'{{headerKey}}')",
+      "onSelect": "headerEntityOnSelect($event)",
+      "IsAccountingEntity": "{{IsAccountingEntity}}",
+      "attributes": {
+        "disable": "p2pValidationService.isReadOnly",
+        "validateOn": "change",
+        "isShown": [
+          "0_1",
+          "0_23",
+          "0_22",
+          "0_24",
+          "0_41",
+          "0_142",
+          "0_25",
+          "0_42",
+          "0_59",
+          "0_169",
+          "0_21",
+          "0_121",
+          "0_1_4",
+          "0_1_5",
+          "0_25_10",
+          "0_41_10",
+          "0_169_4",
+          "0_169_5",
+          "0_21_5",
+          "0_22_5",
+          "0_23_5",
+          "0_24_5",
+          "0_25_5",
+          "0_41_5",
+          "0_42_5"
+        ],
+        "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_4", "0_169_4", "0_169_5" ],
+        "type": "autocomplete",
+        "filterkeys": [ "name", "entityCode" ],
+        "optionformat": "{entityCode}-{name}",
+        "displayformat": "{entityCode}-{name}",
+        "options": []
+      }
+    }
+
+  },
+  "formActionButtons": {
+    "showAcknowledgeOrder": true,
+    "showSaveAsDraft": true,
+    "showValidate": true,
+    "showSubmit": true,
+    "showApproveOrder": true,
+    "showRejectOrder": true,
+    "showCreateInvoice": true,
+    "showRejectChanges": true,
+    "showAcceptChanges": true,
+    "showSendToBuyer": true,
+    "showSave": true,
+    "showFinalize": true,
+    "showInternalChangeOrder": false,
+    "showExternalChangeOrder": true
+  },
+  "header": {
+    "MappingPurchaseTypeListForCharge": [],
+    "sections": [
+      {
+        "label": "P2P_PO_BasicDetails",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "P2P_PO_OrderNumber",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.number",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "maxlength": 50,
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_RevisionNumber",
+                "type": "textfield",
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "orderData.revisionNumber",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_OrderName",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.name",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4" ]
+                }
+              },
+
+              {
+                "label": "P2P_PO_OrderContact",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.orderContact",
+                "onChange": "onOrderContactChange($event)",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ],
+                  "type": "autocomplete",
+                  "optionformat": "{email}",
+                  "displayformat": "{name}",
+                  "options": [],
+                  "filterkeys": [ "name" ]
+                }
+              },
+              {
+                "label": "P2P_PO_PurchaseType",
+                "type": "dropdown",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.purchaseType",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [],
+                  "options": [],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "P2P_PO_Signatory",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.pOSignatory",
+                "onChange": "onSignatoryChange($event)",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5" ],
+                  "type": "autocomplete",
+                  "filterkeys": [ "name" ],
+                  "optionformat": "{name}",
+                  "displayformat": "{name}",
+                  "options": []
+                }
+              },
+              {
+                "label": "P2P_PO_CreationDate",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.createdOn",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_22", "0_41_4", "1_41_4", "0_22_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [],
+                  "type": "date",
+                  "format": "MM/dd/yyyy"
+                }
+              },
+              {
+                "label": "P2P_PO_OriginalIssueDate",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.submitted.date",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_41", "0_25", "1_25", "1_41" ],
+                  "isEditable": [],
+                  "type": "date",
+                  "format": "MM/dd/yyyy"
+                }
+              },
+              {
+                "label": "P2P_PO_SupplierAcknowledgedDate",
+                "type": "textfield",
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "orderData.acknowledged.date",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_25", "1_25", "1_41" ],
+                  "isEditable": [],
+                  "type": "date",
+                  "format": "MM/dd/yyyy"
+                }
+              },
+              {
+                "label": "P2P_PO_Currency",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.currency",
+                "validateOn": "change",
+                "onChange": "onCurrencyChange($event)",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_5", "0_169_4", "0_169_5" ],
+                  "type": "autocomplete",
+                  "optionformat": "{name}",
+                  "displayformat": "{name}",
+                  "options": [],
+                  "filterkeys": [ "name" ]
+                }
+              },
+              {
+                "label": "P2P_PO_Organization",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.documentLOB",
+                "onChange": "onOrganizationChange($event)",
+                "attributes": {
+                  "disable": true,
+                  "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ],
+                  "isEditable": [],
+                  "type": "autocomplete",
+                  "optionformat": "{entityDisplayName}",
+                  "displayformat": "{entityDisplayName}",
+                  "options": [],
+                  "filterkeys": [ "entityDisplayName" ]
+                }
+              },
+              {
+                "label": "P2P_PO_ChangeOrderType",
+                "type": "dropdown",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.ChangeOrderType",
+                "onChange": "onOrderTypeChange()",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1_5", "0_25_10", "0_41_10" ],
+                  "isEditable": [],
+                  "options": [
+                    {
+                      "id": "1",
+                      "name": "External"
+                    }
+                  ],
+                  "datakey": "name"
+
+                }
+              },
+              {
+                "label": "P2P_PO_CancellationDate",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.cancelledDate",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_121", "1_121", "0_121_10", "0_121_5", "0_121_4", "1_121_4" ],
+                  "isEditable": [],
+                  "type": "date",
+                  "format": "MM/dd/yyyy"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_SupplierDetails",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 1,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData.partner",
+                "templateUrl": "p2p/shared/views/commonSupplierFieldTemplate.html"
+              },
+              {
+                "label": "P2P_PO_SupplierCode",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.clientPartnerCode",
+                "attributes": {
+                  "maxlength": 50,
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_OrderingLocation",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": true,
+                "data": "orderData.orderingLocation",
+                "onChange": "onOrderingLocationChange($event)",
+                "onSelect": "onOrderingLocationSelected($event)",
+                "attributes": {
+                  "type": "autocomplete",
+                  "validateOn": "change",
+                  "filterkeys": [ "name" ],
+                  "optionformat": "{name}",
+                  "displayformat": "{name}",
+                  "datakey": "name",
+                  "options": [],
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_23", "0_23_4", "0_24", "0_24_4", "0_1_4" ]
+                }
+              },
+              {
+                "label": "P2P_PO_SupplierContact",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": true,
+                "data": "orderData.partnerContact",
+                "onSelect": "onSupplierContactSelected($event)",
+                "onChange": "onSupplierContactChange($event)",
+                "rules": [],
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "validateOn": "change",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4" ],
+                  "type": "autocomplete",
+                  "filterkeys": [ "name" ],
+                  "optionformat": "{name}",
+                  "displayformat": "{name}",
+                  "options": []
+                }
+              },
+              {
+                "label": "P2P_PO_ContactEmail",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.partnerContact.email",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_Phone",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.partnerContact.phone",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_Address",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.partnerContact.address",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              },
+              {
+                "label": "P2P_PO_DispatchMode",
+                "type": "dropdown",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.trasmission",
+                "onChange": "onSelectDE(dataModel.orderData)",
+                "attributes": {
+                  "options": [
+                    {
+                      "id": "1",
+                      "name": "Portal"
+                    },
+                    {
+                      "id": "2",
+                      "name": "Cxml"
+                    },
+                    {
+                      "id": "3",
+                      "name": "Direct Email"
+                    },
+                    {
+                      "id": "4",
+                      "name": "Call"
+                    },
+                    {
+                      "id": "5",
+                      "name": "Fax"
+                    }
+                  ],                 
+                  "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ],
+                  "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_4" ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Direct Email",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.TransmissionValue",
+                "attributes": {
+                  "disable": true,
+                  "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ],
+                  "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_4" ]
+                }
+              },
+              {
+                "label": "P2P_PO_Fax",
+                "type": "textfield",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.partnerContact.fax",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": []
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_Terms",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "P2P_PO_PaymentTerms",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.paymentTerms",
+                "rules": [ "paymentTermscheck" ],
+                "onChange": "onPaymentTermschange($event)",
+                "onFocus": "onPaymentTermsFocus($event)",
+                "attributes": {
+                  "disable": "p2pValidationService.isReadOnly",
+                  "validateOn": "change",
+                  "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+                  "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5" ],
+                  "type": "autocomplete",
+                  "options": [],
+                  "filterkeys": [ "name" ],
+                  "optionformat": "<span>{name}</span>",
+                  "displayformat": "{name}"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_InvoicingAndDeliveryDetails",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 4,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData.shipTo",
+                "templateUrl": "p2p/shared/views/commonShipToTemplate.html",
+                "rules": [ "invalidShipToLocation" ]
+              },
+              {
+                "colspan": 4,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData.billTo",
+                "templateUrl": "p2p/shared/views/commonBillToTemplate.html",
+                "rules": [ "invalidBillToLocation" ]
+              },
+
+              {
+                "colspan": 2,
+                "label": "Deliver To",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.deliverTo",
+                "templateUrl": "p2p/shared/views/commonDeliverToTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_InvoicingMatchingTolerance",
+        "isVisible": false,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 2,
+                "label": "P2P_PO_OrderTotal",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.toleranceDetails",
+                "onLoad": "onLoad('P2P_PO_OrderTotal', dataModel.orderData.toleranceDetails.QuantityPercentTolerance, dataModel.orderData.toleranceDetails.QuantityValueTolerance)",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_OrderValue",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.toleranceDetails",
+                "onLoad": "onLoad('P2P_PO_OrderValue', dataModel.orderData.toleranceDetails.QuantityPercentTolerance, dataModel.orderData.toleranceDetails.QuantityValueTolerance)",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_OrderFreightCharges",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.toleranceDetails",
+                "onLoad": "onLoad('P2P_PO_OrderFreightCharges', dataModel.orderData.toleranceDetails.QuantityPercentTolerance, dataModel.orderData.toleranceDetails.QuantityValueTolerance)",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_OrderOtherCharges",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.toleranceDetails",
+                "onLoad": "onLoad('P2P_PO_OrderOtherCharges', dataModel.orderData.toleranceDetails.QuantityPercentTolerance, dataModel.orderData.toleranceDetails.QuantityValueTolerance)",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LineTotal",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.ItemTotalPercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LineTotal', dataModel.orderData.toleranceDetails.ItemTotalPercentTolerance, dataModel.orderData.toleranceDetails.ItemTotalValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LineQuantity",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.QuantityPercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LineQuantity', dataModel.orderData.toleranceDetails.QuantityPercentTolerance, dataModel.orderData.toleranceDetails.QuantityValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LinePrice",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.UnitPricePercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LinePrice', dataModel.orderData.toleranceDetails.UnitPricePercentTolerance, dataModel.orderData.toleranceDetails.UnitPriceValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LineTaxes",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.TaxPercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LineTaxes', dataModel.orderData.toleranceDetails.TaxPercentTolerance, dataModel.orderData.toleranceDetails.TotalAmountValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LineFreightCharges",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.ShippingPercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LineFreightCharges', dataModel.orderData.toleranceDetails.ShippingPercentTolerance, dataModel.orderData.toleranceDetails.ShippingValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "P2P_PO_LineOtherCharges",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "orderData.toleranceDetails.ChargesPercentTolerance",
+                "onLoad": "onLoad('P2P_PO_LineOtherCharges', dataModel.orderData.toleranceDetails.ChargesPercentTolerance, dataModel.orderData.toleranceDetails.ChargesValueTolerance,'true')",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_AdditionalInformation",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 4,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData",
+                "templateUrl": "p2p/order/views/customAttributes.html"
+              }
+            ]
+          }
+        ],
+        "attributes": {
+          "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_142", "0_59", "0_169", "0_1_4", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_25_10", "0_41_10", "0_121_10" ]
+        }
+      },
+      {
+        "label": "Notes & Attachments",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData",
+                "templateUrl": "p2p/order/views/notesAndAttachmentSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "P2P_PO_LineDetails",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "orderData.items",
+                "templateUrl": "p2p/shared/views/commonComposedGrid.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "grid": [
+    {
+      "title": "Lines",
+      "isVisible": "p2pValidationService.isVisibleForGrid",
+      "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+      "gridActions": [
+        {
+          "title": "P2P_PO_AddLineButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_24", "0_24_4", "0_59", "0_1_4", "0_23_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        },
+        {
+          "title": "P2P_PO_DeleteButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_24", "0_24_4", "0_59", "0_1_4", "0_23_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        },
+        {
+          "title": "P2P_PO_ManageColumnButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_23_4", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ]
+        },
+        {
+          "title": "P2P_PO_DuplicateLineItemButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_24", "0_24_4", "0_59", "0_1_4", "0_23_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        },
+        {
+          "title": "P2P_PO_ApplyToAll",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_24", "0_24_4", "0_59", "0_1_4", "0_23_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        }
+      ],
+      "cloumnDefs": [
+        {
+          "field": "lineNumber",
+          "width": 150,
+          "displayName": "P2P_PO_LineNo",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "autoIncrement": true,
+          "type": "editable",
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "type.name",
+          "width": 150,
+          "displayName": "P2P_PO_LineType",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "dropdown",
+          "rules": [ "lineTypeAndSupplierItemNoDisableCheck" ],
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_5", "0_1_4" ],
+            "model": "type",
+            "dataKey": "name",
+            "options": [
+              {
+                "id": 1,
+                "name": "P2P_REQ_Material"
+              },
+              {
+                "id": 2,
+                "name": "P2P_REQ_FixedService"
+              },
+              {
+                "id": 3,
+                "name": "P2P_REQ_VarService"
+              }
+            ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "buyerItemNumber.code",
+          "width": 150,
+          "displayName": "P2P_PO_ItemNumber",
+          "isFixed": "Left",
+          "isMandatory": false,
+          "type": "editable",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "rules": [ "catalogCheckDisable" ],
+          "attributes": {
+            "type": "autocomplete",
+            "model": "buyerItemNumber",
+            "filterkeys": [ "name" ],
+            "displayformat": "{code}",
+            "optionformat": "{code}:{name}:{desc}",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_5", "0_25_10", "0_169_4", "0_169_5", "0_1_4" ]
+          },
+          "filterObject": { "enableFiltering": true },
+          "isRegFocusCol": true
+        },
+        {
+          "field": "description.desc",
+          "width": 150,
+          "displayName": "P2P_PO_PartnerItemName",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "isFreeText": true,
+          "type": "editable",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "rules": [ "catalogCheckDisable", "emptyCheck" ],
+          "attributes": {
+            "type": "autocomplete",
+            "model": "description",
+            "filterkeys": [ "name" ],
+            "displayformat": "{desc}",
+            "optionformat": "{code}:{name}:{desc}",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5", "0_24", "0_24_4" ]
+          },
+          "filterObject": { "enableFiltering": true },
+          "isRegFocusCol": true
+        },
+        {
+          "field": "partnerItemNumber",
+          "width": 150,
+          "displayName": "P2P_PO_PartnerItemNumber",
+          "type": "editable",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "rules": [ "catalogCheckDisable", "lineTypeAndSupplierItemNoDisableCheck" ],
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_1_4", "0_24", "0_24_4" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "category.name",
+          "width": 150,
+          "displayName": "P2P_PO_Category",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "popup",
+          "rules": [ "catalogCheckDisable", "variableTypeMandatory", "emptyCheck" ],
+          "attributes": {
+            "type": "categoryPopup",
+            "defaultTitle": "Select",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "quantity",
+          "width": 150,
+          "displayName": "P2P_PO_Quantity_Effort",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isMandatory": true,
+          "type": "editable",
+          "rules": [ "quantityFixedDisable", "uomQuantityRelation", "quantityNegativeCheck" ],
+          "isRegUpdateCol": true,
+          "attributes": {
+            "type": "number",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "uom.name",
+          "width": 150,
+          "displayName": "P2P_PO_UOM",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isRegFocusCol": true,
+          "type": "editable",
+          "rules": [ "catalogCheckDisable", "variableTypeMandatory", "emptyCheck" ],
+          "attributes": {
+            "type": "autocomplete",
+            "model": "uom",
+            "filterkeys": [ "name" ],
+            "displayformat": "{name}",
+            "optionformat": "{code}:{name}",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "1_1_6", "0_1_5", "0_25_10", "0_169_4", "0_169_5", "0_1_4" ]
+          },
+          "filterObject": { "enableFiltering": true },
+          "isMandatory": true
+        },
+        {
+          "field": "unitPrice",
+          "width": 150,
+          "displayName": "P2P_PO_UnitPrice",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "rules": [ "catalogCheckDisable", "quantityNegativeCheck" ],
+          "type": "editable",
+          "isRegUpdateCol": true,
+          "attributes": {
+            "type": "number",
+            "minValue": 0,
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "startDate",
+          "width": 150,
+          "displayName": "P2P_PO_StartDate",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "rules": [ "materialCheckDisable", "variableTypeMandatory", "DateFormatCheck", "startDateMinValue", "startDateGreatedED" ],
+          "attributes": {
+            "type": "date",
+            "format": "MM/dd/yyyy",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "endDate",
+          "width": 150,
+          "displayName": "P2P_PO_EndDate",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "rules": [ "materialCheckDisable", "variableTypeMandatory", "DateFormatCheck", "endDateMinValue", "endDateLessThanSD" ],
+          "attributes": {
+            "type": "date",
+            "format": "MM/dd/yyyy",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "total",
+          "width": 150,
+          "displayName": "P2P_PO_LineTotal",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "calculated",
+          "attributes": {
+            "rule": "(row.entity.unitPrice * row.entity.quantity) + row.entity.taxes + row.entity.otherCharges + row.entity.shippingCharges",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          }
+        },
+        {
+          "field": "taxes",
+          "width": 150,
+          "displayName": "P2P_PO_Taxes",
+          "type": "popup",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "type": "taxesPopup",
+            "defaultLabelCondition": "row.entity.isTaxExempt?\"Exempt\":row.entity.taxes",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "otherCharges",
+          "width": 150,
+          "displayName": "P2P_PO_OtherCharges",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "attributes": {
+            "type": "number",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "1_142", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_169_4", "0_169_5", "0_24", "0_24_4" ]
+          }
+        },
+        {
+          "field": "subtotal",
+          "width": 150,
+          "displayName": "P2P_PO_SubTotal",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "calculated",
+          "attributes": {
+            "rule": "(row.entity.unitPrice * row.entity.quantity)",
+            "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          }
+        },
+        {
+          "field": "shippingCharges",
+          "width": 150,
+          "displayName": "P2P_PO_ShippingCharges",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "rules": [ "variableDisable" ],
+          "attributes": {
+            "type": "number",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "1_142", "0_1_4", "1_1_6", "0_1_5", "0_25_10", "0_169_4", "0_169_5", "0_24", "0_24_4" ]
+          }
+        },
+        {
+          "field": "requestedDate",
+          "width": 150,
+          "displayName": "P2P_PO_RequestedDate",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "rules": [ "variableDisable", "emptyCheck", "DateFormatCheck", "requestedDateCheck", "requestedDateGTNDCheck" ],
+          "type": "editable",
+          "attributes": {
+            "type": "date",
+            "format": "MM/dd/yyyy",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "needByDate",
+          "width": 150,
+          "displayName": "P2P_PO_NeedByDate",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "rules": [ "variableDisable", "emptyCheck", "DateFormatCheck", "needbydateCheck" ],
+          "attributes": {
+            "type": "date",
+            "format": "MM/dd/yyyy",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "shippingMethod.name",
+          "width": 150,
+          "displayName": "P2P_PO_ShippingMethod",
+          "isMandatory": false,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "rules": [ "variableDisable" ],
+          "attributes": {
+            "type": "autocomplete",
+            "isShippingChanges": true,
+            "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_41_4", "1_41_4", "0_25_4", "1_25_4" ],
+            "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_4", "0_1_5", "0_169_4", "0_169_5" ],
+            "model": "shippingMethod",
+            "filterkeys": [ "name" ],
+            "displayformat": "{name}",
+            "optionformat": "{name}"
+          },
+          "isRegFocusCol": true,
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "shipTo.name",
+          "width": 150,
+          "displayName": "P2P_CMN_ShipTo",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShippingChanges": true,
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_1_4", "0_1_5", "0_169_4", "0_169_5" ],
+            "type": "autocomplete",
+            "model": "shipTo",
+            "filterkeys": [ "name" ],
+            "displayformat": "{name}",
+            "optionformat": "{id}:{name}"
+          },
+          "filterObject": { "enableFiltering": true },
+          "isRegFocusCol": true,
+          "type": "editable"
+        },
+        {
+          "field": "shipTo.address",
+          "width": 150,
+          "displayName": "P2P_PO_ShipToAddress",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShippingChanges": true,
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_24", "0_24_4", "0_59", "0_169", "1_25" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "deliverTo.name",
+          "width": 150,
+          "displayName": "P2P_PO_DeliverTo",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "type": "editable",
+          "attributes": {
+            "isShippingChanges": true,
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "deliverToStr",
+          "width": 150,
+          "displayName": "P2P_PO_DeliverToAddress",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_169", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "manufacturer",
+          "width": 150,
+          "displayName": "P2P_PO_Manufacturer_Details",
+          "isMandatory": true,
+          "type": "popup",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "appendedLabels": [ "manufacturer", "manufacturerPartNumber", "ManufacturerModel" ],
+          "attributes": {
+            "type": "manufacturerPopup",
+            "defaultTitle": "ADD",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_1_5", "0_1_4", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true },
+          "rules": [ "ManufacturerCheckDisable" ]
+        },
+        {
+          "field": "IsCloseForReceiving",
+          "width": 150,
+          "displayName": "P2P_PO_ReceivingStatus",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "calculated",
+          "rules": [ "grayOutDisabled" ],
+          "attributes": {
+            "rule": "row.entity.IsCloseForReceiving ? 'Closed' : 'Open'",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "IsCloseForInvoicing",
+          "width": 150,
+          "displayName": "P2P_PO_InvoicingStatus",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "calculated",
+          "rules": [ "grayOutDisabled" ],
+          "attributes": {
+            "rule": "row.entity.IsCloseForInvoicing ? 'Closed' : 'Open'",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "RequisitionNumber",
+          "width": 150,
+          "displayName": "P2P_Order_RequisitionNumber",
+          "isMandatory": false,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": true,
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true },
+          "type": "textfield"
+        },
+        {
+          "field": "matching.name",
+          "displayName": "P2P_PO_Matchtype",
+          "width": 150,
+          "type": "dropdown",
+          "isMandatory": false,
+          "attributes": {
+            "model": "matching",
+            "dataKey": "name",
+            "options": [
+              {
+                "id": 1,
+                "name": "2 way match"
+              },
+              {
+                "id": 2,
+                "name": "3 way match"
+              }
+            ],
+            "disable": "p2pValidationService.isReadOnly",
+            "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "0_121_10", "0_78", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_24", "0_59", "0_169", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5" ]
+          }
+        },
+        {
+          "field": "comments",
+          "width": 150,
+          "displayName": "P2P_PO_CommentsAndAttachments",
+          "type": "popup",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": false,
+          "attributes": {
+            "type": "commentsAndAttachmentsPopup",
+            "defaultLabelCondition": "row.entity.notes.length>0?\"View\":\"Add\"",
+            "isShown": [
+              "0_1",
+              "0_23",
+              "0_23_4",
+              "0_22",
+              "0_22_4",
+              "0_24",
+              "0_24_4",
+              "0_41",
+              "0_142",
+              "0_25",
+              "0_42",
+              "0_59",
+              "0_169",
+              "0_21",
+              "0_121",
+              "0_121_5",
+              "1_121",
+              "1_25",
+              "1_41",
+              "1_142",
+              "0_1_4",
+              "1_42_6",
+              "1_1_6",
+              "0_1_5",
+              "0_25_10",
+              "0_41_10",
+              "0_169_4",
+              "0_169_5",
+              "0_21_5",
+              "0_22_5",
+              "0_23_5",
+              "0_24_5",
+              "0_25_5",
+              "0_41_5",
+              "0_42_5",
+              "0_21_4","0_41_4","1_41_4","0_25_4","1_25_4","0_121_4","1_121_4","0_141","0_141_4"
+            ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "1_1_6", "0_121_4", "1_121_4" ]
+          }
+        },
+        {
+          "field": "customAttributes",
+          "width": 170,
+          "displayName": "P2P_PO_AdditionalInformation",
+          "type": "popup",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": false,
+          "attributes": {
+            "type": "customAttributesPopup",
+            "defaultTitle": "View",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_142", "0_59", "0_169", "0_1_4", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_25_10", "0_41_10", "0_121_10", "0_121_4", "1_121_4" ]
+          }
+        },
+        {
+          "field": "Contract.ContractNumber",
+          "width": 150,
+          "displayName": "P2P_PO_ContractNumber",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isRegFocusCol": true,
+          "type": "editable",
+          "attributes": {
+            "type": "autocomplete",
+            "model": "Contract",
+            "filterkeys": [ "ContractName", "ContractNumber" ],
+            "displayformat": "{ContractNumber}",
+            "optionformat": "{ContractNumber}:{ContractName}",
+            "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_25", "0_41" ],
+            "isEditable": [
+              "0_1",
+              "0_23",
+              "0_24",
+              "0_1_4"
+            ]
+          },
+          "filterObject": {
+            "enableFiltering": false
+          }
+        },
+        {
+          "field": "Contract.ContractName",
+          "width": 150,
+          "displayName": "P2P_PO_ContractName",
+          "isMandatory": false,
+          "isVisible": true,
+          "isReadOnly": true,
+          "type": "textfield",
+          "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_25", "0_41" ],
+          "attributes": {},
+          "filterObject": { "enableFiltering": false },
+          "enableSorting": false
+        },
+        {
+          "field": "Contract.ContractValue",
+          "width": 150,
+          "displayName": "P2P_PO_ContractValue",
+          "isMandatory": false,
+          "isVisible": true,
+          "isReadOnly": true,
+          "type": "textfield",
+          "attributes": {},
+          "filterObject": { "enableFiltering": false },
+          "enableSorting": false
+        },
+        {
+          "field": "Contract.ContractExpiryDate",
+          "width": 150,
+          "displayName": "P2P_PO_ContractExpiryDate",
+          "isVisible": true,
+          "isReadOnly": true,
+          "type": "editable",
+          "attributes": {
+            "type": "date",
+            "format": "MM/dd/yyyy",
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": false }
+        }
+      ]
+    },
+    {
+      "title": "Accounting",
+      "isVisible": "p2pValidationService.isVisibleForGrid",
+      "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_1_4", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "0_25_4" ],
+      "gridAccountingActions": [
+        {
+          "title": "P2P_PO_AddLineButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": []
+        },
+        {
+          "title": "P2P_PO_DeleteButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        },
+        {
+          "title": "P2P_PO_ManageColumnButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_121_4", "1_121_4" ]
+        },
+        {
+          "title": "P2P_PO_DuplicateLineItemButton",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": []
+        },
+        {
+          "title": "P2P_PO_ApplyToAll",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isShown": [ "0_1", "0_23", "0_24", "0_24_4", "0_59", "0_1_4", "0_23_4", "1_42_6", "1_1_6", "0_1_5", "0_169_4", "0_169_5", "0_23_5", "0_24_5", "0_42_5" ]
+        }
+      ],
+      "cloumnDefs": [
+        {
+          "field": "lineNumber",
+          "width": 150,
+          "displayName": "P2P_PO_LineNo",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "autoIncrement": true,
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true },
+          "isTree": true
+        },
+        {
+          "field": "buyerItemNumber.code",
+          "width": 150,
+          "displayName": "P2P_PO_ItemNumber",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_24", "0_24_4", "0_59", "0_169" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "description.desc",
+          "width": 150,
+          "displayName": "P2P_PO_PartnerItemName",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "1_25", "1_41", "1_142", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "splitType",
+          "width": 150,
+          "displayName": "P2P_PO_Split",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isFixed": "Left",
+          "isMandatory": true,
+          "type": "popup",
+          "attributes": {
+            "type": "splitsPopup",
+            "defaultLabelCondition": "row.entity.splitType===0?(row.entity.type.id===1?\"Quantity\":\"Amount\"):\"Percentage\"",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_1_4", "0_1_5", "0_25_10", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "splitNumber",
+          "width": 150,
+          "displayName": "P2P_PO_SplitNumber",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_25_10", "1_25_10", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_24", "0_24_4", "0_59" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "quantity",
+          "width": 150,
+          "displayName": "P2P_PO_Quantity",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "attributes": {
+            "type": "number",
+            "minValue": 0,
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "splitValue",
+          "width": 150,
+          "displayName": "P2P_PO_SplitValue",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "type": "editable",
+          "attributes": {
+            "type": "number",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "Splittax",
+          "width": 150,
+          "displayName": "P2P_PO_Taxes",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "attributes": {
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true }
+        },
+        {
+          "field": "splitItemTotal",
+          "width": 150,
+          "displayName": "P2P_PO_TotalSplitValue",
+          "type": "editable",
+          "attributes": {
+            "type": "number",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": []
+          },
+          "filterObject": { "enableFiltering": true },
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly"
+        },
+        {
+          "field": "requester.name",
+          "width": 150,
+          "displayName": "P2P_PO_Requester",
+          "isVisible": "p2pValidationService.isVisibleForGrid",
+          "isReadOnly": "p2pValidationService.isReadOnly",
+          "isRegFocusCol": true,
+          "type": "editable",
+          "_treeHeaderReadOnly": true,
+          "attributes": {
+            "type": "autocomplete",
+            "model": "requester",
+            "filterkeys": [ "name" ],
+            "displayformat": "{name}",
+            "optionformat": "{name}",
+            "isShown": [ "0_1", "0_23", "0_23_4", "0_22", "0_22_4", "0_24", "0_24_4", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5", "0_21_4", "0_41_4", "1_41_4", "0_25_4", "1_25_4", "0_121_4", "1_121_4", "0_141", "0_141_4" ],
+            "isEditable": [ "0_1", "0_23", "0_23_4", "0_24", "0_24_4", "0_59", "0_1_4", "0_1_5", "0_25_10", "0_169", "0_169_4", "0_169_5" ]
+          },
+          "filterObject": { "enableFiltering": true }
+        }
+      ],
+      "modelKey": "splits"
+    },
+    {
+      "title": "Notes & Attachments",
+      "isVisible": "p2pValidationService.isVisibleForGrid",
+      "isShown": [ "0_1", "0_23", "0_22", "0_24", "0_41", "0_142", "0_25", "0_42", "0_59", "0_169", "0_21", "0_121", "0_121_5", "1_121", "0_121_10", "0_78", "0_1_4", "1_42_6", "1_1_6", "0_1_5", "0_25_10", "0_41_10", "0_169_4", "0_169_5", "0_21_5", "0_22_5", "0_23_5", "0_24_5", "0_25_5", "0_41_5", "0_42_5" ]
+    }
+
+  ],
+  "notesAndAttachmentsHeaderSettings": [
+    {
+      "field": "name",
+      "displayName": "Name",
+      "isMandatory": false,
+      "isVisible": true,
+      "isRegFocusCol": true,
+      "attributes": {
+        "disable": true
+      },
+      "isReadOnly": true,
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false,
+      "cellTemplate": "<div class='ui-grid-cell-container-with-icons'><a href='javascript:void(0)' class='ui-grid-cell-container-name truncate' ng-click=\"grid.appScope.$parent.$parent.onCellClick(row, col)\">{{row.entity.name}}</a></div>"
+    },
+    {
+      "field": "type",
+      "displayName": "Type",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "attributes": {},
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "classification",
+      "displayName": "Classification",
+      "isMandatory": false,
+      "isVisible": true,
+      "type": "dropdown",
+      "isRegFocusCol": true,
+      "attributes": {
+        "options": [],
+        "model": "classification",
+        "dataKey": "Key",
+        "idKey": "Value"
+      },
+      "enableSorting": false,
+      "filterObject": {
+        "enableFiltering": true,
+        "filterKeys": [ "Key" ]
+      },
+      "enableColumnMenu": false
+    },
+    {
+      "field": "externalUser",
+      "displayName": "Shared Externally",
+      "isMandatory": false,
+      "isVisible": true,
+      "type": "checkbox",
+      "isReadOnly": true,
+      "attributes": {
+        "disable": true,
+        "readonly": true,
+        "model": "externalUser"
+      },
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "uploadDate",
+      "displayName": "Added On",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "attributes": {},
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "uploadBy",
+      "displayName": "Added By",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "attributes": {},
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "fileSize",
+      "displayName": "File size",
+      "isMandatory": false,
+      "isVisible": true,
+      "type": "textfield",
+      "isReadOnly": true,
+      "attributes": {},
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "description",
+      "displayName": "Description",
+      "isMandatory": false,
+      "isVisible": false,
+      "isReadOnly": true,
+      "attributes": {
+        "disable": true,
+        "readonly": true
+      },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "notesAndAttachmentId",
+      "displayName": "N & A id",
+      "isMandatory": false,
+      "isVisible": false,
+      "isReadOnly": true,
+      "attributes": {
+        "disable": true,
+        "readonly": true
+      },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "fileId",
+      "displayName": "File Id",
+      "isMandatory": false,
+      "isVisible": false,
+      "isReadOnly": true,
+      "attributes": {
+        "disable": true,
+        "readonly": true
+      },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    }
+  ],
+  "notesAndAttachmentsLineSettings": [
+    {
+      "field": "lineNumber",
+      "width": 150,
+      "displayName": "Line Number",
+      "isFixed": "Left",
+      "isTree": true,
+      "isVisible": true,
+      "isReadOnly": true,
+      "autoIncrement": true,
+      "filterObject": { "enableFiltering": true },
+      "type": "editable",
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "buyerItemNumber.code",
+      "width": 150,
+      "displayName": "Item Number",
+      "isFixed": "Left",
+      "isVisible": true,
+      "isReadOnly": true,
+      "filterObject": { "enableFiltering": true },
+      "type": "editable",
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "lineDescription",
+      "width": 150,
+      "displayName": "Description",
+      "isFixed": "Left",
+      "isVisible": true,
+      "isReadOnly": true,
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "notesAndAttachmentsDescription",
+      "width": 150,
+      "displayName": "Description",
+      "isFixed": "Left",
+      "isVisible": false,
+      "isReadOnly": true,
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "name",
+      "width": 200,
+      "displayName": "Name",
+      "isFixed": "Left",
+      "isVisible": true,
+      "isReadOnly": true,
+      "isRegFocusCol": false,
+      "filterObject": { "enableFiltering": true },
+      "enableCellEdit": false,
+      "cellTemplate": "<div class='ui-grid-cell-container-with-icons'><a href='javascript:void(0)' class='ui-grid-cell-container-name truncate' >{{row.entity.name}}</a></div>",
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "actions",
+      "width": 32,
+      "displayName": "",
+      "isFixed": "Left",
+      "isVisible": true,
+      "enableColumnMenu": false,
+      "isReadOnly": true,
+      "isRegFocusCol": false,
+      "enableCellEdit": false,
+      "cellTemplate": "<div><smart-dropdown config='{{dropDownConfig}}'><a href='javaScript:void(0)' class='marginLeft10 right dropdown-button' data-activates='notes-and-attachments-dropdown-{{row.uid}}' data-constrainwidth='false' data-alignment='right'><i class='icon iconSmall tooltipped' smart-tooltip position='bottom' delay='50' message='ADD'><svg><use xlink:href='#icon_MenuKebab'></use></svg></i></a><ul id='notes-and-attachments-dropdown-{{row.uid}}' class='dropdown-content'><li ng-if='row.entity.IsEditable==undefined||row.entity.IsEditable' class='dropdown-content-grp'><div class='dropdown-content-grp-title'><strong>Add</strong><i class='icon right'><svg><use xlink:href='#icon_DownChevron'></use></svg></i></div><ul class='dropdown-content-grp-list'><li><a href='javaScript:void(0)' ng-click='grid.appScope.$parent.$parent.onAddButtonClick(\"attachment\", row, col)'>{{'Upload File' | translate}}</a></li><li><a href='javaScript:void(0)' ng-click=\"grid.appScope.$parent.$parent.onAddButtonClick('note', row, col)\">{{'Notes' | translate}}</a></li><li><a href='javaScript:void(0)' ng-click='grid.appScope.$parent.$parent.onAddButtonClick(\"link\", row, col)'>{{'External Link'| translate}}</a></li></ul></li><li><a href='javascript:void(0)' ng-if='row.entity.type != \"Attachment\" && (row.entity.type==\"Note\" || row.entity.type==\"Link\")' ng-click='grid.appScope.$parent.$parent.onEditButtonClick(row, col)'><strong>{{'Edit' | translate}}</strong></a></li><li><a href='javascript:void(0)' ng-if='row.entity.type == \"Attachment\"' ng-click='grid.appScope.$parent.$parent.onDownloadButtonClick(row, col)'><strong>{{'Download' | translate}}</strong></a></li><li ng-if='row.entity.IsEditable==undefined||row.entity.IsEditable'><a href='javascript:void(0)' ng-if='row.entity.type==\"Note\" || row.entity.type==\"Link\" || row.entity.type==\"Attachment\"' ng-click='grid.appScope.$parent.$parent.onDeleteButtonClick(row, col)'><strong>{{'Delete' | translate}}</strong></a></li></ul></smart-dropdown></div>",
+      "enableSorting": false
+    },
+    {
+      "field": "type",
+      "displayName": "Type",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "filterObject": { "enableFiltering": true },
+      "attributes": {},
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "classification",
+      "displayName": "Classification",
+      "isMandatory": false,
+      "isVisible": true,
+      "type": "dropdown",
+      "isRegFocusCol": true,
+      "filterObject": {
+        "enableFiltering": true,
+        "filterKeys": [ "Key" ]
+      },
+      "attributes": {
+        "options": [],
+        "model": "classification",
+        "dataKey": "Key",
+        "idKey": "Value"
+      },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "externalUser",
+      "displayName": "Is External",
+      "isReadOnly": true,
+      "isMandatory": false,
+      "isVisible": true,
+      "filterObject": { "enableFiltering": true },
+      "attributes": {},
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "uploadDate",
+      "displayName": "Added On",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "filterObject": { "enableFiltering": true },
+      "attributes": {},
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "uploadBy",
+      "displayName": "Added by",
+      "isMandatory": false,
+      "isVisible": true,
+      "isReadOnly": true,
+      "type": "textfield",
+      "filterObject": { "enableFiltering": true },
+      "attributes": {},
+      "enableSorting": false,
+      "enableColumnMenu": false
+    },
+    {
+      "field": "fileSize",
+      "displayName": "File size",
+      "isMandatory": false,
+      "isVisible": true,
+      "type": "textfield",
+      "isReadOnly": true,
+      "attributes": {},
+      "filterObject": { "enableFiltering": true },
+      "enableSorting": false,
+      "enableColumnMenu": false
+    }
+  ]
+}

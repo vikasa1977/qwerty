@@ -1,0 +1,109 @@
+﻿<div class="icard-container z-depth-4">
+    <div class="icard-header">
+        <div class="modal-header padding0">
+            <div class="right">
+                <a href="javascript:void(0)" class="left" ng-click="supplierIcardlink()">
+		            <i class="left icon white-text iconSmall" smart-tooltip position="bottom" message="Company Profile">
+			            <svg>
+				            <use xlink:href="#icon_companyProf"></use>
+			            </svg>
+		            </i>
+                </a>
+                <a href="javascript:void(0)" class="right">
+                    <i class="right icon white-text iconSmall marginLeft0" smart-tooltip position="bottom" message="360 Dashboard">
+			            <svg>
+				            <use xlink:href="#icon_360Dashboar"></use>
+			            </svg>
+		            </i>
+                </a>
+            </div>
+	    </div>
+        <div class="icard-information paddingTop21 white-text">
+            <div class="icard-title left">
+                <span class="left paddingTop1 supplier_iCardName" title="{{supplierIcard.supplierName}}">{{supplierIcard.supplierName}}</span>
+                <i class="left icon white-text iconSmall paddingLeft10" smart-tooltip position="bottom" message="Diversity">
+                    <svg>
+                        <use xlink:href="#icon_DiversitySu"></use>
+                    </svg>
+                </i>
+              
+            </div>
+            
+            <span>{{supplierIcard.location}}</span>
+
+            <span class="single-line-text">
+                <span class="fontSize12 margin0 marginTop10">Status: {{supplierIcard.status}}</span>
+                </span>
+
+            <span class="single-line-text marginTop5">Ph: <span> {{supplierIcard.phone}}</span> <span class="seperator-line">|</span> Fax: <span> {{supplierIcard.fax}}</span></span>
+            <a href="javascript:void(0);" class="site-link marginTop5N">{{supplierIcard.site}}</a>
+            <!--<span class="markText chip default-location left margin0 marginTop10">{{supplierIcard.status}}</span>-->
+
+</div>
+        <div class="icard-logo z-depth-1">
+			<img ng-if="supplierIcard.logoUrl" ng-src="{{supplierIcard.logoUrl}}">
+			<span ng-if="!supplierIcard.logoUrl" class="company-name-logo">{{supplierIcard.supplierName[0] | uppercase }}</span>
+		</div>
+		
+    </div>
+    <div class="modal-content supplier-icard-container padding0">
+        <smart-scroll height="250px"> 
+           
+		    <div class="scroll-inner-container">
+                
+                <div class="icard-field relative">
+                    <div class="row" ng-if="!LoaderFlagController">
+		                <smart-textfield class="col s12 m6" label="Primary Contact" ng-model="supplierIcard.primaryContact" readonly="true"></smart-textfield>
+                        <div class="col s12 m6 blue-text icard-emailfield">
+                            <label>Email</label>
+                            <a href="mailto:{{supplierIcard.emailId}}">{{supplierIcard.emailId}}</a>
+                        </div>
+                        <smart-textfield class="col s12 m6" label="Code" ng-model="supplierIcard.code" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" label="D-U-N-S No" ng-model="supplierIcard.dunscode" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" label="Risk Type" ng-model="supplierIcard.suppilerrisktype" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 m6" label="Source Type" ng-model="supplierIcard.suppilersourcetype" readonly="true"></smart-textfield>  
+                        <div class="col s12 m6">
+                            <span class="grey-text fontSize12 displayBlock marginTop5N">{{supplierIcard.businessunit.displaytext}}</span>
+							<a href="javascript:void(0);" ng-click="treeOpenCallback('iCardBU')">
+								<span class="catpopup-title"><span class="text-ellipsis">TECHNOLOGY SOLUTIONS </span><span>+ 4 More</span></span>
+							</a>
+                        </div>
+                        <div class="col s12 m6">
+                            <span class="grey-text fontSize12 displayBlock marginTop5N">{{supplierIcard.diversityStatus.displaytext}}</span>
+							<a href="javascript:void(0);" ng-click="treeOpenCallback('iCardDiversity')">
+								<span class="catpopup-title"><span class="text-ellipsis">Minority Business Enterprise (MBE) - Asian-Indian American</span></span>
+							</a>
+                        </div>
+	                </div>
+
+                    <smart-global-loader ng-if="LoaderFlagController" config="LineLoaderFlag"></smart-global-loader>
+
+                </div>
+                
+            </div>
+		</smart-scroll>
+        <div class="icard-container-row">
+            <div class="icard-container-box relative" ng-class="{'width33P' : supplierIcard.countIndicator.length === 3,'width50P' : supplierIcard.countIndicator.length === 2,'width100P' : supplierIcard.countIndicator.length === 1}" ng-repeat="content in supplierIcard.countIndicator">
+                <div class="icard-container-count" ng-if="!subLoaderFlagController" ><a href="javascript:Lvoid(0)" class="cusror-default">{{content.cardCount}}</a></div>
+			    <div class="icard-container-title" ng-if="!subLoaderFlagController"><span>{{content.cardTitle}}</span></div>
+                <smart-global-loader ng-if="subLoaderFlagController" config="subLineLoaderFlag"></smart-global-loader>
+		    </div>
+        </div>
+	</div>
+    <div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12 right right-align padding0">
+                <a href="javaScript:void(0)" ng-click="showCommentsPopupCallback(e)" class="paddingLeft20 paddingTop6 left">
+                    <i class="icon iconSmall blue-text" message="Comments" smart-tooltip data-position="right" delay="50">
+                        <svg><use xlink:href="{{ commentIcon }}"></use></svg>
+                    </i>
+                </a>
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"Close"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

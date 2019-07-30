@@ -1,0 +1,192 @@
+Note: 1) numbers are increamental 2) once input provided count circle gets filled 3) text inside collapsible-header & input field inside collapsible-body whill changes as per database values 
+<!-- questionnaire list HTML -->
+<div class="accountDetails">
+    <ul class="collapsible" data-collapsible="expandable">
+        <li>
+            <div class="collapsible-header quetionHeader mandatoryQuestions">
+                <div class="quetionCount">1</div>
+                <div class="quetionContent">Legal Entity</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s10 m8 l4" ng-include="'shared/components/views/forms/select01.html'"></div>
+                    </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader mandatoryQuestions">
+                <div class="quetionCount">2</div>
+                <div class="quetionContent">Short Description</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s10 m8 l4" ng-include="'shared/components/views/forms/textarea.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader mandatoryQuestions">
+                <div class="quetionCount">3</div>
+                <div class="quetionContent">Anticipated project cost / annual spend</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s8 m6 l4" ng-include="'shared/components/views/forms/select01.html'"></div>
+                    <div class="input-field col s8 m6 l4" ng-include="'shared/components/views/forms/inputField.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+             
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader mandatoryQuestions">
+                <div class="quetionCount">4</div>
+                <div class="quetionContent">Type of Purchase</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s2" ng-include="'shared/components/views/forms/select01.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader mandatoryQuestions">
+                <div class="quetionCount">5</div>
+                <div class="quetionContent">Date Needed By</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s4" ng-include="'shared/components/views/forms/inputField.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader filledQuestions">
+                <div class="quetionCount">6</div>
+                <div class="quetionContent">Suggested Vendors</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s12">
+                        <modal template-url="modalTemplate.html" title="Model Example"></modal>
+                    </div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader">
+                <div class="quetionCount">7</div>
+                <div class="quetionContent">New Vendors (Specify vendor names if vendor is not available on above list of suggested vendor)</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s12" ng-include="'shared/components/views/forms/textarea.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader ">
+                <div class="quetionCount">8</div>
+                <div class="quetionContent">Additional Information (SOW Packet, Specs, etc)</div>
+            </div>
+            <div class="verticalLineSpace topSpace"></div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="input-field col s12" ng-include="'shared/components/views/forms/textarea.html'"></div>
+                    <div class="col s12 marginBtm10" ng-include="'shared/components/views/attachment/attachment.html'"></div>
+                </div>
+            </div>
+            <div class="verticalLineSpace bottomSpace"></div>
+        </li>
+        <li>
+            <div class="collapsible-header quetionHeader relative">
+                <div class="quetionCount">9</div>
+                <div class="quetionContent">
+                    Are you requesting Single/Sole source?<i class="icon iconSmall blue-text informationIconWithQuestion dev_informationIconWithQuestion">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="informationOnInfo">
+                    <span class="triangleToUp"></span>
+                    <p>Justification and approval are required, if this is a single or sole source request. Generation requests must be approved at the Regional Director level, all other business units at the Director level.</p>
+                    <p>Single Source - The practice of using one source, among others in a competitive marketplace which, for justifiable reason, is found to be most advantageous for the purpose of fulfilling a given procurement need.</p>
+                    <p>Sole Source - A sole source purchase is one where there is only one vendor capable of providing an item or service, and therefore it is not possible to obtain competitive bids.</p>
+                </div>
+            </div>
+            <div class="collapsible-body quetionBody">
+                <div class="quetionBodyContainer row">
+                    <div class="padding10">
+                        <input onclick="$('.dependantQuestions').slideDown()" class="with-gap" name="group3" type="radio" id="radioYes" />
+                        <label for="radioYes">Yes</label>
+                        <input onclick="$('.dependantQuestions').slideUp()" class="with-gap" name="group3" type="radio" id="radioNo" checked />
+                        <label class="marginLeft30" for="radioNo">No</label>
+                    </div>
+                    <div class="dependantQuestions marginTop20" style="display:none;">
+                        <div class="row">
+                            <div class="col s12">Detailed Reasoning/Explanation (REQUIRED)</div>
+                            <div class="input-field col s12" ng-include="'shared/components/views/forms/textarea.html'"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">Please ensure you have selected Request approver.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<!-- Js Code -->
+<script>
+ $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+
+    $('select').material_select();
+
+    $('.dev_informationIconWithQuestion').click(function (e) {
+        e.stopPropagation();
+        $('.informationOnInfo').fadeToggle();
+    });
+    $('.informationOnInfo').click(function (e) {
+        e.stopPropagation();
+    });
+    $(document).click(function () {
+        $('.informationOnInfo').fadeOut();
+    });
+
+    $('.quetionBodyContainer select, .quetionBodyContainer input, .quetionBodyContainer textarea').on('change', function () {
+        var val = $(this).val();
+        if (val != "") {
+            $(this).parents('.quetionBody').siblings('.collapsible-header').addClass('filledQuestions');
+        } else {
+            $(this).parents('.quetionBody').siblings('.collapsible-header').removeClass('filledQuestions');
+        }
+    })
+ });
+</script>
+
+
+
+
+
+    

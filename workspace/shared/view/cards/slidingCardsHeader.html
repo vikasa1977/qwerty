@@ -1,0 +1,65 @@
+<!-- card header template-->
+<!--<i class="card-header-icon icon">
+    <svg>
+        <use xlink:href={{cardBucketImageByDocType}}></use>
+    </svg>
+</i>-->
+
+<div ng-init="isMoving=false" class="apply-height-100-percent" ng-class="{'open':isMoving,'close':!isMoving}">
+    <div class="center collapsible-header-drag-wrap relative">
+        <a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon white-text">
+            <svg>
+                <use xlink:href="#icon_Drag"></use>
+            </svg>
+        </a>
+    </div>
+    <div class="apply-height-100-percent relative">
+        
+        <!--<div ng-if="notificationIcon">
+            <ul class="card-header-btn-option">
+                <li>
+                  <a href="javaScript:void(0);" ng-click="favouriteSup = !favouriteSup"  class="waves-effect waves-light white-text _favIcon iconStar">
+                        <i class="icon iconSmall">
+                            <svg ng-if="!favouriteSup" smart-tooltip message="Mark as Favourite" position="bottom">
+                                <use xlink:href="#icon_Star"></use>
+                            </svg>
+                            <svg ng-if="favouriteSup" smart-tooltip message="Unmark as Favourite" position="bottom">
+                                <use xlink:href="#icon_StarFill"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>-->
+        <div ng-if="eachCardContent.showFilterCard">
+            <div class="work-count" ng-if="eachCardContent.isfilteredCard" ng-class="{'isfilteredCount':eachCardContent.isfilteredCard}" smart-infotip template-url="filterInfoTemplate.html" hide-on-doc-hover="true" is-fixed="true" position="top" custom-style="true">
+                <i class="icon iconSmall filterOnOffIcon">
+                    <svg class="outlineNone">
+                        <use xlink:href="#icon_FilterOnOff"></use>
+                    </svg>
+                </i>
+                <span ng-bind="{{eachCardContent.count | nineplus:3}}"></span>
+            </div>
+            <div class="work-count" ng-if="!eachCardContent.isfilteredCard" ng-class="{'isfilteredCount':eachCardContent.isfilteredCard}" ng-bind="{{eachCardContent.count | nineplus:3}}"></div>
+        </div>
+            <div class="cards-title-container">
+                <div class="cards-title">
+                    <span class="card-header-title">{{eachCardContent.translatedGroupname}}</span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+<script id="filterInfoTemplate.html" type="text/ng-template">
+    <div class="padding15 filterPopover">
+    <p class="margin0">Showing 210 results out of 1023</p>
+        <div class="filterPopoverCont">
+            <span class="left">Filter(s): </span>
+            <a href="javascript:void(0);" class="left truncate filterText" title="Delivery status">&nbsp;<spann>Delivery status... </spann>+ 10 More</a>
+            <!--<a href="javascript:void(0);" class="left"> + 10 More</a>-->
+        </div>
+        <br />
+    <a href="javascript:void(0);" class="displayBlock paddingTop5">Remove Filter</a>
+    </div>
+</script>

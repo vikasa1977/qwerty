@@ -1,0 +1,49 @@
+<div class="row clearfix">
+    <smart-scroll height="100%" v-offset="173px">
+        <ul class="collection">
+            <li ng-repeat="item in external" class="collection-item borderBtmLight">
+                <a class="collection-item avatar" item="{{item}}">
+                    <span class="title cursorPointer" ng-click="viewAnnouncementPopupCall(item, tabData, $index)">{{item.title}}</span>
+                    <p>
+                        <span class="announce-dt-attach">{{item.publishDate}} <i class="dt-attact-sep">|</i> <i class="icon"><svg><use xlink:href="#icon_Clip"></use></svg></i> {{item.attachments.length}} Attachments.</span>
+                        <span class="announce-desc">
+                            {{item.discription}}...
+                        </span>
+                    </p>
+                </a>
+                <div class="row marginBtm0">
+                    <ul class="announce-actions">
+                        <li class="left">
+                            <a href="javascript:void(0)" class="icons-ops waves-effect waves-block waves-light waves-circle" type="large" ng-click="editAnnouncementPopupCallback(item,tabData,$index)">
+                                <i class="icon">
+                                    <svg>
+                                        <use xlink:href="#icon_Edit"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="right">
+                            <a href="javascript:void(0)" class="icons-ops waves-effect waves-block waves-light waves-circle" ng-click="deleteAnnouncementCall($index,'external',tabData)">
+                                <i class="icon">
+                                    <svg>
+                                        <use xlink:href="#icon_TrashCan"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="marginTop75 center-align" ng-if="external.length == 0">No Announcements Available</div>
+    </smart-scroll>
+
+    <a href="javascript:void(0)" class="white-text nav-bottom-stick waves-effect waves-block waves-light add-announce" ng-class="{'disabledAddAnnouncement' : isAddAnnouncementClicked}" ng-click="addAnnouncementPopupCallback({type:'External'},tabData, $event)">
+        <i class="icon iconSmall lineHeightInherit heightAuto left marginRight15">
+            <svg class="marginTop10">
+                <use xlink:href="#icon_CirclePlus"></use>
+            </svg>
+        </i>
+        <span class="reach-us">Add Announcements</span>
+    </a>
+</div>

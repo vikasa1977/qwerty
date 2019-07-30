@@ -1,0 +1,15 @@
+﻿<div class="row marginBtm0">
+	<smart-textfield readonly="true" ng-model="parentScope.basicDetail.ruleSelected.title" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Rules Selected"></smart-textfield>
+	<smart-select preview="true" disable="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Rule Category" is-mandatory='true' ng-model="parentScope.basicDetail.businessCase" options="businessCaseOption" datakey="name"></smart-select>  
+	<smart-select preview="true" disable="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Document Group" is-mandatory='true' ng-model="parentScope.basicDetail.docGroup" options="docGroupOption" datakey="name"></smart-select>  
+	<smart-select preview="true" disable="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Document Type" is-mandatory='true' ng-model="parentScope.basicDetail.docType" options="docTypeOptions" datakey="name"></smart-select>
+	
+</div>
+<div class="row marginBtm0">
+    <div class="col s12 marginBtm10">
+        Applied Filters
+    </div>
+    <smart-typeahead class="col s12 m4 l4 xl3 xxl2 line-height-manager" is-mandatory="true" multiselect="true" addnew="false" show-lookup="true" titleofmodel="{{ 'Cost Center' | translate }}" placeholder="" ng-model="parentScope.basicDetail.costCenter.selectedOpt" options="costCenterOpt" filterkeys="['name']" label="{{ 'Cost Center (equal to)' | translate }}" lookup-hide="onCMPopupHideCallback()"></smart-typeahead>
+    <smart-typeahead class="col s12 m4 l4 xl3 xxl2 line-height-manager" is-mandatory="true" multiselect="true" addnew="false" show-lookup="true" titleofmodel="{{ 'Action Type' | translate }}" placeholder="" ng-model="parentScope.basicDetail.actionType.selectedOpt" options="summaryactionType" filterkeys="['name']" label="{{ 'Action Type (equal to)' | translate }}" lookup-hide="onCMPopupHideCallback()"></smart-typeahead>
+
+</div>

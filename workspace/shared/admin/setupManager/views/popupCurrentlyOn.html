@@ -1,0 +1,30 @@
+﻿<div class="scrollableModel">
+    <div class="modal-header">
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_FilterAppli"></use>
+            </svg>
+        </i>
+        <span class="title">
+            {{'Currently On' || translate}}
+        </span>
+    </div>
+    <div class="modal-content paddingTop5 paddingBottom0 paddingRight0">
+        <div class="model_body ">
+            <smart-scroll height="250px">
+                <div ng-repeat="filterItem  in filterItems">
+                    <p>
+                        {{filterItem.filterKey}}
+                    </p>   
+                </div>
+            </smart-scroll>
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s9 right-align right">
+                <smart-button flat="true" class="modal-close marginRight2 right" config='{"title":"CLOSE"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

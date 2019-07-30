@@ -1,0 +1,76 @@
+﻿<div class="scrollableModel">
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+                <a href="javascript:void(0)" ng-class="showMeM" ng-click="columnSearchKey='';hideSearchM()" ng-show="hideCloseM" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" message="Close">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield ng-model="columnSearchKey.title" placeholder="Search" class="input-field" focus="focusSearchM"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchM();focusSearchM=true">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="left icon iconSmall grey-text">
+            <svg><use xlink:href="#icon_Lookup"></use></svg>
+        </i>
+        <span class="title">Select Suppliers ({{supplierDatacount.count}}/{{questionnaireDataList.supplierData.options.length}})</span>
+    </div>
+    <div class="modal-content padding0 supFixedTable">
+        <smart-scroll height="330px" is-fixed-header="true">
+            <table class="fixedTableHeaderShadow bordered sTable">
+                <thead ng-if="selectSupplierFilterData.length">
+                    <tr>
+                        <th class="left-align" style="width:55px;" ng-class="{'filled-partial' : fillpartialcontentList.ischeck }">
+                            <smart-checkbox class="left paddingTop5" fill="true" ng-model="selectSupplierDataHead.ischeck" on-change="checkedAllCheck(selectSupplierDataHead.ischeck, selectSupplierData, fillpartialcontentList, supplierDatacount)"></smart-checkbox>
+                        </th>
+                        <th class="left-align paddingLeft3">
+                            <span class="left marginTop4">Supplier Name</span>
+                            <a href="javascript:void(0)" ng-click="sort('name')" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use ng-if="sortKey!='name'" xlink:href="#icon_Sort"></use>
+                                        <use ng-if="sortKey=='name'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="selectSupplier in selectSupplierData | orderBy:sortKey:reverse | filter:{name: columnSearchKey.title} as selectSupplierFilterData track by $index">
+                        <td style="width:55px;" class="left-align">
+                            <smart-checkbox class="left paddingTop5" ng-model="selectSupplier.ischeck" on-change="onChangecontentList(selectSupplierDataHead, selectSupplierData, fillpartialcontentList, supplierDatacount)"></smart-checkbox>
+                        </td>
+                        <td class="left-align paddingLeft3">
+                            <div class="marginTop6">{{selectSupplier.name}}</div>
+                        </td>
+                    </tr>
+                    <tr ng-if="!selectSupplierFilterData.length">
+                    <td colspan="2">
+                        <div  class="norecordfoundContainer">
+                        <div class="norecordfoundContainer-title">
+                            <span>No records found</span>
+                        </div>
+                    </div></td></tr>
+                </tbody>
+            </table>
+        </smart-scroll>
+            
+        
+    </div>
+    <div class="modal-footer modal-footer-normalScroll">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}' on-click="backToScoreard()"></smart-button>
+                    <smart-button flat="true" class="left " disable="supplierDatacount.count > 1 ? false : true" config='{"title":"DONE"}' on-click="supplierSelectionFn(selectSupplierData,questionnaireDataList.supplierData)"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="panelBox-withSpace panelBox--filter">
+	<div class="panelBox-content">
+		<div class="panelBox-header clearfix row marginBottom0">
+			<div class="col s12">
+				<div class="left fontSize16">FILTER</div>
+				<!--<div class="panelBox-header--action">
+					<smart-dropdown config="{{dropDownConfig}}">
+						<a href="javascript:void(0)" data-activates="shareDropDown" class="waves-circle waves-effect waves-dark-light dropdown-button" smart-tooltip message="Share" position="bottom" data-constrainwidth="false">
+							<i class="icon iconSmall">
+								<svg><use xlink:href="#icon_Share"></use></svg>
+							</i>
+						</a>
+						<ul id="shareDropDown" class="dropdown-content">
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4">
+									<i class="icon iconSmall dropdown-button right" data-activates="sharePopOver" smart-tooltip position="bottom" data-constrainwidth="true">
+										<svg><use xlink:href="#icon_Email"></use></svg>
+									</i>{{ 'Email' || translate }}
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4">
+									<i class="icon iconSmall dropdown-button right" data-activates="sharePopOver" data-position="bottom" data-constrainwidth="true">
+										<svg><use xlink:href="#icon_Chat"></use></svg>
+									</i>{{ 'Chat' || translate }}
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)" class="grey-text text-darken-4">
+									<i class="icon iconSmall dropdown-button right" data-activates="sharePopOver" data-position="bottom" data-constrainwidth="true">
+										<svg><use xlink:href="#icon_Discuss"></use></svg>
+									</i>{{ 'Discussion Forum' || translate }}
+								</a>
+							</li>
+						</ul>
+					</smart-dropdown>
+					<a href="javascript:void(0)" class="waves-circle waves-effect waves-dark-light" smart-tooltip message="Reset" position="bottom">
+						<i class="icon iconSmall">
+							<svg><use xlink:href="#icon_FilterReset"></use></svg>
+						</i>
+					</a>
+					<a href="javascript:void(0)" class="waves-circle waves-effect waves-dark-light" ng-click="toggleFilter(e);" smart-tooltip message="Close" position="bottom">
+						<i class="icon iconSmall">
+							<svg><use xlink:href="#icon_Close"></use></svg>
+						</i>
+					</a>
+				</div>-->
+			</div>
+		</div>
+		<div class="panelBox-body padding0">
+			<div class="row margin0">
+				<div class="col s12 padding0 tabHolderWrap">
+					<smart-tabs tab-config="{{teamMemberFilterTabData}}" width="60%" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+					<div class="tabHolder">
+						<smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panelBox-footer row footerSpace ">
+			<smart-button flat="true" class="modal-close footerBtn right" config='{"title":"APPLY"}' ng-click="applyCurrentFilter(e);"></smart-button>
+			<smart-button flat="true" class="modal-close footerBtn right" config='{"title":"CANCEL"}' ng-click="toggleFilter(e);"></smart-button>
+		</div>
+	</div>
+</div>
+
+
+
+
+

@@ -1,0 +1,89 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap z-depth-0" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <!--subheader title -->
+          <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkEdit"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{'ORDER PROCESSING WORKBENCH' || translate}}</span>
+            </div>
+        <!--subheader Actions -->
+        <div class="extra-nav-action">
+            <ul class="right extra-nav-right-icon">
+                <li class="extra-nav-icon">
+                    <a class="waves-circle sh-icon white-text waves-effect waves-light" smart-tooltip position="Down" delay="250" message="{{'Download' || translate }}">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_Download"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+	
+</div>
+
+<!-- page content -->
+<section class="white">
+    <div class="row">
+        <smart-tabs tab-config="{{masstabsData}}" class="tabShadow"></smart-tabs>
+    </div>
+</section>
+<!-- footer bar -->
+<footer class="page-footer" ng-init="ishidden = false" ng-show="ishidden" ng-class="isVisible?'bounceInUp animated':'bounceOutDown animated'">
+    <div class="row">
+        <div class="col s12 right-align">
+
+            <div class="btn-group right">
+                <smart-button config='{"title":selectedAction}' ng-class="btn-first-button" ng-click="selectReqPopupCallback(e)" disable="false"></smart-button>
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a data-activates='exportActionBtn' class="white-text dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                        </i>
+                    </a>
+                    <ul id='exportActionBtn' class='dropdown-content footer-dropdown-for-landing'>
+                        <li ng-repeat="item in exportActions">
+                            <a href="javascript:void(0)" class="black-text" ng-click="selectedLink(item)"> {{  item.lable }}</a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+            <!-- button action -- reopen Order -->
+            <div ng-if="reOpenOrderdv" class="right marginTop5 marginRight30">
+                <span class="marginRight15">{{'Re-Open for' || translate }} :</span>
+                <smart-checkbox label="{{'Invoicing' || translate }}" fill="true" class="right input-label-black"></smart-checkbox>
+                <smart-checkbox label="{{'Receiving' || translate }}" fill="true" class="right input-label-black marginRight30"></smart-checkbox>
+
+            </div>
+
+            <!-- button action -- close Order -->
+            <div ng-if="closeOrder" class="right marginTop5 marginRight30">
+                <span class="marginRight15">{{'Close for' || translate }} :</span>
+                <smart-checkbox label="{{'Invoicing' || translate }}" fill="true" class="right input-label-black"></smart-checkbox>
+                <smart-checkbox label="{{'Receiving' || translate }}" fill="true" class="right input-label-black marginRight30"></smart-checkbox>
+
+            </div>
+
+            <!-- button action -- Disable Order -->
+            <div ng-if="disableAccural" class="right marginTop5 marginRight30">
+                <span class="marginRight15">{{'Close for' || translate }} :</span>
+                <smart-checkbox label="{{'Invoicing' || translate }}" fill="true" class="right input-label-black"></smart-checkbox>
+                <smart-checkbox label="{{'Receiving' || translate }}" fill="true" class="right input-label-black marginRight30"></smart-checkbox>
+
+            </div>
+        </div>
+    </div>
+</footer>

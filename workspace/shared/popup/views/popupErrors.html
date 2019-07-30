@@ -1,0 +1,18 @@
+<div>
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left marginTop2">
+            <svg>
+                <use xlink:href="#icon_Warning"></use>
+            </svg>
+        </i>
+        <span class="title">
+            LIST OF ERRORS
+        </span>
+    </div>
+    <div class="modal-content is-scrolled padding0">
+        <smart-list model="{{errors}}" style-class="collection" item-class="collection-item" template="errorTemplate.html" height="300px"></smart-list>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <smart-button flat="true" class="modal-close" config='{"title":"CLOSE"}'></smart-button>
+    </div>
+</div>

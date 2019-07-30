@@ -1,0 +1,35 @@
+<div id="uploadDocPopup" ng-controller="uploadAttachment">
+    <div ng-controller="uploadAttachmentPop">
+        <div class="modal-header clearfix paddingBtm0">
+            <i class="icon grey-text iconSmall left" ng-if="!!uploadIcon">
+                <svg><use xlink:href="{{uploadIcon}}"></use></svg>
+            </i>
+            <i class="icon grey-text iconSmall left" ng-if="!uploadIcon">
+                <svg><use xlink:href="#icon_Attachment"></use></svg>
+            </i>
+            <span class="fontsize16 black-text">{{ uploadTitle  || 'ADD DOCUMENTS' | translate }} </span>
+            <a href="javascript:void(0)" class="right">
+                <i smart-tooltip position="bottom" message="Download Template" class="icon iconSmall blue-text">
+                    <svg><use xlink:href="#Icon_DownloadTem"></use></svg>
+                </i>
+            </a>
+        </div>
+        <div class="modal-content is-scrolled uploadpopupmodel">
+            <div class="model_body">
+                <smart-drag-drop-upload></smart-drag-drop-upload>
+            </div>
+        </div>
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12 padding0">
+                    <div class="right">
+                        <smart-button flat="true" class="left modal-close" config='{"title": "CANCEL" }' on-click="emptyNewFile();"></smart-button>
+                        <div class="right" ng-class="{'modal-close': newFile.length}">
+                            <smart-button flat="true" class="left" disable="!newFile.length" config='{"title": attachmentButtonName  || "DONE"  }' on-click="link(); attachAction(); emptyNewFile();"></smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

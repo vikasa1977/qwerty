@@ -1,0 +1,15 @@
+<div class="row" ng-init="toleranceOpts=[{'title':'No Limit'}, {'title':'Set Limit'}];toleranceSelectedOption={'title':'No Limit'}">
+	<div class="row marginTop15">
+		<div class="col s12 padding15">Excessive Receiving Tolerance</div>
+	</div>
+	<div class="row">
+		<span class="fontsize16 col s6 m4 l3 xl2 xxl1">Material Items</span>
+		<smart-radio gap="true" class="col s6 m5 l4 xl4 xxl3" ng-model="toleranceSelectedOption" options="toleranceOpts"></smart-radio>
+		<smart-textfield class="col s12 m5 l3 xl3 xxl2" label="Set Limit (%)"></smart-textfield>
+	</div>
+	<div class="row">
+		<span class="fontsize16 col s6 m4 l3 xl2 xxl1">Service Items</span>
+		<smart-radio gap="true" class="col s6 m5 l4 xl4 xxl3" ng-model="toleranceSelectedOption" options="toleranceOpts"></smart-radio>
+		<smart-textfield class="col s12 m4 l3 xl3 xxl2" label="Set Limit (USD)"></smart-textfield>
+	</div>
+</div>

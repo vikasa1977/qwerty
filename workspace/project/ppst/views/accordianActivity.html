@@ -1,0 +1,296 @@
+<div class="milestoneActivityContainer">
+    <div class="borderTopLight" ng-if="!isEmptyActivity">
+
+        <div class="row">
+            <div class="col s8 left paddingLeft0">
+                <ul class="activityHeaderLeftNav left marginTop0 paddingTop0">
+                    <li class="paddingTop10" ng-if="detailedItemData.activities.length > 0" ng-class="{'filled-partial' : !delActEnabled && !activities.selectAll}">
+                        <smart-checkbox ng-model="activities.selectAll"
+                                        ng-change="selectAllActivity(activities.selectAll)">
+                        </smart-checkbox>
+                    </li>
+                    <li ng-show="showExpanded">
+                        <a href="javascript:void(0)" ng-click="expColAllActivitiesCnt('collapseAll');expColAllActivities('collapseAll')">
+                            <i class="icon iconSmall" smart-tooltip message="Collapse All" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Expand"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                    <li ng-show="!showExpanded" ng-if="detailedItemData.activities.length > 0">
+                        <a href="javascript:void(0);" ng-click="expColAllActivitiesCnt('expandAll');expColAllActivities('expandAll')">
+                            <i class="icon iconSmall" smart-tooltip message="Expand All" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Collapse"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="activityHeader fontSize16 left marginTop8">ACTIVITIES ({{detailedItemData.activities.length}})</div>
+            </div>
+            <div class="col right">
+                <ul class="activityHeaderNav">
+
+                    <li>
+                        <smart-dropdown config="{{dropDownConfig}}" ng-if="detailedItemData.activities.length > 0" fixed="true">
+                            <a href="javascript:void(0);" class="blue-text dropdown-button" smart-tooltip delay="50" message="{{filtered}}" data-activates="activityFilter" data-alignment="left" data-constrainwidth="false">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter" ng-show="!isApplyFilter"></use>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_FilterAppli" ng-show="isApplyFilter"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul id='activityFilter' class='dropdown-content dropdown-content-large  dd-close-off'>
+                                <!--<li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                    <div class="col s12 m6 multiple-menu-action staggeredRight" ng-repeat="dataT in activityfilterOpt track by $index">
+                                        <smart-checkbox ng-change="activityFilterChecked()" ng-model="dataT.modelData" label="{{dataT.filterName}}"></smart-checkbox>
+                                    </div>
+                                </li>
+                                <li class="dropdown-content-footer is-scrolled">
+                                    <div class="right">
+                                        <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CLOSE</a>
+                                        <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown" ng-class="{'disabled' : appDisActFilter}" ng-click="applyFiltering()">APPLY</a>
+                                    </div>
+                                </li>-->
+                                <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                    <smart-scroll height="230px" class="inlineList">
+                                        <div class="listHolder" ng-style="listHolderWidth">
+                                            <div class="left listHolder-width200" ng-repeat="dataT in activityfilterOpt track by $index">
+                                                <div class="col s12 inlineList-item staggeredRight">
+                                                    <smart-checkbox ng-change="activityFilterChecked()" ng-model="dataT.modelData" label="{{dataT.filterName}}"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-scroll>
+                                </li>
+                                <li class="dropdown-content-footer is-scrolled">
+                                    <div class="right">
+                                        <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CLOSE</a>
+                                        <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown" ng-class="{'disabled' : appDisActFilter}" ng-click="applyFiltering()">APPLY</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </li>
+                    <li ng-if="detailedItemData.activities.length > 0">
+                        <a href="javascript:void(0)" ng-click="deleteActivities()" ng-class="{'disabled' : delActEnabled}">
+                            <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" ng-click="addEditActivity()">
+                            <i class="icon iconSmall" smart-tooltip message="Add Activity" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_CirclePlus"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </li>
+
+                    <li ng-if="detailedItemData.activities.length > 0">
+
+                        <smart-dropdown config="{{dropDownConfig}}" ng-if="detailedItemData.activities.length > 0">
+                            <a href="javascript:void(0);" class="blue-text dropdown-button" smart-tooltip position="bottom" delay="50" message="Actions" data-activates="activityActions" data-constrainwidth="false" ng-class="{'disabled' : delActEnabled}">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_MenuKebab"></use>
+
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul id='activityActions' class='dd-close-off dropdown-content collection noBorder'>
+                                <li ng-repeat="action in actions">
+                                    <a href="javascript:void(0);" ng-click="bulkActivities('active', action.options)">
+                                        {{action.options}}
+                                     </a>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+
+
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="milestoneActivity padding0" ng-class="{'collapsible': true}" data-collapsible="expandable" ng-if="detailedItemData.activities.length > 0">
+        <div ng-repeat="item in detailedItemData.activities track by $index">
+            <smart-checkbox class="left paddingTop8 paddingLeft8" fill="true" ng-model="item.isItemChecked"
+                            ng-click="selectActivity(item.isItemChecked, {'data' : item,'id' : item.id})">
+            </smart-checkbox>
+            <div class="row collapsible-header" ng-class="{'active': item.showExpanded}" ng-click="togleActivityExpansion($index, item.showExpanded);expandOneAccord($event)">
+                <i class="icon iconSmall dirArrow">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DownChevron"></use>
+                    </svg>
+                </i>
+                <div class="col paddingRight5">
+                    <div class="activityTitle cursorDefault" title="{{item.activityName}}" ng-class="item.type == 'Mandatory' ? 'mandatoryMilestoneTitle' : 'truncate'">{{item.activityName}}</div>
+                </div>
+                <div>
+                    <i class="icon iconSmall blue-text titleIcon marginRight10 marginLeft5" smart-infotip message="Info about the activity" position="top">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="s4 m4 l4 right">
+                    <smart-dropdown config="{{statusDropdownConfig}}" on-hide="resetActivityStatus(item.id)">
+                            <!-- <a class='dropdown-button btn-in-header' href='javascript:void(0)' onclick="event.stopPropagation();" data-activates='status-dropdown-{{$index}}' data-constrainwidth="true" ng-class="{'statusCompleted': (completionStatus[item.id] == 100), 'statusNotComplete' : (completionStatus[item.id] < 100)}">
+                                {{completionStatus[item.id] == 100 ? "Completed" : (completionStatus[item.id] == 0) ? "Not Started" : completionStatus[item.id] +"%" }}
+                            </a> -->
+                            <a class='dropdown-button btn-in-header' href='javascript:void(0)' onclick="event.stopPropagation();" ng-click="setActivityStatus(completionStatus[item.id])" data-activates='status-dropdown-{{$index}}' data-constrainwidth="true" ng-class="{'statusCompleted': (completionStatus[item.id]==100 || completionStatus[item.id] == 'Completed'), 'statusNotComplete' : (completionStatus[item.id] < 100)}">
+                                {{completionStatus[item.id] > 0 && completionStatus[item.id] < 100 ? "In Progress: " + completionStatus[item.id] +"%" : (completionStatus[item.id] == 100 || completionStatus[item.id] == 'Completed') ? "Completed" : "Not Started" }}
+                            </a>
+                            <!--<div id="status-dropdown-{{
+                        </a>
+                        <div id="status-dropdown-{{$index}}" class="dropdown-content statusLookup lookup-popup fontNormal lookup-popup-quantity dd-close-off paddingLeft25">
+                                <input class="statusSlider" type="range" min="0" max="100" data-show-value="true" ng-model="completionStatus[item.id]" />
+                                <span class="completionPercent">{{completionStatus[item.id]}}%</span>
+                        </div>-->
+                        <!-- <div id="status-dropdown-{{$index}}" class="dropdown-content statusLookup dd-close-off">
+                            <smart-textfield class="col s4 paddingLeft0 paddingRight0" label="" ng-model="completionStatus[item.id]" type="text" maxlength="3" smart-character-restrict patternreg="[^0-99]"></smart-textfield>
+                            <span class="fontSize14 dIBlock marginTop3">%</span>
+                            <div class="right dIBlock marginLeft15">
+                                <a href="javascript:void(0)">
+                                    <i class="icon iconSmall blue-text paddingRight0 action-close-dropdown">
+                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <i class="icon iconSmall blue-text addBulkRow paddingRight0 action-close-dropdown">
+                                        <svg><use xlink:href="#icon_Check"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- Added for PPST2-2422 -->
+                        <div id="status-dropdown-{{$index}}" class="dropdown-content paddingBtm10 paddingTop0 dd-close-off statusLookup">
+                            <div class="relative padding0">
+                                <smart-radio gap="true" id="status-radio-{{$index}}" ng-model="selectedActivityProgress" options="activityProgressOptions" datakey="name"></smart-radio>
+                                <div class="statusInputField">
+                                    <span class="fontSize14 dIBlock marginTop3 right"  ng-if="selectedActivityProgress.code == 'inprogress'">%</span>
+                                    <!-- <smart-textfield class="col s6 paddingLeft0 paddingRight0 right" label="" ng-model="completionStatus[item.id]" type="number" min="1" max="2" ng-if="selectedActivityProgress.code == 'inprogress'"></smart-textfield> -->
+                                    <smart-textfield class="col s6 paddingLeft0 paddingRight0 right" label="" ng-model="completionStatus[item.id]" type="text" maxlength="2" smart-character-restrict patternreg="[^0-9]" validationerg="^(\d?[^1-9]|[^1-9]0)$" ng-if="selectedActivityProgress.code == 'inprogress'"></smart-textfield>
+                                </div>
+                                <div class="right">
+                                    <a href="javascript:void(0)" class="left dd-close action-close-dropdown linkAsButton waves-effect waves-light" ng-click="resetActivityStatus(item.id)">CANCEL</a>
+                                    <a href="javascript:void(0)" class="left dd-close action-close-dropdown linkAsButton waves-effect waves-light" ng-click="updateActivityStatus(item.id, selectedActivityProgress)">SAVE</a>
+                                    <!-- <smart-button flat="true" class="left dd-close" config='{"title":"CANCEL"}' ng-click="resetActivityStatus()" onclick="event.stopPropagation();"></smart-button>
+                                    <smart-button flat="true" class="left dd-close" config='{"title":"SAVE"}' ng-click="updateActivityStatus(item.id, selectedActivityProgress)" onclick="event.stopPropagation();"></smart-button> -->
+                                </div>
+                            </div>
+
+                            <div class="col s12 padding0">
+                                <!-- <div class="right">
+                                    <smart-button flat="true" class="left dd-close" config='{"title":"CANCEL"}' ng-click="resetActivityStatus()"></smart-button>
+                                    <smart-button flat="true" class="left dd-close" config='{"title":"SAVE"}' ng-click="updateActivityStatus(item.id, selectedActivityProgress)"></smart-button>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- Added for PPST2-2422 -->
+                    </smart-dropdown>
+                </div>
+            </div>
+            <div class="relative collapsible-body-ext">
+                <div class="row">
+                    <!--<div class="s9 m9 l9 paddingLeft0">
+                    </div>-->
+                    <div class="col s12 paddingRight0">
+                        <ul class="activityHeaderNav right">
+                            <li>
+                                <a href="javascript:void(0)" ng-click="addEditActivity(item, $index)">
+                                    <i class="icon iconSmall" smart-tooltip message="Edit Activity" position="bottom">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ToEdit"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" ng-click="deleteActivity(item.id)">
+                                    <i class="icon iconSmall" smart-tooltip message="Delete Activity" position="bottom">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label>Description</label>
+                    <div class="text-justify">
+                        {{item.description}}
+                    </div>
+                    <div class="row" ng-if="activityAttachments[item.id].length > 0">
+                        <div class="col s12 m12 l12 paddingLeft0">
+                            <attachments-download attachments="activityAttachments[item.id]" index="$index"></attachments-download>
+                        </div>
+                    </div>
+                    <div class="row paddingBtm10 paddingTop10">
+                        <div class="col s12 m12 l12 paddingLeft0" ng-if="item.comments.commentMsg">
+                            <i class="icon iconSmall grey-text" smart-tooltip message="Comments" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Comments"></use>
+                                </svg>
+                            </i>
+                            <label>
+                                Last commented by {{item.comments.commentBy}} on
+                                {{item.comments.commentDate}}
+                            </label>
+                            <div>
+                                <a href="javascript:void(0);" ng-click="showCommentsPopupTabCallback(e, 'type1')">{{item.comments.commentMsg || translate}}</a>
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l12 paddingLeft0" ng-if="!item.comments.commentMsg">
+                            <i class="icon iconSmall grey-text" smart-tooltip message="Comments" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Comments"></use>
+                                </svg>
+                            </i>
+                            <span>
+                                <a href="javascript:void(0);" ng-click="showCommentsPopupTabCallback(e, 'type1')">{{"No Comments" || translate}}</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <smart-typeahead class="col s4 left input-field line-height-manager marginBtm0" multiselect="false" is-mandatory="true" show-lookup="true" titleofmodel="ASSIGNEE" label="Assignee" ng-model="addEditActivityAssignee.assignedTo[item.id]" options="status.options" displayformat="{name}" lookup-hide="activityAssignee(data, item.id)" filterkeys="['name']" dataid="{{item.id}}">
+                        </smart-typeahead>
+
+                        <smart-textfield class="col s4 m4 l4" ng-model="addEditActivityAssignee.activityBegins[item.id]" label="Start Date" type="date" is-mandatory="true">
+                        </smart-textfield>
+                        <smart-textfield class="col s4 m4 l4" ng-model="addEditActivityAssignee.activityDueBy[item.id]" label="End Date" type="date">
+                        </smart-textfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div ng-if="isEmptyActivity">
+        <div class="center action-block">
+            <a href="javascript:void(0);" class="action-block-cont" ng-click="addEditActivity()">
+                <span class="action-block-cont-icon">
+                    <i class="icon icon--xLarge">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </span>
+                <span class="action-block-cont-lbl">Add Activity</span>
+            </a>
+        </div>
+    </div>
+</div>

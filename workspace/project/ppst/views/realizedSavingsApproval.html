@@ -1,0 +1,35 @@
+<div class="row smartFormWidgetContainer marginBtm40" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader }">
+    <!-- top section -->
+    <section class="section-container marginBtm55">
+        <div class="row marginBtm0">
+            <div class="col s12">
+                <div class="clearfix section add-verticle-divider">
+                    <div class="col l4 m4 s12 ">
+                        <span class="label-text-normal" ng-hide="isBlanketMode">{{ 'Order for IT Equipment' | translate }}</span>
+                        <span class="label-text-normal" ng-if="isBlanketMode">{{ 'Blanket PO' | translate }}</span><br />
+
+                        <span>{{documentDetail.DocumentName }}</span>
+                    </div>
+
+                    <div class="col l4 m4 s12">
+                        <span class="label-text-normal">{{ 'Created On' | translate }}</span><br />
+                        <span>{{documentDetail.createdOn | date:'MM/dd/yyyy'}}  <span> by </span> <span>{{documentDetail.createdBy}}</span></span>
+                    </div>
+                    <div class="col l4 m4 s12">
+                        <span class="label-text-normal">{{ 'Current Status' | translate }}</span><br />
+                        <span>{{documentDetail.currentStatus}}</span>
+                    </div>
+                </div>
+
+                <div class="divider clearfix"></div>
+            </div>
+
+        </div>
+    </section>
+    <!--directive content-->
+    <section>
+        <smart-approval data="approvalPathList" single-way="true"></smart-approval>
+    </section>
+
+</div>
+

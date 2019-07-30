@@ -1,0 +1,552 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader,'boxShadowNone':showFilter}">
+	<div class="col s12 subHeaderWithFilter subHeader">
+		<ul class="right extra-nav-right-icon" id="actionUlWidth">
+            <li class="extra-nav-icon relative">
+                <search-header placeholder="Search" is-active-header="false" search-id="emailLogSearch" ng-model="" width-manage="20"></search-header>
+            </li>
+			<li class="extra-nav-icon">
+                <a class="waves-circle  white-text  waves-effect waves-light" ng-click="toggleDocumentFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Filter"></use>
+                        </svg>
+                    </i>
+                </a>
+			</li>
+			<li class="extra-nav-icon">
+				<a href="javascript:void(0)" class="white-text waves-circle dropdown-button waves-effect waves-light" smart-tooltip position="bottom" message="{{ 'Download' || translate }}" data-constrainwidth="false">
+					<i class="icon iconSmall">
+						<svg><use xlink:href="#icon_Download"></use></svg>
+					</i>
+				</a>
+			</li>
+           
+        </ul>
+		
+		<div class="extra-nav-title">
+			<a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back" smart-tooltip position="bottom" message="{{'Back'|| translate}}">
+				<i class="icon small ">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small extra-nav-title--icon">
+				<svg><use xlink:href="#icon_Email"></use></svg>
+			</i>
+			<span class="extra-nav-title--text ng-cloak">{{'EMAIL LOG' || translate}}</span>
+		</div>
+	</div>
+    
+    <div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" class="panelBox-withSpace panelBox--filter">
+        <div class="panelBox-content panel-tab-align">
+            <div class="panelBox-header clearfix row marginBottom0">
+                <div class="col s12">
+                    <div class="left fontSize16">FILTER</div>
+
+                </div>
+            </div>
+
+            
+
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 padding0">
+                        <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="100%" tab-panel-height="300px" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+                    </div>
+                </div>
+            </div>
+            <div class="panelBox-footer row footerSpace ">
+                <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}" ng-show="isApplyFilters">
+	<div class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top" ng-class="{'show-dv-msg': isApplyFilters}">
+		<span>
+            <a href="javascript:void(0)" ng-click="toggleDocumentFilter('Delivery Status')">{{ 'Delivery Status' || translate }}</a>,
+            <a href="javascript:void(0)" ng-click="toggleDocumentFilter('Document Type')">{{ 'Document Type' || translate }}</a>
+		</span>
+		<div class="right">
+			<smart-button flat="true" class="modal-close" ng-click="resetFilter();" config='{"title": "RESET" }'></smart-button>
+		</div>
+	</div>
+</div>
+<!-- filter panel -->
+<!--<div ng-if="showFilter"  class="enter-from-top" ng-include="'shared/admin/views/adminFilter.html'"></div>-->
+<script type="text/ng-template" id="tabHeader1.html">
+    <div>
+        <a><span class="left">Period</span><span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader2.html">
+    <div>
+        <a><span class="left">Delivery Status</span><span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader3.html">
+    <div>
+        <a><span class="left">Recipient Type</span><span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader4.html">
+    <div>
+        <a><span class="left">Date Range</span> <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader5.html">
+    <div>
+        <a><span class="left">Advance Date Range</span> <span class="right marginLeft20">2/30</span></a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabDocument.html">
+    <div>
+        <a><span class="left">Document Type </span><span class="right marginLeft20">
+        {{
+countPricesheetList
+        }}/{{repoList.length}}
+    </span>
+</a>
+    </div>
+</script>
+<script type="text/ng-template" id="period.html">
+    
+        <div class="row panelBox-field ">
+            <div class="row manage-space radio-vertical radio-block margin0">
+                <smart-radio label="" ng-model="selectedFilter" class="col s12" options="filterOptions" datakey="name" gap="true" on-change="onChange(selectedFilter)"></smart-radio>
+            </div>
+            <div class="row margin0 formEdit">
+                <div ng-show="dateRange" class="col s12 paddingLeft15">
+                    <smart-textfield label="{{'From'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+                    <smart-textfield label="{{'To'|| translate}}" type="date" ng-model="1470907772000" class="col s6" onfocus="true"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    
+</script>
+<script type="text/ng-template" id="deliveryStatus.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="documentType.html">
+    
+        <div class="row marginBtm0 marginTop10">
+           <div class="col s12"> 
+            <!--<div class="input-field withSearchIcon paddingLeft15" >
+                <i class="icon iconFix iconSmall filterSearchIcon paddingLeft15">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+                <i class="icon iconFix iconSmall filterCloseIcon" ng-click="searchTextF_{{ $index }}='';searchfocusOut(e)">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+                <input id="text_type_" type="text" class="validate" ng-model="searchTextF_" placeholder="Search by Type">
+                <label for="text_type"></label>
+            </div>-->
+               <div class="filterSection sub-header-filter-main clearfix marginleft11" ng-init="searchVal='';isSearchFieldFocus=false">
+                   <i class="icon filterSearchIcon grey-text" smart-tooltip position="bottom" delay="10" message="{{'Search'|| translate}}">
+                       <svg>
+                           <use xlink:href="#icon_Search"></use>
+                       </svg>
+                   </i>
+                   <a href="javascript:;">
+                       <i class="icon iconFix iconSmall filterCloseIcon" smart-tooltip position="bottom" delay="10" message="{{'Close'|| translate}}" ng-click="searchVal=''">
+                           <svg>
+                               <use xlink:href="#icon_Close"></use>
+                           </svg>
+                       </i>
+                   </a>
+                   <smart-textfield placeholder="Search by Type" ng-model="searchVal"></smart-textfield>
+               </div>
+           </div>
+        </div>
+        
+        <div class="row">            
+                        <ul class="panel-content-iteamList">                   
+                    <li class="panel-content-iteamList-item paddingLeft20 clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                        <smart-checkbox class="left" label="All" ng-model="docAll.checkedAll" on-change="checkedAllDoc(docAll.checkedAll)"></smart-checkbox>
+                        <div class="right">
+                           <span><a href="javascript:void(0)" class="" ng-class="{'disabled pointEventN' : showSelect == true}"  ng-model="checkElem.checkElemStatus" ng-click="showselected(checkElem.checkElemStatus)">show {{checkElem.text}}</a></span>
+                           <span class="grey-text text-darken-1 marginLeft9 marginRight9">|</span>
+                           <span>
+                               <a href="javascript:void(0)" smart-tooltip position="bottom" message="{{'Reset'|| translate}}" ng-click="resetData()" ng-class="{'disabled pointEventN' : showSelect == true}">
+                                   <i class="icon small">
+                                       <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                                   </i>
+                               </a>
+                           </span>
+                        </div>
+                    </li>
+                    </ul>
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder">
+                        <li ng-repeat="n in repoList" class="collection-item " ng-class="{'is-hide' : n.isHide == true}">
+                            <span ng-class="{'is-hide' : n.isHide == true}">
+                                <smart-checkbox class="chklink left" ng-model="n.isChecked" on-change="documentListChange(n.isChecked)"></smart-checkbox>
+                            </span>
+                            <span class="item-name">{{n.title}}</span>
+                        </li>
+                    </ul>
+                </smart-scroll>                            
+          
+        </div> 
+</script>
+<script type="text/ng-template" id="recipientType.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0 marginTop12">
+                    <div class="col s12 fontSize14 black-text">
+                        <span class="left marginTop10">{{'Sort'|| translate}} : </span>
+                        <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <smart-scroll height="210px">
+
+                <ul class="collection noBorder">
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                    <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                </ul>
+            </smart-scroll>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="dateRange.html">
+    <div class="row paddingTop5">
+        <div class="operatorsDropDown">
+            <div class="row marginLeft15 formEdit marginBottom0">
+                <smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" label="Operator" is-mandatory='true' ng-model="defaultSelectedOperator" options="operatorsList" datakey="name" on-change="onChangeFilterType(defaultSelectedOperator)"></smart-select>
+                <!--<smart-select class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" label="Operator" is-mandatory='true' ng-model="defaultSelectedOperator" options="operatorsList" datakey="name" on-change="onChangeFilterType(defaultSelectedOperator)"></smart-select>-->
+                <!--<smart-textfield ng-show="operatorRange" label="From" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" type="date" ng-model="startDate"></smart-textfield>-->
+                <!--<smart-textfield ng-show="operatorRange" label="To" class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                <smart-textfield ng-show="!operatorRange" label="From" type="date" ng-model="fromDate" class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field"></smart-textfield>-->
+            </div>
+        </div>
+        <div class="col s12 marginTop15" ng-hide="hideDateRow">
+            <div class="col s12">
+                <div class="row marginTop10">
+                    <smart-textfield label="From" class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" type="date" ng-model="startDate"></smart-textfield>
+                    <smart-textfield label="To" class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="advanceDateRange.html">
+    <div class="row">
+        <div class="col s12">
+            <div class="clearfix">
+                <div class="row marginBtm0">
+                    <div class="col s12 fontSize14 black-text">
+                        <smart-radio gap="true" class="left line-height-manager marginTop18 marginBottom0" ng-model="advanceDateType" options="advanceDateTypeOptions" on-change="onChangeadvanceDateType(advanceDateType)"></smart-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="row">
+                <smart-textfield label="From" class="col m4 s12 l4" type="date" ng-model="advancestartDate"></smart-textfield>
+                <smart-textfield label="To" class="col m4 s12 l4" min="{{advancestartDate}}" type="date" ng-model="advanceendDate" ng-if="advanceDateType.code=='dr'"></smart-textfield>
+                <div class="col s12 m4 l4" ng-if="advanceDateType.code=='p'">
+                    <div class="row">
+                        <div class="col line-height-manager grey-text padding0">To Next</div>
+                        <div class="col s5"><smart-select options="nextDayOptions" is-mandatory="true" ng-model="nextDays"></smart-select></div>
+                        <div class="col line-height-manager grey-text padding0">Days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--<section class="extendBg white" ng-class="{'top-to-bottom-slide':showFilter,'slide--Bottom--Panel':!showFilter}">-->
+<section class="extendBg white">
+
+    
+        <div class="row">
+            <div class="panelBox">
+                <div class="panelBox-content margin0">
+                    <div class="panelBox-body padding0">
+                        <div class="emailLogTblHdrWrap">
+                            <table class="bordered fixed-table-layout emailLogTblHdr">
+                                <thead>
+                                    <tr>
+                                        <th class="left-align nowrap" width="10%">
+                                            {{'Delivery Status'|| translate}}
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javascript:void(0)" data-activates='filterDelStatus' class="dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                                    <i class="icon iconSmall" smart-tooltip position="bottom" message="{{'Filter'|| translate}}">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Filter"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <ul id='filterDelStatus' class='dropdown-content dd-close-off width400 overflow-inherit'>
+                                                    <li class="dropdown-content-header">
+                                                        <div class="title">
+                                                            <i class="icon iconSmall">
+                                                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                                                            </i>{{ 'Delivery Status' | translate }}
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-content">
+                                                        <div class="clearfix">
+                                                            <div class="row marginBtm0">
+                                                                <div class="col s12 fontSize14 black-text">
+                                                                    <span class="left marginTop11 paddingLeft10">{{'Sort'|| translate}} : </span>
+                                                                    <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType"></smart-radio>
+                                                                </div>
+                                                            </div>
+                                                            <smart-list model="{{delStatusAscfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="ascFilter.html" ng-show="!showTab"></smart-list>
+                                                            <smart-list model="{{delStatusDescfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="descFilter.html" ng-show="showTab"></smart-list>
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-footer is-scroll">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CANCEL</a>
+                                                            <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown">APPLY</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                                        </th>
+                                        <th class="left-align nowrap" width="10%">
+                                            {{'Document Type'|| translate}}
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javascript:void(0)" data-activates='filterDocType' class="dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                                    <i class="icon iconSmall" smart-tooltip position="bottom" message="{{'Filter'|| translate}}">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Filter"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <ul id='filterDocType' class='dropdown-content dd-close-off width400 overflow-inherit'>
+                                                    <li class="dropdown-content-header">
+                                                        <div class="title">
+                                                            <i class="icon iconSmall">
+                                                                <svg>
+                                                                    <use xlink:href="#icon_Filter"></use>
+                                                                </svg>
+                                                            </i>{{ 'Document Type' | translate }}
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-content">
+                                                        <div class="clearfix">
+                                                            <div class="row marginBtm0">
+                                                                <div class="col s12 fontSize14 black-text">
+                                                                    <span class="left marginTop11 paddingLeft10">{{'Sort'|| translate}} : </span>
+                                                                    <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType"></smart-radio>
+                                                                </div>
+                                                            </div>
+
+                                                            <smart-list model="{{docTypeAscfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="ascFilter.html" ng-show="!showTab"></smart-list>
+                                                            <smart-list model="{{docTypeDescfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="descFilter.html" ng-show="showTab"></smart-list>
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-footer is-scroll">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CANCEL</a>
+                                                            <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown">APPLY</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                                        </th>
+                                        <th width="10%" class="left-align nowrap">{{'Document Name'|| translate}}</th>
+                                        <th class="left-align nowrap" width="10%">
+                                            <span ng-click="order('partner')">{{'Recipient Type'|| translate}}</span>
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javascript:void(0)" data-activates='filterRecpType' class="dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                                    <i class="icon iconSmall" smart-tooltip position="bottom" message="{{'Filter'|| translate}}">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Filter"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <ul id='filterRecpType' class='dropdown-content dd-close-off width400 overflow-inherit'>
+                                                    <li class="dropdown-content-header">
+                                                        <div class="title">
+                                                            <i class="icon iconSmall">
+                                                                <svg>
+                                                                    <use xlink:href="#icon_Filter"></use>
+                                                                </svg>
+                                                            </i>{{ 'Recipient Type' | translate }}
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-content">
+                                                        <div class="clearfix">
+                                                            <div class="row marginBtm0">
+                                                                <div class="col s12 fontSize14 black-text">
+                                                                    <span class="left marginTop11 paddingLeft10">{{'Sort'|| translate}} : </span>
+                                                                    <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType"></smart-radio>
+                                                                </div>
+                                                            </div>
+
+                                                            <smart-list model="{{recptTypeAscfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="ascFilter.html" ng-show="!showTab"></smart-list>
+                                                            <smart-list model="{{recptTypDescfilterLists}}" style-class="collection noBorder" item-class="collection-item staggeredRight" template="descFilter.html" ng-show="showTab"></smart-list>
+                                                        </div>
+                                                    </li>
+                                                    <li class="dropdown-content-footer is-scroll">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CANCEL</a>
+                                                            <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown">APPLY</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                                        </th>
+                                        <th class="left-align" width="10%">{{'Recipient Legal Company Name'|| translate}}</th>
+                                        <th class="left-align" width="10%">{{'Recipient Name'|| translate}}</th>
+                                        <th class="left-align" width="15%">{{'Email Address'|| translate}} </th>
+                                        <th class="left-align" width="10%">{{'Email Name'|| translate}}</th>
+                                        <th class="left-align" width="10%">{{'Date Time Stamp'|| translate}}</th>
+                                        <th class="left-align" width="5%"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <smart-scroll v-offset="295px" height="100%" class="clear emailLogTblWrap" connect-scrolls="{{emailLogScrollObj}}">
+                            <table class="bordered marginBtm50 fixed-table-layout emailLogTbl">
+                                <tbody>
+                                    <tr ng-repeat="entry in emailLogData" animate-on-load="" class="staggeredTop">
+                                        <td width="10%" class="left-align {{applyStatusColor(entry.status)}}">
+                                            {{entry.status}}
+                                        </td>
+                                        <td width="10%" class="left-align">{{entry.type}}</td>
+                                        <td width="10%" class="left-align">{{entry.name}}</td>
+                                        <td width="10%" class="left-align">{{entry.RecipientType}}</td>
+                                        <td width="10%" class="left-align">{{entry.RecipientCompany}}</td>
+                                        <td width="10%" class="left-align">{{entry.RecipientName}}</td>
+                                        <td width="15%" class="left-align">{{entry.emailId}}</td>
+                                        <td width="10%" class="left-align">{{entry.emailName}}</td>
+                                        <td width="10%" class="left-align">{{entry.dateTime}}</td>
+                                        <td width="5%" class="left-align">
+                                            <a href="javascript:void(0)" ng-show="entry.status == 'Failed'" smart-tooltip position="bottom" message="{{'Resend'|| translate}}">
+                                                <i class="icon">
+                                                    <svg><use xlink:href="#icon_EmailResend"></use></svg>
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </smart-scroll>
+                    </div>
+                </div>
+            </div>
+
+            <!-- popup -- save filter -->
+            <smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+
+            <!-- popup -- manage column -->
+            <!--<smart-button config='{"title":"Manage Column"}' class="waves-effect waves-light marginLeft15" id="manageColumnBtn" data-target="manageColumnPopup" type="large"></smart-button>-->
+            <smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" default-text="Manage Column" show="" mode="true" selected-value="manageColumnData" modal-content="manageColumnPopup" modal-button="manageColumnBtn" initial-display-text="manageColumnDatainitialDisplayText" callback=""></smart-list-popup>
+
+            <!-- popover -- manage filter -->
+            <script id="manageFilter.html" type="text/ng-template">
+                <div item="{{item}}" class="clearfix ">
+                    <input class="with-gap" type="radio" ng-model="item.lable" name="selectSortBy" ng-value="item.lable" id="getsortBy-{{ $index }}">
+                    <label for="getsortBy-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.lable}}</label>
+                    <!-- popover -- manage filter -- icons -->
+                    <div class="secondary-content s-c--closest-top">
+                        <a href="javascript:void(0)" ng-click="editCurrentViewName($index)" class="waves-circle waves-effect">
+                            <i class="icon iconSmall" smart-tooltip position="bottom" message="{{'Edit'|| translate}}">
+                                <svg>
+                                    <use xlink:href="#icon_editPen"></use>
+                                </svg>
+                            </i>
+                        </a>
+                        <a href="javascript:void(0)" ng-click="deleteItem($index)" class="waves-circle waves-effect">
+                            <i class="icon iconSmall" smart-tooltip position="bottom" message="{{'Delete'|| translate}}">
+                                <svg>
+                                    <use xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+
+                    <!-- popover -- manage filter -- edit view -->
+                    <div class="well single-edit-panel" animate-on-load="" ng-if="item.showCurrentItemEditor" ng-init="getEditedviewName.lable = item.lable">
+                        <div class="single-edit-panel-input-box row">
+                            <smart-textfield focus="true" label="{{'Edit Name'|| translate}}" class="active col s12" ng-model="getEditedviewName.lable"></smart-textfield>
+                        </div>
+
+                        <!-- popover -- manage filter -- icons -->
+                        <div class="single-edit-panel-secondary-content">
+                            <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="closeEditPanel($index)">
+                                <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="{{'Close'|| translate}}">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+                            <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="updateViewName($index)">
+                                <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="{{'Add'|| translate}}">
+                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+            <script id="ascFilter.html" type="text/ng-template">
+                <div item="{{item}}" class="clearfix">
+                    <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+                </div>
+            </script>
+
+            <!-- popover -- grid filter --by value tab -- radio descending -->
+            <script id="descFilter.html" type="text/ng-template">
+                <div item="{{item}}" class="clearfix">
+                    <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+                </div>
+            </script>
+        </div>
+    </section>
+<!-- footer bar -->
+
+<footer class="page-footer footerSpace  bounceInUp animated">
+	<div class="row marginBtm0">
+		<div class="right paddingRight15">
+			<smart-button ng-click="lastPage();" class="footerBtn" config='{"title":"DONE"}'></smart-button>
+		</div>
+        <div class="right paddingRight15 whiteSecondaryBtn ">
+            <smart-button ng-click="lastPage();" class="footerBtn" config='{"title":"CLOSE"}'></smart-button>
+        </div>
+	</div>
+</footer>

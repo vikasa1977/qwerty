@@ -1,0 +1,75 @@
+<div>
+    <div id="tabAccounting">
+        <div class="row marginBtm0">
+            <div class="clearfix secContentWithBorder fontSize12">
+                <ul class="panelBox-header--action">
+                    <li class="panelBox-header--aLink">
+                        <a href="javascript:void(0)" smart-tooltip message="Delete Selected Lines" position="bottom">
+                            <i class="add-row icon iconSmall">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+                    </li>
+
+                    <li class="panelBox-header--aLink">
+                        <a href="javascript:void(0)" smart-tooltip message="Add Multiple Lines" position="bottom" ng-click="adduploadContractCallback(e)">
+                            <i class="add-row icon iconSmall">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                    </li>
+
+                    <li class="panelBox-header--aLink">
+                        <smart-dropdown config="{{dropDownConfig}}">
+                            <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabPlantFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns('plant')">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Columns'|| translate}}">
+                                    <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                </i>
+                            </a>
+                            <ul id="tabPlantFilter" class="dropdown-content dropdown-content-large  dd-close-off">
+                                <li class="dropdown-content-header ">
+                                    <div class="title">{{'MANAGE COLUMNS'|| translate}}</div>
+                                </li>
+                                <li class="padding0 is-scrolled">
+                                    <ul class="collection">
+                                        <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                            <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                            <span class="right padding0">({{selectedCount}}) Selected</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                    <smart-scroll height="230px" class="inlineList">
+                                        <div class="listHolder" ng-style="listHolderWidth">
+                                            <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init="myIndex = $index">
+                                                <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                                    <smart-checkbox class="label-truncate" title="{{field.lable}}" fill="true" ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-scroll>
+
+
+                                </li>
+                                <li class="dropdown-content-footer is-scrolled">
+                                    <smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right close-lookup" ng-click="closeDropDialogs()"></smart-button>
+                                    <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup" ng-click="closeDropDialogs()"></smart-button>
+                                    <smart-button config='{"title":"Reset","flat":true}' flat="true" ng-click="reset()" class="left"></smart-button>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row marginBtm0 clearfix">
+            <smart-ui-grid col-def="{{orgPlantConfig}}" model="orgPlantModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition"></smart-ui-grid>
+        </div>
+    </div>
+</div>
+
+<!-- popup -- apply to all -->
+<smart-popup template-url="{{applyToAllUrl}}" show="{{applyToAllPopUp}}" on-hide="applyToAllPopUpClose(e)"></smart-popup>
+
+<!-- popup -- Accounting split -->
+<smart-popup template-url="{{splitPopupUrl}}" show='{{splitPopupPopup}}' on-hide="splitPopupPopupHideCallback(e)" type="small"></smart-popup>

@@ -1,0 +1,133 @@
+<div class="introjsButtonOverlay marginLeft20 marginBtm20" style="display : none">
+    <smart-checkbox class="left marginTop5 marginRight15 inverseCheckBox" ng-model="dontShowIntro" on-change="onDontShowIntro()" label="Dont show again"></smart-checkbox>
+    <smart-button class="left marginRight20 fontSize14 inverseButton" config='{"title":"OK, GOT IT"}' flat="false" ng-click="onIntroOkGotIt()" disable="false"></smart-button>
+</div>
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}" ng-if="cardManageDraftSubheader">
+    <div class="col s12">
+        <div class="right col card-subhedear">
+            
+            <div class="right" ng-if="jumpTovisible &&  !analyseReport">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <span data-activates="savedViewChanges" class="saved-view-content dropdown-button cursorPointer" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        Jump To
+                    </span>
+                    <ul id="savedViewChanges" class="dropdown-content dropdown-content-large saved-view-content-container">
+                        <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                            <div class="col s12 m6 multiple-menu-action staggeredRight" ng-repeat="item in savedViews" ng-click="customGoto($index)" menu-item-list>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="changeSavedView(item.groupName, item)">
+                                    {{ item.title || translate }} <span ng-show="item.documents.length > 0">{{'(' + item.documents.length + ')'}}</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+       
+            <div class="right" ng-if="jumpTovisible && analyseReport">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <span data-activates="savedViewChanges" class="saved-view-content dropdown-button cursorPointer" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        Jump To
+                    </span>
+                    <ul id="savedViewChanges" class="dropdown-content dropdown-content-large saved-view-content-container">
+                        <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                            <div class="col s12 m6 multiple-menu-action staggeredRight" ng-repeat="item in savedViews" ng-click="customGoto($index)">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="changeSavedView(item.name, item)">
+                                    {{ item.name || translate }} <span ng-show="item.count > 0">{{'(' + item.count + ')'}}</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+         </div>
+        <div class="extra-nav-title" ng-if="cardManageSubheader">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg><use xlink:href="#icon_RfxReq"></use></svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">MANAGE</span>
+        </div>
+
+        <div class="extra-nav-title" ng-if="cardAnalyzeBack">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg><use xlink:href="#icon_Analyze"></use></svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">ANALYZE</span>
+        </div>
+
+        <div class="extra-nav-title" ng-if="cardworkQueueSubheader">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xlink:href="#icon_LpWorkQ"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">TASK</span>
+        </div>
+    </div>
+</div>
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}" ng-if="cardSearchSubheader">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+        <div class="input-field card-search-subheader">
+            <div ng-controller="searchBoxAutoSuggestedCtrl">
+                <div class="marginBtm15" id="Div1" ng-class="{'searchSlide':showSearch,'':!showSearch}">
+                    <div class="searchWrapper" style="opacity: 1;">
+                        <!--<smart-textfield type="autocomplete" placeholder = "{{'Search' || translate}}" ng-model="autoCompleteData" filterkeys="['ItemName']" optionformat="<span>{ItemName}</span>" displayformat="{ItemName}" options="options" on-change="onChangeAutoSuggest()" on-select="onSelectAutoSuggest(autoCompleteData)" focus="focusSearch" on-enter="onEnter"></smart-textfield>-->
+                        <smart-textfield class="white-text" type="autocomplete" placeholder="{{'1143 (123 Found)' || translate}}" ng-model="autoCompleteData" filterkeys="['ItemName']" optionformat="<span>{ItemName}</span>" displayformat="{ItemName}" options="options" minchars="0" on-change="onChangeAutoSuggest($event)" on-select="onSelect(autoCompleteData)" on-enter="onEnter()" on-focus="onChangeAutoSuggest($event)"></smart-textfield>
+                        <a ui-sref="searchCard" class="search" ng-if="!isClear">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+                        </a>
+                        <a ui-sref="javascript:void(0)" class="search" ng-if="isClear">
+                            <i class="icon iconSmall" ng-if="isClear" ng-click="clearfunction()">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="!analyseReport" class="manageTaskCards">
+    <smart-global-loader is-fixed="true" ng-if="isCardsLoaded"></smart-global-loader>
+    <smart-cards-view data="dataLoaded" responsive="{{responsiveSettings}}" html-wrappers="custom" on-break-point="jumpTovisibleFun(e)">
+       <smart-card-item ng-repeat="eachCardContent in allCardsContent track by $index" header-template="{{headerHTMLTemplate}}" content-template="shared/view/cards/cardListContent.html" footer-template="{{footerHTMLTemplate}}" card-identifer="{{eachCardContent.groupName}}" card-tabs="{{eachCardContent.isAdmin}}" expand="{{eachCardContent.expand}}" ng-class="{'selected-card' : eachCardContent.isSelected}">
+        </smart-card-item>
+    </smart-cards-view>
+</div>
+
+<div ng-if="analyseReport" class="analyzeR">
+    <smart-cards-view data="dataLoaded" responsive="{{responsiveSettings}}" html-wrappers="custom" on-break-point="jumpTovisibleFun(e)">
+        <analyse-item ng-repeat="card in allCardsContent"></analyse-item>
+    </smart-cards-view>
+</div>

@@ -1,0 +1,348 @@
+﻿<div class="row extra-nav-wrap marginBtm0" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone':isApplyFilters}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                    <i class="icon small">
+                        <svg><use xlink:href="#icon_Back"></use></svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon">
+                    <svg><use xlink:href="#icon_configureUser"></use></svg>
+                </i>
+                <span class="extra-nav-title--text">Configure Users</span>
+            </div>
+            <ul class="right extra-nav-right-icon right-panel paddingRight1">
+                <li class="extra-nav-icon relative searchbox-li" >
+                    <search-header placeholder="{{search}}" ng-model="searchTab" is-active-header="false" search-id="manageBar" width-manage="15"></search-header>
+                </li>
+
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="toggleFilter(e);">
+                        <i class="icon iconSmall white-text" message="Filter" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Filter"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="showUploadPopupCallback(e)">
+                        <i class="icon iconSmall white-text" message="Upload" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Upload"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="viewLogPopupShowCallback(e)">
+                        <i class="icon iconSmall white-text" message="View log" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_viewLog"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+     </div>
+    <div ng-hide="hideFilter" ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" class="panelBox-withSpace panelBox--filter">
+        <div class="panelBox-content panel-tab-align">
+            <div class="panelBox-header clearfix row marginBottom0">
+                <div class="col s12">
+                    <div class="left fontSize16">FILTER</div>
+                </div>
+            </div>
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 padding0 tabHolderWrap">
+                        <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="60%" tab-panel-height="290px" vertical="true" on-select="tabSelectCallback(e)"></smart-tabs>
+                        <div class="tabHolder">
+                            <smart-scroll height="290px">
+                                <div class="row marginTop15" ng-show="lob">
+                                    <div class="col s12">
+                                        <ul class="collection noBorder">
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Walmart"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Berkshire Hathaway"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Apple"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="ExxonMobil"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="McKesson"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="UnitedHealth Group"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="CVS Health"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="General Motors"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="AT&T"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Ford Motor"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Amazon"></smart-checkbox></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row marginTop15" ng-show="bu">
+                                    <div class="col s12 m6 l6 xl4 xxl3 line-height-manager paddingTop14 hierarchyList">
+                                        <div class="paddingBtm5 input-field margin0">
+                                            <label class="active" ng-if="selectedBUNodes.length > 0">Business Unit</label>
+                                            <a href="javascript:void(0)" ng-click="treeOpenCallback('bu')">{{selectedBUTxt}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row marginTop15" ng-show="category">
+                                    <div class="col s12 m6 l6 xl4 xxl3 line-height-manager paddingTop14 hierarchyList">
+                                        <div class="paddingBtm5 input-field margin0">
+                                            <label class="active" ng-if="selectedCategoryNodes.length > 0">Category</label>
+                                            <a href="javascript:void(0)" ng-click="treeOpenCallback('category')" class="displayBlock">{{selectedCategoriesTxt}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="username">
+                                    <!--<div class="col s12">
+                                        <div class="clearfix">
+                                            <div class="row marginBtm0">
+                                                <div class="col s12 fontSize14 black-text">
+                                                    <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                                                    <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <div class="col s12">
+                                        <ul class="collection noBorder">
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Sonia Barnett"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Alberto Banks"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Luke Frazier"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Willie Kuhn"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Tyron White"></smart-checkbox></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row marginTop15" ng-show="enabledOn">
+                                    <div class="col s12">
+                                        <smart-radio layout="vertical" gap="true" class="left" ng-model="selectedenabledOnRdo" options="enabledOnRdo" on-change="onChangeFilter(selectedenabledOnRdo)"></smart-radio>
+                                    </div>
+                                </div>
+                                <div class="row" ng-show="functionalArea">
+                                    <!--<div class="col s12">
+                                        <div class="clearfix">
+                                            <div class="row marginBtm0">
+                                                <div class="col s12 fontSize14 black-text">
+                                                    <span class="left marginTop11">{{'Sort'|| translate}} : </span>
+                                                    <smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    <div class="col s12">
+                                        <ul class="collection noBorder">
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Workspace" ng-model="val1"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="Sourcing" checked="true"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="P2P" ng-model="val2"></smart-checkbox></li>
+                                            <li class="collection-item paddingLeft8"><smart-checkbox label="IR"></smart-checkbox></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </smart-scroll>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panelBox-footer row footerSpace">
+                <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="toggleFilter(e);"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+                <!--<smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"SAVE"}' ng-click="saveFilterPopupCallback(e);"></smart-button>-->
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleFilter(e);"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div class="filter-overlay" ng-show="showFilter"></div>
+    <!-- aleart bar -->
+    <div class="clearfix alert-bar--fixed" ng-class="{'alert-bar-exist': (isApplyFilters || isSavedView)}" ng-show="(isApplyFilters) && (checkCurrentRoute)">
+        <div ng-if="isApplyFilters" class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top heightAuto" id="filterAppliedPanel" smart-dom-element get-element-stats="getDynamicHeight(e)" refresh="{{filterAppliedPanel}}" config="height" ng-class="{'show-dv-msg': isApplyFilters}">
+            <div class="left appliedFiltersName" ng-class="{'pendingFilters' : !isFilterSaved, 'savedFilterApplied' : savedfilterexpanded}">
+                <span class="fontSize14 left" style="color:#000">Applied Filters: </span>
+                <div class="chipDataCont" filter-chips>
+                    <div class="chipWrapLeft">
+                        <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                            <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Product' | translate}}">{{'Product' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                            <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </i>
+                        </div>
+                        <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                            <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Functional Area' | translate}}">{{'Functional Area' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                            <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right resetFilterButton">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light marginRight8" ng-click="resetFilter();">
+                    <i class="icon iconSmall" message="Remove Filter" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<section class="extendBg white col s12 overflowAuto clearfix tableWithTopLinks">
+            <div class="wrapper clearfix">
+                <div class="row marginBtm0">
+                    <div class="panelBox">
+                      <div class="panelBox-content margin0">
+                            <div class="panelBox-body padding0 compactListView">  
+                                <table class="bordered configureUserTable" sticky-header scroll-type="page">
+                                    <thead class="fixedHeaderClass">
+                                        <tr class="height60">
+                                            <th class="left-align">
+                                                <smart-checkbox label="" ng-model="checkall" get-checkbox-info="getCheckInfo()" smart-selectall data="initialUserData|.sectiersuppData" checker-flag="checked"></smart-checkbox>
+                                            </th>
+                                            <th class="left-align modifiedUser" ng-show="isModifiedUser">
+                                                {{ '' || translate}}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'Username' || translate}}
+                                            </th>
+                                            <th class="left-align">{{'Email ID' || translate}}</th>
+                                            <th class="left-align">
+                                                {{'LOB' || translate}}
+                                            </th>
+                                            <th class="left-align">{{'Category' || translate}}</th>
+                                            <th class="left-align">{{'Currently On' || translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="height48 staggeredTop" ng-repeat="userData in initialUserData | orderBy:sortKey:reverse track by $index">
+                                            <td class="left-align"><smart-checkbox class="sectiersuppData" label="" ng-model="userData.checked"></smart-checkbox></td>
+                                            <td ng-show="isModifiedUser" class="modifiedUser"><span class="modified-legend displayInlineBlock left" ng-if="isModified[$index]" smart-tooltip position="bottom" delay="50" message="Modified"></span></td>
+                                            <td class="left-align">
+                                                {{userData.userName}}
+                                            </td>
+                                            <td class="left-align">
+                                                {{userData.emailId}}
+                                            </td>
+                                            <td class="left-align">
+                                                {{userData.lob}}
+                                            </td>
+                                            <td class="left-align">{{userData.category}}</td>
+                                            <td class="left-align" ng-if="userData.CurrentlyOnData.length > 0">
+                                                <a class="zIndex0" href="javascript:void(0)" ng-click="showAllChips();" bind-on="mouseover" is-fixed="true" smart-infotip message="1.0 Portal<br/>1.0 Invoice" position="top">
+                                                    {{userData.CurrentlyOn}} + {{userData.CurrentlyOnData.length}} More
+                                                </a>
+                                            </td>
+                                            {{userData.CurrentlyOnData.length}}
+                                            <td class="left-align" ng-if="userData.CurrentlyOnData.length == 0">
+                                                {{userData.CurrentlyOn}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row load-more-border" ng-if="showLoadMore">
+                                    <div class="col s12 center-align marginTop10 marginBtm10">
+                                        <smart-button flat="true" config='{"title":"LOAD MORE"}' ng-click="loadMore()"></smart-button>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/ng-template" id="tabHeader1.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">LOB</span>
+            <i class="icon small right marginLeft20" ng-class="{'disabled' : disabled}">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">1 selected</span>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader2.html">
+    <div class="fillterPanelLinks relativePosition ">
+        <a>
+            <span class="left">Business Unit</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader3.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Category</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            3 selected
+        </span>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader4.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Username</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            3 selected
+        </span>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader5.html">
+    <div class="fillterPanelLinks relativePosition">
+        <a>
+            <span class="left">Enabled On</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader6.html">
+    <div class="fillterPanelLinks relativePosition">
+        <a>
+            <span class="left">Functional Area</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+    </div>
+</script>
+
+<!-- footer bar -->
+<footer class="page-footer paddingLeft10 footerSpace height68" ng-show="isVisible">
+    <div class="row">
+        <div class="col s12 right-align">
+           <div class="btn-group right">
+                <smart-dropdown config="{{dropDownConfig}}">
+                <a class="white-text dropdown-button btn btn-last-button paddingLeft20 paddingRight12 " style="line-height: 33px;" href="" data-position="top" data-delay="50" data-activates="exportActionBtn" data-constrainwidth="false">
+                      <span>ENABLE</span>
+                        <i class="icon iconSmall marginLeft8">
+                            <svg xmlns="http://www.w3.org/2000/svg" focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow" /></svg>
+                        </i>
+                    </a> 
+                    <ul class="dropdown-content footer-dropdown-for-landing enableDropdownList ng-scope ddautoHeight" id="exportActionBtn" role="listbox" style="left: 0px; top: -120px; display: none; white-space: nowrap; position: absolute; opacity: 1;">
+                        <li ng-repeat="item in enableButtonActions">
+                            <a href="javascript:void(0)" class="black-text" ng-click="selectedLink(item)"> {{  item.lable }}</a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+            <span class="right footerBtn whiteSecondaryBtn ng-isolate-scope" ui-sref="admin.setupManager.configuration" config="{&quot;title&quot;:&quot;CLOSE&quot;}" href="#/admin/setupManager/configuration"><a href="#" tabindex="" class="waves-effect waves-light  btn" ng-class="{'btn-floating btn-large':isFloating,'btn-flat':flat,'btn':!flat,'btn-large':isLarge,disabled:disable}" ng-style="{'background-color': backgroundColor}">CLOSE</a></span>
+        </div>
+    </div>
+</footer>
+
+<smart-popup template-url="{{uploadPopupUrl}}" show="{{showUploadPopup}}" on-hide="uploadPopUpOnHideCallback(e)" type="medium"></smart-popup>
+<smart-popup template-url="{{viewLogPopupUrl}}" show="{{showViewLogPopup}}" on-hide="viewLogPopupHideCallback(e)" type="large"></smart-popup>
+<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback(e)" cancel-button="true"></smart-popup>
+<smart-popup template-url="shared/admin/setupManager/views/popupCurrentlyOn.html" show='{{showMoreChips}}' on-hide="filterChipsOnHideCallback(e)" type="small"></smart-popup>

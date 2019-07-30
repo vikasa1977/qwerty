@@ -1,0 +1,71 @@
+﻿<div>
+    <div class="modal-header">
+        <i class="icon  grey-text left">
+            <svg>
+                <use xlink:href="#icon_AddTeam"></use>
+            </svg>
+        </i>
+        <span class="title">Add Matrix</span>
+    </div>
+    <div class="modal-content paddingTop0 paddingLeft12">
+
+        <div class="row marginBtm0">
+            <div class="col s12">Select Attributes</div>
+
+            <a href="javascript:void(0)" ng-click="clearSearchVal()" ng-if="showSearch" class="waves-circle waves-effect compare-search-remove" smart-tooltip position="bottom" delay="10" message="Clear">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+            </a>
+            <smart-typeahead titleofmodel="Attribute 1" class="col s6 input-field line-height-manager" multiselect="false" show-lookup="true" ng-model="attributeName1" lookup-Open="hideMatrixPopUpCallBack()" lookup-hide="hideConfig(attributeName2.attrName2)" options="typeOptionsAttrName1" filterkeys="['attrName1']" optionformat="<span>{attrName1}</span>" displayformat="{attrName1}" label="{{'Attribute 1' || translate}}"></smart-typeahead>
+            <smart-typeahead titleofmodel="Attribute 2" class="col s6 input-field line-height-manager" multiselect="false" show-lookup="true" ng-model="attributeName2" lookup-Open="hideMatrixPopUpCallBack()" lookup-hide="showConfig(attributeName2.attrName2)" options="typeOptionsAttrName2" filterkeys="['attrName2']" optionformat="<span>{attrName2}</span>" displayformat="{attrName2}" label="{{'Attribute 2' || translate}}"></smart-typeahead>
+            <div class="col s12" ng-show="configureAttr">Configure Attribute 2 :</div>
+        </div>
+
+        <smart-scroll height="150px" ng-show="configureAttr" class="clearfix clear scrollToEnd">
+            <div class="scroll-inner-container">
+                <div class="row marginBtm0" ng-repeat="appMatrix in martix.data">
+                    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" type="text" datanumeric="true" min="0" spinner="false" ng-model="appMatrix.fromVal.value" label="From"></smart-textfield>
+                    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" type="text" datanumeric="true" min="0" spinner="false" ng-model="appMatrix.toVal.value" label="To"></smart-textfield>
+                    <div class="col s12 m6 l4 xl3 xxl2 marginTop15">
+                        <a ng-show="($index + 1) === martix.data.length && !showAddRemoveIcon" href="javascript:void(0)" class="left" ng-click="addmatrixData(martix.data, appMatrix, $index)">
+                            <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                        <a ng-show="($index + 1) != martix.data.length || showAddRemoveIcon" href="javascript:void(0)" class="left" ng-click="deleteApprovalMatrixData(martix.data, $index, false)">
+                            <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row marginBtm0" ng-repeat="shallowCopy in shallowCopyData">
+                    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" type="text" datanumeric="true" min="0" spinner="false" ng-model="shallowCopy.fromVal.value" label="From"></smart-textfield>
+                    <smart-textfield class="col s12 m6 l4 xl3 xxl2 line-height-manager input-field" type="text" datanumeric="true" min="0" spinner="false" ng-model="shallowCopy.toVal.value" label="To"></smart-textfield>
+                    <div class="col s12 m6 l4 xl3 xxl2 marginTop15">
+                        <a ng-show="($index+1) === shallowCopyData.length" href="javascript:void(0)" class="left" ng-click="addShallowCopyData(shallowCopyData, shallowCopy)">
+                            <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                        <a ng-show="($index + 1) != shallowCopyData.length" href="javascript:void(0)" class="left" ng-click="deleteApprovalMatrixData(shallowCopyData, $index, true)">
+                            <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+
+    </div>
+    <div class="modal-footer is-scrolled paddingLeft8">
+        <smart-button flat="true" class="modal-close" config='{"title":"ADD"}' ng-click="showMatrix(true)"></smart-button>
+
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}' ng-click="hideMatrix()"></smart-button>
+    </div>
+</div>

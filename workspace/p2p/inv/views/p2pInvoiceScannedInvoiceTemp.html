@@ -1,0 +1,42 @@
+<smart-section is-collapsible="true">
+    <smart-section-header>
+        <a href="javascript:void(0)" class="secondary-content">
+            <i class="icon iconSmall " smart-tooltip position="Down" delay="250"  message="Zoom In">
+                <svg>
+                    <use xlink:href="#icon_zoom"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="javascript:void(0)" smart-tooltip position="Down" delay="250" message="Pop Out" class="secondary-content">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_popout"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="javascript:void(0)" smart-tooltip position="Down" delay="250" message="Download" class="secondary-content">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_Download"></use>
+                    </svg>
+                </i>
+            </a>
+          
+         
+     
+
+        <div class="clear"></div>
+    </smart-section-header>
+    <smart-section-body>
+  
+            <div resizable handle="'s'" minheight="292" maxheight="1700" style="overflow:hidden; height:292px;">
+              <div smart-scroll height="292px">
+                    <div class="image-fluid-container">
+                        <img src="{{ngModel.image}}" alt="scanned Invoice" class="">
+                    </div>
+                </div>
+           
+</div>
+        
+</smart-section-body>
+</smart-section>

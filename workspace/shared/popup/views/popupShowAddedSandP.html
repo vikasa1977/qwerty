@@ -1,0 +1,80 @@
+<div>
+	<div class="modal-header">
+		<i class="icon iconSmall left">
+			<svg>
+				<use xlink:href="#icon_Preview"></use>
+			</svg>
+		</i>
+		<span class="title">STANDARDS AND PROCEDURES</span>
+	</div>
+	<div class="modal-content padding0 is-scrolled">		
+		<div class="wrapper clearfix wrapper--withSidebar padding0" >
+		<div class="sidebar sidebar--left Set-Top" style="min-height:353px">			
+			<div class="panel-content">
+				<ul class="panel-content-iteamList">					
+					<li class="panel-content-iteamList-item clearfix" >		
+						<div class="left" ng-click="showSPPopupCall()">
+							<a href="javascript:void();" class="left">
+								<i class="icon iconSmall letf">
+									<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+								</i>								
+							</a>				
+							<smart-button flat="true" class="left marginLeft5 sandpAddBtn" config='{"title":"ADD S & P"}' ></smart-button>
+						</div>
+					</li>
+				</ul>
+				<smart-scroll height="300px">
+					<ul class="panel-content-iteamList">
+						<li custom-tab tabindex="{{ ($index == indexToShow ) ? 0 : -1 }}" ng-repeat="n in spData" class="manage-panel-iteamList-item panel-content-iteamList-item " ng-class="($index == indexToShow ) ? 'selected' : 'cursorPointer'" ng-click="selectedItem($index)">
+							<span>{{n.title}}</span>		
+						</li>
+					</ul>
+				</smart-scroll>
+			</div>
+		</div>		
+		<div class="content left padding0 scroll-inner-container" style="min-height:353px">
+			<smart-scroll height="353px">		
+				<div class="panel-content padding20 paddingBtm0">
+					<div class="row">
+						<div class="col s12">
+							<div class="right">
+                                <a href="javascript:void(0)" ng-click="editSandPGridCall(selectedSandP)">
+                                    <i class="icon iconSmall right">
+                                        <svg><use xlink:href="#icon_ToEdit"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <i class="icon iconSmall right">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+						</div>
+					</div>
+					<div class="row  marginBtm0">
+						<smart-textfield label="Name" readonly="{{mode.edit}}"    ng-model="selectedSandP.title" class="col s12 m6  line-height-manager"></smart-textfield>
+						<smart-textfield label="Code/Rev" readonly="{{mode.edit}}"   ng-model="selectedSandP.codeRev" class="col s12 m6 line-height-manager"></smart-textfield>
+					</div>					
+					<div class="row">	
+						<smart-textfield type="area" readonly="{{mode.edit}}"  charactercounter="true" maxlength="4000" class="col s12" label="Description" ng-model="selectedSandP.fullTxt"></smart-textfield>			 
+					</div>	
+
+				</div>
+			<smart-scroll>
+		</div>
+		
+		</div>
+	</div>
+	<div class="modal-footer is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-hide="isEditMode" ></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}' ng-show="isEditMode"></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

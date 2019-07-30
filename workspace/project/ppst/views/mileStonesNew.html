@@ -1,0 +1,428 @@
+<!-- subheader-->
+<div class="detailMilestone">
+<div class="row marginBottom0 extra-nav-wrap shadowNone" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope" smart-tooltip message="Milestone" position="bottom">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Milestone"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">VOIP SETUP</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel no-animate" ng-if="!isEmptyState">
+            <li class="extra-nav-icon relative">
+                <search-header placeholder="Search" ng-model="test2" is-active-header="false" search-id="test"></search-header>
+            </li>
+            
+            <li class="extra-nav-icon no-animate"  ng-if="!isEmptyState">
+                <a class="white-text dropdown-button waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="Filter" ng-click="toggleDocumentFilter(e);">
+                    <i class="icon iconSmall">
+                        <svg><use xlink:href="#icon_Filter"></use></svg>
+                    </i>
+                </a>
+            </li>
+			
+			<li class="extra-nav-icon no-animate"  ng-if="!isEmptyState">
+                <a href="javascript:void(0)" ng-click="addEditMilestone()">
+                    <i class="icon iconSmall" smart-tooltip message="Add Milestone" position="bottom">
+                        <svg>
+                            <use xlink:href="#icon_CirclePlus"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon no-animate"  ng-if="!isEmptyState">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='milestonesAction' data-constrainwidth="false">
+                        <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                        </i>
+                    </a>
+                    <ul class='dropdown-content' id="milestonesAction">
+                        <!--<li>
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a class="dropdown-button waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="Sort" data-activates="enableSort" data-constrainwidth="false">
+                                    Sort
+                                </a>
+                                <ul id='enableSort' class='dropdown-content collection noBorder'>
+                                    <li class="collection-item"><a href="javascript:void(0)" class="padding0">Ascending</a></li>
+                                    <li class="collection-item"><a href="javascript:void(0)" class="padding0">Descending</a></li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>-->
+                        <li>
+                            <a href="javascript:void(0)" ng-click="downLoadCall()">
+                                Download
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" ng-click="bulkEditMilestone('bulkEdit', 'assignee')" ng-class="{'disabled' : selectedPhaseLevel}">
+                                Change Assignee
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" ng-click="bulkEditMilestone('bulkEdit', 'due date')" ng-class="{'disabled' : selectedPhaseLevel}">
+                               Change Due Date
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" ng-click="bulkEditMilestone('bulkEdit', 'status')" ng-class="{'disabled' : selectedPhaseLevel}">
+                                Update Status
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" ng-click="deletePhaseLevel()" ng-class="{'disabled' : selectedPhaseLevel}">
+                                Delete Milestone(s)
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+        </ul>
+    </div>
+    <topslide-filter></topslide-filter>
+</div>
+<!-- Filters Applied Bar Start -->
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader, 'alert-bar-exist': (isApplyFilters || isSavedView || isUploadStatus)}" ng-show="isApplyFilters || isUploadStatus">
+        <div ng-if="isApplyFilters" class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top heightAuto" id="filterAppliedPanel" smart-dom-element get-element-stats="getDynamicHeight(e)" refresh="{{filterAppliedPanel}}" config="height" ng-class="{'show-dv-msg': isApplyFilters}">
+            <div class="left appliedFiltersName" ng-class="{'pendingFilters' : !isFilterSaved, 'savedFilterApplied' : savedfilterexpanded}">
+                <span class="fontSize14 left" style="color:#000">Applied Filters: </span>
+                <div class="chipDataCont" filter-chips>
+                    <div class="chipWrapLeft">
+                        <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0" ng-repeat="filter in filterItems">
+                            <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Delivery Status' | translate}}">{{filter.filterKey | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                            <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                                </svg>
+                            </i>
+                        </div>
+                    </div>
+                    <a href="javascript:void(0);" ng-click="showAllChips();" ng-if="showMoreChips" class="right staggeredLeft bold cursorPointer readMoreLink">SHOW ALL</a>
+                </div>
+            </div>
+            <div class="right resetFilterButton">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light marginRight8" ng-click="resetFilter();">
+                    <i class="icon iconSmall" message="Remove Filter" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                    </i>
+                </a>
+
+                <a href="javaScript:void(0)" ng-show="!isFilterSaved" class="waves-circle sh-icon waves-effect waves-light marginRight5f" ng-click="saveFilterPopupCallback(e);">
+                    <i class="icon iconSmall" message="Save Filter" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Save"></use></svg>
+                    </i>
+                </a>
+                <!--<smart-button flat="true" class="modal-close" config='{"title": "RESET" }'></smart-button>-->
+                <!--<smart-button flat="true" ng-show="!isFilterSaved" class="modal-close"  config='{"title": "SAVE" }'></smart-button>-->
+            </div>
+        </div>
+        <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+            <div>
+                <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                    {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+                </span>
+                <div class="right" ng-if="isSavedViewModified">
+                    <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+                </div>
+            </div>
+        </div>
+        <div id="uploadStatus" class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top paddingTop0" ng-if="isUploadStatus">
+            <div ng-if="isUploadinginProgess">
+                <span>{{uploadCount}} Uploads in progress</span>
+            </div>
+            <div ng-if="isUploadingDone">
+                <span>{{uploadInprogressCount}} In progress, {{uploadSuccessCount}} Success and {{uploadFailedCount}} Failed</span>
+                <div class="displayInlineBlock verticalAlignMiddle resetFilterButton">
+                    <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Filters Applied Bar End -->
+<div class="alert-bar alert-bar--warning alert-bar--fixed shadowGreyOuter enter-from-top" ng-class="{'fixed-steper-Spend':fixedSubHeader}"  ng-if="showAlertBar && !isEmptyState && !isApplyFilters">
+    {{alertBarMessage || translate}}
+</div>
+
+<div class="row marginBottom0 paddingBtm60 white clearfix main-view-container phaseContainer" ng-class="{'sub-header-fixed':fixedSubHeader, 'phaseContainerWithAlertBar': showAlertBar, 'phaseContainerWithFilterBar': isApplyFilters}">
+        <div class="col s3 left catalog-filter animated phasesFilter no-animate" ng-class="{'phasesFilterFixed' : fixedSubHeader && (showAlertBar && !isEmptyState && !isApplyFilters), 'phasesFixedWithoutInfo' : fixedSubHeader && !(showAlertBar && !isEmptyState && !isApplyFilters), 'catalogFilterWithoutInfo' : !fixedSubHeader && !(showAlertBar && !isEmptyState && !isApplyFilters)}" accordian-project data="filtersGroup" active="true" ng-if="!isEmptyState">
+        </div>
+    <div class="right filterView is-floating-menu-active col s9 padding0 activeRightPanel no-animate" ng-if="!isEmptyState">
+        <div class="row rightPanelHeader marginBottom0">
+            <div class="s9 m9 l9 left paddingLeft0 marginLeft15 fontSize16">
+                <span class="left paddingLeft5 milestoneTitle truncate cursorDefault" title="{{detailedItemData.milestoneName}}" ng-class="detailedItemData.type == 'Mandatory' ? 'mandatoryMilestoneTitle':''">{{detailedItemData.milestoneName}}</span>
+                <i class="icon iconSmall blue-text titleIcon marginLeft5" smart-infotip is-fixed="true" position="bottom" message="This milestone required approval.<br>This milestone is mandatory." mode="mouseover">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use>
+                    </svg>
+                </i>
+            </div>
+            <div class="right s4 paddingRight15">
+                <ul class="activityHeaderNav">
+                    <li><a href="javascript:void(0);" ng-click="addEditMilestone(detailedItemData)">
+                            <i class="icon iconSmall" smart-tooltip message="Edit" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ToEdit"></use>
+                                </svg>
+                            </i></a>
+                    </li>
+                    <li><a href="javascript:void(0)" ng-click="delSeldMilestone(detailedItemData)">
+                            <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i></a>
+                    </li>
+                    <li><a href="javascript:void(0)" ng-click="showTrackStatus()">
+                            <i class="icon iconSmall blue-text" smart-tooltip message="Track Status" position="bottom">
+                                <svg>
+                                    <use xlink:href="#icon_TrackStatus"></use>
+                                </svg>
+                            </i></a>
+                    </li>
+                    <li><smart-dropdown config="{{dropDownConfig}}">
+                            <a href="javaScript:void(0);" class="sh-icon dropdown-button " data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                                <i class="icon iconSmall blue-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                    <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                                </i>
+                            </a>
+                            <ul class='dropdown-content' id="landingPageAction">
+                                <li>
+                                    <a href="javascript:void()" class="grey-text text-darken-4">
+                                        {{'Lorem Ipsum' || translate}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rightPanelContent">
+            <div class="row marginBtm0">
+                <div class="col s12">
+                    <label>Description</label>
+                    <div class="questContent">
+                        <div id="" class="questContentPara" ng-class="{'ellipsis questContentPara1': !readMore, 'questContentPara2': readMore}">
+                           <p>{{detailedItemData.description}}</p> 
+                            <span ng-if="detailedItemData.description.length > 130 && readMore">
+                                <a href="javascript:void(0);" ng-click="showLess('phaseLevel');">Show Less</a>
+                            </span>
+                        </div>
+                        <span class="more" ng-if="detailedItemData.description.length > 130 && !readMore">
+                            <a href="javascript:void(0);" class="showMore"
+                               ng-click="showMore('phaseLevel');">Show More</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row marginBtm0" ng-if="attachmentData.length > 0">
+                <div class="col s12">
+                    <attachments-download attachments="attachmentData" index="$index"></attachments-download>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="left">
+                        <i class="icon small grey-text" smart-tooltip message="Comments" position="bottom">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Comments"></use>
+                            </svg>
+                        </i>
+                    </div>
+                    <div class="left marginLeft5 paddingTop11" ng-if="detailedItemData.comment.commentMsg">
+                        <div class="left">
+                            <div class="clearfix">
+                                <a href="javascript:void(0);" ng-click="showCommentsPopupTabCallback(e, 'type1')">{{detailedItemData.comment.commentMsg || translate}}</a>
+                            </div>
+                            <label class="clearfix displayBlock">
+                                Last commented by {{detailedItemData.comment.commentBy}} on
+                                {{detailedItemData.comment.commentDate}}
+                            </label>
+                                
+                                <div class="right marginRight20" ng-if="achievedCommentDataCopy.attachments.length > 0">
+                                    <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">
+                                        <i class="icon grey-text" smart-tooltip position="bottom" message="Attachments">|<svg><use xlink:href="#icon_Attachment"></use></svg></i><span>{{achievedCommentDataCopy.attachments[0].fileName}} 
+                                        <span ng-if="achievedCommentDataCopy.attachments.length > 1">
+                                            + {{achievedCommentDataCopy.attachments.length - 1}} more
+                                        </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="left marginLeft5 paddingTop12" ng-if="!detailedItemData.comment.commentMsg">
+                        <div>
+                            <a href="javascript:void(0);" ng-click="showCommentsPopupTabCallback(e, 'type1')">{{"No Comments" || translate}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <smart-typeahead class="col s3 left input-field line-height-manager" multiselect="false" titleofmodel="Assignee" dataid="milestoneAssigneeFocus" lookup-hide="setFocusOnAssignee('milestoneAssigneeFocus');" is-mandatory="true" show-lookup="true" label="Assignee" ng-model="selectedMilestoneData.selected" options="status.options" displayformat="{name}" filterkeys="['name']" optionformat="<span>{name}</span>"></smart-typeahead>
+                    <smart-textfield class="col s3 input-field line-height-manager" ng-model="selectedMilestoneData.dueBy" label="Due by" type="date" is-mandatory="true"></smart-textfield>
+                    <!--<div class="col s4">
+            <smart-switch class="input-field line-height-manager marginTop0 marginLeft20" left-label="'Pending'" right-label="'Achieved'" ng-model="detailedItemData.achieved" disable="false" on-change="togglePendingStatus(detailedItemData)">
+            </smart-switch>
+            <div ng-if="detailedItemData.achieved" class="right">on {{achievedDate | date : "dd/MM/yyyy"}}</div>
+        </div>-->
+                    <div class="col s3 paddingRight0">
+                        <!-- <smart-switch class="col s12 input-field line-height-manager padding0" left-label="'Pending'" right-label="'Achieved'" ng-model="detailedItemData.achieved" disable="false" on-change="togglePendingStatus(detailedItemData)" additionaltext="achievedText">
+                        </smart-switch> -->
+                        <smart-select class="col s12 input-field line-height-manager" label="Status" ng-model="detailedItemData.achieved" options="milestoneStatusOptions" datakey="code" displaykey="name" on-change="togglePendingStatus(detailedItemData)" is-mandatory="true">
+                        </smart-select>
+                        <!--<span ng-if="detailedItemData.achieved" class="left achievedText line-height-manager">on</span>
+            <smart-textfield ng-if="detailedItemData.achieved" class="col s4 input-field line-height-manager marginTop5" type="date" ng-model="achivedDate" readonly="true"></smart-textfield>-->
+                    </div>
+                    <div class="col s3 paddingLeft0 line-height-manager" ng-if="detailedItemData.achieved" class="right">{{achievedText}}</div>
+                </div>
+        </div>
+        <accordian-activity></accordian-activity>
+        <div class="milestonesFooter col s9">
+            <div class="col s6 m6 l8 left paddingTop5">
+                <label>Approval Status</label>
+                <div>
+                    Approval Withdrawn
+                </div>
+            </div>
+            <div class="col s6 m6 l4 right">
+                <smart-button class="right-align col s12 approvalBtn" ng-click="scorecardFinalize('table')" config='{"title":"SEND FOR APPROVAL"}' disable="false"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div ng-if="isEmptyState" class="marginTop114">
+        <div class="center action-block">
+            <a href="javascript:void(0);" class="action-block-cont" ng-click="addEditMilestone(false, true)">
+                <span class="action-block-cont-icon">
+                    <i class="icon icon--xLarge">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </span>
+                <span class="action-block-cont-lbl">Add Milestone</span>
+            </a>
+        </div>
+    </div>
+    <!--main content ends-->
+</div> 
+    </div>
+
+    <script type="text/ng-template" id="phases.html">
+        <div class="row marginTop10 marginLeft10">
+            <div class="col s12">
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder" ng-repeat="p in filterOptions.phases track by $index">
+                        <li class="collection-item paddingLeft8">
+                            <smart-checkbox label="{{p.phaseName}}" ng-model="p.selected"
+                                            ng-change="selectFilterItem('phases', p.selected)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="phasesHeader.html">
+        <div>
+            <a><span class="left">Phases</span><span class="right marginLeft20">{{phaseCount}}/{{filterOptions.phases.length}}</span></a>
+        </div>
+    </script>
+    <script type="text/ng-template" id="status.html">
+        <div class="row marginTop10 marginLeft10">
+            <div class="col s12">
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder" ng-repeat="p in filterOptions.status track by $index">
+                        <li class="collection-item paddingLeft8">
+                            <smart-checkbox label="{{p.statusName}}" ng-model="p.selected"
+                                            ng-change="selectFilterItem('status', p.selected)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="statusHeader.html">
+        <div>
+            <a><span class="left">Status</span><span class="right marginLeft20">{{statusCount}}/{{filterOptions.status.length}}</span></a>
+        </div>
+    </script>
+    <script type="text/ng-template" id="mandatory.html">
+        <div class="row marginTop10 marginLeft10">
+            <div class="col s12">
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder" ng-repeat="p in filterOptions.mandatory track by $index">
+                        <li class="collection-item paddingLeft8">
+                            <smart-checkbox label="{{p.mandatory}}" ng-model="p.selected"
+                                            ng-change="selectFilterItem('mandatory', p.selected)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="mandatoryHeader.html">
+        <div>
+            <a><span class="left">Mandatory</span><span class="right marginLeft20">{{mandatoryCount}}/{{filterOptions.mandatory.length}}</span></a>
+        </div>
+    </script>
+    <script type="text/ng-template" id="assignee.html">
+        <div class="row marginTop10 marginLeft10">
+            <div class="col s12">
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder" ng-repeat="p in filterOptions.assignee track by $index">
+                        <li class="collection-item paddingLeft8">
+                            <smart-checkbox label="{{p.assignee}}" ng-model="p.selected"
+                                            ng-change="selectFilterItem('assignee', p.selected)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="assigneeHeader.html">
+        <div>
+            <a><span class="left">Assignee</span><span class="right marginLeft20">{{assigneeCount}}/{{filterOptions.assignee.length}}</span></a>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="approvalStatus.html">
+        <div class="row marginTop10 marginLeft10">
+            <div class="col s12">
+                <smart-scroll height="210px">
+                    <ul class="collection noBorder" ng-repeat="p in filterOptions.approvalStatus track by $index">
+                        <li class="collection-item paddingLeft8">
+                            <smart-checkbox label="{{p.approvalStatus}}" ng-model="p.selected"
+                                            ng-change="selectFilterItem('approvalStatus', p.selected)"></smart-checkbox>
+                        </li>
+                    </ul>
+                </smart-scroll>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="approvalStatusHeader.html">
+        <div>
+            <a><span class="left">Approval Status</span><span class="right marginLeft20">{{aStatusCount}}/{{filterOptions.assignee.length}}</span></a>
+        </div>
+    </script>
+    <smart-popup template-url="project/ppst/views/addEditActivityPopup.html" show='{{showAddEditActivity}}' on-hide="onHideAddEditActivity(e)"></smart-popup>
+    <smart-popup template-url="project/ppst/views/editMilestone.html" show='{{editMilestonePopup}}' on-hide="onHideEditMilestone(e)"></smart-popup>
+    <smart-popup template-url="project/ppst/views/editBulkActivity.html" show='{{showBulkEditActivity}}' on-hide="onHideBulEditMile('bulkEditActivity')"></smart-popup>
+    <smart-popup template-url="project/ppst/views/editBulkMilestone.html" show='{{showBulkEditMilestone}}' on-hide="onHideBulEditMile('bulkEditMilestone')"></smart-popup>
+    <!--<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>-->
+    <smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadContractPopupCallback(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadAttachmentsPopup}}" on-hide="hideAttachmentsCallback(e)"></smart-popup>
+    <smart-popup template-url="{{commentsPopupgTabUrl}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+    <smart-popup template-url="project/ppst/views/trackStatus.html" class="trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" expand-collapse="#trackStatusPopup"></smart-popup>
+
+    <smart-popup template-url="{{commentsUploadPopupUrl}}" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+
+<smart-popup template-url="project/ppst/views/pendingAchieved.html" show='{{showAchievedMilePopup}}' on-hide="onHideAchievedPopup(e)" dismissible="false"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showAttchPopupAchieved}}" on-hide="hideAttachPopupAchieved(e)"></smart-popup>
+<smart-popup template-url="shared/landingPage/views/popupFiltersApplied.html" show='{{showMoreChips}}' on-hide="filterChipsOnHideCallback(e)" type="small"></smart-popup>
+<smart-saved-view-popup show="savedFilterPopUp" loader="isloader" hide="closeSavedPopup()" callback-func="callbackFuncForFilter(e)" ng-model="selectedFilterView" open-popup-saved-view="showfilterViewList" config="getFilterViewsList" is-apply-filter="isFilters" is-saved-filter="isFilterView" is-modified="isFilterViewModified" set-title="SAVED FILTERS"></smart-saved-view-popup>

@@ -1,0 +1,197 @@
+
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap" scrolled>
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{dataModel.objIR.InvoiceNumber}} - {{dataModel.objIR.DocumentName}} (DRAFT)</span>
+            </div>
+
+            <ul class="right extra-nav-right-icon right-panel">
+                <!--<li class="extra-nav-icon marginTop10" id="formSearchDv">
+                </li>-->
+
+                <li class="extra-nav-title--text marginLeft10">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class='dropdown-button left btn-in-header white-text' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+                            <span>{{ 'USD' || translate }} {{ '1465'  || translate | number:2 }}</span>
+
+                            <i class="icon iconSmall white-text">
+                                <svg>
+                                    <use xlink:href="#icon_DropArrow"></use>
+                                </svg>
+                            </i>
+
+                        </a>
+
+                        <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Invoice Value' || translate}} (USD)</span>
+                                    <span class="right">678.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Shipping' || translate}} (USD)</span>
+                                    <span class="right">109.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Taxes' || translate}} (USD)</span>
+                                    <span class="right">00.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Other Charges' || translate}} (USD)</span>
+                                    <span class="right">678.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Invoice Total' || translate}} (USD)</span>
+                                    <span class="right">1465.00</span>
+                                </div>
+                            </li>
+                            <li class="alert-bar--warning">
+                                <div class="input-field col s12 detail-field-summary marginTop7">
+                                    <span class="left grey-text">{{ "Accrued Taxes" | translate}}  ({{'USD'}}) </span>
+                                    <div class="right">
+                                        <div class="right-align">
+                                            {{ "19.23" | number:2 }}
+                                        </div>
+                                        <div class="ddSubLinkWrapper">
+                                            <a href="javascript:void(0)" class="blue-text fontSize12" ng-click="showTaxesPopupCallback(true)">{{'View Details' | translate}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                        <i class="icon iconSmall white-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="{{ commentIcon }}"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-title--text ">
+                    |
+                </li>
+                <li class="extra-nav-icon ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <!--<li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback(e)">
+                                    Manage Approvals
+                                </a>
+                            </li>-->
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="selectBuyerPopupCallback()">
+                                    Send to Buyer
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="selectReceiverPopupCallback()">
+                                    Send to Receiver
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="selectRequesterPopupCallback()">
+                                    Send to Requester
+                                </a>
+                            </li>
+                            <li>
+                                <a ui-sref="p2p.ir.approval" class="grey-text text-darken-4">
+                                    {{'Manage Approvals' || translate}}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="adhocApprovals(e)">
+                                    {{'Ad-hoc Approvals' || translate}}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="trackStatusPopupCallback()">
+                                    Track Status
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="deleteCallback()">
+                                    Delete
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="validateAccountCallback(e)">
+                                    Send For Processing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="notMineCallback(e)">
+                                    Not Mine
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <!-- sub header end-->
+
+
+    <div class="row paddingBtm40 smartFormWidgetContainer">
+        <smart-form-widget form-config="config" search-holder="formSearchDv" model-data="dataModel" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+    </div>
+
+    <footer class="page-footer">
+        <div class="row">
+            <div class="col s3 left-align">
+                <smart-button flat="true" config='{"title":"Print Preview","allignRight":"true"}' disable="false" callback="showPreview"></smart-button>
+            </div>
+            <div class="col s9 right-align">
+                <smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false"></smart-button>
+                <smart-button config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false" class="whiteSecondaryBtn marginRight10"></smart-button>
+                <smart-button config='{"title":"SEND FOR RESOLUTION","allignRight":"false"}' disable="false" ng-click="showSendResolutionPopupCallback()"></smart-button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- popup -- comments -->
+    <smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+    <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+
+    <smart-popup template-url="{{taxesPopupUrl}}" show="{{showTaxesPopup}}" on-hide="taxesPopUpOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-popup template-url="shared/popup/views/popupNewTrackStatus.html" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)"></smart-popup>
+    <smart-popup template-url="{{selectBuyerPopupUrl}}" show="{{selectBuyerPopup}}" on-hide="selectBuyerPopupOnHideCallback()" type="small"></smart-popup>
+    <smart-popup template-url="{{selectReceiverPopupUrl}}" show="{{selectReceiverPopup}}" on-hide="selectReceiverPopupOnHideCallback()" type="small"></smart-popup>
+    <smart-popup template-url="{{selectRequesterPopupUrl}}" show="{{selectRequesterPopup}}" on-hide="selectRequesterPopupOnHideCallback()" type="small"></smart-popup>
+    <smart-popup template-url="{{sendResolutionPopupUrl}}" show="{{showSendResolutionPopup}}" on-hide="hideSendResolutionPopupCallback()" type="small"></smart-popup>
+    <!-- popup -- ad hoc Approvals -->
+    <smart-popup template-url="{{adhocApprovalsPopupUrl}}" show='{{adhocApprovalsPopup}}' on-hide="adhocApprovalsOnHideCallback(e)"></smart-popup>
+    <!--Budgetary Popup-->
+    <smart-popup template-url="{{validateAccountUrl}}" show='{{validateAccountPopup}}' on-hide="validateAccountOnHideCallback(e)" type="large"></smart-popup>

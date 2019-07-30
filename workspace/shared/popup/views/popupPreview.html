@@ -1,0 +1,41 @@
+<div id="reviewsPopup" class="scrollableModel">
+    <div class="modal-header">
+        <i class="icon iconSmall left modal-header--Icon grey-text">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Preview"></use>
+            </svg>
+        </i>
+        <span class="title">{{'Preview' || translate  }}</span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+            <div class="row">
+                <div class="col s12">
+                    <smart-scroll height="350px">
+                        <smart-textfield class="col s12 active paddingTop30" label="To" type="text" ng-model="notificationNew1.notifyTo" disable="true" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 active paddingTop30" label="CC" type="text" ng-model="notificationNew1.notifyCc" disable="true" readonly="true"></smart-textfield>
+                        <smart-textfield class="col s12 active paddingTop30" label="Subject" type="text" ng-model="notificationNew1.notifySub" disable="true" readonly="true"></smart-textfield>
+                    </smart-scroll>
+                </div>
+            </div>
+
+            <div class="desistement">
+                <div class="row">
+                    <div class="col s12 grey-text">
+                        Desistement:<br />
+                        The information contained in this e-mail message is for the use of the addressee and is solely intended for the person to whom it has been sent. This message may contain legally privileged and confidential information which may not be made public. If the message is received by anyone other than the addressee, please return the message to the sender by replying to it and then delete the same. Internet e-mails are not necessarily secure.
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+            <!--<div class="modal-footer">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align">
+                    <smart-button flat="true" class="modal-close" config='{"title":"CLOSE"}'></smart-button>
+                </div>
+            </div>
+        </div>-->
+</div>

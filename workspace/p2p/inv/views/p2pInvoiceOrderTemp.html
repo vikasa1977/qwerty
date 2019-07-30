@@ -1,0 +1,55 @@
+<div ng-controller="p2pInvBasicDetailsNonPoInvoiceCtrl">
+	<smart-checkbox label="Non PO Invoice" class="col s12 m6 l4 xl3 xxl2 line-height-manager paddingLeft6" isMandatory="true" ng-model="modelData.nonPOInvoice"></smart-checkbox>
+    <smart-checkbox ng-show="!modelData.nonPOInvoice" class="col s12 m6 l4 xl3 xxl2 line-height-manager paddingLeft6" label="Multi PO Invoice" ng-model="modelData.selectedInvoiceTypeCheckbox" 
+                    on-change="invoiceTypeChange(modelData.selectedInvoiceTypeCheckbox, modelData)"></smart-checkbox>
+    <!--<smart-checkbox ng-show="!modelData.nonPOInvoice" class="col s12 m6 l4 xl3 xxl2 line-height-manager" label="Multi PO Invoice" ng-model="singlePOInvoice" ng-click="invoiceTypeChange1()"></smart-checkbox>--> 
+    <div ng-show="!modelData.nonPOInvoice && singlePOInvoice" class="col s12 m6 l4 xl3 xxl2 field-has-icon paddingLeft0">
+        <smart-typeahead class="templatize-field line-height-manager" titleofmodel="Select Order Number" multiselect="false" addnew="false" show-lookup="true" label="Order Number" ng-model="modelData.selectedOrder" options="modelData.orderOptions" filterkeys="['OrderNumber']" optionformat="<span>{OrderNumber}</span>" displayformat="{OrderNumber}"></smart-typeahead>
+        <a href="javascript:void(0)" class="info-icon">
+            <i class="icon marginTop15 blue-text" smart-infotip position="top" mode="mouseover" template-url="orderNumInfoTipTemplate.html" is-fixed="true">
+                <svg><use xlink:href="#icon_Info"></use></svg>
+            </i>
+        </a>
+    </div>
+
+    <div ng-show="!modelData.nonPOInvoice && !singlePOInvoice" class="col width245 field-has-icon">
+        <div ng-if="modelData.mSelectedOrder.length == 0" class="paddingTop15">
+            <span>Add Order Number</span>
+        </div>
+        <div ng-if="modelData.mSelectedOrder.length > 0">
+            <label> Order Number </label>
+
+
+        </div>
+        <a href="javascript:void(0);" ng-if="modelData.mSelectedOrder.length > 1 " ng-click="orderReadOnlyPopupCallback(e)">{{modelData.mSelectedOrder[0].OrderNumber}} + {{modelData.mSelectedOrder.length - 1}} more</a>
+        <a href="javascript:void(0);" ng-if="modelData.mSelectedOrder.length == 1 " ng-click="orderReadOnlyPopupCallback(e)">
+            {{modelData.mSelectedOrder[0].OrderNumber}}
+        </a>
+        <a href="javascript:void(0);" class="info-icon marginRight35" ng-click="orderDetailsPopupCallback(e)">
+            <i class="icon marginTop15 blue-text" smart-tooltip position="bottom" mode="mouseover" message="Select lines from Multiple Orders" is-fixed="true">
+                <svg><use xlink:href="#icon_Table"></use></svg>
+            </i>
+        </a>
+        <a href="javascript:void(0)" class="info-icon">
+            <i class="icon marginTop15 blue-text" smart-infotip position="top" mode="mouseover" template-url="orderNumInfoTipTemplate.html" is-fixed="true">
+                <svg><use xlink:href="#icon_Info"></use></svg>
+            </i>
+        </a>
+
+    </div>
+	
+	<smart-textfield ng-show="!modelData.nonPOInvoice && singlePOInvoice" class="col s12 m6 l4 xl3 xxl2 line-height-manager" label="Order Name" readonly="true" ng-model="modelData.selectedOrder.OrderName"></smart-textfield>
+
+    <script id="orderNumInfoTipTemplate.html" type="text/ng-template">
+        <div class="padding10 minWidth200">
+            <div ng-if="modelData.warningMessage" class="red-text">{{modelData.warningMessage}}</div>
+            <div ng-if="modelData.infoMessage && modelData.warningMessage" class="horizontal-devider marginTop5 marginBtm5"></div>
+            <div ng-if="modelData.infoMessage">{{modelData.infoMessage}}</div>
+        </div>
+    </script>
+    <smart-popup template-url="{{orderDetailsPopupUrl}}" show="{{orderDetailsPopup}}" on-hide="hideOrderDetailsPopupCallback(e)" type="large"></smart-popup>
+    <smart-popup template-url="{{orderReadOnlyPopupUrl}}" show="{{orderReadOnlyPopup}}" on-hide="hideOrderReadOnlyPopupCallback(e)" type="small"></smart-popup>
+
+
+</div>
+

@@ -1,0 +1,62 @@
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': projectSearchData.isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield ng-model="projectSearchData.searchProjectKey" class="input-field" focus="projectSearchData.focusSearchProjects"></smart-textfield>
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon grey-text">
+            <svg>
+                <use xlink:href="#icon_Copy"></use>
+            </svg>
+        </i>
+        <span class="title">
+            COPIES CREATED 
+        </span>
+    </div>
+    <div class="modal-content padding0 noBottomBorder borderTopLight">
+        <smart-scroll height="330px">
+            <div class="paddingLeft10">
+                <table class="sTable fixedTbl">
+                    <tbody>
+                        <tr ng-repeat="copies in filteredProjects = (copiesData  | filter:{ projectName : projectSearchData.searchProjectKey })">
+                            <td class="left-align" ng-if="filteredProjects.length > 0">
+                                <div class="left marginTop4">{{copies.projectName || translate}}</div>
+                            </td>
+                            <td class="right-align" ng-if="filteredProjects.length > 0">
+                                <a href="javascript:void(0)" ng-click="openProject()">
+                                    <i class="icon" smart-tooltip message="Open Project" position="bottom">
+                                        <svg>
+                                            <use xlink:href="#icon_PopOut2"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </td>
+                            
+                        </tr>
+                        <tr ng-if="filteredProjects.length == 0">
+                            <td class="center">
+                                No Project Found
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </smart-scroll>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="right">
+            <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+        </div>
+    </div>
+</div>

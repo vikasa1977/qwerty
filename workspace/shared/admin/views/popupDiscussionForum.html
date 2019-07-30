@@ -1,0 +1,379 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		<i class="left icon iconSmall grey-text">
+			<svg><use xlink:href="#icon_Discuss"></use></svg>
+		</i>
+		<span class="title">Discussion Forum</span>
+	</div>
+	<div class="modal-content padding0">
+        <div class="model_body">
+            <div class="wrapper row marginBottom0 clearfix padding0 wrapper--withSidebar discussion_forum_popup_wrapper" style="transition: all 0.5s ease;">
+                <div class="vertical-tabs">
+                    <smart-scroll height="100%" v-offset="399px" class="">
+                        <ul class="vertical_tab_wrapper">
+                            <li ng-repeat="topic in topics">
+                                <a href="javscript:void(0)" ng-click="selectTopic($index)" class="vertical__tab" ng-class="{'is-active' : $index == activeTopic}">
+                                    <span class="truncate">{{topic.name}}</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </smart-scroll>
+                </div>
+                <div class="bottomLeftIcons clearfix">
+                    <a href="javascript:void(0)" class="left" ng-click="resetClicked()" smart-tooltip position="bottom" message="Reset" ng-if="resetButton">
+                        <i class="icon iconSmall blue-text">
+                            <svg><use xlink:href="#icon_Reset"></use></svg>
+                        </i>
+                    </a>
+
+                    <a href="javascript:void(0)" class="right" ng-click="openNewTopicClicked()" smart-tooltip position="bottom" message="Add New Topic" ng-if="addNewTopicButton">
+                        <i class="icon iconSmall blue-text">
+                            <svg><use xlink:href="#icon_newTopic"></use></svg>
+                        </i>
+                    </a>
+                </div>
+                <div class="col s12">
+                    <div class="vertical-tabs-content" ng-if="verticalTabsContent">
+                        <smart-scroll height="100%" v-offset="349px">
+                            <!--<div ng-include="currentTopic"></div>-->
+                            <div class="discussionHeader">
+                                <div class="row marginBottom0">
+                                    <div class="col s12">
+                                        <div class="discussionTitle left">IT Hardware</div>
+                                        <div class="discussionIcons right">
+                                            <a href="javascript:void(0)" class="right" ng-click="newDiscussionClicked()" smart-tooltip position="bottom" message="Add New Discussion">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_newDiscussion"></use></svg>
+                                                </i>
+                                            </a>
+
+                                            <a href="javascript:void(0)" class="right" ng-click="participantClicked()" smart-tooltip position="bottom" message="Participants">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_users"></use></svg>
+                                                </i>
+                                            </a>
+
+                                            <a href="javascript:void(0)" class="right" ng-click="editTopicClicked()" smart-tooltip position="bottom" message="Edit Topic">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_editPen"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="newDiscussionCnt" ng-if="newDiscussion">
+                                <div class="row marginBottom0">
+                                    <smart-textfield label="Discussion Title" ng-model="companyName" class="col s12 discussionField"></smart-textfield>
+                                    <smart-textfield type="area" charactercounter="true" maxlength="1000" class="col s12 discussionArea" label="Type your discussion here" rows="2"></smart-textfield>
+                                    <div class="col s12">
+                                        <div class="button-and-icon-cnt right">
+                                            <a href="javascript:void(0)" class="left attachmentLink" smart-tooltip position="bottom" message="Add Attachment">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_Attachment"></use></svg>
+                                                </i>
+                                            </a>
+                                            <smart-button class="left" config='{"title":"POST"}'></smart-button>
+                                        </div>
+                                    </div>
+                                    <div class="col s12">
+                                        <div class="emailNotification">
+                                            <smart-checkbox label="Email Notifications" ng-model="isNotify" on-change="changeNotify(isNotify)"></smart-checkbox>
+                                            <i class="icon iconSmall blue-text left emailNotifyInfo" smart-tooltip position="bottom" message="Please Note: An email will be sent to stakeholder whenever a new topic is created after you have published this event">
+                                                <svg><use xlink:href="#icon_Info"></use></svg>
+                                            </i>
+                                            <small>Please check the checkbox, if you wish to receive alerts when someone replies to your forum post.</small>
+                                        </div>
+
+                                        <div class="internalDiscusssion">
+                                            <smart-checkbox label="Internal discussion with team member only" ng-model="isDisc" on-change="changeDiscussion(isDisc)"></smart-checkbox>
+                                            <small>Note: this discussion will not be visible to suppliers</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oldDiscussionCnt" ng-if="oldDiscussion">
+                                <div class="row marginBottom0">
+                                    <div class="col s12">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)" ng-click="getIntoPost()">Note for price sheets</a>
+                                                <p>Started by: Rishi Behl, Replies: 0, Last post: on 12/29/2016 01:46 pm by Rishi Behl</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="participantsCnt" ng-if="participants">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <div class="participants team-member">
+                                            <div class="participants-heading">
+                                                <span>Team Member(s)</span>
+                                                <small>{{participantTeamMemberCount}} Member</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="teamMember in teamMembers">
+                                                            <smart-checkbox label="{{teamMember.name}}" ng-model="teamMember.forParticipant" on-change="memberChecked(teamMember)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s6">
+                                        <div class="participants supplier">
+                                            <div class="participants-heading">
+                                                <span>Supplier(s)</span>
+                                                <small>{{participantSupplierCount}} Supplier</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="supplier in suppliers">
+                                                            <smart-checkbox label="{{supplier.name}}" ng-model="supplier.forParticipant" on-change="supplierChecked(supplier)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <div class="btn-holder">
+                                            <smart-button class="right" config='{"title":"DONE"}'></smart-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editTopicCnt" ng-if="editTopic">
+                                <div class="row">
+                                    <smart-textfield label="" ng-model="topicName" class="col s12 topicField"></smart-textfield>
+                                    <div class="col s12">
+                                        <div class="iTextCnt">
+                                            <i class="icon iconSmall black-text">
+                                                <svg><use xlink:href="#icon_Info"></use></svg>
+                                            </i>
+                                            <span>Please Select Team Member(s) and Supplier(s)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col s6">
+                                        <div class="participants team-member">
+                                            <div class="participants-heading">
+                                                <smart-checkbox label="Team Member(s)" ng-model="isEditTopicTeamMember.chk" on-change="editTopicParentMemberChecked(isEditTopicTeamMember.chk)"></smart-checkbox>
+                                                <small>{{editTopicTeamMemberCount}} Member</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="editTopicTeamMember in teamMembers">
+                                                            <smart-checkbox label="{{editTopicTeamMember.name}}" ng-model="editTopicTeamMember.forEdit" on-change="editTopicMemberChecked(editTopicTeamMember)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s6">
+                                        <div class="participants supplier">
+                                            <div class="participants-heading">
+                                                <smart-checkbox label="Supplier(s)" ng-model="isEditTopicSupplier.chk" on-change="editTopicParentSupplierChecked(isEditTopicSupplier.chk)"></smart-checkbox>
+                                                <small>{{editTopicSupplierCount}} Supplier</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="editTopicSupplier in suppliers">
+                                                            <smart-checkbox label="{{editTopicSupplier.name}}" ng-model="editTopicSupplier.forEdit" on-change="editTopicSupplierChecked(editTopicSupplier)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <div class="btn-holder">
+                                            <smart-button class="right" config='{"title":"DONE"}'></smart-button>
+                                            <span class="whiteSecondaryBtn right">
+                                                <smart-button config='{"title":"CANCEL"}'></smart-button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </smart-scroll>
+                    </div>
+
+                    <div class="vertical-tabs-content" ng-if="addNewTpoicContent">
+                        <smart-scroll height="100%" v-offset="349px">
+                            <div class="discussionHeader">
+                                <div class="row marginBottom0">
+                                    <div class="col s12">
+                                        <div class="discussionTitle left">Add New Topic</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="addNewTopicCnt">
+                                <div class="row">
+                                    <smart-textfield label="Enter Topic Name" ng-model="addNewTopicModel" class="col s12 topicField"></smart-textfield>
+                                    <div class="col s12">
+                                        <div class="iTextCnt">
+                                            <i class="icon iconSmall black-text">
+                                                <svg><use xlink:href="#icon_Info"></use></svg>
+                                            </i>
+                                            <span>Please Select Team Member(s) and Supplier(s)</span>
+                                        </div>
+                                    </div>
+                                    <div class="col s6">
+                                        <div class="participants team-member">
+                                            <div class="participants-heading">
+                                                <smart-checkbox label="Team Member(s)" ng-model="isNewTopicTeamMember.chk" on-change="newTopicParentMemberChecked(isNewTopicTeamMember.chk)"></smart-checkbox>
+                                                <small>{{newTopicTeamMemberCount}} Member</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="newTopicTeamMember in teamMembers">
+                                                            <smart-checkbox label="{{newTopicTeamMember.name}}" ng-model="newTopicTeamMember.forNewTopic" on-change="newTopicMemberChecked(newTopicTeamMember)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s6">
+                                        <div class="participants supplier">
+                                            <div class="participants-heading">
+                                                <smart-checkbox label="Supplier(s)" ng-model="isNewTopicSupplier.chk" on-change="newTopicParentSupplierChecked(isNewTopicSupplier.chk)"></smart-checkbox>
+                                                <small>{{newTopicSupplierCount}} Supplier</small>
+                                            </div>
+                                            <div class="participants-list">
+                                                <smart-scroll height="100%" v-offset="399px" class="">
+                                                    <ul>
+                                                        <li ng-repeat="newTopicSupplier in suppliers">
+                                                            <smart-checkbox label="{{newTopicSupplier.name}}" ng-model="newTopicSupplier.forNewTopic" on-change="newTopicSupplierChecked(newTopicSupplier)"></smart-checkbox>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <div class="btn-holder">
+                                            <smart-button class="right" config='{"title":"DONE"}'></smart-button>
+                                            <span class="whiteSecondaryBtn right">
+                                                <smart-button config='{"title":"CANCEL"}' ng-click="closeNewTopicClicked()"></smart-button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </smart-scroll>
+                    </div>
+
+                    <div class="vertical-tabs-content post-wrapper" ng-if="userPostContent">
+                        <smart-scroll height="100%" v-offset="349px">
+                            <div class="discussionHeader">
+                                <div class="row marginBottom0">
+                                    <div class="col s12">
+                                        <smart-button class="left back-btn" config='{"title":"back"}' ng-click="backClicked()"></smart-button>
+                                        <div class="discussionTitle left">IT Hardware</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="postCnt">
+                                <smart-scroll height="100%" v-offset="349px">
+                                    <span class="topicTitle">Note on price sheets</span>
+                                    <div class="postInnerCnt">
+                                        <div class="row marginBottom0">
+                                            <div class="col s2 imgCnt">
+                                                <img src="shared/resources/images/defaultProfilePic.jpg" alt="">
+                                                <div>Rishi Behl</div>
+                                            </div>
+
+                                            <div class="col s10 textCnt">
+                                                <span>Rishi Behl wrote on 12/29/2016 01:46 pm</span>
+                                                <p>Please specify Manufacturer Part No. and Manufacturer Name for each line item.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row marginBottom0 replyBtnGroup">
+                                            <div class="col s12">
+                                                <a href="javascript:void(0)" class="right" ng-click="replyWithQuoteClicked()" smart-tooltip position="bottom" message="Reply with Quote">
+                                                    <i class="icon blue-text">
+                                                        <svg><use xlink:href="#icon_replyWithQuote"></use></svg>
+                                                    </i>
+                                                </a>
+
+                                                <a href="javascript:void(0)" class="right" ng-click="replyClicked()" smart-tooltip position="bottom" message="Reply">
+                                                    <i class="icon blue-text">
+                                                        <svg><use xlink:href="#icon_Reply"></use></svg>
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="replyCnt" ng-if="reply">
+                                        <div class="row marginBottom0">
+                                            <smart-textfield label="" ng-model="replyModel" class="col s12"></smart-textfield>
+
+                                            <div class="col s12">
+                                                <div class="button-and-icon-cnt right">
+                                                    <a href="javascript:void(0)" class="left attachmentLink" smart-tooltip position="bottom" message="Add Attachment">
+                                                        <i class="icon iconSmall blue-text">
+                                                            <svg><use xlink:href="#icon_Attachment"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                    <smart-button class="left" config='{"title":"POST"}'></smart-button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="replyCnt replyWithQuoteCnt" ng-if="replyWithQuote">
+                                        <div class="row marginBottom0">
+                                            <smart-textfield label="" ng-model="replyWithQuoteModel" class="col s12"></smart-textfield>
+                                            <p class="col s12">
+                                                <span>Rishi Behl wrote on 12/29/2016 01:46 pm</span>
+                                                Please specify Manufacturer Part No. and Manufacturer Name for each line item.
+                                            </p>
+                                            <div class="col s12">
+                                                <div class="button-and-icon-cnt right">
+                                                    <a href="javascript:void(0)" class="left attachmentLink" smart-tooltip position="bottom" message="Add Attachment">
+                                                        <i class="icon iconSmall blue-text">
+                                                            <svg><use xlink:href="#icon_Attachment"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                    <smart-button class="left" config='{"title":"POST"}'></smart-button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-scroll>
+                            </div>
+                        </smart-scroll>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+	<!--<div class="modal-footer modal-footer-normalScroll">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>-->
+</div>

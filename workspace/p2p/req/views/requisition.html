@@ -1,0 +1,23 @@
+<header data-ng-include="'p2p/req/views/header.html'"></header>
+<form name="myForm">
+    <smart-form-widget class="marginTop60" form-config="config" model-data="dataModel"></smart-form-widget>
+</form>
+<smart-popup template-url="{{templateContent}}" show='{{showPopup}}' type="small"  on-hide="popUpOnHideCallback()"></smart-popup>
+<smart-category-component show="{{showCategoryComponent}}"
+                          preselection="{{preselectionObj}}"
+                          selection-callback="selectionCallbackForCategory(e)"
+                          hide-callback="hideCallbackForCategory(e)"></smart-category-component>
+<footer class="page-footer">
+	<div class="row">
+		<div class="col s12 normalMode">
+			<div class="left-align col s3" style="visibility:hidden">
+				<a class="btn-flat waves-effect previewAction">Preview</a>
+			</div>
+			<div class="right-align col s9">
+				<a class="btn-flat wave-effect success-bar" ng-click="saveForm()" ng-if="dataModel.status.id === 1">Save AS Draft</a>
+				<a class="modal-trigger waves-effect hoverable btn white black-text marginRight10" ng-click="cancelForm()">Cancel</a>
+				<a class="modal-trigger waves-effect hoverable btn wave-effect" ng-click="submitForm()" ng-if="dataModel.status.id === 1">Submit</a>
+			</div>
+		</div>
+	</div>
+</footer>

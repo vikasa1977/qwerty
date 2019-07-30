@@ -1,0 +1,142 @@
+<div class="row marginBottom0 projectsNav extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone': onErrorFound.isWarningHeader || showSummaryPanel}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="extra-nav-title subHeaderWithFilter">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_projects"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text max-width277 truncate" title="{{projectApproval.name}}">{{projectApproval.name}}</span>
+            <span class="extra-nav-title--text">({{projectApproval.status}})</span>
+        </div>
+        
+    </div>
+   
+</div>
+
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader, 'alert-bar-exist': (isApplyFilters || isSavedView || isUploadStatus)}" ng-show="isApplyFilters || isUploadStatus">
+    <div ng-if="isApplyFilters" class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top heightAuto" id="filterAppliedPanel" smart-dom-element get-element-stats="getDynamicHeight(e)" refresh="{{filterAppliedPanel}}" config="height" ng-class="{'show-dv-msg': isApplyFilters}">
+        <div class="left appliedFiltersName" ng-class="{'pendingFilters' : !isFilterSaved, 'savedFilterApplied' : savedfilterexpanded}">
+            <span class="fontSize14 left" style="color:#000">Applied Filters: </span>
+            <div class="chipDataCont" filter-chips>
+                <div class="chipWrapLeft">
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Region' | translate}}">{{'Region' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Business Unit' | translate}}">{{'Business Unit' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Supplier' | translate}}">{{'Supplier' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Saving type' | translate}}">{{'Saving type' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Saving type' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Saving Value' | translate}}">{{'Saving Value' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Saving Value' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+
+                </div>
+                <a href="javascript:void(0);" ng-click="showAllChips();" ng-if="showMoreChips" class="right staggeredLeft bold cursorPointer readMoreLink">SHOW ALL</a>
+            </div>
+        </div>
+        <div class="right resetFilterButton">
+            <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light marginRight8" ng-click="resetFilter();">
+                <i class="icon iconSmall" message="Remove Filter" smart-tooltip data-position="bottom" delay="50">
+                    <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                </i>
+            </a>
+
+            <a href="javaScript:void(0)" ng-show="!isFilterSaved" class="waves-circle sh-icon waves-effect waves-light marginRight5f" ng-click="saveFilterPopupCallback(e);">
+                <i class="icon iconSmall" message="Save Filter" smart-tooltip data-position="bottom" delay="50">
+                    <svg><use xlink:href="#icon_Save"></use></svg>
+                </i>
+            </a>
+            <!--<smart-button flat="true" class="modal-close" config='{"title": "RESET" }'></smart-button>-->
+            <!--<smart-button flat="true" ng-show="!isFilterSaved" class="modal-close"  config='{"title": "SAVE" }'></smart-button>-->
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+        <div>
+            <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+            </span>
+            <div class="right" ng-if="isSavedViewModified">
+                <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div id="uploadStatus" class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top paddingTop0" ng-if="isUploadStatus">
+        <div ng-if="isUploadinginProgess">
+            <span>{{uploadCount}} Uploads in progress</span>
+        </div>
+        <div ng-if="isUploadingDone">
+            <span>{{uploadInprogressCount}} In progress, {{uploadSuccessCount}} Success and {{uploadFailedCount}} Failed</span>
+            <div class="displayInlineBlock verticalAlignMiddle resetFilterButton">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row paddingBtm50 relativePosition" ng-class="{'tabsFixed':fixedSubHeader,'filtersApplied' : fixedSubHeader && isApplyFilters }">
+   <smart-tabs tab-config="{{projectApprovalTabsData}}"></smart-tabs>
+</div>
+<!-- footer -->
+<footer class="page-footer">
+    <div class="row marginBtm15">
+        <div class="col s12 normalMode right-align" ng-hide="isBlanketMode">
+            <smart-button class="marginRight15" config='{"title":"CANCEL","allignRight":"false"}' flat="true" disable="false" ng-click="cancelLink();"></smart-button>
+            <smart-button class="whiteSecondaryBtn blue-text marginRight15" config='{"title":"SELF APPROVE","allignRight":"false"}' ng-click="selfApproval()" disable="false"></smart-button>
+            <smart-button class="marginRight10" config='{"title":"DONE","allignRight":"false"}' ng-click="levelApproval()" disable="false"></smart-button>
+        </div>
+        <div class="col s12 normalMode right-align" ng-if="isBlanketMode">
+            <smart-button class="marginRight15" config='{"title":"CANCEL","allignRight":"false"}' flat="true" disable="false" ng-click="cancelLink();"></smart-button>
+            <smart-button class="whiteSecondaryBtn blue-text marginRight15" config='{"title":"SAVE","allignRight":"false"}' disable="false"></smart-button>
+            <smart-button class="marginRight10" config='{"title":"SEND FOR APPROVAL","allignRight":"false"}' ng-click="sendForApprovalCall()" disable="false"></smart-button>
+        </div>
+    </div>
+</footer>
+
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<!-- popup -- attchments -->
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>

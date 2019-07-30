@@ -1,0 +1,56 @@
+﻿<div class="modal-header">
+<i class="left icon iconSmall grey-text">
+	<svg>
+		<use xlink:href="#icon_logFile"></use>
+	</svg>
+</i>
+<span class="title"> DOWNLOAD TEMPLATE</span>
+</div>
+	<div class="modal-content padding0 is-scrolled">
+			<div>
+				<div class="table-header row">
+                    <div class="table-header-column col s8">
+                    </div>
+					<div class="table-header-column col s2 center">
+						{{'User' || translate}}
+					</div>
+					<div class="table-header-column col s2 center">
+						{{'Group' || translate}}						
+					</div>
+					
+				</div>
+				<smart-scroll height="250px">
+					<div class="table-body">
+						<div class="row table-body-row" ng-repeat="templateLog in templateData">
+							<div class="table-body-row-cell col s8">
+								<span> {{templateLog.templateName}}</span>
+							</div>
+							<div class="table-body-row-cell col s2 center">
+                                <a href="javascript:void(0)" class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Download' || translate }}">
+                                    <svg>
+                                        <use xlink:href="#icon_Download"></use>
+                                    </svg>
+                                </a>
+							</div>
+                            <div class="table-body-row-cell col s2 center">
+                                <a href="javascript:void(0)" class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Download' || translate }}">
+                                    <svg>
+                                        <use xlink:href="#icon_Download"></use>
+                                    </svg>
+                                </a>
+                            </div>
+						</div>
+					</div>
+				</smart-scroll>
+			</div>
+	</div>
+	<div class="modal-footer is-scrolled">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+

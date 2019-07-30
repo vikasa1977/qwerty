@@ -1,0 +1,21 @@
+if (typeof Resources$en_US  === 'undefined' || Resources$en_US ===null ){ Resources$en_US = [];  } Resources$en_US.push({
+	"requestorName": "Sourcing Requestor Name",
+	"businessUnit": "Sourcing Business Unit",
+	"currency": "Sourcing Currency",
+	"item": "AMB da Sourcing Item",
+	"locationName": "Sourcing Location Name",
+	"locationCode": "Sourcing Location Code",
+	"addressLine1": "Sourcing Address Line 1",
+	"addressLine2": "Sourcing Address Line 2",
+	"city": "AMB da Sourcing City",
+	"country": "AMB da Sourcing Country",
+	"zipCode": "Sourcing Zip Code",
+	"state": "Sourcing State",
+	"contactPerson": "Sourcing Contact Person",
+	"telephoneNumber": "Sourcing Telephone Number",
+	"requisitionName": "Sourcing Requisition Name",
+	"requisitionNumber": "Sourcing Requisition Number",
+	"DocumentName": "Sourcing Document Name",
+	"configure": "AMB da Sourcing Configure",
+	"addAName": "AMB da Sourcing Add a name"
+});

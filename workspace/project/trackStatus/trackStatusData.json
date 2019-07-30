@@ -1,0 +1,365 @@
+{
+  "headerLabel": "Track Status",
+  "projectStatus": {
+    "documentName": "23712839120320423958345",
+    "createdOn": "1505220554045",
+    "createdBy": "Emily R",
+    "createdByDesignation":  "Manager",
+    "Comments": {
+      "commentBy": "Whitney H",
+      "Designation": "External User",
+      "comment": "Order exceeded the budget",
+      "status": "Rejected",
+      "date": "1505220554045"
+    },
+    "currentStatus": "Approval Pending"
+  },
+  "trackStatusTabs": [
+    {
+      "title": "Ideation",
+      "contentUrl": "",
+      "id": "ideation"
+    },
+    {
+      "title": "Execution",
+      "contentUrl": "",
+      "active": true,
+      "id": "execution"
+    },
+    {
+      "title": "Realization",
+      "contentUrl": "",
+      "id": "realization"
+    }
+  ],
+  "cycles": [
+    {
+      "InstanceId": "1234",
+      "title": "Cycle 1",
+      "DocInstanceId": "",
+      "selected": true
+    },
+    {
+      "InstanceId": "123445",
+      "title": "Cycle 2",
+      "DocInstanceId": "",
+      "selected": false
+    }
+  ],
+  "datailedData": [
+    {
+      "status": "icon_Info_i",
+      "statusLabel": "SENT FOR APPROVAL",
+      "userType": "Buyer",
+      "userName": "John H",
+      "userDesignation": "Manager",
+      "approvalGroupNameVisible": false,
+      "approvalGroupName": "",
+      "actionDate": "1505305780828",
+      "isDetailShow": true,
+      "actionerDetails": [ ]
+    },
+    {
+      "status": "Auto_Approved",
+      "statusLabel": "Auto Approved",
+      "userType": "",
+      "userName": "System",
+      "approvalGroupNameVisible": false,
+      "approvalGroupName": "",
+      "actionDate": "1505305780828",
+      "isDetailShow": true,
+      "actionerDetails": []
+    },
+    {
+      "status": "Approved",
+      "approvalGroupNameVisible": false,
+      "approvalGroupName": "",
+      "actionDate": "1505305780828",
+      "isDetailShow": true,
+      "id": 1,
+      "roles": false,
+      "roleGroup": "Role Group",
+      "roleGroupValue": "Cost Center Approval",
+      "ruleName": "Rule Name",
+      "ruleNameValue": "Cost Center",
+      "actionerDetails": [
+        {
+          "Name": "Josh W",
+          "userType": "External User",
+          "Designation": "Manager",
+          "userStatus": "Approval Pending",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget, lorem ipsum is some dummy text provided by lorem ipsum . com is mirror image of characters",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "attachments": [
+
+            {
+              "fileName": "File_ABC.pdf",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            },
+            {
+              "fileName": "xyz.xls",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            }
+          ],
+          "ProxyApproverId": 0,
+          "ProxyApproverName": "",
+          "ProxyApproverDesignation": "",
+          "proxyApproveruserStatus": "",
+          "proxyActionDate": "",
+          "proxyApproverComments": { }
+        },
+        {
+          "Name": "Ross G",
+          "userType": "",
+          "Designation": "Manager",
+          "userStatus": "Approval Pending",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": true,
+          "Comments": {
+            "comment": "Order exceeded the budget, lorem ipsum is some dummy text provided by lorem ipsum . com is mirror image of characters",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "ProxyApproverId": 1,
+          "ProxyApproverName": "Name of delegated user",
+          "ProxyApproverDesignation": "Designation",
+          "proxyApproveruserStatus": "Approval Pending",
+          "proxyActionDate": "1505305780828",
+          "proxyApproverComments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          }
+        },
+        {
+          "Name": "Whitney H",
+          "userType": "",
+          "Designation": "Manager",
+          "userStatus": "Approval Pending",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "ProxyApproverId": 0,
+          "ProxyApproverName": "",
+          "ProxyApproverDesignation": "",
+          "proxyApproveruserStatus": "",
+          "proxyActionDate": "",
+          "proxyApproverComments": { }
+        }
+      ]
+    },
+    {
+      "status": "Pending",
+      "approvalGroupNameVisible": false,
+      "approvalGroupName": "",
+      "actionDate": "1505305780828",
+      "isDetailShow": true,
+      "id": 1,
+      "roles": false,
+      "roleGroup": "Role Group",
+      "roleGroupValue": "Cost Center Approval",
+      "ruleName": "Rule Name",
+      "ruleNameValue": "Cost Center",
+      "actionerDetails": [
+        {
+          "Name": "Josh W",
+          "userType": "External User",
+          "Designation": "Manager",
+          "userStatus": "Approved",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget, lorem ipsum is some dummy text provided by lorem ipsum . com is mirror image of characters",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "attachments": [
+
+            {
+              "fileName": "File_ABC.pdf",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            },
+            {
+              "fileName": "xyz.xls",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            }
+          ],
+          "ProxyApproverId": 0,
+          "ProxyApproverName": "",
+          "ProxyApproverDesignation": "",
+          "proxyApproveruserStatus": "",
+          "proxyActionDate": "",
+          "proxyApproverComments": { }
+        },
+        {
+          "Name": "Ross G",
+          "userType": "",
+          "Designation": "Manager",
+          "userStatus": "Approval Pending",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "attachments": [
+
+            {
+              "fileName": "File_ABC.pdf",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            },
+            {
+              "fileName": "xyz.xls",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            }
+          ],
+          "ProxyApproverId": 1,
+          "ProxyApproverName": "Name of delegated user",
+          "ProxyApproverDesignation": "Designation",
+          "proxyApproveruserStatus": "Approval Pending",
+          "proxyActionDate": "1505305780828",
+          "proxyApproverComments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          }
+        }
+      ]
+    },
+    {
+      "status": "Rejected",
+      "approvalGroupNameVisible": false,
+      "approvalGroupName": "",
+      "actionDate": "1505305780828",
+      "isDetailShow": true,
+      "id": 1,
+      "roles": false,
+      "roleGroup": "Role Group",
+      "roleGroupValue": "Cost Center Approval",
+      "ruleName": "Rule Name",
+      "ruleNameValue": "Cost Center",
+      "actionerDetails": [
+        {
+          "Name": "Josh W",
+          "userType": "External User",
+          "Designation": "Manager",
+          "userStatus": "Delegated",
+          "userModes": true,
+          "userMode": "OFFLINE",
+          "StatusDate": "1505305780828",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "attachments": [
+
+            {
+              "fileName": "File_ABC.pdf",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            },
+            {
+              "fileName": "xyz.xls",
+              "fileSize": "18 KB",
+              "uploadDate": "12 April 2016",
+              "createdBy": "Johnny Walker",
+              "sharedWith": "Calvin Shawn",
+              "isChecked": false
+            }
+          ],
+          "ProxyApproverId": 0,
+          "ProxyApproverName": "",
+          "ProxyApproverDesignation": "",
+          "proxyApproveruserStatus": "",
+          "proxyActionDate": "",
+          "proxyApproverComments": { }
+        },
+        {
+          "Name": "Ross G",
+          "userType": "",
+          "Designation": "Manager",
+          "userStatus": "Approval Pending",
+          "userModes": false,
+          "userMode": "",
+          "StatusDate": "",
+          "userCommentIcon": false,
+          "Comments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          },
+          "ProxyApproverId": 1,
+          "ProxyApproverName": "Name of delegated user",
+          "ProxyApproverDesignation": "Designation",
+          "proxyApproveruserStatus": "Approval Pending",
+          "proxyActionDate": "1505305780828",
+          "proxyApproverComments": {
+            "comment": "Order exceeded the budget",
+            "status": "Rejected/Approved",
+            "Designation": "External User",
+            "date": "1505220554045"
+          }
+        }
+      ]
+    }
+  ]
+  
+}

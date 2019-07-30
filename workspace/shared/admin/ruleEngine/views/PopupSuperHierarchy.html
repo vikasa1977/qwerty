@@ -1,0 +1,128 @@
+﻿<div ng-controller="superHierarchyCtrl">
+    <div class="modal-header">
+        <i class="icon  grey-text left">
+            <svg>
+                <use xlink:href="#icon_Configure"></use>
+            </svg>
+        </i>
+        <span class="title">Configure Supervisory Heirarchy</span>
+    </div>   
+            <smart-scroll height="300px">
+                <div class="scroll-inner-container" style="min-height: 250px;">            
+                    <table class="bordered sTable approvalGroupTable">
+                        <thead>
+                            <tr>
+                                <th class="left-align" width="15%"><span class="left paddingTop2">Action Code</span></th>
+                                <th class="left-align" width="15%">Use hierarchy of</th>
+                                <th class="left-align" width="15%">Lead Approval</th>
+                                <th class="center-align" width="10%">Is single level approval</th>
+                                <th class="center-align" width="10%">Self Approval</th>
+                                <th class="left-align" width="17%">Minimum approvals required</th>
+                                <th class="left-align" width="15%">DPA type</th>
+                                <th class="left-align" width="15%">Hierarchy Enity Type Id</th>
+                                <th class="left-align" width="15%">Force SOX Compliance</th>
+                                <th class="left-align" width="15%">Requires Self Approval</th>
+                                <th class="right-align" width="5%"></th>
+                                <th class="right-align" width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="listData in superHierachy track by $index">
+                                <td class="left-align" width="12%">
+                                    <smart-dropdown config="{{dropDownConfig}}" ng-show="listData.actionCodeShow">
+                                        <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-actionCode2-'+$index, listData.superHierachy);" href='javascript:void(0)' data-activates='gridTextField-actionCode2-{{$index}}' data-constrainwidth="false">
+                                            {{listData.identificationno.actionCode || 'Please Enter'}}
+                                        </a>
+                                        <div id="gridTextField-actionCode2-{{$index}}" ng-class="{'identificationno-show': listData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="listData.identificationno.actionCode"></smart-textfield>
+                                        </div>
+                                    </smart-dropdown>
+                                </td>
+                                <td class="left-align" width="12%">
+                                    <smart-dropdown config="{{dropDownConfig}}">
+                                        <smart-select class="line-height-manager marginBtm0" is-mandatory='true' ng-model="listData.usehierarchy.selectedoption.name" on-change="onChange(listData.usehierarchy.selectedoption.name, $index)" options="listData.usehierarchy.options" datakey="name"></smart-select>
+                                    </smart-dropdown>
+                                </td>
+                                <td class="left-align" width="15%">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                        <a ng-show="!listData.leadApprovalGroup.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-leadApprovalGroup2-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-leadApprovalGroup2-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                            {{listData.leadApprovalGroup.selectedoption[0].name  || listData.leadApprovalGroup.displaytitle }}
+                                        </a>
+                                        <div ng-class="{'table-typeahead-lookup--active' : listData.leadApprovalGroup.selectedoption[0].name}" id="dropdowngrid-leadApprovalGroup2-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-typeahead class="" titleofmodel="{{listData.leadApprovalGroup.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.leadApprovalGroup.displaytext}}" ng-model="listData.leadApprovalGroup.selectedoption" options="listData.leadApprovalGroup.options" filterkeys="['name']" lookup-hide="onleadApprovalGroupHide()" lookup-Open="onleadApprovalGroupShow()"></smart-typeahead>
+                                        </div>
+                                    </smart-dropdown>
+                                </td>
+                                <td class="center-align" width="10%">
+                                    <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                                </td>
+                                <td class="left-align" width="15%">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                        <a ng-show="!listData.selfApprovalGroup.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-selfApprovalGroup-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-selfApprovalGroup-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                            {{listData.selfApprovalGroup.selectedoption[0].name  || listData.selfApprovalGroup.displaytitle }}
+                                        </a>
+                                        <div ng-class="{'table-typeahead-lookup--active' : listData.selfApprovalGroup.selectedoption[0].name}" id="dropdowngrid-selfApprovalGroup-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-typeahead class="" titleofmodel="{{listData.selfApprovalGroup.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.selfApprovalGroup.displaytext}}" ng-model="listData.selfApprovalGroup.selectedoption" options="listData.selfApprovalGroup.options" filterkeys="['name']" lookup-hide="onselfApprovalGroupHide()" lookup-Open="onselfApprovalGroupShow()"></smart-typeahead>
+                                        </div>
+                                    </smart-dropdown>
+                                </td>
+                                
+                              
+                                <td class="left-align" width="12%">
+                                    <smart-dropdown config="{{dropDownConfig}}">
+                                        <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-minApproval-'+$index, listData.superHierachy);" href='javascript:void(0)' data-activates='gridTextField-minApproval-{{$index}}' data-constrainwidth="false">
+                                            {{listData.minApproval || 'Please Enter'}}
+                                        </a>
+                                        <div id="gridTextField-minApproval-{{$index}}" ng-class="{'identificationno-show': listData.actionCodeShow1}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="listData.minApproval"></smart-textfield>
+                                        </div>
+                                    </smart-dropdown>
+                                </td>
+                                
+                                <td class="left-align" width="17%">
+                                    <smart-select class="line-height-manager marginBtm0" is-mandatory='true' ng-model="listData.dpaTypeOptions.selectedoption.name" on-change="onChange(listData.dpaTypeOptions.selectedoption.name, $index)" options="listData.dpaTypeOptions.options" datakey="name"></smart-select>
+                                </td>
+                                <td class="left-align" width="15%">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                        <a ng-show="!listData.enityType.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-enityType-' + parentIndex + '-' + $index, listData);" href='javascript:void(0)' data-activates='dropdowngrid-enityType-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                            {{listData.enityType.selectedoption[0].name  || listData.enityType.displaytitle }}
+                                        </a>
+                                        <div ng-class="{'table-typeahead-lookup--active' : listData.enityType.selectedoption[0].name}" id="dropdowngrid-enityType-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-typeahead class="" titleofmodel="{{listData.enityType.displaytitle}}" multiselect="true" addnew="false" show-lookup="true" placeholder="{{listData.enityType.displaytext}}" ng-model="listData.enityType.selectedoption" options="listData.enityType.options" filterkeys="['name']" lookup-hide="onenityTypeHide()" lookup-Open="onenityTypeShow()"></smart-typeahead>
+                                        </div>
+                                    </smart-dropdown>
+                                </td>
+                                <td class="left-align" width="15%">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                        <smart-select class="line-height-manager marginBtm0" is-mandatory='true' ng-model="listData.forceSox.selectedoption.name" on-change="onChange(listData.forceSox.selectedoption.name, $index)" options="listData.forceSox.options" datakey="name"></smart-select>            
+                                    </smart-dropdown>
+                                </td>
+                               
+                                <td class="center-align" width="10%">
+                                    <smart-checkbox class="line-height-manager marginBtm0" fill="true"></smart-checkbox>
+                                </td>                                                              
+                                <td class="right-align" width="5%">
+                                    <a ng-show="($index + 1) != superHierachy.length || ($index + 1) === superHierachy.length && $index != 0" href="javascript:void(0)" class="right" ng-click="deleteConditionData(superHierachy, $index)">
+                                        <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                        </i>
+                                    </a>
+                                </td>
+                                <td class="right-align" width="5%">
+                                    <a ng-show="($index + 1) === superHierachy.length" href="javascript:void(0)" class="marginLeft10 right" ng-click="addsuperHierachy(superHierachy)">
+                                        <i class="icon left marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                        </i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </smart-scroll>
+    <div class="modal-footer is-scrolled paddingLeft4">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="addTeamComplete()"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

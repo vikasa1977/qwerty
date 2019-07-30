@@ -1,0 +1,84 @@
+
+<div class="modal-header">
+    <i class="icon iconSmall red-text">
+        <svg>
+            <use xlink:href="#icon_Split"></use>
+        </svg>
+    </i>
+    <span class="title">{{'MANUFACTURER DETAILS'|| translate}}</span>
+	<a href="javaScript:void(0);" class="right" ng-click="addRow()">
+		<i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add'|| translate}}">
+			<svg>
+				<use xlink:href="#icon_CirclePlus"></use>
+			</svg>
+		</i>
+	</a>
+</div>
+<div class="modal-content padding0 is-scrolled">
+
+    <smart-scroll height="320px" class="clearfix clear" is-fixed-header="true">
+        <table class="bordered" id="ma">
+            <thead>
+                <tr>
+                    <th class="left-align">{{'Manufacturer Name'|| translate}}</th>
+                    <th class="left-align">{{'Manufacturer Item Number'|| translate}}</th>
+                    <th class="left-align">{{'Model Number'|| translate}}</th>
+                    <th class="right-align"></th>
+				</tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="expressList in expressLists" >
+                    <td class="left-align">
+                        <smart-dropdown config="{{dropdownconfig}}">
+                            <a href="javascript:void(0);" class='dropdown-button  truncate manufaturer-detail-name'  data-activates="itemNumber_{{$index}}" ng-click="expressList.itemNumberFocus = true">{{expressList.itemNumber || 'Enter Name' }}</a>
+                            <div id='itemNumber_{{$index}}' class='dropdown-content dd-close-off'>
+                                <div class="row">
+                                    <smart-textfield label="" ng-model="expressList.itemNumber" placeholder="Enter Name" decimalprecision="100" maxlength="100" focus="expressList.itemNumberFocus" class="col s12 right-align"></smart-textfield>
+                                </div>
+                            </div>
+                        </smart-dropdown>
+                    </td>
+                    <td class="left-align">
+                        <smart-dropdown config="{{dropDownConfig}}">
+                            <a href="javaScript:void(0);" class='dropdown-button truncate manufaturer-detail-number' data-activates='ItemName_{{$index}}' ng-click="expressList.nameFocus = true">{{expressList.name || 'Enter Number' }}</a>
+                            <div id='ItemName_{{$index}}' class='dropdown-content dd-close-off'>
+                                <div class="row">
+                                    <smart-textfield label="" ng-model="expressList.name" decimalprecision="100" maxlength="100"  placeholder="Enter Number" class="col s12" focus="expressList.nameFocus"></smart-textfield>
+                                </div>
+                            </div>
+                        </smart-dropdown>
+
+                    </td>
+                    <td class="left-align">
+                        <smart-dropdown config="{{dropdownconfig}}">
+                            <a href="javascript:void(0);" class='dropdown-button truncate manufaturer-detail-number-modal' data-activates="itemNumbermodel_{{$index}}" ng-click="expressList.modelNoFocus = true">{{expressList.modelNo || 'Enter Number' }}</a>
+                            <div id='itemNumbermodel_{{$index}}' class='dropdown-content dd-close-off'>
+                                <div class="row">
+                                    <smart-textfield label="" ng-model="expressList.modelNo" placeholder="Enter Number" decimalprecision="100" maxlength="100"  class="col s12 right-align" focus="expressList.modelNoFocus"></smart-textfield>
+                                </div>
+                            </div>
+                        </smart-dropdown>
+                    </td>
+
+
+                    <td class="right-align">
+                        <a href="javaScript:void(0);" ng-if="expressList.actionIconDelete" ng-click="removeRow($index)">
+                            <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}">
+                                <svg>
+                                    <use xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </smart-scroll>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='ApplyBtnConfig'></smart-button>
+    <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+</div>
+
+

@@ -1,0 +1,169 @@
+<script type="text/ng-template" id="single-text">
+    <smart-textfield class="col s12 l12 xxl11 line-height-manager questionnaiePreviewMode marginBtm0 paddingBtm13" readonly="true" type="text" ng-model="questionItem.questionResponse.singleText"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-text">
+    <smart-textfield type="area" class="col s12 l12 xxl11 questionnaiePreviewMode marginBtm0 paddingBtm13" label="" ng-model="questionItem.questionResponse.multiText" readonly="true"></smart-textfield>
+</script>
+
+<script type="text/ng-template" id="multi-text-format">
+    <div class="col s12 l12 xxl11 ckeditorContainer questionResponseContainer questionnaiePreviewMode ckeditorBox">
+        {{questionItem.questionResponse.FormatText}}
+    </div>
+</script>
+
+<script type="text/ng-template" id="single-response-radio">
+
+    <div class="dragList">
+        <div ng-repeat="sRadio in questionItem.questionResponse.config" class="questionResponseContainer clearfix singleResponseRadio">
+            <div class="clearfix">
+                <smart-radio gap="true" class="left" ng-init="sRadioIndex = 'sRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex;" option-id="{{sRadioIndex + $index}}" group-id="{{sRadioIndex}}" ng-model="questionItem.questionResponse.selected" options="sRadio.options" datakey="title"></smart-radio>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="single-response-drop">
+    <div class="questionResponseContainer clearfix">
+        
+            <!--<smart-select label="Select" ng-model="questionItem.questionResponse.selected" class="col s8 marginBtm0 line-height-manager" options="questionItem.questionResponse.config" datakey="title"></smart-select>-->
+            <smart-textfield class="col s12 l12 xxl11 line-height-manager questionnaiePreviewMode marginBtm0 paddingBtm13" readonly="true" type="text" ng-model="questionItem.questionResponse.selected"></smart-textfield>
+        
+    </div>
+</script>
+
+<script type="text/ng-template" id="multi-response">
+    <div class="questionnaireResponseContainer ">
+        <div class="dragList">
+            <div ng-repeat="multiResponseData in questionItem.questionResponse track by $index" class="questionResponseContainer questionResponseContainerOptionList clearfix ">
+                <div class="clearfix">
+                    <smart-checkbox checked='false' disable='true' label="{{multiResponseData.title}}" class="left marginTop12 marginLeft11" ng-model="multiResponseData.check"></smart-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="grid-type-combination">
+
+    <div ng-show="pagePreview" class="questionResponseContainer gridTypeCombination">      
+        <table class="bordered gridTypeContainer sTable">
+            <thead>
+                <tr>
+                    <th ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'"></th>
+                    <th class="center-align" smart-last-repeater-element parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" data="{{questionItem.questionResponse.cols}}" ng-repeat="gridTypeCols in questionItem.questionResponse.cols track by $index">{{ gridTypeCols.title }} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--gridTypeRows.cols = Object.create(questionItem.questionResponse.cols);-->
+                <tr ng-init="gridTypeRowsIndex = $index;" smart-last-repeater-element parentIndex="{{ dataItem.rank }}" childIndex="{{ $parent.$index }}" ng-repeat="gridTypeRows in questionItem.questionResponse.rows track by $index">
+                    <td class="left-align" ng-if="questionItem.questionType.type !== 'grid-type-wrow-combination'">{{gridTypeRows.title}}</td>
+                    <td class="center-align" ng-repeat="gridType in gridTypeRows.cols">
+                        <div class="" ng-include="'grid-type-structure'"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+</script>
+<script type="text/ng-template" id="numeric">
+    <smart-textfield class="col s12 l12 xxl11 questionnaiePreviewMode marginBtm0 paddingBtm13" label="" type="text" ng-model="questionItem.questionResponse.value" readonly="true"></smart-textfield>
+</script>
+<script type="text/ng-template" id="multi-numeric">
+    <div class="questionnaireResponseContainer">
+            <div class="questionResponseContainer questionResponseContainerOptionList clearfix paddingBtm0" ng-repeat="multiNumericResponseData in questionItem.questionResponse.value">
+                <smart-textfield type="text" readonly="true" class="col s12 l12 xxl11 questionnaiePreviewMode questField marginBtm20" label="{{multiNumericResponseData.question}}" ng-model="multiNumericResponseData.value"></smart-textfield>
+            </div>
+    </div>
+</script>
+<script type="text/ng-template" id="date-time">
+    <div class="questionResponseContainer clearfix">
+        <smart-textfield type="date" time-picker="{{questionItem.checktime}}" class="col s8 m5 l2 questionnaiePreviewMode dateTime marginBtm0" ng-model="questionItem.date" readonly="true"></smart-textfield>
+    </div>
+</script>
+
+<script type="text/ng-template" id="grid-type-structure">
+
+    <smart-checkbox ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true" class="gridTypeCheck" disable="true"></smart-checkbox>
+
+    <smart-radio ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+
+    <smart-select ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" class="col s12" datakey="name"></smart-select>
+
+    <smart-dropdown config="{{dropDownConfig}}" ng-if="gridType.type.SelectedType.name === 'Text field'" class="relative displayBlock">
+        <a class='dropdown-button btn-in-header' data-alignment="left" href='javascript:void(0)' data-activates='dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}' data-constrainwidth="false">
+            <span>{{gridType.type.Textfield || 'Please Enter' }}</span>
+        </a>
+        <div id="dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off">
+            <smart-textfield placeholder="Please Enter" ng-model="gridType.type.Textfield" focus="true" id="gridTextField_{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}"></smart-textfield>
+        </div>
+    </smart-dropdown>
+
+</script>
+
+<script type="text/ng-template" id="label-type">
+    <div class="questionnaireSection-header clearfix">
+
+        <span class="left questionnaireSection-header-title questionnaireSection-header-title-preview" ng-class="{'questionnaireEmptyDesc': !dataItem.title}"> {{questionItem.title}}</span>
+
+        <div class="row col s12 l12 xxl11 paddingLeft0 paddingRight0 marginBtm0 paddingBtm10 questionnaireDescPreview" ng-class="{'questionnaireEmptyDesc': !questionItem.description}">
+            {{ questionItem.description }}
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="list-box">
+    <div class="questionResponseContainer clearfix">
+        <smart-accumulator class="padding20" options="questionItem.questionResponse.config" height="250" label="Available Option(s)" add-keys="['title']" ng-model="questionItem.questionResponse.selected">
+        </smart-accumulator>
+    </div>   
+</script>
+
+<script type="text/ng-template" id="attachment-display">
+    <smart-dropdown class="left" config="{{dropDownConfig}}">
+        <a href="javaScript:void(0)" class="dIBlock dropdown-button questionStatusWrapper" data-activates="contactSuppAtt_{{$index}}_{{queId}}_{{section.id}}" data-constrainwidth="false" data-alignment="left">
+            <i class="icon small grey-text marginRight8" smart-tooltip position="bottom" message="Attachments"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+            <span class="dIBlock marginTop17">Contact.doc+3 More..</span>
+        </a>
+        <div id="contactSuppAtt_{{$index}}_{{queId}}_{{section.id}}" class="dropdown-content dd-close-off">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="paddingBtm10 paddingTop10">File Name</td>
+                        <td class="paddingBtm10 paddingTop10">
+                            <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Download"></use></svg>
+                            </i>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="paddingBtm10 paddingTop10">document_name.doc</td>
+                        <td class="paddingBtm10 paddingTop10">
+                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Download"></use></svg>
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paddingBtm10 paddingTop10">document.doc</td>
+                        <td class="paddingBtm10 paddingTop10">
+                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Download"></use></svg>
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paddingBtm10 paddingTop10">Document.pdf</td>
+                        <td class="paddingBtm10 paddingTop10">
+                            <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Download"></use></svg>
+                            </i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </smart-dropdown>
+
+</script>

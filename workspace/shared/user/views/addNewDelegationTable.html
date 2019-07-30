@@ -1,0 +1,34 @@
+﻿
+<div class="modal-header">
+    <span class="title">
+        ADD NEW
+    </span>
+</div>
+<div class="modal-content is-scrolled addNewDelegation">
+    <div class="model_body">
+        <div class="scrollingListBg">
+            <div class="row" ng-controller="userProfileCtrl">
+                <smart-select class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="Document Type" options='[{"title": "Week","selected": true}, {"title": "Month","selected": false}]'></smart-select>
+                <smart-select class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="Activity" options='[{"title": "Week","selected": true}, {"title": "Month","selected": false}]'></smart-select>
+                <smart-textfield class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="Renew after every" type="date"></smart-textfield>
+                <smart-textfield class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="For Next Times" type="date"></smart-textfield>
+                <smart-select class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="Delegate To" options='[{"title": "Week","selected": true}, {"title": "Month","selected": false}]'></smart-select>
+                <smart-radio class="col s12 m6 l6 xl6 xxl6 line-height-manager " label="Status" options='[{"title": "Active","selected": true}, {"title": "Inactive","selected": false}]' gap="true"></smart-radio>
+                <smart-checkbox class="col s12 m6 l6 xl6 xxl6 line-height-manager paddingLeft6" label="Include Pending Task"></smart-checkbox>
+                <smart-checkbox class="col s12 m6 l6 xl6 xxl6 line-height-manager" label="Continue To Receive Notification"></smart-checkbox>
+                <smart-checkbox class="col s12 m6 l6 xl6 xxl6 line-height-manager paddingLeft6" label="Continue To List In My Task"></smart-checkbox>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer is-scrolled paddingLeft0">
+    <div class="row marginBottom0">
+        <div class="col s12 paddingLeft3 paddingRight3">
+            <smart-button flat="true" class="left" config='{"title":"RESET"}'></smart-button>
+            <div class="right">
+                <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                <smart-button flat="true" class="left modal-close" config='{"title":"DONE"}' ng-click="hideSelectaddNewDelegation(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

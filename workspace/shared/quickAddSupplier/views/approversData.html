@@ -1,0 +1,73 @@
+<div class="clearfix" ng-controller="supplierNewCtrl">
+    <div class="col s12 paddingBtm25 paddingLeft0 paddingTop8">
+        <smart-radio gap="true" ng-model="selectedOption" class="col s12" datakey="name" options="selectedOptionitemType"></smart-radio>
+    </div>
+    <div class="col s12 paddingLeft0" data-ng-show="selectedOption.code == 'Single'">
+        <div class="col s12 m4 l4 padding0">
+            <smart-select label="Type" is-mandatory='true' ng-model="selectedtypeSelect" options="typeSelectOption" class="col s12 m5 l5" datakey="name" on-change="onChange(selectedtype)"></smart-select>
+        </div>
+        <!--<a href="javascript:void(0);" class="col s12 m4 l4 xl4 xxl4 input-field">
+            <span class="grey-text fontSize12 displayBlock" ng-show="showFormAs">Approvers</span>
+            <span id="approversBtn" data-target="approvers" class="catpopup-title" ng-class="{'marginTop16' : !showFormAs}">{{ approversinitialDisplayText }}</span>
+        </a>-->
+        <smart-checkbox checked='false' fill='true' disable='false' label="Include Supplier Manager" class="col s12 m4 l4 line-height-manager" ng-model="isIncludeSupplierManager.check" on-change="onChange(isIncludeSupplierManager.check)"></smart-checkbox>
+    </div>
+
+    <div class="item-details-template-wrap clearfix borderTopLight" data-ng-show="selectedOption.code == 'Multiple'">
+        <table class="bordered sTable supplierApprovalTable">
+            <thead>
+                <tr>
+                    <th class="left-align"><span class="left paddingTop2">Approval Level</span></th>
+                    <th class="left-align">Type</th>
+                    <th class="left-align">Approvers</th>
+                    <th class="center-align">Include Manager Supplier</th>
+                    <th class="left-align" width="104px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listData in approversMultiLevelList">
+                    <td class="left-align">{{ ($index + 1) | ordinal }} Level</td>
+                    <td class="left-align">
+                        <smart-select label="" is-mandatory='true' ng-model="listData.types.typeSelect" options="listData.types.options" class="col m9 l5 fieldcollapse marginBtm0 marginTop0" datakey="name" on-change="onChange(selectedtype)"></smart-select>
+                    </td>
+                    <td class="left-align">
+                        <!--<a href="javascript:void(0);"> <span id="approversBtn{{ $index }}" data-target="approvers{{ $index }}" class="catpopup-title">{{ listData.approvers.approversinitialDisplayText }}</span></a>-->
+                        <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                            <a ng-show="!listData.approvers.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="parentScope.makegridFocuse('dropdowngrid-approvers-'+ $index);" href='javascript:void(0)' data-activates='dropdowngrid-approvers-{{$index}}' data-constrainwidth="false">
+                                {{listData.approvers.selectedoption[0].name  || listData.approvers.placeholderText }}
+                            </a>
+                            <div ng-class="{'table-typeahead-lookup--active' : listData.approvers.selectedoption[0].name}" id="dropdowngrid-approvers-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off paddingLeft0 paddingRight10">
+                                <smart-typeahead class="col s12" is-mandatory = "true" multiselect="true" addnew="false" titleofmodel="Add Approvers" show-lookup="true" placeholder="{{listData.approvers.displaytext}}" ng-model="listData.approvers.selectedoption" options="listData.approvers.approversData" filterkeys="['name']" label=""></smart-typeahead>
+                            </div>
+                        </smart-dropdown>
+                    </td>
+                    <td class="center-align">
+                        <smart-checkbox checked='{{listData.check}}' fill='true' disable='false' label="" ng-model="listData.check" on-change="onChange(listData.check)" input-field="false"></smart-checkbox>
+                    </td>
+                    <td class="center-align" width="104px">
+                        <span class="right marginRight60 approvers-delete-icon" ng-if="approversMultiLevelList.length !== 1" ng-click="deleteapproversData($index)">
+                            <a href="javascript:void(0);">
+                                <i class="icon small left blue-text dropdown-button marginRight0 smallest" data-alignment="right" smart-tooltip message="{{'Delete Rows' || translate}}" delay="50" position="bottom">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <span class="right marginRight15 approvers-add-icon" ng-click="addapproversData()">
+            <a href="javascript:void(0);">
+                <i class="icon small left blue-text dropdown-button marginRight0 smallest" data-constrainwidth="false" data-activates="createPricesheet" data-alignment="right" smart-tooltip message="{{'Add Rows' || translate}}" delay="50" position="bottom">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+            </a>
+        </span>
+    </div>
+    <smart-list-popup template-url="shared/popup/views/smartCatPopupSingleLevel.html" type="small" default-text="Add Approvers" show="showFormAs" mode="false" selected-value="approversData" modal-content="approvers" modal-button="approversBtn" initial-display-text="approversinitialDisplayText"></smart-list-popup>
+    <div ng-repeat="listData in approversMultiLevelList">
+        <smart-list-popup template-url="shared/popup/views/smartCatPopupSingleLevel.html" type="small" default-text="Add Approvers" show="listData.approvers.showFormAs" mode="false" selected-value="listData.approvers.approversData" modal-content="approvers{{ $index }}" modal-button="approversBtn{{ $index }}" initial-display-text="listData.approvers.approversinitialDisplayText"></smart-list-popup>
+    </div>
+</div>
+

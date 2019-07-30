@@ -1,0 +1,8 @@
+<div ng-controller="p2pInvScannedDocSecHeaderCtrl">	
+	<div class="secHeader">
+		    <span class="left">{{ 'SCANNED DOCUMENT' | translate  }} </span>
+<div class="fontSize14 right" ng-hide="popupout"> <span class="marginLeft5 marginRight5">|</span>  <a ng-click=" selectedImage(0);$event.stopPropagation()" >{{ 'Change Image' | translate | uppercase }}</a>
+            </div>
+            <div id="pdfControlWrapper" class="right fontSize14">
+            </div>
+	</div>

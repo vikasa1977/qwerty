@@ -1,0 +1,20 @@
+<div ng-controller="applicableForCtrl">
+	<div class="row marginBtm0">
+		<div class="col s12 m6 l4 xl3 xxl2 input-field">
+			<div class="grey-text fontSize12" ng-show="showFormC">Category</div>
+			<span id="categoryApplicaBtn" data-target="categoryApplicable" class="catpopup-title" ng-class="{'marginTop16' : !showFormC}">{{ categoryDatainitialDisplayText }}</span>
+		</div>
+		<div class="col s12 m6 l4 xl3 xxl2 input-field">
+			<div class="grey-text fontSize12" ng-show="showFormBU">Business Unit</div>
+			<span id="businessAppliUnitBtn" data-target="businessUnitApplicable" class="catpopup-title" ng-class="{'marginTop16' : !showFormBU}">{{ businessUnitDatainitialDisplayText }}</span>
+		</div>
+		<div class="col s12 m6 l4 xl3 xxl2 input-field">
+			<div class="grey-text fontSize12" ng-show="showRegion">Region</div>
+			<span id="regionApplicableBtn" data-target="regionApplicable" class="catpopup-title left" ng-class="{'marginTop16' : !showRegion}">{{ RegionDatainitialDisplayText }}</span>
+		</div>
+	</div>
+
+	<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" read-mode-text="Category" default-text="Choose Category" show="showFormC" mode="true" selected-value="categoryData" modal-content="categoryApplicable" modal-button="categoryApplicaBtn" initial-display-text="categoryDatainitialDisplayText"></smart-list-popup>
+	<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormBU" mode="true" selected-value="businessUnitData" modal-content="businessUnitApplicable" modal-button="businessAppliUnitBtn" initial-display-text="businessUnitDatainitialDisplayText"></smart-list-popup>
+	<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" read-mode-text="Region" default-text="Choose Region" show="showRegion" mode="true" selected-value="region" modal-content="regionApplicable" modal-button="regionApplicableBtn" initial-display-text="RegionDatainitialDisplayText" ></smart-list-popup>
+</div>

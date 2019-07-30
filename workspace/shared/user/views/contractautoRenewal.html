@@ -1,0 +1,6 @@
+﻿<div class="col s12 padding0" ng-controller="userProfileCtrl">
+    <smart-radio label="Auto Renewal" class="line-height-manager col s12 m6 l4 xl3 xxl3" ng-model="selectedonoffOptions" options="onoffOptions" datakey="name" on-change="onChange(selectedonoffOptions)" gap="true"></smart-radio>
+    <smart-textfield class="line-height-manager col s12 m6 l4 xl3 xxl3 disabledF" label="Renew after every"  ng-model="valuone" ></smart-textfield>
+    <smart-select class="line-height-manager col s12 m6 l4 xl3 xxl3 disabledF" label="Days(s)" options='[{"title": "Week","selected": true}, {"title": "Month","selected": false}]'></smart-select>
+    <smart-textfield class="line-height-manager col s12 m6 l4 xl3 xxl2 disabledF" label="For Next Times" ng-model="valutwo"></smart-textfield>
+</div>

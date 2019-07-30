@@ -1,0 +1,62 @@
+<div class="scrollableModel">
+<div id="sendemailer">
+	<div class="modal-header row">
+        <div class="col s9 padding0">
+            <i class="icon iconSmall grey-text left">
+                <svg><use xlink:href="#icon_Registration"></use></svg>
+            </i>
+            <span class="title">SEND PRIMARY REGISTRATION FORM</span>
+        </div>
+        <smart-select ng-model="registrationForm.language.selectedoption" label="Language" options="languageOptions" class="supplierPopupLang col paddingRight0 s3 right" datakey="name" on-change="onChange(registrationForm.language.selectedoption)"></smart-select>
+	</div>
+    <div class="modal-content padding0 paddingTop20">    
+        
+            <div class="outer-row">
+                <div class="row marginBottom0 metadata-container-totalitem">
+                    <smart-metadata-chips field-class="col s12 m11 paddingRight40 line-height-manager" metadata="marketinginfodata.customers" item-total="0" option-id="marketing" metadatatitle="Current Customer"></smart-metadata-chips>
+                    <smart-textfield class="col s12" label="Subject"></smart-textfield>
+                    <a href="javascript:void(0)" ng-click="addDocumentPopupCallback()" class="file-field-title col s12 paddingTop15">Add Attachment</a>
+                    <div class="col s12 marginTop10">
+                        <span>documentOne.xsl</span>
+                        <a href="javascript:void(0);">
+                            <i class="icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                    <div class="col s12">
+                        <div class="ckeditorContainer paddingBtm20">
+                            <textarea name="editor1" id="editor1" rows="7" cols="80">
+                                Dear Marvin <br />
+                                Gentle Reminder<br />
+                                ORDER DETAILS<br /><br />
+                                MacBook Air - PO-2013.003133<br />
+                                Created on May 05 2016 | Created by John Doe<br />
+                                Order Total: USD 1000.00 | Order Contact: Brennan Jackson<br />
+                            </textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="modal-footer_new">
+                <div class="row marginBottom0">
+                    <div class="col s12">
+                        <div class="right">
+                            <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}' ng-click="trackStatusPopupCallback(e)" ng-disabled="state === 'trackStatus'"></smart-button>
+                            <smart-button flat="true" class="left modal-close registration-send-mail" config='{"title":"SEND MAIL"}'></smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</div>
+</div>
+</div>
+
+<script>
+    CKEDITOR.replace('editor1');
+</script>

@@ -1,0 +1,124 @@
+<div ng-controller="historicalCtrl" class="marginbtm10">
+		<div class="row marginBtm0 borderTopLight">
+			<div class="clearfix secContentWithBorder fontSize12">
+	
+				<div class="right">
+	
+						<smart-dropdown config="{{dropDownConfig}}">
+								<a href="javaScript:void(0)" class="dropdown-button right" data-activates="tabChargesTBulkAdd2" data-constrainwidth="false" data-alignment="right">
+									<i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Lines">
+										<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+									</i>
+								</a>
+								<ul id="tabChargesTBulkAdd2" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+									<li><span class="center-align fontSize16">{{'ADD LINES'|| translate}}</span></li>
+									<li>
+										<smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+									</li>
+									<li class="marginTop17">
+										<div class="right">
+											<a href="javascript:void(0)">
+												<i class="icon iconSmall left blue-text">
+													<svg><use xlink:href="#icon_Close"></use></svg>
+												</i>
+											</a>
+											<a href="javascript:void(0)" ng-click="addConversionRow()">
+												<i class="icon iconSmall left blue-text addBulkRow">
+													<svg><use xlink:href="#icon_Check"></use></svg>
+												</i>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</smart-dropdown>
+	
+	
+					<a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom" ng-click="notesDeleteRowCallback()">
+						<i class="icon left blue-text">
+							<svg>
+								<use xlink:href="#icon_TrashCan"></use>
+							</svg>
+						</i>
+					</a>
+	
+				</div>
+			</div>
+		</div>
+	
+		<table class="bordered sTable fixedTbl" sticky-header scroll-type="page">
+			<colgroup>
+				<col style="width:5%"/>
+				<col style="width:7%"/>
+				<col style="width:20%"/>
+				<col style="width:18%">
+				<col style="width:18%">
+				<col style="width:23%"/>
+			</colgroup>
+			<thead>
+				<tr>
+						<th class="left-align">
+								<smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+						</th>
+					<th class="left-align">Sequence</th>
+					<th class="left-align">Cost Group</span></th>
+					<th class="left-align paddingLeft0">Cost Source</th>
+					<th class="center-align paddingLeft0">Data Source</th>
+					<th class="right-align paddingLeft0">Cost (USD)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="history in historyList track by $index">
+						<td>
+								<smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
+						</td>
+					<td class="left-align">{{history.sequence}}</td>
+
+					<td class="left-align padding0 paddingLeft10">
+                        <a href="javascript:void(0);" ng-click="treeOpenCallback('category', $index)">{{history.Product}}</a>
+                    </td>
+	
+					<td class="left-align padding0 paddingRight25">
+						<smart-select ng-model="history.selectedCostSource1" options="costSourceOptions" datakey="name" displaykey="name"></smart-select>
+					</td>
+	
+					<td class="left-align padding0">
+						<smart-select label="None" ng-model="history.selectedDataSource" options="dataSourceOptions" datakey="name" displaykey="name"></smart-select>
+					</td>
+
+					<!-- <td class="center-align padding0 paddingLeft10">
+                        {{history.dataSource}}
+					</td>
+					 -->
+					<td class="right-align abc padding0">
+						<smart-textfield class="col s12 validate-bar marginBtm0" placeholder="Enter Value" ng-model="history.questval"></smart-textfield>
+					</td>
+	
+	
+	
+					<td class="left-align padding0" style="padding-right: 0 !important";>
+						<a ng-click="goToPage('service', $index)" href="javascript:void(0)" class="right" smart-tooltip message="Edit" position="bottom">
+							<i class="icon left blue-text">
+								<svg>
+									<use xlink:href="#icon_ToEdit"></use>
+								</svg>
+							</i>
+						</a>
+	
+					</td>
+	
+				</tr>
+			</tbody>
+		</table>
+
+
+		<div id="pollock" style="display: none; position: fixed;
+        height: 100%;
+        width: 100%;
+        background: aliceblue;
+        top: 0;
+        z-index: 999;
+        left: 0;
+        background: rgba(93, 87, 87, 0.5);">
+<div class="abc" style="background-image: url('shared/resources/images/Other_Costs_Popup_Restaurant.png');background-position: center;background-repeat: no-repeat;background-size: cover;height: 100%;"></div>
+
+<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>

@@ -1,0 +1,682 @@
+<div class="row marginBottom0 projectsNav extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone': onErrorFound.isWarningHeader || showSummaryPanel}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="extra-nav-title subHeaderWithFilter">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_projects"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text max-width277 truncate" title="{{savingTitle.name}}">{{savingTitle.name}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a class="waves-circle  white-text  waves-effect waves-light" ng-click="toggleFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Filter"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <!--<li class="extra-nav-title--text">
+                |
+            </li>
+
+            <li class="extra-nav-icon">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button" data-alignment="right" data-activates='savingProject' data-constrainwidth="false">
+                        <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                        </i>
+                    </a>
+                    <ul class='dropdown-content' id="savingProject">
+                        <li ng-repeat="action in savignMenu">
+                            <a href="javaScript:void(0);" class="grey-text text-darken-4">
+                                {{action.name || translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>-->
+        </ul>
+    </div>
+    <div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" class="panelBox-withSpace panelBox--filter">
+        <div class="panelBox-content panel-tab-align">
+            <div class="panelBox-header clearfix row marginBottom0">
+                <div class="col s12">
+                    <div class="left fontSize16">FILTER</div>
+                    <div class="right">
+                        <a href="javaScript:void(0)" class="gray-text" ng-click="savedViewPopupCallback(e, 'filter')">
+                            Saved Filters
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panelBox-body padding0">
+                <div class="row margin0">
+                    <div class="col s12 padding0">
+                        <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="100%" tab-panel-height="290px" vertical="true" on-select="callbackFunc(e)"></smart-tabs>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panelBox-footer row footerSpace ">
+                <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="toggleFilter(e);"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"SAVE"}' ng-click="saveFilterPopupCallback(e);"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleFilter(e);"></smart-button>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader, 'alert-bar-exist': (isApplyFilters || isSavedView || isUploadStatus)}" ng-show="isApplyFilters || isUploadStatus">
+    <div ng-if="isApplyFilters" class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top heightAuto" id="filterAppliedPanel" smart-dom-element get-element-stats="getDynamicHeight(e)" refresh="{{filterAppliedPanel}}" config="height" ng-class="{'show-dv-msg': isApplyFilters}">
+        <div class="left appliedFiltersName" ng-class="{'pendingFilters' : !isFilterSaved, 'savedFilterApplied' : savedfilterexpanded}">
+            <span class="fontSize14 left" style="color:#000">Applied Filters: </span>
+            <div class="chipDataCont" filter-chips>
+                <div class="chipWrapLeft">
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Region' | translate}}">{{'Region' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Business Unit' | translate}}">{{'Business Unit' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Supplier' | translate}}">{{'Supplier' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Remove' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Saving type' | translate}}">{{'Saving type' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Saving type' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+                    <div animate-on-load class="chip hoverable staggeredLeft marginRight5 marginBottom0">
+                        <a class="chips-link" smart-tooltip position="top" delay="50" message="{{'Saving Value' | translate}}">{{'Saving Value' | translate | limitTo:20 }}<span ng-if="recent.searchKey.length > 20">...</span> </a>
+                        <i class="icon iconXsmall grey-text material-icons" smart-tooltip position="top" delay="250" message="{{'Saving Value' || translate}}" ng-click="detectChipHeight()">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ChipRemove"></use>
+                            </svg>
+                        </i>
+                    </div>
+
+
+                </div>
+                <a href="javascript:void(0);" ng-click="showAllChips();" ng-if="showMoreChips" class="right staggeredLeft bold cursorPointer readMoreLink">SHOW ALL</a>
+            </div>
+        </div>
+        <div class="right resetFilterButton">
+            <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light marginRight8" ng-click="resetFilter();">
+                <i class="icon iconSmall" message="Remove Filter" smart-tooltip data-position="bottom" delay="50">
+                    <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                </i>
+            </a>
+
+            <a href="javaScript:void(0)" ng-show="!isFilterSaved" class="waves-circle sh-icon waves-effect waves-light marginRight5f" ng-click="saveFilterPopupCallback(e);">
+                <i class="icon iconSmall" message="Save Filter" smart-tooltip data-position="bottom" delay="50">
+                    <svg><use xlink:href="#icon_Save"></use></svg>
+                </i>
+            </a>
+            <!--<smart-button flat="true" class="modal-close" config='{"title": "RESET" }'></smart-button>-->
+            <!--<smart-button flat="true" ng-show="!isFilterSaved" class="modal-close"  config='{"title": "SAVE" }'></smart-button>-->
+        </div>
+    </div>
+    <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+        <div>
+            <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+                {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+            </span>
+            <div class="right" ng-if="isSavedViewModified">
+                <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+    <div id="uploadStatus" class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top paddingTop0" ng-if="isUploadStatus">
+        <div ng-if="isUploadinginProgess">
+            <span>{{uploadCount}} Uploads in progress</span>
+        </div>
+        <div ng-if="isUploadingDone">
+            <span>{{uploadInprogressCount}} In progress, {{uploadSuccessCount}} Success and {{uploadFailedCount}} Failed</span>
+            <div class="displayInlineBlock verticalAlignMiddle resetFilterButton">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row paddingBtm50 relativePosition saving-project-tab" ng-class="{'tabsFixed':fixedSubHeader,'filtersApplied' : fixedSubHeader && isApplyFilters }">
+   
+        <div class="summery-panel">
+           <div>
+               <span class="left">FY 2018 Savings</span>
+                <i class="icon iconSmall marginLeft10 blue-text left icon-info--size" smart-infotip is-fixed="true" template-url="fiscalYearTemplate.html" position="right">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+            </div>
+            <div>
+                $458.33
+            </div>
+            <div>
+                Realized : $255
+            </div>
+            <div>
+                Projected : $750
+            </div>
+        </div>
+
+    <smart-tabs tab-config="{{savingProjectTabsData}}"></smart-tabs>
+   
+
+</div>
+<!-- footer -->
+<footer class="page-footer footerSpace">
+    <div class="right marginBottom0">
+        <smart-button config='{"title":"SAVE"}' disable="false" class="right footerBtn" ng-click="confirmSaving()"></smart-button>
+        <smart-button flat="true" config='{"title":"CANCEL"}' class="right footerBtn"></smart-button>
+    </div>
+</footer>
+
+<!-- SAVED VIEW -->
+<smart-saved-view-popup show="savedViewPopUp" hide="closeSavedPopup()" callback-func="callbackFunc(e)" ng-model="selectedSavedview" open-popup-saved-view="showSavedViewList" config="getSavedViewsList" is-apply-filter="isApplyFilters" is-saved-filter="isSavedView" is-modified="isSavedViewModified" set-title="SAVED VIEWS"></smart-saved-view-popup>
+<smart-saved-view-popup show="savedFilterPopUp" loader="isloader" hide="closeSavedPopup()" callback-func="callbackFuncForFilter(e)" ng-model="selectedFilterView" open-popup-saved-view="showfilterViewList" config="getFilterViewsList" is-apply-filter="isFilters" is-saved-filter="isFilterView" is-modified="isFilterViewModified" set-title="SAVED FILTERS"></smart-saved-view-popup>
+<!-- save filter--->
+<smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+<smart-popup template-url="shared/landingPage/views/popupFiltersApplied.html" show='{{showMoreChips}}' on-hide="filterChipsOnHideCallback(e)" type="small"></smart-popup>
+
+<script type="text/ng-template" id="tabHeader1.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">category</span>
+            <i class="icon small right marginLeft20" ng-class="{'disabled' : disabled}">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            1 selected
+        </span>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader2.html">
+    <div class="fillterPanelLinks relativePosition ">
+        <a>
+            <span class="left">Region</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader3.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Business Unit</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            3 selected
+        </span>
+    </div>
+</script>
+<script type="text/ng-template" id="tabHeader4.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Supplier</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            3 selected
+        </span>
+    </div>
+</script>
+
+<script type="text/ng-template" id="tabHeader5.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Saving type</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+        <span class="showSelectedValues">
+            3 selected
+        </span>
+    </div>
+</script>
+
+<script type="text/ng-template" id="tabHeader6.html">
+    <div class="fillterPanelLinks relativePosition filterPanelSubLink">
+        <a>
+            <span class="left">Saving Value</span>
+            <i class="icon small right marginLeft20 disabled">
+                <svg><use xlink:href="#icon_FilterReset"></use></svg>
+            </i>
+        </a>
+    </div>
+</script>
+
+
+
+<script type="text/ng-template" id="content1.html">
+       <div class="panelBox-field padding15 margin0">
+        <div class="row">
+            <div class="searchSlideMain marginBtm15" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField active">
+                    <a href="javascript:void(0)" smart-tooltip position="Down" message="{{'Close' || translate }}" ng-click="searchinList = ''; showClose = false" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect marginTop5">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield class="input-field" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect marginTop5" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row marginTop30 marginBottom0">
+            <div class="left" ng-class="{'filled-partial' : (category.selected && category.selected < category.data.length) }">
+                <smart-checkbox class="paddingTop5" label="All" ng-model="category.selectAll" on-change="checkedAllfilterData(category.selectAll, category)"></smart-checkbox>
+            </div>
+
+            <ul class="right marginTop5 marginBtm0">
+                <li class="left">
+                    <a href="javascript:void(0)" class="marginRight5" ng-class="{'disabled' : !isDisabledLink}" ng-click="showSelected(category)">
+                        Show Selected
+                    </a>
+                    |
+                </li>
+                <li class="left fillterPanelLinks reset-filter-button">
+                    <a href="javascript:void(0)">
+                        <i class="icon small right marginLeft5" ng-class="{'disabled' : !isDisabledLink}" ng-click="filterReset(category)">
+                            <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="is-scrolled">
+        <smart-scroll height="200px">
+            <ul class="padding15 paddingTop0 paddingBtn0 marginBottom0">
+                <li ng-repeat="x in category.data | filter: searchinList" ng-hide="x.isHide" >
+                    <div class="row marginBottom0 paddingTop5 paddingBtm10">
+                        <div class="left">
+                            <smart-checkbox class="" ng-model="x.isChecked" on-change="filterDataListChange(x.isChecked, category)"></smart-checkbox>
+                        </div>
+                        <div class="left marginTop2" ng-bind-html="x.name | highlights: searchinList"></div>
+                    </div>
+                 </li>
+            </ul>
+        </smart-scroll>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="content2.html">
+    <div class="panelBox-field padding15 margin0">
+        <div class="row">
+            <div class="searchSlideMain marginBtm15" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField active">
+                    <a href="javascript:void(0)" smart-tooltip position="Down" message="{{'Close' || translate }}" ng-click="searchinList = ''; showClose = false" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect marginTop5">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield class="input-field" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect marginTop5" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row marginTop30 marginBottom0">
+            <div class="left" ng-class="{'filled-partial' : (region.selected && region.selected < region.data.length) }">
+                <smart-checkbox class="paddingTop5" label="All" ng-model="region.selectAll" on-change="checkedAllfilterData(region.selectAll, region)"></smart-checkbox>
+            </div>
+
+            <ul class="right marginTop5 marginBtm0">
+                <li class="left">
+                    <a href="javascript:void(0)" class="marginRight5" ng-class="{'disabled' : !isDisabledLink}" ng-click="showSelected(region)">
+                        Show Selected
+                    </a>
+                    |
+                </li>
+                <li class="left fillterPanelLinks reset-filter-button">
+                    <a href="javascript:void(0)">
+                        <i class="icon small right marginLeft5" ng-class="{'disabled' : !isDisabledLink}">
+                            <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+    <div class="is-scrolled">
+        <smart-scroll height="200px">
+            <ul class="padding15 paddingTop0 paddingBtn0 marginBottom0">
+                <li ng-repeat="x in region.data | filter: searchinList" ng-hide="x.isHide">
+                    <div class="row marginBottom0 paddingTop5 paddingBtm10">
+                        <div class="left">
+                            <smart-checkbox class="" ng-model="x.isChecked" on-change="filterDataListChange(x.isChecked, region)"></smart-checkbox>
+                        </div>
+                        <div class="left marginTop2" ng-bind-html="x.name | highlights: searchinList"></div>
+                    </div>
+                </li>
+            </ul>
+        </smart-scroll>
+    </div>
+
+</script>
+
+
+<script type="text/ng-template" id="content3.html">
+    <div class="panelBox-field padding15 margin0">
+        <div class="row">
+            <div class="searchSlideMain marginBtm15" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField active">
+                    <a href="javascript:void(0)" smart-tooltip position="Down" message="{{'Close' || translate }}" ng-click="searchinList = ''; showClose = false" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect marginTop5">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield class="input-field" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect marginTop5" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row marginTop30 marginBottom0">
+            <div class="left" ng-class="{'filled-partial' : (bu.selected && bu.selected < bu.data.length) }">
+                <smart-checkbox class="paddingTop5" label="All" ng-model="bu.selectAll" on-change="checkedAllfilterData(bu.selectAll, bu)"></smart-checkbox>
+            </div>
+
+            <ul class="right marginTop5 marginBtm0">
+                <li class="left">
+                    <a href="javascript:void(0)" class="marginRight5" ng-class="{'disabled' : !isDisabledLink}" ng-click="showSelected(bu)">
+                        Show Selected
+                    </a>
+                    |
+                </li>
+                <li class="left fillterPanelLinks reset-filter-button">
+                    <a href="javascript:void(0)">
+                        <i class="icon small right marginLeft5" ng-class="{'disabled' : !isDisabledLink}">
+                            <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="is-scrolled">
+        <smart-scroll height="200px">
+            <ul class="padding15 paddingTop0 paddingBtn0 marginBottom0">
+                <li ng-repeat="x in bu.data | filter: searchinList" ng-hide="x.isHide">
+                    <div class="row marginBottom0 paddingTop5 paddingBtm10">
+                        <div class="left">
+                            <smart-checkbox class="" ng-model="x.isChecked" on-change="filterDataListChange(x.isChecked, bu)"></smart-checkbox>
+                        </div>
+                        <div class="left marginTop2" ng-bind-html="x.name | highlights: searchinList"></div>
+                    </div>
+                </li>
+            </ul>
+        </smart-scroll>
+    </div>
+
+</script>
+
+<script type="text/ng-template" id="content4.html">
+    <div class="panelBox-field padding15 margin0">
+        <div class="row">
+            <div class="searchSlideMain marginBtm15" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField active">
+                    <a href="javascript:void(0)" smart-tooltip position="Down" message="{{'Close' || translate }}" ng-click="searchinList = ''; showClose = false" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect marginTop5">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield class="input-field" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect marginTop5" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row marginTop30 marginBottom0">
+            <div class="left" ng-class="{'filled-partial' : (supplier.selected && supplier.selected < supplier.data.length) }">
+                <smart-checkbox class="paddingTop5" label="All" ng-model="supplier.selectAll" on-change="checkedAllfilterData(supplier.selectAll, supplier)"></smart-checkbox>
+            </div>
+
+            <ul class="right marginTop5 marginBtm0">
+                <li class="left">
+                    <a href="javascript:void(0)" class="marginRight5" ng-class="{'disabled' : !isDisabledLink}" ng-click="showSelected(supplier)">
+                        Show Selected
+                    </a>
+                    |
+                </li>
+                <li class="left fillterPanelLinks reset-filter-button">
+                    <a href="javascript:void(0)">
+                        <i class="icon small right marginLeft5" ng-class="{'disabled' : !isDisabledLink}">
+                            <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+
+    <div class="is-scrolled">
+        <smart-scroll height="200px">
+            <ul class="padding15 paddingTop0 paddingBtn0 marginBottom0">
+                <li ng-repeat="x in supplier.data | filter: searchinList" ng-hide="x.isHide">
+                    <div class="row marginBottom0 paddingTop5 paddingBtm10">
+                        <div class="left">
+                            <smart-checkbox class="" ng-model="x.isChecked" on-change="filterDataListChange(x.isChecked, supplier)"></smart-checkbox>
+                        </div>
+                        <div class="left marginTop2" ng-bind-html="x.name | highlights: searchinList"></div>
+                    </div>
+                </li>
+            </ul>
+        </smart-scroll>
+    </div>
+
+</script>
+
+<script type="text/ng-template" id="content5.html">
+    <div class="panelBox-field padding15 margin0">
+        <div class="row">
+            <div class="searchSlideMain marginBtm15" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField active">
+                    <a href="javascript:void(0)" smart-tooltip position="Down" message="{{'Close' || translate }}" ng-click="searchinList = ''; showClose = false" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect marginTop5">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield class="input-field" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect marginTop5" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row marginTop30 marginBottom0">
+            <div class="left" ng-class="{'filled-partial' : (savingType.selected && savingType.selected < savingType.data.length) }">
+                <smart-checkbox class="paddingTop5" label="All" ng-model="savingType.selectAll" on-change="checkedAllfilterData(savingType.selectAll, savingType)"></smart-checkbox>
+            </div>
+
+            <ul class="right marginTop5 marginBtm0">
+                <li class="left">
+                    <a href="javascript:void(0)" class="marginRight5" ng-class="{'disabled' : !isDisabledLink}" ng-click="showSelected(savingType)">
+                        Show Selected
+                    </a>
+                    |
+                </li>
+                <li class="left fillterPanelLinks reset-filter-button">
+                    <a href="javascript:void(0)">
+                        <i class="icon small right marginLeft5" ng-class="{'disabled' : !isDisabledLink}">
+                            <svg><use xlink:href="#icon_FilterReset"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="is-scrolled">
+        <smart-scroll height="200px">
+            <ul class="padding15 paddingTop0 paddingBtn0 marginBottom0">
+                <li ng-repeat="x in savingType.data | filter: searchinList" ng-hide="x.isHide">
+                    <div class="row marginBottom0 paddingTop5 paddingBtm10">
+                        <div class="left">
+                            <smart-checkbox class="" ng-model="x.isChecked" on-change="filterDataListChange(x.isChecked, savingType)"></smart-checkbox>
+                        </div>
+                        <div class="left marginTop2" ng-bind-html="x.name | highlights: searchinList"></div>
+                    </div>
+                </li>
+            </ul>
+        </smart-scroll>
+    </div>
+
+</script>
+<script type="text/ng-template" id="content6.html">
+    <div class="row">
+        <div class="panelBox-field">
+            <div class="row manage-space radio-vertical radio-block margin0 paddingTop20">
+                <smart-textfield class="col s6 input-field" label="From"> </smart-textfield>
+                <smart-textfield class="col s6 input-field" label="To"> </smart-textfield>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="tabRealizedSavings.html">
+    <div class="col paddingLeft0 paddingTop25">
+        <div class="left progressWrap highRisk activeStroke">
+            <i>
+                <svg><use xlink:href="#icon_Realization"></use></svg>
+            </i>
+            <progress-meter percent="100"></progress-meter>
+        </div>
+        <div class="savingsText">
+            <div class="fontSize12 marginBtm5">
+                <span class="left">Realized Pipeline Saving</span>
+                <i class="icon iconSmall marginLeft10 blue-text left icon-info--size" smart-infotip is-fixed="true" template-url="fiscalYearTemplate.html" position="right">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+            </div>
+            <div class="fontSize14 marginBtm10 clearfix">USD 1050.00</div>
+            <div class="marginBtm5">
+                Realized : USD 255
+            </div>
+            <div>
+                Projected : USD 750
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tabNegotiatedSavings.html">
+    <div class="col paddingLeft0 paddingTop25">
+        <div class="left progressWrap highRisk notStartedStroke">
+            <i>
+                <svg><use xlink:href="#icon_Execution"></use></svg>
+            </i>
+            <progress-meter percent="100"></progress-meter>
+        </div>
+        <div class="savingsText">
+            <div class="fontSize12 marginBtm5">Negotiated Savings</div>
+            <div class="fontSize14 marginBtm5">USD 1050.00 K</div>
+            <div class="fontSize12 gray-text">
+                20.00% of 10.00 K Spend
+            </div>
+           </div>
+    </div>
+</script>
+<script type="text/ng-template" id="tabEstimatedSaving.html">
+    <div class="col paddingLeft0 paddingRight0 paddingTop25">
+        <div class="left progressWrap highRisk notStartedStroke">
+            <i>
+                <svg><use xlink:href="#icon_Ideation"></use></svg>
+            </i>
+            <progress-meter percent="100"></progress-meter>
+        </div>
+        <div class="savingsText">
+            <div class="fontSize12 marginBtm5">Estimated Savings</div>
+            <div class="fontSize14 marginBtm5">USD 1050.00 K</div>
+            <div class="fontSize12 gray-text">
+                20.00% of 10.00 K Spend
+            </div>
+        </div>
+    </div>
+</script>
+<script id="fiscalYearTemplate.html" type="text/ng-template">
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5"><b>FY 2017: $ 110K</b></div>
+    <div class="paddingLeft5">FY 2018: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+</script>

@@ -1,0 +1,55 @@
+<div ng-controller="p2pOrderTeamMemberCtrl">	
+	<div class="center action-block" ng-if="!teamMemberAdded">
+		<a href="javascript:void(0);" class="action-block-cont" ng-click="showTeamMemberPopupCall()">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Add Team Member</span>
+		</a>		
+	</div>
+<div class="panelBox-body" ng-if="teamMemberAdded">	
+					<div class="row marginBtm0 borderTopLight">
+						<div class="clearfix secContentWithBorder fontSize12">
+							<div class="right ">		
+								<a href="javascript:void(0)" class="marginLeft10 right"  smart-tooltip message="Add Team Member" position="bottom" ng-click="showTeamMemberPopupCall()">
+									<i class="icon  right blue-text">
+										<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+									</i>
+								</a>									
+								<a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllMembers.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteMultiPricesheet($event)">
+									<i class="icon  right blue-text">
+										<svg><use xlink:href="#icon_TrashCan"></use></svg>
+
+									</i>
+								</a>
+												
+							</div>
+						</div>
+					</div>
+					<smart-scroll height="353px" >
+						<div class="scroll-inner-container">
+							<table class="bordered sTable ">								
+								<thead>
+									<tr >
+										<th style="width:50px" ng-class="{'filled-partial' : fillpartial == true }"><smart-checkbox  ng-model="selectAllMembers.checkedAll" class="left" on-change="checkedAllMembers(selectAllMembers.checkedAll)"></smart-checkbox></th>
+										<th >Team Members</th>
+																	
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="n in addedTeamMember">
+										<td style="width:50px"><smart-checkbox  ng-model="n.isChecked" ng-change="membersListChange(n.isChecked)"></smart-checkbox></td>
+										<td >{{n.name}}</td>																
+									</tr>
+								</tbody>
+							</table>							
+						</div>
+					</smart-scroll>
+				
+</div>
+		<smart-popup template-url="shared/popup/views/popupAddTeamMember.html" show="{{showTeamMemberPopup}}" on-hide="hideTeamMemberPopupCall(e)" ></smart-popup>
+
+</div>
+

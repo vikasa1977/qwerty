@@ -1,0 +1,142 @@
+﻿<div class="modal-header">
+    <i class="left icon iconSmall grey-text">
+        <svg>
+            <use xlink:href="#icon_viewLog"></use>
+        </svg>
+    </i>
+    <span class="title">{{'VIEW LOG' || translate}}</span>
+</div>
+
+<!-- admin catalog create -- item details -- upload attachment popup --  modal body -->
+<div class="modal-content padding0 is-scrolled">
+    <smart-scroll height="360px" is-fixed-header="true">
+        <table class="bordered highlight uploadDownloadLog noTransitionTr">
+            <colgroup>
+                <col style="width:15%;" />
+                <col style="width:15%;" />
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+                <col style="width:15%;" />
+                <col style="width:15%;" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        {{'Status' || translate}}
+                        <smart-dropdown>
+                            <a href="javascript:void(0)" class="dropdown-button" data-alignment="left" data-activates='statusFilter' data-constrainwidth="false">
+                                <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                    <svg><use xlink:href="#icon_Filter"></use></svg>
+                                </i>
+                            </a>
+                            <ul id="statusFilter" class='dropdown-content  dd-close-off ddautoHeight active'>
+                                <li class="dropdown-content-content" ng-repeat="statusVal in uniqueStatusData">
+                                    <smart-checkbox ng-model="statusVal.isChecked" label="{{statusVal.status}}" on-change="selectStatusChange(statusVal.isChecked, $index)" class="padding10" checked='true'></smart-checkbox>
+                                </li>
+                                <li class="dropdown-content-footer">
+                                    <div class="right">
+                                        <smart-button config='{"title":"Close"}' flat="true" class="fontSize14" ng-click="closeStatus();" disable="false"></smart-button>
+                                        <smart-button config='{"title":"Apply"}' flat="true" class="fontSize14" ng-click="applyStatus();" disable='!uniqueStatusData[0].isChecked && !uniqueStatusData[1].isChecked && !uniqueStatusData[2].isChecked'></smart-button>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </smart-dropdown>
+                    </th>
+                    <th>
+                        {{'File Name' || translate}}
+                    </th>
+                    <th>
+                        {{'Start Date & Time (UTC)' || translate}}
+                    </th>
+                    <th>
+                        <span>{{'End Date & Time (UTC)' || translate}}</span>
+                    </th>
+                    <th>
+                        {{'Uploaded By' || translate}}
+                        <smart-dropdown>
+                            <a href="javascript:void(0)" class="dropdown-button" data-alignment="left" data-activates='uploadedByFilter' data-constrainwidth="false">
+                                <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                    <svg><use xlink:href="#icon_Filter"></use></svg>
+                                </i>
+                            </a>
+
+
+                            <ul id="uploadedByFilter" class='dropdown-content  dd-close-off ddautoHeight active'>
+                                <li class="dropdown-content-content" ng-repeat="upload in uniqueUploadedByData">
+
+                                    <smart-checkbox ng-model="upload.isChecked" label="{{upload.uploadedBy}}" class="padding10" on-change="selectStatusChange(upload.isChecked, $index)"></smart-checkbox>
+                                </li>
+                                <li class="dropdown-content-content">
+                                    <div class="right">
+
+                                        <smart-button config='{"title":"Close"}' flat="true" class="fontSize14" ng-click="closeUpload();" disable="false"></smart-button>
+                                        <smart-button config='{"title":"Apply"}' flat="true" class="fontSize14" ng-click="applyUpload();" disable="!uniqueUploadedByData[0].isChecked && !uniqueUploadedByData[1].isChecked && !uniqueUploadedByData[2].isChecked"></smart-button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </th>
+                    <th>
+                        {{'Log File' || translate}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="logItem in popupData">
+                    <td>
+                        <span ng-class="{'green-text': logItem.status == 'Success', 'orange-text': logItem.status == 'In-progress', 'red-text': (logItem.status != 'Success') && (logItem.status != 'In-progress')}">
+                            {{logItem.status}}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="truncate">
+                            {{logItem.fileName}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="truncate">
+                            {{logItem.startDate}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="truncate">
+                            {{logItem.endDate}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="truncate">
+                            {{logItem.uploadedBy}}
+                        </div>
+                    </td>
+                    <td>
+                        <span ng-if="logItem.logFile != 'Download'">
+                            {{logItem.logFile}}
+                        </span>
+                        <a href="javascript:void(0)" class="truncate" ng-if="logItem.logFile == 'Download'" message="Download Error Log" smart-tooltip data-position="bottom" delay="50">
+                            <i class="left icon iconSmall">
+                                <svg>
+                                    <use xlink:href="#icon_ErrorLogFil"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </smart-scroll>
+</div>
+
+<!-- admin catalog create -- item details -- upload attachment popup --  modal footer -->
+<div class="modal-footer is-scrolled">
+    <div class="row marginBottom0">
+        <div class="col s12">
+            <div class="right">
+
+                <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
