@@ -3487,6 +3487,996 @@
             </section>
         </div>
 
+        <!--Folding Carton-->
+        <div class="left" style="width: 100%;" ng-if="productFoldingCarton">
+            <!-- Main -->
+            <section ng-if="productionFoldingCarton">
+                <div class="row">
+                    <div class="col s12 overhead" style="padding: 0 20px; margin-top: 10px">
+                        <p style="font-size:16px; margin-top: 0px">Production Costs</p>
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px">
+                            <smart-select on-change="abc(costSourceDrop[0].selectedoption.name);" class="col s12" label="Cost Source" ng-model="costSourceDrop[0].selectedoption" options="costSourceDrop[0].options" datakey="name" style="margin-top:-43px; padding-left:0px"></smart-select>
+                        </div>
+                        
+                        <!-- Computed -->
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px; ">
+                            <smart-textfield label="Value" readonly="false" maxlength="100" placeholder="6,250,000"  type="text" ng-model="value2" style="margin-left:10px;">
+                        </div>
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:31.3%; display: inline-block; margin-top:10px">
+                            <smart-textfield label="Currency" readonly="true" maxlength="100" placeholder="USD"  type="text" ng-model="currency1"  style="margin-left:10px;">
+                        </div>
+                    </div>
+                    <div class="col row overhead manageCol" style="width:100%">
+                        <!-- Manual -->
+                        <div ng-if="manual" style="margin-left: 12px ;width: 90%;">
+                                <div style="display: inline-block; width: 27%;">
+                                    <smart-textfield label="Formula" class="disabled" disabled="true" readonly="true" ng-model="formulaLabel" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                                </div>
+                                <div style="display: inline-block; vertical-align: top; padding-top: 23px; margin-left: 0px">
+                                    <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                        <i class="icon iconSmall disabled left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings" disabled="true">
+                                            <svg><use xlink:href="#icon_Settings"></use></svg>
+                                        </i>
+                                        <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                            <div class="clearfix computed-header">
+                                                <div class="computed-header-label">Formula :</div>
+                                                <div><span>(Volume*price)/(Historical Price-Price)</span></div>
+                                                <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                            </div>
+                                            <div class="clearfix computed-content">
+                                                <div class="row marginBtm10">
+                                                    <div class="computed-formulalist">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Labor Cost
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Historical Price
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Lorem
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Price</a></li>
+                                                            <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                            <li><a href="javascript:void(0)">Lorem</a></li>
+                                                            <li><a href="javascript:void(0)">Price</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="computed-operatorlist">
+                                                        <ul class="clearfix">
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row marginBtm10">
+                                                    <div class="clearfix">
+                                                        <div class="left">
+                                                            <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                            <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                            <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                        </div>
+                                                        <smart-checkbox label="Auto Sum" class="left"></smart-checkbox>
+                                                    </div>
+                                                </div>
+                                                <div class="lookup-footer right">
+                                                    <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                    <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+                        </div>
+                        <!-- Computed -->
+                        <div ng-if="computed" style="margin-left: 12px ;width: 90%;">
+                                <div style="display: inline-block; width: 60%;">
+                                    <smart-textfield label="Formula" readonly="readonly" ng-model="formulaServiceMain" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                                </div>
+                                <div style="display: inline-block; vertical-align: top; padding-top: 33px; margin-left: 0px">
+                                    <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                        <i class="icon iconSmall left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings">
+                                            <svg><use xlink:href="#icon_Settings"></use></svg>
+                                        </i>
+                                        <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                            <div class="clearfix computed-header">
+                                                <div class="computed-header-label">Formula :</div>
+                                                <div><span></span></div>
+                                                <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                            </div>
+                                            <div class="clearfix computed-content">
+                                                <div class="row marginBtm10">
+                                                    <div class="computed-formulalist">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Labor Cost
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Historical Price
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                            <li>
+                                                                <a href="javascript:void(0)">
+                                                                    Lorem
+                                                                    <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                        <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                    </i>
+                                                                </a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)">Price</a></li>
+                                                            <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                            <li><a href="javascript:void(0)">Lorem</a></li>
+                                                            <li><a href="javascript:void(0)">Price</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="computed-operatorlist">
+                                                        <ul class="clearfix">
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon iconSmall blue-text cursorPointer">
+                                                                    <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                                </i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row marginBtm10">
+                                                    <div class="clearfix">
+                                                        <div class="left">
+                                                            <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                            <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                            <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                        </div>
+                                                        <smart-checkbox label="Auto Sum" class="left" ng-model="true"></smart-checkbox>
+                                                    </div>
+                                                </div>
+                                                <div class="lookup-footer right">
+                                                    <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                    <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 20px;">
+                        <p style="font-size:16px; margin-bottom: 10px;">Cost Details</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="row marginBtm0 borderTopLight">
+                                    <div class="clearfix secContentWithBorder fontSize12">
+                                        <div class="right">
+                            
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javaScript:void(0)" class="dropdown-button right" data-activates="tabChargesTBulkAdd1" data-constrainwidth="false" data-alignment="right">
+                                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Lines">
+                                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <ul id="tabChargesTBulkAdd1" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                                                    <li><span class="center-align fontSize16">{{'ADD LINES'|| translate}}</span></li>
+                                                    <li>
+                                                        <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                                                    </li>
+                                                    <li class="marginTop17">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)">
+                                                                <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Close">
+                                                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                            <a href="javascript:void(0)" ng-click="prodCostAddRowCallback()">
+                                                                <i class="icon iconSmall left blue-text addBulkRow" smart-tooltip position="bottom" delay="50" message="Done">
+                                                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                            
+                            
+                                            <a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom">
+                                                <i class="icon left blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                        </div>
+                        <smart-read-table-errors error="{{errorMsg}}" class="validation-alart-bar-box bandcontainer clearfix" showerrors-panel="onErrorFound"  customfields-selector=".linkError"></smart-read-table-errors>
+                        <table class="bordered sTable fixedTbl" sticky-header scroll-type="page" style="margin-bottom:100px">
+                            <colgroup>
+                                <col style="width:4%" />
+                                <col style="width:8%" />
+                                <col style="width:23%" />
+                                <col style="width:16%" />
+                                <col style="width:16%" />
+                                <col style="width:20%" />
+                                <col style="width:13%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+                                    </th>
+                                    <th class="center-align" style="padding:20px">Sequence</th>
+                                    <th class="left-align">Cost Element</th>
+                                    <th class="left-align">Cost Source</th>
+                                    <th class="left-align">Index Name</th>
+                                    <th class="left-align">UOM</th>
+                                    <th class="right-align">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="task in taskList1 track by $index">
+                                    <td>
+                                        <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
+                                    </td>
+                                    <td class="center-align">{{task.standardPart}}</td>
+                                    <td class="left-align truncate paddingTop20" title="{{task.jan08}}"><a ui-sref="">{{task.jan08}}</a></a></td>
+                                    <td class="left-align">
+                                        <smart-select label="" ng-model="task.approvalType.selectedoption" options="task.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
+                                    </td>
+                                    <td class="left-align hideLabel padding0 xyz" style="padding-left:0px !important">
+                                        <smart-textfield style="padding-left:0px !important" class="col s30 validate-bar left-align marginBtn0" is-mandatory="true" placeholder="Enter Value" ng-model=""></smart-textfield>
+                                    </td>
+                                    <td class="left-align truncate"><a ui-sref="">{{task.dec11}}</a></td>
+                                    <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
+                                        <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="task.value"></smart-textfield>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section ng-if="shipmentCostSection">
+                <div class="row">
+                    <div class="col s12 overhead" style="padding: 0 20px; margin-top: 10px">
+                        <p style="font-size:16px; margin-top: 0px">Shipment Costs</p>
+                        <div class="paddingRight80 ng-scope marginBtm10" ng-class="{'disabled' : fillpartialTeamMember11 }" style="width:33.3%; display: inline-block; margin-top:10px">
+                            <smart-select on-change="abc(costSourceDrop[0].selectedoption.name);"  class="col s12" label="Cost Source" ng-model="costSourceDrop[0].selectedoption" options="costSourceDrop[0].options" datakey="name" style="margin-top:-42px; padding-left:0px"></smart-select>
+                        </div>
+                        
+                    <!-- Computed -->
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px; ">
+                            <smart-textfield label="Value" readonly="false" maxlength="100" placeholder="1,200"  type="text" ng-model="value3" style="margin-left:10px;">
+                        </div>
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:31.3%; display: inline-block; margin-top:10px">
+                            <smart-textfield label="Currency" readonly="true" maxlength="100" placeholder="USD"  type="text" ng-model="currency1"  style="margin-left:10px;">
+                        </div>
+
+                        <!-- Manual -->
+                        <!-- <div ng-if="manual1" class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px; ">
+                            <smart-textfield label="Value" readonly="false" maxlength="100" focus="true" placeholder=""  type="text" ng-model="valueLabour" style="margin-left:10px;">
+                        </div>
+                        <div ng-if="manual1" class="paddingRight80 ng-scope marginBtm10" style="width:31.3%; display: inline-block; margin-top:10px">
+                            <smart-textfield label="Currency" readonly="true" maxlength="100" focus="false" placeholder="USD"  type="text" ng-model="currency1" disable="true" style="margin-left:10px;">
+                        </div> -->
+                    </div>
+                    <div class="col row overhead manageCol" style="width:100%">
+                        <!-- Manual -->
+                        <div ng-if="manual1" style="margin-left: 12px ;width: 90%;">
+                            <div style="display: inline-block; width: 27%;">
+                                <smart-textfield label="Formula" disabled="true" readonly="true" ng-model="formulaLabel" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                            </div>
+                            <div style="display: inline-block; vertical-align: top; padding-top: 23px; margin-left: 0px">
+                                <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                    <i class="icon iconSmall disabled left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings" disabled="true">
+                                        <svg><use xlink:href="#icon_Settings"></use></svg>
+                                    </i>
+                                    <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                        <div class="clearfix computed-header">
+                                            <div class="computed-header-label">Formula :</div>
+                                            <div><span>(Volume*price)/(Historical Price-Price)</span></div>
+                                            <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                        </div>
+                                        <div class="clearfix computed-content">
+                                            <div class="row marginBtm10">
+                                                <div class="computed-formulalist">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Labor Cost
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Historical Price
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Lorem
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem</a></li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="computed-operatorlist">
+                                                    <ul class="clearfix">
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row marginBtm10">
+                                                <div class="clearfix">
+                                                    <div class="left">
+                                                        <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                    </div>
+                                                    <smart-checkbox label="Auto Sum" class="left"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                            <div class="lookup-footer right">
+                                                <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </div>
+                        </div>
+                        <!-- Computed -->
+                        <div ng-if="computed1" style="margin-left: 12px ;width: 90%;">
+                            <div style="display: inline-block; width: 60%;">
+                                <smart-textfield label="Formula" disabled="true" readonly="readonly" ng-model="formulaServiceMain" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                            </div>
+                            <div style="display: inline-block; vertical-align: top; padding-top: 33px; margin-left: 0px">
+                                <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                    <i class="icon iconSmall left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings">
+                                        <svg><use xlink:href="#icon_Settings"></use></svg>
+                                    </i>
+                                    <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                        <div class="clearfix computed-header">
+                                            <div class="computed-header-label">Formula :</div>
+                                            <div><span></span></div>
+                                            <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                        </div>
+                                        <div class="clearfix computed-content">
+                                            <div class="row marginBtm10">
+                                                <div class="computed-formulalist">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Labor Cost
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Historical Price
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Lorem
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem</a></li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="computed-operatorlist">
+                                                    <ul class="clearfix">
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row marginBtm10">
+                                                <div class="clearfix">
+                                                    <div class="left">
+                                                        <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                    </div>
+                                                    <smart-checkbox label="Auto Sum" class="left" ng-model="true"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                            <div class="lookup-footer right">
+                                                <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 20px;">
+                        <p style="font-size:16px; margin-bottom: 10px;">Cost Details</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="row marginBtm0 borderTopLight">
+                                    <div class="clearfix secContentWithBorder fontSize12">
+                                        <div class="right">
+                            
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javaScript:void(0)" class="dropdown-button right" data-activates="tabChargesTBulkAdd1" data-constrainwidth="false" data-alignment="right">
+                                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Lines">
+                                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <ul id="tabChargesTBulkAdd1" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                                                    <li><span class="center-align fontSize16">{{'ADD LINES'|| translate}}</span></li>
+                                                    <li>
+                                                        <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                                                    </li>
+                                                    <li class="marginTop17">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)">
+                                                                <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Close">
+                                                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                            <a href="javascript:void(0)" ng-click="laborCostAddRowCallback()">
+                                                                <i class="icon iconSmall left blue-text addBulkRow" smart-tooltip position="bottom" delay="50" message="Done">
+                                                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                            
+                            
+                                            <a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom">
+                                                <i class="icon left blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                        </div>
+                        <table class="bordered sTable fixedTbl" sticky-header scroll-type="page" style="margin-bottom:100px">
+                            <colgroup>
+                                <col style="width:4%" />
+                                <col style="width:8%" />
+                                <col style="width:23%" />
+                                <col style="width:16%" />
+                                <col style="width:16%" />
+                                <col style="width:20%" />
+                                <col style="width:13%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+                                    </th>
+                                    <th class="center-align"  style="padding:20px">Sequence</th>
+                                    <th class="left-align">Cost Element</th>
+                                    <th class="left-align">Cost Source</th>
+                                    <th class="left-align">Index Name</th>
+                                    <th class="left-align">UOM</th>
+                                    <th class="right-align">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in taskList1">
+                                    <td>
+                                        <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
+                                    </td>
+                                    <td class="center-align">{{item.standardPart}}</td>
+                                    <td class="left-align"><a ui-sref="">{{item.jan08}}</a></a></td>
+                                    <td class="left-align">
+                                            <smart-select label="" ng-model="item.approvalType.selectedoption" options="item.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>
+                                    </td>
+                                    <td class="left-align truncate padding0 xyz" style="padding-left:0px !important">
+                                        <smart-textfield class="col s30 validate-bar left-align hideLabel marginBtn0" is-mandatory="true" placeholder="Enter Value"></smart-textfield>
+                                    </td>
+                                    <td class="left-align"><a ui-sref="">{{item.dec11}}</a></td>
+                                    <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
+                                        <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="item.value"></smart-textfield>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <section ng-if="marginSectoin">
+                <div class="row">
+                    <div class="col s12 overhead" style="padding: 0 20px;margin-top: 10px">
+                        <p style="font-size:16px; margin-top: 0px">Margin</p>
+                        <div class="paddingRight80 ng-scope marginBtm10" ng-class="{'disabled' : fillpartialTeamMember11 }" style="width:33.3%; display: inline-block; margin-top:10px">
+                            <smart-select on-change="abc(costSourceDrop[0].selectedoption.name);"  class="col s12" label="Cost Source" ng-model="costSourceDrop[0].selectedoption" options="costSourceDrop[0].options" datakey="name" style="margin-top:-42px; padding-left:0px"></smart-select>
+                        </div>
+                        
+                    <!-- Computed -->
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px; ">
+                            <smart-textfield label="Value" readonly="false" maxlength="100" placeholder="1,200"  type="text" ng-model="value4" style="margin-left:10px;">
+                        </div>
+                        <div class="paddingRight80 ng-scope marginBtm10" style="width:31.3%; display: inline-block; margin-top:10px">
+                            <smart-textfield label="Currency" readonly="true" maxlength="100" placeholder="USD"  type="text" ng-model="currency1"  style="margin-left:10px;">
+                        </div>
+
+                        <!-- Manual -->
+                        <!-- <div ng-if="manual1" class="paddingRight80 ng-scope marginBtm10" style="width:33.3%; display: inline-block; margin-top:10px; ">
+                            <smart-textfield label="Value" readonly="false" maxlength="100" focus="true" placeholder=""  type="text" ng-model="valueLabour" style="margin-left:10px;">
+                        </div>
+                        <div ng-if="manual1" class="paddingRight80 ng-scope marginBtm10" style="width:31.3%; display: inline-block; margin-top:10px">
+                            <smart-textfield label="Currency" readonly="true" maxlength="100" focus="false" placeholder="USD"  type="text" ng-model="currency1" disable="true" style="margin-left:10px;">
+                        </div> -->
+                    </div>
+                    <div class="col row overhead manageCol" style="width:100%">
+                        <!-- Manual -->
+                        <div ng-if="manual1" style="margin-left: 12px ;width: 90%;">
+                            <div style="display: inline-block; width: 27%;">
+                                <smart-textfield label="Formula" disabled="true" readonly="true" ng-model="formulaLabel" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                            </div>
+                            <div style="display: inline-block; vertical-align: top; padding-top: 23px; margin-left: 0px">
+                                <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                    <i class="icon iconSmall disabled left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings" disabled="true">
+                                        <svg><use xlink:href="#icon_Settings"></use></svg>
+                                    </i>
+                                    <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                        <div class="clearfix computed-header">
+                                            <div class="computed-header-label">Formula :</div>
+                                            <div><span>(Volume*price)/(Historical Price-Price)</span></div>
+                                            <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                        </div>
+                                        <div class="clearfix computed-content">
+                                            <div class="row marginBtm10">
+                                                <div class="computed-formulalist">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Labor Cost
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Historical Price
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Lorem
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem</a></li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="computed-operatorlist">
+                                                    <ul class="clearfix">
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row marginBtm10">
+                                                <div class="clearfix">
+                                                    <div class="left">
+                                                        <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                    </div>
+                                                    <smart-checkbox label="Auto Sum" class="left"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                            <div class="lookup-footer right">
+                                                <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </div>
+                        </div>
+                        <!-- Computed -->
+                        <div ng-if="computed1" style="margin-left: 12px ;width: 90%;">
+                            <div style="display: inline-block; width: 60%;">
+                                <smart-textfield label="Formula" disabled="true" readonly="readonly" ng-model="formulaServiceMain" maxlength="100" type="text" placeholder="Please enter details in below table" style="margin-left:20px;"></smart-textfield>
+                            </div>
+                            <div style="display: inline-block; vertical-align: top; padding-top: 33px; margin-left: 0px">
+                                <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                                    <i class="icon iconSmall left dropdown-button blue-text manageCol-tbl-settings" data-activates="dropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings">
+                                        <svg><use xlink:href="#icon_Settings"></use></svg>
+                                    </i>
+                                    <div id="dropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                        <div class="clearfix computed-header">
+                                            <div class="computed-header-label">Formula :</div>
+                                            <div><span></span></div>
+                                            <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                        </div>
+                                        <div class="clearfix computed-content">
+                                            <div class="row marginBtm10">
+                                                <div class="computed-formulalist">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Labor Cost
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Historical Price
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li>
+                                                            <a href="javascript:void(0)">
+                                                                Lorem
+                                                                <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                                    <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                        <li><a href="javascript:void(0)">Lorem</a></li>
+                                                        <li><a href="javascript:void(0)">Price</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="computed-operatorlist">
+                                                    <ul class="clearfix">
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="icon iconSmall blue-text cursorPointer">
+                                                                <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                            </i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row marginBtm10">
+                                                <div class="clearfix">
+                                                    <div class="left">
+                                                        <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                        <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                                    </div>
+                                                    <smart-checkbox label="Auto Sum" class="left" ng-model="true"></smart-checkbox>
+                                                </div>
+                                            </div>
+                                            <div class="lookup-footer right">
+                                                <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                                <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 20px;">
+                        <p style="font-size:16px; margin-bottom: 10px;">Cost Details</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="row marginBtm0 borderTopLight">
+                                    <div class="clearfix secContentWithBorder fontSize12">
+                                        <div class="right">
+                            
+                                            <smart-dropdown config="{{dropDownConfig}}">
+                                                <a href="javaScript:void(0)" class="dropdown-button right" data-activates="tabChargesTBulkAdd1" data-constrainwidth="false" data-alignment="right">
+                                                    <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Lines">
+                                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                    </i>
+                                                </a>
+                                                <ul id="tabChargesTBulkAdd1" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                                                    <li><span class="center-align fontSize16">{{'ADD LINES'|| translate}}</span></li>
+                                                    <li>
+                                                        <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                                                    </li>
+                                                    <li class="marginTop17">
+                                                        <div class="right">
+                                                            <a href="javascript:void(0)">
+                                                                <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Close">
+                                                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                            <a href="javascript:void(0)" ng-click="laborCostAddRowCallback()">
+                                                                <i class="icon iconSmall left blue-text addBulkRow" smart-tooltip position="bottom" delay="50" message="Done">
+                                                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </smart-dropdown>
+                            
+                            
+                                            <a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom">
+                                                <i class="icon left blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                        </div>
+                        <table class="bordered sTable fixedTbl" sticky-header scroll-type="page" style="margin-bottom:100px">
+                            <colgroup>
+                                <col style="width:4%" />
+                                <col style="width:8%" />
+                                <col style="width:23%" />
+                                <col style="width:16%" />
+                                <col style="width:16%" />
+                                <col style="width:20%" />
+                                <col style="width:13%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+                                    </th>
+                                    <th class="center-align"  style="padding:20px">Sequence</th>
+                                    <th class="left-align">Cost Element</th>
+                                    <th class="left-align">Cost Source</th>
+                                    <th class="left-align">Index Name</th>
+                                    <th class="left-align">UOM</th>
+                                    <th class="right-align">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in taskList1">
+                                    <td>
+                                        <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
+                                    </td>
+                                    <td class="center-align">{{item.standardPart}}</td>
+                                    <td class="left-align"><a ui-sref="">{{item.jan08}}</a></a></td>
+                                    <td class="left-align">
+                                            <smart-select label="" ng-model="item.approvalType.selectedoption" options="item.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>
+                                    </td>
+                                    <td class="left-align truncate padding0 xyz" style="padding-left:0px !important">
+                                        <smart-textfield class="col s30 validate-bar left-align hideLabel marginBtn0" is-mandatory="true" placeholder="Enter Value"></smart-textfield>
+                                    </td>
+                                    <td class="left-align"><a ui-sref="">{{item.dec11}}</a></td>
+                                    <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
+                                        <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="item.value"></smart-textfield>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <div class="left" style="width: 100%;" ng-if="productMilk">
             <!-- Main -->
             <section ng-if="feeAndCattleCostSectoin">

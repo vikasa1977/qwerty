@@ -1796,6 +1796,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
     //}
     $scope.isEditableTaskTable = false;
     $scope.productionCostSectoin = true;
+    $scope.productionFoldingCarton = true;
     $scope.feeAndCattleCostSectoin = true;
     $scope.toolingCostSectoin = true;
     $scope.showParentTaskCall = function (index, isTaskVisible, task) {
@@ -1812,6 +1813,135 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.jobSiteSec = false;
         $scope.liftingEquipmentsSec = false;
         $scope.isEditableTaskTable = false;
+        if (task.title == "Production Costs" && $state.productNameFoldingCartons) {
+            $scope.computed1 = true;
+            $scope.manual1 = false;
+            $scope.computed = true;
+            $scope.manual = false;
+            $scope.shipmentCostSection = false;
+            $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = true;
+            $scope.marginSectoin = false;
+
+            $scope.taskList1 = [{
+                    'standardPart': '1',
+                    'jan08': 'Labor',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency',
+                    'jul13': '',
+                    "approvalType": {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "value": '$0.07'
+
+                },
+                {
+                    'standardPart': '2',
+                    'jan08': 'Overhead',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency',
+                    'jul13': '',
+                    "approvalType": {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "value": '$0.22'
+                },
+                {
+                    'standardPart': '2',
+                    'jan08': 'Process Loss',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency',
+                    'jul13': '',
+                    "approvalType": {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "value": '$0.08'
+                },
+                {
+                    'standardPart': '2',
+                    'jan08': 'Production',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency',
+                    'jul13': '',
+                    "approvalType": {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "value": '$0.18'
+                },
+                {
+                    'standardPart': '2',
+                    'jan08': 'Transportation',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency',
+                    'jul13': '',
+                    "approvalType": {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "value": '$0.18'
+                }
+            ];
+
+        }
         if (task.title == "Production Costs" && $state.productNameKetchup) {
             $scope.computed1 = true;
             $scope.manual1 = false;
@@ -1819,6 +1949,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = true;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
 
             $scope.taskList1 = [{
@@ -1921,6 +2052,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = true;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.taskList1 = [{
                 'standardPart': '1',
@@ -1951,6 +2083,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = true;
             $scope.taskList1 = [{
                 'standardPart': '1',
@@ -1981,6 +2114,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = true;
@@ -2067,6 +2201,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = true;
             $scope.operatingCostSection = false;
@@ -2172,6 +2307,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2231,6 +2367,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2291,6 +2428,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2328,6 +2466,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2416,6 +2555,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2504,6 +2644,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -2593,7 +2734,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
-
+            $scope.productionFoldingCarton = false;
             $scope.pretzelsShippingCost = true;
             $scope.pretzelsPackagingCost = false;
 
@@ -2660,6 +2801,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.pretzelsPackagingCost = true;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.operatingCostSection = false;
@@ -3260,6 +3402,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual = false;
             $scope.shipmentCostSection = false;
             $scope.productionCostSectoin = false;
+            $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
             $scope.feeAndCattleCostSectoin = false;
             $scope.cattleCostSectoin = true;
@@ -6729,7 +6872,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = true;
         $scope.services1 = false;
         $scope.taskList = [{
@@ -6751,10 +6894,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } 
+    else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = true;
+        $scope.productFoldingCarton = false;
         $scope.productMilk = false;
         $scope.taskList = [{
                 title: "Production Costs",
@@ -6798,10 +6943,64 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }]
             },
         ];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    }//Samiksha
+    else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
+        $scope.productFoldingCarton = true;
+        $scope.productMilk = false;
+        $scope.taskList = [{
+                title: "Production Costs",
+                isTaskVisible: true,
+                isSelected: false,
+                taskGrp: [{
+                        title: "Labor",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Overhead",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Process Loss",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Production",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Transportation",
+                        isSelected: false,
+                    }
+
+                ]
+            },
+            {
+                title: "Shipment Costs",
+                isTaskVisible: true,
+                isSelected: false,
+                taskGrp: [{
+                    title: "Freight and WHS",
+                    isSelected: false
+                }]
+            },
+            {
+                title: "Margin",
+                isTaskVisible: true,
+                isSelected: false,
+                taskGrp: [{
+                    title: "Supplier Margin",
+                    isSelected: false
+                }]
+            },
+        ];
+    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameFoldingCartons && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+        $scope.product1 = false;
+        $scope.services1 = false;
+        $scope.productKetchup = false;
+        $scope.productFoldingCarton = false;
         $scope.productMilk = false;
         $scope.productNameFuleHouse = true;
         $scope.taskList = [{
@@ -6859,10 +7058,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 ]
             }
         ];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && $state.productNameMilk && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && $state.productNameMilk && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
+        $scope.productFoldingCarton = false;
         $scope.productMilk = true;
         $scope.taskList = [{
                 title: "Feed and Cattle Costs",
@@ -6942,10 +7142,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }]
             }
         ];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && $state.productNamePretzelAnalysis && !$state.showPretzelsInnerPage) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && $state.productNamePretzelAnalysis && !$state.showPretzelsInnerPage) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
+        $scope.productFoldingCarton = false;
         $scope.productMilk = false;
         $scope.productNameFuleHouse = false;
         $scope.productPretzels = true;
@@ -7009,10 +7210,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             }
         ];
 
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && $state.productNamePretzelAnalysis && $state.showPretzelsInnerPage) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && $state.productNamePretzelAnalysis && $state.showPretzelsInnerPage) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
+        $scope.productFoldingCarton = false;
         $scope.productMilk = false;
         $scope.productNameFuleHouse = false;
         $scope.productPretzels = false;
@@ -7200,7 +7402,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.services1 = false;
         $scope.computed = false;
         $scope.manual = true;
-
+        $scope.productFoldingCarton = false;
         $scope.productKetchup = false;
         $scope.productMilk = false;
         $scope.productNameFuleHouse = false;
