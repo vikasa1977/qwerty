@@ -119,7 +119,18 @@
       "shouldcost":"$0.97",
       "suppliercapacity" :"800 MM Pounds per year",
       "utilization" : "100%",
-      "ownername":"Sara Williams"
+      "ownername":"Sara Williams",
+
+      "physicaldimensions": "Standard",
+      "size": "Standard",
+      "dimensionSet": "Dimensions 1",
+      "unitofMeasure": "Inches",
+      "length": "10",
+      "breadth": "20",
+      "height": "30",
+      "calculatedVolume": "6000",
+      "volumeOverride": "5000"
+
     },
     "attachementObj": [
       {
@@ -1183,6 +1194,155 @@
         ]
       },
       {
+        "label": "PRODUCT ATTRIBUTES",
+        "isDraggable": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "isVisible": true,
+        "rows": [{
+          "properties": [
+            {
+              "colspan": 1,
+              "label": "Physical Dimensions",
+              "type": "dropdown",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.physicaldimensions",
+              "focus": true,
+              "attributes": {
+                "options": [{
+                    "title": "Standard",
+                    "selected": true
+                  },
+                  {
+                    "title": "Dimensions 1"
+                  },
+                  {
+                    "title": "Dimensions 2"
+                  },
+                  {
+                    "title": "Setup New.."
+                  }
+                ],
+                "readonly": false,
+                "maxlength": 10
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Size",
+              "type": "dropdown",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.size",
+              "focus": true,
+              "attributes": {
+                "options": [{
+                    "title": "Standard",
+                    "selected": true
+                  },
+                  {
+                    "title": "Small"
+                  },
+                  {
+                    "title": "Medium"
+                  },
+                  {
+                    "title": "Large"
+                  }
+                ],
+                "readonly": false,
+                "maxlength": 10
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Dimension Set",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.dimensionSet",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Unit Of Measure",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.unitofMeasure",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Length",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.length",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Breadth",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.breadth",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Height",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.height",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Calculated Volume",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.calculatedVolume",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            },
+            {
+              "colspan": 1,
+              "label": "Volume Override",
+              "type": "textfield",
+              "editable": true,
+              "isMandatory": true,
+              "data": "setup.volumeOverride",
+              "focus": false,
+              "attributes": {
+                "readonly": true
+              }
+            }
+        ]
+        }]
+      },
+      {
         "label": "PRODUCT CONSTITUENTS",
         "isDraggable": true,
         "isCollapsible": true,
@@ -1217,7 +1377,7 @@
                 "type": "subsection",
                 "isMandatory": true,
                 "data": "setup",
-                "templateUrl": "mdm/views/historical.html",
+                "templateUrl": "mdm/views/historicalGeoPacific.html",
                 "controller": "costElementCtrl"
               }
             ]
