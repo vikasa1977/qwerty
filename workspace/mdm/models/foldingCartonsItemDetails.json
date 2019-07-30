@@ -1199,7 +1199,8 @@
         "isCollapsible": true,
         "isActive": false,
         "isVisible": true,
-        "rows": [{
+        "rows": [
+          {
           "properties": [
             {
               "colspan": 1,
@@ -1254,9 +1255,13 @@
                 "readonly": false,
                 "maxlength": 10
               }
-            },
+            }
+        ]
+        },
+        {
+          "properties": [
             {
-              "colspan": 1,
+              "colspan": 6,
               "label": "Dimension Set",
               "type": "textfield",
               "editable": true,
@@ -1266,81 +1271,22 @@
               "attributes": {
                 "readonly": true
               }
-            },
-            {
-              "colspan": 1,
-              "label": "Unit Of Measure",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.unitofMeasure",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
-            },
-            {
-              "colspan": 1,
-              "label": "Length",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.length",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
-            },
-            {
-              "colspan": 1,
-              "label": "Breadth",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.breadth",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
-            },
-            {
-              "colspan": 1,
-              "label": "Height",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.height",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
-            },
-            {
-              "colspan": 1,
-              "label": "Calculated Volume",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.calculatedVolume",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
-            },
-            {
-              "colspan": 1,
-              "label": "Volume Override",
-              "type": "textfield",
-              "editable": true,
-              "isMandatory": true,
-              "data": "setup.volumeOverride",
-              "focus": false,
-              "attributes": {
-                "readonly": true
-              }
             }
-        ]
-        }]
+          ]
+        },
+        {
+          "properties": [
+            {
+              "colspan": 6,
+              "type": "subsection",
+              "isMandatory": true,
+              "data": "setup",
+              "templateUrl": "mdm/views/productAttributes.html",
+              "controller": "costSummaryGraphCtrl"
+            }
+          ]
+        }
+      ]
       },
       {
         "label": "PRODUCT CONSTITUENTS",

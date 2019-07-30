@@ -1,0 +1,25 @@
+<div ng-controller="costSummaryGraphCtrl" class="marginbtm20">
+    <div class="col s12">
+        <table class="bordered sTable">
+            <thead>
+                <tr>
+                    <th>Unit of Measure</th>
+                    <th>Inches</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in productattributesTable">
+                    <td>{{data.title}}</td>
+                    <td>{{data.value}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer marginTop20">
+            <div class="right">
+                <smart-button primary="true" class="left marginRight15" config='{"title":"SAVE & CLOSE"}'>
+                </smart-button>
+                <smart-button flat="true" class="left" config='{"title":"CLOSE"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
