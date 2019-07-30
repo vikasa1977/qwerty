@@ -4618,6 +4618,16 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     $scope.breadth = 20;
     $scope.height = 30;
     $scope.volume = $scope.length * $scope.breadth * $scope.height;
+    $scope.onvalueChange = function(len, bre, hei){
+        $scope.length = len;
+        alert($scope.length);
+        $scope.breadth = bre;
+        alert($scope.breadth);
+        $scope.height = hei;
+        alert($scope.height);
+        $scope.volume = $scope.length * $scope.breadth * $scope.height;
+        alert($scope.volume);
+    };
     $scope.productattributesTable = [
         {
             "title": "Length",
@@ -4639,8 +4649,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             "title": "Volume Override",
             "value": "5000"
         }
-    ]
-    
+    ];
 }
 
 function MDMServiceFn($http, $q, $window, $timeout) {
