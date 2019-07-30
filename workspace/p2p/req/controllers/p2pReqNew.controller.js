@@ -9115,7 +9115,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
     $scope.addNewColumn = $state.productNamePretzelAnalysis;
     $scope.showIndeName = $state.productNameMilk;
     $state.showPretzelsInnerPage = false;
-    $scope.showDataSrc = $state.productNameAcrylonitrile;
+    //$scope.showDataSrc = $state.productNameAcrylonitrile;
+    $scope.showDataSrc = $state.productNameFoldingCartons;
 
     $scope.goToPage = function () {
         $state.go('p2p.serviceConfirmation.tasklist');
@@ -9142,7 +9143,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
     $scope.selectedCostSource = {
         "name": "Market Index"
     };
-    if (!$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    if (!$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.costElementsList = [{
                 'questval1': $state.showNewGraph ? '2,255' : '550',
                 'questval': $state.showNewGraph ? '2,255' : '550',
@@ -9158,7 +9159,49 @@ function costElementFunc($scope, $rootScope, $http, $state) {
             }
 
         ];
-    } else if ($state.productNameKetchup) {
+    } else if ($state.productNameFoldingCartons) {
+        $scope.costSourceOptions = [
+            {
+                "name": "Market Index"
+            }, {
+                "name": "Computed"
+            },
+            {
+                "name": "Subscription Feed"
+            },
+            {
+                "name": "Manual"
+            },
+        ];
+        
+        $scope.dataSourceOptions = [
+            {
+                "name": "GEP Chemicals Price Database"
+            }, {
+                "name": "ICIS"
+            } 
+        ];
+       
+
+        $scope.costElementsList = [{
+                'questval1': '0.4046',
+                'questval': '0.37',
+                'sequence': '1',
+                'Product': 'Uncoated Board',
+                'costelem': '1.0936',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "ICIS"
+                },
+                'currency': ''
+            }
+
+        ];
+    }else if ($state.productNameKetchup) {
         $scope.costElementsList = [{
                 'questval1': '0.68',
                 'questval': '0.68',
