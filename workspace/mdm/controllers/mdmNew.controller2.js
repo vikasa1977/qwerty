@@ -1664,12 +1664,15 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 		$scope.clearance = 'C3';
 		$scope.noOfSeals = '2 Shield'
 	} else {
-        if(!$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+        if(!$state.productNameKetchup && !$state.productNameFoldingCartons &&!$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
             $scope.docName = $state.showNewGraph ? "DF Fillet Blocks" : "SF Fillet Blocks";
             var urlJson = $state.showNewGraph ? 'mdm/models/itemDetails2.json' : 'mdm/models/itemDetails.json';
         } else if($state.productNameKetchup) {
             $scope.docName = "Ketchup Should Cost";
             var urlJson = 'mdm/models/ketchupItemDetails.json';
+        }else if($state.productNameFoldingCartons) {
+            $scope.docName = "Should Cost Analysis Folding Cartons";
+            var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } else if($state.productNameMilk) {
             $scope.docName = "Milk Should Cost";
             var urlJson = 'mdm/models/milkItemDetails.json';

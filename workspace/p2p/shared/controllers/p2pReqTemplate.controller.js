@@ -82,15 +82,24 @@ function p2pReqTemplateCtrlFunc($scope, $rootScope, routeSvc, $http, $timeout, $
         } else if (e.Name == "Ketchup Production") {
             $state.showNewGraph = false;
             $state.productNameKetchup = true;
+            $state.productNameFoldingCartons = false;
+            $state.go('mdm.itemDetails');
+        }
+        else if (e.Name == "Folding Cartons") {
+            $state.showNewGraph = false;
+            $state.productNameKetchup = false;
+            $state.productNameFoldingCartons = true;
             $state.go('mdm.itemDetails');
         } else if (e.Name == "Milk") {
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
+            $state.productNameFoldingCartons = false;
             $state.productNameMilk = true;
             $state.go('mdm.itemDetails');
         } else if (e.Name == "Fuel Hose & Tube Assembly Analysis") {
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
+            $state.productNameFoldingCartons = false;
             $state.productNameMilk = false;
             $state.productNameFuleHouse = true;
             $state.go('mdm.itemDetails');
