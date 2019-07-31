@@ -3089,7 +3089,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember11 = true;
             // }
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
             $scope.labourSection = false;
             $scope.mainSection = false;
             $scope.operationSection = true;
@@ -3107,7 +3108,26 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember22 = true;
             // }
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+            $scope.labourSection = false;
+            $scope.mainSection = false;
+            $scope.operationSection = true;
+            $scope.manual2 = true;
+            $scope.manual1 = false;
+            $scope.manual = false;
+            $scope.computed1 = false;
+            $scope.computed2 = false;
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Manual"
+            };
+            $scope.fillpartialTeamMember22 = false;
+            // if($scope.operationOverhead.length > 1) {
+            //     $scope.fillpartialTeamMember22 = false;
+            // } else {
+            //     $scope.fillpartialTeamMember22 = true;
+            // }
+        }else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = true;
             $scope.jobSiteSec = false;
@@ -3147,7 +3167,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.costSourceDrop[0].selectedoption = {
                 "name": "Computed"
             };
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3395,7 +3416,92 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '20.00'
                 }
             ];
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
+        }
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNameFoldingCartons) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'standardPart': '1',
+                    'jan08': 'Number of Hours',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Hours',
+                    'jul13': '',
+                    approvalType: {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Manual"
+                        }
+                    },
+                    "indexName": '',
+                    "value": '0.125'
+                },
+                {
+                    'standardPart': '2',
+                    'jan08': 'Labor Rate',
+                    'jun09': '',
+                    'apr10': '',
+                    'dec11': 'Currency/Hour',
+                    'jul13': '',
+                    approvalType: {
+                        "options": [{
+                            "name": "Manual"
+                        }, {
+                            "name": "Market Index"
+                        }, {
+                            "name": "Historical"
+                        }, {
+                            "name": "Computed"
+                        }],
+                        "selectedoption": {
+                            "name": "Market Index"
+                        }
+                    },
+                    "indexName": 'BLS',
+                    "value": '22'
+                }
+            ];
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
             $scope.computed1 = false;
             $scope.computed = false;
             $scope.manual1 = true;
@@ -6850,7 +6956,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 ]
             }
         ];
-    } else if ($state.newUrl == 'service' && $state.viewScenario) {
+    } else if ($state.newUrl == 'service' && $state.viewScenario && !$state.productNameFoldingCartons) {
         $scope.services1 = true;
         $scope.product1 = false;
         $scope.taskList = [{

@@ -3767,49 +3767,75 @@
                                     </div>
                         </div>
                         <smart-read-table-errors error="{{errorMsg}}" class="validation-alart-bar-box bandcontainer clearfix" showerrors-panel="onErrorFound"  customfields-selector=".linkError"></smart-read-table-errors>
-                        <table class="bordered sTable fixedTbl" sticky-header scroll-type="page" style="margin-bottom:100px">
-                            <colgroup>
-                                <col style="width:4%" />
-                                <col style="width:8%" />
-                                <col style="width:23%" />
-                                <col style="width:16%" />
-                                <col style="width:16%" />
-                                <col style="width:20%" />
-                                <col style="width:13%" />
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
-                                    </th>
-                                    <th class="center-align" style="padding:20px">Sequence</th>
-                                    <th class="left-align">Cost Element</th>
-                                    <th class="left-align">Cost Source</th>
-                                    <th class="left-align">Index Name</th>
-                                    <th class="left-align">UOM</th>
-                                    <th class="right-align">Value</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="task in taskList1 track by $index">
-                                    <td>
-                                        <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
-                                    </td>
-                                    <td class="center-align">{{task.standardPart}}</td>
-                                    <td class="left-align truncate paddingTop20" title="{{task.jan08}}"><a ui-sref="">{{task.jan08}}</a></a></td>
-                                    <td class="left-align">
-                                        <smart-select label="" ng-model="task.approvalType.selectedoption" options="task.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
-                                    </td>
-                                    <td class="left-align hideLabel padding0 xyz" style="padding-left:0px !important">
-                                        <smart-textfield style="padding-left:0px !important" class="col s30 validate-bar left-align marginBtn0" is-mandatory="true" placeholder="Enter Value" ng-model=""></smart-textfield>
-                                    </td>
-                                    <td class="left-align truncate"><a ui-sref="">{{task.dec11}}</a></td>
-                                    <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
-                                        <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="task.value"></smart-textfield>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        
+                        <div class="row">
+                            <div class="col s12" style="overflow-x: scroll">
+                                <table class="bordered sTable fixedTbl" sticky-header style="margin-bottom:100px">
+                                    <!-- <colgroup>
+                                        <col style="width:4%" />
+                                        <col style="width:8%" />
+                                        <col style="width:23%" />
+                                        <col style="width:16%" />
+                                        <col style="width:16%" />
+                                        <col style="width:20%" />
+                                        <col style="width:13%" />
+                                    </colgroup> -->
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
+                                            </th>
+                                            <th class="center-align" style="padding:20px">Sequence1</th>
+                                            <th class="left-align">Cost Element</th>
+                                            <th class="left-align">Name(User Spec)</th>
+                                            <th class="left-align">Dependent</th>
+                                            <th class="left-align">Reference Cost Element</th>
+                                            <th class="left-align">Percentage of Element</th>
+                                            <th class="left-align">Scale</th>
+                                            <th class="left-align">Cost Source</th>
+                                            <th class="left-align">Unit Cost</th>
+                                            <th class="left-align">Input UOM</th>
+                                            <th class="left-align">Output UOM</th>
+                                            <th class="left-align">Throughput Quantity</th>
+                                            <th class="left-align">Required Quantity</th>
+                                            <th class="right-align">Step Yeild</th>
+                                            <th class="right-align">Required</th>
+                                            <th class="right-align">Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="task in taskList1 track by $index">
+                                            <td>
+                                                <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
+                                            </td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="left-align truncate paddingTop20" title="{{task.jan08}}"><a ui-sref="">{{task.jan08}}</a></a></td>
+                                            <td class="left-align">
+                                                <smart-select label="" ng-model="task.approvalType.selectedoption" options="task.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
+                                            </td>
+                                            <td class="left-align hideLabel padding0 xyz" style="padding-left:0px !important">
+                                                <smart-textfield style="padding-left:0px !important" class="col s30 validate-bar left-align marginBtn0" is-mandatory="true" placeholder="Enter Value" ng-model=""></smart-textfield>
+                                            </td>
+                                            <td class="left-align truncate"><a ui-sref="">{{task.dec11}}</a></td>
+                                            <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
+                                                <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="task.value"></smart-textfield>
+                                            </td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                            <td class="center-align">{{task.standardPart}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </section>
