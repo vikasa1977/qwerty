@@ -20,7 +20,6 @@ function p2pServiceConfNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $
     };
 
 
-
     $scope.statefrom = $state.params.statefrom;
     $scope.mode = $state.params.mode;
     if ($scope.statefrom == 'buyerLoginSC') {
@@ -687,6 +686,174 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
     } else {
         $(".brand-logo").find(".user-name").text("EMILY'S");
     };
+
+        $scope.taskList1 = [{
+                'sequence': '1',
+                'costelement': 'Labor',
+                'name': '',
+                'dependent': '',
+                'refcostelem': '',
+                'perofref': '',
+                'scale': '',
+                'costsource': '',
+                'unitcost': '',
+                'inputuom': '',
+                'outputuom': '',
+                'throughputqty': '',
+                'requiredqty': '',
+                'stepyeild': '',
+                'required': '',
+                'cost': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "value": '$0.07'
+
+            },
+            {
+                'sequence': '2',
+                'costelement': 'Over Head',
+                'name': '',
+                'dependent': '',
+                'refcostelem': '',
+                'perofref': '',
+                'scale': '',
+                'costsource': '',
+                'unitcost': '',
+                'inputuom': '',
+                'outputuom': '',
+                'throughputqty': '',
+                'requiredqty': '',
+                'stepyeild': '',
+                'required': '',
+                'cost': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "value": '$0.22'
+            },
+            {
+                'sequence': '3',
+                'costelement': 'Process Loss',
+                'name': '',
+                'dependent': '',
+                'refcostelem': '',
+                'perofref': '',
+                'scale': '',
+                'costsource': '',
+                'unitcost': '',
+                'inputuom': '',
+                'outputuom': '',
+                'throughputqty': '',
+                'requiredqty': '',
+                'stepyeild': '',
+                'required': '',
+                'cost': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "value": '$0.08'
+            },
+            {
+                'sequence': '4',
+                'costelement': 'Production',
+                'name': '',
+                'dependent': '',
+                'refcostelem': '',
+                'perofref': '',
+                'scale': '',
+                'costsource': '',
+                'unitcost': '',
+                'inputuom': '',
+                'outputuom': '',
+                'throughputqty': '',
+                'requiredqty': '',
+                'stepyeild': '',
+                'required': '',
+                'cost': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "value": '$0.18'
+            },
+            {
+                'sequence': '5',
+                'costelement': 'Transportation',
+                'name': '',
+                'dependent': '',
+                'refcostelem': '',
+                'perofref': '',
+                'scale': '',
+                'costsource': '',
+                'unitcost': '',
+                'inputuom': '',
+                'outputuom': '',
+                'throughputqty': '',
+                'requiredqty': '',
+                'stepyeild': '',
+                'required': '',
+                'cost': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "value": '$0.18'
+            }
+        ];
 
 
     $scope.mainSection = true;
@@ -8540,79 +8707,6 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             }
         });
     }
-    $scope.taskList1 = [
-        {
-            'standardPart': '1',
-            'jan08': 'Utilities',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
-            },
-            "value": '0.0421'
-
-        },
-        {
-            'standardPart': '2',
-            'jan08': 'Fixed Costs',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
-            },
-            "value": '0.2408'
-        },
-        {
-            'standardPart': '3',
-            'jan08': 'Other Expenses',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Historical"
-                }
-            },
-            "value": '0.0409'
-        },
-    ];
-
     if ($state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse) {
         $scope.taskList1 = [{
                 'standardPart': '1',

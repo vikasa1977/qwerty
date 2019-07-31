@@ -14,10 +14,10 @@ function p2pReqTemplateCtrlFunc($scope, $rootScope, routeSvc, $http, $timeout, $
     var setURL = '',
         templateLink = '';
     if ($scope.templateFor == 'requisition') {
-        setURL = 'p2p/req/models/tempateData.json';
+        setURL = 'p2p/req/models/shouldCostGeorgia.json';
         templateLink = 'p2p.req.new';
     } else if ($scope.templateFor == 'order') {
-        setURL = 'p2p/order/models/tempateData.json';
+        setURL = 'p2p/order/models/shouldCostGeorgia.json';
         templateLink = 'p2p.order.new';
     };
 
