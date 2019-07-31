@@ -1823,13 +1823,24 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.productionFoldingCarton = true;
             $scope.marginSectoin = false;
 
-            $scope.taskList1 = [{
-                    'standardPart': '1',
-                    'jan08': 'Labor',
-                    'jun09': '',
-                    'apr10': '',
-                    'dec11': 'Currency',
-                    'jul13': '',
+            $scope.taskList1 = [
+                {
+                    'sequence': '1',
+                    'costelement': 'Labor',
+                    'name': '',
+                    'dependent': '',
+                    'refcostelem': '',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '',
+                    'inputuom': '',
+                    'outputuom': '',
+                    'throughputqty': '',
+                    'requiredqty': '',
+                    'stepyeild': '',
+                    'required': '',
+                    'cost': '',
                     "approvalType": {
                         "options": [{
                             "name": "Manual"
@@ -1848,12 +1859,22 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
                 },
                 {
-                    'standardPart': '2',
-                    'jan08': 'Overhead',
-                    'jun09': '',
-                    'apr10': '',
-                    'dec11': 'Currency',
-                    'jul13': '',
+                    'sequence': '2',
+                    'costelement': 'Over Head',
+                    'name': '',
+                    'dependent': '',
+                    'refcostelem': '',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '',
+                    'inputuom': '',
+                    'outputuom': '',
+                    'throughputqty': '',
+                    'requiredqty': '',
+                    'stepyeild': '',
+                    'required': '',
+                    'cost': '',
                     "approvalType": {
                         "options": [{
                             "name": "Manual"
@@ -1871,12 +1892,22 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '$0.22'
                 },
                 {
-                    'standardPart': '2',
-                    'jan08': 'Process Loss',
-                    'jun09': '',
-                    'apr10': '',
-                    'dec11': 'Currency',
-                    'jul13': '',
+                    'sequence': '3',
+                    'costelement': 'Process Loss',
+                    'name': '',
+                    'dependent': '',
+                    'refcostelem': '',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '',
+                    'inputuom': '',
+                    'outputuom': '',
+                    'throughputqty': '',
+                    'requiredqty': '',
+                    'stepyeild': '',
+                    'required': '',
+                    'cost': '',
                     "approvalType": {
                         "options": [{
                             "name": "Manual"
@@ -1894,12 +1925,22 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '$0.08'
                 },
                 {
-                    'standardPart': '2',
-                    'jan08': 'Production',
-                    'jun09': '',
-                    'apr10': '',
-                    'dec11': 'Currency',
-                    'jul13': '',
+                    'sequence': '4',
+                    'costelement': 'Production',
+                    'name': '',
+                    'dependent': '',
+                    'refcostelem': '',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '',
+                    'inputuom': '',
+                    'outputuom': '',
+                    'throughputqty': '',
+                    'requiredqty': '',
+                    'stepyeild': '',
+                    'required': '',
+                    'cost': '',
                     "approvalType": {
                         "options": [{
                             "name": "Manual"
@@ -1917,12 +1958,22 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '$0.18'
                 },
                 {
-                    'standardPart': '2',
-                    'jan08': 'Transportation',
-                    'jun09': '',
-                    'apr10': '',
-                    'dec11': 'Currency',
-                    'jul13': '',
+                    'sequence': '5',
+                    'costelement': 'Transportation',
+                    'name': '',
+                    'dependent': '',
+                    'refcostelem': '',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '',
+                    'inputuom': '',
+                    'outputuom': '',
+                    'throughputqty': '',
+                    'requiredqty': '',
+                    'stepyeild': '',
+                    'required': '',
+                    'cost': '',
                     "approvalType": {
                         "options": [{
                             "name": "Manual"
@@ -3089,7 +3140,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember11 = true;
             // }
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
             $scope.labourSection = false;
             $scope.mainSection = false;
             $scope.operationSection = true;
@@ -3107,7 +3159,26 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember22 = true;
             // }
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+            $scope.labourSection = false;
+            $scope.mainSection = false;
+            $scope.operationSection = true;
+            $scope.manual2 = true;
+            $scope.manual1 = false;
+            $scope.manual = false;
+            $scope.computed1 = false;
+            $scope.computed2 = false;
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Manual"
+            };
+            $scope.fillpartialTeamMember22 = false;
+            // if($scope.operationOverhead.length > 1) {
+            //     $scope.fillpartialTeamMember22 = false;
+            // } else {
+            //     $scope.fillpartialTeamMember22 = true;
+            // }
+        }else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = true;
             $scope.jobSiteSec = false;
@@ -3147,7 +3218,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.costSourceDrop[0].selectedoption = {
                 "name": "Computed"
             };
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3395,7 +3467,211 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '20.00'
                 }
             ];
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
+        }
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNameFoldingCartons) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [
+                {
+                    'sequence': '1',
+                    'costelement': 'Direct Labor',
+                    'name': 'DLabor1',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': 'Fixed or Variable',
+                    'costsource': '',
+                    'unitcost': '100',
+                    'inputuom': 'Days',
+                    'outputuom': 'Each',
+                    'throughputqty': '100',
+                    'requiredqty': '40000',
+                    'stepyeild': '100',
+                    'required': '400',
+                    'cost': '40000',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    
+
+                },
+                {
+                    'sequence': '2',
+                    'costelement': 'Direct Labor',
+                    'name': 'DLabor2',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': 'Fixed',
+                    'costsource': '',
+                    'unitcost': '101',
+                    'inputuom': 'Days',
+                    'outputuom': 'Each',
+                    'throughputqty': '100',
+                    'requiredqty': '40000',
+                    'stepyeild': '100',
+                    'required': '400',
+                    'cost': '40400',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    }                  
+
+                },
+                {
+                    'sequence': '3',
+                    'costelement': 'Direct Labor',
+                    'name': 'DLabor3',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': 'Fixed',
+                    'costsource': '',
+                    'unitcost': '102',
+                    'inputuom': 'Days',
+                    'outputuom': 'Each',
+                    'throughputqty': '100',
+                    'requiredqty': '40000',
+                    'stepyeild': '100',
+                    'required': '400',
+                    'cost': '40800',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    }
+                },
+                {
+                    'sequence': '4',
+                    'costelement': 'Indirect Labor',
+                    'name': 'ILabor1',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': 'Fixed',
+                    'costsource': '',
+                    'unitcost': '103',
+                    'inputuom': 'Days',
+                    'outputuom': 'Each',
+                    'throughputqty': '100',
+                    'requiredqty': '40000',
+                    'stepyeild': '100',
+                    'required': '400',
+                    'cost': '41200',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    }
+                },
+                {
+                    'sequence': '5',
+                    'costelement': 'Supervisor',
+                    'name': 'Super1',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '10000',
+                    'inputuom': 'Months',
+                    'outputuom': 'Each',
+                    'throughputqty': '1',
+                    'requiredqty': '1',
+                    'stepyeild': '100',
+                    'required': '12',
+                    'cost': '120000',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    }
+                },
+                {
+                    'sequence': '6',
+                    'costelement': 'Other',
+                    'name': 'Manager',                   
+                    'refcostelem': 'Not Applicable',
+                    'perofref': '',
+                    'scale': '',
+                    'costsource': '',
+                    'unitcost': '10001',
+                    'inputuom': 'Months',
+                    'outputuom': 'Each',
+                    'throughputqty': '1',
+                    'requiredqty': '1',
+                    'stepyeild': '100',
+                    'required': '12',
+                    'cost': '120012',
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    }
+                }               
+                
+            ];
+        } 
+        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
             $scope.computed1 = false;
             $scope.computed = false;
             $scope.manual1 = true;
@@ -6850,7 +7126,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 ]
             }
         ];
-    } else if ($state.newUrl == 'service' && $state.viewScenario) {
+    } else if ($state.newUrl == 'service' && $state.viewScenario && !$state.productNameFoldingCartons) {
         $scope.services1 = true;
         $scope.product1 = false;
         $scope.taskList = [{
