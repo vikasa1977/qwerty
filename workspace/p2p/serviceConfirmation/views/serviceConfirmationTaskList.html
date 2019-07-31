@@ -3790,7 +3790,7 @@
                                             <th class="left-align">Name(User Spec)</th>
                                             <th class="left-align">Dependent</th>
                                             <th class="left-align">Reference Cost Element</th>
-                                            <th class="left-align">Percentage of Element</th>
+                                            <th class="left-align">Percentage of Reference</th>
                                             <th class="left-align">Scale</th>
                                             <th class="left-align">Cost Source</th>
                                             <th class="left-align">Unit Cost</th>
@@ -3808,28 +3808,34 @@
                                             <td>
                                                 <smart-checkbox class="left paddingTop5" ng-model="history.isChecked" on-change="onChangeTeamMember(history.isChecked)" ></smart-checkbox>
                                             </td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="left-align truncate paddingTop20" title="{{task.jan08}}"><a ui-sref="">{{task.jan08}}</a></a></td>
-                                            <td class="left-align">
+                                            <td class="center-align">{{task.sequence}}</td>
+                                            <td class="left-align truncate paddingTop20" title="{{task.jan08}}"><a ui-sref="">{{task.costelement}}</a></a></td>
+                                            <!-- <td class="left-align">
                                                 <smart-select label="" ng-model="task.approvalType.selectedoption" options="task.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
+                                            </td> -->
+                                            <td class="center-align">{{task.name}}</td>
+                                            <td class="left-align">
+                                                <smart-select label="" ng-model="task.dependent.selectedoption" options="task.dependent.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
                                             </td>
-                                            <td class="left-align hideLabel padding0 xyz" style="padding-left:0px !important">
+                                            <!-- <td class="left-align hideLabel padding0 xyz" style="padding-left:0px !important">
                                                 <smart-textfield style="padding-left:0px !important" class="col s30 validate-bar left-align marginBtn0" is-mandatory="true" placeholder="Enter Value" ng-model=""></smart-textfield>
-                                            </td>
-                                            <td class="left-align truncate"><a ui-sref="">{{task.dec11}}</a></td>
-                                            <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
+                                            </td> -->
+                                            <td class="left-align truncate"><a ui-sref="">{{task.refcostelem}}</a></td>
+                                            <!-- <td class="right-align hideLabel padding0 abc" style="padding-right: 0 !important;">
                                                 <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="task.value"></smart-textfield>
-                                            </td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
-                                            <td class="center-align">{{task.standardPart}}</td>
+                                            </td> -->
+                                            <td class="center-align">{{task.perofref}}</td>
+                                            <td class="center-align">{{task.scale}}</td>
+                                            <td class="center-align">{{task.costsource}}</td>
+                                            <td class="center-align">{{task.unitcost}}</td>
+                                            <td class="center-align">{{task.inputuom}}</td>
+                                            <td class="center-align">{{task.outputuom}}</td>
+                                            <td class="center-align">{{task.throughputqty}}</td>
+                                            <td class="center-align">{{task.requiredqty}}</td>
+                                            <td class="center-align">{{task.stepyeild}}</td>
+                                            <td class="center-align">{{task.required}}</td>
+                                            <td class="center-align">{{task.cost}}</td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
