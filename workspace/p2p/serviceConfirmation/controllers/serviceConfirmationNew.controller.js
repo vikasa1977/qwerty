@@ -3835,7 +3835,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "Yes"
                         }
                     },
-                    "refcostelem": "Labor (costelement)",
+                    "refcostelem": "Labor (Cost Element)",
                     "perofref": 0.7,
                     "scale": "Proportional",
                     "costsource": "",
@@ -7688,7 +7688,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             },
             {
                 title: "Shipment Costs",
-                isTaskVisible: true,
+                isTaskVisible: false,
                 isSelected: false,
                 taskGrp: [{
                     title: "Freight and WHS",
@@ -7697,7 +7697,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             },
             {
                 title: "Margin",
-                isTaskVisible: true,
+                isTaskVisible: false,
                 isSelected: false,
                 taskGrp: [{
                     title: "Supplier Margin",
