@@ -3398,6 +3398,13 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             }
         ];
     } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk) {
+        $scope.dataSourceOptions2 = [{
+            "name": "None"
+        },
+        {
+            "name": "GEP FTL NA Price Database"
+        }
+    ];
         $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
@@ -3432,7 +3439,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '500',
                 'currency': 'SEK',
-                selectedCostSource: {
+                selectedCostSource1: {
                     "name": "Computed"
                 },
                 'isChecked': false,
