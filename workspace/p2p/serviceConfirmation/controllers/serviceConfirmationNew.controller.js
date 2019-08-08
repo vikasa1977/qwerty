@@ -2037,7 +2037,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.productionFoldingCarton = false;
             $scope.marginSectoin = false;
 
-            $scope.taskList1 = [{
+            $scope.taskList1 = [
+                {
                     'standardPart': '1',
                     'jan08': 'Labor',
                     'jun09': '',

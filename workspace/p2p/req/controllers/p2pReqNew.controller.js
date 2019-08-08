@@ -9179,32 +9179,35 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "name": "GEP Chemicals Price Database"
             }, {
                 "name": "ICIS"
+            },
+            {
+                "name": " "
             } 
         ];
        
 
         $scope.costElementsList = [
             {
-                'questval1': '0.4046',
-                'questval': '0.37',
+                'questval1': '9000',
+                'questval': '9000',
                 'sequence': '1',
-                'Product': 'Uncoated Board',
-                'costelem': '1.0936',
-                'value': 'Lbs',
+                'Product': 'Board-Raw',
+                'costelem': '1',
+                'value': 'Ton',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Subscription Feed"
+                    "name": "Manual"
                 },
                 selectedDataSource: {
-                    "name": "ICIS"
+                    "name": " "
                 },
                 'currency': ''
             },
             {
-                'questval1': '0.1240',
-                'questval': '0.28',
+                'questval1': '1000',
+                'questval': '1000',
                 'sequence': '2',
-                'Product': 'Unsheeted Board',
+                'Product': 'Board Waste',
                 'costelem': '0.4430',
                 'value': 'Lbs',
                 'currency': 'SEK',
@@ -9217,10 +9220,10 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '0.0340',
-                'questval': '0.034',
+                'questval1': '1000',
+                'questval': '1000',
                 'sequence': '3',
-                'Product': 'Board Waste',
+                'Product': 'Coating Waste',
                 'costelem': '1',
                 'value': 'Lbs',
                 'currency': 'SEK',

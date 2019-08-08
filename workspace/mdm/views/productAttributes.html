@@ -1,5 +1,5 @@
 <div ng-controller="costSummaryGraphCtrl" class="marginbtm20">
-    <div class="col s12">
+    <div class="col s12" style="margin-top: -35px;">
         <table class="bordered sTable">
             <thead>
                 <tr>
@@ -8,9 +8,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="data in productattributesTable">
+                <!-- <tr ng-repeat="data in productattributesTable">
                     <td>{{data.title}}</td>
-                    <td>{{data.value}}</td>
+                    <td>{{data.value}}</td>                    
+                </tr> -->
+                <tr>
+                    <td>Length</td>
+                    <td><smart-textfield ng-model="length" width="200px"></smart-textfield></td>
+                </tr>
+                <tr>
+                    <td>Breadth</td>
+                    <td><smart-textfield ng-model="breadth"></smart-textfield></td>
+                </tr>
+                <tr>
+                    <td>Height</td>
+                    <td><smart-textfield ng-model="height"></smart-textfield></td>
+                </tr>
+                <tr>
+                    <td>Volume</td>
+                    <td><smart-textfield ng-model="length * breadth * height" readonly="true"></smart-textfield></td>
+                </tr>
+                <tr>
+                    <td>Volume Override</td>
+                    <td><smart-textfield ng-model="volumeOverride" readonly="true"></smart-textfield></td>
                 </tr>
             </tbody>
         </table>
