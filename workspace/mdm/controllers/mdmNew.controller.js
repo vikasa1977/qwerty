@@ -119,11 +119,11 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
 
     $scope.baselineRPOpt = {
         "options": [{
-            "opt": "Month"
-        },
-        {
-            "opt": "Year"
-        }
+                "opt": "Month"
+            },
+            {
+                "opt": "Year"
+            }
         ]
     };
     $scope.baselineRP = {
@@ -132,17 +132,17 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     };
 
     $scope.baselineOptions = [{
-        "code": "Ys",
-        "title": "Yes"
-    },
-    {
-        "code": "No",
-        "title": "No"
-    },
-    {
-        "code": "Na",
-        "title": "N/A"
-    }
+            "code": "Ys",
+            "title": "Yes"
+        },
+        {
+            "code": "No",
+            "title": "No"
+        },
+        {
+            "code": "Na",
+            "title": "N/A"
+        }
     ];
     $scope.baseline = $scope.baselineOptions[0];
 
@@ -198,13 +198,13 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
             message: "<p class='left-align'>Are you sure you want to withdraw the Item Request ITEM 12001?</p>",
 
             buttons: [{
-                "title": "YES",
-                "result": "yes"
-            },
-            {
-                "title": "Stay on same page",
-                "result": "no"
-            }
+                    "title": "YES",
+                    "result": "yes"
+                },
+                {
+                    "title": "Stay on same page",
+                    "result": "no"
+                }
             ]
         };
 
@@ -295,29 +295,29 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     $scope.selectedCreateOnBehalf = $scope.typeOptions[0];
 
     $scope.contractNumOptions = [{
-        "UserId": 28360,
-        "ContractNum": "CON-234908 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-879056 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-456321 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-456378 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-098567 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-109567 :: Test Blanket AVI",
-    }
+            "UserId": 28360,
+            "ContractNum": "CON-234908 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-879056 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-456321 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-456378 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-098567 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-109567 :: Test Blanket AVI",
+        }
     ];
 
     $scope.selectedContractNum = $scope.contractNumOptions[0];
@@ -331,17 +331,17 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
             "approved": true
         },
         "options": [{
-            "name": "Deep Groove Ball Bearings",
-            "isdisabled": false,
-            "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
-            "approved": true
-        },
-        {
-            "name": "Disqualified",
-            "isdisabled": false,
-            "description": "This is disqualified",
-            "approved": true
-        }
+                "name": "Deep Groove Ball Bearings",
+                "isdisabled": false,
+                "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
+                "approved": true
+            },
+            {
+                "name": "Disqualified",
+                "isdisabled": false,
+                "description": "This is disqualified",
+                "approved": true
+            }
             // ,
             // { "name": "Approval Pending", "isdisabled": false, "description": "This is approval pending", "approved": true },
             // { "name": "Identified", "isdisabled": false, "description": "This is identified", "approved": false },
@@ -376,45 +376,45 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
 
     /*section search content start*/
     $scope.sectionAndFieldsDetails = [{
-        'name': 'Section One',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Two',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Three',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Four',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Five',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Six',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Seven',
-        'contentIn': ''
-    },
-    {
-        'name': 'Shipping',
-        'contentIn': ''
-    },
-    {
-        'name': 'Shipping to',
-        'contentIn': 'In Shipping'
-    },
-    {
-        'name': 'Ship to Address',
-        'contentIn': 'In Shipping'
-    }
+            'name': 'Section One',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Two',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Three',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Four',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Five',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Six',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Seven',
+            'contentIn': ''
+        },
+        {
+            'name': 'Shipping',
+            'contentIn': ''
+        },
+        {
+            'name': 'Shipping to',
+            'contentIn': 'In Shipping'
+        },
+        {
+            'name': 'Ship to Address',
+            'contentIn': 'In Shipping'
+        }
     ]
     /*section search content end*/
 
@@ -467,7 +467,7 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
                 $window.scrollTo(0, lineDetailsOffsetTop);
             }, 500);
         }
-        $scope.$watch('dataModel', function (n, o) { }, true);
+        $scope.$watch('dataModel', function (n, o) {}, true);
     }, function (error) {
         console.log(JSON.stringify(error));
     });
@@ -954,40 +954,40 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
 
 
     $scope.attachmentList = [{
-        name: "AttachmentOne.xls",
-        status: "fail",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: false
-    },
-    {
-        name: "AttachmentTwo.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentThree.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentFour.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentFive.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    }
+            name: "AttachmentOne.xls",
+            status: "fail",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: false
+        },
+        {
+            name: "AttachmentTwo.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentThree.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentFour.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentFive.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        }
     ];
     $scope.attachmentCall = function (e) {
         $scope.attachFlag = true;
@@ -1022,29 +1022,29 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     //Attachment popup--end
 
     $scope.modules = [{
-        id: '0',
-        name: 'REQUISITION',
-        count: '3',
-        number: 'REQ-2016.013110',
-        url: 'requisition.html',
-        isChecked: false
-    },
-    {
-        id: '2',
-        name: 'ORDER',
-        count: '4',
-        number: 'ORD-2015.523209',
-        url: 'order.html',
-        isChecked: false
-    },
-    {
-        id: '3',
-        name: 'INVOICE RECONCILIATION',
-        count: '8',
-        number: 'IR-2016.234829',
-        url: 'invoice.html',
-        isChecked: false
-    },
+            id: '0',
+            name: 'REQUISITION',
+            count: '3',
+            number: 'REQ-2016.013110',
+            url: 'requisition.html',
+            isChecked: false
+        },
+        {
+            id: '2',
+            name: 'ORDER',
+            count: '4',
+            number: 'ORD-2015.523209',
+            url: 'order.html',
+            isChecked: false
+        },
+        {
+            id: '3',
+            name: 'INVOICE RECONCILIATION',
+            count: '8',
+            number: 'IR-2016.234829',
+            url: 'invoice.html',
+            isChecked: false
+        },
     ]
 
     $scope.modulecurrentTab = 'requisition.html';
@@ -1080,17 +1080,17 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
 
     // popup -- copy req data
     $scope.copyReqData = [{
-        label: "Accounting",
-        isChecked: true
-    },
-    {
-        label: "Comments",
-        isChecked: false
-    },
-    {
-        label: "Notes & Attachments",
-        isChecked: false
-    }
+            label: "Accounting",
+            isChecked: true
+        },
+        {
+            label: "Comments",
+            isChecked: false
+        },
+        {
+            label: "Notes & Attachments",
+            isChecked: false
+        }
     ]
 
     // popup -- copy req
@@ -1115,37 +1115,37 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     };
 
     $scope.suggestedData = [{
-        "name": "John Doe",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Michael Slater",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Jammie Foster",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Ozborne Lopez",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    }
+            "name": "John Doe",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Michael Slater",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Jammie Foster",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Ozborne Lopez",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        }
     ];
 
 
@@ -1270,64 +1270,64 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     }
 
     $scope.flipToPoSupplierOptions = [{
-        "supplierId": 1,
-        "supplierName": "Dell",
-    },
-    {
-        "supplierId": 2,
-        "supplierName": "Apple",
-    },
-    {
-        "supplierId": 3,
-        "supplierName": "Lenovo",
-    },
-    {
-        "supplierId": 4,
-        "supplierName": "HP",
-    },
-    {
-        "supplierId": 5,
-        "supplierName": "Acer",
-    },
-    {
-        "supplierId": 6,
-        "supplierName": "Compaq",
-    },
-    {
-        "supplierId": 7,
-        "supplierName": "Asus",
-    }
+            "supplierId": 1,
+            "supplierName": "Dell",
+        },
+        {
+            "supplierId": 2,
+            "supplierName": "Apple",
+        },
+        {
+            "supplierId": 3,
+            "supplierName": "Lenovo",
+        },
+        {
+            "supplierId": 4,
+            "supplierName": "HP",
+        },
+        {
+            "supplierId": 5,
+            "supplierName": "Acer",
+        },
+        {
+            "supplierId": 6,
+            "supplierName": "Compaq",
+        },
+        {
+            "supplierId": 7,
+            "supplierName": "Asus",
+        }
     ];
     $scope.selectedFlipToPoSupplier = "";
 
     $scope.flipToPoOrderLocOptions = [{
-        "orderLocId": 1,
-        "orderLocName": "Mumbai",
-    },
-    {
-        "orderLocId": 2,
-        "orderLocName": "Hyderabad",
-    },
-    {
-        "orderLocId": 3,
-        "orderLocName": "Pune",
-    },
-    {
-        "orderLocId": 4,
-        "orderLocName": "Bangalore",
-    },
-    {
-        "orderLocId": 5,
-        "orderLocName": "Delhi",
-    },
-    {
-        "orderLocId": 6,
-        "orderLocName": "Chennai",
-    },
-    {
-        "orderLocId": 7,
-        "orderLocName": "Kerla",
-    }
+            "orderLocId": 1,
+            "orderLocName": "Mumbai",
+        },
+        {
+            "orderLocId": 2,
+            "orderLocName": "Hyderabad",
+        },
+        {
+            "orderLocId": 3,
+            "orderLocName": "Pune",
+        },
+        {
+            "orderLocId": 4,
+            "orderLocName": "Bangalore",
+        },
+        {
+            "orderLocId": 5,
+            "orderLocName": "Delhi",
+        },
+        {
+            "orderLocId": 6,
+            "orderLocName": "Chennai",
+        },
+        {
+            "orderLocId": 7,
+            "orderLocName": "Kerla",
+        }
     ];
     $scope.selectedFlipToPoOrderLoc = "";
 
@@ -1342,21 +1342,21 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     };
 
     $scope.buyerOptions = [{
-        "buyerId": 1,
-        "buyerName": "Michael Slater",
-    },
-    {
-        "buyerId": 2,
-        "buyerName": "Jammie Foster",
-    },
-    {
-        "buyerId": 3,
-        "buyerName": "John Doe",
-    },
-    {
-        "buyerId": 4,
-        "buyerName": "Ozborne Lopez"
-    }
+            "buyerId": 1,
+            "buyerName": "Michael Slater",
+        },
+        {
+            "buyerId": 2,
+            "buyerName": "Jammie Foster",
+        },
+        {
+            "buyerId": 3,
+            "buyerName": "John Doe",
+        },
+        {
+            "buyerId": 4,
+            "buyerName": "Ozborne Lopez"
+        }
     ];
     $scope.selectedBuyer = "";
     $scope.buyerSelected = true;
@@ -1381,26 +1381,26 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
     //Assign - Reassign Pop up ends
     /* tax popover */
     $scope.taxConfig = [{
-        "dataName": "Requisition Value",
-        "dataValue": 678.00,
-        "taxEditable": true,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    },
-    {
-        "dataName": "Shipping",
-        "dataValue": 109.00,
-        "taxEditable": true,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    },
-    {
-        "dataName": "Taxes",
-        "dataValue": 0,
-        "taxEditable": false,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    }
+            "dataName": "Requisition Value",
+            "dataValue": 678.00,
+            "taxEditable": true,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        },
+        {
+            "dataName": "Shipping",
+            "dataValue": 109.00,
+            "taxEditable": true,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        },
+        {
+            "dataName": "Taxes",
+            "dataValue": 0,
+            "taxEditable": false,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        }
     ];
 
     $scope.getTotalTax = function () {
@@ -1454,13 +1454,13 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
             type: "warning",
             message: "<p class='left-align'>There are unsaved changes, are you sure you want to cancel the changes?</p>",
             buttons: [{
-                "title": "YES",
-                "result": "yes"
-            },
-            {
-                "title": "Stay on same page",
-                "result": "no"
-            }
+                    "title": "YES",
+                    "result": "yes"
+                },
+                {
+                    "title": "Stay on same page",
+                    "result": "no"
+                }
             ]
         };
 
@@ -1498,149 +1498,149 @@ function mdmCreateNewCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http,
 
     $scope.validateAccountConfig = [{
 
-        "field": "accountAssignment",
-        "displayName": "Account Assignment",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+            "field": "accountAssignment",
+            "displayName": "Account Assignment",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
-    {
-        "field": "splitAccount",
-        "displayName": "Split Account",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "splitAccount",
+            "displayName": "Split Account",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable",
+            "attributes": {
+                "type": "number"
+            }
         },
-        "type": "editable",
-        "attributes": {
-            "type": "number"
-        }
-    },
-    {
-        "field": "avlFunds",
-        "displayName": "Available Funds (USD)",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "avlFunds",
+            "displayName": "Available Funds (USD)",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable",
+            "attributes": {
+                "type": "number"
+            }
         },
-        "type": "editable",
-        "attributes": {
-            "type": "number"
-        }
-    },
-    {
-        "field": "period",
-        "displayName": "Period",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "period",
+            "displayName": "Period",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
-    {
-        "field": "status",
-        "displayName": "Status",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "status",
+            "displayName": "Status",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
     ];
 
     $scope.validateAccountModel = [{
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed",
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed",
 
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    }
+        }
     ];
 }
 
@@ -1762,11 +1762,11 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 
     $scope.baselineRPOpt = {
         "options": [{
-            "opt": "Month"
-        },
-        {
-            "opt": "Year"
-        }
+                "opt": "Month"
+            },
+            {
+                "opt": "Year"
+            }
         ]
     };
     $scope.baselineRP = {
@@ -1775,17 +1775,17 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     };
 
     $scope.baselineOptions = [{
-        "code": "Ys",
-        "title": "Yes"
-    },
-    {
-        "code": "No",
-        "title": "No"
-    },
-    {
-        "code": "Na",
-        "title": "N/A"
-    }
+            "code": "Ys",
+            "title": "Yes"
+        },
+        {
+            "code": "No",
+            "title": "No"
+        },
+        {
+            "code": "Na",
+            "title": "N/A"
+        }
     ];
     $scope.baseline = $scope.baselineOptions[0];
 
@@ -1844,13 +1844,13 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             message: "<p class='left-align'>Are you sure you want to withdraw the Item Request ITEM 12001?</p>",
 
             buttons: [{
-                "title": "YES",
-                "result": "yes"
-            },
-            {
-                "title": "Stay on same page",
-                "result": "no"
-            }
+                    "title": "YES",
+                    "result": "yes"
+                },
+                {
+                    "title": "Stay on same page",
+                    "result": "no"
+                }
             ]
         };
 
@@ -1941,29 +1941,29 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     $scope.selectedCreateOnBehalf = $scope.typeOptions[0];
 
     $scope.contractNumOptions = [{
-        "UserId": 28360,
-        "ContractNum": "CON-234908 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-879056 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-456321 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-456378 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-098567 :: Test Blanket AVI",
-    },
-    {
-        "UserId": 28360,
-        "ContractNum": "CON-109567 :: Test Blanket AVI",
-    }
+            "UserId": 28360,
+            "ContractNum": "CON-234908 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-879056 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-456321 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-456378 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-098567 :: Test Blanket AVI",
+        },
+        {
+            "UserId": 28360,
+            "ContractNum": "CON-109567 :: Test Blanket AVI",
+        }
     ];
 
     $scope.selectedContractNum = $scope.contractNumOptions[0];
@@ -1977,17 +1977,17 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             "approved": true
         },
         "options": [{
-            "name": "Deep Groove Ball Bearings",
-            "isdisabled": false,
-            "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
-            "approved": true
-        },
-        {
-            "name": "Disqualified",
-            "isdisabled": false,
-            "description": "This is disqualified",
-            "approved": true
-        }
+                "name": "Deep Groove Ball Bearings",
+                "isdisabled": false,
+                "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
+                "approved": true
+            },
+            {
+                "name": "Disqualified",
+                "isdisabled": false,
+                "description": "This is disqualified",
+                "approved": true
+            }
             // ,
             // { "name": "Approval Pending", "isdisabled": false, "description": "This is approval pending", "approved": true },
             // { "name": "Identified", "isdisabled": false, "description": "This is identified", "approved": false },
@@ -2022,45 +2022,45 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 
     /*section search content start*/
     $scope.sectionAndFieldsDetails = [{
-        'name': 'Section One',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Two',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Three',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Four',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Five',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Six',
-        'contentIn': ''
-    },
-    {
-        'name': 'Section Seven',
-        'contentIn': ''
-    },
-    {
-        'name': 'Shipping',
-        'contentIn': ''
-    },
-    {
-        'name': 'Shipping to',
-        'contentIn': 'In Shipping'
-    },
-    {
-        'name': 'Ship to Address',
-        'contentIn': 'In Shipping'
-    }
+            'name': 'Section One',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Two',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Three',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Four',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Five',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Six',
+            'contentIn': ''
+        },
+        {
+            'name': 'Section Seven',
+            'contentIn': ''
+        },
+        {
+            'name': 'Shipping',
+            'contentIn': ''
+        },
+        {
+            'name': 'Shipping to',
+            'contentIn': 'In Shipping'
+        },
+        {
+            'name': 'Ship to Address',
+            'contentIn': 'In Shipping'
+        }
     ]
     /*section search content end*/
 
@@ -2113,7 +2113,7 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 $window.scrollTo(0, lineDetailsOffsetTop);
             }, 500);
         }
-        $scope.$watch('dataModel', function (n, o) { }, true);
+        $scope.$watch('dataModel', function (n, o) {}, true);
     }, function (error) {
         console.log(JSON.stringify(error));
     });
@@ -2600,40 +2600,40 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 
 
     $scope.attachmentList = [{
-        name: "AttachmentOne.xls",
-        status: "fail",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: false
-    },
-    {
-        name: "AttachmentTwo.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentThree.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentFour.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    },
-    {
-        name: "AttachmentFive.xls",
-        status: "success",
-        referenceName: "Add Name",
-        isShow: true,
-        actionIconDelete: true
-    }
+            name: "AttachmentOne.xls",
+            status: "fail",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: false
+        },
+        {
+            name: "AttachmentTwo.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentThree.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentFour.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        },
+        {
+            name: "AttachmentFive.xls",
+            status: "success",
+            referenceName: "Add Name",
+            isShow: true,
+            actionIconDelete: true
+        }
     ];
     $scope.attachmentCall = function (e) {
         $scope.attachFlag = true;
@@ -2668,29 +2668,29 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     //Attachment popup--end
 
     $scope.modules = [{
-        id: '0',
-        name: 'REQUISITION',
-        count: '3',
-        number: 'REQ-2016.013110',
-        url: 'requisition.html',
-        isChecked: false
-    },
-    {
-        id: '2',
-        name: 'ORDER',
-        count: '4',
-        number: 'ORD-2015.523209',
-        url: 'order.html',
-        isChecked: false
-    },
-    {
-        id: '3',
-        name: 'INVOICE RECONCILIATION',
-        count: '8',
-        number: 'IR-2016.234829',
-        url: 'invoice.html',
-        isChecked: false
-    },
+            id: '0',
+            name: 'REQUISITION',
+            count: '3',
+            number: 'REQ-2016.013110',
+            url: 'requisition.html',
+            isChecked: false
+        },
+        {
+            id: '2',
+            name: 'ORDER',
+            count: '4',
+            number: 'ORD-2015.523209',
+            url: 'order.html',
+            isChecked: false
+        },
+        {
+            id: '3',
+            name: 'INVOICE RECONCILIATION',
+            count: '8',
+            number: 'IR-2016.234829',
+            url: 'invoice.html',
+            isChecked: false
+        },
     ]
 
     $scope.modulecurrentTab = 'requisition.html';
@@ -2726,17 +2726,17 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 
     // popup -- copy req data
     $scope.copyReqData = [{
-        label: "Accounting",
-        isChecked: true
-    },
-    {
-        label: "Comments",
-        isChecked: false
-    },
-    {
-        label: "Notes & Attachments",
-        isChecked: false
-    }
+            label: "Accounting",
+            isChecked: true
+        },
+        {
+            label: "Comments",
+            isChecked: false
+        },
+        {
+            label: "Notes & Attachments",
+            isChecked: false
+        }
     ]
 
     // popup -- copy req
@@ -2761,37 +2761,37 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     };
 
     $scope.suggestedData = [{
-        "name": "John Doe",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Michael Slater",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Jammie Foster",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    },
-    {
-        "name": "Ozborne Lopez",
-        "type": "user",
-        "members": "",
-        "reassign": false,
-        "reassignedTo": "",
-        "edit": false
-    }
+            "name": "John Doe",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Michael Slater",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Jammie Foster",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        },
+        {
+            "name": "Ozborne Lopez",
+            "type": "user",
+            "members": "",
+            "reassign": false,
+            "reassignedTo": "",
+            "edit": false
+        }
     ];
 
 
@@ -2916,64 +2916,64 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     }
 
     $scope.flipToPoSupplierOptions = [{
-        "supplierId": 1,
-        "supplierName": "Dell",
-    },
-    {
-        "supplierId": 2,
-        "supplierName": "Apple",
-    },
-    {
-        "supplierId": 3,
-        "supplierName": "Lenovo",
-    },
-    {
-        "supplierId": 4,
-        "supplierName": "HP",
-    },
-    {
-        "supplierId": 5,
-        "supplierName": "Acer",
-    },
-    {
-        "supplierId": 6,
-        "supplierName": "Compaq",
-    },
-    {
-        "supplierId": 7,
-        "supplierName": "Asus",
-    }
+            "supplierId": 1,
+            "supplierName": "Dell",
+        },
+        {
+            "supplierId": 2,
+            "supplierName": "Apple",
+        },
+        {
+            "supplierId": 3,
+            "supplierName": "Lenovo",
+        },
+        {
+            "supplierId": 4,
+            "supplierName": "HP",
+        },
+        {
+            "supplierId": 5,
+            "supplierName": "Acer",
+        },
+        {
+            "supplierId": 6,
+            "supplierName": "Compaq",
+        },
+        {
+            "supplierId": 7,
+            "supplierName": "Asus",
+        }
     ];
     $scope.selectedFlipToPoSupplier = "";
 
     $scope.flipToPoOrderLocOptions = [{
-        "orderLocId": 1,
-        "orderLocName": "Mumbai",
-    },
-    {
-        "orderLocId": 2,
-        "orderLocName": "Hyderabad",
-    },
-    {
-        "orderLocId": 3,
-        "orderLocName": "Pune",
-    },
-    {
-        "orderLocId": 4,
-        "orderLocName": "Bangalore",
-    },
-    {
-        "orderLocId": 5,
-        "orderLocName": "Delhi",
-    },
-    {
-        "orderLocId": 6,
-        "orderLocName": "Chennai",
-    },
-    {
-        "orderLocId": 7,
-        "orderLocName": "Kerla",
-    }
+            "orderLocId": 1,
+            "orderLocName": "Mumbai",
+        },
+        {
+            "orderLocId": 2,
+            "orderLocName": "Hyderabad",
+        },
+        {
+            "orderLocId": 3,
+            "orderLocName": "Pune",
+        },
+        {
+            "orderLocId": 4,
+            "orderLocName": "Bangalore",
+        },
+        {
+            "orderLocId": 5,
+            "orderLocName": "Delhi",
+        },
+        {
+            "orderLocId": 6,
+            "orderLocName": "Chennai",
+        },
+        {
+            "orderLocId": 7,
+            "orderLocName": "Kerla",
+        }
     ];
     $scope.selectedFlipToPoOrderLoc = "";
 
@@ -2988,21 +2988,21 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     };
 
     $scope.buyerOptions = [{
-        "buyerId": 1,
-        "buyerName": "Michael Slater",
-    },
-    {
-        "buyerId": 2,
-        "buyerName": "Jammie Foster",
-    },
-    {
-        "buyerId": 3,
-        "buyerName": "John Doe",
-    },
-    {
-        "buyerId": 4,
-        "buyerName": "Ozborne Lopez"
-    }
+            "buyerId": 1,
+            "buyerName": "Michael Slater",
+        },
+        {
+            "buyerId": 2,
+            "buyerName": "Jammie Foster",
+        },
+        {
+            "buyerId": 3,
+            "buyerName": "John Doe",
+        },
+        {
+            "buyerId": 4,
+            "buyerName": "Ozborne Lopez"
+        }
     ];
     $scope.selectedBuyer = "";
     $scope.buyerSelected = true;
@@ -3027,26 +3027,26 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     //Assign - Reassign Pop up ends
     /* tax popover */
     $scope.taxConfig = [{
-        "dataName": "Requisition Value",
-        "dataValue": 678.00,
-        "taxEditable": true,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    },
-    {
-        "dataName": "Shipping",
-        "dataValue": 109.00,
-        "taxEditable": true,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    },
-    {
-        "dataName": "Taxes",
-        "dataValue": 0,
-        "taxEditable": false,
-        "makeEdit": false,
-        "editableFieldFocus": false
-    }
+            "dataName": "Requisition Value",
+            "dataValue": 678.00,
+            "taxEditable": true,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        },
+        {
+            "dataName": "Shipping",
+            "dataValue": 109.00,
+            "taxEditable": true,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        },
+        {
+            "dataName": "Taxes",
+            "dataValue": 0,
+            "taxEditable": false,
+            "makeEdit": false,
+            "editableFieldFocus": false
+        }
     ];
 
     $scope.getTotalTax = function () {
@@ -3100,13 +3100,13 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             type: "warning",
             message: "<p class='left-align'>There are unsaved changes, are you sure you want to cancel the changes?</p>",
             buttons: [{
-                "title": "YES",
-                "result": "yes"
-            },
-            {
-                "title": "Stay on same page",
-                "result": "no"
-            }
+                    "title": "YES",
+                    "result": "yes"
+                },
+                {
+                    "title": "Stay on same page",
+                    "result": "no"
+                }
             ]
         };
 
@@ -3144,149 +3144,149 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 
     $scope.validateAccountConfig = [{
 
-        "field": "accountAssignment",
-        "displayName": "Account Assignment",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+            "field": "accountAssignment",
+            "displayName": "Account Assignment",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
-    {
-        "field": "splitAccount",
-        "displayName": "Split Account",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "splitAccount",
+            "displayName": "Split Account",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable",
+            "attributes": {
+                "type": "number"
+            }
         },
-        "type": "editable",
-        "attributes": {
-            "type": "number"
-        }
-    },
-    {
-        "field": "avlFunds",
-        "displayName": "Available Funds (USD)",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "avlFunds",
+            "displayName": "Available Funds (USD)",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable",
+            "attributes": {
+                "type": "number"
+            }
         },
-        "type": "editable",
-        "attributes": {
-            "type": "number"
-        }
-    },
-    {
-        "field": "period",
-        "displayName": "Period",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "period",
+            "displayName": "Period",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
-    {
-        "field": "status",
-        "displayName": "Status",
-        "isVisible": true,
-        "isReadOnly": true,
-        "autoIncrement": true,
-        "filterObject": {
-            "enableFiltering": false
+        {
+            "field": "status",
+            "displayName": "Status",
+            "isVisible": true,
+            "isReadOnly": true,
+            "autoIncrement": true,
+            "filterObject": {
+                "enableFiltering": false
+            },
+            "type": "editable"
         },
-        "type": "editable"
-    },
     ];
 
     $scope.validateAccountModel = [{
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed",
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed",
 
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    },
-    {
-        "accountAssignment": "",
-        "splitAccount": 1233000,
-        "avlFunds": 6301,
-        "period": "Quarter1-2017-Quarter",
-        "status": "Failed"
+        },
+        {
+            "accountAssignment": "",
+            "splitAccount": 1233000,
+            "avlFunds": 6301,
+            "period": "Quarter1-2017-Quarter",
+            "status": "Failed"
 
-    }
+        }
     ];
 
 
@@ -3310,32 +3310,42 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
     }
 
     $scope.costSourceOptions = [{
-        "name": "Market Index"
-    }, {
-        "name": "Manual"
-    },
-    {
-        "name": "Historical"
-    },
-    {
-        "name": "Computed"
-    },
+            "name": "Market Index"
+        }, {
+            "name": "Manual"
+        },
+        {
+            "name": "Historical"
+        },
+        {
+            "name": "Computed"
+        },
     ];
 
     $scope.selectedCostSource1 = {
         "name": "Manual"
     };
 
+    $scope.dataSourceOptions2 = [{
+        "name": "None"
+    },
+    {
+        "name": "GEP FTL NA Price Database"
+    }
+];
+
     if ($state.current.name == 'mdm.itemDetailsOne' && !$state.viewScenario) {
-        $scope.historyList = [
-            {
+        
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Labor',
                 'costelem': 'LBS',
                 'value': '11.25',
                 'currency': 'SEK',
                 'questval': '63,258.51',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3345,7 +3355,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'value': '0.90',
                 'currency': 'SEK',
                 'questval': '1,050.00',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3355,7 +3367,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'value': '28.80',
                 'currency': 'SEK',
                 'questval': '36,160.00',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3365,7 +3379,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'value': '10.89',
                 'currency': 'SEK',
                 'questval': '6,500.00',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3375,49 +3391,73 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'value': '10.89',
                 'currency': 'SEK',
                 'questval': '47,700.00',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             }
         ];
     } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk) {
-        $scope.historyList = [
-            {
+        $scope.dataSourceOptions2 = [{
+            "name": "None"
+        },
+        {
+            "name": "GEP FTL NA Price Database"
+        }
+    ];
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
-                'value': $state.showNewGraph ? '820' : '1,750',
+                'value': $state.showNewGraph ? '820' : '3485',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
-                'isChecked': false
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
+                'isChecked': false,
+                selectedDataSource2: {
+                    "name": "None"
+                }
             },
             {
                 'sequence': '2',
-                'Product': 'Shipment Cost',
+                'Product': 'Shipping Cost',
                 'costelem': 'OZ',
-                'value': $state.showNewGraph ? '615' : '630',
+                'value': $state.showNewGraph ? '615' : '1000',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
-                'isChecked': false
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
+                'isChecked': false,
+                selectedDataSource2: {
+                    "name": "GEP FTL NA Price Database"
+                }
             },
             {
                 'sequence': '3',
                 'Product': 'Margin',
                 'costelem': 'LBS',
-                'value': $state.showNewGraph ? '410' : '870',
+                'value': $state.showNewGraph ? '410' : '500',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
-                'isChecked': false
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
+                'isChecked': false,
+                selectedDataSource2: {
+                    "name": "None"
+                }
             }
         ];
     } else if ($state.productNameMilk) {
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Feed and Cattle Costs',
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '820' : '7.595',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3426,7 +3466,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'OZ',
                 'value': $state.showNewGraph ? '615' : '2.015',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3435,7 +3477,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '3.72',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3444,7 +3488,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '1.085',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3453,19 +3499,22 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '1.085',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             }
         ];
     } else if ($state.productNameKetchup) {
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
                 'value': '$0.55',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3474,7 +3523,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'OZ',
                 'value': '$0.12',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3483,19 +3534,22 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': '$0.15',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             }
         ];
     } else if ($state.productNameFuleHouse) {
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Tooling Cost',
                 'costelem': 'LBS',
                 'value': '4.32',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3504,7 +3558,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'OZ',
                 'value': '2.1',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             },
             {
@@ -3513,13 +3569,14 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': '1.68',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false
             }
         ];
     } else if ($state.productNamePretzelAnalysis) {
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Shipping Cost',
                 'costelem': 'LBS',
@@ -3528,7 +3585,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'UMO': 'EA',
                 'quntity': '1',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Manual" },
+                selectedCostSource1: {
+                    "name": "Manual"
+                },
                 'isChecked': false,
                 'type': 'TOLL',
                 'unitPrize': ''
@@ -3543,14 +3602,15 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'quntity': '',
                 'currency': 'SEK',
                 'isChecked': false,
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'type': 'PACKAGING',
                 'unitPrize': ''
             }
         ];
     } else if ($state.productNameAcrylonitrile && !$state.viewScenario) {
-        $scope.costSourceOptions = [
-            {
+        $scope.costSourceOptions = [{
                 "name": "Market Index"
             }, {
                 "name": "Computed"
@@ -3565,29 +3625,29 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         $scope.selectedCostSource = {
             "name": "Subscription Feed"
         };
-        $scope.dataSourceOptions = [
-            {
+        $scope.dataSourceOptions = [{
                 "name": "Freight OS (Subscription)"
-            }, 
+            },
             {
                 "name": "GEP FTL NA Price Database"
             },
             {
                 "name": "GEP LTL EU Price Database"
             }
-             
+
         ];
         $scope.selectedDataSource = {
             "name": "GEP FTL NA Price Database"
         };
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
                 'value': '0.3238',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": ""
@@ -3599,7 +3659,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'OZ',
                 'value': '0.0300',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": "GEP FTL NA Price Database"
@@ -3611,7 +3673,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'value': '0.0864',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": ""
@@ -3620,10 +3684,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         ];
     } else if ($state.current.name == 'mdm.itemDetailsOne' && $state.viewScenario) {
 
-        $scope.costSourceOptions = [
-            {
+        $scope.costSourceOptions = [{
                 "name": "Market Index"
-            }, 
+            },
             {
                 "name": "Computed"
             },
@@ -3638,8 +3701,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             "name": "Subscription Feed"
         };
 
-        $scope.dataSourceOptions = [
-            {
+        $scope.dataSourceOptions = [{
                 "name": "Freight OS (Subscription)"
             }, {
                 "name": "GEP FTL NA Price Database"
@@ -3647,20 +3709,21 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             {
                 "name": "GEP LTL EU Price Database"
             }
-             
+
         ];
         $scope.selectedDataSource = {
             "name": "GEP FTL NA Price Database"
         };
 
-        $scope.historyList = [
-            {
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
                 'questval': '0.4177',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": ""
@@ -3672,7 +3735,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'OZ',
                 'questval': '0.0300',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": "GEP FTL NA Price Database"
@@ -3684,7 +3749,9 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'costelem': 'LBS',
                 'questval': '0.1001',
                 'currency': 'SEK',
-                selectedCostSource1: { "name": "Computed" },
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
                 'isChecked': false,
                 selectedDataSource: {
                     "name": ""
@@ -3695,7 +3762,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
 
 
 
-    
+
 
 
     $scope.addConversionRow = function () {
@@ -3962,33 +4029,33 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'LABOR',
-                        y: 63259,
-                        color: Highcharts.getOptions().colors[4]
-                    }, {
-                        name: 'MATERIAL',
-                        y: 1050,
-                        color: Highcharts.getOptions().colors[2]
-                    }, {
-                        name: 'EQUIPMENT',
-                        y: 36160,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'OVERHEAD',
-                        y: 6500,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'SUB-CONTRACTOR',
-                        y: 47700,
-                        color: Highcharts.getOptions().colors[7]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'LABOR',
+                            y: 63259,
+                            color: Highcharts.getOptions().colors[4]
+                        }, {
+                            name: 'MATERIAL',
+                            y: 1050,
+                            color: Highcharts.getOptions().colors[2]
+                        }, {
+                            name: 'EQUIPMENT',
+                            y: 36160,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'OVERHEAD',
+                            y: 6500,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'SUB-CONTRACTOR',
+                            y: 47700,
+                            color: Highcharts.getOptions().colors[7]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4038,30 +4105,30 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'POLLOCK',
-                        y: 550,
-                        color: Highcharts.getOptions().colors[4]
-                    },
-                    {
-                        name: 'PRODUCTION COST',
-                        y: 1750,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'SHIPMENT COST',
-                        y: 630,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'MARGIN',
-                        y: 870,
-                        color: Highcharts.getOptions().colors[6]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'POLLOCK',
+                            y: 550,
+                            color: Highcharts.getOptions().colors[4]
+                        },
+                        {
+                            name: 'PRODUCTION COST',
+                            y: 1750,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'SHIPMENT COST',
+                            y: 630,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'MARGIN',
+                            y: 870,
+                            color: Highcharts.getOptions().colors[6]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4198,30 +4265,30 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'POLLOCK',
-                        y: 2255,
-                        color: Highcharts.getOptions().colors[4]
-                    },
-                    {
-                        name: 'PRODUCTION COST',
-                        y: 820,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'SHIPMENT COST',
-                        y: 615,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'MARGIN',
-                        y: 410,
-                        color: Highcharts.getOptions().colors[6]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'POLLOCK',
+                            y: 2255,
+                            color: Highcharts.getOptions().colors[4]
+                        },
+                        {
+                            name: 'PRODUCTION COST',
+                            y: 820,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'SHIPMENT COST',
+                            y: 615,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'MARGIN',
+                            y: 410,
+                            color: Highcharts.getOptions().colors[6]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4269,30 +4336,30 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'TOMATO PASTE',
-                        y: 0.68,
-                        color: Highcharts.getOptions().colors[4]
-                    },
-                    {
-                        name: 'PRODUCTION COST',
-                        y: 0.55,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'SHIPMENT COST',
-                        y: 0.12,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'MARGIN',
-                        y: 0.15,
-                        color: Highcharts.getOptions().colors[6]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'TOMATO PASTE',
+                            y: 0.68,
+                            color: Highcharts.getOptions().colors[4]
+                        },
+                        {
+                            name: 'PRODUCTION COST',
+                            y: 0.55,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'SHIPMENT COST',
+                            y: 0.12,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'MARGIN',
+                            y: 0.15,
+                            color: Highcharts.getOptions().colors[6]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4339,8 +4406,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 series: [{
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
-                    data: [
-                        {
+                    data: [{
                             name: 'MILK',
                             y: 15.50,
                             color: Highcharts.getOptions().colors[2]
@@ -4422,30 +4488,30 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'FUEL HOSE & TUBE ASSY',
-                        y: 2.50,
-                        color: Highcharts.getOptions().colors[4]
-                    },
-                    {
-                        name: 'TOOLING COST',
-                        y: 4.32,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'DEVELOPMENT COST',
-                        y: 2.1,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'SHIPPING COST',
-                        y: 1.68,
-                        color: Highcharts.getOptions().colors[6]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'FUEL HOSE & TUBE ASSY',
+                            y: 2.50,
+                            color: Highcharts.getOptions().colors[4]
+                        },
+                        {
+                            name: 'TOOLING COST',
+                            y: 4.32,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'DEVELOPMENT COST',
+                            y: 2.1,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'SHIPPING COST',
+                            y: 1.68,
+                            color: Highcharts.getOptions().colors[6]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4492,8 +4558,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 series: [{
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
-                    data: [
-                        {
+                    data: [{
                             name: 'PRETZEL (R/W)',
                             y: 1.35,
                             color: Highcharts.getOptions().colors[3]
@@ -4559,8 +4624,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 series: [{
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
-                    data: [
-                        {
+                    data: [{
                             name: 'AMMONIA',
                             y: 0.124,
                             color: Highcharts.getOptions().colors[0]
@@ -4646,8 +4710,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 series: [{
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
-                    data: [
-                        {
+                    data: [{
                             name: 'AMMONIA',
                             y: 0.132,
                             color: Highcharts.getOptions().colors[0]
@@ -4707,39 +4770,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     $scope.length = 10;
     $scope.breadth = 20;
     $scope.height = 30;
-    $scope.volume = $scope.length * $scope.breadth * $scope.height;
-    $scope.onvalueChange = function(len, bre, hei){
-        $scope.length = len;
-        alert($scope.length);
-        $scope.breadth = bre;
-        alert($scope.breadth);
-        $scope.height = hei;
-        alert($scope.height);
-        $scope.volume = $scope.length * $scope.breadth * $scope.height;
-        alert($scope.volume);
-    };
-    $scope.productattributesTable = [
-        {
-            "title": "Length",
-            "value": $scope.length
-        },
-        {
-            "title": "Breadth",
-            "value": $scope.breadth
-        },
-        {
-            "title": "Height",
-            "value": $scope.height
-        },
-        {
-            "title": "Calculated Volume",
-            "value": $scope.volume
-        },
-        {
-            "title": "Volume Override",
-            "value": "5000"
-        }
-    ];
+    $scope.volumeOverride = 5000;
 }
 
 function MDMServiceFn($http, $q, $window, $timeout) {
@@ -4759,69 +4790,67 @@ function MDMServiceFn($http, $q, $window, $timeout) {
 }
 
 function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lookup) {
-    $scope.typeOptions = [
-        {
-            "UserId": 28360,
-            "UserName": "SRUser1@outlook.com",
-            "FirstName": "Avishek",
-            "LastName": "Jana"
-        }, {
-            "UserId": 28977,
-            "UserName": "SRUser1@outlook.com11",
-            "FirstName": "Pawan",
-            "LastName": "Singh"
-        }, {
-            "UserId": 28978,
-            "UserName": "SRUser1@outlook.com234",
-            "FirstName": "Apurva",
-            "LastName": "Chi"
-        }, {
-            "UserId": 28979,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Mayur",
-            "LastName": "Gadekar"
-        }, {
-            "UserId": 28980,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Avishek",
-            "LastName": "Jana"
-        }, {
-            "UserId": 28981,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Sachin",
-            "LastName": "Kurkute"
-        }, {
-            "UserId": 28982,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Karthic",
-            "LastName": "Muthuraman"
-        }, {
-            "UserId": 28983,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Rahul",
-            "LastName": "Kardekar"
-        }, {
-            "UserId": 28984,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Sheetal",
-            "LastName": "Shah"
-        }, {
-            "UserId": 28985,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Nandini",
-            "LastName": "Shah"
-        }, {
-            "UserId": 28986,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Poonam",
-            "LastName": "Lad"
-        }, {
-            "UserId": 28987,
-            "UserName": "SRUser1@outlook.com342",
-            "FirstName": "Harshit",
-            "LastName": "Shah"
-        }
-    ];
+    $scope.typeOptions = [{
+        "UserId": 28360,
+        "UserName": "SRUser1@outlook.com",
+        "FirstName": "Avishek",
+        "LastName": "Jana"
+    }, {
+        "UserId": 28977,
+        "UserName": "SRUser1@outlook.com11",
+        "FirstName": "Pawan",
+        "LastName": "Singh"
+    }, {
+        "UserId": 28978,
+        "UserName": "SRUser1@outlook.com234",
+        "FirstName": "Apurva",
+        "LastName": "Chi"
+    }, {
+        "UserId": 28979,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Mayur",
+        "LastName": "Gadekar"
+    }, {
+        "UserId": 28980,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Avishek",
+        "LastName": "Jana"
+    }, {
+        "UserId": 28981,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Sachin",
+        "LastName": "Kurkute"
+    }, {
+        "UserId": 28982,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Karthic",
+        "LastName": "Muthuraman"
+    }, {
+        "UserId": 28983,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Rahul",
+        "LastName": "Kardekar"
+    }, {
+        "UserId": 28984,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Sheetal",
+        "LastName": "Shah"
+    }, {
+        "UserId": 28985,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Nandini",
+        "LastName": "Shah"
+    }, {
+        "UserId": 28986,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Poonam",
+        "LastName": "Lad"
+    }, {
+        "UserId": 28987,
+        "UserName": "SRUser1@outlook.com342",
+        "FirstName": "Harshit",
+        "LastName": "Shah"
+    }];
     $scope.selectedSignatoryLookup = $scope.typeOptions[0];
 
 
@@ -4831,31 +4860,29 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
     ////$scope.onChangeCompany = function (data) {
     ////	$scope.companyName.displaytext = data.name;
     ////};
-    $scope.typeSelectOwnedBy = [
-        {
-            "name": "Company Name"
-        }, {
-            "name": "Partner Code"
-        }, {
-            "name": "D-U-N-S No."
-        }, {
-            "name": "US Federal Tax ID"
-        }, {
-            "name": "Social Security No."
-        }, {
-            "name": "VAT Reg. No."
-        }, {
-            "name": "GST/ QST No."
-        }, {
-            "name": "LEI"
-        }, {
-            "name": "SIC Code"
-        }, {
-            "name": "NASIC Code"
-        }, {
-            "name": "TIN No."
-        }
-    ];
+    $scope.typeSelectOwnedBy = [{
+        "name": "Company Name"
+    }, {
+        "name": "Partner Code"
+    }, {
+        "name": "D-U-N-S No."
+    }, {
+        "name": "US Federal Tax ID"
+    }, {
+        "name": "Social Security No."
+    }, {
+        "name": "VAT Reg. No."
+    }, {
+        "name": "GST/ QST No."
+    }, {
+        "name": "LEI"
+    }, {
+        "name": "SIC Code"
+    }, {
+        "name": "NASIC Code"
+    }, {
+        "name": "TIN No."
+    }];
 
     /* Tabs */
 
@@ -4902,94 +4929,77 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
         "status": "Invited",
         "businessunit": {
             "displaytext": "Business Unit",
-            "selectedoption": [
-                {
-                    "name": "TECHNOLOGY SOLUTIONS",
+            "selectedoption": [{
+                "name": "TECHNOLOGY SOLUTIONS",
+                "check": true,
+                "value": [{
+                    "name": "NOVA",
                     "check": true,
-                    "value": [
-                        {
-                            "name": "NOVA",
-                            "check": true,
-                            "value": [
-                                {
-                                    "name": "PRODUCT MANAGEMENT GROUP",
-                                    "check": true
-                                }, {
-                                    "name": "USER EXPERIENCE",
-                                    "check": true
-                                }, {
-                                    "name": "PRODUCT TECHNOLOGY",
-                                    "check": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "options": [
-                {
-                    "name": "TECHNOLOGY SOLUTIONS",
+                    "value": [{
+                        "name": "PRODUCT MANAGEMENT GROUP",
+                        "check": true
+                    }, {
+                        "name": "USER EXPERIENCE",
+                        "check": true
+                    }, {
+                        "name": "PRODUCT TECHNOLOGY",
+                        "check": true
+                    }]
+                }]
+            }],
+            "options": [{
+                "name": "TECHNOLOGY SOLUTIONS",
+                "check": true,
+                "value": [{
+                    "name": "NOVA",
                     "check": true,
-                    "value": [
-                        {
-                            "name": "NOVA",
-                            "check": true,
-                            "value": [
-                                {
-                                    "name": "PRODUCT MANAGEMENT GROUP",
-                                    "check": true
-                                }, {
-                                    "name": "USER EXPERIENCE",
-                                    "check": true
-                                }, {
-                                    "name": "PRODUCT TECHNOLOGY",
-                                    "check": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
+                    "value": [{
+                        "name": "PRODUCT MANAGEMENT GROUP",
+                        "check": true
+                    }, {
+                        "name": "USER EXPERIENCE",
+                        "check": true
+                    }, {
+                        "name": "PRODUCT TECHNOLOGY",
+                        "check": true
+                    }]
+                }]
+            }]
         },
         "diversityStatus": {
             "displaytext": "Diversity Status",
-            "selectedoption": [
-                {
-                    "name": "Minority Business Enterprise (MBE) - African American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Asian-Indian American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Asian-Pacific American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Hispanic American",
-                    "check": true
-                }
-            ],
-            "options": [
-                {
-                    "name": "Minority Business Enterprise (MBE) - African American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Asian-Indian American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Asian-Pacific American",
-                    "check": true
-                }, {
-                    "name": "Minority Business Enterprise (MBE) - Hispanic American",
-                    "check": true
-                }
-            ]
+            "selectedoption": [{
+                "name": "Minority Business Enterprise (MBE) - African American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Asian-Indian American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Asian-Pacific American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Hispanic American",
+                "check": true
+            }],
+            "options": [{
+                "name": "Minority Business Enterprise (MBE) - African American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Asian-Indian American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Asian-Pacific American",
+                "check": true
+            }, {
+                "name": "Minority Business Enterprise (MBE) - Hispanic American",
+                "check": true
+            }]
         },
 
         "email": "Allan.Gibson@Kelloggs.com",
         "dunscode": "343-BHH-236-549-BB2",
         "suppilerrisktype": "Moderate",
-        "countIndicator": [
-            {
+        "countIndicator": [{
                 "cardCount": "20",
                 "cardTitle": "Contracts"
             },
@@ -5014,77 +5024,69 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
         "socSecuityno": "Moderate",
         "vatRegNo": "23654BB3",
         "gstQstNo": "343-BHH-236-549-BB3",
-        "fedralTaxDataRead": [
-            {
-                "name": "Region 0",
+        "fedralTaxDataRead": [{
+            "name": "Region 0",
+            "check": true,
+            "value": [{
+                "name": "Region child-0",
                 "check": true,
-                "value": [
-                    {
-                        "name": "Region child-0",
-                        "check": true,
-                        "value": [
-                            {
-                                "name": "Region grand-child-0",
-                                "check": true
-                            }, {
-                                "name": "Region grand-child-1",
-                                "check": true
-                            }, {
-                                "name": "Region grand-child-2",
-                                "check": true
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+                "value": [{
+                    "name": "Region grand-child-0",
+                    "check": true
+                }, {
+                    "name": "Region grand-child-1",
+                    "check": true
+                }, {
+                    "name": "Region grand-child-2",
+                    "check": true
+                }]
+            }]
+        }]
     };
     $scope.showInfoIcon = false;
     $scope.companyName = {
         "displaytext": "Company Name",
         "selectedoption": "",
-        "options": [
-            {
-                "name": "Quanta Inc",
-                "check": false
-            }, {
-                "name": "kellogg's",
-                "check": false
-            }, {
-                "name": "Evertek Inc",
-                "check": false
-            }, {
-                "name": "GEP",
-                "check": false
-            }, {
-                "name": "Rackspace Inc",
-                "check": false
-            }, {
-                "name": "Globulent Travels",
-                "check": false
-            }, {
-                "name": "Datamatic Ltd",
-                "check": false
-            }, {
-                "name": "CDW",
-                "check": false
-            }, {
-                "name": "Staples Inc",
-                "check": false
-            }, {
-                "name": "IT Micro System Corporation",
-                "check": false
-            }, {
-                "name": "Grainger Ltd",
-                "check": false
-            }, {
-                "name": "Relix Inc",
-                "check": false
-            }, {
-                "name": "Home Depot Co.",
-                "check": false
-            }
-        ]
+        "options": [{
+            "name": "Quanta Inc",
+            "check": false
+        }, {
+            "name": "kellogg's",
+            "check": false
+        }, {
+            "name": "Evertek Inc",
+            "check": false
+        }, {
+            "name": "GEP",
+            "check": false
+        }, {
+            "name": "Rackspace Inc",
+            "check": false
+        }, {
+            "name": "Globulent Travels",
+            "check": false
+        }, {
+            "name": "Datamatic Ltd",
+            "check": false
+        }, {
+            "name": "CDW",
+            "check": false
+        }, {
+            "name": "Staples Inc",
+            "check": false
+        }, {
+            "name": "IT Micro System Corporation",
+            "check": false
+        }, {
+            "name": "Grainger Ltd",
+            "check": false
+        }, {
+            "name": "Relix Inc",
+            "check": false
+        }, {
+            "name": "Home Depot Co.",
+            "check": false
+        }]
     }
     $scope.status = {
         "displaytext": "Category",
@@ -5094,12 +5096,10 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
             "description": "This is Invited",
             "approved": true
         },
-        "options": [
-            {
+        "options": [{
                 "name": "Approved",
                 "isdisabled": false,
-                "description":
-                    "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
+                "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines",
                 "approved": true
             },
             {
@@ -5123,10 +5123,9 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
 
     $scope.supplierIcardlink = function () {
         $scope.hideSupplierIcardPopupCallback();
-        $state.go('supplier.profile',
-            {
-                pagefor: $scope.supplierIcard.supplierName
-            });
+        $state.go('supplier.profile', {
+            pagefor: $scope.supplierIcard.supplierName
+        });
     };
     $scope.showSupplierIcardPopup = false;
     $scope.LoaderFlagController = false;
@@ -5159,21 +5158,21 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
             $scope.companyName.selectedoption.name.toLowerCase().replace(/[^a-z0-9]/gmi, "") +
             '.com';
         $timeout(function () {
-            $scope.showSupplierIcardPopup = true;
-            $scope.LoaderFlagController = true;
-            $timeout(function () {
-                $scope.LoaderFlagController = false;
+                $scope.showSupplierIcardPopup = true;
+                $scope.LoaderFlagController = true;
+                $timeout(function () {
+                        $scope.LoaderFlagController = false;
+                    },
+                    2000);
             },
-                2000);
-        },
             2000);
         $timeout(function () {
-            $scope.subLoaderFlagController = true;
-            $timeout(function () {
-                $scope.subLoaderFlagController = false;
+                $scope.subLoaderFlagController = true;
+                $timeout(function () {
+                        $scope.subLoaderFlagController = false;
+                    },
+                    2500);
             },
-                2500);
-        },
             2000);
     }
     $scope.hideSupplierIcardPopupCallback = function () {
@@ -5194,8 +5193,7 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
 
     };
     $scope.modulecurrentTab = 'requisition.html';
-    $scope.modules = [
-        {
+    $scope.modules = [{
             id: '0',
             name: 'REQUISITION',
             count: '3',
@@ -5266,8 +5264,7 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
     $scope.attachFlag = false;
 
 
-    $scope.attachmentList = [
-        {
+    $scope.attachmentList = [{
             name: "AttachmentOne.xls",
             status: "fail",
             referenceName: "Add Name",
@@ -5352,74 +5349,60 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
         $scope.showCommentsPopup = true;
         $scope.commentIcon = '#icon_Commented'; //icon_Comments
     };
-    $scope.commentList = [
-        {
-            UserName: "Joseph Powell",
-            UserType: "Internal Users and Suppliers",
-            commentTxt: "rutrum eu dui rutrum eu dui  rutrum eu dui rutrum eu dui.",
-            commentDateTime: "10/12/2015 03:54 PM",
-            isOtherUser: true,
-            attachments: [
-                {
-                    filename: "lorem.xls"
-                }
-            ]
+    $scope.commentList = [{
+        UserName: "Joseph Powell",
+        UserType: "Internal Users and Suppliers",
+        commentTxt: "rutrum eu dui rutrum eu dui  rutrum eu dui rutrum eu dui.",
+        commentDateTime: "10/12/2015 03:54 PM",
+        isOtherUser: true,
+        attachments: [{
+            filename: "lorem.xls"
+        }]
+    }, {
+        UserName: "Joseph Powell",
+        UserType: "Internal Users and Suppliers",
+        commentTxt: "rutrum eu dui rutrum eu dui. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu",
+        commentDateTime: "10/12/2015 03:54 PM",
+        isOtherUser: false,
+        attachments: [{
+            filename: "reprehenderit.xls"
         }, {
-            UserName: "Joseph Powell",
-            UserType: "Internal Users and Suppliers",
-            commentTxt:
-                "rutrum eu dui rutrum eu dui. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu",
-            commentDateTime: "10/12/2015 03:54 PM",
-            isOtherUser: false,
-            attachments: [
-                {
-                    filename: "reprehenderit.xls"
-                }, {
-                    filename: "velit.xls"
-                }
-            ]
+            filename: "velit.xls"
+        }]
+    }, {
+        UserName: "Joseph Powell",
+        UserType: "Internal Users and Suppliers",
+        commentTxt: "ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        commentDateTime: "10/12/2015 03:54 PM",
+        isOtherUser: true,
+        attachments: [{
+            filename: "rutrum.xls"
         }, {
-            UserName: "Joseph Powell",
-            UserType: "Internal Users and Suppliers",
-            commentTxt: "ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            commentDateTime: "10/12/2015 03:54 PM",
-            isOtherUser: true,
-            attachments: [
-                {
-                    filename: "rutrum.xls"
-                }, {
-                    filename: "dui.xls"
-                }, {
-                    filename: "eu.xls"
-                }
-            ]
+            filename: "dui.xls"
         }, {
-            UserName: "Joseph Powell",
-            UserType: "Internal Users and Suppliers",
-            commentTxt:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim .",
-            commentDateTime: "10/12/2015 03:54 PM",
-            isOtherUser: false,
-            attachments: [
-                {
-                    filename: "consectetur.xls"
-                }, {
-                    filename: "amet.xls"
-                }
-            ]
+            filename: "eu.xls"
+        }]
+    }, {
+        UserName: "Joseph Powell",
+        UserType: "Internal Users and Suppliers",
+        commentTxt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim .",
+        commentDateTime: "10/12/2015 03:54 PM",
+        isOtherUser: false,
+        attachments: [{
+            filename: "consectetur.xls"
         }, {
-            UserName: "Joseph Powell",
-            UserType: "Internal Users and Suppliers",
-            commentTxt: "rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui.",
-            commentDateTime: "10/12/2015 03:54 PM",
-            isOtherUser: false,
-            attachments: [
-                {
-                    filename: "lorem.xls"
-                }
-            ]
-        }
-    ];
+            filename: "amet.xls"
+        }]
+    }, {
+        UserName: "Joseph Powell",
+        UserType: "Internal Users and Suppliers",
+        commentTxt: "rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui rutrum eu dui.",
+        commentDateTime: "10/12/2015 03:54 PM",
+        isOtherUser: false,
+        attachments: [{
+            filename: "lorem.xls"
+        }]
+    }];
 
 
     // popup reason 
@@ -5494,8 +5477,7 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
     $scope.attachFlag = false;
 
 
-    $scope.attachmentList = [
-        {
+    $scope.attachmentList = [{
             name: "AttachmentOne.xls",
             status: "fail",
             referenceName: "Add Name",
@@ -5563,20 +5545,16 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
     $scope.businessUnitDatainitialDisplayText = 'Choose Business Unit';
 
     // region
-    $scope.region = [
-        {
-            "name": "Asia",
-            "value": [
-                {
-                    "name": "India"
-                }, {
-                    "name": "Japan"
-                }, {
-                    "name": "Nepal"
-                }
-            ]
-        }
-    ];
+    $scope.region = [{
+        "name": "Asia",
+        "value": [{
+            "name": "India"
+        }, {
+            "name": "Japan"
+        }, {
+            "name": "Nepal"
+        }]
+    }];
 
     $scope.showRegion = false;
     $scope.RegionDatainitialDisplayText = 'Choose Region';
@@ -5589,261 +5567,224 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
     $scope.categoryDatainitialDisplayText = 'Choose Category';
 
 
-    $scope.suppliermDataRead = [
-        {
-            "name": "Carissa Madden",
-            "check": true
-        }, {
-            "name": "Dotson Palmer",
-            "check": true
-        }, {
-            "name": "Meyer Lloyd",
-            "check": true
-        }, {
-            "name": "Flossie Ochoa",
-            "check": true
-        }, {
-            "name": "Leah Moses",
-            "check": true
-        }
-    ];
-    $scope.suppliermData = [
-        {
-            "name": "Carissa Madden",
-            "check": false
-        }, {
-            "name": "Dotson Palmer",
-            "check": false
-        }, {
-            "name": "Meyer Lloyd",
-            "check": false
-        }, {
-            "name": "Flossie Ochoa",
-            "check": false
-        }, {
-            "name": "Leah Moses",
-            "check": false
-        }, {
-            "name": "Ferguson Osborn",
-            "check": false
-        }, {
-            "name": "Peck Patterson",
-            "check": false
-        }, {
-            "name": "Gay Payne",
-            "check": false
-        }, {
-            "name": "Katie Hebert",
-            "check": false
-        }, {
-            "name": "Bryan Shannon",
-            "check": false
-        }, {
-            "name": "Skinner Farmer",
-            "check": false
-        }, {
-            "name": "Mckay Mcneil",
-            "check": false
-        }, {
-            "name": "Lila Horne",
-            "check": false
-        }, {
-            "name": "Ethel Powell",
-            "check": false
-        }, {
-            "name": "Spears Lott",
-            "check": false
-        }, {
-            "name": "Nannie Ryan",
-            "check": false
-        }, {
-            "name": "Joy Ware",
-            "check": false
-        }, {
-            "name": "Shaffer Mcfadden",
-            "check": false
-        }, {
-            "name": "Audrey Pena",
-            "check": false
-        }, {
-            "name": "Helga Macdonald",
-            "check": false
-        }
-    ];
-    $scope.businessUnitData = [
-        {
-            "name": "Business unit 0",
+    $scope.suppliermDataRead = [{
+        "name": "Carissa Madden",
+        "check": true
+    }, {
+        "name": "Dotson Palmer",
+        "check": true
+    }, {
+        "name": "Meyer Lloyd",
+        "check": true
+    }, {
+        "name": "Flossie Ochoa",
+        "check": true
+    }, {
+        "name": "Leah Moses",
+        "check": true
+    }];
+    $scope.suppliermData = [{
+        "name": "Carissa Madden",
+        "check": false
+    }, {
+        "name": "Dotson Palmer",
+        "check": false
+    }, {
+        "name": "Meyer Lloyd",
+        "check": false
+    }, {
+        "name": "Flossie Ochoa",
+        "check": false
+    }, {
+        "name": "Leah Moses",
+        "check": false
+    }, {
+        "name": "Ferguson Osborn",
+        "check": false
+    }, {
+        "name": "Peck Patterson",
+        "check": false
+    }, {
+        "name": "Gay Payne",
+        "check": false
+    }, {
+        "name": "Katie Hebert",
+        "check": false
+    }, {
+        "name": "Bryan Shannon",
+        "check": false
+    }, {
+        "name": "Skinner Farmer",
+        "check": false
+    }, {
+        "name": "Mckay Mcneil",
+        "check": false
+    }, {
+        "name": "Lila Horne",
+        "check": false
+    }, {
+        "name": "Ethel Powell",
+        "check": false
+    }, {
+        "name": "Spears Lott",
+        "check": false
+    }, {
+        "name": "Nannie Ryan",
+        "check": false
+    }, {
+        "name": "Joy Ware",
+        "check": false
+    }, {
+        "name": "Shaffer Mcfadden",
+        "check": false
+    }, {
+        "name": "Audrey Pena",
+        "check": false
+    }, {
+        "name": "Helga Macdonald",
+        "check": false
+    }];
+    $scope.businessUnitData = [{
+        "name": "Business unit 0",
+        "check": false,
+        "value": [{
+            "name": "Business unit child-0",
             "check": false,
-            "value": [
-                {
-                    "name": "Business unit child-0",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "Business unit grand-child-0",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-2",
-                            "check": false
-                        }
-                    ]
-                }, {
-                    "name": "Business unit child-1-0",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "Business unit grand-child-1-0",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1-1",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1-2",
-                            "check": false
-                        }
-                    ]
-                }
-            ]
+            "value": [{
+                "name": "Business unit grand-child-0",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-2",
+                "check": false
+            }]
         }, {
-            "name": "Business unit 1",
+            "name": "Business unit child-1-0",
             "check": false,
-            "value": [
-                {
-                    "name": "Business unit child-0",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "Business unit grand-child-0",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-2",
-                            "check": false
-                        }
-                    ]
-                }, {
-                    "name": "Business unit child-1-0",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "Business unit grand-child-1-0",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1-1",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1-2",
-                            "check": false
-                        }
-                    ]
-                }
-            ]
+            "value": [{
+                "name": "Business unit grand-child-1-0",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1-1",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1-2",
+                "check": false
+            }]
+        }]
+    }, {
+        "name": "Business unit 1",
+        "check": false,
+        "value": [{
+            "name": "Business unit child-0",
+            "check": false,
+            "value": [{
+                "name": "Business unit grand-child-0",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-2",
+                "check": false
+            }]
         }, {
-            "name": "Business unit 2",
+            "name": "Business unit child-1-0",
             "check": false,
-            "value": [
-                {
-                    "name": "Business unit child-0",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "Business unit grand-child-0",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-1",
-                            "check": false
-                        }, {
-                            "name": "Business unit grand-child-2",
-                            "check": false
-                        }
-                    ]
-                }
-            ]
-        }
-    ];
-    $scope.categoryDataRead = [
-        {
-            "name": "IT/TELECOM",
+            "value": [{
+                "name": "Business unit grand-child-1-0",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1-1",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1-2",
+                "check": false
+            }]
+        }]
+    }, {
+        "name": "Business unit 2",
+        "check": false,
+        "value": [{
+            "name": "Business unit child-0",
+            "check": false,
+            "value": [{
+                "name": "Business unit grand-child-0",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-1",
+                "check": false
+            }, {
+                "name": "Business unit grand-child-2",
+                "check": false
+            }]
+        }]
+    }];
+    $scope.categoryDataRead = [{
+        "name": "IT/TELECOM",
+        "check": true,
+        "value": [{
+            "name": "IT HARDWARE",
             "check": true,
-            "value": [
+            "value": [{
+                    "name": "COMPUTERS - LAPTOPS",
+                    "check": true
+                },
                 {
-                    "name": "IT HARDWARE",
-                    "check": true,
-                    "value": [
-                        {
-                            "name": "COMPUTERS - LAPTOPS",
-                            "check": true
-                        },
-                        {
-                            "name": "COMPUTERS - DESKTOPS",
-                            "check": true
-                        },
-                        {
-                            "name": "COMPUTERS - PERIPHERALS",
-                            "check": true
-                        }
-                    ]
+                    "name": "COMPUTERS - DESKTOPS",
+                    "check": true
+                },
+                {
+                    "name": "COMPUTERS - PERIPHERALS",
+                    "check": true
                 }
             ]
-        }
-    ];
-    $scope.businessUnitDataRead = [
-        {
-            "name": "TECHNOLOGY SOLUTIONS",
+        }]
+    }];
+    $scope.businessUnitDataRead = [{
+        "name": "TECHNOLOGY SOLUTIONS",
+        "check": true,
+        "value": [{
+            "name": "NOVA",
             "check": true,
-            "value": [
+            "value": [{
+                    "name": "PRODUCT MANAGEMENT GROUP",
+                    "check": true
+                },
                 {
-                    "name": "NOVA",
-                    "check": true,
-                    "value": [
-                        {
-                            "name": "PRODUCT MANAGEMENT GROUP",
-                            "check": true
-                        },
-                        {
-                            "name": "USER EXPERIENCE",
-                            "check": true
-                        },
-                        {
-                            "name": "PRODUCT TECHNOLOGY",
-                            "check": true
-                        }
-                    ]
+                    "name": "USER EXPERIENCE",
+                    "check": true
+                },
+                {
+                    "name": "PRODUCT TECHNOLOGY",
+                    "check": true
                 }
             ]
-        }
-    ];
-    $scope.categoryData = [
-        {
-            "name": "TECHNOLOGY SOLUTIONS",
+        }]
+    }];
+    $scope.categoryData = [{
+        "name": "TECHNOLOGY SOLUTIONS",
+        "check": false,
+        "value": [{
+            "name": "NOVA",
             "check": false,
-            "value": [
+            "value": [{
+                    "name": "PRODUCT MANAGEMENT GROUP",
+                    "check": false
+                },
                 {
-                    "name": "NOVA",
-                    "check": false,
-                    "value": [
-                        {
-                            "name": "PRODUCT MANAGEMENT GROUP",
-                            "check": false
-                        },
-                        {
-                            "name": "USER EXPERIENCE",
-                            "check": false
-                        },
-                        {
-                            "name": "PRODUCT TECHNOLOGY",
-                            "check": false
-                        }
-                    ]
+                    "name": "USER EXPERIENCE",
+                    "check": false
+                },
+                {
+                    "name": "PRODUCT TECHNOLOGY",
+                    "check": false
                 }
             ]
-        }
-    ];
+        }]
+    }];
     if ($scope.Pagefor.pagefor === "kellogg's") {
         $scope.dummyimg = false;
 
@@ -5882,8 +5823,7 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
             $scope.status.selectedoption = {
                 "name": "Approved",
                 "isdisabled": true,
-                "description":
-                    "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines"
+                "description": "This supplier in disqualified and cannot be included for any future RFP, bidding and other activities. Limit this content to 2 lines"
             };
             $scope.selectedOwnedByoption = {
                 name: "Partner Code"
@@ -5899,10 +5839,10 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
             };
 
             $timeout(function () {
-                if ($scope.parentScope) {
-                    $scope.parentScope.readOnlyPage = true;
-                }
-            },
+                    if ($scope.parentScope) {
+                        $scope.parentScope.readOnlyPage = true;
+                    }
+                },
                 10);
         }
 
@@ -6102,8 +6042,7 @@ function MDMBasicDetailsCtrlFunc($scope, $rootScope, $state, $http, $timeout, lo
                 tempCategoryNode_PAS.push(e.selectionAllIds[i]);
             }
             if (e.selectionAllNames.length > 1)
-                $scope.selectedCategoriesTxt =
-                    [e.selectionAllNames[0], ' +' + (e.selectionAllNames.length - 1) + ' More'];
+                $scope.selectedCategoriesTxt = [e.selectionAllNames[0], ' +' + (e.selectionAllNames.length - 1) + ' More'];
             else if (e.selectionNames.length == 1)
                 $scope.selectedCategoriesTxt = [e.selectionAllNames[0]];
             else
