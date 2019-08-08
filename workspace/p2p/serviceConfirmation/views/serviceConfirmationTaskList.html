@@ -3770,22 +3770,14 @@
                         
                         <div class="row">
                             <div class="col s12" style="overflow-x: scroll">
-                                <table class="bordered sTable fixedTbl" sticky-header style="margin-bottom:100px">
-                                    <!-- <colgroup>
-                                        <col style="width:4%" />
-                                        <col style="width:8%" />
-                                        <col style="width:23%" />
-                                        <col style="width:16%" />
-                                        <col style="width:16%" />
-                                        <col style="width:20%" />
-                                        <col style="width:13%" />
-                                    </colgroup> -->
+                                <table class="bordered sTable customTable" sticky-header style="overflow: scroll !important;">
+                                  
                                     <thead>
                                         <tr>
                                             <th>
                                                 <smart-checkbox ng-class="{'filled-partial' : fillpartialTeamMember == true }" class="left paddingTop5" ng-model="teamMemberHead.check" on-change="onChangeTeamMember(teamMemberHead.check)"></smart-checkbox>
                                             </th>
-                                            <th class="center-align" style="padding:20px">Sequence1</th>
+                                            <th class="center-align">Sequence1</th>
                                             <th class="left-align">Cost Element</th>
                                             <th class="left-align">Name(User Spec)</th>
                                             <th class="left-align">Dependent</th>
@@ -3796,7 +3788,7 @@
                                             <th class="left-align">Unit Cost</th>
                                             <th class="left-align">Input UOM</th>
                                             <th class="left-align">Output UOM</th>
-                                            <th class="left-align">Throughput Quantity</th>
+                                            <th class="left-align">Throughput Quant~ity</th>
                                             <th class="left-align">Required Quantity</th>
                                             <th class="right-align">Step Yeild</th>
                                             <th class="right-align">Required</th>
@@ -9485,6 +9477,10 @@
 <style>
     .contract-action-bar {
         z-index:1;
+    }
+    .table.customTable th{
+        padding: 14px 5px 13px !important;
+        /* font-size: 7.6rem; */
     }
 </style>
 
