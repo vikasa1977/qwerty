@@ -97,14 +97,14 @@
       "region" : "USA",
       "purchaseType": { "title": "Blanket with Release" },
       "supName": "Product",
-      "itemNo":"Folding Cartons",
+      "itemNo":"FOLDING CARTONS",
       "revision":"10",
-      "itemName":"Folding Cartons",
+      "itemName":"FOLDING CARTONS",
       "desc":"1",
-      "itemType":"Lbs",
+      "itemType":"Ton",
       "bUom":"1",
       "targetPrice":"Acrylates",
-      "category":"Acrylates",
+      "category":"FOLDING CARTONS",
       "pitemNo":"P678 053 3116",
       "linkedTool":"Yes",
       "mToolName":"Fatigue Tool",
@@ -112,11 +112,11 @@
       "toolLocation":"Plant AB32",
       "itemStatus":"Production",
       "weight":"",
-      "volume":"400,000",
+      "volume":"1",
       "supplier1":"Ineos",
       "USD":"USD",
-      "currentcost":"$1.10",
-      "shouldcost":"$0.97",
+      "currentcost":"18000",
+      "shouldcost":"15985",
       "suppliercapacity" :"800 MM Pounds per year",
       "utilization" : "100%",
       "ownername":"Sara Williams",
@@ -1050,7 +1050,10 @@
                 "attributes": {
                   "options": [
                     {
-                      "title": "Lbs", 
+                      "title": "Lbs"
+                    },
+                    {
+                      "title": "Ton", 
                       "selected": true
                     },
                     {

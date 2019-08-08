@@ -8215,7 +8215,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.taskList = [{
                 title: "Production Costs",
                 isTaskVisible: true,
-                isSelected: false,
+                isSelected: true,
                 taskGrp: [{
                         title: "Labor",
                         isSelected: false,
