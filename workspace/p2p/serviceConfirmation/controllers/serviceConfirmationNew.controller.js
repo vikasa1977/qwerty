@@ -687,173 +687,107 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $(".brand-logo").find(".user-name").text("EMILY'S");
     };
 
-        $scope.taskList1 = [{
-                'sequence': '1',
-                'costelement': 'Labor',
-                'name': '',
-                'dependent': '',
-                'refcostelem': '',
-                'perofref': '',
-                'scale': '',
-                'costsource': '',
-                'unitcost': '',
-                'inputuom': '',
-                'outputuom': '',
-                'throughputqty': '',
-                'requiredqty': '',
-                'stepyeild': '',
-                'required': '',
-                'cost': '',
-                "approvalType": {
-                    "options": [{
-                        "name": "Manual"
-                    }, {
-                        "name": "Market Index"
-                    }, {
-                        "name": "Historical"
-                    }, {
-                        "name": "Computed"
-                    }],
-                    "selectedoption": {
-                        "name": "Manual"
-                    }
-                },
-                "value": '$0.07'
+    $scope.taskList1 = [{
+            'sequence': '1',
+            'costelement': 'Labor',
+            'name': '',
+            'dependent': '',
+            'refcostelem': '',
+            'perofref': '',
+            'scale': '',
+            'costsource': '',
+            'unitcost': '',
+            'inputuom': '',
+            'outputuom': '',
+            'throughputqty': '',
+            'requiredqty': '',
+            'stepyeild': '',
+            'required': '',
+            'cost': '',
+            "approvalType": {
+                "options": [{
+                    "name": "Manual"
+                }, {
+                    "name": "Market Index"
+                }, {
+                    "name": "Historical"
+                }, {
+                    "name": "Computed"
+                }],
+                "selectedoption": {
+                    "name": "Manual"
+                }
+            },
+            "value": '$0.07'
 
+        },
+        {
+            'sequence': '2',
+            'costelement': 'Process Loss',
+            'name': '',
+            'dependent': '',
+            'refcostelem': '',
+            'perofref': '',
+            'scale': '',
+            'costsource': '',
+            'unitcost': '',
+            'inputuom': '',
+            'outputuom': '',
+            'throughputqty': '',
+            'requiredqty': '',
+            'stepyeild': '',
+            'required': '',
+            'cost': '',
+            "approvalType": {
+                "options": [{
+                    "name": "Manual"
+                }, {
+                    "name": "Market Index"
+                }, {
+                    "name": "Historical"
+                }, {
+                    "name": "Computed"
+                }],
+                "selectedoption": {
+                    "name": "Manual"
+                }
             },
-            {
-                'sequence': '2',
-                'costelement': 'Over Head',
-                'name': '',
-                'dependent': '',
-                'refcostelem': '',
-                'perofref': '',
-                'scale': '',
-                'costsource': '',
-                'unitcost': '',
-                'inputuom': '',
-                'outputuom': '',
-                'throughputqty': '',
-                'requiredqty': '',
-                'stepyeild': '',
-                'required': '',
-                'cost': '',
-                "approvalType": {
-                    "options": [{
-                        "name": "Manual"
-                    }, {
-                        "name": "Market Index"
-                    }, {
-                        "name": "Historical"
-                    }, {
-                        "name": "Computed"
-                    }],
-                    "selectedoption": {
-                        "name": "Manual"
-                    }
-                },
-                "value": '$0.22'
+            "value": '$0.22'
+        },
+        {
+            'sequence': '3',
+            'costelement': 'Production',
+            'name': '',
+            'dependent': '',
+            'refcostelem': '',
+            'perofref': '',
+            'scale': '',
+            'costsource': '',
+            'unitcost': '',
+            'inputuom': '',
+            'outputuom': '',
+            'throughputqty': '',
+            'requiredqty': '',
+            'stepyeild': '',
+            'required': '',
+            'cost': '',
+            "approvalType": {
+                "options": [{
+                    "name": "Manual"
+                }, {
+                    "name": "Market Index"
+                }, {
+                    "name": "Historical"
+                }, {
+                    "name": "Computed"
+                }],
+                "selectedoption": {
+                    "name": "Manual"
+                }
             },
-            {
-                'sequence': '3',
-                'costelement': 'Process Loss',
-                'name': '',
-                'dependent': '',
-                'refcostelem': '',
-                'perofref': '',
-                'scale': '',
-                'costsource': '',
-                'unitcost': '',
-                'inputuom': '',
-                'outputuom': '',
-                'throughputqty': '',
-                'requiredqty': '',
-                'stepyeild': '',
-                'required': '',
-                'cost': '',
-                "approvalType": {
-                    "options": [{
-                        "name": "Manual"
-                    }, {
-                        "name": "Market Index"
-                    }, {
-                        "name": "Historical"
-                    }, {
-                        "name": "Computed"
-                    }],
-                    "selectedoption": {
-                        "name": "Manual"
-                    }
-                },
-                "value": '$0.08'
-            },
-            {
-                'sequence': '4',
-                'costelement': 'Production',
-                'name': '',
-                'dependent': '',
-                'refcostelem': '',
-                'perofref': '',
-                'scale': '',
-                'costsource': '',
-                'unitcost': '',
-                'inputuom': '',
-                'outputuom': '',
-                'throughputqty': '',
-                'requiredqty': '',
-                'stepyeild': '',
-                'required': '',
-                'cost': '',
-                "approvalType": {
-                    "options": [{
-                        "name": "Manual"
-                    }, {
-                        "name": "Market Index"
-                    }, {
-                        "name": "Historical"
-                    }, {
-                        "name": "Computed"
-                    }],
-                    "selectedoption": {
-                        "name": "Manual"
-                    }
-                },
-                "value": '$0.18'
-            },
-            {
-                'sequence': '5',
-                'costelement': 'Transportation',
-                'name': '',
-                'dependent': '',
-                'refcostelem': '',
-                'perofref': '',
-                'scale': '',
-                'costsource': '',
-                'unitcost': '',
-                'inputuom': '',
-                'outputuom': '',
-                'throughputqty': '',
-                'requiredqty': '',
-                'stepyeild': '',
-                'required': '',
-                'cost': '',
-                "approvalType": {
-                    "options": [{
-                        "name": "Manual"
-                    }, {
-                        "name": "Market Index"
-                    }, {
-                        "name": "Historical"
-                    }, {
-                        "name": "Computed"
-                    }],
-                    "selectedoption": {
-                        "name": "Manual"
-                    }
-                },
-                "value": '$0.18'
-            }
-        ];
+            "value": '$0.08'
+        }
+    ];
 
 
     $scope.mainSection = true;
@@ -1990,8 +1924,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.productionFoldingCarton = true;
             $scope.marginSectoin = false;
 
-            $scope.taskList1 = [
-                {
+            $scope.taskList1 = [{
                     'sequence': '1',
                     'costelement': 'Labor',
                     'name': '',
@@ -2027,7 +1960,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 },
                 {
                     'sequence': '2',
-                    'costelement': 'Over Head',
+                    'costelement': 'Process Loss',
                     'name': '',
                     'dependent': '',
                     'refcostelem': '',
@@ -2060,39 +1993,6 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 },
                 {
                     'sequence': '3',
-                    'costelement': 'Process Loss',
-                    'name': '',
-                    'dependent': '',
-                    'refcostelem': '',
-                    'perofref': '',
-                    'scale': '',
-                    'costsource': '',
-                    'unitcost': '',
-                    'inputuom': '',
-                    'outputuom': '',
-                    'throughputqty': '',
-                    'requiredqty': '',
-                    'stepyeild': '',
-                    'required': '',
-                    'cost': '',
-                    "approvalType": {
-                        "options": [{
-                            "name": "Manual"
-                        }, {
-                            "name": "Market Index"
-                        }, {
-                            "name": "Historical"
-                        }, {
-                            "name": "Computed"
-                        }],
-                        "selectedoption": {
-                            "name": "Manual"
-                        }
-                    },
-                    "value": '$0.08'
-                },
-                {
-                    'sequence': '4',
                     'costelement': 'Production',
                     'name': '',
                     'dependent': '',
@@ -2122,40 +2022,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "Manual"
                         }
                     },
-                    "value": '$0.18'
-                },
-                {
-                    'sequence': '5',
-                    'costelement': 'Transportation',
-                    'name': '',
-                    'dependent': '',
-                    'refcostelem': '',
-                    'perofref': '',
-                    'scale': '',
-                    'costsource': '',
-                    'unitcost': '',
-                    'inputuom': '',
-                    'outputuom': '',
-                    'throughputqty': '',
-                    'requiredqty': '',
-                    'stepyeild': '',
-                    'required': '',
-                    'cost': '',
-                    "approvalType": {
-                        "options": [{
-                            "name": "Manual"
-                        }, {
-                            "name": "Market Index"
-                        }, {
-                            "name": "Historical"
-                        }, {
-                            "name": "Computed"
-                        }],
-                        "selectedoption": {
-                            "name": "Manual"
-                        }
-                    },
-                    "value": '$0.18'
+                    "value": '$0.08'
                 }
             ];
 
@@ -3308,8 +3175,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember11 = true;
             // }
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
             $scope.labourSection = false;
             $scope.mainSection = false;
             $scope.operationSection = true;
@@ -3327,8 +3193,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember22 = true;
             // }
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == 'Operations Overheads') {
             $scope.labourSection = false;
             $scope.mainSection = false;
             $scope.operationSection = true;
@@ -3346,7 +3211,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             // } else {
             //     $scope.fillpartialTeamMember22 = true;
             // }
-        }else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Project Management") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = true;
             $scope.jobSiteSec = false;
@@ -3386,8 +3251,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.costSourceDrop[0].selectedoption = {
                 "name": "Computed"
             };
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Machining") {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3635,8 +3499,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '20.00'
                 }
             ];
-        }
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3670,23 +3533,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
-            $scope.taskList1 = [
-                {
+            $scope.taskList1 = [{
                     'sequence': '1',
-                    'costelement': 'Direct Labor',
-                    'name': 'DLabor1',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': 'Fixed or Variable',
-                    'costsource': '',
-                    'unitcost': '100',
-                    'inputuom': 'Days',
-                    'outputuom': 'Each',
-                    'throughputqty': '100',
-                    'requiredqty': '40000',
-                    'stepyeild': '100',
-                    'required': '400',
-                    'cost': '40000',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Setup Coating A",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3697,25 +3547,23 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }
                     },
-                    
-
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index1",
+                    "unitcost": 600,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 600
                 },
                 {
                     'sequence': '2',
-                    'costelement': 'Direct Labor',
-                    'name': 'DLabor2',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': 'Fixed',
-                    'costsource': '',
-                    'unitcost': '101',
-                    'inputuom': 'Days',
-                    'outputuom': 'Each',
-                    'throughputqty': '100',
-                    'requiredqty': '40000',
-                    'stepyeild': '100',
-                    'required': '400',
-                    'cost': '40400',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Coating A",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3725,25 +3573,24 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }                  
-
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index2",
+                    "unitcost": 800,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 800
                 },
                 {
                     'sequence': '3',
-                    'costelement': 'Direct Labor',
-                    'name': 'DLabor3',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': 'Fixed',
-                    'costsource': '',
-                    'unitcost': '102',
-                    'inputuom': 'Days',
-                    'outputuom': 'Each',
-                    'throughputqty': '100',
-                    'requiredqty': '40000',
-                    'stepyeild': '100',
-                    'required': '400',
-                    'cost': '40800',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Setup Sheeting Z",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3753,24 +3600,24 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index3",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
                 },
                 {
                     'sequence': '4',
-                    'costelement': 'Indirect Labor',
-                    'name': 'ILabor1',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': 'Fixed',
-                    'costsource': '',
-                    'unitcost': '103',
-                    'inputuom': 'Days',
-                    'outputuom': 'Each',
-                    'throughputqty': '100',
-                    'requiredqty': '40000',
-                    'stepyeild': '100',
-                    'required': '400',
-                    'cost': '41200',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Sheeting Z",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3780,24 +3627,24 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index4",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
                 },
                 {
                     'sequence': '5',
-                    'costelement': 'Supervisor',
-                    'name': 'Super1',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': '',
-                    'costsource': '',
-                    'unitcost': '10000',
-                    'inputuom': 'Months',
-                    'outputuom': 'Each',
-                    'throughputqty': '1',
-                    'requiredqty': '1',
-                    'stepyeild': '100',
-                    'required': '12',
-                    'cost': '120000',
+                    "costelement": "Supervisor",
+                    "name": "Super1",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3807,24 +3654,24 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index5",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
                 },
                 {
                     'sequence': '6',
-                    'costelement': 'Other',
-                    'name': 'Manager',                   
-                    'refcostelem': 'Not Applicable',
-                    'perofref': '',
-                    'scale': '',
-                    'costsource': '',
-                    'unitcost': '10001',
-                    'inputuom': 'Months',
-                    'outputuom': 'Each',
-                    'throughputqty': '1',
-                    'requiredqty': '1',
-                    'stepyeild': '100',
-                    'required': '12',
-                    'cost': '120012',
+                    "costelement": "Other",
+                    "name": "Manager",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3834,11 +3681,22 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }
-                }  
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index6",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                }
             ];
-        }
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overhead" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overhead" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3872,11 +3730,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
-            $scope.taskList1 = [
-                {
+            $scope.taskList1 = [{
                     'sequence': '1',
                     'costelement': 'Labor Overhead',
-                    'name': 'LO1',                   
+                    'name': 'LO1',
                     'refcostelem': 'Labor(Cost Element)',
                     'perofref': '0.15',
                     'scale': '',
@@ -3898,13 +3755,13 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "Yes"
                         }
-                    }                   
+                    }
 
                 },
                 {
                     'sequence': '2',
                     'costelement': 'Machine Overhead',
-                    'name': 'Process Loss',                   
+                    'name': 'Process Loss',
                     'refcostelem': 'Not Applicable',
                     'perofref': '',
                     'scale': '',
@@ -3926,12 +3783,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }                  
+                    }
 
                 }
             ];
-        }
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3965,23 +3821,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
-            $scope.taskList1 = [
-                {
+            $scope.taskList1 = [{
                     'sequence': '1',
-                    'costelement': 'Labor Efficiency',
-                    'name': 'Wastage',                   
-                    'refcostelem': 'Labor(Cost Element)',
-                    'perofref': '',
-                    'scale': '',
-                    'costsource': '',
-                    'unitcost': '',
-                    'inputuom': '',
-                    'outputuom': '',
-                    'throughputqty': '',
-                    'requiredqty': '',
-                    'stepyeild': '100',
-                    'required': '',
-                    'cost': '',
+                    "costelement": "Labor Efficiency",
+                    "name": "Wastage",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3991,12 +3834,166 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "Yes"
                         }
-                    }                   
+                    },
+                    "refcostelem": "Labor (costelement)",
+                    "perofref": 0.7,
+                    "scale": "Proportional",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": 1260
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Machine Efficiency",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Production",
+                    "perofref": 0.7,
+                    "scale": "",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": 175
+                }
+            ]
+;
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Production" && $state.productNameFoldingCartons) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
 
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Machine",
+                    "name": "Setup Sheeting Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Cost Master",
+                    "unitcost": 100,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Machine",
+                    "name": "Sheeting Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Cost Master",
+                    "unitcost": 50,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 50
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Machine",
+                    "name": "Setup Coating Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Cost Master",
+                    "unitcost": 100,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
                 }
             ];
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Production" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Transportation" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -4030,552 +4027,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
-            $scope.taskList1 = [
-                {
-                  "sequence": 1,
-                  "costelement": "Machine",
-                  "name": "Setup Sheeting Machine Z",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                    },    
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 2,
-                  "costelement": "Machine",
-                  "name": "Sheeting Machine Z",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                },   
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 3,
-                  "costelement": "Machine",
-                  "name": "Setup Sheeting Machine Q",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                },
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 4,
-                  "costelement": "Machine",
-                  "name": "Sheeting Machine Q",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                },
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 5,
-                  "costelement": "Machine",
-                  "name": "Setup Sheeting Machine X",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 6,
-                  "costelement": "Machine",
-                  "name": "Sheeting Machine X",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 7,
-                  "costelement": "Machine",
-                  "name": "Setup Sheeting Machine Y",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 8,
-                  "costelement": "Machine",
-                  "name": "Sheeting Machine Y",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 9,
-                  "costelement": "Machine",
-                  "name": "Setup Coating Machine A",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 10,
-                  "costelement": "Machine",
-                  "name": "Coating Machine A",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 11,
-                  "costelement": "Machine",
-                  "name": "Setup Coating Machine B",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 12,
-                  "costelement": "Machine",
-                  "name": "Coating Machine B",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 13,
-                  "costelement": "Machine",
-                  "name": "Setup Coating Machine C",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 14,
-                  "costelement": "Machine",
-                  "name": "Coating Machine C",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 15,
-                  "costelement": "Machine",
-                  "name": "Setup Coating Machine D",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 16,
-                  "costelement": "Machine",
-                  "name": "Coating Machine D",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 17,
-                  "costelement": "Machine",
-                  "name": "Coating",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                },
-                {
-                  "sequence": 18,
-                  "costelement": "Machine",
-                  "name": "Machine3",
-                  "dependent": {
-                    "options": [{
-                        "name": "Yes"
-                    }, {
-                        "name": "No"
-                    }],
-                    "selectedoption": {
-                        "name": "Yes"
-                    }
-                }    ,
-                  "refcostelem": "Not Applicable",
-                  
-                  "perofref": "",
-                  "scale": "",
-                  "costsource": "",
-                  "unitcost": "",
-                  "inputuom": "",
-                  "outputuom": "",
-                  "throughputqty": "",
-                  "requiredqty": "",
-                  "stepyeild": 100,
-                  "required": "",
-                  "cost": ""
-                }
-               ];
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Transportation" && $state.productNameFoldingCartons) {
-            $scope.mainSection = false;
-            $scope.projectMgmtSec = false;
-            $scope.jobSiteSec = false;
-            $scope.liftingEquipmentsSec = false;
-            $scope.manual3 = false;
-            $scope.manual6 = false;
-            $scope.manual5 = false;
-            $scope.manual4 = false;
-            // $scope.computed6 = true;
-            $scope.costSourceDrop = [{
-                "options": [{
-                    "name": "Computed"
-                }, {
-                    "name": "Manual"
-                }],
-                "selectedoption": {
-                    "name": "Computed"
-                }
-            }];
-            $scope.costSourceDrop[0].selectedoption = {
-                "name": "Computed"
-            };
-
-            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
-            $scope.toolingCostSectoin = false;
-            $scope.machiningCostSection = true;
-            $scope.trimmingCostSection = false;
-            $scope.showDevelopmentCostSection = false;
-            $scope.shippingCostSection = false;
-            $scope.packagingCostSection = false;
-            $scope.manual1 = false;
-            $scope.computed1 = true;
-
-            $scope.taskList1 = [
-                {
+            $scope.taskList1 = [{
                     'sequence': '1',
                     'costelement': 'Air',
-                    'name': 'Air Leg1',                   
+                    'name': 'Air Leg1',
                     'refcostelem': 'Not Applicable',
                     'perofref': '',
                     'scale': '',
@@ -4597,13 +4052,13 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }                   
+                    }
 
                 },
                 {
                     'sequence': '2',
                     'costelement': 'Sea',
-                    'name': 'Sea Leg1',                   
+                    'name': 'Sea Leg1',
                     'refcostelem': 'Not Applicable',
                     'perofref': '',
                     'scale': '',
@@ -4625,13 +4080,13 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }                   
+                    }
 
                 },
                 {
                     'sequence': '3',
                     'costelement': 'Land',
-                    'name': 'Truck1',                   
+                    'name': 'Truck1',
                     'refcostelem': 'Not Applicable',
                     'perofref': '',
                     'scale': '',
@@ -4653,12 +4108,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         "selectedoption": {
                             "name": "No"
                         }
-                    }                   
+                    }
 
                 },
             ];
-        } 
-        else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Cattle" && $state.productNameMilk) {
             $scope.computed1 = false;
             $scope.computed = false;
             $scope.manual1 = true;
@@ -4689,6 +4143,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             };
         }
     }
+
+   
     $scope.showChild2TaskCall = function (parentParenIndex, parentIndex, index, isTaskVisible) {
         for (i = 0; i < $scope.taskList[parentParenIndex].taskGrp[parentIndex].taskGrp.length; i++) {
             $scope.taskList[parentParenIndex].taskGrp[parentIndex].taskGrp[i].isTaskVisible = false;
@@ -8157,8 +7613,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } 
-    else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = true;
@@ -8206,7 +7661,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }]
             },
         ];
-    }//Samiksha
+    } //Samiksha
     else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
@@ -8222,22 +7677,13 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         isSelected: false,
                     },
                     {
-                        title: "Overhead",
-                        isSelected: false,
-                    },
-                    {
                         title: "Process Loss",
                         isSelected: false,
                     },
                     {
                         title: "Production",
                         isSelected: false,
-                    },
-                    {
-                        title: "Transportation",
-                        isSelected: false,
                     }
-
                 ]
             },
             {
@@ -9073,8 +8519,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             }
         });
     }
-    $scope.serviceList = [
-        {
+    $scope.serviceList = [{
             'standardPart': '1',
             'jan08': 'Temporary utilities',
             'jun09': '',
@@ -9416,155 +8861,153 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         },
     ];
 
-if($state.productNameAcrylonitrile && !$state.viewScenario) {
-    $scope.serviceList = [
-        {
-            'standardPart': '1',
-            'jan08': 'Utilities',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
-            },
-            "valueS": '0.0421'
+    if ($state.productNameAcrylonitrile && !$state.viewScenario) {
+        $scope.serviceList = [{
+                'standardPart': '1',
+                'jan08': 'Utilities',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "valueS": '0.0421'
 
-        },
-        {
-            'standardPart': '2',
-            'jan08': 'Fixed Costs',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
             },
-            "valueS": '0.2408'
-        },
-        {
-            'standardPart': '3',
-            'jan08': 'Other Expenses',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Historical"
-                }
+            {
+                'standardPart': '2',
+                'jan08': 'Fixed Costs',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "valueS": '0.2408'
             },
-            "valueS": '0.0409'
-        }
-    ];
-}
+            {
+                'standardPart': '3',
+                'jan08': 'Other Expenses',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Historical"
+                    }
+                },
+                "valueS": '0.0409'
+            }
+        ];
+    }
 
-if($state.productNameAcrylonitrile && $state.viewScenario) {
-    $scope.serviceList = [
-        {
-            'standardPart': '1',
-            'jan08': 'Utilities',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
-            },
-            "valueS": '0.0421'
+    if ($state.productNameAcrylonitrile && $state.viewScenario) {
+        $scope.serviceList = [{
+                'standardPart': '1',
+                'jan08': 'Utilities',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "valueS": '0.0421'
 
-        },
-        {
-            'standardPart': '2',
-            'jan08': 'Fixed Costs',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Manual"
-                }
             },
-            "valueS": '0.3210'
-        },
-        {
-            'standardPart': '2',
-            'jan08': 'Other Expenses',
-            'jun09': '',
-            'apr10': '',
-            'dec11': 'Currency',
-            'jul13': '',
-            "approvalType": {
-                "options": [{
-                    "name": "Manual"
-                }, {
-                    "name": "Market Index"
-                }, {
-                    "name": "Historical"
-                }, {
-                    "name": "Computed"
-                }],
-                "selectedoption": {
-                    "name": "Historical"
-                }
+            {
+                'standardPart': '2',
+                'jan08': 'Fixed Costs',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Manual"
+                    }
+                },
+                "valueS": '0.3210'
             },
-            "valueS": '0.0545'
-        }
-    ];
-}
+            {
+                'standardPart': '2',
+                'jan08': 'Other Expenses',
+                'jun09': '',
+                'apr10': '',
+                'dec11': 'Currency',
+                'jul13': '',
+                "approvalType": {
+                    "options": [{
+                        "name": "Manual"
+                    }, {
+                        "name": "Market Index"
+                    }, {
+                        "name": "Historical"
+                    }, {
+                        "name": "Computed"
+                    }],
+                    "selectedoption": {
+                        "name": "Historical"
+                    }
+                },
+                "valueS": '0.0545'
+            }
+        ];
+    }
 
     $scope.servicePrjtMgmtAddRowCallback = function () {
         $scope.projectMgmt.push({
@@ -9810,7 +9253,7 @@ if($state.productNameAcrylonitrile && $state.viewScenario) {
     $scope.onProductionValueChange = function (event) {
         $rootScope.productionCost = parseFloat($(event.target).val().replace(',', '')).toFixed(2);
     };
-
+ $scope.showChildTaskCall(0, 0, true);
 }
 
 //Should Cost Analysis Ends
