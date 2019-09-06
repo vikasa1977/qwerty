@@ -4338,7 +4338,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "cost": 100
                 }
             ];
-        }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNamepolyviny) {
+        }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Utilities" && $state.productNamepolyviny) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -4428,7 +4428,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }
             ]
 ;
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Production" && $state.productNamepolyviny) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overheads" && $state.productNamepolyviny) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -8123,11 +8123,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         isSelected: false,
                     },
                     {
-                        title: "Process Loss",
+                        title: "Utilities",
                         isSelected: false,
                     },
                     {
-                        title: "Production",
+                        title: "Overheads",
                         isSelected: false,
                     }
                 ]
