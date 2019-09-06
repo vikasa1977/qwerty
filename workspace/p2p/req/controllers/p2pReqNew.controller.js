@@ -9237,6 +9237,100 @@ function costElementFunc($scope, $rootScope, $http, $state) {
             }
 
         ];
+    } else if ($state.productNamepolyviny) {
+        $scope.costSourceOptions = [
+            {
+                "name": "Market Index"
+            }, {
+                "name": "Computed"
+            },
+            {
+                "name": "Subscription Feed"
+            },
+            {
+                "name": "Manual"
+            },
+        ];
+        
+        $scope.dataSourceOptions = [
+            {
+                "name": "GEP Chemicals Price Database"
+            }, {
+                "name": "ICIS"
+            },
+            {
+                "name": " "
+            } 
+        ];
+       
+
+        $scope.costElementsList = [
+            {
+                'questval1': '9000',
+                'questval': '9000',
+                'sequence': '1',
+                'Product': 'Board-Raw',
+                'costelem': '1',
+                'value': 'Ton',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Manual"
+                },
+                selectedDataSource: {
+                    "name": " "
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '1000',
+                'questval': '1000',
+                'sequence': '2',
+                'Product': 'Board Waste',
+                'costelem': '0.4430',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "ICIS"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '1000',
+                'questval': '1000',
+                'sequence': '3',
+                'Product': 'Coating Waste',
+                'costelem': '1',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "GEP Chemicals Price Database"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '100a0',
+                'questval': '1000',
+                'sequence': '3',
+                'Product': 'Coating Wastae',
+                'costelem': '1',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "GEP Chemicals Price Database"
+                },
+                'currency': ''
+            }
+
+        ];
     }else if ($state.productNameKetchup) {
         $scope.costElementsList = [{
                 'questval1': '0.68',
