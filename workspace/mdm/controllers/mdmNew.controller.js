@@ -3397,7 +3397,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'isChecked': false
             }
         ];
-    } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk && !$state.productNameFoldingCartons) {
+    } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $scope.dataSourceOptions2 = [{
             "name": "None"
         },
@@ -3549,6 +3549,30 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'Product': 'Margin',
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '500',
+                'currency': 'SEK',
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
+                'isChecked': false,
+                selectedDataSource: {
+                    "name": "None"
+                }
+            }
+        ];
+    }else if ($state.productNamepolyviny) {
+        $scope.dataSourceOptions = [{
+            "name": "None"
+        },
+        {
+            "name": "GEP FTL NA Price Database"
+        }];
+
+        $scope.historyList = [
+            {
+                'sequence': '1',
+                'Product': 'Production Cost',
+                'costelem': 'LBS',
+                'value': $state.showNewGraph ? '820' : '28,739,104.00',
                 'currency': 'SEK',
                 selectedCostSource1: {
                     "name": "Computed"
