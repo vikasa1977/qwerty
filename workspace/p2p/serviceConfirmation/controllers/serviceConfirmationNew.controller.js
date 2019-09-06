@@ -4194,14 +4194,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index1",
-                    "unitcost": 40.00,
+                    "unitcost": "40.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 96000.00
+                    "cost": "96,000.00"
                 },
                 {
                     'sequence': '2',
@@ -4221,14 +4221,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index2",
-                    "unitcost": 15.00,
+                    "unitcost": "15.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 36400.00
+                    "cost": "36,000.00"
                 },
                 {
                     'sequence': '3',
@@ -4248,14 +4248,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index3",
-                    "unitcost": 36.00,
+                    "unitcost": "36.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 86400.00
+                    "cost": "86,400.00"
                 },
                 {
                     'sequence': '4',
@@ -4275,14 +4275,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index4",
-                    "unitcost": 36.00,
+                    "unitcost": "36.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 86400.00
+                    "cost": "86,400.00"
                 },
                 {
                     'sequence': '5',
@@ -4302,14 +4302,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index5",
-                    "unitcost": 36.00,
+                    "unitcost": "36.00",
                     "inputuom": "Ton",
                     "outputuom": "Ton",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 86400.00
+                    "cost": "86,400.00"
                 },
                 {
                     'sequence': '6',
@@ -4329,14 +4329,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index6",
-                    "unitcost": 36.00,
+                    "unitcost": "36.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 86400.00
+                    "cost": "86,400.00"
                 },
                 {
                     'sequence': '7',
@@ -4356,14 +4356,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index7",
-                    "unitcost": 12.00,
+                    "unitcost": "12.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 28800.00
+                    "cost": "288,00.00"
                 },
                 {
                     'sequence': '8',
@@ -4383,14 +4383,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index8",
-                    "unitcost": 10.60,
+                    "unitcost": "10.60",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 4,
-                    "cost": 101760.00
+                    "cost": "101,760.00"
                 },
                 {
                     'sequence': '9',
@@ -4410,14 +4410,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index6",
-                    "unitcost": 34.00,
+                    "unitcost": "34.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 3,
-                    "cost": 244800.00
+                    "cost": "244,800.00"
                 },
                 {
                     'sequence': '10',
@@ -4437,14 +4437,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index10",
-                    "unitcost": 24.00,
+                    "unitcost": "24.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 6,
-                    "cost": 345600.00
+                    "cost": "345,600.00"
                 },
                 {
                     'sequence': '11',
@@ -4464,14 +4464,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index11",
-                    "unitcost": 30.00,
+                    "unitcost": "30.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 4,
-                    "cost": 288000.00
+                    "cost": "288,000.00"
                 },
                 {
                     'sequence': '12',
@@ -4491,14 +4491,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index12",
-                    "unitcost": 24.00,
+                    "unitcost": "24.00",
                     "inputuom": "Nos.",
                     "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 3,
-                    "cost": 288000.00
+                    "cost": "288,000.00"
                 }
             ];
         }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Utilities" && $state.productNamepolyviny) {
@@ -4670,8 +4670,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "required": "20.000",
                     "cost": "1,280,000.00"
                 }
-            ]
-;
+            ];
         } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overheads" && $state.productNamepolyviny) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
