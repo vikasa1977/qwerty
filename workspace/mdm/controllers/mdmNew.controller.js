@@ -4073,6 +4073,12 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
 
 function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $state, notification, $timeout, $filter, $sce, $interval, $notification, storeService, $window, MDMService) {
 
+    Highcharts.setOptions({
+        lang: {
+            thousandsSep: ','
+        }
+    });
+    
     if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
 
         $timeout(function () {
