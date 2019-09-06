@@ -4219,7 +4219,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Labor Index2",
                     "unitcost": 15.00,
                     "inputuom": "Nos.",
