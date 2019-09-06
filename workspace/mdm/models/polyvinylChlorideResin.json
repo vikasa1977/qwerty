@@ -1228,6 +1228,7 @@
                 "isMandatory": true,
                 "data": "setup.physicaldimensions",
                 "focus": true,
+                "onChange": "addRemove",
                 "attributes": {
                   "options": [{
                       "title": "Standard",

@@ -89,6 +89,7 @@ function p2pReqTemplateCtrlFunc($scope, $rootScope, routeSvc, $http, $timeout, $
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
             $state.productNameFoldingCartons = true;
+            $state.productNamepolyviny = false;
             $state.go('mdm.itemDetails', {
                 mode: "FoldingCartoons"
             });

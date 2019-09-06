@@ -1712,6 +1712,51 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         console.log (e);
     }
 
+    $scope.addRemove = function(e) {
+        debugger;
+        if($scope.dataModel.setup.physicaldimensions == "Standard") {
+            console.log($scope.config);
+            if($scope.config.sections[2].rows.length > 1 ) {
+                $scope.config.sections[2].rows.pop();
+               $scope.config.sections[2].rows.pop();
+            }
+        } else {
+            if($scope.config.sections[2].rows.length < 3 ) {
+                var temp =  {
+                    "properties": [
+                      {
+                        "colspan": 6,
+                        "label": "Dimension Set",
+                        "type": "textfield",
+                        "editable": true,
+                        "isMandatory": true,
+                        "data": "setup.dimensionSet",
+                        "focus": false,
+                        "attributes": {
+                          "readonly": true
+                        }
+                      }
+                    ]
+                  }
+                $scope.config.sections[2].rows.push(temp);
+                temp = {
+                    "properties": [
+                      {
+                        "colspan": 6,
+                        "type": "subsection",
+                        "isMandatory": true,
+                        "data": "setup",
+                        "templateUrl": "mdm/views/productAttributes.html",
+                        "controller": "costSummaryGraphCtrl"
+                      }
+                    ]
+                  };
+            $scope.config.sections[2].rows.push(temp);
+            }
+            console.log($scope.config)
+        }
+    }
+
 	/* READONLY MODE END */
 	/* SAVE BUTTON */
 	$scope.saveDoc = function(){
