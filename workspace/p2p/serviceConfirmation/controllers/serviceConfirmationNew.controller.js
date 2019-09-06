@@ -4175,10 +4175,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
-            $scope.taskList1 = [{
+            $scope.taskList1 = [
+                {
                     'sequence': '1',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Setup Coating A",
+                    "costelement": "Manager",
+                    "name": "Manager 1",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4193,19 +4194,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index1",
-                    "unitcost": 600,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 40.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 600
+                    "cost": 96000.00
                 },
                 {
                     'sequence': '2',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Coating A",
+                    "costelement": "Secretary",
+                    "name": "Sec 1",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4220,19 +4221,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Proportional",
                     "costsource": "Labor Index2",
-                    "unitcost": 800,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 15.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 800
+                    "cost": 36400.00
                 },
                 {
                     'sequence': '3',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Setup Sheeting Z",
+                    "costelement": "Admin and Finance head",
+                    "name": "Admin",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4247,19 +4248,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index3",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 86400.00
                 },
                 {
                     'sequence': '4',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Sheeting Z",
+                    "costelement": "Commercial head",
+                    "name": "Com Head",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4272,21 +4273,21 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Labor Index4",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 86400.00
                 },
                 {
                     'sequence': '5',
-                    "costelement": "Supervisor",
-                    "name": "Super1",
+                    "costelement": "Technical head",
+                    "name": "Tech head",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4299,21 +4300,21 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Labor Index5",
-                    "unitcost": 100,
+                    "unitcost": 36.00,
                     "inputuom": "Ton",
                     "outputuom": "Ton",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 86400.00
                 },
                 {
                     'sequence': '6',
-                    "costelement": "Other",
-                    "name": "Manager",
+                    "costelement": "Production head",
+                    "name": "Prod head",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4326,16 +4327,178 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Labor Index6",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 86400.00
+                },
+                {
+                    'sequence': '7',
+                    "costelement": "Clerk",
+                    "name": "Clerk 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index7",
+                    "unitcost": 12.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 28800.00
+                },
+                {
+                    'sequence': '8',
+                    "costelement": "Cleaner and Guard",
+                    "name": "Cleaner1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index8",
+                    "unitcost": 10.60,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 4,
+                    "cost": 101760.00
+                },
+                {
+                    'sequence': '9',
+                    "costelement": "Production Supervisor",
+                    "name": "Supervisor",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index6",
+                    "unitcost": 34.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 3,
+                    "cost": 244800.00
+                },
+                {
+                    'sequence': '10',
+                    "costelement": "Operators",
+                    "name": "Operator",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index10",
+                    "unitcost": 24.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 6,
+                    "cost": 345600.00
+                },
+                {
+                    'sequence': '11',
+                    "costelement": "Mechanics",
+                    "name": "Mechanics",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index11",
+                    "unitcost": 30.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 4,
+                    "cost": 288000.00
+                },
+                {
+                    'sequence': '12',
+                    "costelement": "Electricians",
+                    "name": "Electricians",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index12",
+                    "unitcost": 24.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 3,
+                    "cost": 288000.00
                 }
             ];
         }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Utilities" && $state.productNamepolyviny) {
@@ -4374,8 +4537,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.taskList1 = [{
                     'sequence': '1',
-                    "costelement": "Labor Efficiency",
-                    "name": "Wastage",
+                    "costelement": "Electricity",
+                    "name": "Elec",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4386,23 +4549,23 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "Yes"
                         }
                     },
-                    "refcostelem": "Labor (Cost Element)",
-                    "perofref": 0.7,
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
                     "scale": "Proportional",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": 1260
+                    "costsource": "Utility Index 1",
+                    "unitcost": "0.09",
+                    "inputuom": "kWh",
+                    "outputuom": "kWh",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "240.00",
+                    "cost": "1,728,000.00"
                 },
                 {
                     'sequence': '2',
-                    "costelement": "Machine Efficiency",
-                    "name": "Wastage",
+                    "costelement": "Fuel",
+                    "name": "Fuel",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4413,18 +4576,99 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "Yes"
                         }
                     },
-                    "refcostelem": "Production",
-                    "perofref": 0.7,
-                    "scale": "",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": 175
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Fuel Index 1",
+                    "unitcost": "740.00",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "0.100",
+                    "cost": "5,920,000.00"
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Inert gas",
+                    "name": "Gas 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Gas Index 1",
+                    "unitcost": "1.25",
+                    "inputuom": "Nm3",
+                    "outputuom": "Nm3",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "12",
+                    "cost": "1,200,000.00"
+                },
+                {
+                    'sequence': '4',
+                    "costelement": "Process Water",
+                    "name": "Water1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Water Index 1",
+                    "unitcost": "2.3",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "7.000",
+                    "cost": "1,288,000.00"
+                },
+                {
+                    'sequence': '5',
+                    "costelement": "Cooling Water",
+                    "name": "Water2",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Water Index 2",
+                    "unitcost": "0.8",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "20.000",
+                    "cost": "1,280,000.00"
                 }
             ]
 ;
@@ -4464,8 +4708,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.taskList1 = [{
                     'sequence': '1',
-                    "costelement": "Machine",
-                    "name": "Setup Sheeting Machine A",
+                    "costelement": "Labor Overheads",
+                    "name": "Labor O/H",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4473,26 +4717,26 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "No"
+                            "name": "Yes"
                         }
                     },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
+                    "refcostelem": "Total Labor Cost",
+                    "perofref": "40%",
                     "scale": "Fixed",
-                    "costsource": "Cost Master",
-                    "unitcost": 100,
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
                     "inputuom": "",
                     "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$663,744.00"
                 },
                 {
                     'sequence': '2',
-                    "costelement": "Machine",
-                    "name": "Sheeting Machine A",
+                    "costelement": "Maintenance",
+                    "name": "Maintenance",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4500,26 +4744,26 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "No"
+                            "name": "Yes"
                         }
                     },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Cost Master",
-                    "unitcost": 50,
+                    "refcostelem": "Initial Investment",
+                    "perofref": "5%",
+                    "scale": "Fixed",
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
                     "inputuom": "",
                     "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 50
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$5,000,000.00"
                 },
                 {
                     'sequence': '3',
-                    "costelement": "Machine",
-                    "name": "Setup Coating Machine A",
+                    "costelement": "Depreciation",
+                    "name": "Depreciation 1",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -4527,22 +4771,23 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "No"
+                            "name": "Yes"
                         }
                     },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
+                    "refcostelem": "Initial Investment",
+                    "perofref": "10%",
                     "scale": "Fixed",
-                    "costsource": "Cost Master",
-                    "unitcost": 100,
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
                     "inputuom": "",
                     "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
-                }
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$10,000,000.00"
+                },
+                
             ];
         }
     }
