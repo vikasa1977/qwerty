@@ -767,7 +767,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             'inputuom': '',
             'outputuom': '',
             'throughputqty': '',
-            'requiredqty': '',
+            'requiredqty': '',  
             'stepyeild': '',
             'required': '',
             'cost': '',
@@ -4141,6 +4141,409 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.costSourceDrop[0].selectedoption = {
                 "name": "Manual"
             };
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Setup Coating A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index1",
+                    "unitcost": 600,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 600
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Coating A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index2",
+                    "unitcost": 800,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 800
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Setup Sheeting Z",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index3",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                },
+                {
+                    'sequence': '4',
+                    "costelement": "Direct Labor",
+                    "name": "Labor Sheeting Z",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index4",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                },
+                {
+                    'sequence': '5',
+                    "costelement": "Supervisor",
+                    "name": "Super1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index5",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                },
+                {
+                    'sequence': '6',
+                    "costelement": "Other",
+                    "name": "Manager",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index6",
+                    "unitcost": 100,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                }
+            ];
+        }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Labor Efficiency",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Labor (Cost Element)",
+                    "perofref": 0.7,
+                    "scale": "Proportional",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": 1260
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Machine Efficiency",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Production",
+                    "perofref": 0.7,
+                    "scale": "",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": 175
+                }
+            ]
+;
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Production" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Machine",
+                    "name": "Setup Sheeting Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Cost Master",
+                    "unitcost": 100,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Machine",
+                    "name": "Sheeting Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Cost Master",
+                    "unitcost": 50,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 50
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Machine",
+                    "name": "Setup Coating Machine A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Cost Master",
+                    "unitcost": 100,
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 100
+                }
+            ];
         }
     }
 
@@ -7591,7 +7994,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = true;
         $scope.services1 = false;
         $scope.taskList = [{
@@ -7613,7 +8016,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = true;
@@ -7662,7 +8065,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             },
         ];
     } //Samiksha
-    else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
@@ -7705,7 +8108,33 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }]
             },
         ];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameFoldingCartons && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    }else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNamepolyviny) {
+        $scope.product1 = false;
+        $scope.services1 = false;
+        $scope.productKetchup = false;
+        $scope.productFoldingCarton = true;
+        $scope.productMilk = false;
+        $scope.taskList = [{
+                title: "Production Costs",
+                isTaskVisible: true,
+                isSelected: true,
+                taskGrp: [{
+                        title: "Labor",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Process Loss",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Production",
+                        isSelected: false,
+                    }
+                ]
+            }
+        ];
+    }
+     else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameFoldingCartons && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
