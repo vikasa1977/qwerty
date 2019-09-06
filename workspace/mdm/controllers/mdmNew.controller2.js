@@ -1664,7 +1664,7 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 		$scope.clearance = 'C3';
 		$scope.noOfSeals = '2 Shield'
 	} else {
-        if(!$state.productNameKetchup && !$state.productNameFoldingCartons &&!$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+        if(!$state.productNameKetchup && !$state.productNameFoldingCartons &&!$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
             $scope.docName = $state.showNewGraph ? "DF Fillet Blocks" : "SF Fillet Blocks";
             var urlJson = $state.showNewGraph ? 'mdm/models/itemDetails2.json' : 'mdm/models/itemDetails.json';
         } else if($state.productNameKetchup) {
@@ -1673,6 +1673,9 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         }else if($state.productNameFoldingCartons) {
             $scope.docName = "Should Cost Analysis Folding Cartons";
             var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
+        } else if($state.productNamepolyviny) {
+            $scope.docName = "Should Cost Analysis Polyvinyl Chloride Resin";
+            var urlJson = 'mdm/models/polyvinylChlorideResin.json';
         } else if($state.productNameMilk) {
             $scope.docName = "Milk Should Cost";
             var urlJson = 'mdm/models/milkItemDetails.json';
@@ -1697,7 +1700,63 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 		$scope.material = '';
 		$scope.clearance = '';
 		$scope.noOfSeals = ''
-	}
+    }
+    
+
+    $scope.onChangeGraph = function (e) {
+        debugger;
+        // $rootScope.
+        // $scope.dataModel.setup.utilization
+        var value = $scope.dataModel.setup.utilization;
+        $rootScope.applyUtilization(value);
+        console.log (e);
+    }
+
+    $scope.addRemove = function(e) {
+        debugger;
+        if($scope.dataModel.setup.physicaldimensions == "Standard") {
+            console.log($scope.config);
+            if($scope.config.sections[2].rows.length > 1 ) {
+                $scope.config.sections[2].rows.pop();
+               $scope.config.sections[2].rows.pop();
+            }
+        } else {
+            if($scope.config.sections[2].rows.length < 3 ) {
+                var temp =  {
+                    "properties": [
+                      {
+                        "colspan": 6,
+                        "label": "Dimension Set",
+                        "type": "textfield",
+                        "editable": true,
+                        "isMandatory": true,
+                        "data": "setup.dimensionSet",
+                        "focus": false,
+                        "attributes": {
+                          "readonly": true
+                        }
+                      }
+                    ]
+                  }
+                $scope.config.sections[2].rows.push(temp);
+                temp = {
+                    "properties": [
+                      {
+                        "colspan": 6,
+                        "type": "subsection",
+                        "isMandatory": true,
+                        "data": "setup",
+                        "templateUrl": "mdm/views/productAttributes.html",
+                        "controller": "costSummaryGraphCtrl"
+                      }
+                    ]
+                  };
+            $scope.config.sections[2].rows.push(temp);
+            }
+            console.log($scope.config)
+        }
+    }
+
 	/* READONLY MODE END */
 	/* SAVE BUTTON */
 	$scope.saveDoc = function(){

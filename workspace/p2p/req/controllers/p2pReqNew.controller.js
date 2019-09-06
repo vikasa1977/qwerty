@@ -9143,7 +9143,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
     $scope.selectedCostSource = {
         "name": "Market Index"
     };
-    if (!$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    if (!$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.costElementsList = [{
                 'questval1': $state.showNewGraph ? '2,255' : '550',
                 'questval': $state.showNewGraph ? '2,255' : '550',
@@ -9232,6 +9232,100 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 },
                 selectedDataSource: {
                     "name": "GEP Chemicals Price Database"
+                },
+                'currency': ''
+            }
+
+        ];
+    } else if ($state.productNamepolyviny) {
+        $scope.costSourceOptions = [
+            {
+                "name": "Market Index"
+            }, {
+                "name": "Computed"
+            },
+            {
+                "name": "Subscription Feed"
+            },
+            {
+                "name": "Manual"
+            },
+        ];
+        
+        $scope.dataSourceOptions = [
+            {
+                "name": "GEP Chemicals Price Database"
+            }, {
+                "name": "ICIS"
+            },
+            {
+                "name": " "
+            } 
+        ];
+       
+
+        $scope.costElementsList = [
+            {
+                'questval1': '22,560,000',
+                'questval': '600.00',
+                'sequence': '1',
+                'Product': 'Ethylene',
+                'costelem': '0.47',
+                'value': 'MT',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Manual"
+                },
+                selectedDataSource: {
+                    "name": " "
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '9,440,000',
+                'questval': '200',
+                'sequence': '2',
+                'Product': 'Chlorine',
+                'costelem': '0.59',
+                'value': 'MT',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "ICIS"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '450,560',
+                'questval': '22.00',
+                'sequence': '3',
+                'Product': 'Steam',
+                'costelem': '0.256',
+                'value': 'Lbs',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Subscription Feed"
+                },
+                selectedDataSource: {
+                    "name": "GEP Chemicals Price Database"
+                },
+                'currency': ''
+            },
+            {
+                'questval1': '1,520,000',
+                'questval': '0.38',
+                'sequence': '4',
+                'Product': 'Packaging Material',
+                'costelem': '50.000',
+                'value': 'Pcs.',
+                'currency': 'SEK',
+                selectedCostSource: {
+                    "name": "Manual"
+                },
+                selectedDataSource: {
+                    "name": ""
                 },
                 'currency': ''
             }

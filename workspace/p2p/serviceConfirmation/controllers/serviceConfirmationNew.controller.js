@@ -767,7 +767,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             'inputuom': '',
             'outputuom': '',
             'throughputqty': '',
-            'requiredqty': '',
+            'requiredqty': '',  
             'stepyeild': '',
             'required': '',
             'cost': '',
@@ -4141,6 +4141,654 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.costSourceDrop[0].selectedoption = {
                 "name": "Manual"
             };
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Labor" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [
+                {
+                    'sequence': '1',
+                    "costelement": "Manager",
+                    "name": "Manager 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index1",
+                    "unitcost": 40.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 96000.00
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Secretary",
+                    "name": "Sec 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Labor Index2",
+                    "unitcost": 15.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 36400.00
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Admin and Finance head",
+                    "name": "Admin",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index3",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 86400.00
+                },
+                {
+                    'sequence': '4',
+                    "costelement": "Commercial head",
+                    "name": "Com Head",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index4",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 86400.00
+                },
+                {
+                    'sequence': '5',
+                    "costelement": "Technical head",
+                    "name": "Tech head",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index5",
+                    "unitcost": 36.00,
+                    "inputuom": "Ton",
+                    "outputuom": "Ton",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 86400.00
+                },
+                {
+                    'sequence': '6',
+                    "costelement": "Production head",
+                    "name": "Prod head",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index6",
+                    "unitcost": 36.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 86400.00
+                },
+                {
+                    'sequence': '7',
+                    "costelement": "Clerk",
+                    "name": "Clerk 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index7",
+                    "unitcost": 12.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": 28800.00
+                },
+                {
+                    'sequence': '8',
+                    "costelement": "Cleaner and Guard",
+                    "name": "Cleaner1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index8",
+                    "unitcost": 10.60,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 4,
+                    "cost": 101760.00
+                },
+                {
+                    'sequence': '9',
+                    "costelement": "Production Supervisor",
+                    "name": "Supervisor",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index6",
+                    "unitcost": 34.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 3,
+                    "cost": 244800.00
+                },
+                {
+                    'sequence': '10',
+                    "costelement": "Operators",
+                    "name": "Operator",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index10",
+                    "unitcost": 24.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 6,
+                    "cost": 345600.00
+                },
+                {
+                    'sequence': '11',
+                    "costelement": "Mechanics",
+                    "name": "Mechanics",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index11",
+                    "unitcost": 30.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 4,
+                    "cost": 288000.00
+                },
+                {
+                    'sequence': '12',
+                    "costelement": "Electricians",
+                    "name": "Electricians",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Labor Index12",
+                    "unitcost": 24.00,
+                    "inputuom": "Nos.",
+                    "outputuom": "Nos.",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 3,
+                    "cost": 288000.00
+                }
+            ];
+        }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Utilities" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Electricity",
+                    "name": "Elec",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Utility Index 1",
+                    "unitcost": "0.09",
+                    "inputuom": "kWh",
+                    "outputuom": "kWh",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "240.00",
+                    "cost": "1,728,000.00"
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Fuel",
+                    "name": "Fuel",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Fuel Index 1",
+                    "unitcost": "740.00",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "0.100",
+                    "cost": "5,920,000.00"
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Inert gas",
+                    "name": "Gas 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Gas Index 1",
+                    "unitcost": "1.25",
+                    "inputuom": "Nm3",
+                    "outputuom": "Nm3",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "12",
+                    "cost": "1,200,000.00"
+                },
+                {
+                    'sequence': '4',
+                    "costelement": "Process Water",
+                    "name": "Water1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Water Index 1",
+                    "unitcost": "2.3",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "7.000",
+                    "cost": "1,288,000.00"
+                },
+                {
+                    'sequence': '5',
+                    "costelement": "Cooling Water",
+                    "name": "Water2",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Proportional",
+                    "costsource": "Water Index 2",
+                    "unitcost": "0.8",
+                    "inputuom": "MT",
+                    "outputuom": "MT",
+                    "throughputqty": "1",
+                    "requiredqty": "1",
+                    "stepyeild": "100",
+                    "required": "20.000",
+                    "cost": "1,280,000.00"
+                }
+            ]
+;
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overheads" && $state.productNamepolyviny) {
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Labor Overheads",
+                    "name": "Labor O/H",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Total Labor Cost",
+                    "perofref": "40%",
+                    "scale": "Fixed",
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$663,744.00"
+                },
+                {
+                    'sequence': '2',
+                    "costelement": "Maintenance",
+                    "name": "Maintenance",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Initial Investment",
+                    "perofref": "5%",
+                    "scale": "Fixed",
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$5,000,000.00"
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Depreciation",
+                    "name": "Depreciation 1",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Initial Investment",
+                    "perofref": "10%",
+                    "scale": "Fixed",
+                    "costsource": "Not Applicable",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": "$10,000,000.00"
+                },
+                
+            ];
         }
     }
 
@@ -7591,7 +8239,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = true;
         $scope.services1 = false;
         $scope.taskList = [{
@@ -7613,7 +8261,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             ]
         }];
-    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    } else if ($state.newUrl !== 'service' && $state.productNameKetchup && !$state.productNameFoldingCartons && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = true;
@@ -7662,7 +8310,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             },
         ];
     } //Samiksha
-    else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    else if ($state.newUrl !== 'service' && $state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;
@@ -7705,7 +8353,33 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 }]
             },
         ];
-    } else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameFoldingCartons && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    }else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNamepolyviny) {
+        $scope.product1 = false;
+        $scope.services1 = false;
+        $scope.productKetchup = false;
+        $scope.productFoldingCarton = true;
+        $scope.productMilk = false;
+        $scope.taskList = [{
+                title: "Production Costs",
+                isTaskVisible: true,
+                isSelected: true,
+                taskGrp: [{
+                        title: "Labor",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Utilities",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Overheads",
+                        isSelected: false,
+                    }
+                ]
+            }
+        ];
+    }
+     else if ($state.newUrl !== 'service' && !$state.productNameKetchup && !$state.productNameFoldingCartons && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
         $scope.product1 = false;
         $scope.services1 = false;
         $scope.productKetchup = false;

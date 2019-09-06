@@ -3397,7 +3397,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'isChecked': false
             }
         ];
-    } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk && !$state.productNameFoldingCartons) {
+    } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $scope.dataSourceOptions2 = [{
             "name": "None"
         },
@@ -3549,6 +3549,30 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'Product': 'Margin',
                 'costelem': 'LBS',
                 'value': $state.showNewGraph ? '410' : '500',
+                'currency': 'SEK',
+                selectedCostSource1: {
+                    "name": "Computed"
+                },
+                'isChecked': false,
+                selectedDataSource: {
+                    "name": "None"
+                }
+            }
+        ];
+    }else if ($state.productNamepolyviny) {
+        $scope.dataSourceOptions = [{
+            "name": "None"
+        },
+        {
+            "name": "GEP FTL NA Price Database"
+        }];
+
+        $scope.historyList = [
+            {
+                'sequence': '1',
+                'Product': 'Production Cost',
+                'costelem': 'LBS',
+                'value': $state.showNewGraph ? '820' : '28,739,104.00',
                 'currency': 'SEK',
                 selectedCostSource1: {
                     "name": "Computed"
@@ -4049,7 +4073,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
 
 function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $state, notification, $timeout, $filter, $sce, $interval, $notification, storeService, $window, MDMService) {
 
-    if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
 
         $timeout(function () {
             Highcharts.chart('container-2', {
@@ -4126,7 +4150,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         }, 500);
 
     } 
-    else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4199,7 +4223,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         }, 500);
     }
     //Geographic
-    else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNameFoldingCartons) {
+    else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4286,7 +4310,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
               });
         }, 500);
     }
-     else if ($state.current.name == "mdm.itemDetails" && $state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+     else if ($state.current.name == "mdm.itemDetails" && $state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4357,7 +4381,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && $state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && $state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4428,7 +4452,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && $state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && $state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4509,7 +4533,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && $state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4580,7 +4604,83 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && $state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && $state.productNamepolyviny) {
+        $timeout(function () {
+            Highcharts.chart('container-2', {
+                chart: {
+                    type: 'waterfall'
+                },
+
+                title: {
+                    // text: 'Highcharts Waterfall'
+                },
+
+                xAxis: {
+                    type: 'category'
+                },
+
+                yAxis: {
+                    title: {
+                        // text: 'USD'
+                    }
+                },
+
+                legend: {
+                    enabled: false
+                },
+
+                tooltip: {
+                    // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                },
+
+                series: [{
+                    // upColor: Highcharts.getOptions().colors[2],
+                    // color: Highcharts.getOptions().colors[3],
+                    data: [{
+                            name: 'Ethylene',
+                            y: 22560000,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'Chlorine',
+                            y: 9440000,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'Steam',
+                            y: 450560,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'Packaging Material',
+                            y: 1520000,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'Production Cost',
+                            y: 28739104,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'TOTAL',
+                            y: 62709664,
+                            color: Highcharts.getOptions().colors[3]
+                        }
+                    ],
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            return Highcharts.numberFormat(this.y);
+                        },
+                        style: {
+                            fontWeight: 'bold'
+                        }
+                    },
+                    // pointPadding: 0
+                }]
+            });
+        }, 500);
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && $state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4646,7 +4746,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && $state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && $state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4732,7 +4832,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
-    } else if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && $state.viewScenario && $state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons) {
+    } else if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && $state.viewScenario && $state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4818,6 +4918,242 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
         }, 500);
+    }
+
+    $scope.utilization = 100;
+
+    $rootScope.applyUtilization = function (e) {
+        if($state.productNamepolyviny) {
+            if(e == "100%") {
+                $timeout(function () {
+                    Highcharts.chart('container-2', {
+                        chart: {
+                            type: 'waterfall'
+                        },
+        
+                        title: {
+                            // text: 'Highcharts Waterfall'
+                        },
+        
+                        xAxis: {
+                            type: 'category'
+                        },
+        
+                        yAxis: {
+                            title: {
+                                // text: 'USD'
+                            }
+                        },
+        
+                        legend: {
+                            enabled: false
+                        },
+        
+                        tooltip: {
+                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                        },
+        
+                        series: [{
+                            // upColor: Highcharts.getOptions().colors[2],
+                            // color: Highcharts.getOptions().colors[3],
+                            data: [{
+                                    name: 'Ethylene',
+                                    y: 22560000,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Chlorine',
+                                    y: 9440000,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Steam',
+                                    y: 450560,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Packaging Material',
+                                    y: 1520000,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Production Cost',
+                                    y: 28739104,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'TOTAL',
+                                    y: 62709664,
+                                    color: Highcharts.getOptions().colors[3]
+                                }
+                            ],
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.y);
+                                },
+                                style: {
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            // pointPadding: 0
+                        }]
+                    });
+                }, 500);
+            } else if(e == "75%") {
+                $timeout(function () {
+                    Highcharts.chart('container-2', {
+                        chart: {
+                            type: 'waterfall'
+                        },
+        
+                        title: {
+                            // text: 'Highcharts Waterfall'
+                        },
+        
+                        xAxis: {
+                            type: 'category'
+                        },
+        
+                        yAxis: {
+                            title: {
+                                // text: 'USD'
+                            }
+                        },
+        
+                        legend: {
+                            enabled: false
+                        },
+        
+                        tooltip: {
+                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                        },
+        
+                        series: [{
+                            // upColor: Highcharts.getOptions().colors[2],
+                            // color: Highcharts.getOptions().colors[3],
+                            data: [{
+                                    name: 'Ethylene',
+                                    y: 22560000 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Chlorine',
+                                    y: 9440000 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Steam',
+                                    y: 450560 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Packaging Material',
+                                    y: 1520000 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Production Cost',
+                                    y: 28739104 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'TOTAL',
+                                    y: 62709664 * 3 / 4,
+                                    color: Highcharts.getOptions().colors[3]
+                                }
+                            ],
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.y);
+                                },
+                                style: {
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            // pointPadding: 0
+                        }]
+                    });
+                }, 500);
+            } else if(e == "50%") {
+                $timeout(function () {
+                    Highcharts.chart('container-2', {
+                        chart: {
+                            type: 'waterfall'
+                        },
+        
+                        title: {
+                            // text: 'Highcharts Waterfall'
+                        },
+        
+                        xAxis: {
+                            type: 'category'
+                        },
+        
+                        yAxis: {
+                            title: {
+                                // text: 'USD'
+                            }
+                        },
+        
+                        legend: {
+                            enabled: false
+                        },
+        
+                        tooltip: {
+                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                        },
+        
+                        series: [{
+                            // upColor: Highcharts.getOptions().colors[2],
+                            // color: Highcharts.getOptions().colors[3],
+                            data: [{
+                                    name: 'Ethylene',
+                                    y: 22560000 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Chlorine',
+                                    y: 9440000 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Steam',
+                                    y: 450560 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Packaging Material',
+                                    y: 1520000 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Production Cost',
+                                    y: 28739104 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'TOTAL',
+                                    y: 62709664 / 2,
+                                    color: Highcharts.getOptions().colors[3]
+                                }
+                            ],
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.y);
+                                },
+                                style: {
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            // pointPadding: 0
+                        }]
+                    });
+                }, 500);
+            }
+        }
     }
 
     // Product Attribues Table

@@ -89,8 +89,20 @@ function p2pReqTemplateCtrlFunc($scope, $rootScope, routeSvc, $http, $timeout, $
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
             $state.productNameFoldingCartons = true;
-            $state.go('mdm.itemDetails');
-        } else if (e.Name == "Milk") {
+            $state.productNamepolyviny = false;
+            $state.go('mdm.itemDetails', {
+                mode: "FoldingCartoons"
+            });
+        } else if (e.Name == "Polyvinyl Chloride Resin") {
+            $state.showNewGraph = false;
+            $state.productNameKetchup = false;
+            $state.productNameFoldingCartons = false;
+            $state.productNamepolyviny = true;
+            $state.go('mdm.itemDetails', {
+                mode: "PolyvinylChlorideResin"
+            });
+        }
+         else if (e.Name == "Milk") {
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
             $state.productNameFoldingCartons = false;
