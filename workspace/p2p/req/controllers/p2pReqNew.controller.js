@@ -9143,7 +9143,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
     $scope.selectedCostSource = {
         "name": "Market Index"
     };
-    if (!$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis) {
+    if (!$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
         $scope.costElementsList = [{
                 'questval1': $state.showNewGraph ? '2,255' : '550',
                 'questval': $state.showNewGraph ? '2,255' : '550',
@@ -9266,12 +9266,12 @@ function costElementFunc($scope, $rootScope, $http, $state) {
 
         $scope.costElementsList = [
             {
-                'questval1': '9000',
-                'questval': '9000',
+                'questval1': '22,560,000',
+                'questval': '600.00',
                 'sequence': '1',
-                'Product': 'Board-Raw',
-                'costelem': '1',
-                'value': 'Ton',
+                'Product': 'Ethylene',
+                'costelem': '0.47',
+                'value': 'MT',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Manual"
@@ -9282,12 +9282,12 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '1000',
-                'questval': '1000',
+                'questval1': '9,440,000',
+                'questval': '200',
                 'sequence': '2',
-                'Product': 'Board Waste',
-                'costelem': '0.4430',
-                'value': 'Lbs',
+                'Product': 'Chlorine',
+                'costelem': '0.59',
+                'value': 'MT',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Subscription Feed"
@@ -9298,11 +9298,11 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '1000',
-                'questval': '1000',
+                'questval1': '450,560',
+                'questval': '22.00',
                 'sequence': '3',
-                'Product': 'Coating Waste',
-                'costelem': '1',
+                'Product': 'Steam',
+                'costelem': '0.256',
                 'value': 'Lbs',
                 'currency': 'SEK',
                 selectedCostSource: {
@@ -9314,18 +9314,18 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '100a0',
-                'questval': '1000',
-                'sequence': '3',
-                'Product': 'Coating Wastae',
-                'costelem': '1',
-                'value': 'Lbs',
+                'questval1': '1,520,000',
+                'questval': '0.38',
+                'sequence': '4',
+                'Product': 'Packaging Material',
+                'costelem': '50.000',
+                'value': 'Pcs.',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Subscription Feed"
+                    "name": "Manual"
                 },
                 selectedDataSource: {
-                    "name": "GEP Chemicals Price Database"
+                    "name": ""
                 },
                 'currency': ''
             }
