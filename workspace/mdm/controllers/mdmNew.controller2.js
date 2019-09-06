@@ -1700,7 +1700,18 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 		$scope.material = '';
 		$scope.clearance = '';
 		$scope.noOfSeals = ''
-	}
+    }
+    
+
+    $scope.onChangeGraph = function (e) {
+        debugger;
+        // $rootScope.
+        // $scope.dataModel.setup.utilization
+        var value = $scope.dataModel.setup.utilization;
+        $rootScope.applyUtilization(value);
+        console.log (e);
+    }
+
 	/* READONLY MODE END */
 	/* SAVE BUTTON */
 	$scope.saveDoc = function(){
