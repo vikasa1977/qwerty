@@ -4676,7 +4676,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     dataLabels: {
                         enabled: true,
                         formatter: function () {
-                            return Highcharts.numberFormat(this.y) + '<br>  {'+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' +'}';
+                            return Highcharts.numberFormat(this.y) + '<br>  ('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' +')';
                         },
                         style: {
                             fontWeight: 'bold'
@@ -4996,7 +4996,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br>{'+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%'+'}';
+                                    return Highcharts.numberFormat(this.y) + '<br>('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%'+')';
                                 },
                                 style: {
                                     fontWeight: 'bold'
@@ -5072,7 +5072,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y)  + '<br> {'+ Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + '}';
+                                    return Highcharts.numberFormat(this.y)  + '<br> ('+ Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
                                 },
                                 style: {
                                     fontWeight: 'bold'
@@ -5148,7 +5148,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y ) + '<br> {'+ Highcharts.numberFormat( this.y / 91448768.0 * 100 , 1) + '%' + '}';
+                                    return Highcharts.numberFormat(this.y ) + '<br> ('+ Highcharts.numberFormat( this.y / 91448768.0 * 100 , 1) + '%' + ')';
                                 },
                                 style: {
                                     fontWeight: 'bold'
