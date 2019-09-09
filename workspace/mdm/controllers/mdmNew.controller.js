@@ -4679,7 +4679,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             return Highcharts.numberFormat(this.y) + '<br>  ('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' +')';
                         },
                         style: {
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
+                            color: '#000'
                         }
                     },
                     // pointPadding: 0
@@ -4999,7 +5000,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                     return Highcharts.numberFormat(this.y) + '<br>('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%'+')';
                                 },
                                 style: {
-                                    fontWeight: 'bold'
+                                    fontWeight: 'bold',
+                                    color: '#000'
                                 }
                             },
                             // pointPadding: 0
@@ -5075,7 +5077,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                     return Highcharts.numberFormat(this.y)  + '<br> ('+ Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
                                 },
                                 style: {
-                                    fontWeight: 'bold'
+                                    fontWeight: 'bold',
+                                    color: '#000'
                                 }
                             },
                             // pointPadding: 0
@@ -5151,7 +5154,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                     return Highcharts.numberFormat(this.y ) + '<br> ('+ Highcharts.numberFormat( this.y / 91448768.0 * 100 , 1) + '%' + ')';
                                 },
                                 style: {
-                                    fontWeight: 'bold'
+                                    fontWeight: 'bold',
+                                    color: '#000'
                                 }
                             },
                             // pointPadding: 0
