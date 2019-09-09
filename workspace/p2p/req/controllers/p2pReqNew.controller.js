@@ -9303,7 +9303,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '3',
                 'Product': 'Steam',
                 'costelem': '0.256',
-                'value': 'Lbs',
+                'value': 'MT',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Subscription Feed"
