@@ -4966,7 +4966,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             data: [{
                                     name: 'Ethylene',
                                     y: 22560000,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[4]
                                 },
                                 {
                                     name: 'Chlorine',
@@ -4976,17 +4976,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[5]
                                 },
                                 {
                                     name: 'Packaging Material',
                                     y: 1520000,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[6]
                                 },
                                 {
                                     name: 'Production Cost',
                                     y: 28739104,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[1]
                                 },
                                 {
                                     name: 'TOTAL',
@@ -5043,7 +5043,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             data: [{
                                     name: 'Ethylene',
                                     y: 22560000 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[4]
                                 },
                                 {
                                     name: 'Chlorine',
@@ -5053,17 +5053,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[5]
                                 },
                                 {
                                     name: 'Packaging Material',
                                     y: 1520000 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[6]
                                 },
                                 {
                                     name: 'Production Cost',
                                     y: 38318805.33 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[1]
                                 },
                                 {
                                     name: 'TOTAL',
@@ -5120,7 +5120,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             data: [{
                                     name: 'Ethylene',
                                     y: 22560000 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[4]
                                 },
                                 {
                                     name: 'Chlorine',
@@ -5130,17 +5130,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[5]
                                 },
                                 {
                                     name: 'Packaging Material',
                                     y: 1520000 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[6]
                                 },
                                 {
                                     name: 'Production Cost',
                                     y: 57478208.00 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    color: Highcharts.getOptions().colors[1]
                                 },
                                 {
                                     name: 'TOTAL',
