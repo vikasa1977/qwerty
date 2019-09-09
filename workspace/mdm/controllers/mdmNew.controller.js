@@ -4645,7 +4645,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     data: [{
                             name: 'Ethylene',
                             y: 22560000,
-                            color: Highcharts.getOptions().colors[3]
+                            color: Highcharts.getOptions().colors[4]
                         },
                         {
                             name: 'Chlorine',
@@ -4655,28 +4655,28 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         {
                             name: 'Steam',
                             y: 450560,
-                            color: Highcharts.getOptions().colors[3]
+                            color: Highcharts.getOptions().colors[5]
                         },
                         {
                             name: 'Packaging Material',
                             y: 1520000,
-                            color: Highcharts.getOptions().colors[3]
+                            color: Highcharts.getOptions().colors[6]
                         },
                         {
                             name: 'Production Cost',
                             y: 28739104,
-                            color: Highcharts.getOptions().colors[3]
+                            color: Highcharts.getOptions().colors[1]
                         },
                         {
                             name: 'TOTAL',
-                            y: 62709664,
-                            color: Highcharts.getOptions().colors[3]
+                            isIntermediateSum: true,
+                            color: "#BC4820"
                         }
                     ],
                     dataLabels: {
                         enabled: true,
                         formatter: function () {
-                            return Highcharts.numberFormat(this.y);
+                            return Highcharts.numberFormat(this.y) + '<br>  {'+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' +'}';
                         },
                         style: {
                             fontWeight: 'bold'
@@ -4989,14 +4989,14 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'TOTAL',
-                                    y: 62709664,
-                                    color: Highcharts.getOptions().colors[3]
+                                    isIntermediateSum: true,
+                                    color: "#BC4820"
                                 }
                             ],
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y);
+                                    return Highcharts.numberFormat(this.y) + '<br>{'+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%'+'}';
                                 },
                                 style: {
                                     fontWeight: 'bold'
@@ -5065,14 +5065,14 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'TOTAL',
-                                    y: 72289365.33 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    isIntermediateSum: true,
+                                    color: "#BC4820"
                                 }
                             ],
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y);
+                                    return Highcharts.numberFormat(this.y)  + '<br> {'+ Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + '}';
                                 },
                                 style: {
                                     fontWeight: 'bold'
@@ -5141,14 +5141,14 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'TOTAL',
-                                    y: 62709664 ,
-                                    color: Highcharts.getOptions().colors[3]
+                                    isIntermediateSum: true,
+                                    color: "#BC4820"
                                 }
                             ],
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y);
+                                    return Highcharts.numberFormat(this.y ) + '<br> {'+ Highcharts.numberFormat( this.y / 91448768.0 * 100 , 1) + '%' + '}';
                                 },
                                 style: {
                                     fontWeight: 'bold'
