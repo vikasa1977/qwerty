@@ -4498,7 +4498,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 3,
-                    "cost": "288,000.00"
+                    "cost": "172,800.00"
                 }
             ];
         }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Utilities" && $state.productNamepolyviny) {
