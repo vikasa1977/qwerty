@@ -5163,10 +5163,11 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     }
 
     // Product Attribues Table
-    $scope.length = 10;
-    $scope.breadth = 20;
-    $scope.height = 30;
-    $scope.volumeOverride = 5000;
+    $scope.length = null;
+    $scope.breadth = null;
+    $scope.height = null;
+    $scope.volume = $scope.height * $scope.breadth * $scope.length;
+    $scope.volumeOverride = null;
 }
 
 function MDMServiceFn($http, $q, $window, $timeout) {
