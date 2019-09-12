@@ -4546,12 +4546,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "Yes"
+                            "name": "No"
                         }
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Utility Index 1",
                     "unitcost": "0.09",
                     "inputuom": "kWh",
@@ -4573,12 +4573,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "Yes"
+                            "name": "No"
                         }
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Fuel Index 1",
                     "unitcost": "740.00",
                     "inputuom": "MT",
@@ -4600,12 +4600,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "Yes"
+                            "name": "No"
                         }
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Gas Index 1",
                     "unitcost": "1.25",
                     "inputuom": "Nm3",
@@ -4627,12 +4627,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "Yes"
+                            "name": "No"
                         }
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Water Index 1",
                     "unitcost": "2.3",
                     "inputuom": "MT",
@@ -4654,12 +4654,12 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                             "name": "No"
                         }],
                         "selectedoption": {
-                            "name": "Yes"
+                            "name": "No"
                         }
                     },
                     "refcostelem": "Not Applicable",
                     "perofref": "",
-                    "scale": "Proportional",
+                    "scale": "Fixed",
                     "costsource": "Water Index 2",
                     "unitcost": "0.8",
                     "inputuom": "MT",
