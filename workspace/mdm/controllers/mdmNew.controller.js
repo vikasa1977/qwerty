@@ -5073,11 +5073,14 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
+                                    return Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' ;
                                 },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
                                 style: {
-                                    fontWeight: 'bold',
-                                    color: '#000'
+                                    fontWeight: 'bold'
                                 }
                             },
                             // pointPadding: 0
@@ -5150,11 +5153,14 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 91448768.0 * 100, 1) + '%' + ')';
+                                    return  Highcharts.numberFormat(this.y / 91448768.0 * 100, 1) + '%' ;
                                 },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
                                 style: {
-                                    fontWeight: 'bold',
-                                    color: '#000'
+                                    fontWeight: 'bold'
                                 }
                             },
                             // pointPadding: 0
