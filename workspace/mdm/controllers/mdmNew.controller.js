@@ -5052,7 +5052,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560,
-                                    color: Highcharts.getOptions().colors[5]
+                                    color: 'lightblue'
                                 },
                                 {
                                     name: 'Packaging Material',
@@ -5061,8 +5061,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'Production Cost',
-                                    y: 38318805.33,
-                                    color: Highcharts.getOptions().colors[1]
+                                    y: 38318805,
+                                    color: 'lightgreen'
                                 },
                                 {
                                     name: 'TOTAL',
@@ -5073,14 +5073,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
+                                    return Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' ;
                                 },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
                                 style: {
-                                    fontWeight: 'bold',
-                                    color: '#000'
+                                    fontWeight: 'bold'
                                 }
                             },
-                            // pointPadding: 0
+                             pointPadding: 0
                         }]
                     });
                 }, 500);
@@ -5129,7 +5132,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560,
-                                    color: Highcharts.getOptions().colors[5]
+                                    color: 'lightblues'
                                 },
                                 {
                                     name: 'Packaging Material',
@@ -5138,8 +5141,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'Production Cost',
-                                    y: 57478208.00,
-                                    color: Highcharts.getOptions().colors[1]
+                                    y: 57478208,
+                                    color: 'lightgreen'
                                 },
                                 {
                                     name: 'TOTAL',
@@ -5150,14 +5153,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 91448768.0 * 100, 1) + '%' + ')';
+                                    return Highcharts.numberFormat(this.y / 91448768.0 * 100, 1) + '%' ;
                                 },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
                                 style: {
-                                    fontWeight: 'bold',
-                                    color: '#000'
+                                    fontWeight: 'bold'
                                 }
                             },
-                            // pointPadding: 0
+                             pointPadding: 0
                         }]
                     });
                 }, 500);
