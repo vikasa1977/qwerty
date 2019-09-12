@@ -1708,8 +1708,9 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         // $rootScope.
         // $scope.dataModel.setup.utilization
         var value = $scope.dataModel.setup.utilization;
+        $scope.dataModel.setup.shouldcost = ( value == "100%" ? "62,709,664" : (value == "75%" ? "72,289,365" : (value == "50%" ? "91,448,768" : "none")))
         $rootScope.applyUtilization(value);
-        console.log (e);
+        console.log (e + "" + $scope.config + " " + $scope.dataModel);
     }
 
     $scope.addRemove = function(e) {
@@ -2093,7 +2094,14 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         });
     };
 
+    // setTimeout(function() { 
+    //     if( $state.productNameFoldingCartons ) {
+    //         $scope.config.sections[1].rows[0].properties[13].options.pop();
+    //         $scope.config.sections[1].rows[0].properties[13].options.pop();
+    //     }    
+    // }, 2000);
 
+    
     
     /* 
   HEADER SEARCH INTRACTION

@@ -113,10 +113,10 @@
         "itemStatus":"Production",
         "weight":"",
         "volume":"80,000",
-        "supplier1":"Ineos",
+        "supplier1":"ABC Inc",
         "USD":"USD",
-        "currentcost":"69,427,170.00",
-        "shouldcost":"62,709,664.00",
+        "currentcost":"69,427,170",
+        "shouldcost":"62,709,664",
         "suppliercapacity" :"80000 Mt per year",
         "utilization" : "100%",
         "ownername":"Sara Williams",
@@ -1067,7 +1067,7 @@
                     "maxlength": 10
                   }
                 },
-                      {
+                {
                           "colspan": 1,
                   "label": "Volume",
                   "type": "textfield",
@@ -1079,7 +1079,7 @@
                     "readonly": false
                   }
                 },
-                      {
+                {
                           "label": "Category",
                   "type": "textfield",
                   "editable": true,
@@ -1090,7 +1090,7 @@
                     "readonly": true
                   }
                 },
-                      {
+                {
                           "colspan": 1,
                   "label": "Region",
                   "type": "textfield",

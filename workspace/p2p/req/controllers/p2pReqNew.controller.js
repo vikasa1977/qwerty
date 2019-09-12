@@ -9274,10 +9274,10 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'value': 'MT',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Manual"
+                    "name": "Market Index"
                 },
                 selectedDataSource: {
-                    "name": " "
+                    "name": "ICIS"
                 },
                 'currency': ''
             },
@@ -9290,7 +9290,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'value': 'MT',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Subscription Feed"
+                    "name": "Market Index"
                 },
                 selectedDataSource: {
                     "name": "ICIS"
