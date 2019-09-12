@@ -113,7 +113,7 @@
       "itemStatus":"Production",
       "weight":"",
       "volume":"1",
-      "supplier1":"Ineos",
+      "supplier1":"ABC Inc",
       "USD":"USD",
       "currentcost":"18000",
       "shouldcost":"15985",
@@ -1079,7 +1079,7 @@
                   "readonly": false
                 }
               },
-			        {
+			        { 
 				        "label": "Category",
                 "type": "textfield",
                 "editable": true,
@@ -1183,15 +1183,24 @@
               {
 			        	"colspan": 1,
                 "label": "Supplier Capacity Utilization",
-                "type": "textfield",
+                
+                "type": "dropdown",
                 "editable": true,
                 "isMandatory": true,
                 "data": "setup.utilization",
                 "focus": true,
+                "onChange": "onChangeGraphFolding",
                 "attributes": {
-                  "readonly": false
-                }                
+                  "options": [
+                    {
+                      "title": "100%",
+                      "selected": true
+                    }
+                  ],
+                  "readonly": false,
+                  "maxlength": 10                
               }
+            }
             ]
           }
         ]
