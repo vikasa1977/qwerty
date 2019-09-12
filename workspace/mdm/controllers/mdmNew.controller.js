@@ -3327,15 +3327,15 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
     };
 
     $scope.dataSourceOptions2 = [{
-        "name": "None"
-    },
-    {
-        "name": "GEP FTL NA Price Database"
-    }
-];
+            "name": "None"
+        },
+        {
+            "name": "GEP FTL NA Price Database"
+        }
+    ];
 
     if ($state.current.name == 'mdm.itemDetailsOne' && !$state.viewScenario) {
-        
+
         $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Labor',
@@ -3399,14 +3399,13 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         ];
     } else if (!$state.productNameKetchup && !$state.productNameFuleHouse && !$state.productNameAcrylonitrile && !$state.productNamePretzelAnalysis && !$state.productNameMilk && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $scope.dataSourceOptions2 = [{
-            "name": "None"
-        },
-        {
-            "name": "GEP FTL NA Price Database"
-        }
-    ];
-        $scope.historyList = [
+                "name": "None"
+            },
             {
+                "name": "GEP FTL NA Price Database"
+            }
+        ];
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
@@ -3506,17 +3505,16 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'isChecked': false
             }
         ];
-    }
-    else if ($state.productNameFoldingCartons) {
+    } else if ($state.productNameFoldingCartons) {
         $scope.dataSourceOptions = [{
-            "name": "None"
-        },
-        {
-            "name": "GEP FTL NA Price Database"
-        }];
-
-        $scope.historyList = [
+                "name": "None"
+            },
             {
+                "name": "GEP FTL NA Price Database"
+            }
+        ];
+
+        $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
@@ -3559,30 +3557,29 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 }
             }
         ];
-    }else if ($state.productNamepolyviny) {
+    } else if ($state.productNamepolyviny) {
         $scope.dataSourceOptions = [{
-            "name": "None"
-        },
-        {
-            "name": "GEP FTL NA Price Database"
-        }];
-
-        $scope.historyList = [
+                "name": "None"
+            },
             {
-                'sequence': '1',
-                'Product': 'Production Cost',
-                'costelem': 'LBS',
-                'value': $state.showNewGraph ? '820' : '28,739,104.00',
-                'currency': 'SEK',
-                selectedCostSource1: {
-                    "name": "Computed"
-                },
-                'isChecked': false,
-                selectedDataSource: {
-                    "name": "None"
-                }
+                "name": "GEP FTL NA Price Database"
             }
         ];
+
+        $scope.historyList = [{
+            'sequence': '1',
+            'Product': 'Production Cost',
+            'costelem': 'LBS',
+            'value': $state.showNewGraph ? '820' : '28,739,104.00',
+            'currency': 'SEK',
+            selectedCostSource1: {
+                "name": "Computed"
+            },
+            'isChecked': false,
+            selectedDataSource: {
+                "name": "None"
+            }
+        }];
     } else if ($state.productNameKetchup) {
         $scope.historyList = [{
                 'sequence': '1',
@@ -4078,7 +4075,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             thousandsSep: ','
         }
     });
-    
+
     if ($state.current.name == "mdm.itemDetailsOne" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
 
         $timeout(function () {
@@ -4155,8 +4152,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             });
         }, 500);
 
-    } 
-    else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
+    } else if ($state.current.name == "mdm.itemDetails" && !$state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4262,40 +4258,40 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     upColor: Highcharts.getOptions().colors[2],
                     color: Highcharts.getOptions().colors[3],
                     data: [{
-                        name: 'BOARD-RAW',
-                        y: 9000,
-                        color: Highcharts.getOptions().colors[4]
-                    },
-                    {
-                        name: 'BOARD WASTE',
-                        y: 1000,
-                        color: Highcharts.getOptions().colors[3]
-                    },
-                    {
-                        name: 'COATING WASTE',
-                        y: 1000,
-                        color: Highcharts.getOptions().colors[5]
-                    },
-                    {
-                        name: 'PRODUCTION COST',
-                        y: 3485,
-                        color: Highcharts.getOptions().colors[6]
-                    },
-                    {
-                        name: 'SHIPPING COST',
-                        y: 1000,
-                        color: Highcharts.getOptions().colors[7]
-                    },
-                    {
-                        name: 'MARGIN',
-                        y: 500,
-                        color: Highcharts.getOptions().colors[8]
-                    },
-                    {
-                        name: 'TOTAL',
-                        isIntermediateSum: true,
-                        color: Highcharts.getOptions().colors[1]
-                    }
+                            name: 'BOARD-RAW',
+                            y: 9000,
+                            color: Highcharts.getOptions().colors[4]
+                        },
+                        {
+                            name: 'BOARD WASTE',
+                            y: 1000,
+                            color: Highcharts.getOptions().colors[3]
+                        },
+                        {
+                            name: 'COATING WASTE',
+                            y: 1000,
+                            color: Highcharts.getOptions().colors[5]
+                        },
+                        {
+                            name: 'PRODUCTION COST',
+                            y: 3485,
+                            color: Highcharts.getOptions().colors[6]
+                        },
+                        {
+                            name: 'SHIPPING COST',
+                            y: 1000,
+                            color: Highcharts.getOptions().colors[7]
+                        },
+                        {
+                            name: 'MARGIN',
+                            y: 500,
+                            color: Highcharts.getOptions().colors[8]
+                        },
+                        {
+                            name: 'TOTAL',
+                            isIntermediateSum: true,
+                            color: Highcharts.getOptions().colors[1]
+                        }
                     ],
                     dataLabels: {
                         enabled: true,
@@ -4310,13 +4306,12 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 }]
             });
             Highcharts.setOptions({
-                lang: {                  
-                  thousandsSep: ','
+                lang: {
+                    thousandsSep: ','
                 }
-              });
+            });
         }, 500);
-    }
-     else if ($state.current.name == "mdm.itemDetails" && $state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
+    } else if ($state.current.name == "mdm.itemDetails" && $state.showNewGraph && !$state.productNameAcrylonitrile && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNameFoldingCartons && !$state.productNamepolyviny) {
         $timeout(function () {
             Highcharts.chart('container-2', {
                 chart: {
@@ -4626,6 +4621,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 },
 
                 yAxis: {
+
                     title: {
                         // text: 'USD'
                     }
@@ -4636,12 +4632,10 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                 },
 
                 tooltip: {
-                    // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                    //pointFormat: '<b>${point.y:,.2f}</b> USD'
                 },
 
                 series: [{
-                    // upColor: Highcharts.getOptions().colors[2],
-                    // color: Highcharts.getOptions().colors[3],
                     data: [{
                             name: 'Ethylene',
                             y: 22560000,
@@ -4655,7 +4649,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         {
                             name: 'Steam',
                             y: 450560,
-                            color: Highcharts.getOptions().colors[5]
+                            color: 'lightblue'
                         },
                         {
                             name: 'Packaging Material',
@@ -4665,7 +4659,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         {
                             name: 'Production Cost',
                             y: 28739104,
-                            color: Highcharts.getOptions().colors[1]
+                            color: 'lightgreen'
                         },
                         {
                             name: 'TOTAL',
@@ -4676,14 +4670,17 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     dataLabels: {
                         enabled: true,
                         formatter: function () {
-                            return Highcharts.numberFormat(this.y) + '<br>  ('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' +')';
+                            return Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' + '';
                         },
+                        crop: false,
+                        overflow: 'none',
+                        inside: false,
+                        x: 0,
                         style: {
-                            fontWeight: 'bold',
-                            color: '#000'
+                            fontWeight: 'bold'
                         }
                     },
-                    // pointPadding: 0
+                    pointPadding: 0
                 }]
             });
         }, 500);
@@ -4930,8 +4927,8 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
     $scope.utilization = 100;
 
     $rootScope.applyUtilization = function (e) {
-        if($state.productNamepolyviny) {
-            if(e == "100%") {
+        if ($state.productNamepolyviny) {
+            if (e == "100%") {
                 $timeout(function () {
                     Highcharts.chart('container-2', {
                         chart: {
@@ -4947,6 +4944,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         },
         
                         yAxis: {
+        
                             title: {
                                 // text: 'USD'
                             }
@@ -4957,9 +4955,87 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         },
         
                         tooltip: {
-                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                            //pointFormat: '<b>${point.y:,.2f}</b> USD'
                         },
         
+                        series: [{
+                            data: [{
+                                    name: 'Ethylene',
+                                    y: 22560000,
+                                    color: Highcharts.getOptions().colors[4]
+                                },
+                                {
+                                    name: 'Chlorine',
+                                    y: 9440000,
+                                    color: Highcharts.getOptions().colors[3]
+                                },
+                                {
+                                    name: 'Steam',
+                                    y: 450560,
+                                    color: 'lightblue'
+                                },
+                                {
+                                    name: 'Packaging Material',
+                                    y: 1520000,
+                                    color: Highcharts.getOptions().colors[6]
+                                },
+                                {
+                                    name: 'Production Cost',
+                                    y: 28739104,
+                                    color: 'lightgreen'
+                                },
+                                {
+                                    name: 'TOTAL',
+                                    isIntermediateSum: true,
+                                    color: "#BC4820"
+                                }
+                            ],
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%' + '';
+                                },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
+                                style: {
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            pointPadding: 0
+                        }]
+                    });
+                }, 500);
+            } else if (e == "75%") {
+                $timeout(function () {
+                    Highcharts.chart('container-2', {
+                        chart: {
+                            type: 'waterfall'
+                        },
+
+                        title: {
+                            // text: 'Highcharts Waterfall'
+                        },
+
+                        xAxis: {
+                            type: 'category'
+                        },
+
+                        yAxis: {
+                            title: {
+                                // text: 'USD'
+                            }
+                        },
+
+                        legend: {
+                            enabled: false
+                        },
+
+                        tooltip: {
+                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
+                        },
+
                         series: [{
                             // upColor: Highcharts.getOptions().colors[2],
                             // color: Highcharts.getOptions().colors[3],
@@ -4985,7 +5061,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 },
                                 {
                                     name: 'Production Cost',
-                                    y: 28739104,
+                                    y: 38318805.33,
                                     color: Highcharts.getOptions().colors[1]
                                 },
                                 {
@@ -4997,7 +5073,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y) + '<br>('+ Highcharts.numberFormat(this.y / 62709664.0 * 100, 1) + '%'+')';
+                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
                                 },
                                 style: {
                                     fontWeight: 'bold',
@@ -5008,61 +5084,61 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                         }]
                     });
                 }, 500);
-            } else if(e == "75%") {
+            } else if (e == "50%") {
                 $timeout(function () {
                     Highcharts.chart('container-2', {
                         chart: {
                             type: 'waterfall'
                         },
-        
+
                         title: {
                             // text: 'Highcharts Waterfall'
                         },
-        
+
                         xAxis: {
                             type: 'category'
                         },
-        
+
                         yAxis: {
                             title: {
                                 // text: 'USD'
                             }
                         },
-        
+
                         legend: {
                             enabled: false
                         },
-        
+
                         tooltip: {
                             // pointFormat: '<b>${point.y:,.2f}</b> USD'
                         },
-        
+
                         series: [{
                             // upColor: Highcharts.getOptions().colors[2],
                             // color: Highcharts.getOptions().colors[3],
                             data: [{
                                     name: 'Ethylene',
-                                    y: 22560000 ,
+                                    y: 22560000,
                                     color: Highcharts.getOptions().colors[4]
                                 },
                                 {
                                     name: 'Chlorine',
-                                    y: 9440000 ,
+                                    y: 9440000,
                                     color: Highcharts.getOptions().colors[3]
                                 },
                                 {
                                     name: 'Steam',
-                                    y: 450560 ,
+                                    y: 450560,
                                     color: Highcharts.getOptions().colors[5]
                                 },
                                 {
                                     name: 'Packaging Material',
-                                    y: 1520000 ,
+                                    y: 1520000,
                                     color: Highcharts.getOptions().colors[6]
                                 },
                                 {
                                     name: 'Production Cost',
-                                    y: 38318805.33 ,
+                                    y: 57478208.00,
                                     color: Highcharts.getOptions().colors[1]
                                 },
                                 {
@@ -5074,84 +5150,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             dataLabels: {
                                 enabled: true,
                                 formatter: function () {
-                                    return Highcharts.numberFormat(this.y)  + '<br> ('+ Highcharts.numberFormat(this.y / 72289365.33 * 100, 1) + '%' + ')';
-                                },
-                                style: {
-                                    fontWeight: 'bold',
-                                    color: '#000'
-                                }
-                            },
-                            // pointPadding: 0
-                        }]
-                    });
-                }, 500);
-            } else if(e == "50%") {
-                $timeout(function () {
-                    Highcharts.chart('container-2', {
-                        chart: {
-                            type: 'waterfall'
-                        },
-        
-                        title: {
-                            // text: 'Highcharts Waterfall'
-                        },
-        
-                        xAxis: {
-                            type: 'category'
-                        },
-        
-                        yAxis: {
-                            title: {
-                                // text: 'USD'
-                            }
-                        },
-        
-                        legend: {
-                            enabled: false
-                        },
-        
-                        tooltip: {
-                            // pointFormat: '<b>${point.y:,.2f}</b> USD'
-                        },
-        
-                        series: [{
-                            // upColor: Highcharts.getOptions().colors[2],
-                            // color: Highcharts.getOptions().colors[3],
-                            data: [{
-                                    name: 'Ethylene',
-                                    y: 22560000 ,
-                                    color: Highcharts.getOptions().colors[4]
-                                },
-                                {
-                                    name: 'Chlorine',
-                                    y: 9440000 ,
-                                    color: Highcharts.getOptions().colors[3]
-                                },
-                                {
-                                    name: 'Steam',
-                                    y: 450560 ,
-                                    color: Highcharts.getOptions().colors[5]
-                                },
-                                {
-                                    name: 'Packaging Material',
-                                    y: 1520000 ,
-                                    color: Highcharts.getOptions().colors[6]
-                                },
-                                {
-                                    name: 'Production Cost',
-                                    y: 57478208.00 ,
-                                    color: Highcharts.getOptions().colors[1]
-                                },
-                                {
-                                    name: 'TOTAL',
-                                    isIntermediateSum: true,
-                                    color: "#BC4820"
-                                }
-                            ],
-                            dataLabels: {
-                                enabled: true,
-                                formatter: function () {
-                                    return Highcharts.numberFormat(this.y ) + '<br> ('+ Highcharts.numberFormat( this.y / 91448768.0 * 100 , 1) + '%' + ')';
+                                    return Highcharts.numberFormat(this.y) + '<br> (' + Highcharts.numberFormat(this.y / 91448768.0 * 100, 1) + '%' + ')';
                                 },
                                 style: {
                                     fontWeight: 'bold',

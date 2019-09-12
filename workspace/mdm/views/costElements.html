@@ -55,13 +55,14 @@
         <colgroup ng-if="!addNewColumn">
             <col style="width:5%" />
             <col style="width:7%" />
-            <col style="width:15%" />
-            <col style="width:9%" />
-            <col style="width:5%" />
-            <col style="width:14%" />
-            <col style="width:15%" />
-            <col style="width:12%" />
             <col style="width:10%" />
+            <col style="width:7%" />
+            <col style="width:6%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:10%" />
+            <col style="width:6%" />
+            <col style="width:5%" />
         </colgroup>
         <colgroup ng-if="addNewColumn">
             <col style="width:5%" />
@@ -91,7 +92,7 @@
                 <th class="left-align paddingLeft0">Cost Source</th>
                 <th class="center-align paddingLeft0" ng-if="showDataSrc">Data Source</th>
                 <th class="center-align paddingLeft0" ng-if="!showDataSrc">Index Name</th>
-                <th class="right-align paddingLeft20">Cost (USD)</th>
+                <th class="center-align">Cost (USD)</th>
                 <th class="right-align paddingLeft0">Total Cost (USD)</th>
             </tr>
         </thead>
@@ -148,7 +149,7 @@
                 <!-- <td class="center-align">{{costElement.dataSource}}</td> -->
 
                 <td class="left-align padding10 truncate ">
-                    <a href class="left " style="margin-top: 20px;">
+                    <a href class="left " style="margin-top: 20px;margin-left: 25px;">
                         <i class="icon left blue-text">
                             <svg>
                                 <use xlink:href="#icon_Info"></use>
