@@ -139,8 +139,10 @@
                 </td>
 
                 <td class="left-align padding10">
-                    <smart-select ng-model="costElement.selectedDataSource" options="dataSourceOptions" datakey="name"
-                        displaykey="name"></smart-select>
+                    <span ng-if="costElement.selectedDataSource.name != ''">
+                        <smart-select  ng-model="costElement.selectedDataSource" options="dataSourceOptions" datakey="name"
+                            displaykey="name"></smart-select>
+                    </span>
                 </td>
 
                 <!-- <td class="center-align">{{costElement.dataSource}}</td> -->
