@@ -1183,23 +1183,14 @@
               {
 			        	"colspan": 1,
                 "label": "Supplier Capacity Utilization",
-                
-                "type": "dropdown",
-                "editable": true,
+                "type": "textfield",
+                 "editable": true,
                 "isMandatory": true,
                 "data": "setup.utilization",
                 "focus": true,
-                "onChange": "onChangeGraphFolding",
                 "attributes": {
-                  "options": [
-                    {
-                      "title": "100%",
-                      "selected": true
-                    }
-                  ],
-                  "readonly": false,
-                  "maxlength": 10                
-              }
+                  "readonly": false
+                }              
             }
             ]
           }

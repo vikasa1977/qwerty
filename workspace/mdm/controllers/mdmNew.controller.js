@@ -4295,14 +4295,18 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                     ],
                     dataLabels: {
                         enabled: true,
-                        formatter: function () {
-                            return Highcharts.numberFormat(this.y);
-                        },
-                        style: {
-                            fontWeight: 'bold'
-                        }
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.y / 15985 * 100, 1) + '%' ;
+                                },
+                                crop: false,
+                                overflow: 'none',
+                                inside: false,
+                                x: 0,
+                                style: {
+                                    fontWeight: 'bold'
+                                }
                     },
-                    // pointPadding: 0
+                     pointPadding: 0
                 }]
             });
             Highcharts.setOptions({
@@ -5132,7 +5136,7 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                                 {
                                     name: 'Steam',
                                     y: 450560,
-                                    color: 'lightblues'
+                                    color: 'lightblue'
                                 },
                                 {
                                     name: 'Packaging Material',
