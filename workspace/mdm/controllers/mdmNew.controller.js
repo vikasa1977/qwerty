@@ -3405,11 +3405,12 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 "name": "GEP FTL NA Price Database"
             }
         ];
+        debugger;
         $scope.historyList = [{
                 'sequence': '1',
                 'Product': 'Production Cost',
                 'costelem': 'LBS',
-                'value': $state.showNewGraph ? '820' : '0.56',
+                'value':  '0.56',
                 'currency': 'SEK',
                 selectedCostSource1: {
                     "name": "Computed"
@@ -3423,7 +3424,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'sequence': '2',
                 'Product': 'Shipping Cost',
                 'costelem': 'OZ',
-                'value': $state.showNewGraph ? '615' : '0.16',
+                'value':  '0.16',
                 'currency': 'SEK',
                 selectedCostSource1: {
                     "name": "Computed"
@@ -3437,7 +3438,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 'sequence': '3',
                 'Product': 'Margin',
                 'costelem': 'LBS',
-                'value': $state.showNewGraph ? '410' : '0.1',
+                'value':  '0.1',
                 'currency': 'SEK',
                 selectedCostSource1: {
                     "name": "Computed"
@@ -3513,50 +3514,50 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 "name": "GEP FTL NA Price Database"
             }
         ];
-
+        debugger;
         $scope.historyList = [{
-                'sequence': '1',
-                'Product': 'Production Cost',
-                'costelem': 'LBS',
-                'value': $state.showNewGraph ? '820' : '3485',
-                'currency': 'SEK',
-                selectedCostSource1: {
-                    "name": "Computed"
-                },
-                'isChecked': false,
-                selectedDataSource: {
-                    "name": "None"
-                }
+            'sequence': '1',
+            'Product': 'Production Cost',
+            'costelem': 'LBS',
+            'value':  '0.56',
+            'currency': 'SEK',
+            selectedCostSource1: {
+                "name": "Computed"
             },
-            {
-                'sequence': '2',
-                'Product': 'Shipping Cost',
-                'costelem': 'OZ',
-                'value': $state.showNewGraph ? '615' : '1000',
-                'currency': 'SEK',
-                selectedCostSource1: {
-                    "name": "Computed"
-                },
-                'isChecked': false,
-                selectedDataSource: {
-                    "name": "GEP FTL NA Price Database"
-                }
-            },
-            {
-                'sequence': '3',
-                'Product': 'Margin',
-                'costelem': 'LBS',
-                'value': $state.showNewGraph ? '410' : '500',
-                'currency': 'SEK',
-                selectedCostSource1: {
-                    "name": "Computed"
-                },
-                'isChecked': false,
-                selectedDataSource: {
-                    "name": "None"
-                }
+            'isChecked': false,
+            selectedDataSource: {
+                "name": "None"
             }
-        ];
+        },
+        {
+            'sequence': '2',
+            'Product': 'Shipping Cost',
+            'costelem': 'OZ',
+            'value':  '0.16',
+            'currency': 'SEK',
+            selectedCostSource1: {
+                "name": "Computed"
+            },
+            'isChecked': false,
+            selectedDataSource: {
+                "name": "GEP FTL NA Price Database"
+            }
+        },
+        {
+            'sequence': '3',
+            'Product': 'Margin',
+            'costelem': 'LBS',
+            'value':  '0.1',
+            'currency': 'SEK',
+            selectedCostSource1: {
+                "name": "Computed"
+            },
+            'isChecked': false,
+            selectedDataSource: {
+                "name": "None"
+            }
+        }
+    ];
     } else if ($state.productNamepolyviny) {
         $scope.dataSourceOptions = [{
                 "name": "None"

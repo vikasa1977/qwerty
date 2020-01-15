@@ -9167,7 +9167,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "name": "Computed"
             },
             {
-                "name": "Subscription Feed"
+                "name": "Subscription Database"
             },
             {
                 "name": "Manual"
@@ -9176,7 +9176,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
         
         $scope.dataSourceOptions = [
             {
-                "name": "GEP Chemicals Price Database"
+                "name": "GEP Packaging Price Database"
             }, {
                 "name": "ICIS"
             },
