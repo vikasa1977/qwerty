@@ -9201,7 +9201,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 selectedDataSource: {
                     "name": ""
                 },
-                'currency': ''
+                'currency': '',
+                "valueEm":'-',
             },
             {
                 'questval1': '0.16',
@@ -9217,7 +9218,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 selectedDataSource: {
                     "name": ""
                 },
-                'currency': ''
+                'currency': '',
+                "valueEm":'-',
             },
             {
                 'questval1': '0.16',
@@ -9227,6 +9229,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'costelem': '1',
                 'value': 'Each',
                 'currency': 'SEK',
+                "valueEm":'-',
                 selectedCostSource: {
                     "name": "Subscription Database"
                 },

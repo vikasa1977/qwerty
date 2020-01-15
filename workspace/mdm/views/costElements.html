@@ -144,6 +144,10 @@
                         <smart-select  ng-model="costElement.selectedDataSource" options="dataSourceOptions" datakey="name"
                             displaykey="name"></smart-select>
                     </span>
+                    <span ng-if="costElement.selectedDataSource.name == ''">
+                        <smart-textfield class="validate-bar marginBtm0" placeholder="Enter Name"
+                        ng-model="costElement.valueEm"></smart-textfield>
+                    </span>
                 </td>
 
                 <!-- <td class="center-align">{{costElement.dataSource}}</td> -->
