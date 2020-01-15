@@ -1,0 +1,751 @@
+{
+  "list": [
+	{
+	"title": "ASSET STRATEGIES GROUP, LLC",
+	"check": false,
+	"category": "IT Telecom",
+  "contact": "Jake 01",
+    "addedBy": "Pallav Test",
+    "addedOn": "26/01/2016 12:15 PM",
+    "secondaryContact": [
+      {
+        "name": "Jake 1",
+        "email": "Jake@assetstrategies.com",
+        "contact": "860-560-8315",
+        "role": "Primary Responder",
+        "check": true,
+        "invitedOn": "26/01/2016 12:15 PM"
+      },
+      
+	  {
+        "name": "Jake 2",
+        "email": "Jake@assetstrategies.com",
+        "contact": "860-560-8315",
+        "role": "Viewer 1",
+        "check": false
+      },
+      {
+        "name": "Jake 3",
+        "email": "Jake@assetstrategies.com",
+        "contact": "860-560-8315",
+        "role": "Collaborator 1"
+      },
+      {
+        "name": "Jake 4",
+        "email": "Jake@assetstrategies.com",
+        "contact": "860-560-8315",
+        "role": "Viewer 1",
+        "check": true
+      }
+    ],
+			"businessUnit": "Dell India",
+			"region": "Asia",
+			"status": "Registered",
+			"email": "Jake@assetstrategies.com",
+			"phone": "860-560-8315",
+			"diversity": false,
+			"preAdded":  true,
+			"logoUrl": "shared/resources/images/dummyLogo2.png"
+		},
+		{
+	  "title": "BAK-AY TEKSTIL",
+	  "check": false,
+	  "category": "Business Travel",
+      "contact": "Joe 01",
+      "addedBy": "Pallav Test",
+      "addedOn": "26/01/2016 12:15 PM",
+      "secondaryContact": [
+        {
+          "name": "Joe 1",
+          "email": "Joe@bakaytekstil.com",
+          "contact": "860-560-8315",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+       
+		 {
+          "name": "Joe 2",
+          "email": "Joe@bakaytekstil.com",
+          "contact": "860-560-8315",
+          "role": "Collaborator 1",
+          "check": false,
+		  "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Joe 3",
+          "email": "Joe@bakaytekstil.com",
+          "contact": "860-560-8315",
+          "role": "Viewer 1",
+          "check": true,
+          "invitedOn": "25/01/2016 11:15 PM"
+        }
+      ],
+		"businessUnit": "Dell India",
+		"region": "Europe",
+		"status": "Registered",
+		"email": "Joe@bakaytekstil.com",
+		"phone": "860-560-8315",
+		"diversity": false,
+      "preAdded": true,
+      "disqualifiedSupplier": true,
+      "disqualifiedToolTip": "Disqualified Supplier",
+		"revokedOn": "Revoked on 06/02/2017 8:44 pm",
+		"logoUrl": "shared/resources/images/dummyLogo2.png"
+	},
+	{
+	  "title": "REXEL INC",
+	  "check": false,
+	  "category": "Energry & Utilities",
+    "contact": "Jordon 01",
+    "addedBy": "Pallav Test",
+    "addedOn": "26/01/2016 12:15",
+      "secondaryContact": [
+        {
+          "name": "Jordon 1",
+          "email": "jordon@rexelinc.com",
+          "contact": "860-560-8315",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+       
+		 {
+          "name": "Jordon 2",
+          "email": "jordon@rexelinc.com",
+          "contact": "860-560-8315",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Jordon 3",
+          "email": "jordon@rexelinc.com",
+          "contact": "860-560-8315",
+          "role": "Viewer 1",
+          "check": true,
+          "invitedOn": "25/01/2016 11:15 PM"
+        }
+      ],
+			"businessUnit": "Dell India",
+			"region": "Middle East",
+			"status": "Approved",
+			"email": "jordon@rexelinc.com",
+			"phone": "860-560-8315",
+		    "diversity": false,
+			"preAdded":  true,
+			"logoUrl": "shared/resources/images/dummyLogo2.png"
+		},
+    {
+      "title": "Dell",
+      "check": false,
+      "category": "IT Telecom",
+      "contact": "Melissa Leah",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Melissa Leah 1",
+          "email": "melissa.leah@dell.com",
+          "contact": "+1-541-754-3010",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Melissa Leah 2",
+          "email": "melissa.leah@dell.com",
+          "contact": "+1-541-754-3010",
+          "role": "Viewer 1",
+          "check": false
+        },
+        {
+          "name": "Melissa Leah 3",
+          "email": "melissa.leah@dell.com",
+          "contact": "+1-541-754-3010",
+          "role": "Collaborator 1"
+        },
+        {
+          "name": "Melissa Leah 4",
+          "email": "melissa.leah@dell.com",
+          "contact": "+1-541-754-3010",
+          "role": "Viewer 1",
+          "check": true
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Asia",
+      "status": "Registered",
+      "email": "melissa.leah@dell.com",
+      "phone": "+1-541-754-3010",
+      "diversity": false,
+    "preAdded": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "IBM",
+      "check": false,
+      "category": "Business Travel",
+      "contact": "Bob Lewis",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Bob Lewis 1",
+          "email": "bob.lewis@ibm.com",
+          "contact": "+1-541-854-1010",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Bob Lewis 2",
+          "email": "bob.lewis@ibm.com",
+          "contact": "+1-541-854-1010",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Bob Lewis 3",
+          "email": "bob.lewis@ibm.com",
+          "contact": "+1-541-854-1010",
+          "role": "Viewer 1",
+          "check": true,
+          "invitedOn": "25/01/2016 11:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Europe",
+      "status": "Registered",
+      "email": "bob.lewis@ibm.com",
+      "phone": "+1-541-854-1010",
+      "diversity": false,
+      "preAdded": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Relic Inc",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Mark Willis",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Mark Willis 1",
+          "email": "mark.willis@relicinc.com",
+          "contact": "+1-943-155-6010",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Mark Willis 2",
+          "email": "mark.willis@relicinc.com",
+          "contact": "+1-943-155-6010",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Mark Willis 3",
+          "email": "mark.willis@relicinc.com",
+          "contact": "+1-943-155-6010",
+          "role": "Viewer 1",
+          "check": true,
+          "invitedOn": "25/01/2016 11:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Approved",
+      "email": "mark.willis@relicinc.com",
+      "phone": "+1-943-155-6010",
+    "diversity": false,
+	"preAdded": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Intel Technology",
+      "check": false,
+      "category": "IT Telecom",
+      "contact": "Heather Paul",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Heather Paul 1",
+          "email": "heather.paul@intel.com",
+          "contact": "+1-581-654-2410",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Heather Paul 2",
+          "email": "heather.paul@intel.com",
+          "contact": "+1-581-654-2410",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Heather Paul 3",
+          "email": "heather.paul@intel.com",
+          "contact": "+1-581-654-2410",
+          "role": "Viewer 1",
+          "check": true,
+          "invitedOn": "25/01/2016 11:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Asia",
+      "status": "Registered",
+      "email": "heather.paul@intel.com",
+      "phone": "+1-581-654-2410",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Gigabyte Technology",
+      "check": false,
+      "category": "Business Travel",
+      "contact": "Elijah Trevor",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Elijah Trevor 1",
+          "email": "elijah.trevor@gigabyte.com",
+          "contact": "+1-541-456-7410",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Elijah Trevor 2",
+          "email": "elijah.trevor@gigabyte.com",
+          "contact": "+1-541-456-7410",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Elijah Trevor 3",
+          "email": "elijah.trevor@gigabyte.com",
+          "contact": "+1-541-456-7410",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Europe",
+      "status": "Approved",
+      "email": "elijah.trevor@gigabyte.com",
+      "phone": "+1-541-456-7410",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Crystal Technology",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Brendan Luis",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Brendan Luis 1",
+          "email": "brendan.luis@crystal.com",
+          "contact": "+1-511-364-7810",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Brendan Luis 2",
+          "email": "brendan.luis@crystal.com",
+          "contact": "+1-511-364-7810",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Brendan Luis 3",
+          "email": "brendan.luis@crystal.com",
+          "contact": "+1-511-364-7810",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Registered",
+      "email": "brendan.luis@crystal.com",
+      "phone": "+1-511-364-7810",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "AMAX Technology",
+      "check": false,
+      "category": "IT Telecom",
+      "contact": "Zack Gabby",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Zack Gabby 1",
+          "email": "zack.gabby@amax.com",
+          "contact": "+1-501-421-3610",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Zack Gabby 2",
+          "email": "zack.gabby@amax.com",
+          "contact": "+1-501-421-3610",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Zack Gabby 3",
+          "email": "zack.gabby@amax.com",
+          "contact": "+1-501-421-3610",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Asia",
+      "status": "Registered",
+      "email": "zack.gabby@amax.com",
+      "phone": "+1-501-421-3610",
+      "diversity": true,
+      "diversityToolTip": "Supplier Diversity - Minority Business Enterprise (MBE) - Native American",
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Seagate Technology",
+      "check": false,
+      "category": "Business Travel",
+      "contact": "Caitlin Alex",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Caitlin Alex 1",
+          "email": "caitlin.alex@seagate.com",
+          "contact": "+1-572-461-4910",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Caitlin Alex 2",
+          "email": "caitlin.alex@seagate.com",
+          "contact": "+1-572-461-4910",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Caitlin Alex 3",
+          "email": "caitlin.alex@seagate.com",
+          "contact": "+1-572-461-4910",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Europe",
+      "status": "Invited",
+      "email": "caitlin.alex@seagate.com",
+      "phone": "+1-572-461-4910",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Samsung India PVT LTD",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Kaylee Nate",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Kaylee Nate 1",
+          "email": "kaylee.nate@samsung.com",
+          "contact": "+1-521-821-3523",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Kaylee Nate 2",
+          "email": "kaylee.nate@samsung.com",
+          "contact": "+1-521-821-3523",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Kaylee Nate 3",
+          "email": "kaylee.nate@samsung.com",
+          "contact": "+1-521-821-3523",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Registered",
+      "email": "kaylee.nate@samsung.com",
+      "phone": "+1-521-821-3523",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "AltaVista",
+      "check": false,
+      "category": "IT Telecom",
+      "contact": "Isaac Connor",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Isaac Connor 1",
+          "email": "issac.connor@altavista.com",
+          "contact": "+1-541-951-721",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Isaac Connor 2",
+          "email": "issac.connor@altavista.com",
+          "contact": "+1-541-951-721",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Isaac Connor 3",
+          "email": "issac.connor@altavista.com",
+          "contact": "+1-541-951-721",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Asia",
+      "status": "Registered",
+      "email": "issac.connor@altavista.com",
+      "phone": "+1-541-951-7215",
+      "diversity": true,
+      "diversityToolTip": "Supplier Diversity - Minority Business Enterprise (MBE) - African American",
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Lufthansa",
+      "check": false,
+      "category": "Business Travel",
+      "contact": "Jesse Stephen",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Jesse Stephen 1",
+          "email": "jesse.stephen@lufthansa.com",
+          "contact": "+1-241-814-7013",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Jesse Stephen 2",
+          "email": "jesse.stephen@lufthansa.com",
+          "contact": "+1-241-814-7013",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Jesse Stephen 3",
+          "email": "jesse.stephen@lufthansa.com",
+          "contact": "+1-241-814-7013",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Europe",
+      "status": "Registered",
+      "email": "jesse.stephen@lufthansa.com",
+      "phone": "+1-241-814-7013",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Lucent Technologies",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Amy Blake",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Amy Blake 1",
+          "email": "amy.blake@lucent.com",
+          "contact": "+1-621-172-4113",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/05/2016 12:15 PM"
+        },
+        {
+          "name": "Amy Blake 2",
+          "email": "amy.blake@lucent.com",
+          "contact": "+1-621-172-4113",
+          "role": "Collaborator 1",
+          "check": false
+        },
+        {
+          "name": "Amy Blake 3",
+          "email": "amy.blake@lucent.com",
+          "contact": "+1-621-172-4113",
+          "role": "Viewer 1",
+          "check": false,
+          "ivitedOn": "22/01/2016 10:15 PM"
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Approved",
+      "email": "amy.blake@lucent.com",
+      "phone": "+1-621-172-4113",
+      "diversity": true,
+      "diversityToolTip": "Supplier Diversity - Lesbian, Gay, Bisexual, Transgender (LGBT)",
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Stellent",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Hannah Taylor",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Hannah Taylor 1",
+          "email": "hannah.taylor@stellent.com",
+          "contact": "+1-711-655-3612",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Hannah Taylor 2",
+          "email": "hannah.taylor@stellent.com",
+          "contact": "+1-711-655-3612",
+          "role": "Viewer 1",
+          "check": false
+        },
+        {
+          "name": "Hannah Taylor 3",
+          "email": "hannah.taylor@stellent.com",
+          "contact": "+1-711-655-3612",
+          "role": "Collaborator 1"
+        },
+        {
+          "name": "Hannah Taylor 4",
+          "email": "hannah.taylor@stellent.com",
+          "contact": "+1-711-655-3612",
+          "role": "Viewer 1",
+          "check": true
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Registered",
+      "email": "hannah.taylor@stellent.com",
+      "phone": "+1-711-655-3612",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Lexmark",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Daniel Ben",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Daniel Ben 1",
+          "email": "daniel.ben@lexmark.com",
+          "contact": "+1-367-164-3510",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Daniel Ben 2",
+          "email": "daniel.ben@lexmark.com",
+          "contact": "+1-367-164-3510",
+          "role": "Viewer 1",
+          "check": false
+        },
+        {
+          "name": "Daniel Ben 3",
+          "email": "daniel.ben@lexmark.com",
+          "contact": "+1-367-164-3510",
+          "role": "Collaborator 1"
+        },
+        {
+          "name": "Daniel Ben 4",
+          "email": "daniel.ben@lexmark.com",
+          "contact": "+1-367-164-3510",
+          "role": "Viewer 1",
+          "check": true
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Approved",
+      "email": "daniel.ben@lexmark.com",
+      "phone": "+1-367-164-3510",
+      "diversity": true,
+      "diversityToolTip": "Supplier Diversity - Minority Institutions or Historically Black College",
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    },
+    {
+      "title": "Kodak",
+      "check": false,
+      "category": "Energry & Utilities",
+      "contact": "Olivia Megan",
+      "addedBy": "Pallav Test",
+      "secondaryContact": [
+        {
+          "name": "Olivia Megan 1",
+          "email": "olivia.megan@kodak.com",
+          "contact": "+1-713-415-3380",
+          "role": "Primary Responder",
+          "check": true,
+          "invitedOn": "26/01/2016 12:15 PM"
+        },
+        {
+          "name": "Olivia Megan 2",
+          "email": "olivia.megan@kodak.com",
+          "contact": "+1-713-415-3380",
+          "role": "Viewer 1",
+          "check": false
+        },
+        {
+          "name": "Olivia Megan 3",
+          "email": "olivia.megan@kodak.com",
+          "contact": "+1-713-415-3380",
+          "role": "Collaborator 1"
+        },
+        {
+          "name": "Olivia Megan 4",
+          "email": "olivia.megan@kodak.com",
+          "contact": "+1-713-415-3380",
+          "role": "Viewer 1",
+          "check": true
+        }
+      ],
+      "businessUnit": "Dell India",
+      "region": "Middle East",
+      "status": "Registered",
+      "email": "olivia.megan@kodak.com",
+      "phone": "+1-713-415-3380",
+      "diversity": false,
+      "logoUrl": "shared/resources/images/dummyLogo2.png"
+    }
+  ]
+}

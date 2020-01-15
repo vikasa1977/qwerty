@@ -1,0 +1,32 @@
+<div class="item-details-template-wrap clearfix paddingTop16" ng-controller="supplierNewCtrl">
+
+    <div class="col s12 borderTopLight padding0">
+        <table class="bordered s-Table supplierApprovalTable" sticky-header scroll-type="page">
+            <thead>
+                <tr>
+                    <th class="left-align"><span class="left paddingTop2">Approval Level</span></th>
+                    <th class="left-align">Type</th>
+                    <th class="left-align">Approvers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listDataAll in approversAllLevelList">
+                    <td class="left-align">{{ ($index + 1) | ordinal }} Level</td>
+                    <td class="left-align">
+                        {{ listDataAll.types }}
+                    </td>
+                    <td class="left-align">
+
+                        <div class="grey-text fontSize12" ng-show="listDataAll.approvers.showFormAs">Add Approvers</div>
+                        <a href="javascript:void(0);"><span id="approversAllBtn{{ $index }}" data-target="approversAll{{ $index }}" class="catpopup-title">{{ listDataAll.approvers.approversData[$index].name }} + {{listDataAll.approvers.approversData.length - 1}} More </span></a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div ng-repeat="listDataAll in approversAllLevelList">
+        <smart-list-popup template-url="shared/popup/views/smartCatPopupSingleLevel.html" read-mode="true" type="small" default-text="Approvers" show="listDataAll.approvers.showFormAs" mode="false" selected-value="listDataAll.approvers.approversData" modal-content="approversAll{{ $index }}" modal-button="approversAllBtn{{ $index }}" initial-display-text="listDataAll.approvers.approversinitialDisplayText"></smart-list-popup>
+    </div>
+</div>
+

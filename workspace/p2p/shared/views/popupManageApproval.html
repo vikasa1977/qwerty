@@ -1,0 +1,113 @@
+<div ng-controller="popupMngAppCtrl">
+    <div class="modal-header" >
+
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xlink:href="#icon_ManApproval"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'MANAGE APPROVALS' || translate }} </span>
+    </div>
+   
+    <div class="modal-content modal-content-with-form"  ng-class="{'is-scrolled': isScrolled}">
+        <smart-scroll height="405px" scroll-config ="smartScrollConfig">
+
+            <div class="row scroll-inner-container">
+            <div class="process-tree process-vertical col s11 offset-s1 m11 offset-m1 xxl10 offset-xxl2">
+                <div class="p-t-step">
+                    <i class="process-start-from icon">
+                        <svg>
+                            <use xlink:href="#icon_TSAccepted"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="p-t-step" ng-repeat="item in approvalProccess">
+                    <i class="process-icon icon">
+                        <svg>
+                            <use xlink:href="#icon_TSFIled"></use>
+                        </svg>
+                    </i>
+                    <div class="p-t-container">
+                        <div class="p-t-header">
+                            <span class="p-t-c-title">{{ item.name  || translate}} </span><span class="p-t-c-suptitle">( {{item.rule  || translate}} )</span>
+                        </div>
+                        <div class="p-t-content">
+
+                            <div class="p-t-c-element">
+                                <smart-checkbox label="{{ item.statusLebal }}" ng-model="item.status"></smart-checkbox>
+                            </div>
+                           
+                            <div class="p-t-c-element comp-comment-with-attachment" ng-show="item.status">
+                                <div class="c-c-w-a-element">
+                                    <smart-dropdown config="{{commentDropdownConfig}}" alignment="right"  constrain-width="false" >
+                                        <a href="javaScript:void(0)" class="dropdown-button" data-activates="commentforApprovalBox_{{$index}}" ng-click="makeCommentfocus($index)">
+                                            <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="Add Comment">
+                                                <svg><use xlink:href="{{item.iconComment }}"></use></svg>
+                                            </i>
+                                        </a>
+
+                                        <ul id="commentforApprovalBox_{{$index}}" class="dropdown-content  dropdown-content--size-medium lookup-popup dd-close-off comment-dd-set-left--update">
+                                            <li>
+                                                <div class="row">
+                                                <smart-textfield class="col s12 " focus="item.isFocus" label="Add Comment" ng-model="item.comment"></smart-textfield>
+                                                    </div>
+                                            </li>
+                                            <li>
+                                                <div class="left">
+                                                    <a href="javascript:void(0)" class="waves-effect waves-circle circle waves-effect-circle modal-close" ng-click="addAttachment($index)">
+                                                        <i class="icon iconSmall blue-text">
+                                                            <svg><use xlink:href="#icon_Attachment"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                                <div class="right">
+                                                    <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="cancelnClose()">
+                                                        <i class="icon iconSmall  blue-text">
+                                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" class="waves-effect waves-circle circle waves-effect-circle" ng-click="saveComment($index)">
+                                                        <i class="icon iconSmall blue-text ">
+                                                            <svg><use xlink:href="#icon_Check"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </div>
+          
+                                <div class="c-c-w-a-element" ng-if="item.isAttached">
+                                    <div class="attachment-file-container ">
+                                        <a href="javascript:void(0)" class="attachment-file-name">{{  item.attachments[0].attachmentFileName || translate }}</a>
+                                        <div ng-show="item.showAllAttachment" >
+                                            <div  ng-repeat="itm in item.attachments.slice(1,attachment.length)">
+                                            <a href="javascript:void(0)" class="attachment-file-name">{{  itm.attachmentFileName || translate }}</a>
+                                               </div>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0)"  class="attachment-file-name" ng-click="showFunc($index)" ng-if="item.attachments.length != 0 ">
+                                    <span ng-if="!item.showAllAttachment">+  {{ item.attachments.length - 1 }} {{ 'More' || translate }}</span>
+                                        <span ng-if="item.showAllAttachment">{{ 'Show Less' || translate }} </span>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                </div>
+        </smart-scroll>
+    </div>
+   
+
+    <div class="modal-footer"  ng-class="{'is-scrolled': isScrolled}">
+        <smart-button flat="true" class="modal-close wave-effect grey-color" config='{"title":"SAVE AND SEND" || translate}' disable="false"></smart-button>
+        <smart-button flat="true" class="modal-close wave-effect grey-color" config='{"title":"CANCEL" || translate}'></smart-button>
+        
+    </div>
+</div>

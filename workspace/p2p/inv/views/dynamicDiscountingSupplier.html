@@ -1,0 +1,250 @@
+<div class="loaderContainer _formLoaderContainer">
+	<div class="preloader-wrapper iconSmall  active">
+		<div class="spinner-layer spinner-green-only">
+			<div class="circle-clipper left">
+				<div class="circle"></div>
+			</div>
+			<div class="gap-patch">
+				<div class="circle"></div>
+			</div>
+			<div class="circle-clipper right">
+				<div class="circle"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div class="row">
+
+	<div class="col s12 m12 marginTop70">
+
+
+		  <div data-ng-include="'shared/components/views/filter/filter.html'"></div>
+
+		<div class="card row">
+	
+
+
+			<div class="row discountTable equal-height">
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row margin0">
+						<p class="center-align">.</p>
+					</div>
+					<div class="row ">
+						<p class="center-align">
+							<input type="checkbox" class="filled-in" id="mark" data-ng-model="allChecked" data-ng-change="checkAll()" />
+							<label for="mark"></label>
+						</p>
+					</div>
+				</div>
+
+				<div class=" col s12 l5 xl4 xxl4 innerCols padding0">
+					<div class="row margin0">
+						<p class="center-align">.</p>
+					</div>
+					<div class="row ">
+						<span class="col s12 xl4 xxl4">Partner Name<br />
+							<input type="text">
+						</span>
+						<span class="col s12 xl4 xxl4">Invoice Number<br />
+							<input type="text">
+						</span>
+						<span class="col s12 xl4 xxl4">Status<br />
+							<smart-select label="" options='[{"title": "All Status","selected": true}, {"title": "All Status","selected": false}, {"title": "Not Invited","selected": false}]'></smart-select>
+						</span>
+					</div>
+				</div>
+				<div class=" col s12 l5 xl5 xxl5 innerCols padding0">
+					<div class="row margin0">
+						<p class="center-align">ORIGINAL</p>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">Pay Amount ($) </p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">Pay Date</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">Discount ($)</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">Discount % </p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row margin0">
+						<p>.</p>
+					</div>
+					<div class="row margin0">
+						<p class="right-align">Pay Amount ($)</p>
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="row discountTable equal-height">
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row ">
+						<p class="center-align">
+							<input type="checkbox" class="filled-in" id="Checkbox1" data-ng-model="allChecked" data-ng-change="checkAll()" />
+							<label for="mark"></label>
+						</p>
+					</div>
+				</div>
+
+				<div class=" col s12 l5 xl4 xxl4 innerCols padding0">
+					<div class="row ">
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">Partner 1</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">INV221-3218</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">-</p>
+						</div>
+					</div>
+				</div>
+				<div class=" col s12 l5 xl5 xxl5 innerCols padding0">
+					<div class="row">
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">8,730.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">20 Dec, 2014</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">270.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">3</p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row margin0">
+						<p class="right-align">8,730.00</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row discountTable equal-height">
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row ">
+						<p class="center-align">
+							<input type="checkbox" class="filled-in" id="Checkbox2" data-ng-model="allChecked" data-ng-change="checkAll()" />
+							<label for="mark"></label>
+						</p>
+					</div>
+				</div>
+
+				<div class=" col s12 l5 xl4 xxl4 innerCols padding0">
+					<div class="row ">
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">Partner 1</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">INV221-3218</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">-</p>
+						</div>
+					</div>
+				</div>
+				<div class=" col s12 l5 xl5 xxl5 innerCols padding0">
+					<div class="row">
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">8,730.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">20 Dec, 2014</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">270.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">3</p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row margin0">
+						<p class="right-align">8,730.00</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="row discountTable equal-height">
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row ">
+						<p class="center-align">
+							<input type="checkbox" class="filled-in" id="Checkbox3" data-ng-model="allChecked" data-ng-change="checkAll()" />
+							<label for="mark"></label>
+						</p>
+					</div>
+				</div>
+
+				<div class=" col s12 l5 xl4 xxl4 innerCols padding0">
+					<div class="row ">
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">Partner 1</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">INV221-3218</p>
+						</div>
+						<div class="col s12 xl4 xxl4">
+							<p class="left-align">-</p>
+						</div>
+					</div>
+				</div>
+				<div class=" col s12 l5 xl5 xxl5 innerCols padding0">
+					<div class="row">
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">8,730.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">20 Dec, 2014</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">270.00</p>
+						</div>
+						<div class="col s12 xl3 xxl3">
+							<p class="right-align">3</p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class=" col s12 l3 xl1 xxl1">
+					<div class="row margin0">
+						<p class="right-align">8,730.00</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<smart-popup template-url="{{createReceiptPopupUrl}}" show='{{createReceiptPopup}}' on-hide="createReceiptOnHideCallback"></smart-popup>
+
+<!--<footer class="page-footer" ng-include="'shared/components/views/footer/footer.html'"></footer>-->

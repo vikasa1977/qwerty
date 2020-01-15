@@ -1,0 +1,112 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_Feature-Man"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Manage Product Settings: {{currentProject.name}}</span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="width100P selectDivisionWrapper left">
+    <div class="left">
+        <span class="left selectDivisionLabel">{{ 'DIVISION' | translate }}: </span>
+        <smart-select label="" ng-model="defaultDivision" options="divisions" class="left fieldcollapse marginBtm0 marginTop10" datakey="name"></smart-select>
+    </div>
+    <div class="right paddingTop5 paddingRight0">
+        <div search-product-setting class="left" id="searchSlideContainer" style="margin-top : -5px">
+            <div class="searchSlideWithin">
+                <a href="javascript:void(0)" smart-tooltip="" position="bottom" delay="250" message="Search" id="searchButton" class="waves-circle waves-effect btn-flat search-icon black-text ng-isolate-scope tooltipped" ng-click="onSearchClick()" style="padding:0;">
+                    <i class="icon iconSmall center blue-text" id="searchIconContainer">
+                        <svg focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+                <div class="displayInlineBlock searchProductSettingContainer" id="searchFieldContainer">
+                    <input type="text" placeholder="Search" class="width100P" id="searchField" ng-model="searchText" />
+                </div>
+                <a href="javascript:void(0)" smart-tooltip="" position="bottom" delay="250" message="Close" class="waves-circle waves-effect btn-flat cancel-icon black-text ng-isolate-scope tooltipped" ng-click="onCancelClick($event)" style="display:none; padding:0;" id="cancelSearch">
+                    <i class="icon iconSmall center blue-text">
+                        <svg focusable="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                
+            </div>
+        </div>
+        <div class="marginRight15 marginLeft14 displayInlineBlock">|</div>
+        <!--<span class="displayInlineBlock paddingTop5 verticalAlignTop paddingRight5">Show:</span>-->
+        <smart-checkbox label="Show Advance Settings" class="displayInlineBlock paddingTop3 advancedSettings" ng-model="advancedSettings"></smart-checkbox>
+        <smart-checkbox ng-show="false" label="Developer Settings" class="displayInlineBlock paddingTop3 devSettings" ng-model="devSettings" on-change="onChange(devSettings)"></smart-checkbox>
+        <i class="icon blue-text right paddingTop5 paddingBottom5 paddingRight20 paddingLeft20 cursorPointer" smart-tooltip position="bottom" delay="50" message="{{'Load Default Values' | translate}}" ng-class="{'disabled': enableLoadDefaultIcon}">
+            <svg><use xlink:href="#icon_Reset"></use></svg>
+        </i>
+    </div>
+</div>
+
+<div class="row wj-setup-manager wj-configure-feature">
+    <smart-global-loader is-fixed="true" ng-if="isGridLoaded"></smart-global-loader>
+    <wj-flex-grid items-source="data" item-formatter="itemFormatter" initialized="init(s, e)" is-read-only="true" child-items-path="children" is-initialized="isInitialized">
+        <wj-flex-grid-column header="Product Name" width="0.08*" binding="ProductName"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Module Name" width="0.08*" binding="ModuleName"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Features and Configuration" width="0.15*" binding="ConfigurationName">
+            <span ng-if="$item.children.length > 0" class="expandCollapseIcon" ng-click="toggleExpandCollapseArrow()" ng-class="{'wj-elem-collapse wj-glyph-down-right' : toggleExpandCollapseArrow, 'wj-elem-collapse wj-glyph-right': !toggleExpandCollapseArrow}"></span>
+            <span smart-infotip position="top" show-full-tip="true" is-fixed="true" message="{{$item.Description}}" mode="mouseover">
+                <i class="icon blue-text">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+            </span>
+            <span>{{$item.ConfigurationName}}</span>
+        </wj-flex-grid-column>
+        <wj-flex-grid-column header="Values" width="0.08*">
+            <smart-dropdown class="displayInlineBlock left" config="{{dropDownConfig}}" ng-if="$item.SettingType === 'Boolean'"  style="max-width: calc(340px - 150px);">
+                <a class='dropdown-button btn-in-header truncate' href='javascript:void(0)' title="{{$item.SelectedSetting.name}}" data-activates='prefix_{{$item.Id}}' data-constrainwidth="false">
+                    {{$item.SelectedSetting.name}}
+                </a>
+                <div id="prefix_{{$item.Id}}" class="dropdown-content">
+                    <ul class="collection noBorder">
+                        <li class="collection-item" ng-repeat="item in $item.Options" ng-click="selectPrefixCall(item,$item.Id,$item.FeatureId)">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </div>
+            </smart-dropdown>
+
+
+            <smart-dropdown ng-if="$item.SettingType === 'Prefix' && $item.Prefix !=''" config="{{dropDownConfig}}" class="relative">
+                <a class='dropdown-button btn-in-header' href='javascript:void(0)' data-activates='{{$item.Id}}' data-constrainwidth="false">
+                    {{$item.Prefix}}
+                </a>
+                <div id="{{$item.Id}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                    <smart-textfield focus="listData.isFocus" placeholder="Please Enter" type="text" ng-model="$item.Prefix" on-blur="isTextChanged($item)"></smart-textfield>
+                </div>
+            </smart-dropdown>
+
+            <a ng-if="$item.SettingType === 'Select Value'" href="javascript:void(0)" ng-click="treeOpenCallback()">{{selectedValueTxt}}</a>
+            <span class="modified-legend marginLeft5 left displayInlineBlock marginTop6" ng-if="$item.isModified" smart-tooltip position="bottom" delay="50" message="Modified"></span>
+
+        </wj-flex-grid-column>
+        <!--<wj-flex-grid-column header="" width="0.12*"></wj-flex-grid-column>-->
+    </wj-flex-grid>
+</div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="right-align col s12">
+            <smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false" ng-click="cancelClicked()"></smart-button>
+            <smart-button config='{"title":"SAVE","allignRight":"false"}' disable="buttonStatus" ng-click="featureSave()"></smart-button>
+        </div>
+    </div>
+</footer>
+
+
+<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback(e)" cancel-button="true"></smart-popup>
+<smart-popup template-url="{{selectValuePopupUrl}}" show='{{selectValue}}' on-hide="selectValueOnHideCallback()" type="small"></smart-popup>
+<smart-popup template-url="{{divisionPopupUrl}}" show='{{selectDivision}}' on-hide="selectDivisionOnHideCallback()" type="small"></smart-popup>
+<smart-popup template-url="{{entityPopupUrl}}" show='{{selectEntity}}' on-hide="selectEntityOnHideCallback()" type="small"></smart-popup>

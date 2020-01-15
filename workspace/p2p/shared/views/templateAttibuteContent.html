@@ -1,0 +1,114 @@
+<div class="docSlider-content slide-view-modal slide-modal-temp-view">
+    <div class="popHdr">
+        <div class="clearfix">
+            <div class="popHdr-name left">{{ list[index].Name   | translate}}</div>
+            <div class="select-wrapper right">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a class="dropdown-button" href="javascript:void(0);" data-activates="lineFilterDropdown_{{$index}}" data-constrainwidth="false" data-alignment="right">
+                        <i class="icon iconSmall white-text marginLeft10">
+                            <svg class="left">
+                                <use xlink:href="#icon_Filter"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul id='lineFilterDropdown_{{$index}}' class='dropdown-content--size-small dropdown-content lookup-popup lookupInline dd-close-off'>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <smart-checkbox fill="true" class="input-chk" label="Added"></smart-checkbox>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <smart-checkbox fill="true" class="input-chk" label="Material"></smart-checkbox>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <smart-checkbox fill="true" class="input-chk" label="Services"></smart-checkbox>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="right">
+                                <smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closePopOver" config='{"title":"CANCEL" || translate}'></smart-button>
+                                <smart-button flat="true" class="modal-close wave-effect  wave-grey" callback="closePopOver" config='{"title":"DONE" || translate}'></smart-button>
+                            </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+        </div>
+        <div class="popHdr-status">
+            <div> {{list[index].Number | translate}} </div>
+            <div class="popHdr-info">
+                {{ list[index].countItem  | translate }}
+                {{ 'Items' | translate }}
+                | <span>
+                    {{ 'created by' | translate }}
+                    {{ list[index].createdBy  | translate }}
+                    {{ 'On' | translate }}
+                    {{ list[index].createdOn  |  date : 'MMM d, y' }}
+                </span>
+            </div>
+        </div>
+        <div class="popHdr-info">
+            {{ list[index].summary  }}
+        </div>
+    </div>
+    <div class="modal-content padding0">
+        <ul class="collection noBorder">
+            <li class="collection-item clearfix templDoc">
+                <div class="templDoc-manage marginTop6 paddingRight35">
+                    <div class="searchSlideMain searchSlideMain--inputBdrBNone " data-ng-init="focusSearch=false;" ng-class="{ 'filled-partial' : list[index].fillpartialFlag && list[index].selectedTempCount<list[index].tempAttr.length && list[index].selectedTempCount>0}">
+                        <smart-checkbox fill="true" label="All" ng-model="list[index].isCheckedAll" on-change="checkedAllTemp(list[index].isCheckedAll, index)" class="left"></smart-checkbox>
+                        <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                            <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch();focusSearch = false" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text marginTop0" style="margin-top:-2px;">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Close"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearch"></smart-textfield>
+                            <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" ng-click="showSearch(); focusSearch = true">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Search"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right templDoc-selected">
+                    <span class="grey-text text-darken-1"> {{ list[index].selectedTempCount  }}  / {{ list[index].tempAttr.length  }} {{ 'Selected' | translate }}</span>
+                </div>
+            </li>
+        </ul>
+        
+        
+        <div class="collection margin0 collection--BorderNone">
+            <smart-scroll height="100%" v-offset="303">
+                <div ng-repeat="item in list[index].tempAttr" class="collection-item">
+                    <smart-checkbox fill="true" ng-model="item.isChecked" class="left" on-change="addItem(index, $index, item.isChecked)"></smart-checkbox>
+                    <span class="title">{{ item.itemName || translate }}</span>
+                    <p>
+                        <span>{{item.quantity || translate }}</span> | <span>{{item.itemNumber || translate }}</span> : <span> {{item.supplierName || translate }} </span> |
+                        <span> {{item.category || translate}} </span>  |
+                        <span> {{item.type || translate}} </span>
+                    </p>
+                </div>
+            </smart-scroll>
+        </div>
+                
+                <div class="slide-view-modal-footer is-scrolled">
+                    <div class="row marginBottom0">
+                        <div class="col s12">
+                            <div class="right">
+                                <smart-button flat="true" class="left waves-effect" config='{"title":"CANCEL"}' ng-click="closeTemplatePreviewPopup();"></smart-button>
+                                <smart-button flat="true" class="left waves-effect" config='{"title":"USE TEMPLATE"}' ng-click="userthisTemplate(e)"></smart-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>

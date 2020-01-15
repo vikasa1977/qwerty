@@ -1,0 +1,101 @@
+<div class="uom-section-wrapper" ng-controller="adminItemMasterUOMCtrl">
+	<div class="row marginBtm0 borderTopLight">
+		<div class="clearfix secContentWithBorder fontSize12">
+			<div class="right ">			
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-click="uomAddRowCallback()">
+					<i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Attachments" position="bottom">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>			
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled': !(uomSelectAll || uomPartiallyFill)}" smart-tooltip message="Delete Selected" position="bottom" ng-click="uomDeleteRowCallback()">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>				
+			</div>
+		</div>
+	</div>
+	<table class="bordered sTable">
+        <colgroup>
+            <col style="width:5%" />
+            <col style="width:12%" />
+            <col style="width:8%" />
+            <col style="width:15%" />
+            <col style="width:10%" />
+            <col style="width:15%" />
+            <col style="width:10%" />
+            <col style="width:25%" />
+        </colgroup>
+		<thead>
+			<tr>
+				<th ng-class="{'filled-partial': uomPartiallyFill}">
+                    <!--<smart-checkbox class="" ng-model="uomSelectAll" smart-selectall data="uomData|.uomListchk" get-checkbox-info="uomGetCheckedInfo()" checker-flag="isChecked"></smart-checkbox>-->
+                    <smart-checkbox class="" ng-model="uomSelectAll" on-change="uomSelectAllChanged(uomSelectAll)"></smart-checkbox>
+                </th>
+				<th class="right-align">Conversion Rate</th>
+                <th>&nbsp;</th>
+                <th>Unit of Measure</th>
+                <th>&nbsp;</th>
+				<th>Best Unit of Measure</th>
+                <th class="right-align">Unit Price</th>
+                <th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="uom in uomData | itemsPerPage:5 " pagination-id="uom" current-page="uomCurrentPage">
+				<td ng-class="{'highlight': uom.highlight}">
+                    <!--<smart-checkbox class="uomListchk" ng-model="uom.isChecked"></smart-checkbox>-->
+                    <smart-checkbox class="" ng-model="uom.isChecked" on-change="uomListChanged(uom.isChecked)"></smart-checkbox>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(uom)" ng-class="{'invalid-field': uom.convRate.errorMsg}" data-activates='convRate_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!uom.convRate.number">Enter Value</span>
+                            <span ng-if="uom.convRate.number">{{uom.convRate.number}}</span>
+                        </a>
+                        <div id='convRate_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="uom.convRate.number" error-model="uom.convRate.errorMsg" focus="uom.qtyfocus" class="col s12" align="right" on-blur="updatedConvRate()" rules="{{uom.convRate.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}">&nbsp;</td>
+                <td ng-class="{'highlight': uom.highlight}">
+                    <div class="measureCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="uom.measure" options="uom.measureOpt" datakey="name" displaykey="name" on-change="changedMeasure(uom.measure)"></smart-select>
+                    </div>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}">
+                    <span>=</span>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}">
+                    <div class="measureCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="uom.bestMeasure" options="uom.bestMeasureOpt" datakey="name" displaykey="name" on-change="changedBestMeasure(uom.bestMeasure)"></smart-select>
+                    </div>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(uom)" ng-class="{'invalid-field': uom.unitPrice.errorMsg}" data-activates='unitPrice_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!uom.unitPrice.number">Enter Value</span>
+                            <span ng-if="uom.unitPrice.number">{{uom.unitPrice.number}}</span>
+                        </a>
+                        <div id='unitPrice_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="uom.unitPrice.number" error-model="uom.unitPrice.errorMsg" focus="uom.qtyfocus" class="col s12" align="right" on-blur="updatedUnitPrice()" rules="{{uom.unitPrice.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': uom.highlight}">&nbsp;</td>
+			</tr>
+		</tbody>
+	</table>		
+    <div class="clearfix paginationWrapper">
+        <span class="rowsToShow" style="display: none">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+        </span>
+        <dir-pagination-controls pagination-id="uom" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+</div>	

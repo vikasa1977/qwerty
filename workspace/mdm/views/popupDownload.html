@@ -1,0 +1,76 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		<i class="left icon iconSmall grey-text">
+			<svg>
+				<use xlink:href="#icon_Download"></use>
+			</svg>
+		</i>
+		<span class="title">DOWNLOAD</span>
+	</div>
+	<div class="modal-content padding0">
+		<div class="dwnload-popup-container marginBtm10">
+			<div class="dwnload-popup-section dwnload-popup-section-dashed-border">
+				<div class="dwnload-popup-sub-section marginBtm14">
+					<span class="left">SELECT FORMAT FOR DOWNLOAD</span>
+					<i class="left marginLeft10  icon iconSmall blue-text" smart-tooltip message="Price Sheet will always be exported in excel format only" position="bottom">
+						<svg><use xlink:href="#icon_Info"></use></svg>
+					</i>
+				</div>
+				<div class="dwnload-popup-sub-section">
+					<smart-radio gap="true" options="fileType"></smart-radio>
+				</div>
+			</div>
+			<div class="dwnload-popup-section paddingBtm0">
+				<div class="dwnload-popup-sub-section">
+					<span class="left">SELECT ITEMS TO DOWNLOAD</span>
+				</div>
+				<div class="dwnload-popup-sub-section">
+					<smart-checkbox class="left" label="Event Details"></smart-checkbox>
+					<smart-checkbox class="left  marginLeft45" label="All Attachments"></smart-checkbox>
+				</div>
+				<div class="dwnload-popup-sub-section">
+					<div class="left dwnload-popup-pricesheets-section">
+						<div class="marginBtm19">PRICE SHEETS</div>
+						<ul class="dwnload-popup-pricesheets-section-list">
+							<li class="dwnload-popup-pricesheets-section-list-Item" ng-class="{'filled-partial' : fillpartial == true }">
+								<smart-checkbox class="displayInlineBlock" label="All" ng-model="pricesheetHead.check" on-change="onChangePricesheet(pricesheetHead.check)"></smart-checkbox>
+							</li>
+						</ul>
+						<smart-scroll height="113px">
+							<ul class="dwnload-popup-pricesheets-section-list">
+								<li class="dwnload-popup-pricesheets-section-list-Item" ng-repeat="pricesheet in pricesheetList">
+									<smart-checkbox class="displayInlineBlock" label="{{pricesheet.title}}" ng-model="pricesheet.check" on-change="pricesheetListChange(pricesheet.check)"></smart-checkbox>
+								</li>
+							</ul>
+						</smart-scroll>
+					</div>
+					<div class="dwnload-popup-questionaires-section">
+						<div class="marginBtm19">QUESTIONNAIRE</div>
+						<ul class="dwnload-popup-pricesheets-section-list">
+							<li class="dwnload-popup-pricesheets-section-list-Item" ng-class="{'filled-partial' : fillpartialQuestionnaire == true }">
+								<smart-checkbox class="displayInlineBlock" label="All" ng-model="questionnaireHead.check" on-change="onChangeQuestionnaire(questionnaireHead.check)"></smart-checkbox>
+							</li>
+						</ul>
+						<smart-scroll height="113px">
+							<ul class="dwnload-popup-pricesheets-section-list">
+								<li class="dwnload-popup-pricesheets-section-list-Item" ng-repeat="questionnaire in questionnaireList">
+									<smart-checkbox class="displayInlineBlock" label="{{questionnaire.title}}" ng-model="questionnaire.check" on-change="questionnaireListChange(questionnaire.check)"></smart-checkbox>
+								</li>
+							</ul>
+						</smart-scroll>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer modal-footer-normalScroll left">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left" config='{"title":"DOWNLOAD"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

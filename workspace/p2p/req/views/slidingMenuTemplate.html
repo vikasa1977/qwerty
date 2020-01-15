@@ -1,0 +1,27 @@
+<a class="waves-effect waves-block waves-light initialDiv" ng-click="toggleWidgetPanel()">
+	<i class="icon iconSmall" alt="Additional Information">
+		<svg>
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_AdditionMen"></use>
+		</svg> 
+	</i>
+	<span class="ng-binding">Additional Information</span>
+</a>
+
+<ul>
+	<li ng-repeat="item in widgetItems track by $index" ng-click="onSlidingMenuClick(item)">
+		<a class="waves-effect waves-block waves-light">
+			<i class="icon iconSmall tooltipped" data-position="left">
+				<svg>
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_SuggestPart"></use>
+				</svg> 
+			</i>
+			<span>+ </span> 
+			<span class="_optionalFieldLabel ng-binding">{{item.label}}</span>
+		</a>
+		<i class="reactive icon iconSmall">
+			<svg>
+				<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+			</svg> 
+		</i>
+	</li>
+</ul>

@@ -1,0 +1,11 @@
+﻿<div class="row marginBtm0" ng-controller="regionCtrl">		
+    <div class="col s12  paddingTop10 paddingBtm5 input-field">
+        <label class="active" ng-if="selectedRegionNodes.length > 0">Region</label>
+        <a href="javascript:void(0)" ng-click="treeOpenCallback('region')">{{selectedRegionTxt}}</a>
+    </div>		
+	<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div>
+		
+    
+
+   

@@ -1,0 +1,51 @@
+<!--<smart-button callback="buttonclickcallback" config="buttonConfig"></smart-button>-->
+
+<div ng-if="isPopup">
+    <h2 style="text-align:center">SMART HIERARCHY (Pop Up) TEST</h2>
+    
+<smart-button callback="PAS_TREE" config="{'title': 'Open PAS..!!'}"></smart-button>
+
+    
+<smart-button callback="PAS_TREE_again" config="{'title': 'Open PAS AGAIN..!!'}"></smart-button>
+
+
+<smart-button callback="REG_TREE" config="{'title': 'open REG..!!'}"></smart-button>
+
+
+<smart-button callback="BU_TREE" config="{'title': 'Open BU..!!'}"></smart-button>
+
+<smart-button callback="PROJECT_TREE" config="{'title': 'PROJECT..!!'}"></smart-button>
+
+<smart-button flat="true" class="modal-close" config='{"title":"CLEAR CACHE"}' callback="clearCache"></smart-button>
+
+<smart-popup content-url="shared/smartHierarchyRoute/views/smartHierarchyTreeTemplate.html"  
+             show="{{toggleBool}}" 
+			 on-hide="onPopupHideCallback()"
+			 modal-type="large" cancel-button="true"></smart-popup>
+</div>
+
+
+<div ng-if="!isPopup">
+<h2 style="text-align:center">SMART HIERARCHY </h2>
+
+<!--<smart-hierarchy-component config="treeComponentConfig" callback="treeComponentCallback"></smart-hierarchy-component>-->
+
+
+
+<smart-button flat="true" class="modal-close" config='{"title":"GET SELECTIONS"}' callback="getSelections"></smart-button>
+<smart-button flat="true" class="modal-close" config='{"title":"CLEAR CACHE"}' callback="clearCache"></smart-button>
+
+<smart-button flat="true" class="modal-close" config='{"title":"INIT WITH PAS"}' callback="PAS_TREE"></smart-button>
+<smart-button flat="true" class="modal-close" config='{"title":"INIT WITH REGION"}' callback="REG_TREE">
+	
+</smart-button>
+<smart-button flat="true" class="modal-close" config='{"title":"INIT WITH ORG"}' callback="BU_TREE">
+</smart-button>
+
+</div>
+
+
+
+
+
+

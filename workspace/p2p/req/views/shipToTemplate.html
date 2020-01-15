@@ -1,0 +1,28 @@
+<!--<div ng-controller="shipToCtrl">
+
+    <div class="row marginBottom0" ng-show="selectedShipToOption.key == 'headerLevel'">
+        <div class="shipTo1-container">
+            <div class="input-field col s12 m4">
+                <i class="icon iconSmall iconFix second-icon" data-ng-click="showLocationPopupFn()" smart-tooltip position="bottom" delay="250" message="Add Adhoc Location">
+                    <svg>
+                        <use xlink:href="#icon_Location"></use>
+                    </svg>
+                </i>
+                <input id="entity_name" type="text" class="validate" data-ng-focus="showLocationPopupFn()" ng-model="shipTo">
+                <label for="entity_name" class="ng-binding">Ship To</label>
+            </div>
+            <smart-textfield disable="true" class="col s12 m6" label="Ship To Address" ng-if="showShiptoAddress" ng-model="shipToAddress"></smart-textfield>
+        </div>
+
+    </div>
+    <smart-popup template-url="p2p/req/views/shipToPopup.html" show="{{ showLocationPopup }}" on-hide="showLocationPopupClBack()"></smart-popup>
+
+</div>-->
+
+<div ng-controller="popupShipToCtrl">
+    <smart-typeahead class="col s6 m6 l3 xl3 xxl3" multiselect="false" addnew="true" show-lookup="true"  ng-model="selected" options="options" filterkeys="['shipTo']" label="{{typeaheadLabel}}" callback-on-icon-click="callAfterClickedOnRightSideIcon(e)"  call-add-new="showLocationPopupFn(e)"></smart-typeahead>
+    <smart-textfield class="col s12 m12 l9 xl9 xl9" label="Ship To Address" readonly="true" ng-model="selected.shipToAdd"></smart-textfield>
+
+	 <smart-popup template-url="p2p/req/views/shipToPopup.html" show="{{ showLocationPopup }}" on-hide="showLocationPopupClBack()"></smart-popup>
+
+</div>

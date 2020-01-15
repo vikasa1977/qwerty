@@ -1,0 +1,27 @@
+<div ng-repeat="d in dataModel" ng-init="dataModelIndex = $index" ng-class="{'relative': !useWithFormWidget}">
+    <div class="questionnaire-section-header" ng-if="d.sectionName">
+        <div class="questionnaire-section-header-cnt">
+            <div class="questionnaire-section-header-section-name">
+                {{ d.sectionName }}
+            </div>
+        </div>
+    </div>
+    <smart-dropdown config="{{dropDownConfig}}" fixed="true" ng-class="{'opt-field-dd-pos-in-form-widget': useWithFormWidget, 'opt-field-dd-pos-not-in-form-widget': !useWithFormWidget}" ng-if="d.optFieldList.length > 0">
+        <a href="javaScript:void(0)" class="dropdown-button blue-text" data-activates="additionalFields-{{d.uID}}" data-constrainwidth="false" data-alignment="right">
+            <i class="icon iconSmall" smart-tooltip position="bottom" message="Additional Fields">
+                <svg><use xlink:href="#icon_AdditionMen"></use></svg>
+            </i>
+        </a>
+        <ul id="additionalFields-{{d.uID}}" class="dropdown-content dd-close-off section-opts-ddcnt optional-list">
+            <li class="relative optionalFieldTigger" ng-repeat="optF in d.optFieldList" ng-class="{'selected': optF.isVisible}">
+                <a href="javascript:void(0)" ng-click="onOptionalFieldClick(optF)" class="black-text _optionalFieldLabel truncate">{{optF.title}}</a>
+                <i class="widget-option-field icon iconSmall ng-scope" ng-show="optF.isVisible" ng-click="onOptionalFieldClick(optF)">
+                    <svg><use xlink:href="#icon_Close"></use></svg>
+                </i>
+            </li>
+        </ul>
+    </smart-dropdown>
+    <div ng-repeat="item in d.levels" ng-init="levelIndex = $index" ng-class="{ 'marginBtm15 levelSeprator' :  !($last), 'formWidgetCustomAttrWrapper' : useWithFormWidget }">
+        <div ng-include="'shared/directives/customField/customFieldInfoTemplate.html'" class="questionnaire-section margin0 clearfix"></div>
+    </div>
+</div>

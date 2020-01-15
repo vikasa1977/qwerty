@@ -1,0 +1,190 @@
+<div class="dragdropcontainer">
+    <script id="info.html" type="text/ng-template">
+        <div class="padding10">
+            {{docDiscription.fileSupport}}
+        </div>
+    </script>
+    <div ngf-drop ngf-select ng-model="files"
+         ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true" accept="image/*,application/pdf" 
+        ngf-pattern="'image/*,application/pdf'" ngf-max-size="20MB" ngf-model-invalid="invalidFiles">
+
+        <div class="drop-box-placeholder"></div>
+        <div class="row marginBtm0">
+            <div class="col s12">
+                <div class="box-input-small-height" ng-class="!newFile.length ? 'dragdropplaceholder' : 'paddingTop15'">
+                    <div class="valign center">
+                        <div class="file-field input-field marginBtm5">
+                            <span>Drag file here or</span>
+                            <a href="javascript:void()" ngf-select="upload($files)" ngf-multiple="true" class="blue-text" accept="image/*,application/pdf"
+                                ngf-pattern="'image/*,application/pdf'" ngf-max-size="20MB" ngf-model-invalid="invalidFiles">{{docDiscription.docName || 'browse'}}</a>
+                            <smart-textfield ng-hide="true" type="file"></smart-textfield>
+                            <span>to attach</span>
+                        </div>
+                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+
+                        <div class="file-field input-field">
+                            <span>Files size limit: {{docDiscription.fileSize || '5MB'}} each | File limit: {{docDiscription.fileLimit || '5'}} | supported files <a class="section-table-title-icon" href="javascript:void(0)" smart-infotip position="top" template-url="info.html" mode="mouseover"><i class="icon iconSmall blue-text"><svg><use xlink:href="#icon_Info"></use></svg></i></a></span>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" ng-if="newFile.length">
+        <div class="uploaded-file-list marginTop0">
+            <table class="borderTopLight sTable fixedTbl">
+                <colgroup>
+                    <col style="width:30%">
+                    <col style="width:25%">
+                    <col style="width:15%">
+                    <col style="width:10%">
+                    <col style="width:20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th >
+                            <span class="">{{'File name' | translate}}</span>
+                        </th>
+                        <th >
+                            <span class="">{{'File Title' || translate}}</span>
+                        </th>
+                        <th >
+                            <span class="">{{'File Size' || translate}}</span>
+                        </th>
+                        <th >
+                            <span class="">{{'Status' || translate}}</span>
+                        </th>
+                        <th class="right" ng-class="{'make-it-disabled ': attachmentStatus() != 'success'}">
+                            <a href="javascript:void(0)">
+                                <i smart-tooltip position="bottom" message="Download All" class="icon iconSmall center blue-text marginRight10">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </a>
+                            <a href="javascript:void(0)" ng-click="attachmentStatus() === 'success' && deleteattchmentFn()">
+                                <i smart-tooltip position="bottom" message="Delete All" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <smart-scroll height="180px">
+                <table class="bordered sTable fixedTbl">
+                    <colgroup>
+                        <col style="width:30%">
+                        <col style="width:25%">
+                        <col style="width:15%">
+                        <col style="width:10%">
+                        <col style="width:20%">
+                    </colgroup>
+                    <tbody>
+                        <tr ng-repeat="attachment in newFile">
+                            <td class="relative paddingLeft20" ng-class="{'make-it-disabled ': attachment.status == 'loading'}">
+                                <span title="{{attachment.fileName}}{{attachment.extn}}" class="relative">
+                                    <span class="truncate attachment-title add-attachment-width">{{attachment.fileName}}</span>
+                                    <span class="attachment-title">.{{attachment.extn}}</span>
+                                </span>
+
+                                <span class="truncate attachmentcontainer-header-errortext" ng-if="attachment.status == 'fail'">{{attachment.errorMsg}}</span>
+
+                            </td>
+                            <td >
+                                <div ng-if="attachment.status == 'success'" class="truncate" title="{{attachment.title}}">
+                                    <smart-dropdown fixed="true">
+                                        <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-'+$index);" href='javascript:void(0)' data-activates='dropdowngrid-{{$index}}' data-constrainwidth="false">
+                                            {{ attachment.title || 'Add Title' }}
+                                        </a>
+                                        <div id="dropdowngrid-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-textfield focus="attachment.isFocus" placeholder="Please Enter" type="text" ng-model="attachment.title"></smart-textfield>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+                                <div class="make-it-disabled" ng-if="attachmentStatus() != 'success'">
+                                    <span>--</span>
+                                </div>
+                            </td>
+                            <td >
+                                <div ng-if="attachment.status == 'success'">
+                                    <span>{{attachment.size}}</span>
+                                </div>
+                                <div class="make-it-disabled" ng-if="attachmentStatus() != 'success'">
+                                    <span>--</span>
+                                </div>
+                            </td>
+                            <td class="paddingLeft18">
+                                <div ng-if="attachment.status === 'fail'">
+                                    <i smart-infotip position="left" message="Fail" mode="mouseover">
+                                        <svg height="20px" width="25px">
+                                            <circle cx="10" cy="12" r="8" fill="#d63d3d"></circle>
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div ng-if="attachment.status === 'success'">
+                                    <i smart-infotip position="left" message="Success" mode="mouseover">
+                                        <svg height="20px" width="25px">
+                                            <circle cx="10" cy="12" r="8" fill="#268406"></circle>
+                                        </svg>
+                                        </i>
+                                </div>
+                                <div class="circle-loading-container marginLeft0" ng-if="attachment.status == 'loading'">
+                                    <div class="marginLeft0 circle-loading-container attachfileloader">
+                                        <div class="preloader-wrapper x-small active ">
+                                            <div class="spinner-layer spinner-yellow-only">
+                                                <div class="circle-clipper circle-clipper--x left">
+                                                    <div class="circle"></div>
+                                                </div><div class="gap-patch">
+                                                    <div class="circle"></div>
+                                                </div><div class="circle-clipper circle-clipper--x right">
+                                                    <div class="circle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td class="right">
+                                <a ng-if="attachment.status === 'success'" href="javascript:void(0)" ng-click="downloadAttachment()">
+                                    <i smart-tooltip position="bottom" message="Download" class="icon iconSmall center blue-text marginRight10">
+                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                    </i>
+                                </a>
+                                <a ng-if="attachment.status === 'fail'" href="javascript:void(0)" ng-click="downloadAttachment()">
+                                    <i smart-tooltip position="bottom" message="Retry" class="icon iconSmall center blue-text marginRight10">
+                                        <svg><use xlink:href="#icon_Reset"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" ng-click="deleteattchmentFn($index,'single')">
+                                    <i smart-tooltip position="bottom" message="Delete" class="icon iconSmall center blue-text">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </smart-scroll>
+
+            
+        </div>
+
+
+        
+        <!--<div style="display:none;">
+            <div class="percent">{{progress}}%</div>
+            <div class="progress-bar">
+                <div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+            </div>
+        </div>-->
+
+
+    </div>
+</div>
+

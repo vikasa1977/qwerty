@@ -1,0 +1,117 @@
+﻿/*collection with no border*/
+.collection.no-outer-border {
+	border: none;
+}
+
+.collection.noBorder {
+	border: none;
+}
+
+.collection {
+	overflow: visible;
+
+	&.no-outer-border {
+		border: none;
+	}
+
+	&.noBorder {
+		border: none;
+
+		.collection-item {
+			border-bottom: none;
+		}
+	}
+    .collection-title-font-size-medium {
+        
+            font-size:1rem
+       }
+	/* SEARCH RIGHT SIDE SPACING - ADD LINE FROM LOOKUP */
+	.searchSlideMain {
+		.searchWithHiddenTextField{
+			width:1.8em;
+		}
+
+		.searchWithHiddenTextField {
+			.cancel-icon{
+				right:-6px;
+			}
+		}
+
+		.searchWithHiddenTextField.active{
+			width:100%
+		}
+
+		.searchWithHiddenTextField {
+			.input-field{
+				transition:none;
+               
+			}
+
+			input[type=text]{transition:none;}
+		}
+	}
+	/* SEARCH RIGHT SIDE SPACING - ADD LINE FROM LOOKUP ENDS */
+}
+/*collection with no border*/
+
+.collection {
+	.collection-item {
+		.secondary-content {
+			position: absolute;
+			top: 10px;
+			right: 17px;
+		}
+
+        .secondary-status {
+			position: absolute;
+			top: 10px;
+			right: 60px;
+		}
+
+		/*&.avatar {
+			.circle {
+				&.requisition {
+					background: #329c91 !important;
+				}
+
+				&.rfx-request {
+					background: #cc9933;
+				}
+
+				&.contract {
+					background: #66cc66;
+				}
+                &.rfx {
+                    background: rgba(224, 224, 224, 0.38);
+                }
+			}
+		}*/
+
+		&.waves-effect {
+			display: block;
+		}
+	}
+}
+.s-c--closest-top{top:4px!important;}
+
+
+/*------------------------------------*\
+	#added inline list
+\*------------------------------------*/
+.inlineList {
+    padding:1.071rem 0;
+
+    .inlineList-item {
+        padding:0.7143rem 1.429rem;
+
+        /*&:hover{
+            background-color:#eee;
+            transition:all 0.5s ease-in-out;
+        }*/
+    }
+} 
+
+ .collection li.collection-item.avatar i.circle {color:#fff !important;line-height: 32px !important;}
+ .collection .is-added .collecton-item-secondary-text-wrapper{color:#a2a2a2;}
+ .collection.collection-with-right-icon .collection-item {padding-right:55px;}
+.hideHorizontalScroll ul.collection {overflow-x: hidden !important;}

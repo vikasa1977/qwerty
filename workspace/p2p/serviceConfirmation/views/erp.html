@@ -1,0 +1,87 @@
+<div ng-controller="contractErpCtrl">
+    <div class="panelBox-body"  ng-show="erpData.length">
+        <div class="row marginBtm0 borderTopLight">
+            <div class="clearfix secContentWithBorder fontSize12">
+                <div class="right ">
+                    <a href="javascript:void(0)" class="marginLeft10 right" smart-tooltip message="Add" position="bottom"  ng-click="showScorecardEvaluatorPopupCallback()">
+                        <i class="icon  right blue-text">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':erpFullTableDelete}" smart-tooltip message="Delete Selected" position="bottom" ng-click="erpAllDelete()">
+                        <i class="icon  right blue-text">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+
+                        </i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+                <smart-scroll>
+                    <table class="bordered sTable erp-data">
+                        <thead>
+                            <tr>
+                                <th class="table-header-checkbox erpTableCheckBox" width="35px">
+                                    <smart-checkbox ng-model="selectAllErp.checkedAll" smart-selectall data="erpData|.isDataCheck" checker-flag="isChecked" get-checkbox-info="getDataCheckInfo()"></smart-checkbox>
+                                </th>
+                                <th>PO Line</th>
+                                <th>Type</th>
+                                <th>Service Description</th>
+                                <th>Activity</th>
+                                <th>Status</th>
+                                <th>Amount(USD)</th>
+                                <th>Completion Date</th>
+                                <th>Completion Date</th>
+                                <th>Completion Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="data in erpData | itemsPerPage: rowsToShowOpts.selectedOption.size | orderBy:sortKey:reverse" pagination-id="teamMember">
+                                <td><smart-checkbox class="isDataCheck" ng-model="data.isChecked"></smart-checkbox></td>
+                                <td>{{data.poNumber}}</td>
+                                <td>{{data.typeFixed}}</td>
+                                <td>{{data.serviceDescription}}</td>
+                                <td class="relative">{{data.activity}}</td>
+                                <td>{{data.status}}</td>
+                                <td>{{data.amountUSD}}</td>
+                                <td>{{data.completeDate}}</td>
+                                <td>{{data.completeDate2}}</td>
+                                <td>{{data.completeDate3}}</td>
+                                <!--<td>{{data.supplierCode}}</td>
+							<td>{{data.ecn}}
+                                <td>{{data.ecn}}</
+                                <td>{{data.ecn}}</td>
+                                <td><p class="manage-row-height"><span class="{{data.color}}">{{data.log}}</span> <a href="javascript:void(0)" class="fontSize12 displayBlock">{{data.errorLog}}</a></p></td>-->
+                                <td class="right-align changeIconsTd">
+                                    <span>
+                                        <a href="javascript:void(0)" class="right" smart-tooltip message="Delete" position="bottom" ng-click="deleteerpData($index)">
+                                            <i class="icon  right blue-text">
+                                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                            </i>
+                                        </a>
+                                    </span>
+                                    <span>
+                                        <a href="javascript:void(0);" smart-tooltip message="Edit" position="bottom" class="editIcon" ng-click="erpDetail()">
+                                            <i class="icon">
+                                                <svg><use xlink:href="#icon_ToEdit"></use></svg>
+                                            </i>
+                                        </a>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </smart-scroll>
+                        <div class="clearfix paginationWrapper savable">
+                            <span class="rowsToShow" style="display:none">
+                                Rows per page:
+                                <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+                            </span>
+                            <dir-pagination-controls pagination-id="teamMember" max-size="6" direction-links="true" boundary-links="true" on-page-change="pageChanged()"></dir-pagination-controls>
+                        </div>
+</div>
+    <smart-popup template-url="p2p/serviceConfirmation/views/popupScorecardEvaluator.html" show="{{showscorecardEvaluatorPopup}}" on-hide="onscorecardEvaluatorPopupHide()" type="medium"></smart-popup>
+            <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+            <smart-popup template-url="shared/popup/views/popupERPSupplierLocation.html" show="{{showERPSupplierLocationPopup}}" on-hide="onERPSupplierLocationHideCallback()" cancel-button="true"></smart-popup>
+        </div>

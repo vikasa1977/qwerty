@@ -1,0 +1,1450 @@
+{
+  "dataModel": {
+    "setup": {
+      "documentNo": "190892",
+      "documentName": "Procurement Profile",
+     "purchaseTypeDesc": {
+        "PurchaseTypeId": 1,
+        "Description": "Standard",
+        "IsDefault": false,
+        "IsFlexibleCharge": false
+      },
+      "lineTypes": {
+        "label": "Line Types",
+        "displaytext": "name",
+          "selected": "",
+          "selectedoption": { "name": "" },
+        "errorMsg": "",
+        "options": [
+          { "name": "Material" },
+          { "name": "Services" },
+          { "name": "Fixed Variable" }
+        ],
+        "readonly": false,
+        "mandatory": false
+      },
+      "brand": {
+        "label": "Brand",
+        "selected": "",
+        "options": [
+          {
+            "id": 28360,
+            "title": "Lorem Ipsum"
+          },
+          {
+            "id": 28361,
+            "title": "Lorem Ipsum"
+          }
+        ],
+        "mandatory": true
+      },
+      "operatingUnit": {
+        "label": "Operating Unit",
+        "selected": "",
+        "options": [
+          {
+            "id": 28360,
+            "title": "Lorem Ipsum"
+          },
+          {
+            "id": 28361,
+            "title": "Lorem Ipsum"
+          }
+        ],
+        "mandatory": true
+      },
+      "store": {
+        "label": "Store/Corp",
+        "selected": "",
+        "options": [
+          {
+            "id": 28360,
+            "title": "Lorem Ipsum"
+          },
+          {
+            "id": 28361,
+            "title": "Lorem Ipsum"
+          }
+        ],
+        "mandatory": true
+      },
+      "currency": { "title": "USD" },
+      "requestorName": "",
+      "urgent": false
+    },
+    "orderData": {
+      "shippingMethod": "",
+      "incoTerms": "",
+      "deliveryPoint": ""
+    },
+       "delivaryNInvoicingDetails": {
+        "label": "Shift From",
+         "locationAddress":"7th Floor, Building 3 Plot # 3 TTC Industrial Area MIDC Thane Belapur Road Airoli Navi Mumbai 400 708",
+         "selected":  {
+            "id": 28360,
+            "title": "Mumbai"
+          },
+        "options": [
+          {
+            "id": 28360,
+            "title": "Mumbai"
+          },
+          {
+            "id": 28361,
+            "title": "Delhi"
+          },
+          {
+            "id": 28362,
+            "title": "chennai"
+          },
+          {
+            "id": 28363,
+            "title": "Hyderabad"
+          }
+        ],
+        "mandatory": false
+    },
+    "supplierDetails": {
+      "faxNo": "3234234",
+      "location": "London",
+      "sourceSystem": "3463",
+      "LocationReferenceCode": "7373",
+      "OrderingLocation": {
+        "label": "Ordering Location",
+         "locationAddress":"7th Floor, Building 3 Plot # 3 TTC Industrial Area MIDC Thane Belapur Road Airoli Navi Mumbai 400 708",
+         "selected":  {
+            "id": 28360,
+            "title": "Mumbai"
+          },
+        "options": [
+          {
+            "id": 28360,
+            "title": "Mumbai"
+          },
+          {
+            "id": 28361,
+            "title": "Delhi"
+          },
+          {
+            "id": 28362,
+            "title": "chennai"
+          },
+          {
+            "id": 28363,
+            "title": "Hyderabad"
+          }
+        ],
+        "mandatory": false
+      },
+      "RemitToLocation": "Delhi"
+    },
+    "terms": {
+      "paymentTerms": {
+        "label": "Payment Terms",
+        "selected": "",
+        "options": [
+          {
+            "id": 28360,
+            "title": "K000-Due Immediately"
+          },
+          {
+            "id": 28361,
+            "title": "K001-Due Immediately, Baseline End of Next Month"
+          },
+          {
+            "id": 28362,
+            "title": "K002-Net 45 days from End of Month"
+          },
+          {
+            "id": 28363,
+            "title": "K003-Net 8 days from End of Month"
+          },
+          {
+            "id": 28364,
+            "title": "K004-Net 2 Months from End of Month"
+          },
+          {
+            "id": 28365,
+            "title": "K005-Net on 15th of the next Month"
+          },
+          {
+            "id": 28366,
+            "title": "K006-Net 20 days from End of Month"
+          },
+          {
+            "id": 28360,
+            "title": "K007-0.5% 15, Net 30"
+          },
+          {
+            "id": 28360,
+            "title": "K008-Net 8 Days"
+          },
+          {
+            "id": 28360,
+            "title": "K009-0.5% 10, Net 30"
+          },
+          {
+            "id": 28360,
+            "title": "K010-Net 10 Days"
+          }
+        ],
+        "mandatory": false
+      },
+      "incoTerms": {
+        "label": "Inco Terms",
+        "selected": "",
+        "options": [
+          {
+            "id": 28360,
+            "title": "CO - Collect"
+          },
+          {
+            "id": 28361,
+            "title": "DAP - Delivered at Place"
+          },
+          {
+            "id": 28362,
+            "title": "FCA - Free Carrier"
+          },
+          {
+            "id": 28363,
+            "title": "FH - Free house"
+          },
+          {
+            "id": 28364,
+            "title": "AD1 - Pre-Paid and Add"
+          },
+          {
+            "id": 28365,
+            "title": "AD2 - Pre-Paid and Add"
+          },
+          {
+            "id": 28366,
+            "title": "CFR - Costs and freight"
+          },
+          {
+            "id": 28360,
+            "title": "CIF - Costs, insurance & freight"
+          },
+          {
+            "id": 28360,
+            "title": "CIP - Carriage and insurance paid to"
+          },
+          {
+            "id": 28360,
+            "title": "CO_deleted – Collect"
+          }
+        ],
+        "mandatory": false
+      }
+    },
+    "additionalInfo": {
+      "data": [
+        {
+          "id": 1,
+          "sectionName": "",
+          "levels": [
+            {
+              "levelName": "Header Level",
+              "levelType": "headerlevel",
+              "questions": [
+                {
+                  "mandatory": false,
+                  "isVisible":  true,
+                  "question": "Work Order Type",
+                  "type": "single-text",
+                  "questionResponse": "",
+                  "options": [ ]
+                },
+                {
+                  "mandatory": false,
+                  "isVisible":  true,
+                  "question": "ERP Order Number",
+                  "type": "single-response-radio",
+                  "questionResponse": "",
+                  "options": [
+                    {
+                      "code": "A",
+                      "name": "Option A"
+                    },
+                    {
+                      "code": "B",
+                      "name": "Option B"
+                    }
+                  ]
+                },
+                {
+                  "mandatory": false,
+                  "isVisible":  true,
+                  "question": "Urgent",
+                  "type": "multi-response",
+                  "questionResponse": "",
+                  "options": [
+                    {
+                      "label": "Urgent",
+                      "data": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "levelName": "Line Level",
+              "levelType": "linelevel",
+              "questions": [
+                {
+                  "mandatory": false,
+                  "isVisible":  true,
+                  "question": "Item Description",
+                  "type": "multi-text",
+                  "questionResponse": "",
+                  "options": [ ]
+                },
+                {
+                  "mandatory": false,
+                  "isVisible":  true,
+                  "question": "Enter Order Number",
+                  "type": "multi-text-with-icon",
+                  "questionResponse": "",
+                  "icon": "#icon_Info",
+                  "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                  "options": [ ]
+
+                }
+              ]
+            }]
+        }
+      ]
+    },
+      "LineLeveladditionalInfo": [
+      {
+        "title": "Dell Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "Section 1",
+            "levels": [
+              {
+                "levelType": "headerlevel",
+                "levelName": "Header Level",
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Work Order Type",
+                    "type": "single-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "ERP Order Number ",
+                    "type": "single-response-radio",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Urgent",
+                    "type": "multi-response",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "label": "Urgent",
+                        "data": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "levelType": "linelevel",
+                "levelName": "Line Level",
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Item Description",
+                    "type": "multi-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Enter Order Number",
+                    "type": "multi-text-with-icon",
+                    "icon": "#icon_Info",
+                    "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                    "questionResponse": "",
+                    "options": [ ]
+                  }
+                ]
+              }
+            ]
+
+          },
+          {
+            "id": 2,
+            "sectionName": "Section 2",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "loram ispum",
+                    "type": "single-response-drop",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Add Date",
+                    "type": "date-time",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "question": "Please provide us your Order numbers associated with the current document.(separated by comma)",
+                    "type": "multi-text-format",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Add Item Number",
+                    "type": "numeric",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Add Attachment",
+                    "type": "attachment-only",
+                    "questionResponse": "",
+                    "options": [ ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "sectionName": "Section 3",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "question": "Question with SubQuestion multi-numeric",
+                    "type": "multi-numeric",
+
+                    "options": [ ],
+                    "questionResponse": [
+                      {
+                        "question": "sub Question 1",
+                        "type": "numeric",
+                        "questionResponse": ""
+                      },
+                      {
+                        "question": "sub Question 2",
+                        "type": "numeric",
+                        "questionResponse": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "sectionName": "Section 4",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "question": "Grid type combination",
+                    "type": "grid-type-combination",
+                    "options": [ ],
+                    "questionResponse": {
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "title": "row 1",
+                          "cols": [
+                            {
+                              "title": "col 1",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Checkbox"
+                                },
+                                "check": false
+                              }
+
+                            },
+                            {
+                              "title": "col 2",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Dropdown"
+                                },
+                                "check": false,
+                                "configSelect": "",
+                                "config": [
+                                  {
+                                    "name": "Option 1"
+                                  },
+                                  {
+                                    "name": "Option 2"
+                                  }
+                                ]
+                              }
+
+                            }
+                          ]
+                        },
+                        {
+                          "title": "row 2",
+                          "cols": [
+                            {
+                              "title": "col 1",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Checkbox"
+                                },
+                                "check": false
+                              }
+
+                            },
+                            {
+                              "title": "col 2",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Dropdown"
+                                },
+                                "check": false,
+                                "configSelect": "",
+                                "config": [
+                                  {
+                                    "name": "Option 1"
+                                  },
+                                  {
+                                    "name": "Option 2"
+                                  }
+                                ]
+                              }
+
+                            }
+                          ]
+                        },
+                        {
+                          "title": "row 3",
+                          "cols": [
+                            {
+                              "title": "col 1",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Checkbox"
+                                },
+                                "check": false
+                              }
+
+                            },
+                            {
+                              "title": "col 2",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Dropdown"
+                                },
+                                "check": false,
+                                "configSelect": "",
+                                "config": [
+                                  {
+                                    "name": "Option 1"
+                                  },
+                                  {
+                                    "name": "Option 2"
+                                  }
+                                ]
+                              }
+
+                            }
+                          ]
+                        },
+                        {
+                          "title": "row 4",
+                          "cols": [
+                            {
+                              "title": "col 1",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Checkbox"
+                                },
+                                "check": false
+                              }
+
+                            },
+                            {
+                              "title": "col 2",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Dropdown"
+                                },
+                                "check": false,
+                                "configSelect": "",
+                                "config": [
+                                  {
+                                    "name": "Option 1"
+                                  },
+                                  {
+                                    "name": "Option 2"
+                                  }
+                                ]
+                              }
+
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "sectionName": "Section 5",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "question": "Table Type",
+                    "type": "grid-type-wrow-combination",
+                    "options": [ ],
+                    "questionResponse": {
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "cols": [
+                            {
+                              "title": "col 1",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Text field"
+                                },
+                                "Textfield": ""
+                              }
+
+                            },
+                            {
+                              "title": "col 2",
+                              "type": {
+                                "SelectedType": {
+                                  "name": "Text field"
+                                },
+                                "Textfield": ""
+                              }
+
+                            }
+                          ]
+
+
+
+                        }
+                      ]
+
+                    }
+                  },
+
+                  {
+                    "question": "List box",
+                    "type": "list-box",
+                    "options": [ ],
+                    "questionResponse": {
+                      "selected": [ ],
+                      "config": [
+                        {
+                          "title": "Option 01",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 02",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 03",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 04",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 05",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 06",
+                          "isChecked:": false
+                        },
+                        {
+                          "title": "Option 07",
+                          "isChecked:": false
+                        }
+                      ]
+
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Lenovo Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "Lenovo Section 1",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Work Order Type",
+                    "type": "single-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "ERP Order Number ",
+                    "type": "single-response-radio",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Urgent",
+                    "type": "multi-response",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "label": "Urgent",
+                        "data": ""
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Item Description",
+                    "type": "multi-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Enter Order Number",
+                    "type": "multi-text-with-icon",
+                    "icon": "#icon_Info",
+                    "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                    "questionResponse": "",
+                    "options": [ ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Asus Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "Asus Section 1",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Work Order Type",
+                    "type": "single-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "ERP Order Number ",
+                    "type": "single-response-radio",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Urgent",
+                    "type": "multi-response",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "label": "Urgent",
+                        "data": ""
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Item Description",
+                    "type": "multi-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Enter Order Number",
+                    "type": "multi-text-with-icon",
+                    "icon": "#icon_Info",
+                    "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                    "questionResponse": "",
+                    "options": [ ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "IBM Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "IBM Section 1",
+            "levels": [
+              {
+                "questions": [
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Work Order Type",
+                    "type": "single-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "ERP Order Number ",
+                    "type": "single-response-radio",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "code": "A",
+                        "name": "Option A"
+                      },
+                      {
+                        "code": "B",
+                        "name": "Option B"
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Urgent",
+                    "type": "multi-response",
+                    "questionResponse": "",
+                    "options": [
+                      {
+                        "label": "Urgent",
+                        "data": ""
+                      }
+                    ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Item Description",
+                    "type": "multi-text",
+                    "questionResponse": "",
+                    "options": [ ]
+                  },
+                  {
+                    "mandatory": false,
+                    "isVisible": true,
+                    "question": "Enter Order Number",
+                    "type": "multi-text-with-icon",
+                    "icon": "#icon_Info",
+                    "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                    "questionResponse": "",
+                    "options": [ ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "formConfig": {
+    "sections": [
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": true,
+        "isDraggable": true,
+        "rows": [
+          {
+            "colspan": 12,
+            "properties": [
+              {
+                "label": "Profile Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.documentName",
+                "focus": true,
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Purchase Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": false,
+                "isVisible": true,
+                "data": "purchaseTypeDesc",
+                "attributes": {
+                  "options": [
+                    {
+                      "PurchaseTypeId": 1,
+                      "Description": "Standard",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 2,
+                      "Description": "Service Milestone",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 3,
+                      "Description": "Flexible Charge",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": true
+                    },
+                    {
+                      "PurchaseTypeId": 1,
+                      "Description": "Material Only",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 4,
+                      "Description": "Material and services",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 5,
+                      "Description": "Combination",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 6,
+                      "Description": "Advance Payments",
+                      "IsDefault": true,
+                      "IsFlexibleCharge": false
+                    }
+                  ],
+                  "datakey": "Description"
+                }
+              },
+              {
+                "label": "Brand",
+                "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "setup.brand",
+                "templateUrl": "p2p/procurementProfile/views/termsFieldsTemplate.html"
+              },
+              {
+                "label": "Operating Unit",
+                "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "setup.operatingUnit",
+                "templateUrl": "p2p/procurementProfile/views/termsFieldsTemplate.html"
+              },
+              {
+                "label": "Store/Corp",
+                "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "setup.store",
+                "templateUrl": "p2p/procurementProfile/views/termsFieldsTemplate.html"
+              },
+              {
+                "label": "Line Type",
+                 "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": false,
+                "data": "setup.lineTypes",
+               "templateUrl": "p2p/procurementProfile/views/lineTypeTemplate.html"
+              },
+              {
+                "label": "Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": false,
+                "isVisible": true,
+                "data": "setup.currency",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "USD",
+                      "selected": true
+                    },
+                    {
+                      "title": "DNY"
+                    },
+                    {
+                      "title": "RUPEE"
+                    }
+                  ],
+                  "readonly": false,
+                  "maxlength": 10
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Requestor's Name",
+                "type": "textfield",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": false,
+                "data": "setup.requestorName",
+                "attributes": {
+                  "readonly": false,
+                  "maxlength": 100
+                }
+              },
+              {
+                "label": "Mark as Urgent",
+                "type": "checkbox",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": false,
+                "data": "setup.urgent",
+                "attributes": {
+                  "readonly": false,
+                  "fill": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Delivery & Invoicing Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+           {
+            "properties": [{
+              "label": "Shipping Method ",
+              "type": "dropdown",
+              "editable": true,
+                "isVisible": true,
+              "isMandatory": false,
+              "data": "orderData.shippingMethod",
+              "attributes": {
+                "options": [
+                  {
+                    "code": "",
+                    "name": "Lorem Ipsum"
+                  },
+                  {
+                    "code": "3w",
+                    "name": "Lorem Ipsum"
+                  }
+                ],
+                "datakey": "name"
+              }
+            }]
+          },
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isVisible": true,
+                "isMandatory": false,
+                "data": "items",
+                "templateUrl": "p2p/req/views/shipToTemplate.html"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "label": "ship from",
+                "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": false,
+                "colspan": 6,
+                "data": "delivaryNInvoicingDetails",
+                "templateUrl": "p2p/procurementProfile/views/orderLocationTemplate.html"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "label": "Deliver To",
+                "colspan": 6,
+                "type": "subsection",
+                  "isVisible": true,
+             "isMandatory": false,
+                "data": "blank",
+                "templateUrl": "p2p/procurementProfile/views/deliverToTemplate.html"
+              },
+              {
+                "label": "Bill To",
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": false,
+                "data": "blank",
+                "templateUrl": "p2p/req/views/billToTemplate.html"
+              }
+            
+            ]
+          }
+        ]
+      },
+       {
+        "label": "Supplier Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Supplier Name",
+                "editable": true,
+                 "isVisible": true,
+                "isMandatory": false,
+                "data": "orderData.PartnerName",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/supplierFieldTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Ordering Location",
+                "type": "subsection",
+                "editable": true,
+                "isVisible": true,
+                "isMandatory": false,
+                  "colspan": 6,
+                "data": "supplierDetails.OrderingLocation",
+                "templateUrl": "p2p/procurementProfile/views/orderLocationTemplate.html"
+              },
+              {
+            "properties": [
+              {
+                 "colspan": 6,
+                   "type": "subsection",
+                    "isVisible": true,
+                   "isMandatory": false,
+                     "data": "items",
+                      "templateUrl": "p2p/req/views/shipToTemplate.html"
+                       }
+                   ]
+               },
+              {
+                "label": "Supplier Contact",
+                "editable": true,
+                  "isVisible": true,
+                "isMandatory": false,
+                "data": "orderData.PartnerContactName",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/supplierContactTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Terms",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "isVisible": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Payment Terms",
+                "editable": true,
+                  "isVisible": true,
+                "isMandatory": false,
+                "data": "terms.paymentTerms",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/procurementProfile/views/termsFieldsTemplate.html"
+              },
+              {
+                "label": "Inco Terms",
+                "editable": true,
+                 "isVisible": true,
+                "isMandatory": false,
+                "data": "terms.incoTerms",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/procurementProfile/views/termsFieldsTemplate.html"
+              },
+              {
+                "label": "Delivery Point",
+                "type": "textfield",
+                "editable": true,
+                  "isVisible": true,
+                "isMandatory": false,
+                "data": "orderData.deliveryPoint"
+              }
+            ]
+          }
+        ]
+      },
+     {
+        "label": "Addiitional Information",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "headerTemplate": "p2p/req/views/additionalInfoHeader.html",
+        "isHeader": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "templateUrl": "p2p/procurementProfile/views/additionalInformation.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Accounting Details",
+        "isVisible": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+           {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "controller":"accountDetailsCtrl",
+                "templateUrl": "p2p/procurementProfile/views/accountDetailsTemp.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Line Type Specific Details",
+        "isVisible": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "controller":"lineTypeSpecificDetailCtrl",
+                "templateUrl": "p2p/procurementProfile/views/lineTypeSpecificDetailTemp.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "isSequenceToBeMaintained": true
+}

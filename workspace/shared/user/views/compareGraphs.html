@@ -1,0 +1,69 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+  <div class="col s12">
+    <div class="extra-nav-title">
+      <a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back">
+        <i class="icon small ">
+          <svg>
+            <use xlink:href="#icon_Back"></use>
+          </svg>
+        </i>
+      </a>
+      <i class="icon small extra-nav-title--icon">
+        <svg>
+          <use xlink:href="#icon_Compare"></use>
+        </svg>
+      </i>
+      <span class="extra-nav-title--text ng-cloak">COMPARE</span>
+
+    </div>
+    <i class="icon small" style="float: right;padding: 10px 15px;" data-tooltip="Download">
+      <svg>
+        <use xlink:href="#icon_Download"></use>
+      </svg>
+    </i>
+
+    <!-- <i class="icon small extra-nav-title--icon" data-tooltip="Download"  style="float:right;">
+      <svg>
+        <use xlink:href="#icon_Download"></use>
+      </svg>
+    </i> -->
+
+  </div>
+</div>
+
+<div ng-controller="compareGraphCtrl" class="row smartFormWidgetContainer marginBtm90">
+
+  <div id="container-2" class="abc" style="width: 70%;"></div>
+  <div id="container-3" class="abc" style="width: 70%;"></div>
+  <!-- <div id="container-4" class="abc" style="width: 70%; height: 300px;"></div>
+  <div id="container-5" class="abc" style="width: 70%; height: 300px;"></div> -->
+  <style>
+    .highcharts-axis-title,
+    .highcharts-yaxis-labels,
+    .highcharts-contextbutton,
+    .highcharts-credits {
+      display: none;
+    }
+
+    .abc {
+      width: 48% !important;
+      /* float: left; */
+      /* margin-right: 10px; */
+      margin-bottom: 10px;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .highcharts-container {
+      /* margin: 5px;
+    border: 1px solid; */
+      /* margin-bottom: 10px; */
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</div>
+<footer class="page-footer footerSpace paddingBtm0 paddingTop0">
+  <div class="row">
+    <smart-button class="right footerBtn marginRight9 marginTop10" config='{"title":"CLOSE"}' on-click="goToBackPage();"></smart-button>
+  </div>
+</footer>

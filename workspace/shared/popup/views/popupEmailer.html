@@ -1,0 +1,43 @@
+<div id="sendemailer" ng-if="openPopupEmailer">
+	<div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg><use  xlink:href="#icon_Email"></use></svg>
+        </i>
+		<span class="title">EMAIL</span>
+	</div>
+    <div class="modal-content padding0  is-scrolled">        
+        <smart-scroll height="400px">
+            <div class="row marginBottom0  padding10 paddingTop20">
+                <smart-multiselect class="col s12 clearfix marginBtm25" error-model="errModel.emailTo" label="To" is-mandatory="true" disable="{{isEmailToDisable}}" on-change="getEmailToData($event)" on-select="onSelectEmailTo($event)" options="emailToOpts" ng-model="emailToPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+                <smart-multiselect class="col s12 clearfix marginBtm25" error-model="errModel.emailCc" label="CC" on-change="getEmailCcData($event)" disable="{{isEmailCCDisable}}" on-select="onSelectEmailCc($event)" options="emailCcOpts" ng-model="emailCcPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+                <smart-textfield class="col s12 marginBtm15" label="Subject" disable="{{isEmailSubjectDisable}}" ng-model="emailSubject"></smart-textfield>
+                <a href="javascript:void(0)" class="file-field-title col s12 paddingTop15" ng-click="uploadCallFrmEmail()">Add Attachment</a>
+                <div class="col s12 marginTop10">
+                    <span>documentOne.xsl</span>
+                    <a href="javascript:void(0);">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_TrashCan"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </div>
+                <div class="col s12">
+                    <div class="ckeditorContainer">
+                        <textarea ckeditor ng-model="emailBody"></textarea>
+                    </div>                  
+                </div>
+            </div>
+        </smart-scroll>   
+    </div>
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">               
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}' ng-click="hidePopupEmailer();"></smart-button>
+                    <smart-button flat="true" class="left" config='{"title":"SEND MAIL"}' ng-click="sendMail();"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

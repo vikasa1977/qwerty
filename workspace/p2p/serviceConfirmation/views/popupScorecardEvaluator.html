@@ -1,0 +1,63 @@
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+                <a href="javascript:void(0)" ng-class="showMeM" ng-click="hideSearchM()" ng-show="hideCloseM" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+
+                <smart-textfield class="input-field" focus="focusSearch" placeholder="Select Evaluator(s)"></smart-textfield>
+                <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchM()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left"><svg><use xlink:href="#icon_Evaluators"></use></svg></i>
+        <span class="title">
+            ADD SUBLINES CONTRACT
+        </span>
+        
+    </div>
+    <div class="modal-content padding0 noBottomBorder">
+        <smart-scroll height="350px" ng-if="showscorecardEvaluatorPopup">
+            <table class="bordered sTable">
+                <thead>
+                    <tr>
+                        <th class="table-header-checkbox erpTableCheckBox" width="35px">
+                            <smart-checkbox ng-model="selectAllErp.checkedAll" smart-selectall data="confirmationPopup|.isDataCheck" checker-flag="isChecked" get-checkbox-info="getDataCheckInfo()"></smart-checkbox>
+                        </th>
+                        <th>Line No.</th>
+                        <th>Item No.</th>
+                        <th>Service</th>
+                        <th>Activity</th>
+                        <th>Service Type</th>
+                        <th>Quantity</th>
+                        <th>UOM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="data in confirmationPopup | itemsPerPage: rowsToShowOpts.selectedOption.size | orderBy:sortKey:reverse" pagination-id="teamMember">
+                        <td><smart-checkbox class="isDataCheck" ng-model="data.isChecked"></smart-checkbox></td>
+                        <td>{{data.lineNo}}</td>
+                        <td>{{data.ItemNo}}</td>
+                        <td>{{data.servicePop}}</td>
+                        <td>{{data.activity}}</td>
+                        <td>{{data.serviceType}}</td>
+                        <td>{{data.quantity}}</td>
+                        <td>{{data.uomPop}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </smart-scroll>
+    </div>
+    <div class="modal-footer noTopBorder">
+        <div class="right">
+            <!--<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>-->
+            <smart-button flat="true" ng-click="selectEvaluator(currentMode)" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+        </div>
+    </div>
+</div>

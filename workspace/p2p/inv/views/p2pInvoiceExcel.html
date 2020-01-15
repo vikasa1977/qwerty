@@ -1,0 +1,184 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+	<div class="col s12">
+		<div class="extra-nav-title">
+			<a href="javascript:history.go(-1);" class="extra-nav-title--back waves-block waves-circle sh-icon waves-effect waves-light">
+				<i class="icon small ">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small extra-nav-title--icon">
+				<svg>
+					<use xlink:href="#icon_RfxReq"></use>
+				</svg>
+			</i>
+			<span class="extra-nav-title--text ng-cloak">{{'Buyer_198798_Master Data Template' || translate}}</span>
+		</div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-title--text">
+                <span class="fontSize14">Last Refreshed: 7 Feb. 2017, 2:21:09 P.M.</span>
+            </li>
+            <li class="extra-nav-title--text">
+                <span class="marginLeft15">|</span>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javascript:voide(0);" class="waves-circle waves-effect waves-light">
+                    <i class="icon small white-text">
+                        <svg><use xlink:href="#icon_Reset"></use></svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0);" class="waves-circle waves-effect waves-light">
+                    <i class="icon small white-text">
+                        <svg><use xlink:href="#icon_Download"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+        <div class="right right-panel">
+            
+            
+        </div>
+	</div>
+</div>
+<section class="row paddingBtm40">
+    <div class="collection with-header no-outer-border">
+        <div class="collection-header clearfix paddingTop13 paddingBtm12">
+            <div class="left">
+                <ul class="content-with-pipe">
+                    <li>{{'Total Invoices' || translate}}: <span class="black-text">{{'10' || translate}}</span> </li>
+                    <li>{{'Processed Invoices' || translate}}: <span class="black-text">{{'08' || translate}}</span></li>
+                    <li>{{'Unprocessed Invoices' || translate}}: <span class="black-text">{{'02' || translate}}</span></li>
+                </ul>
+            </div>
+            <div class="clearfix hide-on-med-and-up"></div>
+            <!--<div class="right">
+				<a href="javascript:void(0)"  smart-tooltip position="left" delay="250" message="{{'Upload' || translate}}" class="icon iconSmall icon_inside_collecion_header">
+                            <svg>
+                                <use xlink:href="#icon_Upload"></use>
+                            </svg>
+                        </a>
+				<a href="javascript:void(0)" smart-tooltip position="left" delay="250" message="{{'Download' || translate}}" class="icon iconSmall icon_inside_collecion_header">
+                            <svg>
+                                <use xlink:href="#icon_Download"></use>
+                            </svg>
+                    </a>
+            </div>-->
+        </div>
+        <div class="collection-item padding0 marginBtm13">
+            <table class="bordered pricesheetTable">
+				<thead>
+					<tr>
+						<th class="left-align">
+                            <span class="th-cnt truncate left marginTop3">{{'Invoice Number' || translate}}</span>
+                            <smart-sort class="left" current-cell="InvNo" sort-by="orderSortArray.orderSortType" sort-reverse="orderSortArray.orderSortReverse">
+                            </smart-sort>
+                        </th>
+                        <th class="left-align">
+                            <div class="th-cnt truncate left marginTop3">{{'PO Number' || translate}}</div>
+                            <smart-sort class="left" current-cell="PONo" sort-by="orderSortArray.orderSortType" sort-reverse="orderSortArray.orderSortReverse">
+                            </smart-sort>
+                        </th>
+						<th class="left-align">
+                            <div class="left th-cnt truncate">{{'Supplier Name' || translate}}</div>
+                            <smart-dropdown>
+                                <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='supplierName' data-constrainwidth="false">
+                                    <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                        <svg><use xlink:href="#icon_Filter"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="supplierName" class='dropdown-content dd-close-off'>
+                                    <li ng-repeat="item in supList">
+                                        <smart-checkbox ng-model="item.isChecked" label="{{item.name}}" class="padding10" on-change="onChangeSupName(item)"></smart-checkbox>
+                                    </li>
+                                    <li class="no-hover">
+                                        <div class="col s12 right-align marginBtm10">
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Cancel" || translate}' callback="closePopOver"></smart-button>
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Apply" || translate}' callback="closePopOver" disable="supCheckedCount == 0"></smart-button>
+                                        </div>
+                                    </li>   
+                                </ul>
+                            </smart-dropdown>
+                        </th>
+                        <th class="right-align">
+                            <smart-sort class="right" current-cell="total" sort-by="orderSortArray.orderSortType" sort-reverse="orderSortArray.orderSortReverse">
+                            </smart-sort>
+                            <div class="th-cnt truncate right marginTop3">{{'Total (USD)' || translate}}</div>
+                        </th>
+						<th class="left-align">
+                            <div class="left th-cnt truncate">{{'Status' || translate}}</div>
+                            <smart-dropdown>
+                                <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='status' data-constrainwidth="false">
+                                    <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                        <svg><use xlink:href="#icon_Filter"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="status" class='dropdown-content dd-close-off'>
+                                    <li ng-repeat="item in status">
+                                        <smart-checkbox ng-model="item.isChecked" label="{{item.name}}" class="padding10" on-change="onChangeStatus(item)"></smart-checkbox>
+                                    </li>
+                                    <li class="no-hover">
+                                        <div class="col s12 right-align marginBtm10">
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Cancel" || translate}' callback="closePopOver"></smart-button>
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Apply" || translate}' callback="closePopOver" disable="statusCheckedCount == 0"></smart-button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </th>
+						<th class="left-align">
+                            <div class="left th-cnt truncate">{{'Exception' || translate}}</div>
+                            <smart-dropdown>
+                                <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='exception' data-constrainwidth="false">
+                                    <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                        <svg><use xlink:href="#icon_Filter"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="exception" class='dropdown-content dd-close-off'>
+                                    <li ng-repeat="item in exception">
+                                        <smart-checkbox ng-model="item.isChecked" label="{{item.name}}" class="padding10" on-change="onChangeException(item)"></smart-checkbox>
+                                    </li>
+                                    <li class="no-hover">
+                                        <div class="col s12 right-align marginBtm10">
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Cancel" || translate}' callback="closePopOver"></smart-button>
+                                            <smart-button flat="true" class="modal-close" config='{"title":"Apply" || translate}' callback="closePopOver" disable="exceptionCheckedCount == 0"></smart-button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </th>
+                        <th class="left-align">
+                            <div class="width100P truncate">{{'Transmission Status' || translate}}</div>
+                        </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in items | orderBy:orderSortArray.orderSortType:orderSortArray.orderSortReverse">
+						<td class="left-align">{{item.InvNo || translate}}</td>
+                        <td class="left-align">{{item.PONo || translate}}</td>
+						<td class="left-align">{{item.partnerName || translate}}</td>
+                        <td class="right-align">{{item.total || translate}}</td>
+						<td class="left-align" ng-class="colorText(item.status)">{{item.status || translate}}</td>
+						<td class="left-align red-text">{{item.exception || translate}}</td>
+                        <td class="left-align">{{item.transmission || translate}}</td>
+					</tr>
+				</tbody>
+            </table>
+        </div>
+        </div>
+    </section>
+<footer class="page-footer" ng-include="'shared/components/views/footer/footer.html'"></footer>
+<smart-popup template-url="{{invoiceExceptionPopupUrl}}" show='{{invoiceExceptionPopup}}' on-hide="invoiceExceptionPopupOnHideCallback"></smart-popup>
+<smart-popup template-url="{{buyInvoiceExceptionPopupUrl}}" show='{{buyInvoiceExceptionPopup}}' on-hide="buyInvoiceExceptionOnHideCallback"></smart-popup>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col s12 right-align">
+            <smart-button config='{"title":"CLOSE"}' class="whiteSecondaryBtn marginRight10" ng-click="closeClicked()"></smart-button>
+            <smart-button config='{"title":"UPLOAD SCANNED DOCUMENTS"}' ng-click="uploadPopupCallback()"></smart-button>
+        </div>
+    </div>
+</footer>
+
+<smart-popup template-url="{{addDocumentPoupUrl}}" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>

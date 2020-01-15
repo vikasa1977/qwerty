@@ -1,0 +1,37 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_RfxReq"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">
+                <span class="inline-text paddingRight5">MASS EDIT RULES</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row paddingBtm40 smartFormWidgetContainer" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader}">
+	<smart-form-widget form-config="massEditRuleFormData" model-data="config.modelData" is-sequential="true" widget-panel-top="115"></smart-form-widget>
+	<div class="toast-container" ng-style="toastPosition">
+		<div class="ng-hide toast toast-animation--duration" ng-class="showMessage ? 'slideInLeft animated toast-transition--easeOut' : 'slideOutLeft animated toast-transition--easeIn'" ng-show="showMessage" ng-bind-html="toastMsg"> {{ greeting }}</div>
+	</div>
+</div>
+
+<footer class="page-footer footerSpace">
+ 
+    <div class="row marginBtm0">
+
+        <div class="right paddingRight15">
+            <smart-button class="footerBtn whiteSecondaryBtn marginRight15" ng-click="CancelRules()" config='{"title":"CANCEL"}'></smart-button>
+
+            <smart-button class="footerBtn" ui-sref="admin.previewRule({ type: 'massEdit' })" config='{"title":"Preview"}'></smart-button>
+            
+        </div>
+    </div>
+</footer>

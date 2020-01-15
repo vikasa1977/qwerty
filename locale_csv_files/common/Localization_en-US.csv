@@ -1,0 +1,382 @@
+﻿PartitionKey,RowKey,Timestamp,Value
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,loginUser,1.10.14 11:25,EMILY'S
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,workspace,1.10.14 11:25,Workspace
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,workQueue,1.10.14 11:37,Task
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,work_Queue,1.10.14 11:37,Work Queue
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,request,1.10.14 11:37,Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,search,1.10.14 11:37,Search
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,welcome,1.10.14 11:37,Welcome
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,Search,1.10.14 11:37,Search
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,and_symbol,1.10.14 11:37,&
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalogRequest,2.10.14 11:37,Catalog Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requisition,3.10.14 11:37,Requisition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,bookmarks,4.10.14 11:37,Bookmarks
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,eventCalendar,5.10.14 11:37,Event Calendar
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,fileRepositories,6.10.14 11:37,File Repositories
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,procurement,7.10.14 11:37,Procurement
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,policies,8.10.14 11:37,Policies
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,connect,9.10.14 11:37,Connect
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,chat,10.10.14 11:37,Chat
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,email,11.10.14 11:37,Email
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,discussionForum,12.10.14 11:37,Discussion Forum
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,reachUs,13.10.14 11:37,Reach Us
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,sourcing,14.10.14 11:37,Sourcing
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,home,15.10.14 11:37,Home
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,spend,16.10.14 11:37,Spend
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,dashboard,17.10.14 11:37,Dashboard
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,reports,18.10.14 11:37,Reports
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,opportunityFinder,19.10.14 11:37,Opportunity Finder
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,dataExport,20.10.14 11:37,Data Export
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,feedback,21.10.14 11:37,Feedback
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfx,22.10.14 11:37,RFx
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,auctions,23.10.14 11:37,Auctions
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,auction,24.10.14 11:37,Auction
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contracts,25.10.14 11:37,Contracts
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,forms,26.10.14 11:37,Forms
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,scorecards,27.10.14 11:37,Scorecards
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,actionPlan,28.10.14 11:37,Action Plan
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalogs,29.10.14 11:37,Catalogs
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalog,30.10.14 11:37,Catalog
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requisitions,31.10.14 11:37,Requisitions
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requisition,1.11.14 11:37,Requisition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,orders,2.11.14 11:37,Orders
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,receipts,3.11.14 11:37,Receipts
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,receipt,4.11.14 11:37,Receipt
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoices,5.11.14 11:37,Invoices
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoiceReconciliation,6.11.14 11:37,Invoice Reconciliation
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,returnNote,7.11.14 11:37,Return Note
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,creditMemo,8.11.14 11:37,Credit Memo
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,creditNote,8.11.14 11:37,Credit Note
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,programs,9.11.14 11:37,Programs
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,partners,10.11.14 11:37,Partners
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,kpi,11.11.14 11:37,KPI
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,compliance,12.11.14 11:37,Compliance
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contract,13.11.14 11:37,Contract
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,payment,14.11.14 11:37,Payment
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createRequesition,15.11.14 11:37,Create Requesition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,paymentRequest,16.11.14 11:37,Payment Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,nonCatalogRequest,17.11.14 11:37,Non-Catalog Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,accountDetails,18.11.14 11:37,Account Details
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,drafts,19.11.14 11:37,Drafts
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,draft,20.11.14 11:37,Draft
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,showAll,21.11.14 11:37,Show All
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,sendForApproval,22.11.14 11:37,Send For Approval
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,advanced,23.11.14 11:37,Advanced
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,done,24.11.14 11:37,Done
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,delete,24.11.14 11:37,Delete
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,usetemplate,25.11.14 11:37,use template
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,pendingApprovals,26.11.14 11:37,Pending Approvals
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approved,27.11.14 11:37,Approved
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approvalRequired,28.11.14 11:37,Approval Required
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,active,29.11.14 11:37,Active
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rejected,30.11.14 11:37,Rejected
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,inProgress,1.12.14 11:37,In Progress
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,responseInProgress,2.12.14 11:37,Response In Progress
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,scoringInProgress,3.12.14 11:37,Scoring In Progress
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,additionalInformation,4.12.14 11:37,Additional Information
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,phoneNumber,5.12.14 11:37,Phone Number
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,dfaultCurrency,6.12.14 11:37,Default Currency
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,shippingLocation,7.12.14 11:37,Shipping Location
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,timeZone,8.12.14 11:37,Time Zone
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,langauge,9.12.14 11:37,Langauge
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,electronicSignature,10.12.14 11:37,Electronic Signature
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,enter,11.12.14 11:37,Enter
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,name,12.12.14 11:37,Name
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,select,13.12.14 11:37,Select
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,category,14.12.14 11:37,Category
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,businessUnit,15.12.14 11:37,Business Unit
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,sourcingBuyer,16.12.14 11:37,Sourcing Buyer
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requestApprover,17.12.14 11:37,Request Approver
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,legalEntity,18.12.14 11:37,Legal Entity
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,OnBehalfOf,19.12.14 11:37,On behalf of
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,event,20.12.14 11:37,Event
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,description,21.12.14 11:37,Description
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,anticipatedProjectCost,22.12.14 11:37,Anticipated Project Cost
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,currency,23.12.14 11:37,Currency
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,purchaseType,24.12.14 11:37,Purchase Type
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,dateNeededBy,25.12.14 11:37,Date Needed By
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requestor,26.12.14 11:37,Requestor
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,department,27.12.14 11:37,Department
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,date,28.12.14 11:37,Date
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,annual,29.12.14 11:37,Annual
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,preview,30.12.14 11:37,Preview
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,submit,31.12.14 11:37,Submit
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,cancel,1.1.15 11:37,Cancel
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,save,2.1.15 11:37,Save
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,edit,3.1.15 11:37,Edit
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,view,4.1.15 11:37,View
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,apply,5.1.15 11:37,Apply
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,workflow,6.1.15 11:37,Workflow
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,accountDetails,7.1.15 11:37,Account Details
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,by,8.1.15 11:37,by
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,type,9.1.15 11:37,Type
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,status,10.1.15 11:37,Status
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,all,11.1.15 11:37,All
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,urgent,12.1.15 11:37,Urgent
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,filters,13.1.15 11:37,Filters
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,filter,14.1.15 11:37,Filter
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,overdue,15.1.15 11:37,Overdue
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,to,16.1.15 11:37,To
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,subject,17.1.15 11:37,Subject
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,send,18.1.15 11:37,Send
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,mail,19.1.15 11:37,Mail
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,undo,20.1.15 11:37,Undo
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,confirmationmessage,21.1.15 11:37,Are you sure you want to proceed?
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,confirmReceipt,21.1.15 11:37,Confirm Receipt
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createRequest,22.1.15 11:37,Create Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createRequisition,23.1.15 11:37,Create Requisition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,sourcingBuyer,24.1.15 11:37,Sourcing Buyer
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,reset,25.1.15 11:37,Reset
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,newRequisition,26.1.15 11:37,New Requisition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,nonCatalogItem,27.1.15 11:37,Non-Catalog Items
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalogItem,28.1.15 11:37,Catalog Items
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contact,29.1.15 11:37,Contact
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approvalPendingWith,30.1.15 11:37,Approval Pending With
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approver,31.1.15 11:37,Approver
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contracted,1.2.15 11:37,Contracted
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,itTelecom,2.2.15 11:37,IT Telecom
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,usd,3.2.15 11:37,USD
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,per,4.2.15 11:37,Per
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,item,5.2.15 11:37,Item
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,add,6.2.15 11:37,Add
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,toCart,7.2.15 11:37,To Cart
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,qty,8.2.15 11:37,QTY
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,uom,9.2.15 11:37,Unit
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,what,10.2.15 11:37,What
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,are,11.2.15 11:37,are
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,you,12.2.15 11:37,you
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,looking,13.2.15 11:37,looking
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,for,14.2.15 11:37,for
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,suppliers,15.2.15 11:37,Suppliers
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,internal,16.2.15 11:37,Internal
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,hosted,17.2.15 11:37,Hosted
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,price,18.2.15 11:37,Price
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,range,19.2.15 11:37,Range
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,shipTo,20.2.15 11:37,Ship To
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,as,21.2.15 11:37,AS
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,number,22.2.15 11:37,Number
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,recent,23.2.15 11:37,Recent
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,remove,24.2.15 11:37,Remove
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,punchout,25.2.15 11:37,Punchout
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,suppliers,26.2.15 11:37,Suppliers
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,partner,27.2.15 11:37,Partner
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,quantity,28.2.15 11:37,Quantity
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,bands,1.3.15 11:37,Bands
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,manufacturer,2.3.15 11:37,Manufacturer
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,partNo,3.3.15 11:37,Part No
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,buyer,4.3.15 11:37,Buyer
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,no,5.3.15 11:37,No
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,number,6.3.15 11:37,Number
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,tax,7.3.15 11:37,Tax
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,exempt,8.3.15 11:37,Exempt
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,reviews,9.3.15 11:37,Reviews
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,more,10.3.15 11:37,More
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,yes,11.3.15 11:37,Yes
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,recently,12.3.15 11:37,Recently
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,viewed,13.3.15 11:37,Viewed
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,items,14.3.15 11:37,Items
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,close,15.3.15 11:37,Close
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requestor,16.3.15 11:37,Requestor's
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,partner,17.3.15 11:37,Partner
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,costCenter,18.3.15 11:37,Cost Center
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,projectCode,19.3.15 11:37,Project Code
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,glCode,20.3.15 11:37,GL Code
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,splitItemBy,21.3.15 11:37,Split Item By
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,numberOfsplits,22.3.15 11:37,Number Of Splits
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,manufacturer,23.3.15 11:37,Manufacturer 
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,part,24.3.15 11:37,Part
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,shippingMethod,25.3.15 11:37,Shipping Method
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,address,26.3.15 11:37,Address
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,deliver,27.3.15 11:37,Deliver
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,expiry,28.3.15 11:37,Expiry
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,value,29.3.15 11:37,Value
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,terms,30.3.15 11:37,Terms 
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,option,31.3.15 11:37,Option
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,inventory,1.4.15 11:37,Inventory
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,shipping,2.4.15 11:37,Shipping
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,freight,3.4.15 11:37,Freight
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,other,4.4.15 11:37,Other
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,charges,5.4.15 11:37,Charges
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,review,6.4.15 11:37,Review
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,ok,7.4.15 11:37,Ok
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,title,8.4.15 11:37,Title
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rating,9.4.15 11:37,Rating
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,your,10.4.15 11:37,Your
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,comment,11.4.15 11:37,Comment
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,here,12.4.15 11:37,Here   
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,shoping,13.4.15 11:37,Shopping
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,cart,14.4.15 11:37,Cart
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,view,15.4.15 11:37,View
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,cart,16.4.15 11:37,Cart
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,checkout,17.4.15 11:37,Checkout
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,error,18.4.15 11:37,ERROR
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,success,19.4.15 11:37,Success
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,information,20.4.15 11:37,Information
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,warning,21.4.15 11:37,Warning
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,share,22.4.15 11:37,Share
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,days,23.4.15 11:37,Days
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,with,24.4.15 11:37,With
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,template,25.4.15 11:37,Template   
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createblankRequesition,26.4.15 11:37,create a blank requesition
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,set,27.4.15 11:37,Set
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,default,28.4.15 11:37,default
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,gep,29.4.15 11:37,GEP
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,profile,30.4.15 11:37,Profile
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,bookmark,1.5.15 11:37,Bookmark   
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,notification,2.5.15 11:37,Notification
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,navigation,3.5.15 11:37,Navigation
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,back,4.5.15 11:37,Back
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,clear,5.5.15 11:37,Clear
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,setting,6.5.15 11:37,Setting
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,settings,6.5.15 11:37,settings
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,logOut,7.5.15 11:37,Log Out
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,calendar,8.5.15 11:37,Calendar
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,external,9.5.15 11:37,external
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,new,10.5.15 11:37,New
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,next,11.5.15 11:37,Next
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,previous,12.5.15 11:37,Previous
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,announcement,13.5.15 11:37,Announcement
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,formats,14.5.15 11:37,Formats
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,supported,15.5.15 11:37,Supported
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,sort,16.5.15 11:37,Sort
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,download,17.5.15 11:37,Download
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,print,18.5.15 11:37,Print
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,trackStatus,19.5.15 11:37,TrackStatus
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,suggested,20.5.15 11:37,Suggested
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,additional,21.5.15 11:37,Additional 
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,comments,22.5.15 11:37,Comments
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,attachments,23.5.15 11:37,Attachments
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,textRquiredMsg,24.5.15 11:37,Required Field
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfxSaveSuccess,25.5.15 11:37,RFx Saved successfully
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfxDraftSaveSuccess,26.5.15 11:37,Rfx Draf Saved successfully
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfxCancelConfirm,27.5.15 11:37,
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,language,28.5.15 11:37,Language
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfxCancelConfirm,29.5.15 11:37,Your cancellation becomes effective! Do you want continue to cancel?
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,profilePageSuccessMsg,30.5.15 11:37,Your Profile Saved successfully
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,profilePageErrorMsg,31.5.15 11:37,May be data will get lost!
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,load,1.6.15 11:37,Load
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,activities,2.6.15 11:37,Activities
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,trackStatus,3.6.15 11:37,TRACK STATUS
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,star,4.6.15 11:37,Star
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,mailToInfo,5.6.15 11:37,To Information from Label js
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,action1,6.6.15 11:37,Action 1
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,action2,7.6.15 11:37,Action 2
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,action3,8.6.15 11:37,Action 3
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,quick,9.6.15 11:37,Quick
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,wishlist,10.6.15 11:37,Wishlist
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,compare,11.6.15 11:37,Compare
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,list,12.6.15 11:37,List
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,card,13.6.15 11:37,Card
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,searchList,14.6.15 11:37,Search List
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,favorite,15.6.15 11:37,Favorite
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,favorites,15.6.15 11:37,Favorites
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,homeTask,15.6.15 11:37,Tasks
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,homeView,15.6.15 11:37,Manage
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,homeCreate,15.6.15 11:37,Create
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfx,15.6.15 11:37,RFX
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfx_request,15.6.15 11:37,RFX Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,auction,15.6.15 11:37,Auction
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contract,15.6.15 11:37,Contract
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contract_template,15.6.15 11:37,Contract Template
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,non_catalog_item,15.6.15 11:37,Non Catalog Item
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalog_item,15.6.15 11:37,Catalog Item
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,requisition_request,15.6.15 11:37,Requisition Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoices,15.6.15 11:37,Invoices
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoice,15.6.15 11:37,Invoices
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,language_template,15.6.15 11:37,Language Template
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,order,15.6.15 11:37,Order
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,receipt,15.6.15 11:37,Receipt
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,payment_request,15.6.15 11:37,Payment Request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,projects,15.6.15 11:37,Projects
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,return_note,15.6.15 11:37,Return Note
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,scorecards,15.6.15 11:37,Scorecards
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,catalog,15.6.15 11:37,Catalog
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,credit_memo,15.6.15 11:37,Credit Memo
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,programs,15.6.15 11:37,Programs
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,receipt,15.6.15 11:37,Receipt
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,suppliers,15.6.15 11:37,Suppliers
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfp,15.6.15 11:37,RFP
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfq,15.6.15 11:37,RFQ
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfi,15.6.15 11:37,RFI
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,po,15.6.15 11:37,PO
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoice,15.6.15 11:37,invoice
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,invoicereconciliation,15.6.15 11:37,Invoice Reconciliation
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,assessment,15.6.15 11:37,assessment
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,scanned_image,15.6.15 11:37,scanned image
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,contract_request,15.6.15 11:37,contract request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,rfxrequest,15.6.15 11:37,rfxrequest
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,auction_request,15.6.15 11:37,auction request
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,partner_profile,15.6.15 11:37,partner profile
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,return_note,15.6.15 11:37,return note
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,project,15.6.15 11:37,project
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,program,15.6.15 11:37,program
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approval_form_partner,15.6.15 11:37,Approval Form Partner
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approval_update_partner_profile,15.6.15 11:37,Approval Update Partner Profile
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,category_workbench,15.6.15 11:37,Category Workbench
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,approval_rule_based_status_change,15.6.15 11:37,Approval Rule Based Status Change
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,blanket,15.6.15 11:37,Blanket
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,service_confirmation,15.6.15 11:37,Service Confirmation
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,all_tasks_completed_message,15.6.15 11:37,Congrats! You've completed all your tasks.
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,followup,15.6.15 11:37,Follow Up
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,pendingacceptance,15.6.15 11:37,Pending Acceptance
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,pendingreceivings,15.6.15 11:37,Pending Receivings
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,viewPendingTasks,15.6.15 11:37,View pending tasks
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,manageDocuments,15.6.15 11:37,Manage documents
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createNewDocument,15.6.15 11:37,Create new document
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,viewPendingTasks,15.6.15 11:37,View pending tasks
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,manageDocuments,15.6.15 11:37,Manage documents
+0.GEP.Cumulus.Reports.Web.Resources.de-DE,createNewDocument,15.6.15 11:37,Create new document
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,requisitionName,16.6.15 11:37,Requisition Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,requisitionNumber,17.6.15 11:37,Requisition Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,DocumentName,17.6.15 11:37,Document Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,DocumentNumber,17.6.15 11:37,Document Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,requestorName,18.6.15 11:37,Requestor Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,businessUnit,19.6.15 11:37,Business Unit
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,currency,20.6.15 11:37,Currency
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,item,21.6.15 11:37,Item
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,locationName,22.6.15 11:37,Location Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,locationCode,23.6.15 11:37,Location Code
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,addressLine1,24.6.15 11:37,Address Line 1
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,addressLine2,25.6.15 11:37,Address Line 2
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,city,26.6.15 11:37,City
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,country,27.6.15 11:37,Country
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,zipCode,28.6.15 11:37,Zip Code
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,state,29.6.15 11:37,State
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,contactPerson,30.6.15 11:37,Contact Person
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,telephoneNumber,1.7.15 11:37,Telephone Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,configure,12.2.16 11:37,Configure
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,addAName,12.2.16 11:37,Add a name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,desk,12.2.16 11:37,desk
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Name,12.2.16 11:37,Requisition Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Number,12.2.16 11:37,Requisition Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Requester,12.2.16 11:37,Requester's Name
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_Requester,12.2.16 11:37,Requester
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_Department,12.2.16 11:37,Department 
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Department,12.2.16 11:37,Department 
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Urgent,12.2.16 11:37,Mark as Urgent
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,PFM_Currency,12.2.16 11:37,Currency 
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_CMN_ShipTo,12.2.16 11:37,Ship to
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_CMN_BillTo,12.2.16 11:37,Bill to
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_OnBehalfOf,12.2.16 11:37,Create on Behalf of (OBO)
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_PartnerItemNumber,12.2.16 11:37,Item No
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_CMN_UOM,12.2.16 11:37,UOM
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Taxes,12.2.16 11:37,Taxes
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_IsTaxExempt,12.2.16 11:37,Tax Exempt
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_OtherCharges,12.2.16 11:37,Other Charges
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_ShippingCharges,12.2.16 11:37,Shipping & Freight
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_RequestedDate,12.2.16 11:37,Requested Date
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_NeedByDate,12.2.16 11:37,Need by Date
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_CMN_Category,12.2.16 11:37,Category
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_ShippingMethod,12.2.16 11:37,Shipping Method
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_ContractNumber,12.2.16 11:37,Contract Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_ContractValue,12.2.16 11:37,Contract Value
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_ContractExpiryDate,12.2.16 11:37,Contract Expiry Date
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_CMN_DeliverTo,12.2.16 11:37,Deliver to
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_WorkOrder,12.2.16 11:37,Work Order
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_ERPOrderType,12.2.16 11:37,ERP Order Type
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_InventoryType,12.2.16 11:37,Inventory Type
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_BU,12.2.16 11:37,Business Unit
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Account,12.2.16 11:37,Account Number
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_Req_Project,12.2.16 11:37,Project ID
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_MatterID,12.2.16 11:37,Internal Order
+0.GEP.Cumulus.Reports.P2P.Resources.de-DE,P2P_REQ_MatterIDentf,12.2.16 11:37,Sales Order

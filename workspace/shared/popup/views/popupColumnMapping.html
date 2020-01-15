@@ -1,0 +1,133 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+				<a href="javascript:void(0)" ng-class="showMeM" ng-click="columnSearchKey='';hideSearchM()" ng-show="hideCloseM" class="waves-circle waves-effect cancel-icon btn-flat black-text" smart-tooltip position="bottom" message="Close" > 
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<smart-textfield ng-model="columnSearchKey" class="input-field" focus="focusSearchColMap"></smart-textfield>
+				<a href="javascript:void(0)" class="waves-circle waves-effect waves-light search-icon grey-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchM();focusSearchColMap=true">
+					<i class="icon iconSmall center">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<i class="left icon iconSmall marginTop4 grey-text">
+			<svg><use xlink:href="#icon_ColumnMap"></use></svg>
+		</i>
+		<span class="title">Column Mapping (3)</span>
+	</div>
+	<div class="modal-content padding0 columnMapPopup">
+		<div style="overflow:hidden;" class="wrapperHsrcoll columnMappingPopupConResp">
+			<table class="bordered sTable" style="width:1700px;">
+				<thead>
+					<tr>
+						<th class="left-align" width="11%">Price Sheet Name</th>
+						<th class="left-align" width="11%">Item Name</th>
+						<th class="left-align" width="11%">Item number</th>
+						<th class="left-align" width="11%">Volume</th>
+						<th class="left-align" width="11%">Unit</th>
+						<th class="left-align" width="11%">Baseline Price</th>
+						<th class="left-align" width="11%">Total Baseline Price</th>
+						<th class="left-align" width="11%">Supplier Price per unit</th>
+						<th class="left-align" width="11%">Total Supplier Price</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<smart-scroll connect-scrolls="{{manageScrollTypeConfig}}" height="360px" class="columnManppingHscroll columnMappingPopupConResp" >
+			<table class="bordered sTable columnManppingHscrollTbl" style="width:1700px;margin-bottom:100px">
+				<tbody>
+					<tr ng-repeat="data in columnMappingData">
+						<td class="left-align" width="11%">{{data.pricesheetName}}</td>
+						<td class="left-align" width="11%" >
+							<!--<smart-select options="itemNameOpts" class="col s12" ng-model="data.itemNameSelected"></smart-select>-->
+                            <smart-dropdown  config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock'  data-activates='cm_ItemName_{{$index}}' ng-click="data.itemNameFocus = true">{{data.itemNameSelected.title ? data.itemNameSelected.title : "Select Item Name"}}</a>
+                                <div id="cm_ItemName_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemNameFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.itemNameSelected" options="itemNameOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td  class="left-align" width="11%">
+							<!--<smart-select options="itemNameOpts" ng-model="data.itemNumberSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemNumber_{{$index}}' ng-click="data.itemNumberFocus = true">{{data.itemNumberSelected.title ? data.itemNumberSelected.title : "Select Item Number"}}</a>
+                                <div id="cm_ItemNumber_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemNumberFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.itemNumberSelected" options="itemNameOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.volumeOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemVolume_{{$index}}' ng-click="data.itemVolumeFocus = true">{{data.volumeOptSelected.title ? data.volumeOptSelected.title : "Select Volume"}}</a>
+                                <div id="cm_ItemVolume_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemVolumeFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.volumeOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.unitOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemUnit_{{$index}}' ng-click="data.itemUnitFocus = true">{{data.unitOptSelected.title ? data.unitOptSelected.title : "Select Unit"}}</a>
+                                <div id="cm_ItemUnit_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemUnitFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.unitOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.baselineOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemBaseline_{{$index}}' ng-click="data.itemBaselinePriceFocus = true">{{data.baselineOptSelected.title ? data.baselineOptSelected.title : "Select Price"}}</a>
+                                <div id="cm_ItemBaseline_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemBaselinePriceFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.baselineOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.totalBaselineOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemTotalBaseline_{{$index}}' ng-click="data.itemTotalBaselineFocus = true">{{data.totalBaselineOptSelected.title ? data.totalBaselineOptSelected.title : "Select Price"}}</a>
+                                <div id="cm_ItemTotalBaseline_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemTotalBaselineFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.totalBaselineOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.suppPriceOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemSupPrice_{{$index}}' ng-click="data.itemPricePerUnitFocus = true">{{data.suppPriceOptSelected.title ? data.suppPriceOptSelected.title : "Select Price"}}</a>
+                                <div id="cm_ItemSupPrice_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemPricePerUnitFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.suppPriceOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+						<td class="left-align" width="11%">
+							<!--<smart-select options="otherDetOpts" ng-model="data.totalSuppPriceOptSelected"></smart-select>-->
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <a href="javaScript:void(0);" class='dropdown-button  displayInlineBlock' data-activates='cm_ItemTotalSupPrice_{{$index}}' ng-click="data.itemTotalPriceFocus = true">{{data.totalSuppPriceOptSelected.title ? data.totalSuppPriceOptSelected.title : "Select Price"}}</a>
+                                <div id="cm_ItemTotalSupPrice_{{$index}}" class='dropdown-content table-text-callout dd-close-off'>
+                                    <smart-typeahead class="input-field line-height-manager" multiselect="false" focus="data.itemTotalPriceFocus" min-char-for-trigger="1" show-lookup="true" ng-model="data.totalSuppPriceOptSelected" options="otherDetOpts" filterkeys="['title']" optionformat="<span>{title}</span>" displayformat="{title}" label="" lookup-open="cmLookupCall()" lookup-hide="cmLookupCloseCall()"></smart-typeahead>
+                                </div>
+                            </smart-dropdown>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

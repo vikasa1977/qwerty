@@ -1,0 +1,35 @@
+<div ng-if="saveFilterPopUp">
+    <div class="modal-header">
+        
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_Save"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'SAVE FILTER' || translate }} </span>
+    </div>
+  
+        <div class="modal-content padding0">
+
+            <div class="row">
+                <div class="col s12">
+                    <smart-textfield class="col s12" label="Filter Name" ng-model="newfilter.name" is-mandatory="true"></smart-textfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+
+            <smart-button flat="true" class="modal-close" config='{"title":"SAVE"}' ng-click="saveFilter(e);"></smart-button>
+            <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+
+        </div>
+
+</div>
+
+
+
+
+
+
+

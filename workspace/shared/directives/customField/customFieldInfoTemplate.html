@@ -1,0 +1,204 @@
+<div ng-if="item.levelName" class="line-level-heading-cnt" ng-class="{'paddingTop15': $first && !useWithFormWidget}">
+    {{ item.levelName }}
+</div>
+<div class="clearfix  questionnaire-section-content" ng-class="{'paddingTop20' : item.sectionName != '' }">
+    <div ng-repeat="q in item.questions" ng-init="queIndex = $index" ng-include='returnField(q.type)' class="relative  col {{ returnColClass(q) }}" ng-show="q.isVisible != false"></div>
+</div>
+
+
+
+<!-- text field-->
+<script type="text/ng-template" id="single-text.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div class="row margin0">
+        <smart-textfield type="{{ getFieldType(q.type) }}" label="{{ q.question }}" ng-model="q.questionResponse" class="input-field line-height-manager col s12" readonly="{{ q.readonly }}"></smart-textfield>
+    </div>
+</script>
+<!-- text area -->
+<script type="text/ng-template" id="multi-text.html">
+    <div class="optionalFieldHover custom"  ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div class="row margin0">
+        <smart-textfield type="area" class="input-field col s12" label="{{ q.question }}" ng-model="q.questionResponse" readonly="{{ q.readonly }}"></smart-textfield>
+    </div>
+</script>
+<!-- text area with icon-->
+<script type="text/ng-template" id="multi-text-with-icon.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div class="multi-text-holder">
+        <smart-textfield type="area" class="input-field col s12" label="{{ q.question }}" ng-model="q.questionResponse" readonly="{{ q.readonly }}"></smart-textfield>
+    </div>
+    <div class="multi-text-icon-holder" ng-if="!q.readonly">
+        <i class="icon small blue-text" smart-infotip position="left" message="Please provide us your Order numbers associated with the current document. (separated by Comma)" mode="mouseover" is-fixed="true">
+            <svg>
+                <use xlink:href="{{q.icon}}"></use>
+            </svg>
+        </i>
+    </div>
+</script>
+<!-- radio -->
+<script type="text/ng-template" id="single-response-radio.html">
+    <div ng-if="!q.questionResponse.disable">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <smart-radio class="active line-height-manager col s12" gap="true" label="{{ q.question }}" ng-model="q.questionResponse" options="q.options" datakey="name"></smart-radio>
+    </div>
+    <div ng-if="q.questionResponse.disable">
+        <smart-textfield type="text" label="{{ q.question }}" ng-model="q.questionResponse.name " class="input-field line-height-manager col s12" readonly="{{ q.questionResponse.disable }}"></smart-textfield>
+        </div>
+</script>
+<!-- checkbox -->
+<script type="text/ng-template" id="multi-response.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <label class="active" ng-if="(q.disabled || q.readonly ) == true">  </label>
+    <smart-checkbox class="line-height-manager col s12" label="{{ option.label }}" ng-model="q.questionResponse" disable="{{ (q.disabled || q.readonly ) == true  }}" ng-repeat="option in q.options"></smart-checkbox>
+</script>
+<!-- select dropdown -->
+<script type="text/ng-template" id="single-response-drop.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <smart-select class="input-field line-height-manager col s12" label="{{ q.question }}" ng-model="q.questionResponse" datakey="name" options="q.options" disable="{{ (q.disabled || q.readonly ) == true  }}"></smart-select>
+</script>
+<!-- date-time -->
+<script type="text/ng-template" id="date-time.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <smart-textfield type="date" class="col s12 input-field line-height-manager dateTime" ng-model="q.questionResponse" label="{{ q.question }}" readonly="{{ q.readonly }}"></smart-textfield>
+</script>
+<!-- multi-text-format -->
+<script type="text/ng-template" id="multi-text-format.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div class="ckeditorContainer ckeditorBox marginBtm20">
+        <label class="active displayBlock marginBtm6">{{ q.question }} </label>
+        <textarea ckeditior readonly="{{ q.readonly }}" ng-model="q.questionResponse" id="editor_{{ $index }}" rows="10" cols="80"></textarea>
+    </div>
+</script>
+<!--attachment-only-->
+<script type="text/ng-template" id="attachment-only.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div class="col s12 line-height-manager">
+        <label class="active displayBlock marginBtm6">{{ q.question }} </label>
+        <div class=" file-field input-field">
+            <a href="javascript:void(0)" ng-click="showUploadPopupCallback()" class="file-field-title">Add Attachment</a>
+        </div>
+    </div>
+</script>
+
+<!-- multi-numeric -->
+<script type="text/ng-template" id="multi-numeric.html">
+    <div class="optionalFieldHover custom" ng-show="q.mandatory == false">
+        <i class="closingOpt icon iconSmall blue-text" ng-click="hideShowedField(q, dataModelIndex)">
+            <svg class="noSaveItem"><use xlink:href="#icon_Close"></use></svg>
+        </i>
+    </div>
+    <div>
+        <div class="col s12 workAsInput">
+            {{ q.question }}
+        </div>
+        <div class="row marginBtm0">
+            <ng-repeat ng-repeat="subq in q.questionResponse ">
+                <smart-textfield ng-if="subq.type=='numeric' " type="{{ getFieldType(subq.type) }} " label="{{ subq.question }} " ng-model="subq.questionResponse" class="input-field line-height-manager col s12 m6 l4 xl4 xxl2" readonly="{{ q.readonly }}"></smart-textfield>
+            </ng-repeat>
+        </div>
+    </div>
+</script>
+<!-- grid type -->
+<script type="text/ng-template" id="grid-type-combination.html">
+    <div class="row">
+        <div class="col s12 workAsInput ">
+            {{ q.question }}
+        </div>
+
+        <div class="col s12">
+            <table class="bordered gridTypeContainer sTable ">
+                <thead>
+                    <tr>
+                        <th ng-if="q.type !=='grid-type-wrow-combination' "></th>
+                        <th class="center-align " smart-last-repeater-element parentIndex="{{ dataItem.rank }} " childIndex="{{ $parent.$index }} " data="{{q.questionResponse.cols}} " ng-repeat="gridTypeCols in q.questionResponse.cols track by $index ">
+                            {{ gridTypeCols.title }}
+                            <div ng-init="q.questionResponse.cols[$index].isValidated = false " ng-show="q.questionResponse.cols[$index].isValidated == true ">Please select</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--gridTypeRows.cols = Object.create(questionItem.questionResponse.cols);-->
+                    <tr ng-init="gridTypeRowsIndex = $index; " smart-last-repeater-element parentIndex="{{ dataItem.rank }} " childIndex="{{ $parent.$index }} " ng-repeat="gridTypeRows in q.questionResponse.rows track by $index">
+                        <td class="left-align " ng-if="q.type !=='grid-type-wrow-combination' ">
+                            {{gridTypeRows.title}}
+                        </td>
+                        <td class="center-align " ng-repeat="gridType in gridTypeRows.cols ">
+                            <div ng-include=" 'grid-type-structure' "></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</script>
+
+<!-- grid-type-structure -->
+<script type="text/ng-template" id="grid-type-structure">
+
+    <smart-checkbox ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true" class="gridTypeCheck"></smart-checkbox>
+    <smart-radio ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+
+    <smart-select ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" class="col s12" datakey="name"></smart-select>
+
+    <smart-dropdown config="{{dropDownConfig}}" ng-if="gridType.type.SelectedType.name === 'Text field'" class="relative displayBlock">
+        <a class='dropdown-button btn-in-header' data-alignment="left" ng-click="makegridFocuse(gridTypeRowsParentIndex,gridTypeRowsChildIndex,gridTypeRowsIndex,$index)" href='javascript:void(0)' data-activates='dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}' data-constrainwidth="false">
+            <span>{{gridType.type.Textfield || 'Please Enter' }}</span>
+        </a>
+        <div id="dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off">
+            <smart-textfield placeholder="Please Enter" ng-model="gridType.type.Textfield" focus="true" id="gridTextField_{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}"></smart-textfield>
+        </div>
+    </smart-dropdown>
+
+</script>
+<script type="text/ng-template" id="list-box.html">
+    <div class="row">
+        <div class="col s12 workAsInput ">
+            {{ q.question }}
+        </div>
+        <div class="questionResponseContainer clearfix">
+            <div class="clearfix">
+                <smart-accumulator class="padding20" options="q.questionResponse.config" height="250" label="Available Option(s)" add-keys="['title']" ng-model="q.questionResponse.selected">
+                </smart-accumulator>
+            </div>
+        </div>
+    </div>
+</script>
+
+<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>

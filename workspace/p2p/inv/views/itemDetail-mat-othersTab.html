@@ -1,0 +1,109 @@
+<div id="tabOthers" ng-init='contractNoOptn=[{"title": "er ghh ","selected": true},{"title": "456","selected": false}]; OrderLocOptn=[{"title": "abc","selected": true},{"title": "abc","selected": false}]'>
+	<div class="col s12 padding10 borderBtmGray">
+		<div class="left">
+			<smart-checkbox class="input-chk" fill="true" label="All"></smart-checkbox>
+		</div>
+		<div class="right">			
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left blue-text dropdown-button" smart-tooltip position="bottom" delay="50" message="Manage Column" data-activates="tabMatOtherTFilter" data-constrainwidth="false" data-alignment="right">
+					<svg><use xlink:href="#icon_ManageColumns"></use></svg>
+				</i>
+				<ul id="tabMatOtherTFilter" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup dropdown-content-large">
+					<li><span class="left-align fontSize16">MANAGE COLUMNS</span> </li>
+					<li class="marginTop10"><span class="left-align fontSize16">OTHERS</span> </li>
+					<li>
+						<smart-checkbox class="col s6" fill="true" label="Contract Number"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Contract Name" ></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Contract Expiry"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Contract Value"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Payment Terms"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Supplier Name"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Ordering Location"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Supplier Ordering Address"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Manufacturer Name"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Manufacturer Part Number"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Category"></smart-checkbox>
+						<smart-checkbox class="col s6" fill="true" label="Procurable"></smart-checkbox>
+					</li>
+					<li>
+						<smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right"></smart-button>
+					</li>
+				</ul>
+			</smart-dropdown>
+		</div>
+	</div>
+	<div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col s6 m5 l4 xl3 xxl2 requItemContainerLeft">
+				<div>
+					<smart-checkbox fill="true" label="1" class="input-chk left"></smart-checkbox>
+					<span class="right">
+						<a href="javascript:void(0)" class="modal-trigger add-row icon iconSmall right dropdown-button" smart-tooltip position="bottom" delay="50" message="Copy Line Details" >
+							<svg><use xlink:href="#icon_BulkApply"></use></svg>
+						</a>
+						<a href="javascript:void(0)" class="add-row icon iconSmall right dropdown-button marginRight20" smart-tooltip position="bottom" delay="50" message="Duplicate Line" >
+							<svg><use xlink:href="#icon_Copy"></use></svg>
+						</a>
+					</span>
+				</div>
+				<smart-textfield class="col s12" label="Item Name"></smart-textfield>
+				<smart-textfield class="col s12" label="Item Number"></smart-textfield>
+				<smart-textfield class="col s8" label="Unit Price (USD)"></smart-textfield>
+				<smart-textfield class="col s4" label="Quantity"></smart-textfield>
+			</div>
+			<div class="col s6 m7 l8 xl9 xxl10 padding0">
+				
+				<div class="col s12 right relative padding10 borderBtmGraye7">
+					<div class="right">
+						Requisition Line Value:
+						<smart-dropdown config="{{dropDownConfig}}">
+							<a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownUSD2_{{$index}}" data-constrainwidth="false" data-alignment="right">USD 1000</a>
+							<ul id="dropdownUSD2_{{$index}}" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+								</li>
+							</ul>
+						</smart-dropdown>
+					</div>
+				</div>				
+				<div class="row">
+					<h5 class="col s12 fontSize14">CONTRACT</h5>
+					<smart-select class="col s12 m6 l4 xl3 xxl2" label="Contract Number" options="contractNoOptn"></smart-select>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Contract Name" disable="true"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" type="date" disable="true" label="Contract Expiry"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Contract Value" disable="true"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Payment Terms" disable="true"></smart-textfield>
+				</div>
+				<hr />
+				<div class="row">
+					<h5 class="col s12 fontSize14">SUPPLIER</h5>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Supplier Name"></smart-textfield>
+					<smart-select class="col s12 m6 l4 xl3 xxl2" label="Ordering Location" options="OrderLocOptn"></smart-select>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Supplier Ordering Address"></smart-textfield>
+				</div>
+				<hr />
+				<div class="row">
+					<h5 class="col s12 fontSize14">MANUFACTURER</h5>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Manufacturer Name"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Manufacturer Part Number"></smart-textfield>
+                    <div class="col s12 m6 l4 xl3 xxl2 input-field line-height-manager">
+						<div class="grey-text fontSize12">Manufacturer Details</div>
+						<a href="javascript:void(0)" config='{"title":"Add Taxes"}' ng-click="manufatureDetailsCallback(e)">Dell:12345,Lenovo:12251</a>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<h5 class="col s12 fontSize14">OTHER</h5>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Category"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Procurable"></smart-textfield>						
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<smart-popup template-url="{{manufatureDetails}}" show='{{manufatureDetailsPopup}}' on-hide="manufatureDetailsPopupHideCallback(e)" type="small"></smart-popup>

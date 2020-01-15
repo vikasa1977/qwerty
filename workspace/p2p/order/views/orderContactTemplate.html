@@ -1,0 +1,7 @@
+<!--<smart-textfield class="col s12 m6" label="Order Contact"></smart-textfield>
+<smart-textfield class="col s12 m6" disable="true" label="Order Contact Email / Phone"></smart-textfield>-->
+
+
+<div ng-controller="p2pOrderNewCtrl">
+<smart-typeahead class="col s12 line-height-manager"  multiselect="false"   show-lookup="true" ng-model="selectedOrderContact" options="typeOptions" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span><div>{UserName}</div>" displayformat="{FirstName} {LastName}" label="Order Contact" callback-on-icon-click="myTestCallback($event)" ></smart-typeahead>
+</div>

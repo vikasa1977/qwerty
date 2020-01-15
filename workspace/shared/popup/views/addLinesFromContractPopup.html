@@ -1,0 +1,75 @@
+<div class="trackStatus comment-modal addLines-modal" smart-comment-class-temp ng-controller="addLinesCtrl">
+    <div class="modal-header" ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}" scrolled>
+        <a href="javascript:void(0)" smart-tooltip position="bottom" message="Full Screen" data-position="bottom" data-delay="50" alt="Fullscreen" id="addLinesPopupExpand" ng-click="goToTracksatusDetail(e)" class="right blue-text waves-effect waves-light">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Fullscreen" ng-if="!isFullscreen"></use>
+                    <use xlink:href="#icon_Minimize" ng-if="isFullscreen"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="left popup-heading-cnt">
+            <i class="icon iconSmall grey-text left">
+                <svg>
+                    <use xlink:href="#icon_Comments"></use>
+                </svg>
+            </i>
+            <span class="title">ADD LINES FROM CONTRACT</span>
+        </div>
+        <div class="popup-header-search-cnt">
+            <div class="row marginBtm0">
+                <div class="col l4">
+                    <smart-select label="" class="col s12 select-column-dd margin0" options="columnOptions" ng-model="selectedColumn" datakey="name" on-change=""></smart-select>
+                </div>
+                <div class="col l8">
+                    <div class="searchSlideMain relative" ng-class="{'global-search':isFullscreen}">
+                        <div class="searchWithHiddenTextField active">
+                            <a href="javascript:void(0)" class="waves-circle waves-effect waves-light search-icon black-text" smart-tooltip position="bottom" message="{{'Search' || translate }}" ng-click="addLinesPopupSearchCallback()">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Search"></use></svg>
+                                </i>
+                            </a>
+                            <smart-textfield typeof="text" class="input-field" focus="addLinesPopupSearchFocus" ng-model="addLinesPopupSearchModel" on-enter="addLinesPopupSearchCallback()"></smart-textfield>
+                            <a href="javascript:void(0)" ng-click="addLinesPopupSearchModel = ''" smart-tooltip position="Close" message="{{'Close' || translate }}" class="waves-circle waves-effect waves-light cancel-icon black-text">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-content padding0 comment-poup-content">
+        <div class="model_body">
+            <div class="wrapper row marginBtm0 padding0">
+                <smart-tabs class="marginBtm0" tab-config="{{contractList}}" width="100%" tab-panel-height="100%" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBtm0">
+            <smart-button flat="true" config="{'title':'DONE'}" class="right modal-close"></smart-button>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="tabHeader1.html">
+    <div>
+        <a><span class="left">CON-123567</span></a>
+    </div>
+</script>
+
+<script type="text/ng-template" id="contractTab1.html">
+    <smart-scroll height="450px">
+        <div class="clearfix">
+            <div class="marginTop0" smart-table="smartTableOptions" ng-if="smartTableOptions.data.length != 0"></div>
+        </div>
+    </smart-scroll>
+</script>
+
+
+

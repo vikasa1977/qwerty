@@ -1,0 +1,33 @@
+<!-- modal  -->
+<div>
+	<!-- modal -- header -->
+	<div class="modal-header">
+		<i class="icon iconSmall grey-text left modal-header--Icon">
+			<svg>
+				<use xlink:href="#icon_projects"></use>
+			</svg>
+		</i>
+		<span class="title">{{progressStatusTitle}}</span>
+
+
+	</div>
+
+	<!-- modal -- content -->
+	<div class="modal-content padding0 is-scrolled padding10">
+        <div class="row">
+            <span class="col s6 marginTop15">Reason for completion or cancellation.</span>
+        </div>
+        <div class="row">
+            <smart-select class="col s6 line-height-manager" label="Reason Type" ng-model="reasonType" options="reasonType"  datakey="type"></smart-select>
+        </div>
+        <div class="row">
+            <smart-textfield class="col s12 discussionArea active" label="Comment" type="area" charactercounter="true" maxlength="200" rows="2" ng-model=""></smart-textfield>
+        </div>
+        </div>
+
+	<!-- modal -- footer -->
+    <div class="modal-footer is-scrolled paddingLeft8">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="changeStatus(progressStatusTitle)"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left">
+        <svg>
+            <use xlink:href="#icon_tinCard"></use>
+        </svg>
+    </i>
+    <span class="title left">{{'TAX IDENTIFICATION NUMBER'|| translate}}</span>
+</div>
+<div class="modal-content padding0 is-scrolled">
+
+    <smart-scroll height="320px" class="clearfix clear">
+        <table class="bordered">
+            <thead>
+                <tr>
+                    <th>Registration Type</th>
+                    <th class="right-align">Registration Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="regItem in regData track by $index">
+                    <td>
+                        {{regItem.regType}}
+                    </td>
+                    <td class="right-align">
+                        {{regItem.regNumber}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </smart-scroll>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='closeBtnConfig'></smart-button>
+</div>
+
+

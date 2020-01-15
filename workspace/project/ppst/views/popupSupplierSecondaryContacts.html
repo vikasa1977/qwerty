@@ -1,0 +1,63 @@
+<div>
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone questionstitle" data-ng-init="mysearch=false;">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+				<a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+				<a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+                
+			</div>
+
+		</div>
+        <div class="right">
+            <a href="javascript:void(0)" class="marginLeft10 right" ng-click="">
+                <i class="icon left blue-text  marginRight0" smart-tooltip message="Add New Contact" position="bottom">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+            </a>
+            </div>
+            <span class="title">
+                {{"Manage Contacts"}}
+            </span>
+        </div>
+	<div class="modal-content padding0 noBottomBorder">
+		<smart-scroll height="360px" >
+			<table class="bordered sTable fixedTbl">
+				<thead class="borderTopLight">
+					<tr>
+						
+						<th class="left-align" width="35%">
+							Name 
+						</th>
+						<th class="left-align" width="35%">
+							Email
+						</th>
+						<th class="left-align" width="30%">Primary Phone No.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="secondaryContacts in supplierList[index].secondaryContact">
+						<td class="left-align">{{secondaryContacts.name}}</td>
+						<td class="left-align"><a href="mailto:{{secondaryContacts.email}}">{{secondaryContacts.email}}</a></td>
+                        <td class="left-align">{{secondaryContacts.contact}}</td>
+                        </tr>
+				</tbody>
+			</table>
+		</smart-scroll>
+			</div>
+
+	<div class="modal-footer noTopBorder">
+		<div class="right">
+			<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+			<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+		</div>
+	</div>
+</div>

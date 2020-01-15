@@ -1,0 +1,14 @@
+<div ng-controller="uiComponentsCtrl">
+    <!--<smart-textfield label="Project Date" class="col s6 m6 l6 input-field line-height-manager" ng-model="projectDateData.projectDate" max="1428863400000" type="date" is-mandatory="true" on-date-change="dateChange()">
+    </smart-textfield>
+
+    <smart-textfield label="Project Amount" class="col s6 m6 l6 input-field line-height-manager" ng-model="projectDateData.projectAmount" type="text" is-mandatory="true" currency smart-character-restrict patternreg="[^0-9]">
+    </smart-textfield>
+
+    <smart-typeahead class="col s6 m6 l6 line-height-manager" multiselect="false" titleofmodel="Assignee"
+        show-lookup="true" ng-model="asSelected" options="asOptions" filterkeys="['FirstName']" displayformat="{FirstName}" label="Assignee" is-mandatory="true">
+    </smart-typeahead>-->
+    <smart-typeahead class="col s2" multiselect="true" addnew="true" disable="true" showlookup="true" placeholder="Place Holder" ng-model="selected" options="options" filterkeys="['FirstName', 'LastName']"
+     displayformat="{FirstName} {LastName}" label="" callback-on-iconclick="callAfterClickedOnRightSideIcon(e)" info-icon="#icon_CirclePlus" call-addnew="callAfterAddNewFuncClick(e)">
+    </smart-typeahead>
+</div>

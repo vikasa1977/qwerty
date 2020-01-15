@@ -1,0 +1,436 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Invoice"></use>
+                </svg>
+            </i>
+          
+            <span class="extra-nav-title--text ng-cloak">{{ 'CBT (PREVIEW)' || translate }}</span>
+        </div> 
+    </div>
+</div>
+
+<!-- sub header end-->
+
+
+
+
+<div class="previewModeContainer row">
+	<!--<div class="preview-text">PREVIEW</div>-->
+	<div class="col s12 l12 m12">
+        <div class="row card ng-cloak" style="width: 895px; margin: 0 auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="padding-bottom: 0; padding:24px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr style="border-bottom: 1px solid #e0e0e0;">
+                                <td width="70%" align="left" valign="middle" scope="col" style="padding:15px 0;">
+                                    <h2 style="color: #5C5C5C; margin: 0;"> <img src="shared/resources/images/CBT-logo.jpg" alt="" /></h2>
+                                </td>
+                                <td width="30%" align="right" valign="top" scope="col" style="padding:15px 0; text-align: right;">
+                                    <div style="text-align: left; display: inline-block;">
+                                        <span style="font-weight: bold;">PO Number: </span><span>PO-000630</span><br />
+                                        <span style="font-weight: bold;">Revision: </span><span>&nbsp;&nbsp;&nbsp;--</span><br />
+                                        <span style="font-weight: bold;">PO Issued On: </span><span>04-04-2017</span><br />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center" valign="middle" scope="col" colspan="3" style="text-align: center; font-size: 18px; padding: 15px 0; color:#000;">PURCHASE ORDER</td>
+                            </tr>
+                            <tr>
+                                <td width="45%" align="left" valign="top" style="padding: 15px 0; vertical-align: top;">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 75px; background: #eee; padding: 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">FROM:</td>
+                                            <td align="left" valign="top" style="padding: 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">
+                                                CBT<br />
+                                                CincinnatiBell Admin<br />
+                                                CincinnatiBell.Admin@gep.com
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 75px;  background: #eee; padding: 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">TO:</td>
+                                            <td align="left" valign="top" style="padding: 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">
+                                                PC-2017.000009 :: Phoenix International LCC, Brook LN9 brookeden85@gmail.com/,::<br />
+                                                PC-2017.000009 :: Phoenix International LCC
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td width="10%" style="padding: 15px 0;">&nbsp;</td>
+
+                                <td width="45%" align="left" valign="top" style="padding: 15px 0; vertical-align: top;">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">SUMMARY</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right; vertical-align: top;">AMOUNT (USD)</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">SUB-TOTAL</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right; vertical-align: top;">200.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">TAXES</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right; vertical-align: top;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">SHIPPING</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right; vertical-align: top;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">OTHER CHARGES</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right; vertical-align: top;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000;">TOTAL AMOUNT</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; text-align:right;">200.00</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" colspan="3" style="padding: 15px 0; vertical-align: top;">
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">BILL TO:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; vertical-align: top;">Mainstai. 115 Fair Brook Pl, Clarksville, Tennessee, United State, 37043</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">SHIP TO:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; vertical-align: top;">Mainstai. 115 Fair Brook Pl, Clarksville, Tennessee, United State, 37043</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 150px; background: #eee; padding: 3px 10px; border: 1px solid #bbb; color:#000; vertical-align: top;">PAYMENT TERS:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; vertical-align: top;">NET 45</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="100%" style="padding: 15px 0;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th style="font-size: 18px; color: #000; border: 1px solid #bbb; background: #eee; height:50px; line-height:18px;">ADDITIONAL INFORMATION</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td width="100%" style="border: 1px solid #bbb; padding: 30px 30px 0 30px;">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                                                    <tr>
+                                                        <td style="padding: 0 0 20px 0; color: #000;">
+                                                            <span>Q1. Requisition Type</span><br />
+                                                            <span style="color: #717171;">Ans: </span><span>Plug-In</span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding: 20px 20px 5px 20px; background: #fcfcfc; color: #000; border: 1px solid #e0e0e0;">
+                                                            <ul style="margin: 0;">
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q1. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>ABCD</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q2. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>PQR</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q3. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>XYZ</span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                                                    <tr>
+                                                        <td style="padding: 0 0 20px 0; color: #000;">
+                                                            <span>Q2. Requisition Type</span><br />
+                                                            <span style="color: #717171;">Ans: </span><span>Plug-In</span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding: 20px 20px 5px 20px; background: #fcfcfc; color: #000; border: 1px solid #e0e0e0;">
+                                                            <ul style="margin: 0;">
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q1. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>ABCD</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q2. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>PQR</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q3. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>XYZ</span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="100%" style="padding: 15px 0;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th colspan="9" style="font-size: 18px; color: #000; border: 1px solid #bbb; background: #eee; height:50px; line-height:18px;">DETAILS</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px; width: 50px; text-align: center;">#</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Supplier Item Number</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Quantity / Efforts</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Line type</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Due Date</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Description</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">UOM</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Unit Price</td>
+                                            <td style="border: 1px solid #bbb; padding: 15px 5px; color: #000; font-size: 12px;">Line Value</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000; width: 50px; text-align: center;">1</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">--</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">1.0</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Material</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">25/04/2017</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Test</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Each</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">200.00</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">200.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9" style="border: 1px solid #bbb; padding: 30px 30px 0 30px; color: #000; background: #f6f6f6;">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                                                    <tr>
+                                                        <td style="padding: 0; color: #000; font-size: 14px; font-weight: bold;">
+                                                            ADDITIONAL INFORMATION
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                                                    <tr>
+                                                        <td style="padding: 0 0 20px 0; color: #000;">
+                                                            <span>Q1. Requisition Type</span><br />
+                                                            <span style="color: #717171;">Ans: </span><span>Plug-In</span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding: 20px 20px 5px 20px; background: #fcfcfc; color: #000; border: 1px solid #e0e0e0;">
+                                                            <ul style="margin: 0;">
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q1. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>ABCD</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q2. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>PQR</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q3. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>XYZ</span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000; width: 50px; text-align: center;">2</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">--</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">1.0</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Material</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">25/04/2017</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Test</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">Each</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">200.00</td>
+                                            <td style="border: 1px solid #bbb; border-bottom: 1px solid #e0e0e0; padding: 15px 5px; color: #000;">200.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9" style="border: 1px solid #bbb; padding: 30px 30px 0 30px; color: #000; background: #f6f6f6;">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                                                    <tr>
+                                                        <td style="padding: 0; color: #000; font-size: 14px; font-weight: bold;">
+                                                            ADDITIONAL INFORMATION
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                                                    <tr>
+                                                        <td style="padding: 0 0 20px 0; color: #000;">
+                                                            <span>Q2. Requisition Type</span><br />
+                                                            <span style="color: #717171;">Ans: </span><span>Plug-In</span>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding: 20px 20px 5px 20px; background: #fcfcfc; color: #000; border: 1px solid #e0e0e0;">
+                                                            <ul style="margin: 0;">
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q1. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>ABCD</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q2. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>PQR</span>
+                                                                </li>
+
+                                                                <li style="margin-bottom: 15px;">
+                                                                    <span>Q3. Prefix</span><br />
+                                                                    <span style="color: #717171;">Ans: </span><span>XYZ</span>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="100%" style="padding: 15px 0;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th style="font-size: 18px; color: #000; border: 1px solid #bbb; background: #eee; height:50px; line-height:18px;">TERMS AND CONDITIONS</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="border: 1px solid #bbb; padding: 30px; color: #000;">
+                                                <ol style="padding: 0 0 0 15px; font-size: 12px;">
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">ACCEPTANCE: </span>Acceptance of this Purchase order must be unqualified, unconditional and subject to and expressly limited to the stated terms and conditions. Buyer shall not be bound by additional or materially different provisions that may appear in Seller’s quotation, acceptance, invoice, or any other communication from Seller to Buyer, unless such provision is expressly agreed to in writing signed by Buyer. Buyer’s acceptance of merchandise shipped shall constitute acceptance of such merchandise subject to the provisions of this Purchase Order only, and shall not constitute acceptance of any counterproposal submitted by Seller not otherwise accepted in writing signed by Buyer. Seller acknowledges that, by this paragraph, Buyer has given adequate and acceptable notice of objection under section 2-207 of the Uniform Commercial Code to any terms contained in any quotation, invoice, or other document from Seller which are in addition to or materially different from these terms and conditions. Upon acceptance, this Purchase Order shall constitute an agreement between the parties (“Agreement”) and may not be modified or rescinded except in writing signed by both parties.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">TITLE – RISK OF LOSS: </span>Identification of the merchandise under section 2-501 of the Uniform Commercial Code shall take place at the moment this purchase order is accepted by Seller. Title to the merchandise and risk of loss shall remain with Seller until Buyer actually accepts the goods at its place of business.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">WARRANTIES: </span>Seller warrants that it has good title to the merchandise and that the merchandise is free and clear of all liens, encumbrances and security interests. SELLER FURTHER WARRANTS THAT (1) THE MERCHANDISE IS FIT AND SUFFICIENT FOR THE PURPOSES INTENDED, (2) THE MERCHANDISE IS OF GOOD QUALITY AND FREE FROM DEFECTS, WHETHER PATENT OR LATENT IN MATERIAL OR WORKMANSHIP, AND (3) THE MERCHANIDSE IS MERCHANTABLE AND CONFORMS TO ANY AFFIRMATIONS OF FACT, SPECIFICATIONS, DRAWINGS, OR SAMPLES GIVEN TO BUYER. Payment for the merchandise shall not constitute acceptance thereof. Buyer shall have the right to inspect all merchandise and to reject any merchandise which Buyer determines is defective or nonconforming.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">SHIPPING AND BILLING: </span>Shipments shall be made in accordance with specific shipping instructions, and all subordinate documents shall bear the Purchase Order Number. Adequate protective packing shall be furnished at no additional charge. A packing memorandum shall be enclosed with each shipment; and when more than one package is shipped, the package containing the memorandum shall be conspicuously identified. The Purchase Order Number shall be marked on all packages and shipping papers. Invoices shall be rendered in duplicate, along with Buyer’s return copy, showing Purchase Order Number, through routing and weight, within 24 hours after shipment. Separate invoices shall be rendered for each shipment. Bills of lading and shipping notices shall be forwarded with the invoice; otherwise, bills and notices shall be mailed promptly to Buyer. Buyer will pay accurate invoices ninety (90) days from receipt, via check, ACH, or P-card (purchasing card).</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">USE OF INFORMATION: </span>Any specifications, drawings, sketches, models, samples, tools, technical information, or data, written, oral or otherwise (“Information”) furnished to Seller by Buyer shall remain Buyer’s property. All copies of such Information in written, graphic, or other tangible form shall be returned to Buyer upon Buyer’s request, unless such information was already known to Seller free of any obligation to keep it confidential or has been or is subsequently made public by Buyer or a third party. Seller shall keep such Information confidential. The Information shall be used only for purposes of this Agreement and may be used for other purposes only upon such terms as may be agreed upon between Buyer and Seller in writing. No information furnished by Seller to Buyer shall be considered by Buyer to be confidential unless Seller so notifies Buyer in writing at the time furnished.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">INSIGNIA, ADVERTISING: </span>Merchandise rejected or not purchased by Buyer which utilizes any of Buyer’s names, trade names, trademarks, insignia, symbols, decorative designs or evidences of its inspection (“Insignia”) shall have all Insignia removed prior to any sale, use or disposition thereof. Seller shall indemnify and hold Buyer and Buyer’s customers harmless from any claim, loss or damage arising out of Seller’s failure to remove Insignia. This paragraph shall in no way modify paragraph 5 above. Seller will not utilize any of Buyer’s names, trade names, trademarks, insignia, symbols, or decorative designs in any of Seller’s advertising, promotional material, or reference material without the prior written consent of Buyer.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">PATENTS, TRADEMARKS OR COPYRIGHTS: </span>(a) In the event of any infringement, or claim of infringement, of any patent, trademark, or copyright based on the manufacture or normal use of the merchandise, Seller shall indemnify Buyer for any damage, expense, or liability that may result by reason of the infringement or claim of infringement, except where the infringement or claim of infringement arises necessarily from Seller’s adherence to Buyer’s written instructions or directions which involve the use of merchandise or items other than (1) commercial merchandise which is available on the open market or is the same as such merchandise, or (2) items of Seller’s origin, design, or selection; and Buyer shall indemnify Seller in such excepted cases. Each party shall defend or settle, at its own expense, any action or suit against the other for which it is responsible hereunder; provided, however, that Seller will not settle any action or suit against Buyer without Buyer’s prior written consent, which will not be unreasonably withheld. Each party shall notify the other promptly of any claim of infringement for which the other is responsible and shall cooperate with the other in every reasonable way to facilitate the defense of any such claim.</p>
+
+                                                        <p style="margin: 0 0 15px 0;">(b) If Buyer’s use of the merchandise is prevented by injunction or court order on account of any such infringement or claim of infringement, for which Seller is responsible, Seller shall, at no expense to Buyer, (1) replace the merchandise with equally suitable merchandise free of infringement, without adversely affecting its functionality, or (2) modify the merchandise so that it will be free of infringement, without adversely affecting its functionality, (3) by license or release from claim of infringement, procure for Buyer’s benefit the right to use the merchandise free of any claim of infringement, or (4) if none of the foregoing are possible, remove the merchandise from Buyer’s premises and refund to Buyer the purchase price of such merchandise. The provisions of this subparagraph (b) do not limit Buyer’s remedies under subparagraph (a) of this paragraph.</p>
+
+                                                        <p style="margin: 0 0 15px 0;">(c) No licenses, express or implied, under any patents, copyrights, or other intellectual property are granted by Buyer to Seller under this Purchase order.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">COMPLIANCE WITH LAWS: </span>Cincinnati Bell is a United States government contractor and subcontractor. Accordingly, Seller shall, in its performance hereunder, comply with the Equal Employment Opportunity Clause required under Executive Order 11246, as amended (41 CFR 60-1.4), which clause is hereby incorporated into this Agreement. Seller shall, in its performance hereunder, comply with The Occupational Safety and Health Act of 1970 and any amendments thereto, and all other applicable federal, state, county and local laws, ordinances, regulations, and codes, and procure all necessary permits or certificates. If materials, services or containers furnished hereunder are required to be constructed, packaged, labeled or registered in a prescribed manner, Seller shall comply with such requirements. Seller shall indemnify Buyer and hold Buyer harmless from any loss or damage sustained because of Seller’s non-compliance.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">INSURANCE: </span>Seller shall procure and maintain commercial general liability insurance in amounts not less that $1,000,000 combined single limit for bodily injury and property damage arising out of any one occurrence. The policy shall include coverage for product liability and completed operations and shall include Buyer and its affiliates as additional insureds providing Buyer and its affiliates with the same level of protection provided to other insured persons under the “Who is an Insured” provision of the policy. If the Seller must enter upon the property or the premises of the Buyer or its affiliates, the Seller shall procure and maintain Workers’ Compensation for the full statutory requirements of the state in which work is to be performed and Employers’ Liability insurance in amounts not less than $500,000 per accident or disease. Prior to the start of any work and within 10 days prior to any expiration or change in coverage, Seller shall furnish to Buyer certificates evidencing the insurance required under this paragraph.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">INDEMNIFICATION: </span>Seller shall indemnify and hold harmless, Buyer and its affiliates, officers, employees, and workers, of and from any loss, cost, damage or expense, including defense cost, arising out of injury to any person or damage to any property arising out of or in the course of the services provided under this Purchase Order and caused in whole or in part by any act, error or omission, negligent or otherwise, of Seller, its employees, or subcontractors.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">TERMINATION: </span>Buyer may at any time terminate this Agreement or any order for its sole convenience. In such event, Seller shall be paid as full payment under this Agreement or the order a percentage of the price of the merchandise equal to the percentage of the work performed with respect to such merchandise prior to the date of termination (but not more than the total purchase price), plus any out-of-pocket expenses incurred as a result of the termination that Seller could not reasonably have avoided.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">LIMITATIONS: </span>Buyer shall not be liable to Seller for incidental or consequential damages of any kind, including anticipated profits or revenues. Buyer’s total liability under this Agreement will not exceed the amount paid to Seller hereunder. Any action or proceeding arising under this Agreement must be filed in a state or federal court located in Hamilton County, Ohio within two (2) years after the cause of action arises.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">PLANT RULES AND WORKSITES: </span>Employees and agents of Seller, while on the premises of Buyer or Buyer’s customers, shall comply with all plant rules and regulations including, where required by government regulations, submission of satisfactory clearance from the United States Department of Defense or other federal authority. Seller shall acquaint itself with all conditions governing the delivery, receiving and storage of materials at any premises where it is working so as not to interfere with the operations of Buyer or Buyer’s customers. Seller will not stop, delay, or interfere with the work of Buyer or its customers without the prior approval of Buyer. Seller shall be responsible for its employees or agents working in harmony with all others while on the premises of Buyer or its customers.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">WAIVER: </span>No modification or waiver of any provision of this Agreement will be established by conduct, custom, or course of dealing; and no modification, waiver, or consent will in any event be effective unless the same is in writing and specifically refers to this Agreement, and then such waiver or consent will be effective only in the specific instance and for the purpose for which given.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">ASSIGNMENT: </span>No right, interest, obligation, or liability under this Agreement shall be assigned by either party without the written consent of the other party. Any attempted assignment not made in conformity with this paragraph shall be void and totally ineffective for any and all purposes.</p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p style="margin: 0 0 15px 0;"><span style="font-weight: bold;">CONSTRUCTION: </span>This Agreement in all respects shall be governed by and construed in accordance with the laws of the State of Ohio. The titles of the paragraphs are for convenience only and shall not define or limit any of the terms or provisions hereof. Time is of the essence of this Agreement in each and all of its provisions.</p>
+                                                    </li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+	</div>
+</div>
+<footer class="page-footer bounceInUp animated">
+	<div class="clearfix row">
+		<div class="left left-align col s6">
+			<smart-button config='{"title":"EDIT"}' class="editRequest" flat="true" callback="edit"></smart-button>
+		</div>
+		<div class="right right-align col s6">
+			<smart-button config='{"title":"SEND TO REQUESTER","allignRight":"false"}' class="right" callback="sendToReq"></smart-button>
+			<smart-button config='{"title":"SAVE AS DRAFT","allignRight":"false"}' class="right whiteSecondaryBtn marginRight10" disable="false"></smart-button>
+            <smart-button config='{"title":"CANCEL","allignRight":"false"}'  class="right" flat="true" disable="false"></smart-button>
+		</div>
+	</div>
+</footer>
+<smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)"></smart-popup>
+
+<style>
+   @media print {
+    body * {visibility: hidden;}
+    .extra-nav-wrap,.page-footer,.extraHeader {display: none;}
+    .previewModeContainer * {visibility: visible;}
+    table { page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto } 
+    td { page-break-inside:avoid; page-break-after:auto } 
+    thead { display:table-header-group } 
+    tfoot { display:table-footer-group }
+}
+</style>

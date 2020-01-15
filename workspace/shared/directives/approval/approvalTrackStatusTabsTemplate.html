@@ -1,0 +1,51 @@
+<div class="row marginBtm0 relative">
+    <div class="absolute legend-section" ng-if="currPage !== 'contract.approval'">
+        <div class="clearfix">
+            <smart-dropdown config="{{dropDownConfig}}" class="right" ng-if="currPage !== 'contract.approval'">
+                <a href="javaScript:void(0)" class="dropdown-button marginTop14 displayInlineBlock" data-activates="tabMatLineTReqSending" data-constrainwidth="false" data-alignment="right">
+                    {{'Legend'|| translate}}
+                </a>
+                <div id="tabMatLineTReqSending" class="dropdown-content dd-close-off row shades white paddingBtm15" style="width:550px">
+                    <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                        <li class="paddingTop10 paddingBtm10 left valign-wrapper" ng-repeat="approvarType in approvalFlowLists.approvarTypes">
+                            <i class="icon iconMedium left {{approvarType.color}}">
+                                <svg>
+                                    <use xlink:href="{{approvarType.icon}}"></use>
+                                </svg>
+                            </i>
+                            <div class="white-space-normal">{{approvarType.text}}</div>
+                        </li>
+                    </ul>
+
+
+                    <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                        <li class="paddingTop10 paddingBtm10 left valign-wrapper" ng-repeat="status in approvalFlowLists.legendStatus">
+                            <i class="icon iconMedium left {{status.color}}">
+                                <svg>
+                                    <use xlink:href="{{status.icon}}"></use>
+                                </svg>
+                            </i>
+                            <div class="white-space-normal">{{status.text}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </smart-dropdown>
+
+            <ul class="right top-legends">
+                <li class="left marginRight25" ng-repeat="status in approvalFlowLists.legendStatus | limitTo: 3">
+                    <i class="icon iconSmall left marginRight10 {{status.color}}">
+                        <svg>
+                            <use xlink:href="{{status.icon}}"></use>
+                        </svg>
+                    </i>
+                    <div class="white-space-normal left">{{status.text}}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col s12 padding0 approval-tab-section">
+        <smart-tabs tab-config="{{trackStatusTabs}}" width="45%" nextback="true" class="marginBtm0" on-select="tabClicked(e)"></smart-tabs>
+    </div>
+</div>

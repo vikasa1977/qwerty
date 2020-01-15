@@ -1,0 +1,43 @@
+<div>
+    <div class="modal-header">       
+        <span class="title">{{ 'ERP LOCATION REFERENCE CODE' || translate }} </span>
+    </div>  
+    <div class="modal-content padding0 is-scrolled" style="min-height:300px" is-fixed-header="true">
+		<smart-scroll height="300px" is-fixed-header="true">
+			<table class="bordered sTable ">
+			    <thead>
+				    <tr>
+                        <th width="50px"></th>
+					    <th>Supplier Name</th>
+					    <th>Source System (ERP)</th>
+					    <th>ERP Location Reference Code</th>
+					    <th>Ordering Location</th>
+                        <th>Remit to Location</th>
+                        <th>Safety Indicator</th>
+                        <th>EDI Type</th>
+				    </tr>
+			    </thead>
+			    <tbody>
+				    <tr ng-repeat="item in erpRef">
+                        <td>
+                             <input class="with-gap" type="radio"   name="selectERPReference"  id="erpRef-{{ $index }}" />
+                             <label for="erpRef-{{ $index }}"></label>
+                        </td>
+                        <td>{{item.supplierName}}</td>
+                        <td>{{item.sourceSystem}}</td>
+                        <td>{{item.LocationReferenceCode}}</td>
+                        <td>{{item.OrderingLocation}}</td>
+                        <td>{{item.RemitToLocation}}</td>
+                        <td>{{item.SafetyIndicator}}</td>
+                        <td>{{item.EDIType}}</td>
+                    </tr>
+			    </tbody>
+            </table>
+		</smart-scroll>
+    </div>
+    <div class="modal-footer is-scrolled">            
+        <smart-button flat="true" class="modal-close" config='{"title":"OK"}' ng-click="erpRefCall()"></smart-button>
+    </div>
+</div>
+
+

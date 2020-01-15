@@ -1,0 +1,32 @@
+<div class="docSlider-content slide-view-modal">
+	<div class="docSlider-hdr slide-view-modal-header row margin0">
+		<i class="icon  marginTop3 slide-view-modal-header-icon grey-text">
+			<svg><use xlink:href="#icon_Preview"></use></svg>
+		</i>
+		<span class="title left">PREVIEW -</span>
+		<smart-select class="modal-header-dd left margin0" ng-model="list[index]" options="list" datakey="title"></smart-select>
+		
+		<div class="right">				
+			<a href="javascript:void(0);" class="right" smart-tooltip position="bottom" message="Delete">
+				<i class="icon iconSmall ">
+					<svg><use xlink:href="#icon_TrashCan"></use></svg>
+				</i>
+			</a>			
+		</div>
+	</div>
+	<smart-scroll height="100%" v-offset="115px">
+		<div class="slide-view-modal-content preview-doc  scroll-inner-container">					
+			<div class="row  marginBtm0">
+				<smart-textfield label="Name"  readonly="true"  ng-model="list[index].title" class="col s12 m6  line-height-manager"></smart-textfield>
+				<smart-textfield label="Code/Rev" readonly="true"  ng-model="list[index].codeRev" class="col s12 m6 line-height-manager"></smart-textfield>
+			</div>					
+			<div class="row">	
+				<smart-textfield type="area" readonly="true" charactercounter="true" maxlength="4000" class="col s12" label="Description" ng-model="list[index].fullTxt"></smart-textfield>			 
+			</div>	
+		</div>
+	</smart-scroll>
+	<div class="slide-view-modal-footer">
+		<smart-button flat="true" class="right" config='{"title":"EDIT"}'  ng-click="editSandP(list[index])"></smart-button>
+		<smart-button flat="true" class="right" config='{"title":"CLOSE"}' ng-click="closeSandPPreviewPopup()"></smart-button>
+	</div>
+</div>

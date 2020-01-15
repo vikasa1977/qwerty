@@ -1,0 +1,38 @@
+<div class="clearfix itemPopup--tabContentHeight">
+	<smart-scroll height="{{templateListHeight}}" is-fixed-header="true">
+		<div class="row scroll-inner-container" ng-repeat="split in splits">
+			<ul class="col s12 lineitem-tab--spliter">
+				<li class="panelBox-header--aLink">Split :<span class="grey-text"> {{split.splitName}} </span></li>
+				<!--| <li class="panelBox-header--aLink">Quantity :<span class="grey-text">  3</span></li> | 
+				<li class="panelBox-header--aLink">Amount : <span class="grey-text">200 USD</span></li>-->
+			</ul>
+
+            <table class="table bordered">
+                <colgroup>
+                    <col style="width:40%">
+                    <col style="width:30%">
+                    <col style="width:30%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>{{"Attributes" | translate}}</th>
+                        <th>{{"From" | translate}}</th>
+                        <th>{{"To" | translate}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in split.lineDetailTbodyData" ng-class="{'grey lighten-4':item.isSubHeader}">
+                        <td ng-class="{'paddingLeft40':item.isSubChild}">{{item.attributes}}</td>
+                        <td>{{item.modifiedFrom}}</td>
+                        <td>{{item.modifiedTo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row marginBtm0" ng-hide="hideShowMoreLink || $index == 0">
+                <div class="col s12 center padding10">
+                    <smart-button flat="true" config='{"title":"SHOW MORE","allignRight":"false"}' disable="false" ng-click="showMoreChangesCall($event)"></smart-button>
+                </div>
+            </div>
+		</div>
+	</smart-scroll>
+</div>

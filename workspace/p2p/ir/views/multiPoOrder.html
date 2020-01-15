@@ -1,0 +1,41 @@
+
+    <div class="col width245 field-has-icon">
+        <div ng-if="parentScope.mSelectedOrder.length == 0" class="paddingTop15">
+            <span>Add Order Number</span>
+        </div>
+        <div ng-if="parentScope.mSelectedOrder.length > 0">
+            <label> Order Number </label>
+
+
+        </div>
+        <a href="javascript:void(0);" ng-if="parentScope.mSelectedOrder.length > 1 " ng-click="parentScope.orderReadOnlyPopupCallback(e)">{{parentScope.mSelectedOrder[0].number}} + {{parentScope.mSelectedOrder.length - 1}}more</a>
+        <a href="javascript:void(0);" ng-if="parentScope.mSelectedOrder.length == 1 " ng-click="parentScope.orderReadOnlyPopupCallback(e)">
+            {{parentScope.mSelectedOrder[0].number}}
+        </a>
+        <a href="javascript:void(0);" class="info-icon marginRight35" ng-click="parentScope.orderDetailsPopupCallback(e)">
+            <i class="icon marginTop15 blue-text" smart-tooltip position="bottom" mode="mouseover" message="Select lines from Multiple Orders" is-fixed="true">
+                <svg><use xlink:href="#icon_Table"></use></svg>
+            </i>
+        </a>
+        
+
+        <!--<div class="paddingTop15 paddingLeft10">
+            <span ng-if="parentScope.mSelectedOrder.length == 0">Add Order Number</span>
+        </div>
+        <div>
+            <label class="docuementTypeLabel paddingLeft10" ng-if="parentScope.mSelectedOrder.length > 0 "> Order Number </label>
+        </div>
+        <a href="javascript:void(0);" ng-if="parentScope.mSelectedOrder.length > 1" class="paddingLeft10" ng-click="parentScope.orderReadOnlyPopupCallback(e)">{{parentScope.mSelectedOrder[0].number}} + {{parentScope.mSelectedOrder.length - 1}} more</a>
+        <a href="javascript:void(0);" ng-if="parentScope.mSelectedOrder.length == 1" class="paddingLeft10" ng-click="parentScope.orderReadOnlyPopupCallback(e)">
+            {{parentScope.mSelectedOrder[0].number}}
+        </a>
+
+        <a href="javascript:void(0);" class="info-icon paddingLeft10" ng-click="parentScope.orderDetailsPopupCallback(e)">
+            <i class="icon marginTop15 blue-text" smart-tooltip position="bottom" mode="mouseover" message="Select lines from Multiple Orders" is-fixed="true">
+                <svg><use xlink:href="#icon_Table"></use></svg>
+            </i>
+        </a>-->
+
+        <smart-popup template-url="{{parentScope.orderDetailsPopupUrl}}" show="{{parentScope.orderDetailsPopup}}" on-hide="parentScope.hideOrderDetailsPopupCallback(e)" type="large"></smart-popup>
+        <smart-popup template-url="{{parentScope.orderReadOnlyPopupUrl}}" show="{{parentScope.orderReadOnlyPopup}}" on-hide="parentScope.hideOrderReadOnlyPopupCallback(e)" type="small"></smart-popup>
+    </div>

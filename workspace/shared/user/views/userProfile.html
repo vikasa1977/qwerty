@@ -1,0 +1,46 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+	<div class="col s12">
+		<div class="extra-nav-title">
+			<a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back">
+				<i class="icon small ">
+					<svg>
+						<use xlink:href="#icon_Back"></use>
+					</svg>
+				</i>
+			</a>
+			<i class="icon small extra-nav-title--icon">
+				<svg>
+					<use xlink:href="#icon_User"></use>
+				</svg>
+			</i>
+			<span class="extra-nav-title--text ng-cloak">ACCOUNT DETAILS</span>
+		</div>
+    </div>
+</div>
+
+<div class="row smartFormWidgetContainer marginBtm40">
+	<smart-form-widget form-config="config" model-data="dataModel" widget-panel-top="128"></smart-form-widget>
+</div>
+
+
+<footer class="page-footer footerSpace paddingBtm0 paddingTop0">
+  <div class="row marginBtm0">
+    <div class="left">
+      <span class="left fontSize32 percentageVal green-text marginTop5">75%</span>
+      <span class="left margin10 percentageText">PROFILE <br/>  COMPLETENESS</span>
+    </div>
+    
+    <smart-button class="right footerBtn marginRight9 marginTop10" config='{"title":"SAVE"}' on-click="saveProfileConfirm()" ></smart-button>
+    <smart-button class="right footerBtn marginTop10" flat="true" config='{"title":"CANCEL"}' disable="false" on-click="cancelProfileEdit()"></smart-button>
+    <a href="javaScript:void(0);">
+      <i class="icon iconSmall editProfileImage white-text">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+        </svg>
+      </i>
+    </a>
+  </div>
+    </footer>
+
+<smart-popup template-url="shared/user/views/popupShippingLocation.html" show="{{showShippingPopup}}" on-hide="onLocationModalHide"></smart-popup>
+

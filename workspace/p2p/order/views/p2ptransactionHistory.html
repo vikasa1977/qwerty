@@ -1,0 +1,51 @@
+<div class="white fullHeight">
+    <div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Order"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{dataModel.orderData.DocumentNumber}} - {{dataModel.orderData.DocumentName}} (DRAFT)</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row white marginBtm0 paddingBtm40">
+        <div class="row marginBottom0">
+            <div class="col s12 m6 l8 ts-highchart-wrap">
+                <highchart config="highchartConfig.barGraph"></highchart>
+            </div>
+
+            <div class="col s12 m6 l4 paddingTop20">
+                <smart-textfield class="col s12 m6 line-height-manager" label="Division" ng-model="commonModel.ts_division" type="text" readonly="true"></smart-textfield>
+                <smart-select class="col s12 m6 line-height-manager" label="Line No." ng-model="selectedLineOption" options="lineOptions" datakey="lineNumber"></smart-select> 
+                <smart-textfield class="col s12 m6 line-height-manager" label="Purchasing Organization" ng-model="commonModel.ts_purchasingOrg" type="text" readonly="true"></smart-textfield>
+                <smart-typeahead class="col s12 m6 line-height-manager" titleofmodel="Item No." multiselect="false" addnew="false" show-lookup="true" label="Item No." ng-model="selectedItemNo" options="itemNoOptions" filterkeys="['itemNumber']" optionformat="<span>{itemNumber}</span>" displayformat="{itemNumber}"></smart-typeahead>
+                <smart-textfield class="col s12 m6 line-height-manager" label="Company Code" ng-model="commonModel.ts_companyCode" type="text" readonly="true"></smart-textfield>
+                <smart-typeahead class="col s12 m6 line-height-manager" titleofmodel="Line Description" multiselect="false" addnew="false" show-lookup="true" label="Item Description" ng-model="selectedItemDescription" options="itemDescriptionOptions" filterkeys="['description']" optionformat="<span>{description}</span>" displayformat="{description}"></smart-typeahead>
+                <smart-textfield class="col s12 m6 line-height-manager" label="Supplier" ng-model="commonModel.ts_supplier" type="text" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m3 line-height-manager" label="Line Type" ng-model="commonModel.ts_lineType" type="text" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m3 line-height-manager" label="Line Source" ng-model="commonModel.ts_lineSource" type="text" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 line-height-manager" label="Payment Term" ng-model="commonModel.ts_payTerm" type="text" readonly="true"></smart-textfield>
+                <smart-textfield class="col s12 m6 line-height-manager" label="Need By Date" ng-model="commonModel.ts_needByDate" type="date" readonly="true"></smart-textfield>
+            </div>
+        </div>
+
+        <div class="row borderTopLight">
+            <div id="materialsRadioContent" class="materialsRadioContent addClassAfterHeaderFixed">
+                <div class="_dev_addScrollForTop">
+                    <smart-tabs tab-config="{{transactionHistoryPOTabDataset}}" ng-click="selectTab(this)" width="40%"></smart-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

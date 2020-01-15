@@ -1,0 +1,96 @@
+<div class="supplier-section-wrapper" ng-controller="adminItemMasterSupplierCtrl">
+	<div class="row marginBtm0 borderTopLight">
+		<div class="clearfix secContentWithBorder fontSize12">
+			<div class="right ">			
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-click="supplierAddRowCallback()">
+					<i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Supplier" position="bottom">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>			
+				<!--<a href="javascript:void(0)" class="marginLeft10 right" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteMultiPricesheet($event)">
+					<i class="icon left blue-text">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>-->			
+			</div>
+		</div>
+	</div>
+	<table class="bordered sTable">
+        <colgroup>
+            <col style="width:10%" />
+            <col style="width:10%" />
+            <col style="width:20%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+        </colgroup>
+		<thead>
+			<tr>
+				<th>Business Unit</th>
+                <th>Facility</th>
+				<th>Supplier</th>
+                <th>Supplier Location</th>
+				<th>Status</th>
+				<th class="right-align">Contracted Number</th>
+                <th class="right-align">Blanket Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="supplier in supplierData | itemsPerPage:5 " pagination-id="supplier" current-page="supplierCurrentPage">
+                <td ng-class="{'highlight': supplier.highlight}">
+                    <smart-list-lookup readonly="false" disable="false" class="left marginBtm0 titleless-typeahead" titleofmodel="Select Business Unit" multiselect="false" is-mandatory="true" label="" addnew="false" selecttypeoption="supplier.bu.selectTypeOption" ng-model="supplier.bu.selectedOption" options="supplier.bu.options" displayformat="['name']"></smart-list-lookup>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}">
+                    <smart-list-lookup readonly="false" disable="false" class="left marginBtm0 titleless-typeahead" titleofmodel="Select Facility" multiselect="false" is-mandatory="true" label="" addnew="false" selecttypeoption="supplier.facility.selectTypeOption" ng-model="supplier.facility.selectedOption" options="supplier.facility.options" displayformat="['name']"></smart-list-lookup>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}">
+                    <smart-list-lookup readonly="false" disable="false" class="left marginBtm0 titleless-typeahead" titleofmodel="Select Supplier" multiselect="false" is-mandatory="true" label="" addnew="false" selecttypeoption="supplier.supplier.selectTypeOption" ng-model="supplier.supplier.selectedOption" options="supplier.supplier.options" displayformat="['name']"></smart-list-lookup>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}">
+                    <div class="supLocationCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="supplier.supLocation" options="supplier.supLocationOpt" datakey="name" displaykey="name" on-change="changedSupplier(supplier.supLocation)"></smart-select>
+                    </div>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}">
+                    <div class="supStatusCnt">
+                        <smart-select class="marginBottom0" fixed="true" ng-model="supplier.status" options="supplier.statusOpt" datakey="name" displaykey="name" on-change="changedStatus(supplier.status)"></smart-select>
+                    </div>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(supplier)" ng-class="{'invalid-field': supplier.conNum.errorMsg}" data-activates='contractedNumber_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!supplier.conNum.number">Enter Value</span>
+                            <span ng-if="supplier.conNum.number">{{supplier.conNum.number}}</span>
+                        </a>
+                        <div id='contractedNumber_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="text" label="" placeholder="Enter Value" ng-model="supplier.conNum.number" error-model="supplier.conNum.errorMsg" focus="supplier.qtyfocus" class="col s12" align="right" on-blur="updatedSupplierContractedValue(supplier.conNum)" rules="{{supplier.conNum.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+                <td ng-class="{'highlight': supplier.highlight}" class="right-align">
+                    <smart-dropdown config="{{dropDownConfig}}" class="table-dropdown relative">
+                        <a href="javaScript:void(0);" class='dropdown-button displayInlineBlock' ng-click="addFocuse(supplier)" ng-class="{'invalid-field': supplier.blanketNum.errorMsg}" data-activates='blanketNumber_{{$index}}' style="width: 100%; display: inline-block;">
+                            <span ng-if="!supplier.blanketNum.number">Enter Value</span>
+                            <span ng-if="supplier.blanketNum.number">{{supplier.blanketNum.number}}</span>
+                        </a>
+                        <div id='blanketNumber_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+                            <div class="row marginBtm0">
+                                <smart-textfield type="number" label="" placeholder="Enter Value" ng-model="supplier.blanketNum.number" error-model="supplier.blanketNum.errorMsg" focus="supplier.qtyfocus" class="col s12" align="right" on-blur="updatedBlanketValue()" rules="{{supplier.blanketNum.validateRule}}"></smart-textfield>
+                            </div>
+                        </div>
+                    </smart-dropdown>
+                </td>
+			</tr>
+		</tbody>
+	</table>
+    <div class="clearfix paginationWrapper">
+        <span class="rowsToShow" style="display: none">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts.availableOptions track by option.size" ng-model="rowsToShowOpts.selectedOption"></select>
+        </span>
+        <dir-pagination-controls pagination-id="supplier" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+</div>	

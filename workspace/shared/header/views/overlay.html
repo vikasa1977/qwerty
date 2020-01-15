@@ -1,0 +1,52 @@
+<div class="blueOverlay">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 l7 m10 s12 centered" style="margin-top: 10vh">
+                <div class="white-text center-align">
+                    <img src="../theme/images/dummyImage.jpg" class="circle layOutProfileImage" style="opacity: 0;">
+                    <div class="caption center-align">
+                        <h4>{{welcome}} Emily</h4>
+                    </div>
+                    <div class="caption center-align"><a class="cyan-text" href="userProfile.html">Profile</a> 75% Complete</div>
+                </div>
+                <div class="sliderContainer">
+                    <a href="javascript:void(0)" class="showNext waves-effect tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.previous}}" id="ProbtnScrollnext">
+                        <i class="icon iconLarge ">
+                            <svg>
+                                <use xlink:href="#icon_DownChevron"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="showPrev waves-effect tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.next}}" id="probtnScrollprev">
+                        <i class="icon iconLarge ">
+                            <svg>
+                                <use xlink:href="#icon_DownChevron"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="grey-text text-lighten-3 profileInfoSlider" style="opacity: 0">
+                        <li>
+                            <div class="caption center-align">
+                                <h5>
+                                    {{$label.loginUser}}, You have 1 Pending Task<br>
+                                    {{$label.createRequesition}}
+                                </h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="caption center-align">
+                                <h5 class="light">
+                                    You last logged in yesterday<br>
+                                    09 Sept, 2015.
+                                </h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 right-align">
+                    <a class="white waves-effect   blue-text btn overlayOkayButton">OK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<li class="extra-nav-icon">
+    <a href="#catalog/wishlist" class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="{{'Wishlist' || translate}}">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Wishlist"></use>
+            </svg>
+        </i>
+    </a>
+</li>
+<li class="cartCountWrap extra-nav-icon">
+    <smart-dropdown config="{{dropDownConfig}}">
+        <a data-activates='dropdown1' class="white-text dropdown-button waves-circle waves-effect waves-light _cartDropDown" smart-tooltip position="bottom" delay="50" message="{{'Cart' || translate}}" data-activates='cartAddedList' data-constrainwidth="false">
+            <i class="icon iconSmall">
+                <svg><use xlink:href="#icon_Cart"></use></svg>
+            </i>
+            <div class="z-depth-1 small-cart-count bubble _icon_Cart" ng-show="(cartItemCount > 0)"><span ng-bind="cartItemCount"></span></div>
+        </a>
+        <ul id='dropdown1' class='dropdown-content cart-lookaup-popup lookup-popup dd-close-off'>
+            <li>
+                <div class="input-field"><span class="left">{{'Shopping Cart' || translate}}</span> <span class="right fontSize14 marginTop5">{{'Items' || translate}} 2</span></div>
+            </li>
+            <li>
+                <div class="input-field "><span class="left grey-text">{{'Document Value' || translate}}</span> <span class="right">500.00</span></div>
+            </li>
+            <li>
+                <div class="input-field "><span class="left grey-text">{{'Taxes Charges' || translate}}</span> <span class="right">20.00</span></div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <div class="input-field "><span class="left grey-text">{{'Document Total' || translate}}</span> <span class="right">1020.00 {{'USD' || translate}}</span></div>
+            </li>
+            <li class="padding0">
+                <div class="right"> <a href="#catalog/cart" class="btn-flat blue-text left waves-effect">{{'View Cart' || translate}}</a> <a href="#/p2p/req/new" class="btn-flat blue-text left waves-effect">{{'Checkout' || translate}}</a> </div>
+            </li>
+        </ul>
+        <div class="z-depth-1 small-cart-count bubble _icon_Cart " style="opacity:0;"><span>0</span></div>
+    </smart-dropdown>
+</li>
+<li class="extra-nav-icon">
+    <a class="white-text waves-circle waves-effect waves-light _cardListTrigger" smart-tooltip position="bottom" delay="50" message="{{pageView}}" ng-click="changeView(pageView)">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_ViewList" ng-if="isListView"></use>
+                <use xlink:href="#icon_ViewGrid" ng-if="!isListView"></use>
+            </svg>
+        </i>
+    </a>
+</li>
+<li class="extra-nav-icon">
+    <a href="javascript:void(0)" class="white-text waves-circle waves-effect waves-light" smart-tooltip position="bottom" delay="50" message="{{'Sort' || translate}}" data-activates='filterLookup' data-constrainwidth="false">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Sort"></use>
+            </svg>
+        </i>
+    </a>
+    <ul id="Ul6" class='dropdown-content width170'>
+        <li><a href="javascript:void(0)">{{'Popular' || translate}}</a></li>
+        <li><a href="javascript:void(0)">{{'New' || translate}}</a></li>
+        <li><a href="javascript:void(0)">{{'High Price' || translate}}</a></li>
+        <li><a href="javascript:void(0)">{{'Low Price' || translate}}</a></li>
+    </ul>
+</li>

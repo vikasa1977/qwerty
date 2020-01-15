@@ -1,0 +1,11 @@
+<div>
+    <div class="row marginBtm0">
+        <div class="col s12 input-field marginTop22 marginBtm5">
+            <label class="active" ng-if="selectedCategoryNodes.length > 0">Category</label>
+            <a href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{selectedCategoriesTxt}}</a>
+            <span ng-if="selectedCategoriesValidate && !selectedCategoryNodes.length" class="red-text fontSize12 displayBlock marginBtm5">This is required field.</span>
+        </div>
+    </div>
+
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div>  

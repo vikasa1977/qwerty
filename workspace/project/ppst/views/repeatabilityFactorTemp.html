@@ -1,0 +1,6 @@
+<div ng-controller="scorecardRepeatabilityProjCtrl" class="supplierFormsWidgetCBRLayout"> 
+    <div class="col s12 supplierFormsWidgetLayout paddingTop14  hierarchyList">
+        <a href="javascript:void(0)" ng-click="showRepeatabilityPopupCallback()">View Repeatability Factor</a>
+    </div>    					
+	<smart-popup template-url="project/ppst/views/popupRepeatabilityFactor.html" show="{{showRepeatabilityPopup}}" on-hide="onRepetabilityHideCallback()" cancel-button="true"></smart-popup>
+</div>

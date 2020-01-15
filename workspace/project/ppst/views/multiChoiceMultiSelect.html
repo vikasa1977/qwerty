@@ -1,0 +1,3 @@
+﻿<div class="row marginBtm0" ng-controller="multiChoiceCtrl">
+    <smart-typeahead class="col s12 line-height-manager" is-mandatory="true" show-info-tip="true" min-multiselect="3" multiselect="true" lookup-open="myCall1()" show-lookup="true" ng-model="selectedSignatory" options="typeOptions1" titleofmodel="Signatory" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span><div>{UserName}</div>" displayformat="{FirstName} {LastName}" label="Signatory" callback-on-icon-click="myTestCallback($event)"></smart-typeahead>
+</div>

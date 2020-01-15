@@ -1,0 +1,30 @@
+<div>
+    <div class="modal-header clearfix">
+        <i class="icon grey-text iconSmall left marginTop2">
+            <svg><use xlink:href="#icon_Filter"></use></svg>
+        </i>
+        <span class="title">FILTER</span>
+
+    </div>
+
+    <div class="modal-content padding0 filter-panel-view">
+    
+            <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="100%" tab-panel-height="300px" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+  
+    </div>
+
+    <div class="modal-footer">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="left">
+                    <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+
+                </div>
+                <div class="right">
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();"></smart-button>
+                     <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

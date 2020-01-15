@@ -1,0 +1,32 @@
+﻿<div id="confidentialityNoticePopUp" class="confidentialityNoticePopUp" ng-controller="platformCtrl">
+    <div class="modal-header clearfix">
+        <span class="announcementImage"></span>
+        <span class="title">{{ headerTitle | uppercase }} </span>
+    </div>
+    <div class="modal-content is-scrolled padding0">
+        <div class="model_body">
+            <div class="row marginBtm0 messageContentContainer">
+                <smart-scroll height="290px">
+                    <div class="messageContent" dir-paginate="data in bannerData | itemsPerPage: selectedOption.size | orderBy:sortKey:reverse" pagination-id="messageBanner">
+                        <span class="displayInlineBlock">{{data.message}}</span>
+                    </div>
+                </smart-scroll>
+            </div>
+            <div ng-if="bannerData.length > 1" class="right">
+                <dir-pagination-controls class="paginationControls right" pagination-id="messageBanner" max-size="10" on-page-change="pageChanged(newPageNumber-1, oldPageNumber-1, bannerData)"></dir-pagination-controls>
+                <span class="left paddingTop20 fontSize12">{{ 'Total Messages' | translate }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer left" ng-class="{'is-scrolled': true}">
+        <div class="clearfix"></div>
+        <div class="left marginTop10">
+            <input type="checkbox" class="filled-in" id="markAsDefault" ng-model="isMarkAsDefault" ng-disabled="disableDoneButton" ng-change="dontShowMessage(isMarkAsDefault)"/>
+            <label ng-class="{'disabled' : disableDoneButton}" for="markAsDefault" class="grey-text text-darken-4"> {{ 'Do not show this message again' || translate }}</label>
+        </div>
+
+        <div class="right gotItLink">
+            <smart-button flat="true" config='{"title":"GOT IT!"}' disable="bannerData.length > 1 && disableDoneButton" on-click="closeConfidentialityPopUp($event);"></smart-button>
+        </div>
+    </div>
+</div>

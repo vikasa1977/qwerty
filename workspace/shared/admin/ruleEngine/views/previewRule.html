@@ -1,0 +1,283 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_Settings"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">
+                <span>RULE PREVIEW</span>
+
+            </span>
+        </div>
+    </div>
+    <div ng-class="{'show-dv-msg': diversitySupplierAlert}" ng-if="previewpageType.type === 'massEdit'" class="col s12 shades white marginTop0">       
+        <div class="row paddingTop20 margin0 black-text" ng-show="showPreviewSummary">
+            <smart-scroll height="300px">
+                <div class="col s12 paddingLeft20 marginBtm20">ACTION TYPES</div>
+                <div class="col s12 paddingLeft40 fontSize16 marginBtm10">Updated Action Codes</div>
+                <div ng-repeat="actiontypeListData in actionTypeUpdateData">
+                    <div class="col s12 paddingLeft40">
+                        <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="From" ng-model="actiontypeListData.selectedOption.name"></smart-textfield>
+                        <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="To" ng-model="actiontypeListData.toselectedOption.name"></smart-textfield>
+                    </div>
+                </div>
+                <div class="col s12 paddingLeft40 fontSize16 marginBtm10">Updated Action Type Parameters</div>
+                <div class="row clearfix paddingLeft40 marginBtm0" ng-repeat="actionParameterList in actionParameterData">
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Action Type" ng-model="actionParameterList.selectedActionOpt.name"></smart-textfield>
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Parameters" ng-model="actionParameterList.selectedParameterOpt.name"></smart-textfield>
+
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="From" ng-model="actionParameterList.from.name"></smart-textfield>
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="To" ng-model="actionParameterList.to.name"></smart-textfield>
+                </div>
+
+                <div class="col s12 paddingLeft20 marginBtm20">CONDITIONS</div>
+
+                <div class="row marginBtm0 paddingLeft30" ng-repeat="condition in massEditRuleconditionsData">
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="" ng-model="condition.selectedTypeOption.name"></smart-textfield>
+                    <smart-textfield readonly="true" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Attributes" ng-model="condition.selectedAttrOption.name"></smart-textfield>
+                    <smart-textfield readonly="true" ng-if="condition.selectedAttrOption.name && condition.selectedTypeOption.name === 'Add Attribute'" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Operators" ng-model="condition.selectedPoratorOption.name"></smart-textfield>
+                    <div class="col s12 m4 l4 xl3 xxl2 padding0" ng-if="condition.selectedPoratorOption.value.length  && condition.selectedTypeOption.name === 'Add Attribute'">
+                        <div class="col padding0" ng-class="condition.selectedPoratorOption.value.length === 1 ? 's12' : 's6'" ng-repeat="contList in condition.selectedPoratorOption.value">
+                            <smart-textfield readonly="true" class="col s12 line-height-manager input-field" label="Value" ng-model="contList.title"></smart-textfield>
+                        </div>
+                    </div>
+
+                    <div class="col s12 padding0" ng-if="condition.selectedAttrOption.name  && condition.selectedTypeOption.name === 'Update Attribute'">
+                        <div class="col s12 m4 l4 xl3 xxl2 relative conditionalupadteattr">
+                            <span class="absolute fontSize12">From:</span>
+                            <smart-textfield readonly="true" class="col s12 line-height-manager input-field paddingLeft50 paddingRight0" label="Operators" ng-model="condition.selectedPoratorOptionFrom.name"></smart-textfield>
+
+                        </div>
+                        <div class="col s12 m4 l4 xl3 xxl2 padding0">
+                            <div class="col padding0" ng-class="condition.selectedPoratorOptionFrom.value.length === 1 ? 's12' : 's6'" ng-repeat="contList in condition.selectedPoratorOptionFrom.value">
+                                <smart-textfield readonly="true" class="col s12 line-height-manager input-field" ng-if="condition.selectedPoratorOptionFrom.value.length  && condition.selectedTypeOption.name === 'Update Attribute'" label="Value" ng-model="contList.title"></smart-textfield>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m4 l4 xl3 xxl2 relative conditionalupadteattr">
+                            <span class="absolute fontSize12">To:</span>
+                            <smart-textfield readonly="true" class="col s12 line-height-manager input-field paddingLeft50 paddingRight0" label="Operators" ng-model="condition.selectedPoratorOptionTo.name"></smart-textfield>
+                        </div>
+                        <div class="col s12 m4 l4 xl3 xxl2 padding0">
+                            <div class="col padding0" ng-class="condition.selectedPoratorOptionTo.value.length === 1 ? 's12' : 's6'" ng-repeat="contList in condition.selectedPoratorOptionTo.value">
+                                <smart-textfield readonly="true" class="col s12 line-height-manager input-field" ng-class="condition.selectedPoratorOptionTo.value.length === 1 ? 's12' : 's6'" ng-if="condition.selectedPoratorOptionTo.value.length  && condition.selectedTypeOption.name === 'Update Attribute'" label="Value" ng-model="contList.title"></smart-textfield>
+                            </div>
+                        </div>
+                    </div>
+
+                    <smart-textfield readonly="true" ng-if="condition.selectedAttrOption.name  && condition.selectedTypeOption.name === 'Remove Attribute'" class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="Value" ng-model="condition.selectedValueOption[0].name"></smart-textfield>
+
+                </div>
+            </smart-scroll>
+        </div>
+        <div class="col s12" ng-class="{'is-scrolled' : showPreviewSummary}">
+            <span class="paddingLeft15 left cursorPointer marginTop5" ng-click="showPreviewSummary = !showPreviewSummary">
+                <a href="javascript:void(0);" class="black-text">
+                    <i class="icon iconSmall">
+                        <svg ng-class="{'transform90DegN': !showPreviewSummary}"><use xlink:href="#icon_DownChevron"></use></svg>
+                    </i>
+                </a>
+                <span class="black-text fontSize14 paddingLeft16"><span class="bold">120/200</span> Rules to be updated | <span class="bold">10</span> duplicates descarded.</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!--ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader}"-->
+<div class="row paddingBtm40 smartFormWidgetContainer hideFormSecNav white setting-page">
+    <div class="ruleContainer col s12 m12 l12 xl12 xxl12 ng-isolate-scope">
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 1</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 2</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 3</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 4</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 5</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="savable collapsible-header">
+                <span class="fontSize18">Rule 6</span>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">If</div>
+            <div class="ruleNames paddingLeft16">
+                <div>
+                    <div class="actionCodeLabel dIBlock">Cost Centre</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">c1, c2, c3</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Entity Code</div>
+                    <div class="operators dIBlock">=</div>
+                    <div class="actionCodeValues dIBlock">xyz, abc</div>
+                </div>
+                <div>
+                    <div class="actionCodeLabel dIBlock">Amount</div>
+                    <div class="operators dIBlock">></div>
+                    <div class="actionCodeValues dIBlock">$10000</div>
+                </div>
+            </div>
+            <div class="bold action paddingLeft16 marginTop10">Then</div>
+            <div class="ruleNames paddingLeft16">
+                <div class="actionCodeLabel dIBlock">Cost Centre Approval</div>
+                <div class="operators dIBlock"></div>
+                <div class="actionCodeValues dIBlock">ABC</div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="page-footer footerSpace">
+    <!--<smart-button class="right footerBtn marginLeft0" flat="true" config='{"title":" Close"}' ui-sref="admin.createRule({ view: 'createRule' })"></smart-button>-->
+    <smart-button ng-if="previewpageType.type === 'massEdit'" class="right footerBtn" config='{"title":"UPDATE"}' ui-sref="admin.ruleSummary" ng-click="updateRulesMat(e)"></smart-button>
+    <smart-button ng-if="previewpageType.type === 'create'" class="right footerBtn" config='{"title":"PUBLISH"}'  ui-sref="admin.ruleSummary" ng-click="publishRulesMat(e)"></smart-button>
+    <smart-button ng-if="previewpageType.type === 'massEdit'" class="left footerBtn marginLeft0" flat="true" config='{"title":" Back"}' ui-sref="admin.massEditeRule"></smart-button>
+    <smart-button ng-if="previewpageType.type === 'create'" class="left footerBtn marginLeft0" flat="true" config='{"title":" Back"}' ui-sref="admin.createRule({ type: 'Approval Matrix' })"></smart-button>
+
+
+</footer>

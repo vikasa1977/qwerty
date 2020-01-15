@@ -1,0 +1,31 @@
+<div>
+    <div class="modal-header">        
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_Link"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'EXTERNAL LINK' || translate }} </span>
+    </div>
+  
+        <div class="modal-content padding10 is-scrolled">
+            <div class="row ">				
+                <smart-textfield class="col s12 line-height-manager" ng-model="linkName.name" label="Name" ></smart-textfield>                
+                <smart-textfield class="col s12 line-height-manager" ng-model="linkName.url" label="URL" rules="{{urlRule}}"></smart-textfield>
+            </div>
+            <div class="row" ng-if="isClassificationWithRequired">
+                <smart-select ng-model="selectedClassification" label="Classification" options="classificationOptions" class="col s4 " style="max-width:200px"></smart-select>
+            </div>
+            <div class="row" ng-if="isSharedWithRequired">
+                <smart-checkbox class="col s12 paddingTop5" label="{{sharedWithText}}"></smart-checkbox>
+            </div>            		
+        </div>
+
+        <div class="modal-footer is-scrolled">
+            <smart-button flat="true" class="modal-close" config='{"title":"SAVE"}' ng-click="linkSaveCall()"></smart-button>
+            <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+        </div>
+
+</div>
+
+

@@ -1,0 +1,41 @@
+<div ng-controller="contractRequestCtrl">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_AddSupplier"></use>
+            </svg>
+        </i>
+        <span class="title">Contact Information</span>
+    </div>
+    <div class="modal-content padding0">
+
+        <div class="row marginTop15">
+            <div class="col s12 ">
+                <div class="row marginBtm0">
+                    <smart-textfield label="Contract Name" ng-model="name" readonly="true" class="col s6 xxl4 marginBtm25"></smart-textfield>
+                    <smart-textfield label="Contract Number" ng-model="number" readonly="true" class="col s6 xxl4 marginBtm25"></smart-textfield>
+                    <smart-textfield label="Status" ng-model="status" readonly="true" class="col s6 xxl4 marginBtm25"></smart-textfield>
+                    <smart-textfield label="Expiry Date" ng-model="expiryDate" readonly="true" class="col s6 xxl4 marginBtm25"></smart-textfield>
+                    <smart-textfield label="Business Unit" ng-model="bu" readonly="true" class="col s6 xxl4 marginBtm25"></smart-textfield>
+                </div>
+            </div>
+            
+        </div>
+     </div>
+<div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+
+                <div class="left">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"Download Contract Language"}'></smart-button>
+                </div>
+                    
+                <div class="right">
+                        <smart-button flat="true" class="left modal-close" config='{"title":"Cancel"}'></smart-button>
+                        <smart-button flat="true" class="left modal-close" ng-click="goToTargetContractRequest()" config='{"title":"Go To Contract"}'></smart-button>
+                 </div>
+
+                </div>
+        </div>
+    </div>
+</div>

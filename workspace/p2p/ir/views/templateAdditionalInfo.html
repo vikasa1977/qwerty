@@ -1,0 +1,171 @@
+<div class="questionnaire-section-header" ng-class="{
+    'col s12' : isAdditionalInfoPage
+}" ng-if="item.sectionName != ''">
+    <div class="questionnaire-section-header-cnt">
+        <div class="questionnaire-section-header-section-name">
+            {{ item.sectionName }}
+        </div>
+    </div>
+</div>
+<div class="clearfix paddingLeft18 paddingRight18 questionnaire-section-content" ng-class="{'paddingTop20' : item.sectionName != '' }">
+    <ng-repeat ng-repeat="q in item.questions" ng-include='returnField(q.type)'>
+    </ng-repeat>
+</div>
+
+
+
+<!-- text field-->
+<script type="text/ng-template" id="single-text.html">
+
+    <smart-textfield type="{{ getFieldType(q.type) }}" label="{{ q.question }}" ng-model="q.questionResponse" class="input-field line-height-manager col {{ returnColClass(q) }}" readonly="{{ q.readonly }}"></smart-textfield>
+</script>
+<!-- text area -->
+<script type="text/ng-template" id="multi-text.html">
+
+    <div class="clearfix"></div>
+    <smart-textfield type="area" class="input-field col {{ returnColClass(q) }}" label="{{ q.question }}" ng-model="q.questionResponse" readonly="{{ q.readonly }}"></smart-textfield>
+    <div class="clearfix"></div>
+</script>
+<!-- text area with icon-->
+<script type="text/ng-template" id="multi-text-with-icon.html">
+    <div class="clearfix"></div>
+    <div class="multi-text-holder">
+        <smart-textfield type="area" class="input-field col {{ returnColClass(q) }}" label="{{ q.question }}" ng-model="q.questionResponse" readonly="{{ q.readonly }}"></smart-textfield>
+    </div>
+    <div class="multi-text-icon-holder">
+        <i class="icon small blue-text" smart-infoltip message="{{q.toolTip}}" position="left" is-fixed="true">
+            <svg>
+                <use xlink:href="{{q.icon}}"></use>
+            </svg>
+        </i>
+    </div>
+</script>
+<!-- radio -->
+<script type="text/ng-template" id="single-response-radio.html">
+
+    <smart-radio class="active line-height-manager col {{ returnColClass(q) }}" gap="true" label="{{ q.question }}" ng-model="q.questionResponse" options="q.options" datakey="name"></smart-radio>
+</script>
+<!-- checkbox -->
+<script type="text/ng-template" id="multi-response.html">
+    <smart-checkbox class=" line-height-manager col {{ returnColClass(q) }} " label=" {{ option.label }} " ng-model="q.questionResponse" ng-repeat="option in q.options" disable="true"></smart-checkbox>
+
+</script>
+<!-- select dropdown -->
+<script type="text/ng-template" id="single-response-drop.html">
+
+    <smart-select class="input-field line-height-manager col {{ returnColClass(q) }}" label="{{ q.question }}" ng-model="q.questionResponse" datakey="name" options="q.options" readonly="{{ q.readonly }}"></smart-select>
+</script>
+<!-- date-time -->
+<script type="text/ng-template" id="date-time.html">
+
+    <smart-textfield type="date" class="col input-field line-height-manager {{ returnColClass(q) }} dateTime  " ng-model="q.questionResponse" label="{{ q.question }}" is-mandatory="true" readonly="{{ q.readonly }}"></smart-textfield>
+</script>
+<!-- multi-text-format -->
+<script type="text/ng-template" id="multi-text-format.html">
+
+    <div class="col s12 l12 xxl11 ckeditorContainer ckeditorBox marginBtm30">
+        <label class="active displayBlock marginBtm6">{{ q.question }} </label>
+        <textarea ckeditior readonly="{{ q.readonly }}" ng-model="q.questionResponse" id="editor_{{ $index }}" rows="10" cols="80"></textarea>
+    </div>
+</script>
+<!--attachment-only-->
+<script type="text/ng-template" id="attachment-only.html">
+
+    <div class=" col {{ returnColClass(q) }} ">
+        <label class="active displayBlock marginBtm6">{{ q.question }} </label>
+        <div class=" file-field input-field">
+            <a href="javascript:void(0)" ng-click="addDocumentPopupCallback()" class="file-field-title">Add Attachment</a>
+        </div>
+    </div>
+</script>
+
+<!-- multi-numeric -->
+<script type="text/ng-template" id="multi-numeric.html">
+
+    <div>
+        <div class="col s12 workAsInput ">
+            {{ q.question }}
+        </div>
+        <div class="row  col s12">
+            <ng-repeat ng-repeat="subq in q.questionResponse ">
+                <smart-textfield ng-if="subq.type=='numeric' " type="{{ getFieldType(subq.type) }} " label="{{ subq.question }} " ng-model="subq.questionResponse" class="input-field line-height-manager col {{ returnColClass(subq) }} " readonly="{{ q.readonly }}"></smart-textfield>
+            </ng-repeat>
+        </div>
+    </div>
+</script>
+<!-- grid type -->
+<script type="text/ng-template" id="grid-type-combination.html">
+    <div class="row">
+        <div class="col s12 workAsInput ">
+            {{ q.question }}
+        </div>
+
+        <div class="col s12">
+
+            <table class=" bordered gridTypeContainer sTable ">
+                <thead>
+                    <tr>
+                        <th ng-if="q.type !=='grid-type-wrow-combination' "></th>
+                        <th class="center-align " smart-last-repeater-element parentIndex="{{ dataItem.rank }} " childIndex="{{ $parent.$index }} " data="{{q.questionResponse.cols}} " ng-repeat="gridTypeCols in q.questionResponse.cols track by $index ">
+                            {{ gridTypeCols.title }}
+                            <div ng-init="q.questionResponse.cols[$index].isValidated = false " ng-show="q.questionResponse.cols[$index].isValidated == true ">Please select</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--gridTypeRows.cols = Object.create(questionItem.questionResponse.cols);-->
+                    <tr ng-init="gridTypeRowsIndex = $index; " smart-last-repeater-element parentIndex="{{ dataItem.rank }} " childIndex="{{ $parent.$index }} " ng-repeat="gridTypeRows in q.questionResponse.rows track by $index">
+                        <td class="left-align " ng-if="q.type !=='grid-type-wrow-combination' ">
+                            {{gridTypeRows.title}}
+                        </td>
+                        <td class="center-align " ng-repeat="gridType in gridTypeRows.cols ">
+                            <div ng-include=" 'grid-type-structure' "></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</script>
+
+<!-- grid-type-structure -->
+<script type="text/ng-template" id="grid-type-structure">
+
+    <smart-checkbox ng-if="gridType.type.SelectedType.name === 'Checkbox'" ng-model="gridType.type.check" fill="true" class="gridTypeCheck"></smart-checkbox>
+    <smart-radio ng-if="gridType.type.SelectedType.name === 'Radio'" gap="true" ng-init="qRadioIndex = 'qRadio-'+ gridTypeRowsParentIndex + '' + gridTypeRowsChildIndex + '' +  $index;" option-id="{{qRadioIndex + gridTypeRowsIndex}}" group-id="{{qRadioIndex}}" ng-model="gridType.type.radioOption.selectedradioOption" options="gridType.type.radioOption.config" datakey="name"></smart-radio>
+
+    <smart-select ng-if="gridType.type.SelectedType.name === 'Dropdown'" ng-model="gridType.type.configSelect" options="gridType.type.config" class="col s12" datakey="name"></smart-select>
+
+    <smart-dropdown config="{{dropDownConfig}}" ng-if="gridType.type.SelectedType.name === 'Text field'" class="relative displayBlock">
+        <a class='dropdown-button btn-in-header' data-alignment="left" ng-click="makegridFocuse(gridTypeRowsParentIndex,gridTypeRowsChildIndex,gridTypeRowsIndex,$index)" href='javascript:void(0)' data-activates='dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}' data-constrainwidth="false">
+            <span>{{gridType.type.Textfield || 'Please Enter' }}</span>
+        </a>
+        <div id="dropdowngrid{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}" class="dropdown-content lookup-popup fontNormal lookup-popup-quantity dd-close-off">
+            <smart-textfield placeholder="Please Enter" ng-model="gridType.type.Textfield" focus="true" id="gridTextField_{{gridTypeRowsParentIndex}}{{gridTypeRowsChildIndex}}{{gridTypeRowsIndex}}{{$index}}"></smart-textfield>
+        </div>
+    </smart-dropdown>
+
+</script>
+<script type="text/ng-template" id="list-box.html">
+
+    <div class="row">
+        <div class="col s12 workAsInput ">
+            {{ q.question }}
+        </div>
+        <div class="questionResponseContainer clearfix">
+
+            <div class="clearfix">
+                <!--smart accumulator-->
+                <smart-accumulator class="padding20" options="q.questionResponse.config" height="250" label="Available Option(s)" add-keys="['title']" ng-model="q.questionResponse.selected">
+                </smart-accumulator>
+                <!--smart accumulator-->
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</script>

@@ -1,0 +1,324 @@
+<div class="docSlider-content slide-view-modal templatePrevPage ">
+    <div class="popHdr">
+        <div class="popHdr-name">{{list[index].docName}}</div>
+        <div class="popHdr-status">
+            <div class="popHdr-status">
+                <div>
+                    {{ list[index].docStatus }}
+                </div>
+            </div>      
+        </div>
+        <div class="popHdr-info">
+            <span ng-repeat="attrib in list[index].attributes | limitTo : 8">
+                <span ng-if="attrib.datakey == 'Order Number' ||
+                                attrib.datakey == 'Supplier' ||
+                                attrib.datakey == 'Order Total'||
+                                attrib.datakey == 'Created On' ||
+                                attrib.datakey == 'Sent On' ||
+                                attrib.datakey == 'Purchase Type' ||
+                                attrib.datakey == 'Order Contact' ||
+                                attrib.datakey == 'Supplier Item Number' ||
+                                attrib.datakey == 'Line Receiving Status' ||
+                                attrib.datakey == 'Line Invoicing Status'||
+                                attrib.datakey == 'Line Quantity' ||
+                                attrib.datakey == 'Order Status' ||
+                                attrib.datakey == 'Category' ||
+                                attrib.datakey == 'Unit Price' ||
+                                attrib.datakey == 'Line Total USD' ||
+                                attrib.datakey == 'Need by Date' ||
+                                 attrib.datakey == 'Supplier Name' ||
+                                attrib.datakey == 'Created by' ||
+                                attrib.datakey == 'Tracking Number'||
+                                attrib.datakey == 'Ship To Location' ||
+                                attrib.datakey == 'ASN Number' ||
+                                attrib.datakey == 'Shipped Quantity' ||
+								attrib.datakey == 'PO Number' ||
+								attrib.datakey == 'Expected Delivery Date' ||
+								attrib.datakey == 'Request Time' ||
+								attrib.datakey == 'Completion Time'||
+                                attrib.datakey == 'Organization Entity' ||
+								attrib.datakey == 'Sharing Type' ||
+                                 attrib.datakey == 'Owned by'
+					  ">
+                    {{ attrib.datakey || translate }}:
+                </span>
+                <span ng-if="attrib.datakey == 'createdOn'">
+                    {{ 'Created on' || translate }}
+                </span>
+                {{attrib.value || translate}}
+                <span ng-if="attrib.datakey == 'items'">
+                    {{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+                </span>
+                <span ng-if="!$last">|</span>
+            </span>
+</div>
+    </div>
+    <smart-scroll height="100%" v-offset="194px">
+        <div class="modal-content  padding10">
+            <div class="scroll-inner-container editableMode">
+
+                <div class="preview-section">
+                    <div class="preview-section-title">{{ 'BASIC DETAILS' | uppercase | translate }}</div>
+                    <div class="row marginBtm0">
+                        <smart-form-widget form-config="config.basicDetails" model-data="dataModel"></smart-form-widget>
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title">{{'Delivery & Invoicing Details'  | uppercase | translate}} </div>
+                    <div class="row marginBtm0">
+                        <smart-form-widget form-config="config.deliverynInvoicingDetails"  model-data="dataModel.orderData"></smart-form-widget>
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title"> {{'Supplier Details'  | uppercase | translate}}</div>
+                    <div class="row marginBtm0">
+                        <smart-form-widget form-config="config.supplierDetails" model-data="dataModel.supplierDetails"></smart-form-widget>
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title">{{'Terms'  | uppercase | translate}}</div>
+                    <div class="row marginBtm0">
+                        <smart-form-widget form-config="config.terms" model-data="dataModel.terms"></smart-form-widget>
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title marginBtm0">{{'Additional Information'  | uppercase | translate}}</div>
+                    <div class="row marginBtm0">
+                        <div ng-if="addInfoContent">
+                            <custom-field config="addInfoContent"></custom-field>
+                        </div>
+                        <div class="clearfix right-align paddingRight10 marginBtm23 " ng-if="fieldCout(dataModel) != 0">
+                            <a href="javascript:void(0)" ng-click="moreFieldsClick('linelevel')">{{ btnText | translate }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title">{{'Accounting Details'  | uppercase | translate}}</div>
+                    <div class="row marginBtm0" ng-controller="procProfileTempAccountingDetails">
+                   
+                        <div class="clearfix marginBtm23">
+                            <smart-scroll height="400px">
+                                <table class="bordered sTable left fixedTbl with-border-top "scroll-type="page" style="min-width:1500px;">
+                                    <colgroup>
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                        <col style="width: 10%" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="left-align">
+                                                {{ 'Line Type' | translate }}
+                                            </th>
+                                            <th class="left-align">{{ 'Item Type ' | translate }}</th>
+                                            <th class="left-align">
+                                                {{ 'Account Assignment Category' | translate }}
+                                            </th>
+                                            <th class="left-align">{{ 'Cost Center' | translate }}</th>
+                                            <th class="left-align">{{ 'Internal Order' | translate }}</th>
+
+                                            <th class="left-align">
+                                                {{ 'Project Code' | translate }}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'GL Code' | translate }}
+                                            </th>
+
+                                            <th class="left-align">
+                                                {{ 'Splite Type' | translate }}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'Split' | translate }}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'Splite Percentages' | translate }}
+                                            </th>
+                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr pagination-id="accountDetailstbl" dir-paginate="item in accountLists | itemsPerPage: rowsToShowOpts.selectedOption.size">
+                                            <td class="left-align">
+                                                <div ng-if="((0 < item.spliteCount) && item.isparentItem) || item.isparentItem">
+                                                    <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'lineType')">
+                                                        <span ng-if="item.lineType.selected == ''">{{ 'Please Select'}}</span>
+                                                        <span ng-if="item.lineType.selected != ''">{{item.lineType.selected[0].name}} <span ng-if="item.lineType.selected.length > 1">+ {{ item.lineType.selected.length }} More</span></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="left-align">
+                                                <div ng-if="((0 < item.spliteCount) && item.isparentItem) || item.isparentItem">
+                                                    <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'itemType')">
+                                                        <span ng-if="item.itemType.selected == ''">{{ 'Please Select'}}</span>
+                                                        <span ng-if="item.itemType.selected != ''">{{item.itemType.selected[0].name}} <span ng-if="item.itemType.selected.length > 1">+ {{ item.itemType.selected.length }} More</span></span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="left-align">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                                                    <a class="left" href="javascript:void(0)" ng-click="treeOpenCallback('category', $index)">{{ item.accountAssignmentCategory[0].Name  }} <span ng-if="item.accountAssignmentCategory.length > 1">{{ '+' + item.accountAssignmentCategory.length + ' More'  }}</span> </a>
+                                                </div>
+                                            </td>
+                                            <td class="left-align" ng-class="{'typeHeadTd' : item.costCenter.selected != ''}">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)" class="truncate">
+                                                    <smart-typeahead readonly="true" class="typeHeadInsideTable" is-mandatory="true" error-model="item.costCenter.errorMsg" titleofmodel="Choose Cost Center" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.costCenter.selected" options="item.costCenter.options" filterkeys="['name']"></smart-typeahead>
+                                                    <div class="red-text fontSize12" ng-if="item.costCenter.errorMsg">{{item.costCenter.errorMsg}}</div>
+                                                </div>
+                                            </td>
+                                            <td class="left-align" ng-class="{'typeHeadTd' : item.internalOrder.selected != ''}">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)" class="truncate">
+                                                
+                                                    <smart-typeahead readonly="true" class="typeHeadInsideTable" is-mandatory="true" error-model="item.internalOrder.errorMsg" titleofmodel="Choose Internal Order" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.internalOrder.selected" options="item.internalOrder.options" filterkeys="['name']"></smart-typeahead>
+                                                    <div class="red-text fontSize12" ng-if="item.internalOrder.errorMsg">{{item.internalOrder.errorMsg}}</div>
+                                                </div>
+                                            </td>
+                                            <td class="left-align" ng-class="{'typeHeadTd' : item.projectCode.selected != ''}">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)" class="truncate">
+                                                  
+                                                    <smart-typeahead  readonly="true" class="typeHeadInsideTable" is-mandatory="true" error-model="item.projectCode.errorMsg" titleofmodel="Choose Project Code" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.projectCode.selected" options="item.projectCode.options" filterkeys="['name']"></smart-typeahead>
+                                                    <div class="red-text fontSize12" ng-if="item.projectCode.errorMsg">{{item.projectCode.errorMsg}}</div>
+                                                </div>
+                                            </td>
+                                            <td class="left-align" ng-class="{'typeHeadTd' : item.glCode.selected != ''}">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)" class="truncate">
+                                                    <smart-typeahead  readonly="true" class="typeHeadInsideTable" is-mandatory="true" error-model="item.glCode.errorMsg" titleofmodel="Choose GLCode" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.glCode.selected" options="item.glCode.options" filterkeys="['name']"></smart-typeahead>
+                                                    <div class="red-text fontSize12" ng-if="item.glCode.errorMsg">{{item.glCode.errorMsg}}</div>
+                                                </div>
+                                            </td>
+                                            <td class="left-align paddingLeft10">
+                                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                                                    <a href="javascript:void(0)" ng-click="showSplitePopup($index)"> {{ item.spliteType }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="left-align paddingLeft10">{{ item.splite || '--' }}</td>
+                                            <td class="left-align paddingLeft10"> {{ item.splitePercentages || '--' }} </td>
+                                       
+                                        </tr>
+                                        <tr class="noResultsBar" ng-if="accountLists.length == 0">
+                                            <td class="noResultsBar-cell" colspan="10">No Account Details Available!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </smart-scroll>
+                            <div class="clearfix paginationWrapper pagination-with-align  savable right" ng-hide="5 > accountLists.length">
+                                <div class="rowSelectionWrapper">
+                                    <span class="rowsToShow"> Rows Per Page:</span>
+                                    <smart-select class="paginationSizeSelect" options="rowsToShowOpts.availableOptions" ng-model="rowsToShowOpts.selectedOption" datakey="size"></smart-select>
+                                </div>
+                                <dir-pagination-controls class="paginationControllers" pagination-id="accountDetailstbl" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged(newPageNumber, oldPageNumber)" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="borderBtmGray"></div>
+                <div class="preview-section">
+                    <div class="preview-section-title">{{'line type Specific Details'  | uppercase | translate}}</div>
+                    <div class="row marginBtm0"  ng-controller="procProfileTempLineDetails">
+                        <div class="clearfix marginBtm23">
+                            <smart-scroll  height="400px">
+                                <table class="bordered sTable left fixedTbl with-border-top "  scroll-type="page">
+                                    <colgroup>
+                                     
+                                        <col style="width: 12%" />
+                                        <col style="width: 12%" />
+                                        <col style="width: 15%" />
+
+                                        <col style="width: 12%" />
+                                        <col style="width: 12%" />
+                                        <col />
+                                   
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                          
+                                            <th class="left-align">
+                                                {{ 'Line Type' | translate }}
+                                            </th>
+                                            <th class="left-align">{{ 'Item Type ' | translate }}</th>
+                                            <th class="left-align">{{ 'Category' | translate }}</th>
+
+                                            <th class="left-align">
+                                                {{ 'UOM' | translate }}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'Matching Type' | translate }}
+                                            </th>
+
+                                            <th class="left-align">
+                                                {{ 'Needed in Days' | translate }}
+                                            </th>
+                                            <th class="left-align">
+                                                {{ 'Service Duration' | translate }}
+                                            </th>
+                                          
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr pagination-id="lineTypeSpecificDetial" dir-paginate="item in lineTypes | itemsPerPage: rowsToShowOpts.selectedOption.size">
+                                        
+                                            <td class="left-align">
+                                                <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'lineType')">
+                                                    <span ng-if="item.lineType.selected == ''">{{ 'Please Select'}}</span>
+                                                    <span ng-if="item.lineType.selected != ''">{{item.lineType.selected[0].name}} <span ng-if="item.lineType.selected.length > 1">+ {{ item.lineType.selected.length }} More</span></span>
+                                                </a>
+                                            </td>
+                                            <td class="left-align">
+                                                <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'itemType')">
+                                                    <span ng-if="item.itemType.selected == ''">{{ 'Please Select'}}</span>
+                                                    <span ng-if="item.itemType.selected != ''">{{item.itemType.selected[0].name}} <span ng-if="item.itemType.selected.length > 1">+ {{ item.itemType.selected.length }} More</span></span>
+                                                </a>
+                                            </td>
+                                            <td class="left-align">
+                                                <a class="left" href="javascript:void(0)" ng-click="treeOpenCallback('category', $index)">{{ item.category[0].Name  }} <span ng-if="item.category.length > 1">{{ '+' + item.category.length + ' More'  }}</span> </a>
+                                            </td>
+
+                                            <td class="left-align" ng-class="{'typeHeadTd' : item.uom.selected != ''}">
+                                                <smart-typeahead readonly="true" class="typeHeadInsideTable" is-mandatory="true" error-model="item.uom.errorMsg" titleofmodel="Choose UOM" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.uom.selected" options="item.uom.options" filterkeys="['name']"></smart-typeahead>                                           
+                                            </td>
+                                            <td class="left-align">
+                                               {{item.matchingType.selected.name}}
+                                            </td>
+                                            <td class="left-align">
+                                               {{ item.neededInDays }}
+                                            </td>
+                                            <td class="left-align">
+                                                {{ item.serviceDuration }}
+                                            </td>
+                                        </tr>
+                                        <tr class="noResultsBar" ng-if="lineTypes.length == 0">
+                                            <td class="noResultsBar-cell" colspan="8">No Line Type Specific Details Available!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </smart-scroll>
+                            <div class="clearfix paginationWrapper pagination-with-align savable right" ng-hide="5 > lineTypes.length">
+                                <div class="rowSelectionWrapper">
+                                    <span class="rowsToShow"> Rows Per Page:</span>
+                                    <smart-select class="paginationSizeSelect" options="rowsToShowOpts.availableOptions" ng-model="rowsToShowOpts.selectedOption" datakey="size"></smart-select>
+                                </div>
+                                <dir-pagination-controls class="paginationControllers" pagination-id="lineTypeSpecificDetial" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged(newPageNumber, oldPageNumber)" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+</smart-scroll>
+
+	<div class="slide-view-modal-footer">
+		<smart-button flat="true" class="right" config='{"title":"USE TEMPLATE"}' ng-click="useTempCall()"></smart-button>
+		<smart-button flat="true" class="right" config='{"title":"CLOSE"}' ng-click="closePreviewPopup()"></smart-button>
+	</div>
+</div>

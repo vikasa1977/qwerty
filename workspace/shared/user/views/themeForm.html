@@ -1,0 +1,5 @@
+﻿<div class="row white card-panel item-details-template-wrap" ng-controller="userProfileCtrl">
+    <div class="width100P themeContainer">
+        <div ng-repeat="item in themeArray" class="themeButtons {{item.name}}Theme" ng-click="onThemeSelect(item)" message={{item.toolTip}} smart-tooltip data-position="top" delay="50"></div>
+    </div>
+</div>

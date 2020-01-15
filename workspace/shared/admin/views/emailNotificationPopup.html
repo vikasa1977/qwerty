@@ -1,0 +1,90 @@
+<div class="multi-org" ng-controller="adminCommonCtrl">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_EmailResend"></use></svg>
+        </i>
+        <span class="title">
+            SEND NOTIFICATION
+        </span>
+    </div>
+
+    <div class="modal-content is-scrolled padding0">
+        <smart-scroll height="400px">
+            <div class="model_body">
+                <div class="notification-tab notification-content-wrapper">
+                    <div class="row marginBottom0">
+                        <smart-textfield class="col s12 active clearfix" label="To" ng-model="notificationNew1.notifyTo"></smart-textfield>
+                        <smart-textfield class="col s12 active clearfix" label="Cc" ng-model="notificationNew1.notifyCc"></smart-textfield>
+
+                        <div class="col s12 popup-notification-content">
+                            <span class="left"><span class="fontSize16">NOTIFICATION CONTENT</span></span>
+                            <!--<a href="javascript:void(0)" ng-click="popupPreview(e)">
+                            <i class="icon small right">
+                                <svg>
+                                    <use xlink:href="#icon_Preview"></use>
+                                </svg>
+                            </i>
+                        </a>-->
+                        </div>
+                        <div class="wrapper clearfix popup-wrapper-withSidebar" ng-class="{'wrapper--withSidebar':!isActive}" style="transition: all 0.5s ease;">
+                            <div class="sidebar  sidebar--left ">
+                                <div class="panel-content">
+                                    <!--Variables-->
+                                    <ul class="panel-content-iteamList">
+                                        <li class="panel-content-iteamList-item panel-content-iteamList-groupItem " ng-repeat="variable in variableList">
+                                            <div class="iteamList-groupItem-content" ng-click="showVariableCall($index,variable.isVariableVisible)">
+                                                <span><strong>{{variable.title}}</strong></span>
+                                                <i class="icon group-arrow group-arrowDir" ng-class="{'active': variable.isVariableVisible}">
+                                                    <svg>
+                                                        <use xlink:href="#icon_DownChevron"></use>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <div ng-show="variable.isVariableVisible">
+                                                <smart-scroll height="300px">
+                                                    <ul class="panel-content-iteamList">
+                                                        <li ng-repeat="name in variable.variableGrp" class="panel-content-iteamList-item cursorPointer" ng-click="getDeclarationText(name);">
+                                                            <span>{{name.name}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </smart-scroll>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!--Variables-->
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <section>
+                                    <div class="row">
+                                        <div class="col s12 marginTop10">
+                                            <smart-textfield class="col s12 active" label="Subject" ng-model="notificationNew1.notifySub"></smart-textfield>
+                                        </div>
+                                        <div class="col s12">
+                                            <div class="ckeditorContainer">
+                                                <textarea name="editorSendNotify" id="editorSendNotify" rows="10" cols="80" height="100%"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+
+            <div class="modal-footer_new is-scrolled">
+                <div class="row marginBottom0">
+                    <smart-button flat="true" config="{'title':'PREVIEW'}" class="left" ng-click="popupPreviewInPopup(e)" ></smart-button>
+                    <smart-button flat="true" config="{'title':'SEND'}" class="right"></smart-button>
+                </div>
+            </div>
+</div>
+</div>
+
+<script>
+    setTimeout(function () {
+        CKEDITOR.replace('editorSendNotify');
+    }, 1000);
+</script>

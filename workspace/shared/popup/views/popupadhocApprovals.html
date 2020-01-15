@@ -1,0 +1,54 @@
+﻿<div>
+    <div class="modal-header">
+        <span class="title">{{'Ad-hoc Approvals'|| translate}}</span>
+    </div>
+
+    <div class="modal-content padding10 is-scrolled">
+   <div class="model_body" style="min-height: 350px">
+      
+                <div class="clearfix">
+                    <div class="row marginBtm0">
+                      
+                        <smart-typeahead class="col s6" label="Add Member" multiselect="true" addnew="false" placeholder="{{ autoSuggestPlaceholder }}" show-lookup="true" ng-model="getCurrentSelected" options="suggestedData" filterkeys="['name']" lookup-open="onSmartTypeHeadOpen()" lookup-hide="onSmartTypeHeadClose(data)" min-char-for-trigger="1" on-select="pushCurrent(getCurrentSelected)"></smart-typeahead>
+                        <smart-checkbox class="col s6 marginTop12" label="Send Back Post Approval" ng-model="isApproval" on-change="onChange(isApproval)"></smart-checkbox>
+                    </div>
+                    <div class="row" ng-if="selectedForApproval.length > 0">
+                        <div class="col s12 marginTop3">
+                            <smart-scroll height="200px">
+                                <div class="scroll-inner-container paddingRight20">
+                                    <ul class="collection collection-with-spacing">
+                                        <li class="collection-item avatar" ng-repeat="item in selectedForApproval track by $index">
+                                          <div class="approvalBox">
+                                                <span class="circle">
+                                                    {{ item.name | shortname}}
+                                                </span>
+                                                <span class="truncate ">{{ item.name}} </span>
+                                                <div class="secondary-content secondary-content-with-waves ">
+                                                    <a href="javascript:void(0)" class="waves-circle waves-effect " smart-tooltip position="bottom" delay="50" message="{{'Delete' || translate }}" ng-click="deleteCurrent($index)">
+                                                        <i class="icon iconSmall">
+                                                            <svg>
+                                                                <use xlink:href="#icon_TrashCan"></use>
+                                                            </svg>
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                            </smart-scroll>
+                        </div>
+                    </div>
+                    
+                </div>
+           
+        </div>
+    </div>
+
+    <div class="modal-footer is-scrolled comment-poup-footer">
+        <smart-button class="wave-effect grey-color right" config='{"title":"Approve and Send for Approval","flat":true}' flat="true" disable="!isMemberAdd" ng-class={'modal-close':disabled}></smart-button>
+        <smart-button class="wave-effect grey-color right modal-close" config='{"title":"Cancel","flat":true}' flat="true"></smart-button>
+    </div>
+
+</div>

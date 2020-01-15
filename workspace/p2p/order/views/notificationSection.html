@@ -1,0 +1,81 @@
+<div ng-controller="p2pOrderNotificationCtrl">
+	<div class="center action-block" ng-show="notificationList.length == 0">
+		<a ui-sref="admin.notificationView" class="action-block-cont" ng-click="addNoti()"> <!--ui-sref="admin.notificationView"-->
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Add Notification</span>
+		</a>		
+	</div>
+<div class="panelBox-body" ng-show="notificationList.length > 0">
+					<!--<div class="row marginBtm0 borderTopLight">
+						<div class="clearfix secContentWithBorder fontSize12">
+							<div class="left legendsWrap ng-scope" ng-if="!buyerPreview">
+								<div class="notReceived manange-legend left"></div><div class="left">Off</div>
+								<div class="marginLeft20 partiallyReceived manange-legend left"></div><div class="left">On</div>
+							</div>
+							<div class="right ">		
+								<a href="javascript:void(0)" ng-click="addNoti()" class="right"  smart-tooltip message="Add Notification" position="bottom" ui-sref="admin.notificationView"> ng-click="showTeamMemberPopupCall()"
+									<i class="icon  right blue-text">
+										<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+									</i>
+								</a>									
+								<a href="javascript:void(0)" class="right" ng-class="{'disabled':!fillpartial && !selectAllNotifications.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="delete(notification.id)">
+									<i class="icon  right blue-text">
+										<svg><use xlink:href="#icon_TrashCan"></use></svg>
+									</i>
+								</a>												
+							</div>
+						</div>
+					</div>	-->
+					<smart-scroll height="353px" is-fixed-header="true">
+						<div class="scroll-inner-container">
+							<table class="bordered sTable ">								
+								<thead>
+									<tr >
+										<th style="width:50px" ng-class="{'filled-partial' : fillpartial == true }"><smart-checkbox  ng-model="selectAllNotifications.checkedAll" class="left" on-change="checkedAllMembers(selectAllNotifications.checkedAll)"></smart-checkbox></th>
+										
+                                        <th class="left-align">{{'Name'|| translate}}</th>
+                                        <th class="left-align">{{'Event'|| translate}}</th>
+                                        <th class="left-align">{{'Notify To'|| translate}}</th>
+                                        <th class="left-align">{{'Added By'|| translate}} </th>
+                                        <th class="left-align">{{'Next Due On'|| translate}}</th>
+                                        <th class="left-align">{{'Status'|| translate}}</th>
+                                        <th class="left-align">&nbsp;</th>																	
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="notification in notificationList">										
+										<td style="width:50px"><smart-checkbox  ng-model="notification.isChecked" ng-change="membersListChange(notification.isChecked)"></smart-checkbox></td>
+										<!--<td>
+											<div class="manange-legend left table-status-legend {{notification.status}} " ng-class="{partiallyReceived:notification.status == true}" smart-tooltip message="On" position="Bottom" delay="50"></div>
+											<div class="manange-legend left table-status-legend {{notification.status}}" ng-class="{notReceived :notification.status == false}" smart-tooltip message="Off" position="Bottom" delay="50"></div>
+										</td> -->
+                                        <td >{{notification.name}}</td>
+                                        <td >{{notification.event.title}}</td>
+                                        <td >{{notification.notifyTo}}</td>
+                                        <td ><a href="javascript:void(0)">{{notification.addedBy}}</a></td>
+                                        <td >{{notification.nextDueOn | date:'yyyy-MM-dd'}}</td>
+                                        <td>
+                                    
+        <smart-switch class="col s12 m3 l4 xl3 xxl2" ng-model="notification.status" options="[{'code': 'on','name': 'On'},{'code': 'off','name': 'Off'}]"  left-label="''" right-label="''" ></smart-switch>
+                                        </td>
+                                        <td >
+                                            <a href="javascript:void(0)" ng-click="edit(notification.id)" smart-tooltip message="Edit" position="bottom">
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_Edit"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                        </td>																
+									</tr>
+								</tbody>
+							</table>							
+						</div>
+					</smart-scroll>				
+</div>
+</div>
+

@@ -1,0 +1,190 @@
+<!--sub header-->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader,'boxShadowNone':showFilter}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <!--leftSide content-->
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle sh-icon waves-effect waves-light  extra-nav-title--back" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{ 'Procurement Profiles' | translate }}</span>
+        </div>
+
+		<div class="landing-template-search searchSlideMain headersearch  searchSlideMain--inputBdrBNone">
+			<div class="searchWithHiddenTextField " ng-class="{'active': isActiveHeader}">
+				<a href="javascript:void(0)" ng-click="hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-light waves-effect cancel-icon white-text ">
+					<i class="icon iconSmall center white-text">
+						<svg>
+							<use xlink:href="#icon_Close"></use>
+						</svg>
+					</i>
+				</a>
+				<smart-textfield class="input-field" placeholder="Search" focus="focusSearchHeader"></smart-textfield>
+				<a href="javascript:void(0)" class="waves-circle waves-light waves-effect search-icon white-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+					<i class="icon iconSmall center white-text">
+						<svg>
+							<use xlink:href="#icon_Search"></use>
+						</svg>
+					</i>
+				</a>
+			</div>
+		</div>
+
+        <!--rightSide content-->
+        <div class="extra-nav-action">
+            <ul class="right extra-nav-right-icon">
+                <li class="extra-nav-icon">
+                    <smart-dropdown >
+                        <a class="waves-circle waves-effect waves-light dropdown-button " data-activates='sortbyDropdown' data-position="bottom" data-delay="50" data-constrainwidth="true">
+                            <i class="icon iconSmall" smart-tooltip position="Down" delay="250" message="{{'Sort' || translate }}">
+                                <svg><use xlink:href="#icon_Sort"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='sortbyDropdown' class='dropdown-content dropdown-content--size-medium dd-close-off relative sort-dropdown-callout'>
+                            <li class="dropdown-content-header">
+                                <div class="title"> {{ 'Sort by' | translate }}</div>
+                            </li>
+                            <li class="dropdown-content-content">
+                                <ul ng-class="styleClass">
+                                    <li class="collection-item" ng-repeat="item in listSortWith" ng-click="ascDescToggler($index, item);itemClicked($index, item);" smart-tooltip position="bottom" delay="50" message="{{ item.tooltip }}">
+                                        <label for="getsortBy-{{ $index }}" ng-class="{'s-dd-icon-wth-color': $index == selectedIndex }" class="grey-text text-darken-4 truncate width88P cursorPointer">{{ item.name}}</label>
+                                        <div class="secondary-content">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon iconSmall grey-text" ng-class="{'s-dd-icon-wth-color': $index == selectedIndex }">
+                                                    <svg>
+                                                        <use xlink:href="{{ setSortAsicon(item.sortas) }}"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-content-footer">
+                                <div class="right">
+                                    <smart-button config='{"title":"Close"}' flat="true" class="fontSize14" ng-click="closePopOver();" disable="false"></smart-button>
+                                    <smart-button config='{"title":"Done"}' flat="true" class="fontSize14" ng-click="applySort(isSavedView);applyFilter(true);" disable='enableSortButton'></smart-button>
+                                </div>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                    </li>
+                <li class="extra-nav-icon">
+                    <a class="waves-circle sh-icon  white-text  waves-effect waves-light" ng-click="toggleDocumentFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Filter' || translate }}">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Filter"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+
+                <li class="extra-nav-icon" ng-if="docType !== 'supplier'">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-activates='landingPageAction' data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            <i class="icon iconSmall" message="{{'Actions' || translate }}">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="savedViewPopupCallback(e)">
+                                    {{ 'Saved Views' || translate }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="manageAttributesPopupCallback(e, isSavedView)">
+                                    {{ 'Manage Attributes' || translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+<div ng-class="{'top-to-bottom-slide':showFilter,'bottom-to-top-slide':!showFilter}" ng-show="showFilter" class="panelBox-withSpace panelBox--filter">
+    <div class="panelBox-content">
+        <div class="panelBox-header clearfix row marginBottom0">
+            <div class="col s12">
+                <div class="left fontSize16">FILTER</div>
+            </div>
+        </div>
+        <div class="panelBox-body padding0">
+            <div class="row margin0">
+                <div class="col s12 padding0 tabHolderWrap">
+                    <smart-tabs tab-config="{{supplierFilterTabData}}" width="60%" vertical="true" on-select="tabSelectCallback(e)"></smart-tabs>
+                    <div class="tabHolder">
+                        <smart-hierarchy-component config="treeComponentConfig" ng-show="!tempDetails && !createdBy && !createdBetween" callback="treeComponentCallback"></smart-hierarchy-component>
+                        <smart-scroll height="310px">
+                            <div class="row panelBox-field marginBtm0 padding10" ng-show="tempDetails">
+                                <smart-textfield label="Template Name" class="col s12 marginBtm15 line-height-manager" ng-model="tempName"></smart-textfield>
+                                <smart-textfield label="Template Number" class="col s12 marginBtm15 line-height-manager" ng-model="tempNumber"></smart-textfield>
+                                <div class="row manage-space radio-vertical radio-block margin0">
+                                    <smart-radio ng-model="selectedTemplateType" class="col s12 padding0" options="templateTypeOptions" datakey="name" gap="true" on-change="onChange(selectedTemplateType)"></smart-radio>
+                                </div>
+                            </div>
+                            <div class="row padding10" ng-show="createdBy">
+                                <div class="row manage-space radio-vertical radio-block margin0">
+                                    <smart-radio ng-model="selectedCreatedBy" class="col s12 padding0" options="templateCreatedBy" datakey="name" gap="true" on-change="onChange(selectedCreatedBy)"></smart-radio>
+                                </div>
+                                <div class="row margin0 formEdit marginTop10">
+                                    <smart-typeahead is-mandatory="true" ng-show="userName" class="col s12 marginBtm8 line-height-manager" multiselect="true" addnew="false" show-lookup="true" titleofmodel="Choose User" placeholder="" ng-model="userselectedData" options="userData" filterkeys="['name']" label="{{userinitialDisplayText}}"></smart-typeahead>
+                                </div>
+                            </div>
+                            <div class="row padding10 paddingTop24" ng-show="createdBetween">
+                                <smart-textfield label="From" class="col s12 l6 marginBtm15" type="date" ng-model="startDate"></smart-textfield>
+                                <smart-textfield label="To" class="col s12 l6" min="{{startDate}}" type="date" ng-model="endDate"></smart-textfield>
+                            </div>
+                        </smart-scroll>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panelBox-footer row footerSpace ">
+            <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}'></smart-button>
+            <smart-button flat="true" class="modal-close footerBtn right" config='{"title":"APPLY"}' ng-click="applyCurrentFilter(e);"></smart-button>
+            <smart-button flat="true" class="modal-close footerBtn right" config='{"title":"CANCEL"}' ng-click="toggleFilter(e);"></smart-button>
+        </div>
+    </div>
+</div>
+    <div class="filter-overlay" ng-show="showFilter"></div>
+</div>
+
+
+<div class="clearfix alert-bar--fixed relative is-overflowHidden" ng-show="fixedSubHeader" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar-rfx paddingLeft20  alert-bar--warning alert-bar--with-button enter-from-top zIndex99 relative" ng-class="{'show-dv-msg': alertBarFilter}">
+        <a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a>
+		<div class="right">
+			<smart-button flat="true" class="modal-close" ng-click="resetFilter();" config='{"title": "RESET" }'></smart-button>
+		</div>
+    </div>
+</div>
+
+<!--page start-->
+<div class="extendBg white">
+    <div class="white" ng-class="{'page-footer-is-active': checkboxIsTrue}">
+        <smart-list item-class="collection-item avatar collection-item--animate collection-item-action-link"
+                    model="{{setTemplateData}}"
+                    style-class="collection with-header noTopBorder"
+                    template="p2p/procurementProfile/views/templateListTemp.html">
+        </smart-list>
+    </div>
+</div>
+<!--Doc slider-->
+<smart-doc-slider ng-show="profileTempFlag" on-hide="closePreviewPopup()" ng-class="{ 'docSlider--open': profileTempFlag }" slide-obj="{{slideObj}}"></smart-doc-slider>
+<!-- SAVED VIEW -->
+<smart-saved-view-popup show="savedViewPopUp" hide="closeSavedPopup()" callback-func="callbackFunc(e)" ng-model="selectedSavedview" open-popup-saved-view="showSavedViewList" config="getSavedViewsList" is-apply-filter="isApplyFilters" is-saved-filter="isSavedView" is-modified="isSavedViewModified" set-title="SAVED VIEWS"></smart-saved-view-popup>
+<smart-saved-view-popup show="savedFilterPopUp" loader="isloader" hide="closeSavedPopup()" callback-func="callbackFuncForFilter(e)" ng-model="selectedFilterView" open-popup-saved-view="showfilterViewList" config="getFilterViewsList" is-apply-filter="isFilters" is-saved-filter="isFilterView" is-modified="isFilterViewModified" set-title="SAVED FILTERS"></smart-saved-view-popup>
+<!-- Manage Attributes -->
+<smart-popup type="small" template-url="{{manageAttributesPopupUrl}}" show='{{manageAttributesPopUp}}' on-hide="manageAttributesPopupHideCallback(e)"></smart-popup>

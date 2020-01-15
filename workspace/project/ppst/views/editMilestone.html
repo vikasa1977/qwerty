@@ -1,0 +1,118 @@
+<div class="projectsPopup">
+    <div class="modal-header borderBtmLight">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_Edit"></use>
+            </svg>
+        </i>{{validateModel}}
+        <span class="title">{{popupHeader}} </span>
+    </div>
+    <smart-scroll height="350px">
+    <div class="modal-content">
+        <div class="model_body">
+            <div class="row">
+                <smart-textfield label="Milestone Name" class="col s6 m6 l6 input-field line-height-manager" ng-model="editData.existingData.milestoneName" type="text" is-mandatory="true" validate="validateModel.milestoneName">
+                </smart-textfield>
+                    <smart-select class="col s6 m6 l6 input-field line-height-manager" label="Milestone Phase" ng-model="editData.phaseModel[0]" options="editData.milestonePhases" datakey="phaseName" on-change="changePhase(editData.phaseModel)" is-mandatory="true" validate="validateModel.phaseName">
+                </smart-select>
+            </div>
+            <div class="row">
+                <smart-typeahead class="col s6 m6 l6 line-height-manager" multiselect="false" titleofmodel="Assignee"
+                show-lookup="true" ng-model="editData.assignedTo" on-blur="mAssigneeChng()"
+                options="editData.assignees" filterkeys="['name']" displayformat="{name}" label="Assignee" lookup-open="onHideEditMilestone(e)" lookup-hide="mAssigneeChng(e);toggleEditpopup('milestonePopup');" is-mandatory="true" validate="validateModel.assignedTo" dataid="milestonePopup">
+                </smart-typeahead>
+                <smart-textfield label="E-mail" class="col s6 m6 l6 input-field line-height-manager" ng-model="editData.existingData.email" type="text" readonly="true">
+                </smart-textfield>
+            </div>
+            <div class="row">
+                <smart-textfield label="Due By" class="col s6 m6 l6 input-field line-height-manager" ng-model="editData.existingData.dueBy" type="date" is-mandatory="true" validate="validateModel.dueBy">
+                </smart-textfield>
+            </div>
+            <!--<div class="row">
+                <smart-checkbox class="col s12 line-height-manager paddingLeft5" label="Enable formatting" ng-model="editData.enableFormatting" on-change="toogleEnableFormatting(editData.enableFormatting)"></smart-checkbox>
+            </div>
+            <div class="row" ng-if="!editData.enableFormatting">
+                <smart-textfield label="Description" class="col s12 input-field" ng-model="editData.existingData.description" type="area" is-mandatory="true" validate="validateModel.description"></smart-textfield>
+            </div>
+            <div class="row" ng-if="editData.enableFormatting">
+                <div class="marginBtm10"><label class="field-label">Description</label></div>
+                <textarea class="col s12 marginTop3" ck-editor="editorOptions" name="description" id="description" rows="10" cols="80" height="100%" ng-model="editData.existingData.description"></textarea>
+            </div>-->
+            <div class="row">
+                <smart-textfield ng-if="!editData.enableFormatting" label="Description" class="col s9 input-field" ng-model="editData.existingData.description" type="area" is-mandatory="true" validate="validateModel.description"></smart-textfield>
+                <smart-checkbox class="col s3 line-height-manager paddingLeft5" label="Enable formatting" ng-model="editData.enableFormatting" on-change="toogleEnableFormatting(editData.enableFormatting)"></smart-checkbox>
+            </div>
+            <div class="row" ng-if="editData.enableFormatting">
+                <div class="marginBtm10"><label class="field-label">Description</label></div>
+                <textarea class="col s12 marginTop3" ck-editor="editorOptions" name="description" id="description" rows="10" cols="80" height="100%" ng-model="editData.existingData.description"></textarea>
+            </div>
+            <div class="row marginTop35" ng-if="!attachmentAdded">
+                <div class="col s12">
+                    <a class="fontSize14" href="javascript:void(0)" ng-click="adduploadContractCallback('milestone')">Add Attachments</a>
+                </div>
+            </div>
+            <div class="row" ng-if="attachmentAdded">
+                    <div class="col s12 marginTop35">
+                        <!--<div class="row marginBtm0 borderTopLight">
+                            <div class="clearfix secContentWithBorder fontSize12">-->
+                                
+                            <!--</div>
+                        </div>-->
+                        <div class="col s12 paddingLeft0 paddingBtm5 fontSize16 borderBtmLight">ATTACHMENTS</div>
+                        <div class="clearfix secContentWithBorder fontSize12">
+                            <div class="right">
+                                <a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+                                    <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Attachments" position="bottom">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteAttachments()">
+                                    <i class="icon left blue-text">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                            <table class="bordered sTable fixedTbl">
+                                <thead>
+                                    <tr>
+                                        <th width="50px" ng-class="{'filled-partial' : fillpartial == true }">
+                                            <smart-checkbox class="paddingTop5" ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+                                        </th>
+                                        <th>{{ 'Name' || translate }}</th>
+                                        <th>{{ 'Created By' || translate }}</th>
+                                        <th>{{ 'Created On' || translate }}</th>
+                                        <th>{{ 'Shared with' || translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in attachments track by $index">
+                                        <td>
+                                            <smart-checkbox class="paddingTop5" ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+                                        </td>
+                                        <td><a href="javascript:void(0);">{{x.name}}</a></td>
+                                        <td> {{x.createdBy}} </td>
+                                        <td> {{x.uploadDate}} </td>
+                                        <td> {{x.sharedWith}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+        </div>
+    </div>
+    </smart-scroll>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left" ng-click="addNewMilestone(editData,attachments)" config='{"title":"SAVE"}'></smart-button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+

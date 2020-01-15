@@ -1,0 +1,7 @@
+<div ng-controller="supplierCreationController" section-overlaydynawidth openctn="true" open-field ="optionalField">
+	<smart-select label="Source Type" ng-model="sourceData.selectedOption" on-change="parentScope.sourcetypeFn(sourceData.selectedOption, sectionOverlayaddFn, sectionOverlayremoveFn)" class="col s6 line-height-manager" options="sourceData.options" datakey="title"></smart-select>
+
+	<div ng-show="sourceData.selectedOption.title === 'Group' ">
+        <smart-typeahead class="col s6 line-height-manager" is-mandatory="true" multiselect="true" addnew="false" show-lookup="true" titleofmodel="{{ 'Add Category Manager' | translate }}" placeholder="" ng-model="categorymanagerOpt" options="categorymanagerData" filterkeys="['name']" label="{{ 'Add Category Manager' | translate }}" on-select="onCMPopupHideCallback()" lookup-hide="onCMPopupHideCallback()"></smart-typeahead>
+    </div>
+</div>

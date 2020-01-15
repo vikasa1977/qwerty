@@ -1,0 +1,121 @@
+﻿<div class="col s12 relative track-status-parent padding0" ng-controller="trackStatusCtrl">
+
+    <smart-scroll height="100%" v-offset="279px">
+        <div class="row paddingTop8 paddingBtm5" ng-if="cycleObject.length > 0">
+            <div class="col m2 s12 relative">
+                <smart-select ng-model="selectCycle" options="cycleObject" class="left"></smart-select>
+            </div>
+        </div>
+        <section class="track-section-container scroll-container">
+            <div class="t-s-c-wrap {{ proccesStatus(statusList.process) }} {{applyStatusColor(statusList.status)}}" ng-repeat="statusList in signstatusLists">
+                <div class="icon-container">
+                    <i class="t-s-c-icon icon iconMedium shades white {{applyStatusColor(statusList.status)}}" ng-class="{'iconHexLarge' : IconStatus(statusList.status) != '#icon_Info_i'}">
+                        <svg>
+                            <use xlink:href="{{ IconStatus(statusList.status) }}"></use>
+                        </svg>
+                    </i>
+                    <i class="t-s-c-icon icon iconMedium ts-inner-icon {{applyStatusColor(statusList.status)}}" ng-if="IconStatus(statusList.status) != '#icon_Info_i'">
+                        <svg>
+                            <use xlink:href="{{ InnerIconStatus(statusList.status) }}"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="t-s-content {{ approvalGroupType(statusList.approvalGroupName) }}" ng-class="{ 'grey lighten-5' : statusList.approvalGroupNameVisible }">
+                    <div class="">
+                        <div class="t-s-c-title left">{{ statusList.status }}</div>
+                        <div class="t-s-c-title right" ng-if="statusList.iconComment">
+                            <smart-dropdown config="{{dropDownConfig}}" class="right">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="commentData2" data-constrainwidth="false" data-alignment="right" data-hover="true">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_Commented"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <div id="commentData2" class="dropdown-content dd-close-off row shades white " style="width:100%">
+                                    <div class="col s12 padding20 dropdown-content-header">
+                                        <div class="light ">
+                                            <div class="shade black-text">Whitney  H<span class="grey-text">- External User</span></div>
+                                            <div class="">Order Exceed the budget</div>
+                                            <div class=""><span class="red-text">Rejected</span><span> on Nov 20,2015 03:54 PM</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </smart-dropdown>
+                        </div>
+                    </div>
+                    <div>
+                        {{ statusList.getCreatedBy }}
+                        {{ statusList.getCreatedByUser }}
+                    </div>
+                    <div ng-if="statusList.approvalGroupNameVisible" class="clearfix">
+                        <span class="left">
+                            <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xlink:href="{{ IconForApproval(statusList.ForApproval) }}"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <span class="fontSize16">{{ statusList.approvalGroupName }}</span>
+                        </span>
+                        <span class="right">
+                            <a href="javascript:void(0)" ng-click="slideDetailsTS(statusList, 'sign')" class="blue-text slideDetailClick waves-effect waves-light">
+                                <i class="icon iconSmall" ng-class="{ 'transform180DegN' : !statusList.isDetailShow }">
+                                    <svg>
+                                        <use xlink:href="#icon_UpChevron"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="grey-text"> {{ statusList.onDated }}</div>
+                    <div class="slideDetail" ng-show="statusList.isDetailShow" ng-class="{ 'slide-up-css' : !statusList.isDetailShow, 'slide-down-css' : statusList.isDetailShow }">
+                        <div ng-if="statusList.roles" class="">
+                            <div class="">
+                                <span class="fontSize12">{{ statusList.roleGroup }} </span>:
+                                <span class="fontSize12 ">{{ statusList.roleGroupValue }}</span>
+                            </div>
+                            <div class="">
+                                <span class="fontSize12">{{ statusList.ruleName }} </span>:
+                                <span class="fontSize12 ">{{ statusList.ruleNameValue }}</span>
+                            </div>
+                        </div>
+                        <div class="t-s-c-Box relative clearfix" ng-repeat="list in statusList.userInfo" ng-class="{'delegateDiv' : list.userDelegate == true}">
+
+                            <span ng-if="list.userDelegate" class="absolute delegate-arrow">
+                                <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light color-add-Hoc">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xlink:href="#icon_DelgtArrow"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </span>
+                            <div>
+                                <span ng-if="list.userModes">
+                                    <a href="javascript:void(0)" class="color-approved-pending waves-effect waves-light color-add-Hoc">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use xlink:href="#icon_AppHoc"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </span>
+                                <span class="shades-text text-black">{{ list.name }}</span><span> {{ list.userType }}</span>
+                            </div>
+                            <div>{{ list.designation }}</div>
+                            <div>
+                                <span class="{{applyStatusColor(list.userStatus)}}"><span>{{ list.userStatus }}</span> </span>
+                                <strong>{{ list.userMode }}</strong>
+                                <span>{{ list.onDated }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </smart-scroll>
+</div>
+
+

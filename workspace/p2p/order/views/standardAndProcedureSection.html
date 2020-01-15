@@ -1,0 +1,51 @@
+<div ng-controller="p2pSandardAndProcedureSectionCtrl" class="marginBtm20">	
+	
+	<div class="row marginBtm0 borderTopLight">
+        <div class="clearfix secContentWithBorder fontSize12">
+            <div class="right ">
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-click="showSPPopupCall()">
+                    <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Standard/Procedure" position="bottom">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled': !isSandPSelected}" smart-tooltip message="Delete Selected Standard/Procedure" position="bottom" ng-click="">
+                    <i class="icon left blue-text">
+                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                    </i>
+                </a>               
+            </div>			
+			<div class="searchSlideMain sandpHeaderSearch">
+				<div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+					<a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon black-text" smart-tooltip position="bottom" delay="50" message="Close">
+						<i class="icon iconSmall center blue-text">
+							<svg><use xlink:href="#icon_Close"></use></svg>
+						</i>
+					</a>
+					<smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearchHeader" placeholder="search"></smart-textfield>
+					<a href="javascript:void(0)" class="search-icon right paddingTop3 psMultiSlct waves-circle waves-effect" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+						<i class="icon iconSmall center" ng-class="isActiveHeader ? 'grey-text' : 'blue-text'">
+							<svg><use xlink:href="#icon_Search"></use></svg>
+						</i>
+					</a>
+				</div>
+			</div>		
+        </div>
+    </div>
+	<div class="clearfix row sandpList" ng-repeat="n in spList">
+			<div class="col s12 sandpList-item">	
+					<smart-checkbox ng-model="n.isChecked" class="sandpList-chk" on-change="sandpListCheckCall(n.isChecked)"></smart-checkbox>			
+					<div class="sandpList-item-title">
+						<a  href="javascript:void(0);" class="left" ng-click="showSandPPreview($index)">{{n.title}}</a>
+						<a  href="javascript:void(0);" class="right" ng-click="editSandP(n)">
+							<i class="icon right" smart-tooltip message="Edit" position="bottom" >
+								<svg><use xlink:href="#icon_ToEdit"></use></svg>
+							</i>
+						</a>
+					</div>
+					<div class="sandpAttribute grey-text fontSize12 ">Code/Rev: {{n.codeRev}}</div>					
+					<div>{{n.fullTxt}}</div>
+			</div>
+		</div>	
+		<smart-popup template-url="shared/popup/views/popupStandardAndProcedure.html" show="{{showSPPopup}}" on-hide="hideSPPopupCall(e)" ></smart-popup>
+		<smart-doc-slider ng-show="previewSanPFlag" on-hide="closeSandPPreviewPopup()" ng-class="{ 'docSlider--open': previewSanPFlag }" slide-obj="{{slideObj}}"></smart-doc-slider>
+</div>

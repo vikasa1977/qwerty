@@ -1,0 +1,148 @@
+<!--sub header-->
+<!--<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'CREATE RULE - VISUAL FLOW' || translate }}</span>
+        </div>
+    </div>
+</div>-->
+<!--sub header end-->
+<div ng-init="init()" class="rulegraph-wrap">
+    <div class="sidebar">
+        <div class="white padding0">
+            <div class="accordion">
+                <div id="resizable">
+                    <div class="searchSlideMain">
+                        <div class="searchWithHiddenTextField" ng-class="{'active': isActiveC}">
+                            <a href="javascript:void(0)" ng-click="hideSearchC()" ng-show="hideCloseC" class="waves-circle waves-effect cancel-icon black-text">
+                                <i class="icon iconSmall center grey-text">
+                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                </i>
+                            </a>
+                            <smart-textfield ng-model="searchAttributes.attribute" class="input-field" focus="focusSearchC" placeholder="Search"></smart-textfield>
+                            <a href="javascript:void(0)" class="search-icon right psMultiSlct waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchC()">
+                                <i class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Search"></use></svg>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <h1 class="rule-header expand">
+                        <i class="icon iconSmall arrow">
+                            <svg class="marginTop5N">
+                                <use xlink:href="#icon_DownChevron"></use>
+                            </svg>
+                        </i>ATTRIBUTES
+                    </h1>
+                        <div class="opened-for-rules">
+
+                            <ul>
+                                <li class="displayInlineBlock node-chips draggable" draggable="true" ng-repeat="attri in attributesList | filter:searchAttributes">
+                                    <div>
+                                        <i class="icon small extra-nav-title--icon {{attri.bgClass}}">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{attri.icon}}"></use>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                    <div class="marginTop10">{{attri.attribute}}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    <div id="handle" class="ui-resizable-handle ui-resizable-n"></div>
+                </div>
+                <div class="searchSlideMain marginTop5N">
+                    <div class="searchWithHiddenTextField" ng-class="{'active': isActiveC}">
+                        <a href="javascript:void(0)" ng-click="hideSearchC()" ng-show="hideCloseC" class="waves-circle waves-effect cancel-icon black-text">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Close"></use></svg>
+                            </i>
+                        </a>
+                        <smart-textfield ng-model="searchActions" class="input-field" focus="focusSearchC" placeholder="Search"></smart-textfield>
+                        <a href="javascript:void(0)" class="search-icon right psMultiSlct waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchC()">
+                            <i class="icon iconSmall center blue-text">
+                                <svg><use xlink:href="#icon_Search"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <h1 class="rule-header expand">
+                    <i class="icon iconSmall arrow">
+                        <svg class="marginTop5N">
+                            <use xlink:href="#icon_DownChevron"></use>
+                        </svg>
+                    </i>ACTIONS
+                </h1>
+                    <div class="opened-for-rules">
+                        <h3 class="sub-header expand paddingLeft5">
+                            <i class="icon iconSmall arrow">
+                                <svg class="marginTop5N">
+                                    <use xlink:href="#icon_DownChevron"></use>
+                                </svg>
+                            </i>Auto Actions
+                        </h3>
+
+                        <div class="opened-for-rules sub-section paddingLeft5">
+
+                            <ul>
+                                <li class="displayInlineBlock node-chips draggable" draggable="true" ng-repeat="action in actionList | filter:searchActions">
+                                    <div>
+                                        <i class="icon small extra-nav-title--icon {{action.bgClass}}">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{action.icon}}"></use>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                    <div class="marginTop10">{{action.name}}</div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="canvas-container">
+        <div class="canvas-actions">
+            <ul>
+                <li ng-click="makeSelectionGroup()" smart-tooltip position="left" delay="10" message="{{'Common Conditions'|| translate}}">
+                    <span class="grouping">CC</span>
+                </li>
+                <li smart-tooltip position="left" delay="10" message="{{'Rule Group'|| translate}}">
+                    <span class="grouping">RG</span>
+                </li>
+                <li ng-click="deleteSelection()" smart-tooltip position="left" delay="10" message="{{'Delete'|| translate}}">
+                    <i class="icon small extra-nav-title--icon">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                        </svg>
+                    </i>
+                </li>
+                <li ng-click="canvasFullScreenLayout()" id="fullScreen" smart-tooltip position="left" delay="10" message="{{'Fullscreen'|| translate}}">
+                    <i class="icon small extra-nav-title--icon">
+                        <svg>
+                            <use xlink:href="#icon_Fullscreen" ng-if="!isMaximized"></use>
+                            <use xlink:href="#icon_Minimize" ng-if="isMaximized"></use>
+                        </svg>
+                    </i>
+                </li>
+
+            </ul>
+        </div>
+        <div id="myDiagramDiv" style="background:#f6f6f6; width: 100%; height: 100%" class="dropzone relative"></div>
+        <div id="myInspector"></div>
+    </div>
+    
+</div>

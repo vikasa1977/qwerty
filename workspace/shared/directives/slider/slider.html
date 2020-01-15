@@ -1,0 +1,41 @@
+﻿<div id="sliderNew" class="sliderHolder">
+	<div class="imgHolder">
+		<div class="imgListHolder">
+			<ul class="imgList bigImg" ng-style="myStyle"><!--style="width:{{ulWidth}}"-->
+				<li ng-repeat="images in imgList" ng-style="liStyle">
+					<img src="{{images.img}}" alt="">
+				</li>
+			</ul>
+		</div>
+		<a href="javascript:void(0)" class="icon iconSmall right leftArrowBig leftArrow" ng-click="slideRight($event)">
+			<svg>
+				<use xlink:href="#icon_DownChevron"></use>
+			</svg>
+		</a>
+		<a href="javascript:void(0)" class="icon iconSmall right rightArrowBig leftArrow" ng-click="slideLeft($event)">
+			<svg>
+				<use xlink:href="#icon_DownChevron"></use>
+			</svg>
+		</a>
+	</div>
+	<div class="imgHolder thumbnails">		
+		<div class="imgListHolder">
+			<ul class="imgList thmbnailList" ng-style="myStyle">
+					<li ng-repeat="images in imgList" width>
+						<img src="{{images.thumbnail}}" alt=""> 
+						<!--shared/theme/images/main-image-4.png-->
+					</li>
+				</ul>
+		</div>
+		<a href="javascript:void(0)" class="icon iconSmall right leftArrowBig leftArrow" ng-click="slideRight($event)">
+			<svg>
+				<use xlink:href="#icon_DownChevron"></use>
+			</svg>
+		</a>
+		<a href="javascript:void(0)" class="icon iconSmall right rightArrowBig leftArrow" ng-click="slideLeft($event)">
+			<svg>
+				<use xlink:href="#icon_DownChevron"></use>
+			</svg>
+		</a>
+	</div>
+</div>

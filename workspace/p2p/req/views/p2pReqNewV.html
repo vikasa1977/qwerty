@@ -1,0 +1,1012 @@
+<style>
+	.collapsible-header i { -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: all 2s; /* Safari 3.1 to 6.0 */ transition: width 0.5s; }
+	.collapsible-header.active i { -ms-transform: rotate(0deg) !important; -webkit-transform: rotate(0deg) !important; transform: rotate(0deg) !important; -webkit-transition: all 2s; /* Safari 3.1 to 6.0 */ transition: all 0.5s; }
+	.ui-grid-viewport { overflow: auto !important; height: 250px !important; }
+	.grid.ui-grid.ng-isolate-scope { height: 250px !important; }
+	.ui-grid-viewport { overflow: auto !important; }
+	.ui-grid-selection-row-header-buttons { opacity: 0.3; }
+	.ui-grid-cell-contents { padding: 7px !important; }
+	#spliter.modal.modal-sm { width: 20%; }
+	.grid { width: 100%; float: left; }
+	div.ui-grid-cell input { border-bottom: none !important; box-shadow: none !important; padding: .3rem 0.5rem 0.3rem; width: 90%; color: rgba(0, 0, 0, .87); margin: 0px; }
+	div.ui-grid-cell .select-wrapper { margin-top: -10px; }
+	div.ui-grid-cell input .input-field { margin: 0; }
+	.ui-grid-cell { overflow: visible; }
+	.ui-grid-top-panel { background: #fafafa; }
+	.ui-grid-cell-contents { padding: 10px; }
+	.ui-grid-column-menu-button { top: 8px; }
+	.ui-grid-row:nth-child(even) .ui-grid-cell,
+	.ui-grid-row:nth-child(odd) .ui-grid-cell { background: none; border-bottom: 1px solid #d4d4d4 !important; }
+	.tabs .tab a { font-weight: bold; }
+		.tabs .tab a.active { color: #159dfc; }
+	.ui-grid-render-container-left .ui-grid-viewport { background: #F7F7F7 !important; }
+	.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell { background: none !important; }
+	.secondary-navigation ul li a span,
+	a.initialDiv span { float: none; margin-left: 0; position: absolute; top: 0px; left: 50%; height: 100%; background: #03ACFF; width: 1px; z-index: -1; border: 1px; }
+	.secondary-navigation ul li { position: relative; padding-bottom: 2rem; }
+	.secondary-navigation { height: 100%; border-left: 1px solid #D4D4D4; z-index: 1; display: inline-table; width: 70px; }
+		.secondary-navigation ul li:first-child a { margin-top: 2rem; }
+		.secondary-navigation ul li.active a { background: #fff; border: 3px solid #8BEA9F; width: 12px; height: 12px; }
+	.select-wrapper input[type=text]:read-only { border: none; }
+	.secondary-navigation ul li:last-child a span { display: none; }
+	#spliter .lookup-bulk-order li { width: 100%; }
+	.secondary-navigation ul li a { border-radius: 50%; width: 10px; display: block; margin: 0 auto 2rem; background: #03ACFF; height: 10px; padding: 0; border: 3px solid transparent; }
+	.collapsible-header-drag-wrap { cursor: default; height: 20px; }
+	.collapsible-header-drag-icon { transform: rotate(90deg); cursor: -webkit-grab; display: inline-flex; }
+		.collapsible-header-drag-icon:active { cursor: -webkit-grabbing; }
+	.not-mandnatory-field-wrap { position: absolute; right: 23px; top: 27px; }
+	.widget-option-field { position: absolute; right: 0px; top: 13px; z-index: 100000; cursor: pointer; display: none; }
+	.removeHidden { overflow: inherit; }
+	.optionalFieldTigger.selected ._optionalFieldLabel { color: #C3C3C3 !important; }
+	.optionalFieldTigger.selected .widget-option-field { display: block; }
+	.card-header-btn-option { margin: 0; height: 30px; }
+		.card-header-btn-option li.card-search { margin-top: 0; }
+		.card-header-btn-option .input-field [type=text] { margin-top: 0; }
+		.card-header-btn-option li.card-search .search-icon, .card-header-btn-option li.card-search .cancel-icon { top: -5px; }
+	.accountDetails .collapsible li { margin: 0; }
+</style>
+
+<div class="col s12 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+	<div class="left">
+		<a href="javascript:history.go(-1);" class="extra-nav-wrap-back-arrow left waves-block waves-effect waves-light white-text"><i class="icon small ">
+			<svg>
+				<use xlink:href="#icon_Back"></use>
+			</svg>
+		</i></a><i class="icon small left">
+			<svg>
+				<use xlink:href="#icon_OnBehalf"></use>
+			</svg>
+		</i><span class="headingText ng-cloak left">NEW REQUISITION (DRAFT)</span>
+	</div>
+	<div class="right">
+		<i class="icon iconSmall">
+			<svg>
+				<use xlink:href="#icon_Search"></use>
+			</svg>
+		</i>
+		 | 
+		<smart-dropdown config="{{dropDownConfig}}">
+			<a class='dropdown-button btn-in-header white-text' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+				<i class="icon iconSmall white-text right">
+					<svg class="marginTop8">
+						<use xlink:href="#icon_DropArrow"></use>
+					</svg>
+				</i>
+				<span>USD 1000</span>
+			</a>
+			<ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off" >
+				<li>
+					<div class="input-field col s12 detail-field-summary">
+						<span class="left grey-text">Requisition Value (USD)</span>
+						<span class="right">678.00</span>
+					</div>
+				</li>
+				<li>
+					<div class="input-field col s12 detail-field-summary header-input-edit" ng-init="editProrate1=false">
+						<span class="left grey-text">Shipping (USD)</span>
+						<div class="right">
+							<div>109.00</div>
+							<div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12" ng-click="editProrate1=!editProrate1">Prorate</a></div>
+						</div>
+						<div class="slider-pop" ng-show="editProrate1">
+							<div class="row grey greyPanel lighten-3 paddingBtm10">
+								<smart-textfield class="col s6" label="Prorate" ng-model="'00.00'"></smart-textfield>
+								<div class="col s6">
+									<a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+										<svg>
+											<use xlink:href="#icon_Check"></use>
+										</svg>
+									</a>
+									<a ng-click="editProrate1=!editProrate1" href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+										<svg>
+											<use xlink:href="#icon_Close"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="input-field col s12 detail-field-summary header-input-edit" ng-init="editProrate=false">
+						<span class="left grey-text">Taxes & Charges (USD)</span>
+						<div class="right">
+							<div>00.00</div>
+							<div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12" ng-click="editProrate=!editProrate">Prorate</a></div>
+						</div>
+						<div class="slider-pop" ng-show="editProrate">
+							<div class="row grey greyPanel lighten-3 paddingBtm10">
+								<smart-textfield class="col s6" label="Prorate" ng-model="'00.00'"></smart-textfield>
+								<div class="col s6">
+									<a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+										<svg>
+											<use xlink:href="#icon_Check"></use>
+										</svg>
+									</a>
+									<a ng-click="editProrate=!editProrate" href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+										<svg>
+											<use xlink:href="#icon_Close"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Requisition Total (USD)</span> <span class="right">1000.00</span> </div>
+				</li>
+				<li></li>
+			</ul>
+		</smart-dropdown>
+	</div>
+</div>
+
+<!--<div class="row paddingBtm40 smartFormWidgetContainer">
+	<smart-form-widget form-config="config" model-data="dataModel"></smart-form-widget>
+</div>
+
+
+
+-->
+
+
+
+
+
+
+
+
+<div class="scrolledContainer smartFormWidgetContainer">
+	<div class="editableMode marginBtm50">
+		<div class="secondary-navigation white">
+			<ul class="thumbnails-wrap">
+				<li class="active"><a data-hreff="#sectionId1" href="javascript:void(0)" class="waves-block waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="BASIC DETAILS"><span class=""></span></a></li>
+				<li><a data-hreff="#sectionId2" href="javascript:void(0)" class="waves-block waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="SHIP TO"><span class=""></span></a></li>
+				<li><a data-hreff="#sectionId3" href="javascript:void(0)" class="waves-block waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="CUSTOM ATTRIBUTES"><span class=""></span></a></li>
+				<li><a data-hreff="#sectionId4" href="javascript:void(0)" class="waves-block waves-light tooltipped" data-position="left" data-delay="50" data-tooltip="ITEM DETAILS"><span class=""></span></a></li>
+			</ul>
+		</div>
+		<form class="_commonForm">
+			<div class="row ng-pristine ng-valid">
+				<div class="col s12 m12 accountDetails">
+					<div class="row">
+						<ul class="collapsible" data-collapsible="expandable">
+							<!-- data-collapsible="accordion" -->
+
+							<li class="card cardParent removeHidden" id="sectionId1">
+								<div class="center collapsible-header-drag-wrap relative">
+									<a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon">
+										<svg>
+											<use xlink:href="#icon_Drag"></use>
+										</svg>
+									</a>
+
+									<a href="javascript:void(0);" class="icon iconSmall not-mandnatory-field-wrap dropdown-button" data-activates='optionalBasicDetail' data-alignment='right' data-constrainwidth="false">
+										<svg>
+											<use xlink:href="#icon_AdditionMen"></use>
+										</svg>
+									</a>
+									<ul id='optionalBasicDetail' class='dropdown-content dd-close-off' style="width: 200px;">
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">On behalf of</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Legal Entity</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Deliver To</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+									</ul>
+								</div>
+								<div class="collapsible-header active">
+									<span class="fontSize18"><i class="icon iconSmall">
+										<svg>
+											<use xlink:href="#icon_DownChevron"></use>
+										</svg>
+									</i>BASIC DETAILS</span>
+								</div>
+								<div class="collapsible-body" style="display: block;">
+									<div class="row ">
+										<div class="col s12">
+											<div class="row">
+												<div class="input-field col s12 l3 m12">
+													<input value="Requisition for laptop" id="first_name" type="text">
+													<label for="first_name" class="active">Requisition Name</label>
+												</div>
+												<div class="input-field col s12 l3 m12">
+													<input value="REQ-54545456446" id="readonly" type="text">
+													<label for="readonly" class="active">Requisition Number</label>
+												</div>
+												<div class="input-field col s12 l3 m12">
+													<input value="Emily Ross" id="readonly2" type="text">
+													<label for="readonly2" class="active">Requestor Name</label>
+												</div>
+											</div>
+											<div class="row">
+												<div class="input-field col s12 l3 m12">
+													<input readonly="" value="101-BrassCraft Manufacturing" id="readonly3" type="text" class="blue-text">
+													<label for="readonly3" class="active">Business Unit</label>
+												</div>
+												<div class="input-field col s12 l3 m12">
+													<label for="readonly3" class="active">Currency</label>
+													<select>
+														<option value="0" readonly selected>Currency</option>
+														<option value="1">USD</option>
+														<option value="2">EUR</option>
+														<option value="3">INR</option>
+														<option value="3">GBP</option>
+														<option value="3">AUD</option>
+														<option value="3">CAD</option>
+														<option value="3">ZAR</option>
+													</select>
+												</div>
+
+												<div class="input-field col s12 l3 m12">
+													<input type="checkbox" class="filled-in" id="filled-in-box" />
+													<label for="filled-in-box">Mark as Urgent</label>
+												</div>
+											</div>
+											<div class="row dev_appendOptionalFields"></div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+
+							<li class="card cardParent removeHidden" id="sectionId2">
+								<div class="center collapsible-header-drag-wrap relative">
+									<a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon">
+										<svg>
+											<use xlink:href="#icon_Drag"></use>
+										</svg>
+									</a>
+
+									<a href="javascript:void(0);" class="icon iconSmall not-mandnatory-field-wrap dropdown-button" data-activates='Ul1' data-alignment='right' data-constrainwidth="false">
+										<svg>
+											<use xlink:href="#icon_AdditionMen"></use>
+										</svg>
+									</a>
+									<ul id='Ul1' class='dropdown-content dd-close-off' style="width: 200px;">
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">On behalf of</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Legal Entity</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger"><a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Deliver To</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+									</ul>
+								</div>
+								<div class="collapsible-header ">
+									<span class="fontSize18"><i class="icon iconSmall">
+										<svg>
+											<use xlink:href="#icon_DownChevron"></use>
+										</svg>
+									</i>SHIP TO</span>
+								</div>
+								<div class="collapsible-body" style="display: block;">
+									<div class="row">
+										<div class="col s12">
+											<div class="row">
+												<div class="input-field col s12 l3 m4">
+													<i class="icon iconSmall iconFix tooltipped add-address-detail" data-position="bottom" data-delay="50" data-tooltip="Add">
+														<svg>
+															<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Location"></use>
+														</svg>
+													</i>
+													<input value="London" id="Text4" type="text">
+													<label for="Text4" class="ng-binding active">Ship To</label>
+												</div>
+												<div class="col l3 m4 s12 input-field">
+													<input value="Airoli Satation,Theane-Belapur Road, Mind Space, Navi Mumbai, New State4 Of US, 400708" id="Text6" type="text">
+													<label for="Text6" class="active">Ship to Address</label>
+												</div>
+											</div>
+											<div class="row dev_appendOptionalFields"></div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<!--CUSTOME ATTRIBUTES-->
+							<li class="card cardParent removeHidden" id="sectionId3">
+								<div class="center collapsible-header-drag-wrap relative">
+									<a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon">
+										<svg>
+											<use xlink:href="#icon_Drag"></use>
+										</svg>
+									</a>
+
+									<a href="javascript:void(0);" class="icon iconSmall not-mandnatory-field-wrap dropdown-button" data-activates='Ul2' data-alignment='right' data-constrainwidth="false">
+										<svg>
+											<use xlink:href="#icon_AdditionMen"></use>
+										</svg>
+									</a>
+									<ul id='Ul2' class='dropdown-content dd-close-off' style="width: 200px;">
+										<li class="relative optionalFieldTigger">
+											<a href="javascript:void(0)" class="black-text _optionalFieldLabel ">On behalf of</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger">
+											<a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Legal Entity</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+										<li class="relative optionalFieldTigger">
+											<a href="javascript:void(0)" class="black-text _optionalFieldLabel ">Deliver To</a>
+											<i class="widget-option-field icon iconSmall">
+												<svg>
+													<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+												</svg>
+											</i>
+										</li>
+									</ul>
+								</div>
+								<div class="collapsible-header ">
+									<span class="fontSize18">
+										<i class="icon iconSmall">
+											<svg>
+												<use xlink:href="#icon_DownChevron"></use>
+											</svg>
+										</i>CUSTOM ATTRIBUTES 
+									</span>
+								</div>
+								<div class="collapsible-body" style="display: block;">
+									<div class="row">
+										<div class="col s12">
+											<div class="row">
+												<div class="input-field col s12 l3 m4">
+													<label for="ERP_Order_Type" class="active">ERP Order Type</label>
+													<select id="ERP_Order_Type">
+														<option value="0" readonly selected>Select Order Type</option>
+														<option>Budget ID  </option>
+														<option>Order ID
+														</option>
+													</select>
+												</div>
+
+												<div class="col l3 m4 s12 input-field">
+													<input value="Airoli Satation,Theane-Belapur Road, Mind Space, Navi Mumbai, New State4 Of US, 400708" id="Text1" type="text">
+													<label for="Text1" class="active">Ship to Address</label>
+												</div>
+											</div>
+											<div class="row dev_appendOptionalFields"></div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="card cardParent removeHidden" id="sectionId4">
+								<div class="center collapsible-header-drag-wrap relative">
+									<a href="javascript:void(0)" class="icon iconSmall collapsible-header-drag-icon">
+										<svg>
+											<use xlink:href="#icon_Drag"></use>
+										</svg>
+									</a>
+								</div>
+								<div class="collapsible-header active">
+									<span class="fontSize18"><i class="icon iconSmall">
+										<svg>
+											<use xlink:href="#icon_DownChevron"></use>
+										</svg>
+									</i>ITEM DETAILS</span>
+								</div>
+								<div class="collapsible-body" style="display: block;">
+									<div class="row">
+										<div class="marginBottom50">
+											<div class="white" style="padding-bottom: 50px; overflow: hidden;">
+												<div class="row marginBottom0">
+													<div id="materialsRadioContent" class="addClassAfterHeaderFixed">
+														<div class="col s12 padding0 _dev_addScrollForTop">
+															<div class="col s12 borderBtmGray">
+																<ul class="tabs left widthForItemTab sortTab">
+																	<!--<li class="tab"><a class="showIcon active" href="#tabItemDetails">LINES</a></li>
+																	<li class="tab"><a class="hideIcon1" href="#tabAccounting">ACCOUNTING</a></li>
+																	<li class="tab"><a class="hideIcon2" href="#tabShipping">SHIPPING</a></li>
+																	<li class="tab"><a class="hideIcon3" href="#tabOthers">OTHERS</a></li>-->
+																	<li class="tab"><a class="showIcon active" href="javascript:void(0)">LINES</a></li>
+																	<li class="tab"><a class="hideIcon1" href="javascript:void(0)">ACCOUNTING</a></li>
+																	<li class="tab"><a class="hideIcon2" href="javascript:void(0)">SHIPPING</a></li>
+																	<li class="tab"><a class="hideIcon3" href="javascript:void(0)">OTHERS</a></li>
+
+																</ul>
+															</div>
+															<div class="col s12 padding10">
+
+																<ul class="col s3 card-header-btn-option">
+
+																	<li class="card-search" style="height: 20px;">
+																		<a href="javascript:void(0)" class="waves-effect waves-light search-icon btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search">
+																			<i class="icon iconSmall">
+																				<svg>
+																					<use xlink:href="#icon_Search"></use>
+																				</svg>
+																			</i>
+
+																		</a>
+																		<a href="javascript:void(0)" class=" waves-effect waves-light cancel-icon btn-flat tooltipped" data-position="bottom" data-delay="50" data-tooltip="Reset">
+																			<i class="icon iconSmall">
+																				<svg>
+																					<use xlink:href="#icon_Close"></use>
+																				</svg>
+																			</i></a>
+																		<div class="input-field">
+																			<input id="Text43" type="text" class="validate" placeholder="Search a Draft">
+																		</div>
+																	</li>
+
+																</ul>
+
+																<div class="right">
+
+																	<a href="#TestModel" class="modal-trigger add-row icon iconSmall right dropdown-button tooltipped" data-position="bottom" data-delay="50" data-tooltip="Copy Line Details">
+																		<svg>
+																			<use xlink:href="#icon_BulkApply"></use>
+																		</svg>
+																	</a>
+																	<a href="#!" class="add-row icon iconSmall right dropdown-button marginRight20 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Duplicate Line">
+																		<svg>
+																			<use xlink:href="#icon_Copy"></use>
+																		</svg>
+																	</a>
+																	<a href="#!" class="hidePlusIcon">
+																		<i class="add-row icon iconSmall left dropdown-button blue-text tooltipped" data-activates='dropdownBO' data-alignment='right' data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="ADD MULTIPLE LINES">
+																			<svg>
+																				<use xlink:href="#icon_CirclePlus"></use>
+																			</svg>
+																		</i>
+																	</a>
+																	<ul id='dropdownBO' class='dropdown-content lookup-bulk-order lookup-popup'>
+																		<li><span class="center-align fontSize16">ADD MULTIPLE LINES</span></li>
+																		<li>
+																			<div class="input-field col s12 dd-close-off">
+																				<input value="1" id="Text3" type="text" class=" valid">
+																				<label class="active" for="number2">{{$label.add}}</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="right">
+																				<a href="#!"><i class="icon iconSmall left blue-text">
+																					<svg>
+																						<use xlink:href="#icon_Close"></use>
+																					</svg>
+																				</i></a><a href="javascript:void(0)" class=""><i class="icon iconSmall left blue-text addBulkRow">
+																					<svg>
+																						<use xlink:href="#icon_Check"></use>
+																					</svg>
+																				</i></a>
+																			</div>
+																		</li>
+																	</ul>
+
+																	<a href="#!" class="hideImportIcon">
+																		<i class="icon iconSmall left dropdown-button blue-text tooltipped" data-activates='importLineItems' data-alignment='right' data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="Import Line Items">
+																			<svg>
+																				<use xlink:href="#icon_BulkImport"></use>
+																			</svg>
+																		</i>
+																	</a>
+																	<div id='importLineItems' class='dropdown-content dd-close-off lookup-modal'>
+																		<div class="lookup-header">
+																			<div class="regularSearch">
+																				<a href="javascript:void(0);" class="waves-circle  wave-blue search-icon btn-flat black-text" title="Search" alt="Search">
+
+																					<i class="icon iconSmall left grey-text">
+																						<svg>
+																							<use xlink:href="#icon_Search"></use>
+																						</svg>
+																					</i>
+																				</a>
+																				<a href="javascript:void(0)" class="waves-circle wave-blue cancel-icon btn-flat black-text" title="Reset" alt="Reset">
+																					<i class="icon iconSmall left grey-text">
+																						<svg>
+																							<use xlink:href="#icon_Close"></use>
+																						</svg>
+																					</i>
+
+																				</a>
+																				<div class="input-field">
+																					<input type="text" class="validate" placeholder="Search" />
+																				</div>
+																			</div>
+																			<span class="title black-text">IMPORT LINE ITEMS</span>
+																		</div>
+																		<div class="lookup-body">
+																			<div class="row marginBtm0">
+																				<div class="s12">
+																					<ul class="tabs custom-tab marginBtm0">
+																						<li class="tab"><a href="#tb-requisition" class="active">REQUISITION</a></li>
+																						<li class="tab"><a href="#tb-templates">TEMPLATES</a></li>
+																					</ul>
+																				</div>
+																			</div>
+																			<div class="scrollbar-outer" style="max-height: 250px;">
+																				<div id="tb-requisition">
+																					<div class="cell-content cell-content-last">
+																						<ul>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-payment-term" />
+																								<label for="chk-payment-term" class="grey-text text-darken-4">Payment Term</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-legal-entity" />
+																								<label for="chk-legal-entity" class="grey-text text-darken-4">Legal Entity</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-shipping-freight" />
+																								<label for="chk-shipping-freight" class="grey-text text-darken-4">Freight</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-lorem-ipsum" />
+																								<label for="chk-lorem-ipsum" class="grey-text text-darken-4">Lorem Ipsum Dolor</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-suspendisse" />
+																								<label for="chk-suspendisse" class="grey-text text-darken-4">Suspendisse</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox13" />
+																								<label for="chk-payment-term" class="grey-text text-darken-4">Payment Term</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="chk-payment-term2" />
+																								<label for="chk-payment-term2" class="grey-text text-darken-4">Payment Term</label>
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																				<div id="tb-templates">
+																					<div class="cell-content cell-content-last">
+																						<ul>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox9" />
+																								<label for="chk-payment-term" class="grey-text text-darken-4">Payment Term</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox10" />
+																								<label for="chk-legal-entity" class="grey-text text-darken-4">Legal Entity</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox11" />
+																								<label for="chk-shipping-freight" class="grey-text text-darken-4">Freight</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox12" />
+																								<label for="chk-lorem-ipsum" class="grey-text text-darken-4">Lorem Ipsum Dolor</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox14" />
+																								<label for="chk-suspendisse" class="grey-text text-darken-4">Suspendisse</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox15" />
+																								<label for="chk-payment-term" class="grey-text text-darken-4">Payment Term</label>
+																							</li>
+																							<li>
+																								<input type="checkbox" class="filled-in" id="Checkbox16" />
+																								<label for="chk-payment-term2" class="grey-text text-darken-4">Payment Term</label>l
+																							</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="lookup-footer">
+																			<a href="#!" class="waves-effect left  btn-flat">RESET</a>
+																			<a href="#!" class="waves-effect  right btn-flat">SELECT</a>
+																			<a href="#!" class="waves-effect right  close-lookup btn-flat">CANCEL</a>
+
+																		</div>
+																	</div>
+
+
+
+																	<ul id='dropdownEditLook' class='dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup' style="width: 400px;">
+
+																		<li><span class="left-align fontSize16">BULK EDIT LINE DETAILS</span></li>
+																		<li>
+																			<div class="scrollbar-outer" style="max-height: 270px;">
+
+																				<div class="input-field col s6 dd-close-off marginBtm15">
+																					<input value="1010010110" id="Text8" type="text">
+																					<label class="active" for="Text4">Supplier Item Number</label>
+																				</div>
+																				<div class="input-field col s3 dd-close-off marginBtm15">
+																					<input value="10" id="Text100" type="text">
+																					<label class="active" for="Text100">Quantity</label>
+																				</div>
+																				<div class="input-field col s3 dd-close-off marginBtm15">
+																					<input value="Each" id="Text101" type="text">
+																					<label class="active" for="Text101">UOM</label>
+																				</div>
+
+																				<div class="input-field col s6 dd-close-off lineHeight14">
+																					<div class="grey-text fontSize12 ">Taxes</div>
+																					<div><a href="#addTaxes" class="modal-trigger btn-flat paddingLeft0" style="text-transform: capitalize;">Add Taxes</a></div>
+																				</div>
+																				<div class="input-field col s6 dd-close-off marginBtm15">
+																					<input value="No" id="Text103" type="text">
+																					<label class="active" for="Text103">Tax Exempt</label>
+																				</div>
+
+																				<div class="input-field col s6 dd-close-off marginBtm15">
+																					<input value="10000" id="Text10" type="text">
+																					<label class="active" for="Text8">Other Charges (USD)</label>
+																				</div>
+																				<div class="input-field col s6 dd-close-off marginBtm15">
+																					<input value="10000" id="Text104" type="text">
+																					<label class="active" for="Text104">Freight</label>
+																				</div>
+
+																				<div class="input-field col s6 marginBtm15">
+																					<i class="icon iconSmall iconFix blue-text">
+																						<svg>
+																							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Calendar"></use>
+																						</svg>
+																					</i>
+																					<input value="07/12/2015" id="date4" type="date" class="datepicker">
+																					<label class="active" for="date4">Requested Date</label>
+																				</div>
+																				<div class="input-field col s6 marginBtm15">
+																					<i class="icon iconSmall iconFix blue-text">
+																						<svg>
+																							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Calendar"></use>
+																						</svg>
+																					</i>
+																					<input value="07/12/2015" id="date3" type="date" class="datepicker">
+																					<label class="active" for="date3"></label>
+																				</div>
+																				<div class="input-field col s12 dd-close-off lineHeight14">
+																					<div class="grey-text fontSize12 ">Category</div>
+																					<div><a href="#categoryPopup" class="modal-trigger btn-flat paddingLeft0" style="text-transform: capitalize;">Choose Category</a></div>
+																				</div>
+																			</div>
+																		</li>
+
+																		<li>
+																			<div class="right">
+																				<a href="#!" class="btn-flat waves-effect close-lookup">DONE</a>
+																			</div>
+																		</li>
+																	</ul>
+
+																	<a href="#!" class="hideAccountingIcon">
+																		<i class=" icon iconSmall left dropdown-button blue-text tooltipped" data-activates='blkEditAccountion' data-constrainwidth="false" data-position="bottom" data-delay="50" data-tooltip="Bulk Edit Accounting" data-alignment='right'>
+																			<svg>
+																				<use xlink:href="#icon_BulkEdit"></use>
+																			</svg>
+																		</i></a>
+																	<ul id='blkEditAccountion' class='dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup' style="width: 400px;">
+																		<li><span class="left-align fontSize16">BULK EDIT ACCOUNTING</span> </li>
+																		<li>
+																			<div class="input-field col s6 dd-close-off marginBtm15">
+																				<input value="ADMIN 1" id="Text107" type="text">
+																				<label class="active" for="Text107">Requester</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="input-field col s6 dd-close-off marginBtm15">
+																				<input value="245-GEP" id="Text109" type="text">
+																				<label class="active" for="Text109">Legal Entity</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="input-field col s6 dd-close-off marginBtm15">
+																				<input value="" id="Text110" type="text">
+																				<label for="Text110">Cost Center</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="input-field col s6 dd-close-off marginBtm15">
+																				<input value="" id="Text111" type="text">
+																				<label for="Text111">Project Code</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="input-field col s6 dd-close-off marginBtm15">
+																				<input value="" id="Text112" type="text">
+																				<label for="Text112">GL Code</label>
+																			</div>
+																		</li>
+
+																		<li>
+																			<div class="right"><a href="#!" class="btn-flat waves-effect close-lookup">DONE</a></div>
+																		</li>
+																	</ul>
+
+																	<a href="#!" class="hideBulkAddIcon">
+																		<i class="icon iconSmall left dropdown-button blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Bulk Add">
+																			<svg>
+																				<use xlink:href="#icon_BulkAdd"></use>
+																			</svg>
+																		</i></a>
+
+																	<!--	<a href="#!" class="hideUploadIcon">
+																				<i class="icon iconSmall left blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload">
+																					<svg>
+																						<use xlink:href="#icon_Upload"></use>
+																					</svg>
+																				</i>
+																			</a>-->
+																	<a href="#!">
+																		<i class="icon iconSmall left blue-text tooltipped dropdown-button" data-position="bottom" data-delay="50" data-tooltip="Manage Column" data-activates='FilterForItemMaterialService' data-constrainwidth="false" data-alignment='right'>
+																			<svg>
+																				<use xlink:href="#icon_Filter"></use>
+																			</svg>
+																		</i></a>
+																	<ul id='FilterForItemMaterialService' class='dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup dropdown-content-large'>
+																		<li><span class="left-align fontSize16">SHOW / HIDE OPTIONAL FIELDS</span> </li>
+																		<li class="marginTop20"><span class="left-align fontSize16">ITEM DETAILS</span> </li>
+																		<li class="row">
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox1" />
+																				<label for="Checkbox1">Supplier Item Number</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox4" />
+																				<label for="Checkbox4">Quantity</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox5" />
+																				<label for="Checkbox5">UOM</label>
+																			</div>
+																		</li>
+																		<li class="row ">
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox8" />
+																				<label for="Checkbox8">Taxes (USD)</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox17" />
+																				<label for="Checkbox17">Tax Exempt</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox18" />
+																				<label for="Checkbox18">Freight</label>
+																			</div>
+																		</li>
+																		<li class="row">
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox19" />
+																				<label for="Checkbox19">Lorem</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox20" />
+																				<label for="Checkbox20">Ipsum</label>
+																			</div>
+																			<div class="col s12 m6 l4">
+																				<input type="checkbox" checked class="filled-in" id="Checkbox21" />
+																				<label for="Checkbox21">Dolor sit amet</label>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="right"><a href="#!" class="btn-flat waves-effect close-lookup">APPLY</a></div>
+																		</li>
+																	</ul>
+
+																	<a href="#!">
+																		<i class="icon iconSmall left blue-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete">
+																			<svg>
+																				<use xlink:href="#icon_TrashCan"></use>
+																			</svg>
+																		</i>
+																	</a>
+
+																</div>
+															</div>
+														</div>
+
+														<div id="tabItemDetails" style="display: block;">
+															<img src="shared/resources/images/gridImg.png" style="width: 100%" />
+														</div>
+
+														<div id="tabAccounting" style="display: none;">
+															<div>
+																<div ui-grid="gridOptions" class="grid" ui-grid-pinning ui-grid-selection></div>
+															</div>
+														</div>
+
+														<div id="tabShipping" style="display: none;">
+															<div>
+																<div ui-grid="gridOptions" class="grid" ui-grid-pinning ui-grid-selection></div>
+															</div>
+														</div>
+
+														<div id="tabOthers" style="display: none;">
+															<div>
+																<div ui-grid="gridOptions" class="grid" ui-grid-pinning ui-grid-selection></div>
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<footer class="page-footer">
+	<div class="row">
+
+		<div class="col s12 normalMode">
+			<div class="left-align col s3">
+				<smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false" callback="showPreview"></smart-button>
+			</div>
+			<div class="right-align col s9">
+				<smart-button flat="true" config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false"></smart-button>
+				<smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false"></smart-button>
+				<smart-button config='{"title":"SUBMIT","allignRight":"false"}' disable="false" callback="submitReq"></smart-button>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+	$('select').material_select();
+	var windowHeight = $(window).height();
+	var $navLinks = $('.thumbnails-wrap li a');
+
+	$navLinks.click(function () {
+		event.preventDefault();
+		var toGo = $(this).data('hreff');
+		if (!$(toGo).find('.collapsible-header').hasClass('active')) {
+			$(toGo).find('.collapsible-header').trigger('click')
+		}
+		$('html, body').animate({
+			scrollTop: $(toGo).offset().top - 131
+		}, 1000);
+	});
+
+	var totalSection = 0;
+
+	$('.accountDetails .collapsible .card').each(function () {
+		var $this = $(this);
+		totalSection++;
+		$(document).scroll(function () {
+			var scrollTop = $(window).scrollTop();
+			var offset = $this.offset().top;
+			var height = $this.outerHeight();
+			var $id = $this.prop('id')
+			var $indexOfDiv = $('#' + $id).index();
+			var $totalSection = 0;
+			if (totalSection % 2 != 0) {
+				$totalSection = totalSection + 1;
+			} else {
+				$totalSection = totalSection;
+			}
+			var $divider = totalSection / 2;
+			if ($indexOfDiv <= $divider) {
+				if (scrollTop >= (offset - 135)) {
+					var selector = '[data-hreff="#' + $id + '"]';
+					var $menuItem = $('.thumbnails-wrap li a').filter(selector);
+					$navLinks.parent('li').removeClass('active');
+					$menuItem.parent('li').addClass('active');
+				}
+			} else {
+				if (scrollTop >= (offset - (windowHeight / 2))) {
+					var selector = '[data-hreff="#' + $id + '"]';
+					var $menuItem = $('.thumbnails-wrap li a').filter(selector);
+					$navLinks.parent('li').removeClass('active');
+					$menuItem.parent('li').addClass('active');
+				}
+			}
+
+		});
+	});
+
+	var globalID = 0;
+	$(".optionalFieldTigger").click(function () {
+		var el = $(this),
+			closeBtn, elID, enderEl, optioFild, colseOtside, inputF, inputTetLab, inputLab, appendToF, parentDivF;
+		if (!el.hasClass('selected')) {
+			el.addClass('selected');
+			closeBtn = el.find('.widget-option-field');
+			elID = "optionalFID" + globalID++;
+			parentDivF = el.parents('.cardParent');
+			appendToF = parentDivF.find('.dev_appendOptionalFields');
+
+
+			if (el.hasClass("bill-to") == false) {
+
+
+				/*create element*/
+				enderEl = $("<div class='input-field col s12 l3 m12 optionalField'></div>"); //2
+				optioFild = $("<div class='optionalFieldHover hilighted'></div>"); //1
+				colseOtside = $("<i class='closingOpt icon iconSmall blue-text'><svg><use xlink:href='#icon_Close'></use></svg></i>"); //0
+				inputF = ("<input id='" + elID + "' type='text' class='validate'>"); //1
+				inputTetLab = el.find('._optionalFieldLabel').text();
+				inputLab = $("<label style='width:75%;' for='" + elID + "' class='addText'>" + inputTetLab + "</label>"); //1
+				optioFild.append(colseOtside);
+				enderEl.append(optioFild);
+				enderEl.append(inputF);
+				enderEl.append(inputLab);
+
+			} else {
+				var enderEl = $('<div class="row optionalField">' +
+					'<div class="optionalFieldHover hilighted">' +
+					'<i class="closingOptForShipto closingOpt icon iconSmall blue-text"><svg><use xlink:href="#icon_Close"></use></svg></i>' +
+					'</div>' +
+					'<div class="input-field col s12 m4 l3">' +
+					'<input id="billTo" type="text">' +
+					'<label for="billTo">Bill to</label>' +
+					'</div>' +
+					'<div class="input-field col s12 m4 l3">' +
+					'<input id="billToAdd" type="text" disabled>' +
+					'<label for="billToAdd"> Bill to Address </label>' +
+					'</div>' +
+					'<div class="input-field col s12 m4 l3">' +
+					'<input id="billTo" type="text" disabled>' +
+					'<label for="billTo"> E-mail ID / Fax Number</label>' +
+					'</div>' +
+					'</div>');
+				$(appendToF).append(enderEl);
+
+				var clossButton = $('.closingOptForShipto');
+				closeActive(clossButton, enderEl, el);
+			}
+			if ($(this).hasClass("bill-to") == false) {
+				$(appendToF).append(enderEl);
+				closeActive(colseOtside, enderEl, el);
+				closeActive(closeBtn, enderEl, el);
+			}
+			if (!parentDivF.find('.collapsible-header').hasClass('active')) {
+
+				parentDivF.find('.collapsible-header').trigger('click')
+			}
+			/*close function*/
+
+			function closeActive(ele, toele, onClick) {
+				ele.click(function (e) {
+					toele.remove();
+					onClick.removeClass('selected');
+					e.stopPropagation();
+				});
+			}
+			window.setHideInterval(optioFild);
+		}
+	});
+
+</script>

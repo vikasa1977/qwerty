@@ -1,0 +1,22 @@
+<div class="clearfix">
+    <div class="row marginBtm0 marginTop10">
+        <div class="col s12">
+            <ul class="panelBox-header--action right-align">
+                <li class="panelBox-header--aLink">
+                    <a href="javascript:void(0);" ng-click="manageTimelines()">
+                        <i class="icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Timelines'|| translate}}">
+                            <svg><use xlink:href="#icon_manageTimeline"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+            <div class="uiGridContainer borderAll marginTop10">
+                <wj-flex-sheet initialized="initialized(s)" item-formatter="itemFormatterPricesheetData">
+                    <wj-sheet items-source="cvPaging1"></wj-sheet>
+                </wj-flex-sheet>
+            </div>
+        </div>
+    </div>
+</div>
+<smart-popup template-url="project/ppst/views/manageTimelinesPopup.html" show='{{showManageTimelines}}' on-hide="onHideManageTimeLines(e)"></smart-popup>
+

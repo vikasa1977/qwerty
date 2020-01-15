@@ -1,0 +1,421 @@
+<!-- scanned Img -->
+
+<script type="text/ng-template" id="rejectByERPTemplate.html">
+    <div class="padding10" style="min-width: 300px;">
+        <span class="grayed-text">Date and Time: </span><span>4 Jul 2008 12:01:54</span><br />
+        <span class="grayed-text">Rejection Reason: </span><span>Document</span><br />
+        <span>Rejected by ERP due to special character in ship to field, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+    </div>
+</script>
+
+<div class="row marginBtm6 marginTop6" ng-if="scannedImg">
+	<a href="javascript:void(0)" class="avatarWithImgThumbnail valign-wrapper" ng-click="previewCurrentScannedInvoice($index)">
+		<img src="{{item.scannedImg}}" alt="" class="valign" />
+	</a>
+	<div class="avatarWithImgContent">
+		<a ng-click="previewCurrentScannedInvoice($index)" href="javascript:void(0);">
+			<span class="title grey-text text-darken-4 displayBlock">{{item.docName | translate }}</span>
+			<span class="collecton-item-secondary-text-wrapper"> <span> {{item.docNumber | translate | uppercase}}</span> </span>
+			<span class="collecton-item-secondary-text-wrapper">
+				<span ng-if="item.docStatus"> {{ item.docStatus | translate }}</span>
+				<span ng-if="item.docStatus">|</span>
+				<span ng-repeat="attrib in item.attributes | limitTo : 8">
+
+					<span ng-if="attrib.datakey == 'Uploaded_by'">
+
+						{{ 'Uploaded by' | translate }}
+					</span>
+
+					<span ng-if="attrib.datakey == 'Uploaded_On'">
+
+						{{ 'on' | translate }}
+					</span>
+
+					{{attrib.value | translate}}
+
+				</span>
+			</span>
+
+		</a>
+	</div>
+</div>
+<!-- end scanned Img -->
+
+
+<div class="row marginBtm6 marginTop6" ng-if="!scannedImg">
+	<div class="checkboxWithIconGroup checkboxOnLanding " ng-class="{'hideCheckbox' : item.hideCheckbox } " ng-click="$event.stopPropagation();" ng-if="!item.itemImage">
+		<div class="checkboxWithIcon " ng-class="{'showCheckboxOnly': ShowCheckboxs}">
+			<i class="icon iconSmall circle iconItem catalog" ng-class="{'showOnlyIcon': showOnlyIcons ,'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+				<svg>
+					<use ng-if="Pagefor == 'task'" xlink:href="{{setValue(item.docType)}}"></use>
+					<use ng-if="Pagefor == 'manage' || Pagefor != 'task' && docType != 'recent_documents' && docType != 'spend_reports'" xlink:href="{{setValue(item.docStatus)}}"></use>
+					<use ng-if="docType == 'recent_documents'" xlink:href="{{setValue(item.docType)}}"></use>
+					<use ng-if="docType == 'spend_reports' && item.reportType == 'myReports'" xlink:href="#icon_MyReport"></use>
+					<use ng-if="docType == 'spend_reports' && item.reportType == 'sharedReports'" xlink:href="#icon_SharedReport"></use>
+				</svg>
+				<img ng-src="shared/resources/images/{{item.itemImage}}" ng-if="item.itemImage" />
+			</i>
+			<smart-checkbox ng-if="!showCheckBox && docType != 'selectInvoice' && item.hideCheckbox != true " checked='false' fill='true' disable='false' label="" class="inputField contCheckAll" ng-model="item.isdocSelected" on-change="selectCurrent(item.isdocSelected, $index);" input-field="false"></smart-checkbox>
+		</div>
+	</div>
+	<i class="icon iconSmall circle iconItem catalog" ng-if="item.itemImage && docType != 'order' && docType != 'asn'" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+		<img ng-src="shared/resources/images/{{item.itemImage}}" />
+	</i>
+	<div class="checkboxWithIconGroup checkboxOnLanding " ng-click="$event.stopPropagation();" ng-if="item.itemImage && (docType == 'order' || docType == 'asn')">
+		<div class="checkboxWithIcon " ng-class="{'showCheckboxOnly': ShowCheckboxs }">
+			<i class="icon iconSmall circle iconItem catalog" ng-if="item.itemImage" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+				<img ng-src="shared/resources/images/{{item.itemImage}}" />
+			</i>
+			<smart-checkbox ng-if="item.itemImage && (docType == 'order' || docType == 'asn')" checked='false' fill='true' disable='false' label="" class="inputField" ng-model="item.isdocSelected" on-change="selectCurrent(item.isdocSelected, $index);" input-field="false"></smart-checkbox>
+		</div>
+	</div>
+
+	<a ng-click="docLinkCall(item)" href="javascript:void(0);" ng-if="item.docStatus != 'Failed' && item.docType != 'order'">
+		<span class="title grey-text text-darken-4 displayBlock">{{item.docName}}  </span>
+		<span class="collecton-item-secondary-text-wrapper">
+			<span ng-if="docType == 'spend_reports' && item.productName != ''">{{item.description}}</span>
+		</span>
+		<span class="collecton-item-secondary-text-wrapper">
+			<span ng-class="getStatusColor(item.status)"> {{item.status | uppercase}}</span>
+			<span ng-show="item.catalogType"> | {{item.catalogType | uppercase}}</span>
+            <span ng-show="item.system"> | {{item.system || translate}}</span>
+		</span>
+		<span class="collecton-item-secondary-text-wrapper" ng-if="docType != 'recent_documents'">
+			<span ng-repeat="attrib in item.attributes | limitTo : 8">                
+				<span ng-if="attrib.datakey == 'Order Number' ||
+                                attrib.datakey == 'Supplier' ||
+                                attrib.datakey == 'Order Total'||
+                                attrib.datakey == 'Created On' ||
+                                attrib.datakey == 'Sent On' ||
+                                attrib.datakey == 'Purchase Type' ||
+                                attrib.datakey == 'Order Contact' ||
+                                attrib.datakey == 'Supplier Item Number' ||
+                                attrib.datakey == 'Line Receiving Status' ||
+                                attrib.datakey == 'Line Invoicing Status'||
+                                attrib.datakey == 'Line Quantity' ||
+                                attrib.datakey == 'Order Status' ||
+                                attrib.datakey == 'Category' ||
+                                attrib.datakey == 'Unit Price' ||
+                                attrib.datakey == 'Line Total USD' ||
+                                attrib.datakey == 'Need by Date' ||
+                                 attrib.datakey == 'Supplier Name' ||
+                                attrib.datakey == 'Created by' ||
+                                attrib.datakey == 'Tracking Number'||
+                                attrib.datakey == 'Ship To Location' ||
+                                attrib.datakey == 'ASN Number' ||
+                                attrib.datakey == 'Shipped Quantity' ||
+								attrib.datakey == 'PO Number' ||
+								attrib.datakey == 'Expected Delivery Date' ||
+								attrib.datakey == 'Request Time' ||
+								attrib.datakey == 'Completion Time'||
+                                attrib.datakey == 'Organization Entity' ||
+								attrib.datakey == 'Sharing Type' || 
+                                 attrib.datakey == 'Owned by'
+					  ">
+					{{ attrib.datakey || translate }}:
+				</span>
+				<span ng-if="attrib.datakey == 'createdOn'">
+					{{ 'Created on' || translate }}
+				</span>
+				{{attrib.value || translate}}
+				<span ng-if="attrib.datakey == 'items'">
+					{{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+				</span>            
+				<span ng-if="!$last">|</span>   
+                       
+			</span>
+		</span>
+		<span class="collecton-item-secondary-text-wrapper" ng-if="docType != 'recent_documents'">
+		<span ng-repeat="attrib in item.attributes1 | limitTo : 8">
+				<span ng-if="attrib.datakey == 'createdOn'">
+						{{ 'Created on: ' || translate }} {{attrib.value || translate}} |
+					</span>
+					<span ng-if="attrib.datakey == 'createdBy'">
+							{{ 'Created By: ' || translate }} {{attrib.value || translate}}
+					</span>
+		</span>
+		</span>
+		<span class="collecton-item-secondary-text-wrapper" ng-if="docType === 'recent_documents'">
+			<span ng-repeat="attrib in item.attributes | limitTo : 8">
+				<span ng-if="attrib.datakey == 'createdBy'">
+					{{ 'Created by :' || translate }} {{attrib.value || translate}}
+				</span>
+				<span ng-if="attrib.datakey == 'Last Accessed'">
+					{{ 'Last Accessed:' || translate }} {{attrib.value || translate}}
+				</span>
+				<span ng-if="attrib.datakey == 'items'">
+					{{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+				</span>
+				<span ng-if="!$last">|</span>
+			</span>
+		</span>
+	</a>
+
+    <a ui-sref="p2p.order.new({ erpstatus: item.erpStatus  })" ng-if="item.docStatus != 'Failed' && item.docType == 'order'">
+        <span class="title grey-text text-darken-4 displayBlock">{{item.docName}}  </span>
+        <span class="collecton-item-secondary-text-wrapper">
+            <!-- <span ng-class="getStatusColor(item.docStatus)"> {{item.docStatus | uppercase}}</span> -->
+            <span ng-show="item.catalogType"> | {{item.catalogType | uppercase}}</span>
+            <span ng-show="item.system"> | {{item.system || translate}}</span>
+            <span ng-if="item.erpStatus == 'rejected'">
+                | <span class="materialize-red-text cursorPointer interface-status-wrap" smart-infotip position="right" is-fixed="true" template-url="rejectByERPTemplate.html"><span> Rejected by ERP</span><i class="icon small grey-text"><svg><use xlink:href="#icon_Info"></use></svg></i></span>
+            </span>
+            <span ng-if="item.erpStatus == 'accepted'">
+                | <span>Accepted by ERP</span>
+            </span>
+        </span>
+        <span class="collecton-item-secondary-text-wrapper" ng-if="docType != 'recent_documents'">
+            <span ng-repeat="attrib in item.attributes | limitTo : 8">
+                <span ng-if="attrib.datakey == 'Order Number' ||
+                                attrib.datakey == 'Supplier' ||
+                                attrib.datakey == 'Order Total'||
+                                attrib.datakey == 'Created On' ||
+                                attrib.datakey == 'Sent On' ||
+                                attrib.datakey == 'Purchase Type' ||
+                                attrib.datakey == 'Order Contact' ||
+                                attrib.datakey == 'Supplier Item Number' ||
+                                attrib.datakey == 'Line Receiving Status' ||
+                                attrib.datakey == 'Line Invoicing Status'||
+                                attrib.datakey == 'Line Quantity' ||
+                                attrib.datakey == 'Order Status' ||
+                                attrib.datakey == 'Category' ||
+                                attrib.datakey == 'Unit Price' ||
+                                attrib.datakey == 'Line Total USD' ||
+                                attrib.datakey == 'Need by Date' ||
+                                 attrib.datakey == 'Supplier Name' ||
+                                attrib.datakey == 'Created by' ||
+                                attrib.datakey == 'Tracking Number'||
+                                attrib.datakey == 'Ship To Location' ||
+                                attrib.datakey == 'ASN Number' ||
+                                attrib.datakey == 'Shipped Quantity' ||
+								attrib.datakey == 'PO Number' ||
+								attrib.datakey == 'Expected Delivery Date' ||
+								attrib.datakey == 'Request Time' ||
+								attrib.datakey == 'Completion Time'||
+                                attrib.datakey == 'Organization Entity' ||
+								attrib.datakey == 'Sharing Type' ||
+                                 attrib.datakey == 'Owned by'
+					  ">
+                    {{ attrib.datakey || translate }}:
+                </span>
+                <span ng-if="attrib.datakey == 'createdOn'">
+                    {{ 'Created on' || translate }}
+                </span>
+                {{attrib.value || translate}}
+                <span ng-if="attrib.datakey == 'items'">
+                    {{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+                </span>
+                <span ng-if="!$last">|</span>
+                <span ng-if="Pagefor == 'analyze' && docType == 'spend_reports' && attrib.datakey == 'sharedWithMembers'">
+                    <span class="left-align">
+                        <smart-dropdown>
+                            <span href="javascript:void(0)" class="dropdown-button sharedWithUsersLink fontSize12" data-activates="sharedMembersList" data-constrainwidth="false" ng-click="$event.stopPropagation();">
+                                Shared with 3 users
+                            </span>
+                            <div id="sharedMembersList" class="dropdown-content collection noBorder dd-close-off">
+                                <smart-scroll height="164px">
+                                    <ul class="margin0">
+                                        <li class="collection-item fontSize14 paddingLeft20">Kevin Peterson</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Rahul Dravid</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Virat Kohli</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">John Doe</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Joseph Moore</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Sharon Baker</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Paul Garcia</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Linda Perez</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Sharon Baker</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Maria Harris</li>
+                                        <li class="collection-item fontSize14 paddingLeft20">Ruth Turner </li>
+                                    </ul>
+                                </smart-scroll>
+                            </div>
+                        </smart-dropdown>
+                    </span>
+                </span>
+			</span>
+			
+        </span>
+    </a>
+
+	<div ng-if="item.docStatus == 'Failed'">
+		<span class="title grey-text text-darken-4 displayBlock">{{item.docName}}  </span>
+		<span class="collecton-item-secondary-text-wrapper"> 
+			<!-- <span ng-class="getStatusColor(item.docStatus)"> {{item.docStatus | uppercase}}</span>  -->
+			<span ng-if="item.catalogType">|</span> <span ng-if="item.catalogType"> {{item.catalogType | uppercase}}</span></span>
+		<span class="displayBlock errorBand clearfix fontSize12">
+			<span class="left marginTop3">6 errors encountered across 2 invoices. <a href="javascript:void(0)">Download Result File</a> to check and fix errors.</span>
+			<a class="right" href="javascript:void(0)" ng-click="showErrorPopupCallback()" smart-tooltip message="List of Errors" position="bottom">
+				<i class="icon small">
+					<svg>
+						<use xlink:href="#icon_NewTab"></use>
+					</svg>
+				</i>
+			</a>
+		</span>
+		<span class="collecton-item-secondary-text-wrapper" ng-if="docType != 'recent_documents'">
+			<span ng-repeat="attrib in item.attributes | limitTo : 8">
+				<span ng-if="attrib.datakey == 'Order Number' ||
+                                attrib.datakey == 'Supplier' ||
+                                attrib.datakey == 'Order Total'||
+                                attrib.datakey == 'Created On' ||
+                                attrib.datakey == 'Sent On' ||
+                                attrib.datakey == 'Purchase Type' ||
+                                attrib.datakey == 'Order Contact' ||
+                                attrib.datakey == 'Supplier Item Number' ||
+                                attrib.datakey == 'Line Receiving Status' ||
+                                attrib.datakey == 'Line Invoicing Status'||
+                                attrib.datakey == 'Line Quantity' ||
+                                attrib.datakey == 'Order Status' ||
+                                attrib.datakey == 'Category' ||
+                                attrib.datakey == 'Unit Price' ||
+                                attrib.datakey == 'Line Total USD' ||
+                                attrib.datakey == 'Need by Date' ||
+                                 attrib.datakey == 'Supplier Name' ||
+                                attrib.datakey == 'Created by' ||
+                                attrib.datakey == 'Tracking Number'||
+                                attrib.datakey == 'Ship To Location' ||
+                                attrib.datakey == 'ASN Number' ||
+                                attrib.datakey == 'Shipped Quantity' ||
+								attrib.datakey == 'PO Number' ||
+								attrib.datakey == 'Expected Delivery Date' ||
+								attrib.datakey == 'Request Time' ||
+								attrib.datakey == 'Completion Time'||
+                                attrib.datakey == 'Organization Entity' ||
+								attrib.datakey == 'Sharing Type' ||
+                                 attrib.datakey == 'Owned by'
+					  ">
+					{{ attrib.datakey || translate }}:
+				</span>
+              
+				<span ng-if="attrib.datakey == 'createdOn'">
+					{{ 'Created on' || translate }}
+				</span>
+				{{attrib.value || translate}}
+				<span ng-if="attrib.datakey == 'items'">
+					{{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+				</span>
+
+				<span ng-if="!$last">|</span>
+			</span>
+		</span>
+
+		<span class="collecton-item-secondary-text-wrapper" ng-if="docType === 'recent_documents'">
+			<span ng-repeat="attrib in item.attributes | limitTo : 8">
+				<span ng-if="attrib.datakey == 'createdBy'">
+					{{ 'Created by :' || translate }} {{attrib.value || translate}}
+				</span>
+				<span ng-if="attrib.datakey == 'Last Accessed'">
+					{{ 'Last Accessed:' || translate }} {{attrib.value || translate}}
+				</span>
+				<span ng-if="attrib.datakey == 'items'">
+					{{ 'Item' || translate }}<span ng-if="attrib.value > 1">{{ 's' || translate }}</span>
+				</span>
+				<span ng-if="!$last">|</span>
+			</span>
+		</span>
+	</div>
+
+	<smart-button flat="true" class="secondary-content" config='{"title":"COPY EVENT"}' ng-show="rfxCopyEvent" ng-click="sourcingCopyEvent()"></smart-button>
+</div>
+<div class="secondary-content" ng-if="listDisplayConfig.showAction && !scannedImg && !rfxCopyEvent && !showActionMenu && docType != 'selectInvoice'" ng-init="actionUniqueID=actionElementID()">
+
+	<a href="javascript:;" class="dropdown-button docInfotip waves-circle" ng-if="docType == 'supplier'" smart-infotip is-fixed="true" position="left" template-url="info.html" mode="mouseover">
+		<i class="icon iconSmall">
+			<svg>
+				<use xlink:href="#icon_DiversitySu"></use>
+			</svg>
+		</i>
+	</a>
+
+	<a href="javascript:;" ng-click="showCardsData(item)" class="dropdown-button waves-effect waves-circle" ng-if="docType == 'supplier'">
+		<i class="icon iconSmall">
+			<svg smart-tooltip message="Supplier iCard" position="bottom">
+				<use xlink:href="#icon_ContactCard"></use>
+			</svg>
+		</i>
+	</a>
+
+	<a href="javascript:;" class="dropdown-button waves-effect waves-circle" ng-click="favouriteSup = !favouriteSup" ng-if="docType == 'supplier'">
+		<i class="icon iconSmall">
+			<svg ng-if="!favouriteSup" smart-tooltip message="Mark as Favourite" position="bottom">
+				<use xlink:href="#icon_Star"></use>
+			</svg>
+			<svg ng-if="favouriteSup" smart-tooltip message="Unmark as Favourite" position="bottom">
+				<use xlink:href="#icon_StarFill"></use>
+			</svg>
+		</i>
+	</a>
+
+    <a href="javascript:void(0);" class="dropdown-button waves-effect waves-circle " smart-tooltip message="{{ item.isDefualt ?  'Unmark as Default' : 'Mark as Default'  }} " position="bottom" ng-click="markThisDefualt($index)" ng-if="item.isDefualt != undefined">
+        <i class="icon iconSmall">
+            <svg focusable="false">
+                <use xlink:href="{{ item.isDefualt ?  '#icon_StarFill' :'#icon_Star' }}"></use>
+            </svg>
+        </i>
+    </a>
+
+	<smart-dropdown config="{{dropDownConfig}}" ng-if="!scannedImg && item.actions.length > 0 && docType !== 'spend_reports'" fixed="true" class="fixed2">
+		<a ui-sref="{{ item.docLink }}" class="dropdown-button waves-effect waves-circle" data-activates='{{actionUniqueID}}'>
+			<i class="icon iconSmall">
+				<svg>
+					<use xlink:href="#icon_MenuKebab"></use>
+				</svg>
+			</i>
+		</a>
+		<ul id='{{actionUniqueID}}' class='dropdown-content' style="min-width:180px;">
+			<li ng-repeat="eachAction in item.actions track by $index" ng-click="actionSelectedCallback(eachAction, $parent.$index, item)">
+				<a>{{eachAction.key}}</a>
+			</li>
+			<li class="divider"></li>
+		</ul>
+	</smart-dropdown>
+
+	<script id="info.html" type="text/ng-template">
+		<div class="infotipData">
+			<div class="infotipHeader">DIVERSE SUPPLIER</div>
+			<ul class="infotipList">
+				<li>Minority Business Enterprise (MBE) - Asia-Pacific American</li>
+				<li>Lesbian, Gay, Bisexual, Transgender (LGBT)</li>
+				<li>Historically Underutillized Business Zone Small Business (HUBZone)</li>
+			</ul>
+		</div>
+	</script>
+</div>
+
+<div class="secondary-status" >
+    <a ui-sref="" ng-if="item.secDocStatus" class="dropdown-button waves-effect waves-circle" smart-tooltip message="View {{item.secDocStatus}}" position="bottom" ng-click="secDocLinkCall(item)">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_favourites"></use>
+            </svg>
+        </i>
+    </a>
+
+    <a ui-sref="" ng-if="item.changeInReceipt" class="dropdown-button waves-effect waves-circle" smart-tooltip message="Change in receipt" position="bottom" ng-click="changeReceiptCall(item)">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_changeInReceipt"></use>
+            </svg>
+        </i>
+    </a>
+</div>
+
+<div class="secondary-content" ng-if="docType == 'selectInvoice'">
+	<a ui-sref="" class="dropdown-button waves-effect waves-circle" ng-click="trackStatusPopupCallback()">
+		<i class="icon iconSmall">
+			<svg>
+				<use xlink:href="#icon_TrackStatus"></use>
+			</svg>
+		</i>
+	</a>
+</div>
+
+<div class="secondary-content" ng-if="scannedImg" ng-init="parentIndex = $index">
+	<a href="javascript:void(0)" smart-tooltip position="bottom" delay="10" message="{{ item.value | translate}}" ng-click="applyAction($index, item, parentIndex)" class="waves-effect waves-circle " ng-class="{'disabled': !item.UserRight }" ng-repeat="item in item.actions">
+		<i class="icon iconSmall">
+			<svg>
+				<use xlink:href="{{ getActionIcon(item.key)  | translate}}"></use>
+			</svg>
+		</i>
+	</a>
+</div>

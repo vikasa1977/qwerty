@@ -1,0 +1,92 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap" scrolled>
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xlink:href="#icon_ProcProfile"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text max-width277 truncate" title="{{dataModel.setup.documentName}}">{{dataModel.setup.documentNo}} - {{dataModel.setup.documentName}}</span>
+                <span class="extra-nav-title--text marginLeft10"> ({{ status | translate }})</span>
+            </div>
+            <ul class="right extra-nav-right-icon right-panel">
+			 <li class="extra-nav-icon ">
+              <a href="javascript:void(0);" class="dropdown-button waves-effect waves-circle " smart-tooltip message="{{ favouriteSup ?  'Unmark as Default' : 'Mark as Default'  }} " position="bottom" ng-click="favouriteSup = !favouriteSup">
+                  <i class="icon iconSmall">
+                      <svg focusable="false">
+                          <use xlink:href="{{ favouriteSup ?  '#icon_StarFill' :'#icon_Star' }}"></use>
+                      </svg>
+                  </i>
+              </a>
+			 </li>
+                <li class="extra-nav-icon ">
+                    <smart-dropdown>
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='menuItems' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='menuItems' class='dropdown-content'>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" >
+                                    {{'Publish' | translate}}
+                                </a>
+                            </li>
+                             <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" >
+                                    {{'Unpublish' | translate}}
+                                </a>
+                            </li>
+							 <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="showShareWithPopupFunc(e)" >
+                                    {{'Share' | translate}}
+                                </a>
+                            </li>
+							 <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" >
+                                    {{'Copy' | translate}}
+                                </a>
+                            </li>
+							<li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="deleteProfile(e)">
+                                    {{'Delete' | translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+    <!-- sub header end-->
+    <!-- body -- form widget -->
+    <div class="row paddingBtm40 smartFormWidgetContainer">
+        <smart-form-widget form-config="config"  model-data="dataModel" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+
+    </div>
+
+
+    <!-- footer -->
+    <footer class="page-footer bounceInUp animated">
+        <div class="row">
+            <div class="right-align col s12">
+			 <smart-button config='{"title":"SAVE"}' disable="false" class="right"></smart-button>
+               <smart-button config='{"title":"CANCEL"}' disable="false" class="whiteSecondaryBtn marginRight10"></smart-button>
+            
+             </div>
+        </div>
+    </footer>
+ <!-- popup -- share With -->
+<smart-shared-with-popup show="showShareWithPopup" config="shareWithConfig" hide="shareWithOnHideCallback(e)"></smart-shared-with-popup>

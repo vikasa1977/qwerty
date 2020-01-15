@@ -1,0 +1,8 @@
+<div ng-controller="p2pIrAdditionalInformationCtrl" class="padding15">
+
+	<div ng-include="'p2p/ir/views/templateAdditionalInfo.html'" class="questionnaire-section clearfix " ng-repeat="item in dataModel"></div>
+
+	<div class="clearfix right-align" ng-if="fieldCout(dataModel) != 0">
+		<a href="javascript:void(0)" ui-sref="p2p.ir.additionalInfo({id: 0 })">{{'20 fields more...'}}</a>
+	</div>
+</div>

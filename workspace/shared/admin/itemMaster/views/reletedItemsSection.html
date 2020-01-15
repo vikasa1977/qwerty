@@ -1,0 +1,44 @@
+<div class="" ng-controller="adminItemMasterAttachmentCtrl">
+	<div class="row marginBtm0 borderTopLight">
+		<div class="clearfix secContentWithBorder fontSize12">
+			<div class="right ">			
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+					<i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Attachments" position="bottom">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>			
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttachrltdlItm.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteMultiPricesheet($event)">
+					<i class="icon left blue-text">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>
+				<a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttachrltdlItm.checkedAll}" smart-tooltip message="Download Selected" position="bottom">
+					<i class="icon left blue-text">
+						<svg><use xlink:href="#icon_Download"></use></svg>
+					</i>
+				</a>					
+			</div>
+		</div>
+	</div>
+	<table class="bordered sTable">
+		<thead>
+			<tr>
+				<th ng-class="{'filled-partial' : fillpartial == true }" width="50px"><smart-checkbox class="paddingTop5" ng-model="selectAllAttachrltdlItm.checkedAll" on-change="checkedAllAttachrltdlItm(selectAllAttachrltdlItm.checkedAll)"></smart-checkbox></th>
+				<th>Relationship Type</th>
+                <th class="alignleft">Item Number</th>
+				<th class="alignleft">Item Description</th>
+                <th class="alignleft">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="z in relaedItems">
+				<td><smart-checkbox class="paddingTop5" ng-model="z.isChecked" on-change="attachListChangerltdlItm(z.isChecked)"></smart-checkbox></td>
+                <td class="alignRight"><a href="javascript:void(0);">{{z.Itemsname}}</a></td>
+                <td class="alignRight">{{z.itemRelNumber}}</td>
+                <td class="alignRight">{{z.itemDescription}}</td>
+                <td class="alignRight">{{z.status}}</td>
+			</tr>
+		</tbody>
+	</table>		
+	<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadContractPopup}}" on-hide="hideUploadContractPopupCallback(e)"></smart-popup>
+</div>	

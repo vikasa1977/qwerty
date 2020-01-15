@@ -1,0 +1,93 @@
+<div data-ng-controller="p2pIRCtrl">
+    
+    <div class="row">
+    <smart-button config='{"title":"SEND TO BUYER"}' class="waves-effect waves-light marginLeft15" ng-click="irSentToBuyerCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{irSentToBuyer}}" show='{{irSentToBuyerPopup}}' on-hide="irSentToBuyeOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-button config='{"title":"SEND TO RECEIVER"}' class="waves-effect waves-light marginLeft15" ng-click="irSentToReceiverCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{irSentToReceiver}}" show='{{irSentToReceiverPopup}}' on-hide="irSentToReceiverOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-button config='{"title":"SEND TO Requester"}' class="waves-effect waves-light marginLeft15" ng-click="irSentToRequesterCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{irSentToRequester}}" show='{{irSentToRequesterPopup}}' on-hide="irSentToRequesterOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-button config='{"title":"SELECT SUPPLIER"}' class="waves-effect waves-light marginLeft15" ng-click="selectSupplierCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{selectSupplier}}" show='{{selectSupplierPopup}}' on-hide="selectSupplierOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-button config='{"title":"REASSIGN APPROVER"}' class="waves-effect waves-light marginLeft15" ng-click="reassignApproverCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{reassignApprover}}" show='{{reassignApproverPopup}}' on-hide="reassignApproverOnHideCallback(e)" type="small"></smart-popup>
+    
+    <smart-button config='{"title":"SEND TO SUPPLIER VIA"}' class="waves-effect waves-light marginLeft15" ng-click="sendToSupprCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{sendToSuppr}}" show='{{sendToSupprPopup}}' on-hide="sendToSupprOnHideCallback(e)" type="small"></smart-popup>
+
+    <smart-button config='{"title":"APPROVER"}' class="waves-effect waves-light marginLeft15" ng-click="approverCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{approver}}" show='{{approverPopup}}' on-hide="approverOnHideCallback(e)"></smart-popup>
+    </div>
+    <div class="row">
+        <!--popup emailer-->
+    <smart-button config='{"title":"Emailer"}' class="waves-effect waves-light marginLeft15" ng-click="emailerPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)"></smart-popup>
+        <!--popupMap-->
+    <smart-button config='{"title":"map"}' class="waves-effect waves-light marginLeft15" ng-click="mapPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{mapPopupTemp}}" show='{{mapPopup}}' on-hide="mapPopupHideCallback(e)"></smart-popup>
+
+        <!--popup create order-->
+     
+
+    <smart-button config='{"title":"create Order"}' class="waves-effect waves-light marginLeft15" ng-click="createOrderPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{createOrderPopupTemp}}" show='{{createOrderPopup}}' on-hide="createOrderPopupHideCallback(e)" class="modal-overflow-visible" type="small"></smart-popup>
+       
+   </div>
+
+    <!--comments popup start-->
+    <smart-button config='{"title":"Comments Popup - type 1"}' class="waves-effect waves-light marginLeft15" ng-click="showCommentsPopupCallback(e, 'type1')" type="large"></smart-button>
+    <smart-button config='{"title":"Comments Popup - type 2"}' class="waves-effect waves-light marginLeft15" ng-click="showCommentsPopupCallback(e, 'type2')" type="large"></smart-button>
+    <smart-button config='{"title":"Comments Popup - type 3"}' class="waves-effect waves-light marginLeft15" ng-click="showCommentsPopupTabCallback(e, 'type3')" type="large"></smart-button>
+    <smart-popup template-url="{{commentsPopupgUrl}}" show='{{showCommentsPopup}}' on-hide="commentsPopupOnHideCallback(e)"></smart-popup>
+    <smart-popup template-url="{{commentsPopupgTabUrl}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+    <!--comments popup end-->
+  
+    <smart-button config='{"title":"OPEN APPROVAL PENDING"}' class="waves-effect waves-light marginLeft15" ng-click="approvalPendingPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{approvalPendingUrl}}" show='{{approvalPendingPopup}}' on-hide="approvalPendingOnHideCallback(e)" type="small"></smart-popup>
+
+
+    <smart-button config='{"title":"Track status"}' class="waves-effect waves-light marginLeft15" ng-click="trackStatusPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{trackStatusPopupUrl}}" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" type="large"></smart-popup>
+
+
+    <smart-button config='{"title":"Manage Column"}' class="waves-effect waves-light marginLeft15" id="manageColumnBtn" data-target="manageColumnPopup"  type="large"></smart-button>
+
+ 
+
+  <smart-button config='{"title":"New Track status"}' class="waves-effect waves-light marginLeft15" ng-click="newtrackStatusPopupCallback(e)" type="large"></smart-button>
+  <smart-popup template-url="{{newtrackStatusPopupUrl}}" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{newtrackStatusPopup}}' on-hide="newtrackStatusOnHideCallback(e)"></smart-popup>
+
+
+
+ 
+  <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="success(e)">{{'success' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="warning(e)">{{'warning' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="error(e)">{{'error' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="confirm(e)">{{'confirm' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="inform(e)">{{'inform' || translate}}</a>
+
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="sessionTimeOut(e)">{{'sessionTimeOut' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="sessionExpire(e)">{{'sessionExpire' || translate}}</a>
+    <a href="javascript:void(0)" class="waves-effect hoverable btn wave-effect ng-binding" ng-click="adduploadCallback(e)">{{'Upload attachment' || translate}}</a>
+  
+  <smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+  <div class="row">
+    
+  <!--category popup start-->  
+  <smart-button config='{"title":"Category Popup"}' class="waves-effect waves-light marginLeft15 marginTop15" ng-click="showCategoryPopupCallback(e)" type="large"></smart-button>
+  <smart-popup template-url="{{categoryPopupUrl}}" show='{{showCategoryPopup}}' on-hide="recommendedItemsHidePopup(e)" type="small"></smart-popup>
+  <!--category popup end-->
+
+    <smart-button config='{"title":"Region Popup"}' class="waves-effect waves-light marginLeft15" ng-click="regionPopupCallback(e)" type="large"></smart-button>
+    <smart-popup template-url="{{regionPopupUrl}}"  show='{{regionPopup}}'  on-hide="regionOnHideCallback()" modal-type="large"></smart-popup>
+      <smart-button config='{"title":"Multi Org"}' class="waves-effect waves-light marginLeft15" ng-click="multiOrgCallback(e)" type="large"></smart-button>
+      <smart-popup template-url="{{multiOrg}}" show='{{multiOrgPopup}}' on-hide="multiOrgOnHideCallback(e)"></smart-popup>
+    
+      <smart-toast></smart-toast>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div class="scrollableModel">
+    <div class="modal-header">
+        <span class="title">WHAT KIND OF CHANGE ORDER WOULD YOU WANT TO CREATE ?</span>
+    </div>
+</div>
+<div class="modal-content padding0">
+    <div class="contract-mode-type" ng-repeat="mode in OrderChange">
+        <div class="row contract-mode-type-list">
+            <input class="with-gap" type="radio" ng-model="selectedByRadioBtn.modeTitle" ng-value="mode.modeTitle" id="modeType-{{ $index }}">
+            <label for="modeType-{{ $index }}" class="grey-text text-darken-4 truncate"><strong>{{ mode.modeTitle  || translate }}</strong></label>
+            <div class="col s12 contract-mode-type-desp">{{mode.modeDespcription}}</div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer is-scrolled">
+    <div class="row marginBottom0">
+        <div class="col s12 padding0" ng-init="defaultChk=true">
+            <!--<div class="left"><smart-checkbox fill="true" label="Mark as Default" class="modal-footer-chk" ng-model="defaultChk"></smart-checkbox></div>-->
+            <div class="right">
+                <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                <smart-button flat="true" class="left modal-close" config='{"title":"CREATE"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

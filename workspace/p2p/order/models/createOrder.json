@@ -1,0 +1,2670 @@
+{
+  "dataModel": {
+    "defaultMaterialItem": {
+      "name": "Set Limit"
+    },
+    "defaultServiceItem": {
+      "name": "Set Limit"
+    },
+    "tolerancePercentage": 25,
+    "toleranceUSD": 268,
+    "dispatchmodeObj": {
+      "InterfaceTypeId": "2w",
+      "InterfaceTypeName": "cXML"
+    },
+    "amountChanged": "500",
+    "paymentTerms": {
+      "pTerms": "Net 30"
+    },
+    "purchaseTypeDesc": {
+      "PurchaseTypeId": 1,
+      "Description": "Standard",
+      "IsDefault": false,
+      "IsFlexibleCharge": false
+    },
+    "supplierDetails": {
+      "faxNo": "3234234",
+      "location": "London",
+      "sourceSystem": "3463",
+      "LocationReferenceCode": "7373",
+      "OrderingLocation": "Mumbai",
+      "RemitToLocation": "Delhi",
+      "vatNumber": "1100-MylanPhara-HQ"
+    },
+    "attachementObj": [
+      {
+        "FileName": "EXrate.png",
+        "CreatedBy": 48670040000001,
+        "DateCreated": "\/Date(1464700666713)\/",
+        "FileID": 2331389,
+        "FileUri": "buyersqlconn/4867/Attachment/EXrate_5f288d7080dc4d69b1e923ac78db714e.png"
+      },
+      {
+        "FileName": "EXrate1.png",
+        "CreatedBy": 48670040000001,
+        "DateCreated": "\/Date(1464700666713)\/",
+        "FileID": 2331358,
+        "FileUri": "buyersqlconn/4867/Attachment/EXrate_5f288d7080dc4d69b1e923ac78db714e.png"
+      }
+    ],
+    "orderData": {
+      "OrderSource": 1,
+      "PartnerCode": 5959,
+      "ClientPartnerCode": "PC-2014.000001",
+      "orderType": "Release Order",
+      "OrderLocationId": -2147483648,
+      "ShiptoLocation": {
+        "ShiptoLocationId": 1,
+        "ShiptoLocationName": "Mumbai",
+        "ShiptoLocationNumber": null,
+        "Address": {
+          "AddressId": 0,
+          "AddressLine1": "Airoli Station",
+          "AddressLine2": "Mind Space, Thane - Belapur Road,Airoli, Near Airoli station",
+          "AddressLine3": "",
+          "City": "Navi Mumbai",
+          "State": "Maharashtra",
+          "Zip": "400708",
+          "Country": null,
+          "CountryCode": "IN",
+          "StateCode": "",
+          "StateName": null,
+          "FaxNo": null,
+          "EmailAddress": null
+        },
+        "IsAdhoc": false,
+        "AllowForFutureReference": false,
+        "ContactPerson": null,
+        "TelephoneNumber": null,
+        "IsDeleted": false,
+        "MappingEntity": null
+      },
+      "DelivertoLocation": {
+        "DelivertoLocationId": 0,
+        "ShiptoLocationId": 0,
+        "DelivertoLocationName": "",
+        "DelivertoLocationNumber": null,
+        "IsDeleted": false,
+        "Address": {
+          "AddressId": 0,
+          "AddressLine1": null,
+          "AddressLine2": null,
+          "AddressLine3": null,
+          "City": null,
+          "State": null,
+          "Zip": null,
+          "Country": null,
+          "CountryCode": null,
+          "StateCode": null,
+          "StateName": null,
+          "FaxNo": null,
+          "EmailAddress": null
+        },
+        "DeliverTo": ""
+      },
+      "BilltoLocation": {
+        "BilltoLocationId": 1,
+        "BilltoLocationName": "Mumbai",
+        "BilltoLocationNumber": null,
+        "Address": {
+          "AddressId": 0,
+          "AddressLine1": null,
+          "AddressLine2": null,
+          "AddressLine3": null,
+          "City": null,
+          "State": null,
+          "Zip": null,
+          "Country": null,
+          "CountryCode": null,
+          "StateCode": null,
+          "StateName": null,
+          "FaxNo": null,
+          "EmailAddress": null
+        },
+        "IsDeleted": false,
+        "IsDefault": false
+      },
+      "PaymentTerms": "NET 15",
+      "MatchType": 0,
+      "OrderItems": [
+        {
+          "ReceivedQuantity": 0,
+          "InvoicedQuantity": 0,
+          "ActiveItemCount": 0,
+          "InvoicedUnitPrice": 0,
+          "InvoicedStartDate": "/Date(-62135596800000)/",
+          "ItemSplitsDetail": null,
+          "Requestor": null,
+          "RequisitionNumber": null,
+          "ParentItemUnitPrice": null,
+          "ParentItemDateNeeded": null,
+          "InvoiceCount": 0,
+          "InvoiceTotalQuantity": 0,
+          "InvoiceTotalAmount": 0,
+          "InvoiceTotalTax": 0,
+          "ReceiptsCount": 0,
+          "ReceiptTotalAcceptedQuantity": 0,
+          "ReturnNoteCount": 0,
+          "ReturnNoteTotalReturnedQuantity": 0,
+          "ItemHistoryIconType": 0,
+          "ParentOrderItems": null,
+          "IsDisableAccrual": false,
+          "IsCloseForReceiving": false,
+          "IsCloseForInvoicing": false,
+          "PreventAccurals": false,
+          "ItemClosed": false,
+          "ShipTo": null,
+          "DeliverTo": null,
+          "DeliverToFreeText": null,
+          "ItemTypeName": null,
+          "isClosed": false,
+          "isOpen": false,
+          "ProgramId": 0,
+          "ClosingOrderStatusForLineItem": 0,
+          "RequisitionItemTotal": 0,
+          "ParentOrderItemTotal": 0,
+          "RequisitionItemValue": 0,
+          "ParentOrderItemValue": 0,
+          "OrderRequisitionItemAmountDiff": 0,
+          "OrderRequisitionItemValueDiff": 0,
+          "OrderPrevOrderItemAmountDiff": 0,
+          "OrderPrevOrderItemvalueDiff": 0,
+          "OrderRequisitionItemAmountDiffPerc": 0,
+          "OrderRequisitionItemValueDiffPerc": 0,
+          "OrderPrevOrderItemAmountDiffPerc": 0,
+          "OrderPrevOrderItemvalueDiffPerc": 0,
+          "CreditMemoItems": null,
+          "TotalCharge": 0,
+          "lstStandardAndProcedureDetails": null,
+          "ReqItemLineNumber": 0,
+          "DocumentItemId": 0,
+          "P2PLineItemId": 0,
+          "DocumentId": 0,
+          "ItemLineNumber": 0,
+          "ShortName": null,
+          "Description": null,
+          "UnitPrice": null,
+          "Quantity": 0,
+          "UOM": null,
+          "StandardUOM": null,
+          "UOMDesc": null,
+          "AllowDecimalsForUom": false,
+          "Currency": null,
+          "PartnerCode": 0,
+          "ManufacturerName": null,
+          "ManufacturerPartNumber": null,
+          "CategoryId": 0,
+          "ItemType": 0,
+          "ItemExtendedType": 0,
+          "Efforts": null,
+          "ExtendedType": 0,
+          "SourceType": 0,
+          "IsDeleted": false,
+          "DocumentItemShippingDetails": null,
+          "StartDate": null,
+          "EndDate": null,
+          "AdditionalCharges": null,
+          "ShippingCharges": null,
+          "Tax": null,
+          "IsTaxExempt": false,
+          "DateRequested": null,
+          "DateNeeded": null,
+          "ItemStatus": 0,
+          "MinimumOrderQuantity": 0,
+          "MaximumOrderQuantity": 0,
+          "Banding": 0,
+          "PartnerName": null,
+          "CategoryName": null,
+          "ItemCode": 0,
+          "ItemTotalAmount": null,
+          "ItemTotalValue": null,
+          "IsProcurable": 0,
+          "Billable": null,
+          "InventoryType": null,
+          "ItemImages": [ ],
+          "Unspsc": 0,
+          "ClientPartnerCode": null,
+          "ItemNumber": null,
+          "SplitType": 0,
+          "AccountingStatus": false,
+          "SupplierPartId": null,
+          "SupplierPartAuxiliaryId": null,
+          "AssetTags": null,
+          "Taxes": null,
+          "Comments": null,
+          "isDefault": false,
+          "CatalogItemId": 0,
+          "ContractNo": null,
+          "ContractStartDate": null,
+          "ContractEndDate": null,
+          "ContractValue": null,
+          "ContractVolume": null,
+          "PaymentTerms": null,
+          "PaymentTermId": 0,
+          "ContractName": null,
+          "CommentCount": 0,
+          "ClientCategoryId": null,
+          "Capitalized": "No",
+          "CapitalCode": null,
+          "ExtContractRef": null,
+          "AccountNumber": null,
+          "IsContracted": false,
+          "IsBlanket": false,
+          "TypeOfItem": 0,
+          "MatchType": 0,
+          "ItemReceivingTolerance": 0,
+          "PartnerContactName": null,
+          "PartnerContactId": 0,
+          "OrderLocationName": null,
+          "OrderLocationId": 0,
+          "ReceiptLineItemNumber": 0,
+          "EmailId": null,
+          "PhoneNo": null,
+          "IsChecked": false,
+          "TrasmissionMode": 0,
+          "TransmissionValue": null,
+          "CustomAttrFormId": 0,
+          "RecoupmentPercentage": 0,
+          "GTIN": null,
+          "ContractItemLineNumber": 0,
+          "AllowEditAndInspect": false,
+          "PartnerConfigurationId": 0,
+          "PunchoutCartReqId": 0,
+          "CustomAttributes": null,
+          "ItemAdvanceAmount": 0,
+          "ManufacturerSupplierCode": null,
+          "ManufacturerModel": null,
+          "OrderStatus": 0,
+          "AdjustmentType": 0,
+          "AdvanceItemCount": 0,
+          "IsQuestionnaireError": false,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        }
+      ],
+      "DateSubmitted": "/Date(-62135596800000)/",
+      "SubmittedBy": 0,
+      "DateAcknowledged": "/Date(-62135596800000)/",
+      "AcknowledgedBy": 0,
+      "PartnerName": "Dell",
+      "ParentDocumentCode": 0,
+      "ToleranceDetails": null,
+      "InvoicingStatus": 4,
+      "ReceivingStatus": 0,
+      "BlanketDocumentCode": 0,
+      "BlanketStartDate": "/Date(-62135596800000)/",
+      "BlanketEndDate": "/Date(-62135596800000)/",
+      "BlanketAmount": 0,
+      "ReleaseOrderCount": 0,
+      "BusinessUnitId": 0,
+      "BusinessUnitName": null,
+      "OrderContactCode": 59540040000077,
+      "RevisionNumber": "sds-2323",
+      "BlanketDocumentNumber": "",
+      "ConsumedAmount": 0,
+      "PartnerStatusCode": 2,
+      "PaymentTermId": 10,
+      "IsInternalItemExist": false,
+      "ClosingOrderStatus": 0,
+      "TrasmissionMode": 3,
+      "TransmissionValue": "Ketan.Patil@gep.com",
+      "OrderContactName": "DTCC Haha",
+      "lstRequisitionDetails": null,
+      "POSignatoryCode": 0,
+      "POSignatoryName": "Test Signatory",
+      "ProgramId": 0,
+      "CancelledDate": "/Date(-62135596800000)/",
+      "ClosedDate": "/Date(-62135596800000)/",
+      "IsDisableAccrual": false,
+      "IsCloseForReceiving": false,
+      "IsCloseForInvoicing": false,
+      "PreventAccurals": false,
+      "EntityDescription": null,
+      "DocumentStatusName": null,
+      "OrderSourceName": null,
+      "InvoicingStatusName": null,
+      "ReceivingStatusName": null,
+      "MatchTypeName": null,
+      "PartnerContactName": "hello ",
+      "OrderingLocation": {
+        "PartnerCode": 0,
+        "LocationId": 79760130000002,
+        "LocationName": "vxcvxc",
+        "Address": {
+          "AddressCode": 0,
+          "Addressline1": "vvxc",
+          "Addressline2": "xvxv",
+          "Addressline3": "",
+          "City": "xvcvx",
+          "ZipCode": "342342",
+          "StateInfo": {
+            "StateCode": 0,
+            "StateName": "vxcvxcv",
+            "CountryId": 0,
+            "IsActive": true,
+            "IsDeleted": false,
+            "StateAbbrevationCode": "",
+            "StateOther": null,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "CountryInfo": {
+            "CountryId": 0,
+            "CountryCode": "TM",
+            "CountryName": "Turkmenistan",
+            "CountryCultureInfo": null,
+            "CurrencyCode": null,
+            "IsActive": true,
+            "IsDeleted": false,
+            "PreferenceOrder": 0,
+            "CompanyName": null,
+            "ClientID": 0,
+            "PageIndex": 0,
+            "PageSize": 0,
+            "TotalRecords": 0,
+            "SortBy": null,
+            "SortOrder": null,
+            "CultureCode": "en-US",
+            "CreatedOn": "/Date(-62135596800000)/",
+            "UpdatedOn": "/Date(-62135596800000)/",
+            "CreatedBy": 0,
+            "ModifiedBy": 0,
+            "DefaultCurrencyCode": null
+          },
+          "PhoneNo1": null,
+          "ExtenstionNo1": null,
+          "PhoneNo2": null,
+          "ExtenstionNo2": null,
+          "MobileNo": null,
+          "FaxNo": null,
+          "GeographyDetail": null,
+          "Latitude": null,
+          "Longitude": null,
+          "County": null,
+          "CompanyName": null,
+          "ClientID": 0,
+          "PageIndex": 0,
+          "PageSize": 0,
+          "TotalRecords": 0,
+          "SortBy": null,
+          "SortOrder": null,
+          "CultureCode": "en-US",
+          "CreatedOn": "/Date(-62135596800000)/",
+          "UpdatedOn": "/Date(-62135596800000)/",
+          "CreatedBy": 0,
+          "ModifiedBy": 0,
+          "DefaultCurrencyCode": null
+        },
+        "IsRegistered": false,
+        "IsDeleted": false,
+        "LocationType": null,
+        "LocationTypeIds": null,
+        "ListLocationType": null,
+        "ClientLocationCode": "LC-2015.000009",
+        "ListContactRole": null,
+        "BankingInformationStatusId": 0,
+        "LocationIdentificationDetailsList": null,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "isDisableAccFlag": false,
+      "isReOpen": false,
+      "LocationId": 0,
+      "ClientLocationCode": null,
+      "MaterialReceivingTolerance": 0,
+      "ServiceReceivingTolerance": -1,
+      "TermsAndConditions": [ ],
+      "IsMigratedPO": false,
+      "PartnerContactCode": 59590040000001,
+      "RequisitionTotalAmount": 0,
+      "RequisitionItemTotalValue": 0,
+      "ParentOrderTotalAmount": 0,
+      "ParentOrderItemTotalValue": 0,
+      "OrderRequisitionTotalAmountDiff": 0,
+      "OrderRequisitionTotalAmountDiffPerc": 0,
+      "OrderRequisitionItemTotalAmountDiff": 0,
+      "OrderRequisitionItemTotalAmountDiffPerc": 0,
+      "OrderPrevOrderTotalAmountDiff": 0,
+      "OrderPrevOrderTotalAmountDiffPerc": 0,
+      "OrderPrevOrderItemTotalAmountDiff": 0,
+      "OrderPrevOrderItemTotalAmountDiffPerc": 0,
+      "PartnerContactEmailAddress": null,
+      "IsPCardSupported": false,
+      "IsAllNegativeItems": 0,
+      "ConsolidatedFlag": 0,
+      "PurchaseType": 1,
+      "ItemExtendedTypeIds": null,
+      "IsAnyItemInThreeWayMatch": false,
+      "PartnerReconMatchTypeId": 0,
+      "ServiceConfirmationRecevingStatus": false,
+      "TotalCharge": 0,
+      "lstStandardAndProcedureDetails": null,
+      "IdentificationValue": 0,
+      "BuyerVATNumber": "",
+      "ListQuestionResponse": null,
+      "DocumentId": 25948,
+      "Currency": "USD",
+      "ItemTotalAmount": null,
+      "Tax": null,
+      "Shipping": null,
+      "AdditionalCharges": null,
+      "TotalAmount": "500",
+      "AdvanceTotalAmount": null,
+      "IsDeleted": false,
+      "ApproveURL": null,
+      "RejectURL": null,
+      "CreatedByName": "DTCC Haha",
+      "DocumentType": 0,
+      "ApproverName": null,
+      "QueryString": null,
+      "ClientContactCode": null,
+      "PreDocumentCode": 0,
+      "InterfaceStatus": 0,
+      "TaxesAndCharges": null,
+      "MaterialItemCount": 0,
+      "ServiceItemCount": 0,
+      "AdvanceItemCount": 0,
+      "ChargeItemCount": 0,
+      "IsCatalogItemsExists": false,
+      "Precision": 0,
+      "Comments": null,
+      "ValidationInfo": [
+        {
+          "TabIndexId": 1,
+          "ErrorCodes": "12"
+        }
+      ],
+      "WorkOrderNumber": "",
+      "ERPOrderType": 0,
+      "PaymentTermsDetails": {
+        "PaymentTermId": 10,
+        "NoOfDays": 0,
+        "Discount": 0,
+        "DiscountDays": 0,
+        "PaymentTermCode": "",
+        "PaymentTermName": null,
+        "IsDefault": false,
+        "PartnerCode": 0,
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "CommentCount": 0,
+      "IsUrgent": false,
+      "CapitalCode": "",
+      "SentForApprovalDate": "/Date(-62135596800000)/",
+      "ApprovedRejectedDate": "/Date(-62135596800000)/",
+      "NextLineNumber": 1,
+      "Operation": null,
+      "BudgetId": 0,
+      "ERPOrderTypeName": null,
+      "BudgetDescription": null,
+      "EntitySumList": null,
+      "DocumentSourceSystemId": 0,
+      "ERPProcessStatus": null,
+      "CustomAttrFormId": 72893,
+      "FOBCodeID": 0,
+      "FOBLocationID": 0,
+      "CarriersID": 0,
+      "TransitTypeID": 0,
+      "FreightTermsID": 0,
+      "FOBCodeDescription": "",
+      "FOBLocationDescription": "",
+      "CarriersDescription": "",
+      "TransitTypeDescription": "",
+      "FreightTermsDescription": "",
+      "CustomAttrFormIdForItem": 72893,
+      "CustomAttributes": null,
+      "IsPunchoutItemExists": false,
+      "CustomAttrFormIdForSplit": 72893,
+      "DateCreated": "/Date(-62135596800000)/",
+      "DateCreatedRO": "01/01/01",
+      "OriginalIssueDate": "/Date(-62135596800000)/",
+      "OriginalIssueDateRO": "01/01/01",
+      "SecondLevelAcknowledgement": null,
+      "FOBCode": null,
+      "FOBLocationCode": null,
+      "FreightTermsCode": null,
+      "TransitTypeCode": null,
+      "CarriersCode": null,
+      "isAdvanced": false,
+      "VAT": null,
+      "lstLOBEntityConfiguration": [
+        {
+          "DivisionEntityCode": 2207,
+          "EntityId": 10,
+          "IdentificationTypeID": 3
+        },
+        {
+          "DivisionEntityCode": 2207,
+          "EntityId": 10,
+          "IdentificationTypeID": 4
+        },
+        {
+          "DivisionEntityCode": 2207,
+          "EntityId": 10,
+          "IdentificationTypeID": 5
+        }
+      ],
+      "DocumentAdditionalEntitiesInfoList": [
+        {
+          "EntityId": 10,
+          "EntityDetailCode": 9,
+          "EntityDisplayName": "00017-AVOX",
+          "EntityCode": "00017",
+          "ParentEntityDetailCode": 0,
+          "Level": 0
+        }
+      ],
+      "DocumentCode": 25948,
+      "DocumentName": "Order-PO-12:15-001401",
+      "DocumentNumber": "PO-12:15-001401",
+      "DocumentDescription": null,
+      "DocumentTypeInfo": 8,
+      "DocumentStatusInfo": 1,
+      "NumberofItems": -1,
+      "NumberofSurveys": -1,
+      "NumberofSections": -1,
+      "NumberofPartners": -1,
+      "NumberofAttachments": -1,
+      "DocumentPASList": [ ],
+      "DocumentRegionList": [ ],
+      "DocumentBUList": [ ],
+      "DocumentStakeHolderList": [ ],
+      "DocumentAdditionalFieldList": [ ],
+      "DocumentLinkInfoList": [ ],
+      "IsTemplate": false,
+      "IsConfidential": false,
+      "IsDocumentDetails": false,
+      "IsStakeholderDetails": false,
+      "IsAddtionalDetails": false,
+      "SearchKey": null,
+      "AllowDuplicateDocumentName": true,
+      "GPNPasInCSV": null,
+      "LinkedDocumentCode": 0,
+      "LinkedDocumentTypeCode": 0,
+      "GenerateDocumentName": false,
+      "DocumentSourceTypeInfo": 0,
+      "InterfaceDocumentStatus": 0,
+      "EntityId": 1,
+      "EntityDetailCode": [
+        2207
+      ],
+      "DocumentLOBDetails": [
+        {
+          "EntityDetailCode": 2207,
+          "EntityCode": "1",
+          "EntityDisplayName": "Organization - 1",
+          "EntityId": 1
+        }
+      ],
+      "ACEntityId": 0,
+      "SourceSystemInfo": {
+        "SourceSystemId": 0,
+        "SourceSystemName": "",
+        "CompanyName": null,
+        "ClientID": 0,
+        "PageIndex": 0,
+        "PageSize": 0,
+        "TotalRecords": 0,
+        "SortBy": null,
+        "SortOrder": null,
+        "CultureCode": "en-US",
+        "CreatedOn": "/Date(-62135596800000)/",
+        "UpdatedOn": "/Date(-62135596800000)/",
+        "CreatedBy": 0,
+        "ModifiedBy": 0,
+        "DefaultCurrencyCode": null
+      },
+      "SelectedPasCode": null,
+      "SelectedRegionCode": null,
+      "IsFilterByBU": true,
+      "CompanyName": null,
+      "ClientID": 0,
+      "PageIndex": 0,
+      "PageSize": 0,
+      "TotalRecords": 0,
+      "SortBy": null,
+      "SortOrder": null,
+      "CultureCode": "en-US",
+      "CreatedOn": "/Date(1450213966047)/",
+      "UpdatedOn": "/Date(1450213966047)/",
+      "CreatedBy": 59540040000077,
+      "ModifiedBy": 0,
+      "DefaultCurrencyCode": null
+    },
+    "allServingUserLOBMapping": [
+      {
+        "ContactLOBMappingId": 0,
+        "EntityDetailCode": 2207,
+        "EntityCode": "1",
+        "EntityDisplayName": "Organization - 1",
+        "EntityId": 1,
+        "PreferenceLobType": 2,
+        "IsDefault": true
+      }
+    ],
+    "tolerancesSection": {
+      "orderTotal": {
+        "fieldLabel": "Order Total",
+        "fieldValue": "Order Total",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "orderValue": {
+        "fieldLabel": "Order Value",
+        "fieldValue": "Order Value",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "orderFreightCharges": {
+        "fieldLabel": "Order Freight Charges",
+        "fieldValue": "Order Freight Charges",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "orderOtherCharges": {
+        "fieldLabel": "Order Other Charges",
+        "fieldValue": "Order Other Charges",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "lineTotal": {
+        "fieldLabel": "Line Total",
+        "fieldValue": "Line Total",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "lineQuantity": {
+        "fieldLabel": "Line Quantity",
+        "fieldValue": "Line Quantity",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "linePrice": {
+        "fieldLabel": "Line Price",
+        "fieldValue": "Line Price",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "lineTaxes": {
+        "fieldLabel": "Line Taxes",
+        "fieldValue": "Line Taxes",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "lineFreightCharges": {
+        "fieldLabel": "Line Freight Charges",
+        "fieldValue": "Line Freight Charges",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "lineOtherCharges": {
+        "fieldLabel": "Line Other Charges",
+        "fieldValue": "Line Other Charges",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "material": {
+        "fieldLabel": "Material",
+        "fieldValue": "Material",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "materialReceiving": {
+        "fieldLabel": "Material Receiving",
+        "fieldValue": "Material Receiving",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      },
+      "serviceReceiving": {
+        "fieldLabel": "Service Receiving",
+        "fieldValue": "Service Receiving",
+        "optionSelected": {
+          "code": "per",
+          "name": "Percentage"
+        },
+        "options": [
+          {
+            "code": "per",
+            "name": "Percentage"
+          },
+          {
+            "code": "amt",
+            "name": "Amount"
+          }
+        ]
+      }
+    },
+    "additionalInfo": {
+      "data": [
+        {
+          "id": 1,
+          "sectionName": "",
+          "questions": [
+            {
+              "question": "Work Order Type",
+              "type": "single-text",
+              "questionResponse": "",
+              "options": [ ]
+            },
+            {
+              "question": "ERP Order Number ",
+              "type": "single-response-radio",
+              "questionResponse": "",
+              "options": [
+                {
+                  "code": "A",
+                  "name": "Option A"
+                },
+                {
+                  "code": "B",
+                  "name": "Option B"
+                }
+              ]
+            },
+            {
+              "question": "",
+              "type": "multi-response",
+              "questionResponse": "",
+              "options": [
+                {
+                  "label": "Urgent",
+                  "data": ""
+                }
+              ]
+            },
+            {
+              "question": "Item Description",
+              "type": "multi-text",
+              "questionResponse": "",
+              "options": [ ]
+            },
+            {
+              "question": "Enter Order Number",
+              "type": "multi-text-with-icon",
+              "questionResponse": "",
+              "icon": "#icon_Info",
+              "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+              "options": [ ]
+            }
+          ]
+        }
+
+
+      ]
+    },
+    "LineLeveladditionalInfo": [
+      {
+        "title": "Dell Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "Section 1",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "sectionName": "Section 2",
+            "questions": [
+              {
+                "question": "loram ispum",
+                "type": "single-response-drop",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "Add Date",
+                "type": "date-time",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "Please provide us your Order numbers associated with the current document.(separated by comma)",
+                "type": "multi-text-format",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Add Item Number",
+                "type": "numeric",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Add Attachment",
+                "type": "attachment-only",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "sectionName": "Section 3",
+            "questions": [
+              {
+                "question": "Question with SubQuestion multi-numeric",
+                "type": "multi-numeric",
+
+                "options": [ ],
+                "questionResponse": [
+                  {
+                    "question": "sub Question 1",
+                    "type": "numeric",
+                    "questionResponse": ""
+                  },
+                  {
+                    "question": "sub Question 2",
+                    "type": "numeric",
+                    "questionResponse": ""
+                  }
+                ]
+              }
+
+
+            ]
+          },
+          {
+            "id": 4,
+            "sectionName": "Section 4",
+            "questions": [
+              {
+                "question": "Grid type combination",
+                "type": "grid-type-combination",
+                "options": [ ],
+                "questionResponse": {
+                  "cols": [
+                    {
+                      "title": "col 1",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Checkbox"
+                        },
+                        "check": false
+                      }
+
+                    },
+                    {
+                      "title": "col 2",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Dropdown"
+                        },
+                        "check": false,
+                        "configSelect": "",
+                        "config": [
+                          {
+                            "name": "Option 1"
+                          },
+                          {
+                            "name": "Option 2"
+                          }
+                        ]
+                      }
+
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "title": "row 1",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 2",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 3",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    },
+                    {
+                      "title": "row 4",
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Checkbox"
+                            },
+                            "check": false
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Dropdown"
+                            },
+                            "check": false,
+                            "configSelect": "",
+                            "config": [
+                              {
+                                "name": "Option 1"
+                              },
+                              {
+                                "name": "Option 2"
+                              }
+                            ]
+                          }
+
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "sectionName": "Section 5",
+            "questions": [
+              {
+                "question": "Table Type",
+                "type": "grid-type-wrow-combination",
+                "options": [ ],
+                "questionResponse": {
+                  "cols": [
+                    {
+                      "title": "col 1",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Text field"
+                        },
+                        "Textfield": ""
+                      }
+
+                    },
+                    {
+                      "title": "col 2",
+                      "type": {
+                        "SelectedType": {
+                          "name": "Text field"
+                        },
+                        "Textfield": ""
+                      }
+
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "cols": [
+                        {
+                          "title": "col 1",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        },
+                        {
+                          "title": "col 2",
+                          "type": {
+                            "SelectedType": {
+                              "name": "Text field"
+                            },
+                            "Textfield": ""
+                          }
+
+                        }
+                      ]
+
+
+
+                    }
+                  ]
+
+                }
+              },
+
+              {
+                "question": "List box",
+                "type": "list-box",
+                "options": [ ],
+                "questionResponse": {
+                  "selected": [ ],
+                  "config": [
+                    {
+                      "title": "Option 01",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 02",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 03",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 04",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 05",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 06",
+                      "isChecked:": false
+                    },
+                    {
+                      "title": "Option 07",
+                      "isChecked:": false
+                    }
+                  ]
+
+                }
+              }
+            ]
+          }
+
+
+        ]
+
+      },
+      {
+        "title": "Lenovo Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Asus Laptop",
+        "showContent": false,
+        "questions": [
+          {
+            "question": "Work Order Type",
+            "type": "single-text",
+            "questionResponse": "",
+            "options": [ ]
+          },
+          {
+            "question": "ERP Order Number ",
+            "type": "single-response-radio",
+            "questionResponse": "",
+            "options": [
+              {
+                "code": "A",
+                "name": "Option A"
+              },
+              {
+                "code": "B",
+                "name": "Option B"
+              }
+            ]
+          },
+          {
+            "question": "",
+            "type": "multi-response",
+            "questionResponse": "",
+            "options": [
+              {
+                "label": "Urgent",
+                "data": ""
+              }
+            ]
+          },
+          {
+            "question": "Item Description",
+            "type": "multi-text",
+            "questionResponse": "",
+            "options": [ ]
+          },
+          {
+            "question": "Enter Order Number",
+            "type": "multi-text-with-icon",
+            "icon": "#icon_Info",
+            "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+            "questionResponse": "",
+            "options": [ ]
+          }
+        ]
+      },
+      {
+        "title": "IBM Laptop",
+        "showContent": false,
+        "data": [
+          {
+            "id": 1,
+            "sectionName": "",
+            "questions": [
+              {
+                "question": "Work Order Type",
+                "type": "single-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "ERP Order Number ",
+                "type": "single-response-radio",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "code": "A",
+                    "name": "Option A"
+                  },
+                  {
+                    "code": "B",
+                    "name": "Option B"
+                  }
+                ]
+              },
+              {
+                "question": "",
+                "type": "multi-response",
+                "questionResponse": "",
+                "options": [
+                  {
+                    "label": "Urgent",
+                    "data": ""
+                  }
+                ]
+              },
+              {
+                "question": "Item Description",
+                "type": "multi-text",
+                "questionResponse": "",
+                "options": [ ]
+              },
+              {
+                "question": "Enter Order Number",
+                "type": "multi-text-with-icon",
+                "icon": "#icon_Info",
+                "toolTip": "Please provide us your Order numbers associated with the current document. (separated by comma)",
+                "questionResponse": "",
+                "options": [ ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+	"dataBlanketModel": {
+		"orderData": {
+			"DocumentNumber": "PO-2016.0000191",
+			"DocumentName": "BPO ABC IT Supplies (Laptop)",
+			"DateCreatedRO": "1476316800000",
+			"OriginalIssueDateRO": "1476316800000",
+			"RevisionNumber": "No. 001"
+		},
+		"purchaseTypeDesc": {
+			"Description": "Material Only"
+		}
+	},
+	"formConfig": {
+    "sections": [
+      {
+        "label": "DOCUMENT LIFECYCLE",
+        "isDraggable": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "allDetails",
+                "templateUrl": "p2p/order/views/documentLifeCycle.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Order Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.DocumentNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                }
+              },
+              {
+                "label": "Revision Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.RevisionNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 10
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Order Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "focus": true,
+                "data": "orderData.DocumentName",
+                "attributes": {
+                  "readonly": false,
+                  "maxlength": 50
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ]
+              },
+              {
+                "label": "Order Contact",
+                "editable": true,
+                "isMandatory": true,
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/orderContactTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Purchase Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "purchaseTypeDesc",
+                "attributes": {
+                  "options": [
+                    {
+                      "PurchaseTypeId": 1,
+                      "Description": "Standard",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 2,
+                      "Description": "Service Milestone",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 3,
+                      "Description": "Flexible Charge",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": true
+                    },
+                    {
+                      "PurchaseTypeId": 1,
+                      "Description": "Material Only",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 4,
+                      "Description": "Material and services",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 5,
+                      "Description": "Combination",
+                      "IsDefault": false,
+                      "IsFlexibleCharge": false
+                    },
+                    {
+                      "PurchaseTypeId": 6,
+                      "Description": "Advance Payments",
+                      "IsDefault": true,
+                      "IsFlexibleCharge": false
+                    }
+                  ],
+                  "datakey": "Description"
+                }
+              },
+              {
+                "colspan": 1,
+                "editable": true,
+                "isMandatory": false,
+                "isVisible": false,
+                "label": "Signatory",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 50",
+                    "error": "Length should not be greater than 50"
+                  }
+                ],
+                "templateUrl": "p2p/order/views/signatoryTemplate.html",
+                "type": "subsection"
+              },
+              {
+                "label": "Program",
+
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.program",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/programTemplate.html"
+              },
+              {
+                "label": "Creation Date",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "orderData.DateCreatedRO",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Original Issue Date",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "orderData.OriginalIssueDateRO",
+                "attributes": {
+                  "readonly": true,
+                  "type": "date",
+                  "format": "dd/MM/yyyy"
+                }
+              },
+              {
+                "label": "Interfaces Status",
+                "editable": false,
+                "isMandatory": true,
+                "isVisible": false,
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/interfaceStatusTemplate.html"
+              },
+              {
+                "label": "Contract Number",
+                "editable": true,
+                "isMandatory": true,
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/contractNumTemp.html"
+              },
+              {
+                "label": "Order Type",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.orderType",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Department",
+
+                "editable": false,
+                "isMandatory": false,
+                "data": "orderData.DocumentAdditionalEntitiesInfoList[0].EntityDisplayName",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/departmentFieldTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Change Order Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Change Order Number",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "orderData.DocumentNumber",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 50
+                }
+              },
+              {
+                "label": "Change Order Description",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.Description",
+                "attributes": {
+                  "readonly": false
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Created By",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.CreatedByName",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 10
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Amount Changed (USD)",
+                "type": "textfield",
+                "isMandatory": true,
+                "data": "amountChanged",
+                "attributes": {
+                  "readonly": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Supplier Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Supplier Name",
+
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.PartnerName",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/supplierFieldTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Payment Terms",
+                "editable": true,
+                "isMandatory": true,
+                "data": "paymentTerms",
+                "onChange": "onChange()",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/paymentTermsFieldTemplate.html"
+              },
+              {
+                "label": "ERP Location Reference",
+                "type": "subsection",
+                "editable": true,
+                "isMandatory": true,
+                "templateUrl": "p2p/order/views/ERPLocationReference.html"
+              },
+              {
+                "label": "Source System (ERP)",
+                "type": "textfield",
+                "editable": true,
+                "isVisible": false,
+                "isMandatory": true,
+                "data": "supplierDetails.sourceSystem",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "ERP Location Reference Code",
+                "type": "textfield",
+                "editable": true,
+                "isVisible": false,
+                "isMandatory": true,
+                "data": "supplierDetails.LocationReferenceCode",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Ordering Location",
+                "type": "textfield",
+                "editable": true,
+                "isVisible": false,
+                "isMandatory": true,
+                "data": "supplierDetails.OrderingLocation",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Remit to Location",
+                "type": "textfield",
+                "editable": true,
+                "isVisible": false,
+                "isMandatory": true,
+                "data": "supplierDetails.RemitToLocation",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "E-mail",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.TransmissionValue",
+                "attributes": {
+                  "maxlength": 50,
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Fax",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "supplierDetails.faxNo",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+               {
+                "label": "Supplier Vat Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "supplierDetails.vatNumber",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Supplier Location",
+                "editable": true,
+                "isMandatory": false,
+                "data": "supplierDetails.location",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/supplierLocationFieldTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Dispatch Mode",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": false,
+                "data": "dispatchmodeObj",
+                "attributes": {
+                  "options": [
+                    {
+                      "InterfaceTypeId": "2w",
+                      "InterfaceTypeName": "cXML"
+                    },
+                    {
+                      "InterfaceTypeId": "3w",
+                      "InterfaceTypeName": "Web"
+                    }
+                  ],
+                  "datakey": "InterfaceTypeName"
+                }
+              },
+              {
+                "label": "Supplier Contact",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.PartnerContactName",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/supplierContactTemplate.html",
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "FOB",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.FOBCodeDescription"
+              },
+              {
+                "label": "Freight Terms",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.FreightTermsDescription"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "label": "Terms",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "isVisible": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Payment Terms",
+                "editable": true,
+                "isMandatory": true,
+                "data": "paymentTerms",
+                "onChange": "onChange()",
+                "colspan": 1,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/paymentTermsFieldTemplate.html"
+              },
+              {
+                "label": "FOB",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.FOBCodeDescription"
+              },
+              {
+                "label": "Freight Terms",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.FreightTermsDescription"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Invoicing and Delivery Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "ERS",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.BilltoLocation.BilltoLocationName",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "No",
+                      "name": "No"
+                    },
+                    {
+                      "code": "Ys",
+                      "name": "Yes"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "colspan": 6,
+                "label": "Bill To Location",
+                "editable": true,
+                "isMandatory": true,
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/billToTemplate.html"
+              },
+              {
+                "label": "Match Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.MatchTypeName",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "2 Way"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "3 Way"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "colspan": 4,
+                "label": "Ship To Location",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.ShiptoLocation.ShiptoLocationName",
+                "type": "subsection",
+                "templateUrl": "p2p/order/views/shipToTemplate.html"
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "colspan": 2,
+                "label": "Deliver To",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "orderData.DelivertoLocation.DelivertoLocationName",
+                "templateUrl": "p2p/order/views/deliverToTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ADDITIONAL INFORMATION",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "headerTemplate": "p2p/order/views/additionalInfoHeader.html",
+        "isHeader": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "templateUrl": "p2p/order/views/additionalInformation.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Invoicing Matching Tolerances",
+        "isVisible": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 2,
+                "label": "Order Total",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "tolerancesSection.orderTotal",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Order Value",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "tolerancesSection.orderValue",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Order Freight Charges",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "tolerancesSection.orderFreightCharges",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Order Other Charges",
+                "type": "subsection",
+                "isMandatory": false,
+                "isVisible": false,
+                "data": "tolerancesSection.orderOtherCharges",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Total",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.lineTotal",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Quantity",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.lineQuantity",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Price",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.linePrice",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Taxes",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.lineTaxes",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Freight Charges",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.lineFreightCharges",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              },
+              {
+                "colspan": 2,
+                "label": "Line Other Charges",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancesSection.lineOtherCharges",
+                "templateUrl": "p2p/order/views/toleranceSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Receiving Tolerances",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Material Items",
+                "type": "radio",
+                "isMandatory": true,
+                "data": "defaultMaterialItem",
+                "colspan": 1,
+                "onChange": "materialItemsOnChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "name": "No Limit"
+                    },
+                    {
+                      "name": "Set Limit"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Percentage (%)",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "tolerancePercentage",
+                "colspan": 1,
+                "validate": true,
+                "focus": false,
+                "onFocus": "onFocus",
+                "onBlur": "onBlur",
+                "onChange": "onChange",
+                "onKeyPress": "onKeyPress",
+                "onKeyUp": "onKeyUp",
+                "onKeyDown": "onKeyDown",
+                "attributes": {
+                  "type": "number",
+                  "maxlength": "",
+                  "decimalprecision": "",
+                  "minmaxprecision": [ 2, 5 ],
+                  "disable": false,
+                  "readonly": false,
+                  "align": "left",
+                  "placeholder": "",
+                  "autocomplete": false
+                },
+                "rules": [
+                  {
+                    "rule": "(/^[0]$/.test(this))",
+                    "error": "Number should greater than 0"
+                  },
+                  {
+                    "rule": "!(/^(0*(?:[1-9][0-9]?|100))$/.test(this))",
+                    "error": "Number should lesser than 100"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "properties": [
+              {
+                "label": "Service Items",
+                "type": "radio",
+                "isMandatory": true,
+                "data": "defaultServiceItem",
+                "colspan": 1,
+                "onChange": "serviceItemsOnChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "name": "No Limit"
+                    },
+                    {
+                      "name": "Set Limit"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "USD",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "toleranceUSD",
+                "colspan": 1,
+                "validate": true,
+                "focus": false,
+                "onFocus": "onFocus",
+                "onBlur": "onBlur",
+                "onChange": "onChange",
+                "onKeyPress": "onKeyPress",
+                "onKeyUp": "onKeyUp",
+                "onKeyDown": "onKeyDown",
+                "attributes": {
+                  "type": "number",
+                  "maxlength": "",
+                  "decimalprecision": "",
+                  "minmaxprecision": [ 2, 5 ],
+                  "disable": false,
+                  "readonly": false,
+                  "align": "left",
+                  "placeholder": "",
+                  "autocomplete": false
+                },
+                "rules": [
+                  {
+                    "rule": "this.toString().length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Terms and Conditions",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "termsConditions",
+                "templateUrl": "p2p/order/views/termsConditionsTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "STANDARDS AND PROCEDURES",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/order/views/standardAndProcedureSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Attachment",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isHidden": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "p2p/order/views/attachmentSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "TEAM MEMBER",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/order/views/teamMemberSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Charges And Allowances",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/order/views/FlexibleChargesTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Notes and Attachments",
+        "isDraggable": true,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "p2p/order/views/notesAndAttachmentSection.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Lines Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/order/views/itemDetailTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+
+
+
+      {
+        "label": "NOTIFICATION",
+        "isMandatory": true,
+        "headerTemplate": "p2p/order/views/notificationHeader.html",
+        "isHeader": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/order/views/notificationSection.html"
+              }
+            ]
+          }
+        ]
+      }
+
+    ]
+	},
+
+
+	"isSequenceToBeMaintained": true
+}

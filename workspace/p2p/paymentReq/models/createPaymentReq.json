@@ -1,0 +1,547 @@
+{
+ "dataModel": { 
+    "objpaymentReq":{
+    "PartnerCode": 4875,
+    "ClientPartnerCode": null,
+    "PaymentRequestLocationId": -2147483648,
+    "ShiptoLocation": {
+        "ShiptoLocationId": 6,
+        "ShiptoLocationName": "Chennai",
+        "ShiptoLocationNumber": null,
+        "Address": {
+            "AddressId": 0,
+            "AddressLine1": "MGR Salai, Kandanchavadi , Perungudi",
+            "AddressLine2": "Module #4A",
+            "AddressLine3": "8th Floor",
+            "City": "Chennai",
+            "State": "Other",
+            "Zip": "",
+            "Country": null,
+            "CountryCode": "IN",
+            "StateCode": "OT",
+            "StateName": null,
+            "FaxNo": null,
+            "EmailAddress": null
+        },
+        "IsAdhoc": false,
+        "AllowForFutureReference": false,
+        "ContactPerson": null,
+        "TelephoneNumber": null,
+        "IsDeleted": false,
+        "MappingEntity": null
+    },
+    "DelivertoLocation": {
+        "DelivertoLocationId": 0,
+        "ShiptoLocationId": 0,
+        "DelivertoLocationName": null,
+        "DelivertoLocationNumber": null,
+        "IsDeleted": false,
+        "Address": {
+            "AddressId": 0,
+            "AddressLine1": null,
+            "AddressLine2": null,
+            "AddressLine3": null,
+            "City": null,
+            "State": null,
+            "Zip": null,
+            "Country": null,
+            "CountryCode": null,
+            "StateCode": null,
+            "StateName": null,
+            "FaxNo": null,
+            "EmailAddress": null
+        },
+        "DeliverTo": null
+    },
+    "BilltoLocation": {
+        "BilltoLocationId": 8,
+        "BilltoLocationName": "London",
+        "BilltoLocationNumber": null,
+        "Address": {
+            "AddressId": 0,
+            "AddressLine1": null,
+            "AddressLine2": null,
+            "AddressLine3": null,
+            "City": null,
+            "State": null,
+            "Zip": null,
+            "Country": null,
+            "CountryCode": null,
+            "StateCode": null,
+            "StateName": null,
+            "FaxNo": null,
+            "EmailAddress": null
+        },
+        "IsDeleted": false,
+        "IsDefault": false
+    },
+    "PaymentTerms": null,
+    "MatchType": 0,
+    "PaymentRequestItems": null,
+    "DateSubmitted": "\/Date(-62135596800000)\/",
+    "SubmittedBy": 0,
+    "DateAcknowledged": "\/Date(-62135596800000)\/",
+    "AcknowledgedBy": 0,
+    "PartnerName": "Delta Electronics B",
+    "ParentDocumentCode": 0,
+    "ToleranceDetails": null,
+    "InvoicingStatus": 0,
+    "ReceivingStatus": 0,
+    "BlanketDocumentCode": 0,
+    "BlanketStartDate": null,
+    "BlanketEndDate": null,
+    "BlanketAmount": 0,
+    "ReleaseOrderCount": 0,
+    "BusinessUnitId": 2275,
+    "BusinessUnitName": "BM CHIEF OF STAFF",
+    "PaymentRequestContactCode": 48670040000001,
+    "RevisionNumber": null,
+    "BlanketDocumentNumber": null,
+    "ConsumedAmount": 0,
+    "PartnerStatusCode": 0,
+    "PaymentTermId": 0,
+    "IsInternalItemExist": false,
+    "ClosingOrderStatus": 0,
+    "TrasmissionMode": 0,
+    "TransmissionValue": null,
+    "OrderContactName": null,
+    "lstRequisitionDetails": null,
+    "POSignatoryCode": 0,
+    "POSignatoryName": null,
+    "ProgramId": 0,
+    "CancelledDate": "\/Date(-62135596800000)\/",
+    "ClosedDate": "\/Date(-62135596800000)\/",
+    "IsDisableAccrual": false,
+    "IsCloseForReceiving": false,
+    "IsCloseForInvoicing": false,
+    "PreventAccurals": false,
+    "EntityDescription": null,
+    "DocumentStatusName": null,
+    "OrderSourceName": null,
+    "InvoicingStatusName": null,
+    "ReceivingStatusName": null,
+    "MatchTypeName": null,
+    "PartnerContactName": "Delta2d delta",
+    "OrderingLocation": null,
+    "isDisableAccFlag": false,
+    "isReOpen": false,
+    "LocationId": 0,
+    "ClientLocationCode": null,
+    "MaterialReceivingTolerance": 0,
+    "ServiceReceivingTolerance": 0,
+    "TermsAndConditions": null,
+    "PartnerContactCode": 48750040000002,
+    "PRTypeId": 4,
+    "Description": "Donations",
+    "DocumentId": 365238,
+    "Currency": "USD",
+    "ItemTotalAmount": null,
+    "Tax": null,
+    "Shipping": null,
+    "AdditionalCharges": null,
+    "TotalAmount": null,
+    "AdvanceTotalAmount": null,
+    "IsDeleted": false,
+    "ApproveURL": null,
+    "RejectURL": null,
+    "CreatedByName": "AdminDTCC Admin1",
+    "DocumentType": 0,
+    "ApproverName": null,
+    "QueryString": null,
+    "ClientContactCode": null,
+    "PreDocumentCode": 0,
+    "InterfaceStatus": 0,
+    "TaxesAndCharges": null,
+    "MaterialItemCount": 0,
+    "ServiceItemCount": 0,
+    "AdvanceItemCount": 0,
+    "IsCatalogItemsExists": false,
+    "Precision": 0,
+    "Comments": null,
+    "ValidationInfo": [{
+        "TabIndexId": 1,
+        "ErrorCodes": "12"
+    }],
+    "WorkOrderNumber": null,
+    "ERPOrderType": 0,
+    "PaymentTermsDetails": null,
+    "CommentCount": 0,
+    "IsUrgent": false,
+    "CapitalCode": null,
+    "SentForApprovalDate": "\/Date(-62135596800000)\/",
+    "ApprovedRejectedDate": "\/Date(-62135596800000)\/",
+    "NextLineNumber": 1,
+    "Operation": null,
+    "BudgetId": 0,
+    "ERPOrderTypeName": null,
+    "BudgetDescription": null,
+    "EntitySumList": null,
+    "DocumentSourceSystemId": 0,
+    "ERPProcessStatus": null,
+    "CustomAttrFormId": 0,
+    "CustomAttrFormIdForItem": 0,
+    "FOBCodeID": 0,
+    "FOBLocationID": 0,
+    "CarriersID": 0,
+    "TransitTypeID": 0,
+    "FreightTermsID": 0,
+    "FOBCodeDescription": null,
+    "FOBLocationDescription": null,
+    "CarriersDescription": null,
+    "TransitTypeDescription": null,
+    "FreightTermsDescription": null,
+    "CustomAttributes": null,
+    "IsPunchoutItemExists": false,
+    "CustomAttrFormIdForSplit": 0,
+    "DateCreated": "\/Date(-62135596800000)\/",
+    "SecondLevelAcknowledgement": null,
+    "FOBCode": null,
+    "FOBLocationCode": null,
+    "FreightTermsCode": null,
+    "TransitTypeCode": null,
+    "CarriersCode": null,
+    "isAdvanced": false,
+    "DocumentAdditionalEntitiesInfoList": [],
+    "DocumentCode": 365238,
+    "DocumentName": "PaymentRequest9",
+    "DocumentNumber": "PR-2016.05.04.00023",
+    "DocumentDescription": null,
+    "DocumentTypeInfo": 27,
+    "DocumentStatusInfo": 1,
+    "NumberofItems": -1,
+    "NumberofSurveys": -1,
+    "NumberofSections": -1,
+    "NumberofPartners": -1,
+    "NumberofAttachments": -1,
+    "DocumentPASList": [],
+    "DocumentRegionList": [],
+    "DocumentBUList": [{
+        "BusinessUnitCode": 2204,
+        "BusinessUnitName": "GSCC - LEGAL/RISK/CR\u0026MEMBERSHP",
+        "BusinessUnitEntityCode": "1086"
+    }, {
+        "BusinessUnitCode": 2273,
+        "BusinessUnitName": "DTCC CONTRA",
+        "BusinessUnitEntityCode": "8001"
+    }, {
+        "BusinessUnitCode": 2274,
+        "BusinessUnitName": "ENVIRONMENT, SAFETY \u0026 HEALTH",
+        "BusinessUnitEntityCode": "8007"
+    }, {
+        "BusinessUnitCode": 2275,
+        "BusinessUnitName": "BM CHIEF OF STAFF",
+        "BusinessUnitEntityCode": "8008"
+    }, {
+        "BusinessUnitCode": 2276,
+        "BusinessUnitName": "PRODUCT MANAGEMENT CHALLENGE",
+        "BusinessUnitEntityCode": "8009"
+    }, {
+        "BusinessUnitCode": 2277,
+        "BusinessUnitName": "CORP COMM \u0026 MRKING CHALLENGE",
+        "BusinessUnitEntityCode": "8010"
+    }, {
+        "BusinessUnitCode": 2278,
+        "BusinessUnitName": "NSCC GENERAL \u0026 ADMINISTRATION",
+        "BusinessUnitEntityCode": "8012"
+    }, {
+        "BusinessUnitCode": 2279,
+        "BusinessUnitName": "FINANCIAL REPORTING",
+        "BusinessUnitEntityCode": "8015"
+    }, {
+        "BusinessUnitCode": 2280,
+        "BusinessUnitName": "FICC",
+        "BusinessUnitEntityCode": "8019"
+    }, {
+        "BusinessUnitCode": 2382,
+        "BusinessUnitName": "ACCOUNT ADMINISTRATION",
+        "BusinessUnitEntityCode": "8235"
+    }],
+    "DocumentStakeHolderList": [],
+    "DocumentAdditionalFieldList": [],
+    "DocumentLinkInfoList": [],
+    "IsTemplate": false,
+    "IsConfidential": false,
+    "IsDocumentDetails": false,
+    "IsStakeholderDetails": false,
+    "IsAddtionalDetails": false,
+    "SearchKey": null,
+    "AllowDuplicateDocumentName": true,
+    "GPNPasInCSV": null,
+    "LinkedDocumentCode": 0,
+    "LinkedDocumentTypeCode": 0,
+    "GenerateDocumentName": false,
+    "DocumentSourceTypeInfo": 0,
+    "InterfaceDocumentStatus": 0,
+    "EntityId": 0,
+    "EntityDetailCode": [0],
+    "DocumentLOBDetails": null,
+    "ACEntityId": 0,
+    "SourceSystemInfo": null,
+    "SelectedPasCode": null,
+    "SelectedRegionCode": null,
+    "IsFilterByBU": true,
+    "CompanyName": null,
+    "ClientID": 0,
+    "PageIndex": 0,
+    "PageSize": 0,
+    "TotalRecords": 0,
+    "SortBy": null,
+    "SortOrder": null,
+    "CultureCode": "en-US",
+    "CreatedOn": "\/Date(1462370782340)\/",
+    "UpdatedOn": "\/Date(1463694341770)\/",
+    "CreatedBy": 48670040000001,
+    "ModifiedBy": 0,
+    "DefaultCurrencyCode": null
+}
+    },
+    "formConfig": {
+      "sections": [
+        {
+          "label": "BASIC DETAILS",
+          "isMandatory": true,
+          "isCollapsible": true,
+          "rows": [
+            {
+              "colspan": 12,
+              "properties": [
+                {
+                  "label": "Payment Request Name",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.DocumentName",
+                  "attributes": {
+                    "readonly": false
+                  }
+                },
+                {
+                  "label": "Currency",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.Currency",
+                  "attributes": {
+                    "readonly": true,
+                    "maxlength": 100
+                  }
+                },
+                {
+                  "label": "Payment Request Type",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "setup.requestorName",
+                  "attributes": {
+                    "readonly": true,
+                    "maxlength": 100
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        {
+          "label": "SUPPLIER DETAILS",
+          "isMandatory": true,
+          "isCollapsible": true,
+           "isActive": false,
+          "rows": [
+            {
+              "properties": [
+                {
+                  "label": "Supplier",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.PartnerName",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    }
+                  ]
+                },
+                {
+                  "label": "Supplier Contact",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.PartnerContactName",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    }
+                  ]
+                },
+                {
+                  "label": "Contact Email/Phone",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objReceipt.OrderingLocation",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    }
+                  ]
+                },
+                {
+                  "label": "Supplier Address",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objReceipt.ReceiverName",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    },
+                    {
+                      "rule": "this.length > 100",
+                      "error": "Length should not be greater than 100"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "SHIPPING DETAILS",
+          "isMandatory": true,
+          "isCollapsible": true,
+           "isActive": false,
+          "rows": [
+            {
+              "properties": [
+                {
+                  "label": "Ship to",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.ShiptoLocation.ShiptoLocationName",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    },
+                    {
+                      "rule": "this.length > 100",
+                      "error": "Length should not be greater than 100"
+                    }
+                  ]
+                },
+                {
+                  "label": "Ship to Address",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.ShiptoLocation.Address.AddressLine1",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    },
+                    {
+                      "rule": "this.length > 100",
+                      "error": "Length should not be greater than 100"
+                    }
+                  ]
+                },
+                {
+                  "label": "Bill to",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.BilltoLocation.BilltoLocationName",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    },
+                    {
+                      "rule": "this.length > 100",
+                      "error": "Length should not be greater than 100"
+                    }
+                  ]
+                },
+                {
+                  "label": "Bill to Address",
+                  "type": "textfield",
+                  "editable": true,
+                  "isMandatory": true,
+                  "data": "objpaymentReq.BilltoLocation.Address.AddressLine1",
+                  "attributes": {
+                    "readonly": false,
+                    "maxlength": 100
+                  },
+                  "rules": [
+                    {
+                      "rule": "this == \"\"",
+                      "error": "Should not be empty"
+                    },
+                    {
+                      "rule": "this.length > 100",
+                      "error": "Length should not be greater than 100"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "LINES DETAILS",
+          "isMandatory": true,
+          "isCollapsible": true,
+           "isActive": false,
+          "rows": [
+            {
+              "properties": [
+                {
+                  "colspan": 6,
+                  "type": "subsection",
+                  "isMandatory": true,
+                  "data": "itemDetails",
+                  "templateUrl": "p2p/paymentReq/views/itemDetailTemplate.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "isSequenceToBeMaintained": true
+}

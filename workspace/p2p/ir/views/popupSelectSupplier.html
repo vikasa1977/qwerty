@@ -1,0 +1,44 @@
+<div>
+    <div class="modal-header">
+        <div class="regularSearch">
+            <a href="#" class="waves-circle waves-effect wave-blue search-icon btn-flat black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.search}}" alt="Search">
+
+                <i class="icon iconSmall left grey-text">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="#" class="waves-circle waves-effect wave-blue cancel-icon btn-flat black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.reset}}" alt="Reset">
+                <i class="icon iconSmall left grey-text">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+            </a>
+            <div class="input-field">
+                <input id="Text3" type="text" class="validate" placeholder="{{$label_U.approvalPendingWith}}">
+            </div>
+        </div>
+        <i class="icon iconSmall red-text left">
+            <svg>
+                <use xlink:href="#icon_Lookup"></use>
+            </svg>
+        </i>
+        <span class="title">
+            SELECT SUPPLIER
+        </span>
+    </div>
+    <div class="modal-content padding0 approver-content-height">
+                <smart-list model="{{suppliers}}"
+                            style-class="collection"
+                            item-class="collection-item"
+                            template="p2p/ir/views/listrendertemplate.html"
+                            height="300px">
+                </smart-list>
+    </div>
+    <div class="modal-footer">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}'></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

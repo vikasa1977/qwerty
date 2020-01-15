@@ -1,0 +1,78 @@
+<link type="text/css" rel="stylesheet" href="shared/theme/css/login.css" media="screen,projection">
+<smartsection class="login-wrapper row">
+        <div class="container-left hide-on-small-only col l6 m6">
+            <div class="brand-logo-container">
+                <img src="shared/resources/images/loginLogo.png" alt="Gep" title="Gep" width="144">
+            </div>
+            <div class="brand-icon" title="Workspace">
+            </div>
+            <div class="log-in-footer-wrapper">
+                Customer Support:<br />
+                US: <span>+1 732 428 157</span> <span  class="paddingLeft10 paddingRight10">|</span> Email: <a href="mailto:support@gep.com">support@gep.com</a>
+            </div>
+        </div>
+        <div class="container-right col l6 m6 s12">
+            <div class="row hide-on-med-and-up">
+                <div class="brand-logo-container col s12">
+                    <img src="shared/theme/images/loginLogo.png" alt="Gep" width="144">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 ">
+					<smart-dropdown config="{{langDropDownConfig}}">
+						<a class="dropdown-button flag-button" href='#' data-activates='multi-language' data-constrainwidth="false" tabindex="1">
+							<span class="selected-flag"><i class="flag-icon flag-icon-us left"></i>English</span>
+							<i class="drop-arrow right"></i>
+						</a>
+						<!-- multi language -->
+						<div id='multi-language' class='dropdown-content z-depth-4 '>
+							<div class="scrollbar-outer" style="max-height: 500px;">
+								<ul class="collection noBorder">
+									<li class="collection-item eng selected"><i class="flag-icon flag-icon-us left"></i>English</li>
+									<li class="collection-item cn"><i class="flag-icon flag-icon-cn left"></i>Chinese</li>
+									<li class="collection-item es"><i class="flag-icon flag-icon-es left"></i>Spanish</li>
+									<li class="collection-item pt"><i class="flag-icon flag-icon-pt left"></i>Portuguese</li>
+									<li class="collection-item ru"><i class="flag-icon flag-icon-ru left"></i>Russian</li>
+									<li class="collection-item de"><i class="flag-icon flag-icon-de left"></i>Deutsch</li>
+									<li class="collection-item fr"><i class="flag-icon flag-icon-fr left"></i>French</li>
+									<li class="collection-item it"><i class="flag-icon flag-icon-it left"></i>Italian</li>
+								</ul>
+							</div>
+						</div>
+					</smart-dropdown>
+                </div>
+            </div>
+            <div class="login-form-container">
+                <div class="row loginbox">
+                    <div class="col  s10 offset-s1">
+                        <form>
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="logo-container">
+                                        <h1>WORKSPACE</h1>
+                                        <h6>by GEP</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+								<smart-textfield class="col s12" prefixicon="#icon_User" ng-model="loginInfo.userEmail" validate="true" place-holder="Username" label="Username" ></smart-textfield>
+                            </div>
+                            <div class="row">
+								<smart-textfield class="col s12" type="password" prefixicon="#icon_Key" ng-model="loginInfo.password" validate="true" place-holder="Password" label="Password" ></smart-textfield>
+                            </div>
+                            <div class="row margin0">
+                                <div class="col s12 right-align">
+									<smart-button config='{"title":"LOGIN"}' disable="false" ng-click="clickCallback()"></smart-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </smartsection>
+
+
+

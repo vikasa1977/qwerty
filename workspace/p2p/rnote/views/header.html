@@ -1,0 +1,266 @@
+<div ng-controller="headerCtrl">
+    <!--navigation-->
+    <div class="navbar-fixed extraHeader">
+        <nav>
+            <div class="nav-wrapper row">
+                <div class="col s12">
+                    <a href="#" class="brand-logo left" tabindex="1">
+                        <img src="https://gepmtstorage.blob.core.windows.net/smartcontent/workspace/shared/theme/images/logo_new.png" alt="{{$label_FU.gep}}" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.gep}}" class="left tooltipped" />
+                        <span class="left ">
+                            <span class="user-name ng-cloak">
+                                {{ userInfo.FirstName | uppercase }}'S
+                            </span>
+                            <span class="product-name  ng-cloak">
+                                {{ label.workspace | uppercase }}
+                            </span>
+                        </span>
+                    </a>
+                    <!--RightContent-->
+                    <ul class="right nav-right-buttons" ng-class="{'nav-slide-active':applyActiveClass[2]}">
+                        <!-- <li>
+                            <a href="javascript:void(0)" id="overlayTrigger" class="waves-effect  waves-block waves-light user-image" tabindex="2" ng-click="onPhotoClick()"><span>
+                                <img src="https://gepmtstorage.blob.core.windows.net/smartcontent/workspace/shared/theme/images/dummyImage.jpg" alt="{{$label_FU.profile}}" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.profile}}" class="tooltipped" /></span>
+                                </a>
+                        </li>
+                        <li class="nav-bookmark" ng-class="{'currentActive':applyActiveClass[0]}">
+                            <a href="javascript:void(0)" class="waves-effect  waves-block waves-light right-side-nav tooltipped" idx="0" ng-click="navOpen(0,$event)" data-activates="slide-out-bookmark" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.bookmark}}" tabindex="3">
+                                <i class="icon iconSmall ">
+                                    <svg>
+                                        <use xlink:href="#icon_Bookmark"></use></svg></i>
+                            </a>
+                        </li>
+                        <li class="notifyBubble nav-notification" ng-class="{'currentActive':applyActiveClass[1]}" data-cochmark-massage="You 99 unread messages here">
+                            <a href="javascript:void(0)" class="waves-effect  waves-block waves-light right-side-nav tooltipped" idx="1" ng-click="navOpen(1,$event)" data-activates="slide-out-notification" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.notification}}" tabindex="4">
+                                <i class="icon iconSmall ">
+                                        <svg>
+                                            <use xlink:href="#icon_Notificatio"></use></svg></i>
+                            </a>
+                            <div class="z-depth-1 small-notification-bubble bubble"><span>99</span></div>
+                        </li>
+                        <li class="nav-sidenav">
+                            <a href="javascript:void(0)" class="waves-effect  waves-block waves-light right-side-nav tooltipped" idx="2" ng-click="navOpen(2,$event)" data-activates="slide-out-menu" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.navigation}}" tabindex="5">
+                                <i class="icon iconSmall ">
+                                    <svg>
+                                        <use xlink:href="#icon_MenuHmbrgr"></use></svg></i>
+                            </a>
+                        </li> -->
+                        <li class="nav-settings">
+                            <a href="https://smartdev.gep.com/UserSettings?oloc=101" class="waves-effect waves-block waves-light right tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.setting}}">
+                                <i class="icon iconSmall ">
+                                    <svg>
+                                        <use xlink:href="#icon_Settings"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="nav-logout">
+                            <a href="https://smartdev.gep.com/Controls/headerbar/Logout?oloc=216" class="waves-effect waves-block waves-light right tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.logOut}}">
+                                <i class="icon iconSmall ">
+                                    <svg>
+                                        <use xlink:href="#icon_Logout"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 extra-nav-wrap">
+                    <div class="normalMode">
+                        <div class="left">
+                            <a href="javascript:history.go(-1);" class="left waves-block waves-effect waves-light">
+                                <i class="icon small ">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                                    </svg>
+                                </i>
+                            </a><i class="icon small left">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                                </svg>
+                            </i><span class="headingText left">({{DocStatus}}) - {{DocumentName}}</span>
+                        </div>
+                        <div class="right">
+                            <a class="dropdown-button btn-in-header" href="#" data-activates="dropdownUSD" data-constrainwidth="false" data-alignment="right">
+                                <i class="icon iconSmall white-text right">
+                                    <svg class="marginTop8">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=""></use>
+                                    </svg>
+                                </i>
+
+                                <span style="color: white;" class="ng-binding">{{TotalPrice}} USD</span>
+
+                            </a><ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary">
+                                        <span class="left grey-text">Document Value</span>
+                                        <span class="right">678.00</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary header-input-edit">
+                                        <span class="left grey-text">Shipping</span>
+                                        <div class="right">
+                                            <div>109.00</div>
+                                            <div class="shwEditMode"><a href="#!" class="blue-text fontSize12 ">Prorate</a></div>
+                                        </div>
+                                        <div class="slider-pop">
+                                            <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                                <div class="col s6 input-field">
+                                                    <input value="00.00" id="prorate1" type="text">
+                                                    <label for="prorate1" class="active">Prorate</label>
+                                                </div>
+                                                <div class="col s6">
+                                                    <a href="#" class=" icon iconSmall right marginTop15 blue-text">
+                                                        <svg>
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Check"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                        <svg>
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                                                        </svg>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary header-input-edit ">
+                                        <span class="left grey-text">Taxes &amp; Charges</span>
+                                        <div class="right">
+                                            <div>00.00</div>
+                                            <div class="shwEditMode"><a href="#!" class="blue-text fontSize12 shwEditMode">Prorate</a></div>
+                                        </div>
+                                        <div class="slider-pop">
+                                            <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                                <div class="col s6 input-field">
+                                                    <input value="00.00" id="Text11" type="text">
+                                                    <label for="prorate1" class="active">Prorate</label>
+                                                </div>
+                                                <div class="col s6">
+                                                    <a href="#" class=" icon iconSmall right marginTop15 blue-text">
+                                                        <svg>
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Check"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                        <svg>
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                                                        </svg>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Document Total (USD)</span> <span class="right ng-binding">26</span> </div>
+                                </li>
+                                <li></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="previewMode" style="display: none;">
+                        <div class="left">
+                            <a class="extra-nav-item waves-block waves-effect waves-light left" href="javascript:history.go(-1);">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                                    </svg>
+                                </i>
+                            </a><span class="extra-nav-item  icon">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                                    </svg>
+                                </i>
+                            </span><span class="headingText ng-binding">REQUISITION - (Preview Mode) </span>
+                        </div>
+                        <ul class="right">
+                            <li>
+                                <a href="../theme/images/downLoadReqn.pdf" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Download" data-tooltip-id="cb23a0f4-6188-1653-961a-f62232512ae5">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Download"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="waves-block waves-effect waves-light dropdown-button tooltipped " data-activates="dropdown2" data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="Share" data-tooltip-id="5170411f-0bb9-cbd1-71da-7c878e8b6cca">
+                                    <i class="icon iconSmall ">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Share"></use>
+                                        </svg>
+                                    </i>
+                                </a><ul id="dropdown2" class="dropdown-content">
+                                    <li>
+                                        <a href="#sendEmailCall" class="modal-trigger">
+                                            <i class="icon iconSmall left">
+                                                <svg>
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Email"></use>
+                                                </svg>
+                                            </i>Email
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">
+                                            <i class="icon iconSmall left">
+                                                <svg>
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Chat"></use>
+                                                </svg>
+                                            </i>Chat
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!">
+                                            <i class="icon iconSmall left">
+                                                <svg>
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Discuss"></use>
+                                                </svg>
+                                            </i>Discussion Forum
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <a href="#!" onclick="window.print()" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Print" data-tooltip-id="d935a24f-c218-9a29-c904-feea930b8540">
+                                    <i class="icon iconSmall">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Print"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#track_status" class="track-status-modal waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="TRACK STATUS" data-tooltip-id="cf8bb9f9-867b-9e04-284e-ff61472da998">
+                                    <i class="icon iconSmall ">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrackStatus"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--sub header-->
+                <!--<div ng-include="'shared/header/views/subheader.html'" ng-if="true" class="extra-nav-wrap" ></div>-->
+
+            </div>
+            <!--side nav -->
+            <div class="right-sidebar-nav side-nav right-aligned zIndex0 collapsible side-out-bm-nf-ct" ng-if="sideNavComp[0]" style="width: 320px; right:0px;" ng-include="'shared/sideNav/views/bookmarSideNav.html'"></div>
+            <div class="right-sidebar-nav side-nav right-aligned zIndex0 collapsible side-out-bm-nf-ct" ng-if="sideNavComp[1]" style="width: 320px; right:0px;" ng-include="'shared/sideNav/views/notificationSideNav.html'"></div>
+            <div class="right-sidebar-nav side-nav right-aligned zIndex0 collapsible side-out-bm-nf-ct" ng-if="sideNavComp[2]" style="width: 320px; right:0px;" ng-include="'shared/sideNav/views/menuSideNav.html'"></div>
+        </nav>
+
+
+    </div>
+
+</div>

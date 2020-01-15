@@ -1,0 +1,166 @@
+<div class="scrollableModel splitAccountigModal">
+	<div class="modal-header">
+		<i class="icon iconSmall grey-text left">
+			<svg>
+				<use xlink:href="#icon_Split"></use>
+			</svg>
+		</i>
+		<span class="title">{{'SPLIT'|| translate}}</span>
+       
+	</div>
+    
+	<div class="modal-content padding0">        
+		<div class="row margin0">
+			<smart-radio gap="true" class="col s12 radio-space" ng-model="selectedSplit" options="splitType" on-change="onChangeSplit(selectedSplit)"></smart-radio>
+		</div>
+		<div class="is-scrolled">
+		    <div ng-show="splitFlag" id="splitAmount" ng-class="{'msie': isIEbrowser}">
+                <smart-scroll height="210px" is-fixed-header="true">			
+                    <table class="bordered" id="numContainerTable">
+	                    <colgroup>
+		                    <col style="width:26%"/>
+		                    <col style="width:50%"/>
+		                    <col style="width:12%"/>
+                            <col style="width:12%" />
+	                    </colgroup>
+	                    <thead>
+		                    <tr>
+			                    <th class="left-align">{{'Split'|| translate}}</th>
+			                    <th class="right-align">Amount</th>
+			                    <th class="right-align paddingRight5">&nbsp;</th>
+                                <th class="">&nbsp;</th>
+		                    </tr>
+	                    </thead>
+	                    <tbody>
+		                    <tr ng-repeat="split in splitAmount">
+			                    <td>{{$index + 1}}</td>
+			                    <td class="right-align relative">
+				                    <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+					                    <a href="javaScript:void(0);" class='dropdown-button' ng-click="addFocuse(splitlist)" data-activates='splitAmount_{{$index}}' style="width: 100%; display: inline-block;">
+                                            <span ng-if="!split.splitValue">Enter Value</span>
+                                            <span ng-if="split.splitValue">{{split.splitValue}}</span>
+                                        </a>
+					                    <div id='splitAmount_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+						                    <div class="row marginBtm0 splitValueField">
+							                    <smart-textfield type="number" label="Enter Value" ng-model="split.splitValue" focus="split.qtyfocus" class="col s12" align="right" on-blur="updatedValue()" rules="{{split.splitRule}}"></smart-textfield>
+						                    </div>
+					                    </div>
+				                    </smart-dropdown>
+
+			                    </td>         
+			                    <td class="right-align paddingRight5">
+				                    <a href="javaScript:void(0);" ng-if="splitAmount.length > 1" ng-click="removeSplitAmountRow($index)">
+					                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}">
+						                    <svg>
+							                    <use xlink:href="#icon_TrashCan"></use>
+						                    </svg>
+					                    </i>
+				                    </a>
+			                    </td>
+                                <td>
+                                    <a href="javaScript:void(0);" ng-if="splitAmount.length == $index + 1" ng-click="addSplitAmountRow(e)">
+                                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add'|| translate}}">
+                                            <svg>
+                                                <use xlink:href="#icon_CirclePlus"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </td>    
+		                    </tr> 	
+                            <!--<tr ng-if="newSplitList.length <= 0">
+                                <td colspan="2">Add Split</td>
+                            </tr>-->					          
+	                    </tbody>
+                    </table>
+                </smart-scroll>
+			</div>
+		    <div ng-show="!splitFlag"  id="splitPercentage" ng-class="{'msie': isIEbrowser}">
+                <smart-scroll height="210px" is-fixed-header="true">
+                    <table class="bordered" id="perContainerTable">
+	                    <colgroup>
+                            <col style="width:26%" />
+                            <col style="width:50%" />
+                            <col style="width:12%" />
+                            <col style="width:12%" />
+	                    </colgroup>
+	                    <thead>
+		                    <tr>
+			                    <th class="left-align">{{'Split'|| translate}}</th>
+			                    <th class="right-align">Percentage</th>
+                                <th class="right-align paddingRight5">&nbsp;</th>
+                                <th class="">&nbsp;</th>
+		                    </tr>
+	                    </thead>
+	                    <tbody>
+		                    <tr ng-repeat="split in splitPercentage">
+			                    <td>{{$index + 1}}</td>
+			                    <td class="right-align">
+				                    <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+					                    <a class='dropdown-button' ng-click="addFocuse(splitlist)" href="javaScript:void(0);" data-activates='splitPercentage_{{$index}}' style="width: 100%; display: inline-block;">
+                                            <span ng-if="!split.splitValue">Enter Value</span>
+                                            <span ng-if="split.splitValue">{{split.splitValue}}</span>
+                                        </a>
+					                    <div id='splitPercentage_{{$index}}' class='dropdown-content dropdown-content-box dd-close-off'>
+						                    <div class="row marginBtm0 splitValueField">
+                                                <smart-textfield type="number" label="Enter Value" ng-model="split.splitValue" focus="split.qtyfocus" class="col s12" align="right" on-blur="updatedValue()" rules="{{split.splitRule}}"></smart-textfield>
+						                    </div>
+					                    </div>
+				                    </smart-dropdown>
+			                    </td>         
+			                    <td class="right-align paddingRight5">
+				                    <a href="javaScript:void(0);" ng-if="splitPercentage.length > 1" ng-click="removeSplitPercentageRow($index)">
+					                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}">
+						                    <svg>
+							                    <use xlink:href="#icon_TrashCan"></use>
+						                    </svg>
+					                    </i>
+				                    </a>
+			                    </td>
+                                <td>
+                                    <a href="javaScript:void(0);" ng-if="splitPercentage.length == $index + 1" ng-click="addSplitPercentageRow()">
+                                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add'|| translate}}">
+                                            <svg>
+                                                <use xlink:href="#icon_CirclePlus"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </td>     
+		                    </tr> 						          
+	                    </tbody>
+                    </table>			 
+                </smart-scroll>
+			</div>
+		</div>
+        <div class="is-scrolled tableCommonFooter">
+            <table>
+                <colgroup>
+                    <col style="width:26%" />
+                    <col style="width:50%" />
+                    <col style="width:12%" />
+                    <col style="width:12%" />
+                </colgroup>
+                <tbody>
+                    <tr ng-show="splitFlag">
+                        <td class="grey-text">Total</td>
+                        <td class="right-align">1,000.00</td>
+                        <td class="right-align paddingRight5"></td>
+                        <td></td>
+                    </tr>
+                    <tr ng-show="!splitFlag">
+                        <td class="grey-text">Total</td>
+                        <td class="right-align">100</td>
+                        <td class="right-align paddingRight5"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+	</div>
+    
+	<div class="modal-footer is-scrolled">
+		<smart-button flat="true" config='{"title":"APPLY"}' ng-class="{'modal-close': !checkPercentTotal}" disable="checkPercentTotal"></smart-button>
+		<smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+	</div>
+</div>
+
+

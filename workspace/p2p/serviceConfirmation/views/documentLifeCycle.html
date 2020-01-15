@@ -1,0 +1,23 @@
+<div ng-controller="itemDetailsServConfCtrl">	
+		
+	<div class="row paddingLeft5 paddingRight5 lifecycleBoxWrap marginBtm10">   
+        <div ng-repeat="lifeCycle in lifeCycleData" class="col s12 m6 l3">
+            <div class="lifecycleBox">
+                <div class="lc_boxHeading">{{lifeCycle.docName}}</div>
+                <div class="black-text"><span class="lc_totalAmount">{{lifeCycle.totalAmount}}</span> USD</div>
+                <div class="marginBtm10">Total <span ng-show="lifeCycle.docName == 'Fulfilled'">Received</span><span ng-show="lifeCycle.docName == 'Invoiced'">Invoiced</span> Amount</div>
+
+                <ul>
+                    <li ng-repeat="detail in lifeCycle.otherDetails">
+                        <span class="black-text marginRight5">{{detail.fieldValue}}</span>
+                        <span>{{detail.fieldName}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="clearfix right-align marginRight10">
+        <a href="javascript:void(0)" ng-click="viewAll()">{{'View All'}}</a>
+    </div>-->
+</div>

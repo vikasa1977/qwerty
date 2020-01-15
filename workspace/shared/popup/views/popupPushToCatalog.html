@@ -1,0 +1,49 @@
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="catalogSearchField='';hideSearch()" smart-tooltip position="Close" message="{{'Close' || translate }}" delay="250" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="focusSearch" ng-model="catalogSearchField"></smart-textfield>
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>        
+        <span class="title">{{ 'PUSH TO CATALOG' || translate }} </span>
+    </div>
+    <div class="modal-content padding0"  ng-class="{'is-scrolled': true}">
+        <div class="model_body">    
+            <smart-list model="{{catalogList}}"
+                        style-class="collection noBorder is-overflowHidden"
+                        item-class="collection-item"
+                        template="radioCatalogList.html" height="300px">
+            </smart-list> 
+        </div>
+    </div>
+    <div class="modal-footer paddingLeft8"  ng-class="{'is-scrolled': true}">
+        <div class="clearfix">            
+            <smart-button flat="true" class="modal-close left" config='{"title":"NEW CATALOG"}' ng-click="newCatalogCall(mode)"></smart-button>
+            <smart-button flat="true" class="modal-close right" config='{"title":"Done"}' ></smart-button>           
+        </div>
+    </div>
+</div>
+
+
+
+<script id="radioCatalogList.html" type="text/ng-template"> 
+    <div item="{{item}}" class="clearfix">
+        <div class="savedViews">
+			<input class="with-gap" type="radio" ng-model="model.name" name="selectSaveView" ng-value="item.name" id="catalog-{{ $index }}">
+			<label for="catalog-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.name  || translate }}</label>			
+		</div>       
+    </div>
+</script>
+
+
+

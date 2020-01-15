@@ -1,0 +1,15 @@
+<div>
+    <div class="col s12 line-height-manager field-has-two-icons">
+        <smart-textfield class="col s12 line-height-manager" type="text" datanumeric="true" spinner="false" label="Invoice Amount" is-mandatory="true" ng-model="modelData.InvoiceTotalAmount"></smart-textfield>
+        <a href="javascript:void(0)" class="icon-1">
+            <i class="icon left marginTop15 blue-text absolute" smart-infotip position="top" message="Total Value and Entered Invoice Amount should match to send the Invoice for processing." mode="mouseover">
+                <svg><use xlink:href="#icon_Info"></use></svg>
+            </i>
+        </a>
+        <a href="javascript:void(0)" class="icon-2">
+            <i class="icon left marginTop15 orange-text absolute" smart-infotip position="top" message="Received Value: {{modelData.RecievedValue}}" mode="mouseover">
+                <svg><use xlink:href="#icon_Warning"></use></svg>
+            </i>
+        </a>
+    </div>
+</div>

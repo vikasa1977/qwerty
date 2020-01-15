@@ -1,0 +1,167 @@
+<div class="clearfix borderTopLight" ng-controller="questionnaireBlockCtrl">
+	<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadDocPopup}}" on-hide="hideUploadDocPopupCallback(e)"></smart-popup>
+    <div class="center action-block" ng-if="questionnaireData">
+		<a href="#/questionnaire/create" class="action-block-cont">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">New KPI</span>
+		</a>
+		<a href="#/questionnaire/importRepo" class="action-block-cont">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_FileRepo"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Import from Repository</span>
+		</a>
+		<a href="javascript:void(0);" class="action-block-cont" ng-click="showUploadDoc()">
+			<span class="action-block-cont-icon">
+				<i class="icon icon--xLarge">
+					<svg><use xlink:href="#icon_Upload"></use></svg>
+				</i>
+			</span>
+			<span class="action-block-cont-lbl">Upload KPI</span>
+		</a>
+	</div>
+	<div class="clearfix questionnaireBox secContentWithBorder fontSize12 paddingBtm19 paddingTop19" ng-if="!questionnaireData">
+        <div class="left legendsWrap">
+			<div class="notReceived manange-legend left"></div><div class="left">Not Started</div>
+			<div class="marginLeft20 overReceived manange-legend left"></div><div class="left">In Progress</div>
+			<div class="marginLeft20 partiallyReceived manange-legend left"></div><div class="left">Completed</div>
+		</div>
+		<div class="right">
+			<smart-dropdown>
+				<a href="javascript:void(0)" class="marginLeft10 right">
+					<i class="icon left blue-text dropdown-button marginRight0" data-constrainwidth="false" data-activates="createquestionnaire" data-alignment="left" position="bottom" smart-tooltip message="Add New Questionnaire">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>
+				<ul id="createquestionnaire" class="padding0 dropdown-content zIndex10">
+					<li class="margin0 list-item"><a href="#/questionnaire/create">New KPI</a></li>
+					<li class="margin0 list-item"><a href="#/questionnaire/importRepo">Import from Repository</a></li>
+					<li class="margin0 list-item"><a href="javascript:void(0);" ng-click="showUploadDoc()">Upload KPI</a></li>
+				</ul>
+			</smart-dropdown>
+			<a href="javascript:void(0);" class="marginLeft10 right psMultiSlct" ng-class="{'disabled' : disableIcon }" smart-tooltip position="bottom" message="Upload new version">
+				<i class="icon left blue-text iconSmall ">
+					<svg><use xlink:href="#icon_Upload"></use></svg>
+				</i>
+			</a>
+            <a href="javascript:void(0)" class="marginLeft10 right psMultiSlct" ng-class="{'disabled' : disableIcon }" smart-tooltip message="Download Selected" position="bottom">
+				<i class="icon left blue-text">
+					<svg><use xlink:href="#icon_Download"></use></svg>
+				</i>
+			</a>		
+            <a href="javascript:void(0)" class="marginLeft10 right psMultiSlct" ng-class="{'disabled' : disableIcon }" smart-tooltip message="Push to Repository" position="bottom">
+				<i class="icon left blue-text">
+					<svg><use xlink:href="#icon_CopyRepo"></use></svg>
+				</i>
+			</a>
+			<a href="javascript:void(0)" class="marginLeft10 right psMultiSlct" ng-class="{'disabled' : disableIcon }" ng-click="deletequestionnaireData()" smart-tooltip message="Delete Selected" position="bottom">
+				<i class="icon left blue-text">
+					<svg><use xlink:href="#icon_TrashCan"></use></svg>
+				</i>
+			</a>
+		</div>
+		<div class="questionnaireListsearchContainer">
+			<div class="searchSlideMain" ng-if="!readMode">
+				<div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+					<a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon black-text">
+						<i class="icon iconSmall center grey-text">
+							<svg><use xlink:href="#icon_Close"></use></svg>
+						</i>
+					</a>
+					<smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearchHeader" placeholder="search"></smart-textfield>
+	
+					<a href="javascript:void(0)" class="search-icon right psMultiSlct waves-circle waves-effect black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+						<i class="icon iconSmall center blue-text">
+							<svg><use xlink:href="#icon_Search"></use></svg>
+						</i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="clearfix row questionnaireSectionNavHeader paddingBtm20 borderBtmLight marginBtm0">
+		<div class="col s12 marginTop20 paddingRight15">
+			<div class="right autoWeight">
+				<smart-switch left-label="AutoWeight" right-label="emptyText" ng-model="isAutoWeight" class="col paddingBtm5 switchSupplierContainer" on-change="onChangeWeight(isAutoWeight)"></smart-switch>
+				<div class="left">
+					<span class="grey-text"> Total Weight: </span>
+					<span ng-class="{'red-text': (TotalAmount > 100)}">{{TotalAmount}}/100</span>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="clearfix row questionnaireList col s12 m12 l12 xl12" ng-repeat="questionnaireSavedItem in questionnaireSavedData">
+        <div class="col s12 m12 l10">
+            <div class="left questChk">
+                <smart-checkbox checked='false' fill='true' disable='false' class="left" ng-model="questionnaireSavedItem.check" on-change="questionnaireDataSelected()" input-field="false"></smart-checkbox>	
+            </div>
+            <div class="left questChk">
+                <smart-dropdown config="{{dropDownConfig}}">				
+					<a href="javascript:void(0)" class="left dropdown-button" data-activates="legends-lookup_{{$index}}" data-constrainwidth="false" 
+						data-alignment="right">
+						<span class="marginTop2 left" ng-class="{'partiallyReceived' : $index === 1, 'notReceived' : $index === 0, 'overReceived' : $index === 2}"></span>
+					</a>
+					<div id="legends-lookup_{{$index}}" class="dropdown-content pricesheet-status-lookup dd-close-off">
+						<table class="bordered pricesheetTable">
+							<thead>
+								<tr>
+									<th class="left-align">Co-Author Name</th>
+									<th class="left-align">Status</th>
+								</tr>
+							</thead>
+						</table>
+						<smart-scroll height="290px">
+							<table class="bordered pricesheetTable">
+								<tbody>
+									<tr><td>John Doe</td><td><span class="notReceived manange-legend"></span><span>Incomplete</span></td></tr>
+									<tr><td>Martin Crow</td><td><span class="partiallyReceived manange-legend"></span><span>Complete</span></td></tr>
+									<tr><td>John Doe</td><td><span class="overReceived manange-legend"></span><span>In Progress</span></td></tr>
+									<tr><td>John Doe</td><td><span class="notReceived manange-legend"></span><span>Incomplete</span></td></tr>
+									<tr><td>Martin Crow</td><td><span class="partiallyReceived manange-legend"></span><span>Complete</span></td></tr>
+									<tr><td>John Doe</td><td><span class="overReceived manange-legend"></span><span>In Progress</span></td></tr>
+									<tr><td>Martin Crow</td><td><span class="partiallyReceived manange-legend"></span><span>Complete</span></td></tr>
+									<tr><td>John Doe</td><td><span class="overReceived manange-legend"></span><span>In Progress</span></td></tr>
+								</tbody>
+							</table>
+						</smart-scroll>
+					</div>
+				</smart-dropdown>
+             </div>
+             <div class="left col s9 m10 padding0">
+                 <a href="javascript:void(0);">{{questionnaireSavedItem.title}}</a>
+                 <div class="questContent">
+                   <p id="questContent-{{$index}}" class="questContentPara" ng-class="{'ellipsis text-justify': !questionnaireSavedItem.readMore}">{{questionnaireSavedItem.description}}<span><a href="javascript:void(0);" class="showLess" ng-click="showLess(questionnaireSavedItem);">Show Less</a></span></p>
+                    <span class="more"><a href="javascript:void(0);" class="showMore" ng-click="showMore(questionnaireSavedItem);">More</a></span>
+                 </div>
+                 <p class="questCount grey-text fontSize12">{{questionnaireSavedItem.questionCount}} Questions | Created by {{questionnaireSavedItem.createdby}} on {{questionnaireSavedItem.createdbydate}} | Modified by {{questionnaireSavedItem.modifiedby}} on {{questionnaireSavedItem.modifieddate}}</p>
+                <smart-switch left-label="VisibleToSupplier" right-label="emptyText" ng-model="questionnaireSavedItem.isVisible" class="" on-change="onChange(questionnaireSavedItem.isVisible)"></smart-switch>
+             </div>
+		</div>
+        <div class="right col rightCol">
+            <a href="javascript:void(0);" smart-tooltip message="Edit" position="left" class="editIcon"  ui-sref="questionnaire.create">
+				<i class="icon small  blue-text">
+					<svg><use xlink:href="#icon_ToEdit"></use></svg>
+				</i>
+			</a>
+            <div class="questionnaireRightCol">
+                <div smart-tooltip position="top" delay="50" message="Please enter numeric value" class="col s12 line-height-manager weightWidth questionnaireWeightFieldArea">
+					<smart-textfield id="questionnaireWeightFieldArea-{{$index}}" align="right" label="Weight" type="text" on-blur="onChangeSingleWeight(questionnaireSavedItem)" on-key-up="validateNum(questionnaireSavedItem, 'weight')"  placeholder="0" ng-model="questionnaireSavedItem.weight"></smart-textfield>
+				</div>
+                <div class="left">
+					<a href="javascript:void(0)" class="icon iconSmall paddingTop20" ng-click="questionLock(questionnaireSavedItem,'questionnaireWeightFieldArea-'+$index,$event);">
+						<svg smart-tooltip position="top" delay="50" message="Unlock" ng-show="!questionnaireSavedItem.lock"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Unlock"></use></svg>
+						<svg smart-tooltip position="top" delay="50" message="Lock" ng-show="questionnaireSavedItem.lock"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Lock"></use></svg>
+					</a>	
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+

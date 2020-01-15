@@ -1,0 +1,106 @@
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+	<div class="col s12">
+		<div class="extra-nav-title">
+			<a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+				<i class="icon small">
+					<svg><use xlink:href="#icon_Back"></use></svg>
+				</i>
+			</a>
+			<i class="icon small extra-nav-title--icon">
+				<svg><use xlink:href="#icon_Configure"></use></svg>
+			</i>
+			<span class="extra-nav-title--text">{{configureTeamMemberHdr}}</span>
+		</div>
+	</div>
+</div>
+
+<div class="extendBg" ng-class="{'supplierView': supplierView}">
+	<smart-tabs tab-config="{{configureTabsData}}" width="30%" class="margin0" on-select="configureTabsCallback(e)"></smart-tabs>
+	<div class="clearfix relative">
+		<table class="bordered clearfix configure-hdr">
+			<tr>
+				<td class="configure-hdr-slct paddingBottom0 paddingTop0">
+					<smart-select class="noSlctBdr" ng-model="selectedEventOpt"  options="eventOpts" is-mandatory="true"></smart-select>
+				</td>
+				<td class="configure-hdr-txt padding0">Team Members</td>
+			</tr>
+		</table>
+		<div class="configure-eventHdrTblWrap">
+			<table class="bordered configure-eventHdrTbl">
+				<thead>
+					<tr><td>Event</td></tr>
+				</thead>
+			</table>
+		</div>
+		<div class="configure-chkHdrTblWrap">
+			<table class="bordered configure-chkHdrTbl">
+				<thead>
+					<tr>
+						<th ng-repeat="data in configureList track by $index" width="160px">
+							{{data.title}}
+							<smart-checkbox class="marginTop7" ng-if="configureMode" disable="{{buyerPreview}}"></smart-checkbox>
+							<div class="marginTop7" ng-if="statusMode">In Progress</div>
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<smart-scroll v-offset="{{configureScrollOffset}}" height="100%" width="380px" class="configure-eventTblWrap" connect-scrolls="{{configureTeamMemberScrollLeft}}">
+			<table class="configure-eventTbl">
+				<tr ng-repeat="data in eventData track by $index">  
+					<td class="padding0">
+						<table class="bordered">
+							<tr class="cursorPointer" ng-click="expandCollapseSections(data.id); collapsed = !collapsed">
+								<td class="highlightCell padding0">
+									<a href="javascript:void(0)" class="black-text" >
+										<i class="icon iconSmall left black-text configure-eventTbl-arr" ng-style="collapsed && {'transform': 'rotate(-92deg)'}">
+											<svg><use xlink:href="#icon_DownChevron"></use></svg>
+										</i>
+										{{data.name}} ({{data.list.length}})
+									</a>
+								</td>
+							</tr>
+						</table>
+						<table ng-hide="{{data.id}}" class="bordered">
+							<tr ng-repeat="list in data.list track by $index">
+								<td class="paddingLeft50 paddingBottom0">
+									<span class="configure-eventTbl-txt">{{list}}</span>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</smart-scroll>
+		<smart-scroll v-offset="{{configureScrollOffset}}" height="100%" class="configure-chkTblWrap team-member-scrollBar" connect-scrolls="{{configureTeamMemberScrollRight}}">
+			<table class="configure-chkTbl">
+				<tr ng-repeat="data in eventData track by $index">
+					<td class="padding0">
+						<table class="bordered">
+							<tr>
+								<td ng-repeat="data in configureList" width="160px" class="highlightCell">
+									<smart-checkbox ng-if="configureMode" disable="{{buyerPreview}}"></smart-checkbox>
+									<div ng-if="statusMode">In Progress</div>
+								</td>
+							</tr>
+						</table>
+						<table ng-hide="{{data.id}}" class="bordered">
+							<tr ng-repeat="list in data.list track by $index">
+								<td ng-repeat="data in configureList track by $index" width="160px">
+									<smart-checkbox ng-if="configureMode" disable="{{buyerPreview}}"></smart-checkbox>
+									<span ng-if="statusMode">In Progress</span>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</smart-scroll>
+	</div>
+</div>
+
+<footer class="page-footer paddingLeft10 footerSpace">
+	<smart-button class="right footerBtn" config='{"title":"DONE"}' ng-click="comeBackCallToRfx()" ng-if="!buyerPreview"></smart-button>
+	<smart-button class="right footerBtn whiteSecondaryBtn" ng-click="comeBackCallToRfx()" config='{"title":"CANCEL"}' ng-if="!buyerPreview"></smart-button>
+	<smart-button class="right footerBtn" ng-click="comeBackCallToRfx()" config='{"title":"CLOSE"}' ng-if="buyerPreview"></smart-button>
+</footer>

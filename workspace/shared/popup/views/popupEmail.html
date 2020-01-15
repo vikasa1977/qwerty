@@ -1,0 +1,64 @@
+<div  ng-if="supEmailPopup">
+<div class="multi-org">
+        <div class="modal-header row margin0">
+            <div class="col s8 padding0">
+                <i class="icon iconSmall grey-text left">
+                    <svg><use xlink:href="#icon_Email"></use></svg>
+                </i>
+                <span class="title">
+                    {{popupTitle}}
+                </span>
+            </div>
+            <smart-select ng-model="languageSelected" ng-if="showLanguageDD" label="Language" options="languageOptions" class="supplierPopupLang col paddingRight0 s3 right" datakey="code" displaykey="name" on-change="onChange(languageSelected)"></smart-select>
+    </div>
+    
+        <div class="modal-content is-scrolled padding0 paddingRight1">
+            <smart-scroll height="400px">
+                <div class="model_body">
+                    <div class="notification-tab padding10">
+                        <div class="row marginBottom0">
+                            <smart-multiselect class="col s12 marginTop20 marginBtm0 active clearfix" label="To" is-mandatory="true" ng-if="!nonAwardSupplier" disable="true" tabindex="-1" on-change="getEmailToData($event)" on-select="onSelectEmailTo($event)" options="emailToOpts" ng-model="emailToPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+                            <smart-multiselect ng-if="!hideCCField"  style="margin-bottom:0 !important"  class="col s12 active clearfix marginTop0 marginBtm0" label="CC"  tabindex="-1" on-change="getEmailCcData($event)" disable="true" on-select="onSelectEmailCc($event)" options="emailCcOpts" ng-model="emailCcPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+                            <smart-checkbox class="col s12 marginLeft4N marginBtm5" ng-if="showInvSecContact" label="Invite secondary contact" ng-model="invSecContact" on-change="onChange(invSecContact)"></smart-checkbox>
+                            <smart-textfield class="col s12 active marginTop10" label="Subject" ng-model="notificationNew1.notifySub" is-mandatory="true" maxlength="250"></smart-textfield>
+                            <div class="col s12 marginBtm7">
+                                <a href="javascript:void(0)" ng-click="addAttachmentCallback('que')" ng-show="!questAttachement">Add Attachment</a>
+                                <label class="col s12 fontSize12 black64p paddingLeft0" ng-if="questAttachement">Attachments</label>
+                            </div>
+                            <div class="col s12 marginBtm7" ng-if="questAttachement">
+                                    <div class="fontSize14" add-btn="true" add-uploadcallback="addAttachmentCallback(e, 'comment');" smart-upload-template download-list="attachmentData" attachmenttype="writemode"></div>
+                                </div>
+                            <div class="col s12">
+                                <div class="ckeditorContainer paddingBtm20">
+                                    <textarea name="editor2" id="editor2" rows="7" cols="80">
+                                        <span style="color: #191919">Dear &lt; Marvin &gt;</span>, <br /><br />
+                                        <span style="color: #191919">Gentle Reminder</span><br /><br />
+                                        <span style="color: #191919">ORDER DETAILS</span><br /><br />
+                                        <span style="color: #191919">MacBook Air - PO-2013.003133</span><br />
+                                        <span style="color:#5c5c5c">Created on May 05 2016 | Created by John Doe</span><br /><br />
+                                        <span style="color: #191919">Order Total: USD 1000.00 | Order Contact: Brennan Jackson</span><br />
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </smart-scroll>
+        </div>
+        <div class="modal-footer_new is-scrolled">
+            <div class="row marginBottom0">
+                <!--<smart-button flat="true" config="{'title':'PREVIEW'}" class="left" ng-click="popupPreviewInPopup(e)" ></smart-button>-->
+                <smart-button flat="true" config="{'title':'SEND'}" class="right marginRight10" ng-click="sendSupEMail()"></smart-button>
+                <smart-button flat="true" class="modal-close footerBtn right marginRight2" ng-click="resetSupEMailPopupData()" config='{"title":"CANCEL"}' ng-click=""></smart-button>
+            </div>
+        </div>
+        <script>
+            setTimeout(function () {
+                CKEDITOR.replace('editor2');
+            }, 1000);
+        </script>
+    </div>
+</div>
+    
+    
+    

@@ -1,0 +1,8 @@
+<div item="{{item}}">
+    <smart-checkbox fill="true" ng-model="item.isChecked" class="left" on-change="addItem(index, $index, item.isChecked)"></smart-checkbox>
+	<span class="title">{{ item.itemName || translate }}</span>
+    <p> <span>{{item.quantity || translate }}</span> | <span>{{item.itemNumber || translate }}</span> : <span> {{item.supplierName || translate }} </span> | 
+        <span> {{item.category || translate}} </span>  | 
+        <span> {{item.type || translate}} </span> 
+     </p>
+</div>

@@ -1,0 +1,72 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		<div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+			<div class="searchWithHiddenTextField" ng-class="{'active': isActiveM}">
+				<a href="javascript:void(0)" ng-class="showMeM" ng-click="columnSearchKey='';hideSearchM()" ng-show="hideCloseM" smart-tooltip position="bottom" message="Close" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+					<i class="icon iconSmall center grey-text">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</i>
+				</a>
+				<smart-textfield ng-model="columnSearchKey" class="input-field" focus="focusSearchM"></smart-textfield>
+				<a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" message="Search" ng-click="showSearchM()">
+					<i class="icon iconSmall center blue-text">
+						<svg><use xlink:href="#icon_Search"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<i class="left icon iconSmall grey-text">
+			<svg><use xlink:href="#icon_Lookup"></use></svg>
+		</i>
+		<span class="title">Suppliers ({{selectSupplierData.length}})</span>
+	</div>
+	<div class="modal-content padding0">
+		<table class="fixedTableHeaderShadow">
+			<thead>
+				<tr>
+					<th style="width:50%;" class="left-align">
+						<span class="left marginTop4">Supplier Name</span>
+						<a href="javascript:void(0)" class="dropdown-button" smart-tooltip message="{{typeSortIconTooltip}}" position="bottom" ng-click="ascDescToggler(typeSortIcon)"><i class="icon iconSmall blue-text"><svg><use xlink:href="{{ '#'+typeSortIcon.icon }}"></use></svg></i></a>
+					</th>
+					<th class="left">
+						<span class="left marginTop4">Participation Status</span>
+						<smart-dropdown class="left" config="{{dropDownConfig}}">
+							<a href="javaScript:void(0)" class="dropdown-button" data-activates="supStatFilters" data-constrainwidth="false" data-alignment="left">
+								<i class="icon iconSmall" smart-tooltip position="bottom" message="Filters">
+									<svg><use xlink:href="#icon_Filter"></use></svg>
+								</i>
+							</a>
+							<ul id="supStatFilters" class="dropdown-content dd-close-off collection noBorder">
+								<li class="collection-item"><smart-checkbox label="ALL" ng-model="evaluatorStatusAll.checkedAll" on-change="checkedAllevaluator(evaluatorStatusAll.checkedAll)">></smart-checkbox></li>
+								<li class="collection-item" ng-repeat="status in evaluatorStatus"><smart-checkbox label="{{status.name}}" ng-model="status.isChecked"></smart-checkbox></li>
+
+							</ul>
+						</smart-dropdown>
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<smart-scroll height="270px">
+			<table class="bordered sTable">
+				<tbody>
+					<tr ng-repeat="selectSupplier in selectSupplierData">
+						<td class="left-align" style="width:50%;">
+							{{selectSupplier.supplierName}}
+						</td>
+						<td class="left-align" style="width:50%;" ng-class="{'green-text' : (selectSupplier.statusId === 'responded'), 'red-text' : (selectSupplier.statusId === 'not responded')}">{{selectSupplier.status}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer modal-footer-normalScroll">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

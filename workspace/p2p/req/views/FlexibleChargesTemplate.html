@@ -1,0 +1,17 @@
+<div class="row white item-details-template-wrap " data-ng-controller="chargesAndAllowancesCtrl">
+	<div id="materialsRadioContent" class="materialsRadioContent addClassAfterHeaderFixed">
+		<div class="_dev_addScrollForTop">
+			<smart-tabs tab-config="{{flexibleDetailPOTabDataset}}"  ng-click="selectTab(this)" width="40%"></smart-tabs>
+		</div>
+	</div>
+
+	<smart-popup template-url="{{copyPopupUrl}}" show="{{showCopyPopup}}" on-hide="copyPopupOnHideCallback(e)"></smart-popup>
+
+	<smart-popup template-url="{{categoryPopupUrl}}" show="{{showCategoryPopup}}" on-hide="categoryPopUpOnHideCallback(e)"></smart-popup>
+
+<!--	<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>-->
+
+
+	<smart-popup template-url="{{approverPopupUrl}}" show="{{approverPopup}}" on-hide="approverOnHideCallback(e)"></smart-popup>
+
+</div>

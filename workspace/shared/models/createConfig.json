@@ -1,0 +1,205 @@
+{
+  "createConfig": {
+    "1": {
+      "msg": "RFX",
+      "options": [
+        {
+          "title": "New RFX",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "url": "/Sourcing/Rfx?oloc=216"
+        },
+        {
+          "title": "Template",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=template&scope=rfx"
+        },
+        {
+          "title": "Edit Existing",
+          "icon": "#icon_RfxDraft",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=existing&scope=rfx"
+        },
+        {
+          "title": "Upload",
+          "icon": "#icon_Upload",
+          "disable": true,
+          "show": false
+        }
+      ]
+    },
+    "5": {
+      "msg": "EC_Contract",
+      "options": [
+        {
+          "title": "EC_CreateFromBlank",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "url": "/Contract/Index?oloc=216#/contract/new"
+        },
+        {
+          "title": "EC_CreateFromTemplate",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=template&scope=contract"
+        },
+        {
+          "title": "EC_CreateFromExisting",
+          "icon": "#icon_RfxDraft",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=existing&scope=contract"
+        }
+      ]
+    },
+    "30": {
+      "msg": "EC_Blanket",
+      "options": [
+        {
+          "title": "EC_CreateFromBlank",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "url": "/Blanket/Index?oloc=216#/blanket/new"
+        },
+        {
+          "title": "EC_CreateFromTemplate",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=template&scope=blanket"
+        },
+        {
+          "title": "EC_CreateFromExisting",
+          "icon": "#icon_RfxDraft",
+          "disable": false,
+          "show": true,
+          "url": "/Smart?oloc=216#/landingmax?pagefor=existing&scope=blanket"
+        }
+      ]
+    },
+    "9": {
+      "msg": "Invoice",
+      "options": [
+        {
+          "title": "EC_CreateFromBlank",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "url": "evaluateUrl()"
+        },
+        {
+          "title": "Using Scanned Image",
+          "icon": "#icon_Template",
+          "disable": true,
+          "show": true,
+          "url": "evaluateUrl()"
+        }
+      ]
+    },
+    "101": {
+      "msg": "How would you like to create your RFX?",
+      "options": [
+        {
+          "title": "Using Blank Form",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "id": "cblank"
+        },
+        {
+          "title": "Contract Template",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "id": "template"
+        }
+      ]
+    },
+    "102": {
+      "msg": "How would you like to create your Auction?",
+      "options": [
+        {
+          "title": "Quick Create",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "id": "cblank"
+        },
+        {
+          "title": "Using Template",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "id": "template_rfx"
+        }
+      ]
+    },
+    "104": {
+      "msg": "How would you like to create your Should Cost Analysis?",
+      "options": [
+        {
+          "title": "Using Blank Form",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "id": "cblank"
+        },
+        {
+          "title": "Copy Existing",
+          "icon": "#icon_RfxDraft",
+          "disable": false,
+          "show": true,
+          "id": "template_rfx1"
+        },
+        {
+          "title": "Upload Document",
+          "icon": "#icon_Upload",
+          "disable": false,
+          "show": true,
+          "id": "template_rfx1"
+        },
+        {
+          "title": "Using Template",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "id": "template_rfx"
+        }
+      ]
+    },
+    "103": {
+      "msg": "How would you like to create your Contract?",
+      "options": [
+        {
+          "title": "Using Blank Form",
+          "icon": "#icon_CreateBlank",
+          "disable": false,
+          "show": true,
+          "id": "template_contract"
+        },
+        {
+          "title": "Using Existing",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "id": "template_contract"
+        },
+        {
+          "title": "Lorem Ipsum",
+          "icon": "#icon_Template",
+          "disable": false,
+          "show": true,
+          "id": "template_contract"
+        }
+      ]
+    }
+
+  }
+}

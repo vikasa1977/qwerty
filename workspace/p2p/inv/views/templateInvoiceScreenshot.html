@@ -1,0 +1,43 @@
+<div class="docSlider-content slide-view-modal slide-modal-temp-view ng-scope">
+<div class="popHdr">
+	<div class="clearfix">
+	<div class="popHdr-name left">{{'Invoice Screenshot -' | translate}}
+		{{ scannnedImagesList[index].title   | translate}}</div>
+	</div>
+	<div class="popHdr-status">
+		<div>{{scannnedImagesList[index].imageName}}</div>
+		<div class="popHdr-info">
+			<span>
+				{{ 'Uploaded by ' | translate
+}}
+				{{scannnedImagesList[index].imageUploadedBy}}
+				{{ 'On' | translate }}
+				{{ scannnedImagesList[index].imageUploadedDate  |  date : 'MMM d, y' }}
+			</span>
+		</div>
+	</div>
+</div>
+<div class="modal-content padding0">
+<div class="row margin0">
+<div class="col s6 offset-s6 right-align" id="changeImagePopupControl">
+</div>
+</div>
+	<div class="row paddingTop10">
+		<smart-scroll v-offset="246px" height="100%" scroll-break-points="{{::scrollBreakPoints}}" on-break-points="onBreakPoints()">
+        <pdfviewer src="{{scannnedImagesList[index].pdfURL}}" scale="changeImageScale" display-all="true" id="changeImagePopup" pdfcontrol="changeImagePopupControl" poupoutoption="{{showpopupoption}}"></pdfviewer>
+
+    	</smart-scroll>
+		
+	</div>
+</div>
+<div class="slide-view-modal-footer is-scrolled">
+	<div class="row marginBottom0">
+		<div class="col s12">
+			<div class="right">
+				<smart-button flat="true" class="left waves-effect" config='{"title":"CANCEL"}' ng-click="closeSlideView()"></smart-button>
+				<smart-button flat="true" class="left waves-effect" config='{"title":"USE THIS DOCUMENT"}' ng-click="closeSlideView()"></smart-button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

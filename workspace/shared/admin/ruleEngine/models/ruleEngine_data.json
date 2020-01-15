@@ -1,0 +1,1628 @@
+{
+  "datalist": [
+    {
+      "docName": "Rule 1",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Approvals_Requistion "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "3"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-3"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "12/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 2",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Validation_PO_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "1/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 3",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_IR_ "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "IR"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-4"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "3/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 4",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 3",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Automation_P2P_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-5"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "16/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 5",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Defaulting_P2P_PO"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-6"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "20/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 6",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "P2P",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 1",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Approvals_Requistion "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "3"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-3"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "12/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 2",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Validation_PO_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "1/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 3",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_IR_ "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "IR"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-4"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "3/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 4",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Automation_P2P_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-5"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "16/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 5",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 3",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Defaulting_P2P_PO"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-6"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "20/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 6",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Contracts",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Contracts"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 1",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "docLink": "p2p.req.new",
+      "collection":  "collection 2",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Approvals_Requistion "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "3"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-3"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "12/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 2",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Validation_PO_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "1/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 3",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "collection":  "collection 3",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_IR_ "
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "IR"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-4"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "3/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 4",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Automation_P2P_"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "Requisitions"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-5"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "16/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 5",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Defaulting_P2P_PO"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "PO"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Standard Rule"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-6"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "20/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 6",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Sourcing",
+      "collection":  "collection 3",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Sourcing"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 1",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Suppliers",
+      "collection":  "collection 1",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Suppliers"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 2",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Suppliers",
+      "collection":  "collection 2",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Suppliers"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 3",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Suppliers",
+      "collection":  "collection 3",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Suppliers"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 4",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Suppliers",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Suppliers"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 5",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Suppliers",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Suppliers"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 1",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Projects",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Projects"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 2",
+      "docStatus": "Active",
+      "isdocSelected": false,
+      "docType": "Projects",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Projects"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 3",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Projects",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Projects"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 4",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Projects",
+      "collection":  "collection 4",
+      "docLink": "p2p.req.new",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Projects"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    },
+    {
+      "docName": "Rule 5",
+      "docStatus": "Inactive",
+      "isdocSelected": false,
+      "docType": "Projects",
+      "docLink": "p2p.req.new",
+      "collection":  "collection 5",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "rules": [
+        {
+          "key": "Activate_Rule",
+          "value": "Activate"
+        },
+        {
+          "key": "Deactivate_Rule",
+          "value": "Deactivate"
+        }  
+      ],
+      "attributes": [
+        {
+          "datakey": "Rule_number",
+          "value": "Assignment_Contracts"
+        },
+        {
+          "datakey": "Document_group",
+          "value": "Projects"
+        },
+        {
+          "datakey": "Document_type",
+          "value": "P2P"
+        },
+        {
+          "datakey": "Created_method",
+          "value": "Approval Matrix"
+        },
+        {
+          "datakey": "Conditions",
+          "value": "5"
+        },
+        {
+          "datakey": "Updated_by",
+          "value": "Admin-2"
+        },
+        {
+          "datakey": "Updated_on",
+          "value": "7/12/2016"
+        }
+      ]
+    }
+  ]
+}

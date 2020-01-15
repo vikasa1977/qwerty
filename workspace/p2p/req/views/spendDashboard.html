@@ -1,0 +1,270 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel  allCategories" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DashboardRe"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">Spend Dashboard</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Share" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Share"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Email" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Email"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Download PDF" smart-tooltip data-position="bottom" delay="50">
+                        <svg style="height:18px"><use xlink:href="#icon_pdf"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Download Excel" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_excelSheet"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-title--text ">
+                |
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Create New" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- sub header end-->
+<!-- body -- form widget -->
+<div class="row paddingBtm40 smartFormWidgetContainer centerAlign" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader }" style="overflow:hidden;position:relative;">
+    <div class="section1">
+        <img src="shared/resources/images/landing-dashboard.png" alt="{{$label_FU.profile}}" class="tooltipped responsive-img mainnavigation" usemap="#main" />
+        <map name="main">
+            <area shape="rect" coords="612,607,635,698" href="javascript:void(0)" alt="Sun" class="generalservices">
+            <area shape="rect" coords="613,561,637,608" href="javascript:void(0)" alt="Sun" class="generalservices20">
+            <area shape="poly" coords="51,948,114,941,164,960,155,993,128,1018,83,1007,53,971,50,949" href="javascript:void(0)" alt="Sun" class="mapTip" />
+        </map>
+        <div class="tooltipImage1">
+            <img src="shared/resources/images/tip_map.png" alt="" />
+        </div>
+        <div class="tooltipImage2">
+            <img src="shared/resources/images/tip_35.png" alt="" />
+        </div>
+        <div class="tooltipImage3">
+            <img src="shared/resources/images/tip_20.png" alt="" />
+        </div>
+    </div>
+    <div class="section2" style="overflow:hidden;position:relative;">
+        <img src="shared/resources/images/slide-landing-dashboard.png" alt="" class="tooltipped responsive-img mainnavigation" usemap="#main11" />
+        <map name="main11">
+            <area shape="rect" coords="73,408,474,424" href="javascript:void(0)" alt="Sun" class="allCategories">
+            <area shape="rect" coords="558,1224,588,1263" href="javascript:void(0)" alt="Sun" class="showcontract">
+            <area shape="poly" coords="161,739,160,724,164,711,170,701,174,696,180,689,169,676,159,666,152,658,143,665,132,681,124,699,119,713,120,726,118,735" href="javascript:void(0)" alt="ee" class="marketingTip" />
+
+        </map>
+        <div class="contractimg">
+                <img src="shared/resources/images/contract.png" usemap="#Map3" />
+                <map name="Map3" id="Map3">
+                    <area shape="rect" coords="419,6,440,19" href="javascript:void(0)" alt="Sun" class="hidecontract" />
+                    <area shape="rect" coords="43,104,104,114" href="javascript:void(0)" alt="Sun" />
+                    <area shape="rect" coords="40,151,112,161" href="https://smart.gep.com/Contract/ContractInfo/CreateContract?dd=ZGM9OTk5JmJwYz0zMDA3MjM1&oloc=104&md=bT0yJnNtPTY1" alt="Sun" />
+                    <area shape="rect" coords="43,199,159,211" href="javascript:void(0)" alt="Sun" />
+                </map>
+        </div>
+        <div class="tooltipImage">
+            <img src="shared/resources/images/tip_marketing.png" alt="" />
+        </div>
+
+        <div class="tooltipImage4">
+            <img src="shared/resources/images/3contract_tip.png" alt="" />
+        </div>
+        <div class="tooltipImage5">
+            <img src="shared/resources/images/barChart_Tip.png" alt="" />
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .contractimg {
+        position: absolute;
+        right: 6px;
+        width: 0px;
+        overflow: hidden;
+        height: 329px;
+        top: 980px;
+    }
+
+    .tooltipImage {
+        position: absolute;
+        left: 23px;
+        width: 100px;
+        overflow: hidden;
+        height: 48px;
+        top: 674px;
+        display: none;
+    }
+
+    .tooltipImage1 {
+        position: absolute;
+        left: -47px;
+        width: 100px;
+        overflow: hidden;
+        height: 48px;
+        top: 945px;
+        display: none;
+    }
+
+    .tooltipImage2 {
+        position: absolute;
+        right: 279px;
+        height: 23px;
+        width: 40px;
+        overflow: hidden;
+        top: 626px;
+        display: none;
+    }
+
+    .tooltipImage3 {
+        position: absolute;
+        right: 283px;
+        width: 40px;
+        overflow: hidden;
+        height: 48px;
+        top: 572px;
+        display: none;
+    }
+
+    .tooltipImage4 {
+        position: absolute;
+        right: 369px;
+        /* width: 100px; */
+        overflow: hidden;
+        /*height: 48px;*/
+        top: 1195px;
+        display: none;
+    }
+
+    .tooltipImage5 {
+        position: absolute;
+        right: 15px;
+        /* width: 100px; */
+        overflow: hidden;
+        /* height: 48px; */
+        top: 951px;
+        display: none;
+    }
+
+    .centerAlign {
+        margin: 0 auto;
+        width: 1117px;
+        background-color: #fff;
+        height: 1750px;
+    }
+
+    .section1, .section2 {
+        margin: 0 auto;
+        width: 960px;
+        text-align: center;
+        display: block;
+        position: relative;
+    }
+
+    .section2 {
+        height: 1750px;
+    }
+</style>
+
+
+<!-- Js Code -->
+<script>
+    $(document).ready(function () {
+
+        $('.allCategories').click(function () {
+            $('.section1').animate({ marginTop: '0px' }, 500);
+        });
+        $('.generalservices20').mouseover(function () {
+            $('.tooltipImage3').css('display', 'block');
+        });
+        $('.generalservices20').mouseout(function () {
+            $('.tooltipImage3').css('display', 'none');
+        });
+
+        $('.generalservices').click(function () {
+            $('.section1').animate({ marginTop: '-1750px' }, 500);
+        });
+        $('.generalservices').mouseover(function () {
+            $('.tooltipImage2').css('display', 'block');
+        });
+        $('.generalservices').mouseout(function () {
+            $('.tooltipImage2').css('display', 'none');
+        });
+
+        $('.showcontract').click(function () {
+            $('.contractimg').animate({ width: '475px' }, 200);
+        });
+        $('.showcontract').mouseover(function () {
+            $('.tooltipImage4').css('display', 'block');
+        });
+        $('.showcontract').mouseout(function () {
+            $('.tooltipImage4').css('display', 'none');
+        });
+
+
+        $('.hidecontract').click(function () {
+            $('.contractimg').animate({ width: '0px' }, 200);
+        });
+        $('.hidecontract').mouseover(function () {
+            $('.tooltipImage5').css('display', 'block');
+        });
+        $('.hidecontract').mouseout(function () {
+            $('.tooltipImage5').css('display', 'none');
+        });
+
+
+        $('.marketingTip').mouseover(function () {
+            $('.tooltipImage').css('display', 'block');
+        });
+        $('.marketingTip').mouseout(function () {
+            $('.tooltipImage').css('display', 'none');
+        });
+
+        $('.mapTip').mouseover(function () {
+            $('.tooltipImage1').css('display', 'block');
+        });
+        $('.mapTip').mouseout(function () {
+            $('.tooltipImage1').css('display', 'none');
+        });
+    });
+
+</script>
+
+
+
+
+

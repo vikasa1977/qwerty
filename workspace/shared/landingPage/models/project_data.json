@@ -1,0 +1,606 @@
+{
+  "datalist": [
+     {
+      "docName": "Exchange Duasolid + hardener ( Grey Pump paint )",
+      "docStatus": "Idea",
+      "isdocSelected": false,
+      "docType": "Ideation",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103982"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Indirect"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    },
+ {
+      "docName": "Material price September to December",
+      "docStatus": "Validated Idea",
+      "isdocSelected": false,
+      "docType": "Ideation",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103979"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Negotiation"
+        },
+        {
+          "datakey": "",
+          "value": "Approved"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "1 month to launch"
+        }
+      ]
+    },
+    {
+      "docName": "Renegotiation WONDER Aug 2016",
+      "docStatus": "Completed",
+      "isdocSelected": false,
+      "docType": "Ideation",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103982"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Direct"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "3 weeks overdue to launch"
+        }
+      ]
+    },
+    {
+      "docName": "New supplier Dry Ice",
+      "docStatus": "On Hold",
+      "isdocSelected": false,
+      "docType": "Ideation",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103982"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Process Improvement"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "3 months to launch"
+        }
+      ]
+    },
+
+    {
+      "docName": "US Credit Card Purchase Controls",
+      "docStatus": "Cancelled",
+      "isdocSelected": false,
+      "docType": "Ideation",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103982"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Value Engineering"
+        },
+        {
+          "datakey": "",
+          "value": "Approved"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "2 months to launch"
+        }
+      ]
+    },
+
+    {
+      "docName": "Tranducers",
+      "docStatus": "Completed",
+      "isdocSelected": false,
+      "docType": "Execution",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103956"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Direct"
+        },
+
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "-"
+        }
+        
+      ]
+    },
+    {
+      "docName": "Advanced Supply Chain Planning Implementation",
+      "docStatus": "On Hold",
+      "isdocSelected": false,
+      "docType": "Execution",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103954"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Indirect"
+        },
+        
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "4 months to complete"
+        }
+      ]
+    },
+
+    {
+      "docName": "LeMac Puppies Motors - Cost Avoidance",
+      "docStatus": "Cancelled",
+      "isdocSelected": false,
+      "docType": "Execution",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103878"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Process Improvement"
+        },
+        
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due tomorrow"
+        }
+      ]
+    },
+   
+    {
+      "docName": "Auto Desk Renewal",
+      "docStatus": "Completed",
+      "isdocSelected": false,
+      "docType": "Execution",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103850 "
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Value Engineering"
+        },
+        
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "3 weeks overdue to complete"
+        }
+      ]
+    },
+
+
+    {
+      "docName": "Project for gas and ventilation system",
+      "docStatus": "Validated Idea",
+      "isdocSelected": false,
+      "docType": "Realization",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 104005"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Value Engineering"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    },
+    {
+      "docName": "Change TX 53 processor to TX6X",
+      "docStatus": "Completed",
+      "isdocSelected": false,
+      "docType": "Realization",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 104001"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Process Improvement"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    },
+    
+
+    {
+      "docName": "Change 22-157 to off the shelf unit",
+      "docStatus": "On Hold",
+      "isdocSelected": false,
+      "docType": "Realization",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103998"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Indirect"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    },
+
+    {
+      "docName": "Pusan 2nd phase BTL",
+      "docStatus": "Cancelled",
+      "isdocSelected": false,
+      "docType": "Realization",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103990"
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Sourcing/Transition - Direct"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    },
+
+    {
+      "docName": "Safety Shoe Compete and Negotiation",
+      "docStatus": "Savings Tracking",
+      "isdocSelected": false,
+      "docType": "Realization",
+      "docLink": "landing",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Submit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Project Id: 103973 "
+        },
+        {
+          "datakey": "summary",
+          "value": "Project Type: Negotiation"
+        },
+        {
+          "datakey": "",
+          "value": "Approval Required"
+        },
+        {
+          "datakey": "",
+          "value": "Adam Douglas"
+        },
+        {
+          "datakey": "Duration to Product Launch",
+          "value": "Due today"
+        }
+      ]
+    }   
+  ]
+}

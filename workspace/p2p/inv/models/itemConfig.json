@@ -1,0 +1,484 @@
+{
+	"data": [{
+		"field": "lineNumber",
+		"width": 110,
+		"displayName": "Line Number",
+		"isFixed": "Left",
+		"isVisible": true,
+		"isReadOnly": true,
+		"autoIncrement": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable",
+		"attributes": {
+			"type": "number"
+		}
+	}, {
+		"field": "lineType.key",
+		"width": 120,
+		"displayName": "Line Type",
+		"isFixed": "Left",
+		"isVisible": true,
+		"isReadOnly": false,
+		"autoIncrement": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "itemNumber",
+		"width": 150,
+		"displayName": "Item Number",
+		"isFixed": "Left",
+		"isVisible": true,
+		"isReadOnly": true,
+		"autoIncrement": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"cellTemplate": "<div class='ui-grid-cell-container-with-icons'><span class='ui-grid-cell-container-name truncate'>{{row.entity.itemNumber}}</span><a class='ui-grid-cell-container-icons' href='javascript:void(0)' ng-click='grid.appScope.$parent.$parent.$parent.showExcTypePopupCallBack()'><i class='icon iconSmall blue-text' smart-tooltip message='Exception Type' position='bottom' delay='50'><svg><use xlink:href='#icon_Warning'></use></svg></i></a></div>"
+	}, {
+		"field": "description",
+		"width": 200,
+		"displayName": "Description",
+		"isFixed": "Left",
+		"isVisible": true,
+		"isReadOnly": false,
+		"autoIncrement": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "supplierName.name",
+		"width": 150,
+		"displayName": "Supplier Name",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "supplierItemNumber",
+		"width": 190,
+		"displayName": "Supplier Item Number",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+      "field": "po.number",
+      "width": 200,
+      "displayName": "PO Line Number",
+      "isVisible": true,
+      "isReadOnly": false,
+      "isRegFocusCol": true,
+      "filterObject": {
+          "enableFiltering": true
+      },
+      "type": "dropdown",
+      "attributes": {
+          "model": "po",
+          "dataKey": "number",
+          "options": [{
+              "id": 1,
+              "number": "Mark As New Item"
+          }, {
+              "id": 2,
+              "number": "Omeprazole DR Pellers 80 mg/g 1"
+          }]
+      }
+  },{
+		"field": "category.name",
+		"width": 150,
+		"displayName": "Category",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "popup",
+		"attributes": {
+			"type": "category",
+			"defaultTitle": "Select"
+		}
+	}, {
+		"field": "qtyEfforts",
+		"width": 150,
+		"displayName": "Quantity/Efforts",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable",
+		"attributes": {
+			"type": "number"
+		}
+	}, {
+		"field": "uom.name",
+		"name": "uom.name",
+		"width": 150,
+		"displayName": "UOM",
+		"isVisible": true,
+		"isRegFocusCol": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "dropdown",
+		"attributes": {
+			"model": "type",
+			"dataKey": "name",
+			"options": [{
+				"code": "EA",
+				"name": "Each"
+			}, {
+				"code": "ALL",
+				"name": "All"
+			}, {
+				"code": "Testing",
+				"name": "TE"
+			}]
+		}
+	}, {
+
+		"field": "startDate",
+		"width": 150,
+		"displayName": "Start Date",
+		"isMandatory": true,
+		"isVisible": true,
+		"attributes": {
+			"type": "date",
+			"format": "dd/MM/yyyy"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "endDate",
+		"width": 150,
+		"displayName": "End Date",
+		"isMandatory": true,
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable",
+		"attributes": {
+			"type": "date",
+			"format": "dd/MM/yyyy"
+		}
+	}, {
+		"field": "unitPrice",
+		"width": 150,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"displayName": "Unit Price (USD)",
+		"type": "editable",
+		"attributes": {
+			"type": "number"
+		}
+	}, {
+		"field": "taxes",
+		"width": 150,
+		"displayName": "Taxes (USD)",
+		"isRegFocusCol": true,
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"attributes": {
+			"type": "showTaxesPopupCallback",
+			"defaultTitle": "EXEMPT"
+		},
+		"type": "popup"
+	}, {
+		"name": "otherCharges",
+		"width": 175,
+		"displayName": "Other Charges (USD)",
+		"isVisible": true,
+		"attributes": {
+			"rule": "row.entity.unitPrice / 20",
+			"type": "number"
+
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "calculated"
+	}, {
+		"field": "shippingFreight",
+		"width": 210,
+		"displayName": "Shipping & Freight (USD)",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "accruedtaxes",
+		"width": 150,
+		"displayName": "Accrued Taxes (USD)",
+		"isRegFocusCol": true,
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"attributes": {
+			"type1": "showTaxesPopupCallback",
+			"defaultTitle": "0.00",
+			"type": "number"
+		},
+		"type": "popup"
+	}, {
+		"field": "total",
+		"width": 150,
+		"displayName": "Total (USD)",
+		"isVisible": true,
+		"attributes": {
+			"rule": "row.entity.unitPrice * row.entity.qtyEfforts",
+			"type": "number"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "calculated"
+	}, {
+		"field": "requestedDate",
+		"width": 160,
+		"displayName": "Requested Date",
+		"isVisible": false,
+		"attributes": {
+			"type": "date",
+			"format": "dd/MM/yyyy"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "needByDate",
+		"width": 160,
+		"displayName": "Need by Date",
+		"isVisible": true,
+		"attributes": {
+			"type": "date",
+			"format": "dd/MM/yyyy"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "shippingMethod",
+		"width": 160,
+		"displayName": "Shipping Method",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "shipTo.name",
+		"width": 210,
+		"displayName": "Ship to/Work Location",
+		"isVisible": true,
+		"isRegFocusCol": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "dropdown",
+		"attributes": {
+			"model": "type",
+			"dataKey": "name",
+			"options": [{
+				"code": "Mum",
+				"name": "Mumbai"
+			}, {
+				"code": "Hyd",
+				"name": "Hyderabad"
+			}, {
+				"code": "USA",
+				"name": "USA"
+			}]
+		}
+	}, {
+		"field": "shipTo.address",
+		"width": 210,
+		"displayName": "Ship to/Work Address",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "deliverTo",
+		"width": 160,
+		"displayName": "Deliver to",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "procurementOption",
+		"width": 210,
+		"displayName": "Procurement Option",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "inventoryType",
+		"width": 150,
+		"displayName": "Inventory Type",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "matching",
+		"width": 150,
+		"displayName": "Matching",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "supplierCode",
+		"width": 150,
+		"displayName": "Supplier Code",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "supplierContact",
+		"width": 150,
+		"displayName": "Supplier Contact",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "manufacturer",
+		"width": 180,
+		"displayName": "Manufacturer Name",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "manufacturerDetails",
+		"width": 230,
+		"displayName": "Manufacturer Details",
+		"isRegFocusCol": true,
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"attributes": {
+			"type": "manufatureDetailsCallback",
+			"defaultTitle": "EXEMPT"
+		},
+		"type": "popup"
+	}, {
+		"field": "manufacturerPartNumber",
+		"width": 230,
+		"displayName": "Manufacturer Datails",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "contractNumber",
+		"width": 150,
+		"displayName": "Contract Number",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "contractName",
+		"width": 150,
+		"displayName": "Contract Name",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "contractExpiryDate",
+		"width": 200,
+		"displayName": "Contract Expiry Date",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "contractValue",
+		"width": 150,
+		"displayName": "Contract Value",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "paymentTerms",
+		"width": 160,
+		"displayName": "Payment Terms",
+		"isVisible": false,
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "editable"
+	}, {
+		"field": "spLink",
+		"width": 230,
+		"displayName": "Standards/Procedures",
+		"isRegFocusCol": true,
+		"attributes": {
+			"type": "spLink",
+			"defaultTitle": "ADD S&P"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "popup"
+	}, {
+		"field": "addiInfo",
+		"width": 230,
+		"displayName": "Additional Information",
+		"isVisible": true,
+		"filterObject": {
+			"enableFiltering": false
+		},
+		"enableCellEdit": false,
+		"cellTemplate": "<a ui-sref='p2p.inv.additionalInfo({id: {{row.entity.lineNumber}} })'> <span ng-if='row.entity.lineNumber == 1'>Add</span>  <span ng-if='row.entity.lineNumber != 1'>Edit </span> ({{row.entity.additionaInformation.length}})</a>"
+	}, {
+		"field": "comment",
+		"width": 230,
+		"displayName": "Comments",
+		"isRegFocusCol": true,
+		"attributes": {
+			"type": "comment",
+			"defaultTitle": "Add Comments"
+		},
+		"filterObject": {
+			"enableFiltering": true
+		},
+		"type": "popup"
+	}]
+}

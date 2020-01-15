@@ -1,0 +1,98 @@
+<div class="projectsPopup">
+    <div class="modal-header">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_Edit"></use>
+            </svg>
+        </i>
+        <span class="title">{{activityPopupHeader}} </span>
+    </div>
+    <smart-scroll height="350px">
+        <div class="modal-content" ng-class="{'is-scrolled': true}">
+            <div class="model_body">
+                <div class="row">
+                    <smart-textfield label="Activity Name" class="col s6 m6 l6 input-field line-height-manager" ng-model="addEditActivityModel.existingData.activityName" type="text" is-mandatory="true" validate="validateActivity.activityName">
+                    </smart-textfield>
+                </div>
+                <div class="row">
+                    <smart-typeahead class="col s6 m6 l6 line-height-manager" multiselect="false" titleofmodel="Assignee" dataid="activityAssigneeFocus"
+                    show-lookup="true" ng-model="addEditActivityModel.assignedTo" on-blur="mAssigneeChngActivity(e)"
+                    options="addEditActivityModel.assignees" filterkeys="['name']" displayformat="{name}" label="Assignee" callback-on-icon-click="myTestCallback($event)" lookup-hide="mAssigneeChngActivity(e);toggleActPopup('activityAssigneeFocus');" lookup-open="onHideAddEditActivity(e)" is-mandatory="true"
+                    validate="validateActivity.assignedTo">
+                    </smart-typeahead>
+                    <smart-textfield label="E-mail" class="col s6 m6 l6 input-field line-height-manager" ng-model="addEditActivityModel.existingData.email" readonly="true" type="text">
+                    </smart-textfield>
+                </div>
+                <div class="row">
+                    <smart-textfield label="Begins by" class="col s6 m6 l6 input-field line-height-manager" ng-model="addEditActivityModel.existingData.beginDate" type="date" is-mandatory="true" validate="validateActivity.beginsBy">
+                    </smart-textfield>
+                    <smart-textfield label="Due by" class="col s6 m6 l6 input-field line-height-manager" ng-model="addEditActivityModel.existingData.dueBy" type="date" is-mandatory="true" validate="validateActivity.dueBy">
+                    </smart-textfield>
+                </div>
+                <div class="row">
+                    <smart-textfield label="Description" class="col s12 input-field" ng-model="addEditActivityModel.existingData.description" type="area" is-mandatory="true" validate="validateActivity.description">
+                    </smart-textfield>
+                </div>
+                <div class="row marginTop20" ng-if="!activityAttachmentAdded">
+                    <div class="col s12">
+                        <a href="javascript:void(0)" ng-click="addAttachmentsCallback('activity')">Add Attachments</a>
+                    </div>
+                </div>
+                <div class="row" ng-if="activityAttachmentAdded">
+                    <div class="col s12 marginTop25">
+                        <table class="bordered Table">
+                            <thead>
+                                <tr class="borderTopLight">
+                                    <th colspan="5" class="fontSize18">
+                                        ATTACHMENTS
+                                        <div class="right">
+                                            <a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+                                                <i class="icon left blue-text  marginRight0" smart-tooltip message="Add Attachments" position="bottom">
+                                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteAttachments()">
+                                                <i class="icon left blue-text">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th ng-class="{'filled-partial' : fillpartial == true }" width="50px">
+                                        <smart-checkbox class="paddingTop5" ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+                                    </th>
+                                    <th>{{ 'Name' || translate }}</th>
+
+                                    <th>{{ 'Created By' || translate }}</th>
+
+                                    <th>{{ 'Created On' || translate }}</th>
+                                    <th>{{ 'Shared with' || translate }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in attachments track by $index">
+                                    <td>
+                                        <smart-checkbox class="paddingTop5" ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+                                    </td>
+                                    <td><a href="javascript:void(0);">{{x.name}}</a></td>
+                                    <td> {{x.createdBy}} </td>
+                                    <td> {{x.uploadDate}} </td>
+                                    <td> {{x.sharedWith}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </smart-scroll>
+        <div class="modal-footer is-scrolled">
+            <div class="clearfix">
+                <smart-button flat="true" class="right" ng-click="addNewActivity(addEditActivityModel, attachments)" config='{"title":"SAVE"}'></smart-button>
+                <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+            </div>
+        </div>
+</div>
+

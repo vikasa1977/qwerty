@@ -1,0 +1,38 @@
+.login-wrapper { background: #0067b0; margin-bottom: 0; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+.container-left, .container-right { padding-top: 15px; }
+.container-right { position: fixed; right: 0; top: 0; bottom: 0; z-index: 1; background: #fff; }
+.brand-logo-container { margin-top: 15px; }
+.brand-icon { background: url(../images/workspace-icon.png) no-repeat; height: 137px; width: 137px; display: block; position: absolute; left: 25%; top: 50%; margin-left: -68.5px; margin-top: -68.5px; }
+.log-in-footer-wrapper { position: fixed; bottom: 13px; left: 0.75rem; color: #fff; font-size: 12px; }
+.log-in-footer-wrapper a { color: #fff; }
+.login-form-container { position: absolute; top: 50%; left: 0; right: 0; bottom: 0; transform: translateY(-50%);}
+.login-form-container .input-field label {opacity: 0.8;}
+.login-form-container .input-field input:focus { color: #000; }
+.login-form-container .row { margin-bottom: 31px; }
+.logo-container { margin-bottom: 12px; color: #1973b4; }
+.logo-container h1 { font-size: 2.4rem; margin: 0; }
+.logo-container h6 { font-size: 1.3rem; word-spacing: 2px; margin: 5px 0 0 0; }
+.container-right .brand-logo-container { background: #0067b0; padding: 10px; margin-top: 0; position: relative; }
+/* FLAD DROP DOWN */
+.flag-button { float: right; margin: 20px 0 0 0; color: #000; display: block; min-width: 161px; border-bottom: 1px solid #e0e0e0; padding-bottom: 7px; line-height: 12px; }
+.flag-button .drop-arrow { position: relative; height: 11px; width: 10px; overflow: hidden; }
+.flag-button .drop-arrow:before { content: ""; border-color: transparent; border-width: 5px; border-top-color: #727272; border-top-width: 6px; height: 0; border-style: solid; position: relative; bottom: -13px; }
+.collection-item .flag-icon { margin-top: 6px; }
+#multi-language ul li.selected { color: #000;font-weight:bold; }
+#multi-language { right: 20px!important; }
+.flag-icon-background { background-size: contain; background-position: 50%; background-repeat: no-repeat; }
+.flag-icon { background-size: contain; background-position: 50%; background-repeat: no-repeat; position: relative; display: inline-block; width: 16px; height: 11px; }
+.flag-icon.flag-icon-squared { width: 1em; }
+.flag-icon-cn { background-image: url(../images/cn.svg); }
+.flag-icon-cz { background-image: url(../images/cz.svg); }
+.flag-icon-de { background-image: url(../images/de.svg); }
+.flag-icon-dk { background-image: url(../images/dk.svg); }
+.flag-icon-es { background-image: url(../images/es.svg); }
+.flag-icon-fr { background-image: url(../images/fr.svg); }
+.flag-icon-jp { background-image: url(../images/jp.svg); }
+.flag-icon-pl { background-image: url(../images/pl.svg); }
+.flag-icon-pt { background-image: url(../images/pt.svg); }
+.flag-icon-se { background-image: url(../images/se.svg); }
+.flag-icon-us { background-image: url(../images/us.svg); }
+.flag-icon-it { background-image: url(../images/it.svg); }
+.flag-icon-ru { background-image: url(../images/ru.svg); }

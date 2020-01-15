@@ -1,0 +1,50 @@
+﻿.panelBox { padding: 0; }
+.panelBox-withSpace { padding: 1.429rem 1.714rem;}
+.panelBox-content {		
+	background: #fff;	    
+	transition: box-shadow .25s;
+	border-radius: 0.1429rem;
+	margin: 0.5rem 0 1rem 0; 
+}
+.panelBox-header {		
+	border-bottom: 1px solid #e0e0e0;
+	padding:  0.9rem 0.75rem;		
+	line-height: 2.643rem;
+	min-height:64px;
+	.select-wrapper{
+		.caret{line-height:1rem;}
+		input{
+			&.select-dropdown{border-bottom:none;}
+			}
+	}
+}
+.panelBox-header-fixed-to-nav {
+  top: 92px;
+}
+.panelBox-secondary-header-fixed-to-nav {
+  top: 150px;
+}
+.panelBox-header--title { font-size: 1.143rem; }
+.panelBox-header--action { 
+    float:right; 
+    margin:0;
+}
+.panelBox-header--aLink {
+    display:inline-block; 
+    padding:0 10px;
+}
+.panelBox-body {
+	position: relative;		
+	padding: 0.9rem ;
+}
+.panelBox-footer {
+	border-top: 1px solid #e0e0e0;
+	padding:0.6rem 0.7143rem;
+	margin-bottom:0;
+}
+.panelBox-field { margin-bottom:2.143rem;}
+.panelBoxWithBorder{
+	border:1px solid #e0e0e0;
+	@include boxShadow(0 0 4px #c7c7c7);
+}
+

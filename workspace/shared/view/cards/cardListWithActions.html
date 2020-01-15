@@ -1,0 +1,91 @@
+<script type="text/ng-template" id="rejectByERPTemplate.html">
+    <div class="padding10" style="min-width: 300px;">
+        <span class="grayed-text">Date and Time: </span><span>4 Jul 2008 12:01:54</span><br />
+        <span class="grayed-text">Rejection Reason: </span><span>Document</span><br />
+        <span>Rejected by ERP due to special character in ship to field, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+    </div>
+</script>
+
+<i class={{setValueColor(item.docType)}} ng-if="listDisplayConfig.showIcon" ng-class="setIconColor($index, parentDivIndex)">
+    <img ng-src="shared/resources/images/logo-{{$index+1}}.png" ng-if="eachCardContent.translatedGroupname == 'punchout'" />
+    <svg ng-if="eachCardContent.translatedGroupname != 'punchout'" smart-tooltip message="{{item.status || translate}}" position="bottom">
+        <use xlink:href={{setValue(item.docType)}}></use>
+    </svg>
+</i>
+
+
+<a href="javascript:void(0)" class="lineHeight15 title displayBlock" ng-click="goToDocumentDetail(item.docUrl)">
+    <span title="{{item.docName}}">{{item.docName || translate}}</span>
+    <p ng-if="eachCardContent.groupName != 'Drafts' && eachCardContent.groupName != 'FollowUp' && eachCardContent.groupName != 'pendingacceptance' && eachCardContent.groupName != 'Awarding' && eachCardContent.groupName != 'Approved' && eachCardContent.groupName != 'Awarded' && eachCardContent.groupName != 'ApprovalPending' && eachCardContent.groupName != 'Closed' && eachCardContent.groupName != 'ScoringInProgress'">
+        <span class="displayInlineBlock" ng-show="item.status">{{item.status || translate}}</span> <span class="displayInlineBlock" ng-show="item.system"> | {{item.system || translate}}</span>
+        <span ng-if="item.erpStatus == 'rejected'" class="displayInlineBlock">
+            | <span class="materialize-red-text cursorPointer interface-status-wrap padding0" smart-infotip position="right" is-fixed="true" template-url="rejectByERPTemplate.html"><span> Rejected by ERP</span><i class="icon small grey-text"><svg><use xlink:href="#icon_Info"></use></svg></i></span>
+        </span>
+    </p>
+    <p ng-if="eachCardContent.groupName === 'order'">
+        <span ng-repeat="attrib in item.attributes | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index"> {{attrib.key || translate}}: {{attrib.value || translate}} <span class="displayInlineBlock padding0" ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>  </span>
+    </p>
+</a>
+
+<span class="title clearfix" ng-if="eachCardContent.translatedGroupname == 'Drafts' || eachCardContent.translatedGroupname == 'Pending Acceptance' || eachCardContent.translatedGroupname == 'Pending Acceptance' || eachCardContent.translatedGroupname == 'unprocessed requisitions'">{{item.docNumber || translate}} </span>
+
+
+<div ng-if="eachCardContent.translatedGroupname == 'Drafts' || eachCardContent.translatedGroupname == 'Follow Up' || eachCardContent.translatedGroupname == 'Pending Acceptance'">
+    <p ng-if="eachCardContent.translatedGroupname != 'order'">
+
+        <span ng-repeat="attrib in item.attributesSupplier | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index">
+
+            {{attrib.key || translate}} {{attrib.value || translate}} <span ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>
+        </span>
+    </p>
+
+    <p>
+        <span ng-repeat="attrib in item.attributes | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index">
+
+            {{attrib.key || translate}} {{attrib.value || translate}} <span ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>
+        </span>
+    </p>
+</div>
+
+<p ng-if="eachCardContent.translatedGroupname == 'catalog'">
+    <span ng-repeat="attrib in item.attributes | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index">  {{attrib.value || translate}} <span ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>  </span>
+</p>
+<p ng-if="eachCardContent.translatedGroupname == 'punchout'">
+    <span>IT/Telecom</span>
+</p>
+
+<p ng-if="eachCardContent.translatedGroupname != 'catalog' && eachCardContent.translatedGroupname != 'supplier' && eachCardContent.translatedGroupname != 'punchout' && eachCardContent.translatedGroupname != 'Drafts' && eachCardContent.translatedGroupname != 'Follow Up' && eachCardContent.translatedGroupname != 'Pending Acceptance' && eachCardContent.groupName != 'order' && eachCardContent.groupName != 'recent documents'">
+    <span ng-repeat="attrib in item.attributes | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index">
+        {{attrib.key || translate}} : {{attrib.value || translate}} 
+        <span ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>  
+    </span>
+</p>
+
+<p ng-if="eachCardContent.groupName === 'recent documents'">
+    <span ng-repeat="attrib in item.attributes | limitTo:listDisplayConfig.importantAttribLimit" ng-init="separatorIndex = $index"> {{attrib.key || translate}} : {{attrib.value || translate}}  </span><br />
+    <span>Last Accessed: {{item.lastModifiedTime}}</span>
+</p>
+
+<p ng-if="eachCardContent.translatedGroupname === 'supplier'">
+    <span ng-repeat="attrib in item.attributes" ng-init="separatorIndex = $index"> {{attrib.key || translate}}  {{attrib.value || translate}} <span ng-if="separatorIndex<listDisplayConfig.importantAttribLimit-1">|</span>  </span>
+</p>
+
+<div ng-if="eachCardContent.groupName != 'punchout' && eachCardContent.groupName != 'order' && eachCardContent.groupName != 'project'">
+    <div class="secondary-content" ng-if="listDisplayConfig.showAction && item.actions.length > 0" ng-init="actionUniqueID=actionElementID()">
+        <smart-dropdown config="{{dropDownConfig}}">
+            <a href="javascript:void(0);" class="dropdown-button" data-activates='{{actionUniqueID}}'>
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_MenuKebab"></use>
+                    </svg>
+                </i>
+            </a>
+            <ul id='{{actionUniqueID}}' class='dropdown-content dd-close-off'>
+                <li ng-repeat="eachAction in item.actions track by $index" ng-click="actionSelectedCallback(eachAction)"><a>{{eachAction.key || translate}}</a></li>
+                <li class="divider"></li>
+            </ul>
+        </smart-dropdown>
+    </div>
+</div>
+
+

@@ -1,0 +1,152 @@
+<div class="summaryPanelContainer" ng-if="showSummaryPanel">
+    <div class="row marginBottom0 summaryPanel fullPanel highRisk">
+        <smart-global-loader ng-show="supplierIncoLineLoader" config="supplierLineLoaderFlag"></smart-global-loader>
+        <div class="center projectStatus summaryWrapper" ng-class="{'projectStatusFixed':minimizePanel}" ng-click="collapseView(minimizePanel)">
+           <div class="sectionActivePhase"></div>
+            <div class="icon-centered savedSection">
+                <a class="white-text" ng-class="{'expand':minimizePanel}">
+                    <i class="icon iconSmall dirArrow ng-scope"><svg><use xlink:href="#icon_DownChevron"></use></svg></i>
+
+                </a>
+                <i class="center icon white-text marginTop12" position="bottom" ng-class="{'state-icon':minimizePanel , 'marginTop90':!minimizePanel}">
+                    <svg ng-if="selectedPhase.code == 'ID'"><use xlink:href="#icon_Ideation"></use></svg>
+                    <svg ng-if="selectedPhase.code == 'EX'"><use xlink:href="#icon_Execution"></use></svg>
+                    <svg ng-if="selectedPhase.code == 'REL'"><use xlink:href="#icon_Realization"></use></svg>
+                </i>
+            </div>
+
+        </div>
+        <div class="col s12 relative marginBtm3">
+            
+            <div class="col firstContainer projectFieldsContainer" ng-class="{'projectFieldsContainerCollapsed':minimizePanel, 'paddingTop10': !minimizePanel}">
+                <div class="row marginBtm0 projectSummaryPanel">
+                    <div class="col m3 xl3 xxl3 paddingLeft0 marginTopN16">
+                        <smart-select class="col s10 line-height-manager input-field projectPhase" label="" ng-model="$parent.selectedPhase" options="$parent.phasesOptions" datakey="phase" is-mandatory="true" on-change="$parent.phaseChangeCallback(selectedPhase)"></smart-select>
+                        <div class="left fontSize14 grey-text riskMessage">Due today</div>
+                    </div>
+                    <div class="col m3 xl3 xxl3">
+                        <smart-select class="col s10 line-height-manager input-field marginBtm0" label = "Status" ng-model="projectStatus" options="projectStatusOptions" datakey="status" is-mandatory="true"></smart-select>
+                    </div>
+                    <!--<smart-textfield class="col m3 xl3 xxl2 line-height-manager input-field" label="Status" ng-model="projectStatus" readonly="true"></smart-textfield>-->
+                    <div class="col m3 xl3 xxl3">
+                        <!--<smart-textfield class="col s7 line-height-manager input-field marginBtm0" showinfo="Info Message Here�" label="Currency" ng-model="currency" readonly="true"></smart-textfield>-->
+                        <div class="col s6 left line-height-manager input-field">
+                            <label class="active" style="min-width: 150px;">Currency</label>
+                            <span class="readonly-value-manager left">{{currency}}</span>
+                            <i class="left icon blue-text marginTop13 paddingLeft7" smart-infotip is-fixed="true" message="Project currency selected is same as base currency" position="bottom">
+                                <svg><use xlink:href="#icon_Info"></use></svg>
+                            </i>
+                        </div>
+                        
+                    </div>
+                    <div class="col m3 xl3 xxl3">
+                        <div class="col s6 left line-height-manager input-field">
+                            <label class="active" style="min-width: 150px;">Review Status</label>
+                            <span class="readonly-value-manager">{{status}}</span>
+                        </div>
+                        <!--<a href="javascript:void(0)">
+                            <i class="icon marginRight0 blue-text" smart-tooltip message="Review Status" position="bottom">
+                                <svg><use xlink:href="#icon_ReviewStatus"></use></svg>
+                            </i>
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col projectFieldsContainer" ng-class="{'marginBtm2' : minimizePanel }">
+                <div class="row paddingBtm9" ng-class="{'projectSummaryPanel noBorder' : minimizePanel , 'marginBtm0' : !minimizePanel}">
+                    <div class="col m3  xl3 xxl3">
+                        <smart-select class="col s10 line-height-manager input-field paddingLeft0 marginBtm0 marginTop0 projectPhase" label="" ng-model="$parent.selectedPhase" options="$parent.phasesOptions" datakey="phase" is-mandatory="true" on-change="$parent.phaseChangeCallback(selectedPhase)" ng-show="minimizePanel"></smart-select>
+                        <div class="paddingTop8">
+                            <div class="fontSize12 fiscalYearText" ng-if="!minimizePanel">
+                                Fiscal Year Savings
+                            </div>
+                            <div class="fontSize14 fiscalText" ng-class="{'fiscalTextCollapsed': minimizePanel}">USD 700K</div>
+                            <div class="grey-text fontSize12 fiscalLabel" ng-class="{'fiscalLabelCollapsed': minimizePanel}">
+                                <div class="left">FY 2017 : $110k</div>
+                                <i class="icon marginLeft10 blue-text" smart-infotip is-fixed="true" template-url="fiscalYearTemplate.html" position="right">
+                                    <svg><use xlink:href="#icon_Info"></use></svg>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col m3  xl3 xxl3 paddingLeft0" ng-class="{'paddingTop10' : minimizePanel, 'paddingTop5' : !minimizePanel}">
+                        <div class="left progressWrap highRisk" ng-class="{'activeStroke' : selectedPhase.code == 'ID' ,'completedStroke': selectedPhase.code == 'EX' || selectedPhase.code == 'REL'}">
+                            <i ng-class="selectedPhase.code == 'EX' || selectedPhase.code == 'REL'? 'iconCompleted' : 'iconActive'">
+                                <svg><use xlink:href="#icon_Ideation"></use></svg>
+                            </i>
+                            <progress-meter percent="100"></progress-meter>
+                        </div>
+                        <div class="savingsText">
+                            <div class="fontSize12">Estimated Savings</div>
+                            <div class="fontSize14"><a href="javascript:void()" ng-click="goTO('estimated')">USD 2000K</a></div>
+                            <div class="grey-text fontSize12">100% of USD 2000K Spend</div>
+                        </div>
+                    </div>
+                    <div class="col m3 xl3 xxl3 paddingLeft0" ng-class="{'paddingTop10' : minimizePanel, 'paddingTop5' : !minimizePanel}">
+                        <div class="left progressWrap highRisk" ng-class="{'notStartedStroke' : selectedPhase.code == 'ID','activeStroke' : selectedPhase.code == 'EX', 'completedStroke': selectedPhase.code == 'REL'}">
+                            <i ng-class="{iconNotStarted:selectedPhase.code == 'ID',iconActive:selectedPhase.code == 'EX', iconCompleted:selectedPhase.code == 'REL'}">
+                                <svg><use xlink:href="#icon_Execution"></use></svg>
+                            </i>
+                            <progress-meter percent="100"></progress-meter>
+                        </div>
+                        <div class="savingsText">
+                            <div class="fontSize12">Negotiated Savings</div>
+                            <div ng-if="(selectedPhase.code == 'ID' || selectedPhase.code == 'REL') && !isActiveNSavings">
+                                <div class="grey-text fontSize14">NOT STARTED</div>
+                                <div class="fontSize14">&nbsp;</div>
+                            </div>
+                            <div ng-if="isActiveNSavings">
+                                <div class="fontSize14"><a href="javascript:void()" ng-click="goTO('negotiated')">USD 2010K</a></div>
+                                <div class="grey-text fontSize12">80% of USD 2010K Spend</div>
+                            </div>
+                            <div class="fontSize14" ng-if="selectedPhase.code == 'EX' && !isActiveNSavings"><a href="javascript:void()" ng-click="activateNegotiatedSavings()">{{"ADD SAVING" || translate}}</a></div>
+                        </div>
+                    </div>
+                    <div class="col m3  xl3 xxl3 paddingLeft0 paddingRight0" ng-class="{'paddingTop10' : minimizePanel, 'paddingTop5' : !minimizePanel}">
+                        <div class="left progressWrap highRisk" ng-class="{'notStartedStroke' : selectedPhase.code == 'ID' || selectedPhase.code == 'EX','activeStroke' : selectedPhase.code == 'REL'}">
+                            <i ng-class="selectedPhase.code == 'REL' ? 'iconActive':'iconNotStarted'">
+                                <svg><use xlink:href="#icon_Realization"></use></svg>
+                            </i>
+                            <progress-meter percent="100"></progress-meter>
+                        </div>
+                        <div class="savingsText">
+                            <div class="fontSize12">Realized Savings</div>
+                            <div ng-if="(selectedPhase.code == 'EX' || selectedPhase.code == 'ID') && !isActiveRSavings">
+                                <div class="grey-text fontSize14">NOT STARTED</div>
+                                <div class="fontSize14">&nbsp;</div>
+                            </div>
+                            <div ng-if="isActiveRSavings">
+                                <div class="fontSize14"><a href="javascript:void()" ng-click="goTO('realized')">USD 2000K</a></div>
+                                <div class="grey-text fontSize12">90% of USD 2000K Spend</div>
+                            </div>
+                            <div class="fontSize14" ng-if="selectedPhase.code == 'REL' && !isActiveRSavings"><a href="javascript:void()" ng-click="activateRealizedSavings()">{{"ADD SAVING" || translate}}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 relative marginLeft55" ng-show="!minimizePanel" ng-class="{'marginBtm10': !commentStatusActive, 'marginBtm25': commentStatusActive}">
+            <div class="projectStatusUpdate">
+                <div class="left">{{"Status Update:" || translate}}</div>
+                <div class="left" ng-if="commentStatusActive">
+                    <div class="left paddingLeft5">
+                        <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">
+                            <span class="commentStatus truncate" title="Project is going to move into execution phase soon.">{{"Project is going to move into execution phase soon." || translate}}</span>
+                        </a>
+                    </div> 
+                    <div class="right marginRight20">
+                        <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">
+                            <i class="icon grey-text" smart-tooltip position="bottom" message="Attachments">|<svg><use xlink:href="#icon_Attachment"></use></svg></i><span>Attachment 1 + 4 more</span>
+                        </a>
+                    </div>
+                    <div class="paddingLeft5 fontSize12 commentDetails">Lucy Star, 21/05/2017, 2.00 pm</div>
+                </div>
+                <div class="left" ng-if="!commentStatusActive">
+                    <div class="paddingLeft5">
+                        <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">{{"None" || translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

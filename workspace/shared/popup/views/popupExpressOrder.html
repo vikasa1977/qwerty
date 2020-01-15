@@ -1,0 +1,131 @@
+<div class="scrollableModel" ng-controller="expressOrderPopupCtrl">
+    <div class="modal-header">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_CartQuick"></use>
+            </svg>
+        </i>
+		<!--<span class="title">{{'EXPRESS PURCHASE ORDER' || translate}}</span>-->
+		<span class="title">{{popupTitle|| translate}}</span>        
+    </div>
+    <div class="modal-content padding0"><!-- temporary height povided as directive scroll height is not working -->
+        <div class="addField">
+            <div class="row clearfix">
+                <i class="icon iconSmall center grey-text">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+                <span class="expressText">Paste in products and quantities to add them to your {{popupType|| translate}}</span>
+            </div>
+            <div class="row clearfix">
+                <smart-textfield label="" placeholder="{{'Please enter Item Number, Quantity, UOM)'|| translate}}" class="left addField-inputHolder addField-focusColor paddingRight15 marginRight0"></smart-textfield>
+                <smart-button ng-click="" config='addBtnConfig' class="right marginTop3"></smart-button>
+            </div>
+        </div>
+		<div style="height:280px;">
+			<smart-scroll height="280px"  class="clearfix clear scrollToEnd" is-fixed-header="true">
+				<table class="bordered highlight">
+					<thead>
+						<tr>
+							<th class="right-align">{{'Item Number'|| translate}}</th>
+							<th class="left-align">{{'Description'|| translate}}</th>
+							<th class="left-align">{{'Supplier'|| translate}}</th>
+							<th class="right-align">{{'Unit Price (USD)'|| translate}}</th>
+							<th class="right-align">{{'Qty'|| translate}}</th>
+							<th class="left-align">{{'UOM'|| translate}}</th>
+							<th class="right-align">{{'Total (USD)'|| translate}}</th>
+							<th class="left-align">&nbsp;</th>
+							
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr ng-repeat="expressList in expressLists" ng-class="{'isLast': $last}" id="{{$index}}">
+							<td class="right-align">
+								<smart-dropdown config="{{dropdownconfig}}">
+									<a href="javascript:void(0);" class='dropdown-button' data-activates="itemNumber_{{$index}}" smart-tooltip message="{{expressList.itemNumber || 'Add Number' || translate}}" position="bottom" delay="50">{{expressList.itemNumber || 'Add Number' || translate | limitTo: 10}}</a>
+									<div id='itemNumber_{{$index}}' class='dropdown-content dd-close-off'>
+										<div class="row">
+											<smart-textfield label="" ng-model="expressList.itemNumber" placeholder="Add Number" decimalprecision="100" maxlength="10" class="col s12 right-align"></smart-textfield>
+										</div>
+									</div>
+								</smart-dropdown>
+							</td>
+							<td class="left-align">
+								<smart-dropdown config="{{dropDownConfig}}">
+									<a href="javaScript:void(0);" class='dropdown-button' data-activates='ItemName_{{$index}}' smart-tooltip message="{{expressList.name || 'Add Name' || translate}}" position="bottom" delay="50">{{expressList.name || 'Add Name' || translate | limitTo: 20 }}<span ng-if="expressList.name.length > 20">...</span> </a>
+									<div id='ItemName_{{$index}}' class='dropdown-content dd-close-off'>
+										<div class="row">
+											<smart-textfield label="" ng-model="expressList.name" placeholder="Add Name" decimalprecision="100" maxlength="100" class="col s12"></smart-textfield>
+										</div>
+									</div>
+								</smart-dropdown>
+
+							</td>
+							<td class="left-align">
+                                <!--{{expressList.supplier || translate}}-->
+                                <smart-dropdown config="{{dropDownConfig}}">
+                                    <a href="javaScript:void(0);" class='dropdown-button' data-activates='SuppName_{{$index}}' smart-tooltip message="{{expressList.supplier || 'Add Supplier' || translate}}" position="bottom" delay="50">{{expressList.supplier || 'Add Supplier' || translate | limitTo: 20 }}<span ng-if="expressList.supplier.length > 20">...</span> </a>
+                                    <div id='SuppName_{{$index}}' class='dropdown-content dd-close-off'>
+                                        <div class="row">
+                                            <smart-textfield label="" ng-model="expressList.supplier" placeholder="Add Name" decimalprecision="100" maxlength="100" class="col s12"></smart-textfield>
+                                        </div>
+                                    </div>
+                                </smart-dropdown>
+                            </td>
+							<td class="right-align">{{expressList.unitPrice || translate}}</td>
+							<td class="right-align">
+								<smart-dropdown config="{{dropDownConfig}}">
+									<a href="javaScript:void(0);" class='dropdown-button' data-activates='ItemQty_{{$index}}' smart-tooltip message="{{expressList.qty || 'Add qty' || translate | limitTo: 5}}" position="bottom" delay="50">{{expressList.qty || 'Add Qty' || translate}}</a>
+									<div id='ItemQty_{{$index}}' class='dropdown-content dd-close-off'>
+										<div class="row">
+											<smart-textfield label="" ng-model="expressList.qty" placeholder="Qty" decimalprecision="100" maxlength="5"  class="col s12 right-align"></smart-textfield>
+										</div>
+									</div>
+								</smart-dropdown>
+							</td>
+							<td class="left-align">
+								<smart-dropdown config="{{dropDownConfig}}">
+									<a href="javaScript:void(0);" class='dropdown-button' data-activates='ItemUOM_{{$index}}' smart-tooltip message="{{expressList.uom || 'Add UOM' || translate| limitTo: 15}}" position="bottom" delay="50">{{expressList.uom || 'Add UOM' || translate}}</a>
+									<div id='ItemUOM_{{$index}}' class='dropdown-content dd-close-off'>
+										<div class="row">
+											<smart-textfield label="" ng-model="expressList.uom" placeholder="UOM" decimalprecision="100" maxlength="15" class="col s12"></smart-textfield>
+										</div>
+									</div>
+								</smart-dropdown>
+
+
+							</td>
+							<td class="right-align">{{expressList.total || translate}}</td>
+							<td class="right-align" width="100px">
+                                <a href="javaScript:void(0);" class="right marginLeft10" ng-if="expressList.actionIconAdd" ng-click="addRow(expressList, 'itemNumber')">
+                                    <i class="icon iconSmall" id="addNew" smart-tooltip position="bottom" delay="50" message="{{'Add'|| translate}}">
+                                        <svg>
+                                            <use xlink:href="#icon_CirclePlus"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+								<a href="javaScript:void(0);" class="left" ng-if="expressList.actionIconDelete" ng-click="removeRow()">
+									<i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}">
+										<svg>
+											<use xlink:href="#icon_TrashCan"></use>
+										</svg>
+									</i>
+								</a>
+                                
+							</td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</smart-scroll>
+		</div>
+
+    </div>
+    <div class="modal-footer is-scrolled">        
+		<smart-button flat="true" class="modal-close" ng-click="createReq(e)" ng-show="req" config='createReqBtnConfig'></smart-button>
+        <smart-button flat="true" class="modal-close" ng-click="createOrder(e)" ng-show="!req" config='createOrderBtnConfig'></smart-button>
+        <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+    </div>
+</div>
+
+

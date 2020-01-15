@@ -1,0 +1,62 @@
+<div>
+    <div class="modal-header">              
+        <span class="title">{{ 'Select Dispatch Mode' || translate }} </span>
+    </div>
+    <div class="modal-content padding0"  ng-class="{'is-scrolled': true}">
+        <div class="model_body">    
+            <!--<smart-list model="{{resendOptionList}}"
+                        style-class="collection noBorder is-overflowHidden"
+                        item-class="collection-item"
+                        template="radioResendOptionList.html" height="250px">
+            </smart-list>--> 
+            <ul class="collection noBorder">
+                <li class="collection-item" ng-repeat="item in resendOptionList">
+                    <div class="clearfix">
+                        <div class="left">
+                            <input class="with-gap" type="radio" ng-model="$parent.selectedOption.id" ng-change="resendOptionChange(item)" name="selectOption" ng-value="item.title" id="resendOption-{{ $index }}">
+                            <label for="resendOption-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.title  || translate }}</label>
+                        </div>
+
+                        <i class="icon iconSmall blue-text left marginLeft10 marginTop2" ng-if="item.showInfo" smart-infotip position="bottom" message="{{item.infoMsg}}" delay="50" is-fixed="true">
+                            <svg>
+                                <use xlink:href="#icon_Info"></use>
+                            </svg>
+                        </i>
+                <div class="collection-item" ng-if="item.showEmail && isEmailActive">
+                    
+                        <smart-textfield label="Email" rules="{{emailRules}}" ng-model="emailIddispatch" class="col s12"></smart-textfield>
+                   
+                </div>
+</div>
+                </li>
+
+                <li class="collection-item" ng-if="isFaxActive">
+                    <div class="row">
+                        <smart-textfield label="Fax Number" is-mandatory="true" ng-model="faxNum" class="col s12"></smart-textfield>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer paddingLeft8"  ng-class="{'is-scrolled': true}">
+        <div class="clearfix">  
+            <smart-button flat="true" class="modal-close right" config='{"title":"DONE"}' ng-click="resendOptionSend()"></smart-button>
+            <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}' ng-click="resendOptionCancel()"></smart-button>
+                       
+        </div>
+    </div>
+</div>
+
+
+
+<script id="radioResendOptionList.html" type="text/ng-template"> 
+    <div item="{{item}}" class="clearfix">
+        <div class="savedViews">
+			<input class="with-gap" type="radio" ng-model="selectedOption.checked" ng-change="resendOptionChange(selectedOption)" name="selectSaveView" ng-value="item.title" id="resendOption-{{ $index }}">
+			<label for="resendOption-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.title  || translate }}</label>			
+		</div>       
+    </div>
+</script>
+
+
+

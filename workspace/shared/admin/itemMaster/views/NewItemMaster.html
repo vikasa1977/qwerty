@@ -1,0 +1,54 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{'Item Master' || translate | uppercase}}</span>
+            </div>
+       
+            </div>
+     </div>
+
+
+<!-- body -- form widget -->
+<div class="row smartFormWidgetContainer marginBtm40 adminItemMasterWrapper" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader }">
+    <smart-form-widget form-config="config" search-holder="formSearchDv" model-data="dataModel" widget-panel-top="115"></smart-form-widget>
+</div>
+
+<!-- footer -->
+<footer class="page-footer bounceInUp animated">
+    <div class="row">
+        <!--<div class="left-align col s3">
+            <smart-button flat="true" config='{"title":"Print Preview","allignRight":"true"}' disable="false" callback="showOrderPreview"></smart-button>
+        </div>-->
+        <div class="right-align col s12">
+            <smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false"></smart-button>
+            <smart-button flat="true" config='{"title":"SAVE","allignRight":"false"}' disable="false"></smart-button>
+            <!--<smart-button config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false" class="whiteSecondaryBtn marginRight10"></smart-button>
+            <smart-button config='{"title":"SUBMIT","allignRight":"false"}' disable="false" ng-click="submitReq()"></smart-button>-->
+        </div>
+
+    </div>
+</footer>
+
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<!-- popup -- attchments -->
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+<!-- popup -- manage approval  -->
+<smart-popup template-url="{{manageApprovalPopupPath}}" show='{{mngAppShow}}' on-hide="mngAppPopupOnHideCallback(e)" type="small"></smart-popup>
+<!-- popup -- track status -->
+<smart-popup template-url="{{trackStatusPopupUrl}}" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" expand-collapse="#trackStatusPopup" ></smart-popup>

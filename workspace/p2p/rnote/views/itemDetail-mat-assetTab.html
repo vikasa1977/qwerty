@@ -1,0 +1,191 @@
+<div id="tabAccounting">
+	<div class="col s12 padding10 borderBtmGray">
+		<div class="left paddingLeft10">
+			<smart-checkbox isfill="true" label="All"></smart-checkbox>
+		</div>
+	</div>
+	<div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col l3 m4 s6 requItemContainerLeft">
+				<div class="col s12">
+					<smart-checkbox class="left" isfill="true" label="1"></smart-checkbox>
+				</div>
+				<div class="col s12 marginTop10 marginBtm15">
+					<span class="title">Item Name</span>
+				</div>
+				<smart-textfield class="col s7" readonly label="Unit Price (USD)"></smart-textfield>
+				<smart-textfield class="col s5" readonly label="Quantity"></smart-textfield>
+
+				<div class="input-field col s12">
+					<a href="javascript:void(0)" class="dropdown-button" data-activates='addSplitt_{{$index}}' data-constrainwidth="false" data-alignment='right' smart-tooltip position="bottom" delay="50" message="Tag">
+						<i class="icon iconSmall blue-text">
+							<svg>
+								<use xlink:href="#icon_Split"></use></svg>
+						</i>
+						<span>Tag</span>
+					</a>
+					<ul id='addSplitt_{{$index}}' class='dropdown-content lookup-bulk-order lookup-popup'>
+						<li><span class="fontSize16">Tag</span></li>
+						<li>
+							<div class="row input-field marginTop10">
+								<div class="col s3">
+									<a href="javascript:void(0)" class="dd-close-off" smart-tooltip position="bottom" delay="50" message="Add">
+										<i class="icon iconSmall blue-text">
+											<svg>
+												<use xlink:href="#icon_CirclePlus"></use>
+											</svg>
+										</i>
+									</a>
+								</div>
+								<div class="col s6">
+									<div class="input-field dd-close-off">
+										<input value="3" id="Text30_{{$index}}" type="text">
+										<label for="Text30_{{$index}}" class="active">Number of Tags</label>
+									</div>
+								</div>
+								<div class="col s3">
+									<a href="javascript:void(0)" class="dd-close-off" smart-tooltip position="bottom" delay="50" message="Remove">
+										<i class="icon iconSmall blue-text">
+											<svg>
+												<use xlink:href="#icon_CircleMinus"></use>
+											</svg>
+										</i>
+									</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="right"><a href="javascript:void(0)" class="btn-flat waves-effect">DONE</a></div>
+							<div class="right"><a href="javascript:void(0)" class="btn-flat waves-effect">CANCEL</a></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col l9 m8 s6 padding0">
+				<div class="col s12 relative padding10 borderBtmGraye7">
+					<div class="right">LINE TOTAL: 
+						<smart-dropdown config="{{dropDownConfig}}">
+						<a href="javascript:void(0)" class="dropdown-button" data-activates='dropdownAUSD_{{$index}}' data-constrainwidth="false" data-alignment="right">USD 1000</a>
+								<ul id="dropdownAUSD_{{$index}}" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+					</li>
+					<li></li>
+				</ul>
+							</smart-dropdown>
+					</div>
+				</div>
+			
+				<div class="row">
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Category" ng-model="categoryName" readonly="true"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Manufacturer Name"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Manufacturer Part Number"></smart-textfield>
+				</div>
+			</div>
+		</div>
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col l3 m4 s6 requItemContainerLeft">
+				<smart-checkbox class="col s12" isfill="true" label="5"></smart-checkbox>
+				<div class="col s12 marginTop10 marginBtm15">
+					<span class="title">Item Name</span>
+				</div>
+				<smart-textfield class="col s7" readonly label="Unit Price (USD)"></smart-textfield>
+				<smart-textfield class="col s5" readonly label="Quantity"></smart-textfield>
+
+				<div class="input-field col s12">
+					<a href="javascript:void(0)" smart-tooltip position="bottom" delay="50" message="Tag">
+						<i class="icon iconSmall blue-text">
+							<svg>
+								<use xlink:href="#icon_Split"></use>
+							</svg>
+						</i>
+						<span>Tag : 3</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="col l9 m8 s6 padding0">
+				<div class="col s12 relative padding10" style="background-color: #e7e7e7;">
+					<div class="left">
+						<span>Tags <span>3</span></span>
+						<a href="javascript:void(0)" smart-tooltip position="bottom" delay="50" message="Add">
+							<i class="icon iconSmall blue-text">
+								<svg>
+									<use xlink:href="#icon_CirclePlus"></use>
+								</svg>
+							</i>
+						</a>
+						<a href="javascript:void(0)" smart-tooltip position="bottom" delay="50" message="Remove">
+							<i class="icon iconSmall blue-text">
+								<svg>
+									<use xlink:href="#icon_CircleMinus"></use>
+								</svg>
+							</i>
+						</a>
+					</div>
+					<div class="right">LINE TOTAL :
+						 <a href="javascript:void(0)" class="dropdown-button" data-activates='dropdownAUSD_split' data-constrainwidth="false" data-alignment="right">USD 1000</a>
+
+					</div>
+				</div>
+				<ul id="dropdownAUSD_split" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+					</li>
+					<li>
+						<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+					</li>
+					<li></li>
+				</ul>
+				<div class="row">
+					<div class="col s12 padding10">
+						<div class="left">
+							<span class="">Tag 1: Quantity </span>
+							<smart-textfield class="small-field" label=""></smart-textfield>
+						</div>
+						<smart-dropdown config="{{dropDownConfig}}">
+							<div class="right">
+								<span>Tag Value : <a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownUSD_Acc" data-constrainwidth="false" data-alignment="right">USD 1000</a></span>
+							</div>
+							<ul id="dropdownUSD_Acc" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+								</li>
+								<li></li>
+							</ul>
+						</smart-dropdown>
+					</div>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Serial Number" ng-model="srNo" readonly="true"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Asset Key" ng-model="assetKey" readonly="true"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Asset Location" ng-model="assetLoc" readonly="true"></smart-textfield>
+                    <smart-checkbox class="col s12 m6 l4 xl3 xxl2" fill="true" label='Asset Return'></smart-checkbox>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

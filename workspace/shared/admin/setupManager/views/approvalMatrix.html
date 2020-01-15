@@ -1,0 +1,117 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_setupApprovalMatrix"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Setup approval matrix</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="downloadTemplate()">
+                    <i class="icon iconSmall white-text" message="Download Template" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Download"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon"  ng-if="uploadApprovalMatrix.show">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="uploadAppMatrixCallback(e)">
+                    <i class="icon iconSmall white-text" message="Upload Approval Matrix" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Upload"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon"  ng-if="uploadApprovalMatrix.show">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="viewUploadLog(e)">
+                    <i class="icon iconSmall white-text" message="View Log" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_viewLog"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- aleart bar -->
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader, 'alert-bar-exist': (isApplyFilters || isSavedView || isUploadStatus)}" ng-if="uploadApprovalMatrix.show" ng-show="isApplyFilters || isUploadStatus">
+    <div id="uploadStatus" class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top paddingTop0" ng-if="isUploadStatus">
+        <div ng-if="isUploadinginProgess">
+            <span>{{uploadCount}} Uploads in progress</span>
+        </div>
+        <div ng-if="isUploadingDone">
+            <span>{{uploadInprogressCount}} In progress, {{uploadSuccessCount}} Success and {{uploadFailedCount}} Failed</span>
+            <div class="displayInlineBlock verticalAlignMiddle resetFilterButton">
+                <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row action-content-center center" ng-if="!uploadApprovalMatrix.show">
+    <div class="center action-block ">
+        <a href="javascript:void(0);" class="action-block-cont" ng-click="uploadAppMatrixCallback()">
+            <span class="action-block-cont-icon">
+                <i class="icon icon--xLarge">
+                    <svg><use xlink:href="#icon_Upload"></use></svg>
+                </i>
+            </span>
+            <span class="action-block-cont-lbl">Upload approval matrix</span>
+        </a>
+    </div>
+</div>
+
+<div class="row" ng-if="uploadApprovalMatrix.show">
+    <table class="bordered sTable">
+        <thead>
+            <tr>
+                <th ng-repeat="header in tableHeaderData" ng-class="{'left-align': header.leftAlign, 'center-align': header.centerAlign, 'right-align': header.rightAlign}">{{header.Name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="listData in approvalMatrixData track by $index">
+                <td class="left-align" width="5%">
+                    {{$index + 1}}
+                </td>
+                <td class="left-align" width="30%">
+                   {{listData.fileDetails.title}}
+                </td>
+                <td class="left-align" width="30%">
+                    {{listData.fileDetails.attribute}}
+                </td>
+
+                <td class="left-align" width="23%">
+                    {{listData.fileDetails.approverType}}
+                </td>
+                <td class="right-align" width="12%">
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-click="">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-click="">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Download' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_Download"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-click="updateAppMatrixCallback(e)">
+                        <i class="icon left marginRight0" smart-tooltip message="{{'Update Approval Matrix' || translate }}" position="bottom">
+                            <svg><use xlink:href="#icon_Upload"></use></svg>
+                        </i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<smart-popup template-url="shared/admin/setupManager/views/popupUploadDoc.html" show="{{uploadAppMatrix.show}}" on-hide="hideUploadAppMatrixCallback(e)"></smart-popup>
+<smart-popup template-url="shared/admin/setupManager/views/popupUpdateDoc.html" show="{{updateAppMatrix.show}}" on-hide="hideUpdateAppMatrixCallback(e)"></smart-popup>
+<!-- Upload / Download Log -->
+<smart-popup template-url="shared/admin/setupManager/views/popupUploadExcelLog.html" type="large" show="{{uploadDownloadLogPopup}}" on-hide="uploadDownloadLogPopupHide(e)"></smart-popup>
+<smart-popup template-url="shared/admin/setupManager/views/popupDownloadTemp.html" type="small" show="{{downloadTemplatePopup.show}}" on-hide="downloadTemplatePopupHide(e)"></smart-popup>
+

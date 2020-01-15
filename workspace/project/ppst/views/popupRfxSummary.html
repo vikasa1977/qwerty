@@ -1,0 +1,68 @@
+<div>
+    <div class="modal-header borderBtmLight">
+        <span class="title">
+            RFX SUMMARY
+        </span>
+    </div>
+        <div class="modal-content">
+            <div class="row marginBtm0">
+                <smart-textfield label="RFx Name" class="col s6 m6 l6 input-field line-height-manager" ng-model="rfxName" type="text" readonly="true">
+                </smart-textfield>
+                <smart-textfield label="Status" class="col s6 m6 l6 input-field line-height-manager" ng-model="rfxStatus" type="text" readonly="true">
+                </smart-textfield>
+            </div>
+            <div class="row marginBtm0">
+                <smart-textfield label="Applicable For" class="col s6 m6 l6 input-field line-height-manager" ng-model="rfxApplicable" type="text" readonly="true">
+                </smart-textfield>
+                <smart-textfield label="Author" class="col s6 m6 l6 input-field line-height-manager" ng-model="rfxAuthor" type="text" readonly="true">
+                </smart-textfield>
+            </div>
+            <div class="row marginBtm0">
+                <smart-scroll>
+                    <smart-tabs tab-config="{{summarytabsData}}"></smart-tabs>
+                </smart-scroll>
+            </div>
+        </div>
+    <div class="modal-footer is-scrolled">
+        <div class="right">
+            <smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+        </div>
+    </div>
+</div>
+<script id="summaryContent.html" type="text/ng-template">
+        <table class="bordered sTable fixedTbl marginBtm10" ng-class="{'width125P': savingsImpactDataColumns.length > 5}">
+            <thead class="borderTopLight">
+                <tr>
+                    <th>Supplier</th>
+                    <th>Supplier Status</th>
+                    <th>Historical Spend</th>
+                    <th>Supplier Score</th>
+                    <th>Spend Coverage</th>
+                    <th>Savings(Value)</th>
+                    <th>Savings(%)</th>
+                    <th>Bid Coverage(%)</th>
+                    <th>Awarded Spend</th>
+                    <th>Award Coverage</th>
+                    <th>Awarded Savinngs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Supplier ABC</td>
+                    <td class="left-align">Response Pending</td>
+                    <td>7483792.948</td>
+                    <td class="left-align">3.5</td>
+                    <td class="left-align">23355</td>
+                    <td class="left-align">34897129</td>
+                    <td class="left-align">35%</td>
+                    <td class="left-align">100%</td>
+                    <td class="left-align">39282</td>
+                    <td class="left-align">2335264</td>
+                    <td class="left-align">2456782</td>
+                </tr>
+            </tbody>
+        </table>
+</script>
+<script id="secondSec.html" type="text/ng-template">
+    <div>Second Sec</div>
+</script>

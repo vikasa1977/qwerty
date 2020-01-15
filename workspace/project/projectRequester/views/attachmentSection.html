@@ -1,0 +1,65 @@
+
+<div class="" ng-controller="contractAttachmentCtrl">
+    <div class="panelBox-body">
+        <div class="row marginBtm0 borderTopLight">
+            <div class="clearfix secContentWithBorder fontSize12">
+                <div class="right ">
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+                        <i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Attachments" position="bottom">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteMultiPricesheet($event)">
+                        <i class="icon left blue-text">
+                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Download Selected" position="bottom">
+                        <i class="icon left blue-text">
+                            <svg><use xlink:href="#icon_Download"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <table class="bordered sTable">
+            <thead>
+                <tr>
+                    <th ng-class="{'filled-partial' : fillpartial == true }" width="50px">
+                        <smart-checkbox class="paddingTop5" ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+                    </th>
+                    <th>Name</th>
+                    <th class="center">Access to Supplier</th>
+                    <th class="">Type</th>
+                    <th class="center">Uploaded on</th>
+                    <th>Uploaded By</th>
+                    <th class="center">File Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="x in attachments |  itemsPerPage: selectedAttacheOption.size | orderBy:sortKey:reverse" pagination-id="attachReqData">
+                    <td>
+                        <smart-checkbox class="paddingTop5" ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+                    </td>
+                    <td><a href="javascript:void(0);">{{x.name}}</a></td>
+                    <td>
+                        <smart-checkbox class="center paddingTop5"  on-change="selectAll()"></smart-checkbox>
+                    </td>
+                    <td>{{x.type}}</td>
+                    <td class="center">{{x.uploadDate}}</td>
+                    <td>{{x.uploadBy}}</td>
+                    <td class="center">{{x.fileSize}}</td>
+                </tr>
+            </tbody>
+        </table>
+        	
+    <div class="clearfix paginationWrapper right">
+        <span class="left rowsToShow">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="selectedAttacheOption.size for selectedAttacheOption in rowsToShowAttachOpts track by selectedAttacheOption.size" ng-model="selectedAttacheOption"></select>
+        </span>
+        <dir-pagination-controls class="left" pagination-id="attachReqData" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+    </div>
+	<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadContractPopup}}" on-hide="hideUploadContractPopupCallback(e)"></smart-popup>
+</div>	

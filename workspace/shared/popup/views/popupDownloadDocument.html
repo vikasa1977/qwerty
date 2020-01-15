@@ -1,0 +1,107 @@
+<div id="uploadDocPopup" ng-controller="uploadAttachment">
+    <div class="modal-header clearfix">
+        <i class="icon grey-text iconSmall left" ng-if="!!uploadIcon">
+            <svg><use xlink:href="{{uploadIcon}}"></use></svg>
+        </i>
+        <i class="icon grey-text iconSmall left" ng-if="!uploadIcon">
+            <svg><use xlink:href="#icon_Attachment"></use></svg>
+        </i>
+        <span class="title">{{ uploadTitle  || 'ADD DOCUMENTS' | translate }} </span>
+    </div>
+    <div class="modal-content is-scrolled">
+        <div class="model_body">
+            <div>
+                <div class="row marginBtm0">
+                    <div class="col s12 padding0 marginBtm7"><a href="javascript:void(0);" class="right" ng-hide="hideDownloadTemplate">Download Template</a></div>
+                    <div class="col s12 padding0">
+                        <div class="box-input padding15 box-input-small-height">
+                            <div class="valign center">
+                                <div class="file-field input-field">
+                                    <span>Drag and drop file here OR</span>
+                                    <a ng-if="!!uploadTitleContent" href="javascript:void(0);" ng-click="attachmentCall(e);">{{uploadTitleContent}}</a>
+                                    <a ng-if="!uploadTitleContent" href="javascript:void(0);" ng-click="attachmentCall(e);">Upload Documents</a>
+                                    <smart-textfield ng-hide="true" type="file"></smart-textfield>
+                                </div>
+                                <div class="grey-text fontSize12" ng-if="!!attchmentMsg" ng-bind-html="attchmentMsg"></div>
+                                <div class="grey-text fontSize12" ng-if="!attchmentMsg" ng-bind-html="attchmentMsg"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uploaded-file-list">
+                    <div ng-show="attachFlag">
+                        <smart-scroll height="182px">
+                            <div class="row upload-attachment" ng-repeat="attachment in attachmentList" ng-show="attachment.isShow">
+                                <span class="fontSize12 truncate attachment-title max-width125" title="{{attachment.name}}{{attachment.extn}}">{{attachment.name}}</span>
+                                <span class="fontSize12 attachment-title">{{attachment.extn}}</span>
+                                <div class="circle-loading-container left" ng-if="!attachment.actionIconDelete" ng-hide="attachment.status == 'fail'">
+                                    <div class="preloader-wrapper x-small active">
+                                        <div class="spinner-layer spinner-green-only">
+                                            <div class="circle-clipper circle-clipper--x left">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="gap-patch">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="circle-clipper circle-clipper--x right">
+                                                <div class="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-if="attachment.actionIconDelete">
+                                    <a href="javascript:void(0);" ng-click="closeAttachment(attachment)" class="iconAttachmentdelete">
+                                        <i class="icon iconSmall left blue-text marginLeft10" smart-tooltip position="bottom" message="Delete">
+                                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                        </i>
+                                    </a>
+                                    <!--<smart-dropdown config="{{dropDownConfig}}">
+                                        <a href="javaScript:void(0);" class='dropdown-button' data-activates='ItemName_{{$index}}'>{{attachment.referenceName}}</a>
+                                        <div id='ItemName_{{$index}}' class='dropdown-content dd-close-off'>
+                                            <div class="row">
+                                                <smart-textfield label="" ng-model="attachment.referenceName" decimalprecision="100" maxlength="100" focus="true" class="col s12"></smart-textfield>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>-->
+                                </div>
+
+                                <a href="javascript:void(0);" class="left marginLeft10 fontSize12" ng-if="!attachment.actionIconDelete" ng-show="attachment.status == 'fail'" ng-click="retryCall(attachment)">Retry</a>
+                                <a href="javascript:void(0);" class="attachment-manage-icon marginLeft10 marginRight15" ng-if="!attachment.actionIconDelete" ng-click="closeAttachment(attachment)" ng-show="attachment.status == 'fail' ">
+                                    <i class="icon" smart-tooltip message="CANCEL" delay="50" position="bottom">
+                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0);" class="attachment-manage-icon marginRight15" ng-if="!attachment.actionIconDelete" ng-click="closeAttachment(attachment)" ng-hide="attachment.status == 'fail'">
+                                    <i class="icon" smart-tooltip message="CANCEL" delay="50" position="bottom">
+                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                    </i>
+                                </a>
+                                <div class="attachment-info">
+                                    <span class="grey-text" ng-if="!attachment.actionIconDelete" ng-hide="attachment.status == 'fail'">This file will take time to upload, please check the status in the log later</span>
+                                    <span class="red-text" ng-if="!attachment.actionIconDelete" ng-show="attachment.status == 'fail'">The uploaded file exceeds the file size (max 5MB).</span>
+                                </div>
+                            </div>
+                        </smart-scroll>
+                    </div>
+                </div>
+            </div>
+
+            <smart-drag-drop-upload style="display:none;"></smart-drag-drop-upload>
+
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title": "Upload Later"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"Submit"}' ng-click="sumbitSignatureMethod()"></smart-button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

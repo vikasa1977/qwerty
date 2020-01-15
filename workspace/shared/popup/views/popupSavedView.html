@@ -1,0 +1,110 @@
+
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" smart-tooltip position="Close" message="{{'Close' || translate }}" delay="250" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_SavedView"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'SAVED VIEWS' || translate }} </span>
+
+    </div>
+    <div class="modal-content padding0"  ng-class="{'is-scrolled': true}">
+        <div class="model_body">
+                        <smart-list model="{{config}}"
+                                    style-class="collection noBorder is-overflowHidden"
+                                    item-class="collection-item"
+                                   template="radioList.html" height="300px">
+                        </smart-list>
+        </div>
+
+    </div>
+
+    <div class="modal-footer"  ng-class="{'is-scrolled': true}">
+        <div class="clearfix">
+
+            <div class="left m-f-checkbox-valign">
+                <input type="checkbox" class="filled-in" id="markAsDefault" checked="checked" ng-model="isMarkAsDefualt.check" ng-change="isMarkAsDefualtFunc(isMarkAsDefualt)" />
+                <label for="markAsDefault" class="grey-text text-darken-4"> {{ 'Mark as Default' || translate }}</label>
+            </div>
+
+            <div class="secondary-content">
+                <smart-button flat="true" class="modal-close" config='{"title":"Done"}' on-click="showSavedView()"></smart-button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script id="radioList.html" type="text/ng-template">
+ 
+    <div item="{{item}}" class="clearfix">
+        <div class="savedViews">
+			<input class="with-gap" type="radio" ng-model="model.name" name="selectSaveView" ng-value="item.name" id="getSavedView-{{ $index }}">
+			<label for="getSavedView-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.name  || translate }}</label>
+			<span class="grey-text fontSize12 defaultTxt" ng-if="item.isDefault">
+				({{ 'Default'  || translate }})
+			</span>
+		</div>
+        <div class="secondary-content s-c--closest-top">
+            <a href="javascript:void(0)" ng-click="editCurrentViewName($index)" smart-tooltip position="bottom" delay="50" message="{{'Edit' || translate }}" class="waves-circle waves-effect">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_editPen"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="javascript:void(0)" ng-click="deleteItem($index)" smart-tooltip position="bottom" delay="50" message="{{'Delete' || translate }}" class="waves-circle waves-effect">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_TrashCan"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+ 
+        <div class="well single-edit-panel"  animate-on-load ng-show="item.showCurrentItemEditor" ng-init="getEditedviewName.name = item.name">
+            <div class="single-edit-panel-input-box row">
+            <smart-textfield focus="true" label="Edit Name" class="active col s12" ng-model="getEditedviewName.name"></smart-textfield>
+                </div>
+              <div class="single-edit-panel-secondary-content">  
+                  <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="closeEditPanel($index)">
+                      <i class="icon iconSmall blue-text">
+                          <svg>
+                              <use xlink:href="#icon_Close"></use>
+                              
+                          </svg>
+                      </i>
+                  </a>
+                  <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="updateViewName($index)">
+                      <i class="icon iconSmall blue-text">
+                          <svg>
+                              <use xlink:href="#icon_Check"></use>
+                    
+                          </svg>
+                      </i>
+                  </a>
+                  </div>
+        </div>
+    </div>
+</script>
+
+
+

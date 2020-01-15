@@ -1,0 +1,196 @@
+<!--sub header-->
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap" scrolled>
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">
+                <span ng-show="!isFinalize">{{title || translate }} {{'(DRAFT)' || translate }}</span>
+                <span ng-show="isFinalize">{{title  || translate }} {{'(Sent to Supplier)' || translate }}</span>
+                </span>
+            </div>
+
+
+
+
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon marginTop10" id="formSearchDv">
+                </li>
+
+                <!--<li class="extra-nav-title--text marginLeft10">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a class='dropdown-button left btn-in-header white-text' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+                            <span>{{ 'USD' || translate }} {{ '1000'  || translate | number:2 }}</span>
+
+                            <i class="icon iconSmall white-text">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                                </svg>
+                            </i>
+
+                        </a>
+
+                        <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                            <li>
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{'Requisition Value' || translate}} (USD)</span>
+                                    <span class="right">678.00</span>
+                                </div>
+                            </li>
+                            <li ng-repeat="item in taxConfig">
+                                <div class="input-field col s12 detail-field-summary">
+                                    <span class="left grey-text">{{item.dataName || translate}} ({{'USD' || translate}}) </span>
+                                    <div class="right">
+                                        <div class="right-align">
+                                            {{ item.dataValue | number:2 }}
+                                        </div>
+                                        <div ng-if="item.taxEditable"><a href="javascript:void(0)" class="blue-text fontSize12" ng-click="makeEditCurrent($index)">{{'Prorate' || translate}}</a></div>
+                                    </div>
+                                    <div class="slider-pop" animate-on-load ng-show="item.makeEdit">
+                                        <div class="well single-edit-panel paddingBtm10">
+                                            <div class="single-edit-panel-input-box row">
+                                                <smart-textfield class="col s12" label="{{'Prorate' || translate}}" ng-model="newTaxValue" focus="item.editableFieldFocus"></smart-textfield>
+                                            </div>
+                                            <div class="single-edit-panel-secondary-content">
+
+                                                <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="cancelupdateTaxValue($index)">
+                                                    <i class="icon iconSmall blue-text padding0" smart-tooltip message="Close" position="bottom">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Close"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="updateTaxValue($index,newTaxValue)">
+                                                    <i class="icon iconSmall blue-text padding0" smart-tooltip message="Done" position="bottom">
+                                                        <svg>
+                                                            <use xlink:href="#icon_Check"></use>
+                                                        </svg>
+                                                    </i>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            
+                                <li>
+                                <div class="input-field col s12 detail-field-summary header-input-edit" ng-init="editProrate=false">
+                                    <span class="left grey-text">{{'Charges' || translate}} (USD)</span>
+                                    <div class="right">
+                                        <div>00.00</div>
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">{{'Requisition Total (USD)' || translate}}</span> <span class="right">1000.00</span> </div>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </smart-dropdown>
+
+                </li>-->
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button " ng-click="showCommentsPopupCallback(e)">
+                        <i class="icon iconSmall white-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="{{ commentIcon }}"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-title--text ">
+                    |
+                </li>
+                <li class="extra-nav-icon ">
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='landingPageAction' data-constrainwidth="false">
+                            <i class="icon iconSmall white-text" smart-tooltip message="Actions" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='landingPageAction' class='dropdown-content'>
+                            <li ng-hide="mode == 'createReceiptCorrection'">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="finalizeCallback(e)">
+                                    Sent to Supplier
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="trackStatusPopupCallback(e)">
+                                    Track Status
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="exportPdfCallback(e)">
+                                    Export to PDF
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="showPreview(e)">
+                                    Print
+                                </a>
+                            </li>
+                            <li ng-hide="mode == 'createReceiptCorrection'">
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="">
+                                    Cancel Return Note 
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback(e)">
+                                    Delete
+                                </a>
+                            </li>
+
+                        </ul>
+                    </smart-dropdown>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!--sub header end-->
+
+
+
+
+<div class="row paddingBtm40 smartFormWidgetContainer">
+	<!--<smart-button flat="true" config='{"title":"test popup"}' ng-click="createCreditMemoPopupCall()" disable="false"></smart-button>-->
+	<smart-form-widget form-config="config" model-data="dataModel" search-holder="formSearchDv" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+</div>
+
+<footer class="page-footer">
+	<div class="row">
+		<div class="col s12 normalMode">
+			<div class="left-align col s3">
+				<smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false" ng-click="showPreview(e)"></smart-button>
+			</div>
+			<div class="right-align col s9">
+				<smart-button flat="true" config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false"></smart-button>
+				<smart-button class="whiteSecondaryBtn marginRight10" config='{"title":"CANCEL","allignRight":"false"}'  disable="false"></smart-button>
+				<smart-button ng-hide="mode == 'createReceiptCorrection'" config='{"title":"SUBMIT","allignRight":"false"}' disable="false"></smart-button>
+                <smart-button ng-show="mode == 'createReceiptCorrection'" config='{"title":"Finalize","allignRight":"false"}' disable="false"></smart-button>
+			</div>
+		</div>			
+	</div>
+</footer>
+
+<!-- popup -- create Credit Memo -->
+<smart-popup template-url="{{createCreditMemoPopupUrl}}" show='{{createCreditMemoPopup}}' on-hide="createCreditMemoPopupOnHideCallback"></smart-popup>
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{commentsPopupgTabUrl}}" expand-collapse="#{{showCommentsPopupexpand}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+<!-- popup -- track status -->
+<smart-popup template-url="{{trackStatusPopupUrl}}" class="trackStatusPopup" expand-collapse="#trackStatusPopup" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)"></smart-popup>

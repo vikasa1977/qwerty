@@ -1,0 +1,198 @@
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <span class="extra-nav-title--text ng-cloak" ng-hide="mode == 'blanket'">NOTIFICATION VIEW</span>
+            <span class="extra-nav-title--text ng-cloak" ng-show="mode == 'blanket'">BLANKET PO > NOTIFICATION</span>
+        </div>
+        <div class="right extra-nav-right-icon right-panel">
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-controller="adminCommonCtrl" ng-init="onloadPage()">
+    <div class="notification-tab white paddingTop10">
+        <div class="notification-container clearfix">
+            <input type="hidden" ng-model="notificationNew.id" />
+            <div class="col s12 marginBtm10">
+                <smart-radio label="" ng-model="selectNotificationOtion" gap="true" options="notificatonSelectFromOptions" datakey="name"></smart-radio>
+            </div>
+            <smart-textfield class="col s12 m4 l4 xl4 xxl3" label="Name"  ng-model="notificationNew.name" type="text" is-mandatory="true"></smart-textfield>
+            <smart-select class="col s12 m4 l4 xl4 xxl3" label="Template Name" ng-show="selectNotificationOtion.key == 'using_template'" options='[{"title": "Contract AutoRenewal : 30 days to go","selected": true}, {"title": "Contract Expiry : 30 days to go","selected": false}, {"title": "Contract Expiry : 60 days to go","selected": false}, {"title": "Contract Expiry : 90 days to go","selected": false}, {"title": "Contract AutoRenewal : 90 days to go","selected": false}, {"title": "Milestone Due Date : 30 days to go","selected": false}]'></smart-select>
+            <smart-switch class="col s12 m4 l4 xl4 xxl3" ng-model="notificationNew.status" options="statusOptions" left-label="status" right-label="emptyText" on-change="showChange(notificationNew.status)"></smart-switch>
+            <div class="col s12 padding10 paddingTop10">
+                <smart-checkbox label="Send Notification as Email" ng-model="isUrgent" on-change="onChange(isUrgent)"></smart-checkbox>
+            </div>
+            <div class="col s12 paddingTop40"><span class="fontSize16">SEND A NOTIFICATION ALERT</span></div>
+            <div class="col s12">
+                <smart-select class="col s12 m3 l3 xl3 xxl2 paddingLeft0 marginTop6" label="" ng-model="changeSavedView" datakey="name" on-change="onselect(changeSavedView)" options='savedViews'></smart-select>
+                <!--if on alert-->
+                <div ng-if="isAlertOn">
+                    <smart-select class="col s12 m3 l3 xl3 xxl2 paddingLeft0 marginTop6" label="" ng-model="changeDateOption" datakey="name" on-change="changeDate(changeDateOption)" options='dateOption'></smart-select>
+                </div>
+
+                <div ng-if="isCustomDate">
+                    <smart-textfield class="col s12 m2 l2 xl2 xxl2 marginTop6" type="date" label="Effective Date" ng-model="date"></smart-textfield>
+                </div>
+
+                <div ng-if="isAlertBeforeAfter">
+                    <smart-textfield class="col s12 m1 l1 xl1 xxl1 marginTop6" label="" type="number" placeholder="0"></smart-textfield>
+                    <smart-select class="col s12 m2 l3 xl2 xxl2 marginTop6" label="" options='[{"title": "Day(s)","selected": true}, {"title": "Week(s)","selected": false}, {"title": "Month(s)","selected": false}, {"title": "Year(s)","selected": false}]'></smart-select>
+                    <smart-select class="col s12 m2 l3 xl2 xxl2 marginTop6" label="" options='[{"title": "Select Alert","selected": true}, {"title": "Effective Date","selected": false}, {"title": "Expiry Date","selected": false}, {"title": "Custom Date","selected": false}]'></smart-select>
+                    <smart-textfield class="col s12 m2 l2 xl2 xxl2 marginTop6" type="date" label="Effective Date" ng-model="date"></smart-textfield>
+                </div>
+            </div>
+            <div class="col s12 padding10 paddingTop10">
+                <smart-checkbox label="Set Recurrence" ng-model="setRecurrence" on-change="setToChange(setRecurrence)"></smart-checkbox>
+            </div>
+            <div ng-if="isSetRecurrence">
+                <smart-textfield class="col s12 m1 l1 xl1 xxl1 active marginTop6" label="Repeats" type="number"></smart-textfield>
+                <smart-select class="col s12 m3 l3 xl3 xxl2 marginTop6" label="Every" options='[{"title": "Day(s)","selected": true}, {"title": "Week(s)","selected": false}, {"title": "Month(s)","selected": false}, {"title": "Year(s)","selected": false}]'></smart-select>
+                <smart-select class="col s12 m3 l3 xl3 xxl2 paddingLeft0 marginTop6" label="" ng-model="changeDateOption" datakey="name" on-change="changeDate2(changeDateOption)" options='dateOption'></smart-select>
+            </div>
+
+            <div ng-if="isCustomDate2">
+                <smart-textfield class="col s12 m2 l2 xl2 xxl2 line-height-manager" type="date" label="Effective Date" ng-model="date"></smart-textfield>
+            </div>
+
+            <div class="col s12 padding10 paddingTop40"><span class="fontSize16">SEND NOTIFICATION</span></div>
+           
+			<smart-multiselect class="col s12 clearfix" label="To" is-mandatory="true" on-change="getEmailToData($event)" on-select="onSelectEmailTo($event)" options="emailToOpts" ng-model="emailToPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+			<smart-multiselect class="col s12 clearfix" label="CC" on-change="getEmailCcData($event)" on-select="onSelectEmailCc($event)" options="emailCcOpts" ng-model="emailCcPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}"></smart-multiselect>
+       
+
+         </div>
+        <div class="col s12 notification-content marginTop40">
+            <span class="left"><span class="fontSize16">NOTIFICATION CONTENT</span></span>
+            <a href="javascript:void(0)" class="right" ng-click="popupPreview(e)" ng-class="{'disabled':!fillpartial}">
+                <i class="icon small">
+                    <svg>
+                        <use xlink:href="#icon_Preview"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+        <div class="wrapper clearfix equal-height" ng-class="{'wrapper--withSidebar':!isActive}" style="transition: all 0.5s ease;">
+            <div class="sidebar  sidebar--left ">
+                <div class="panel-content">
+                    <!--Variables-->
+                    <ul class="panel-content-iteamList">
+                        <li class="panel-content-iteamList-item panel-content-iteamList-groupItem " ng-repeat="variable in variableList">
+                            <div class="iteamList-groupItem-content" ng-click="showVariableCall($index,variable.isVariableVisible)">
+                                <span><strong>{{variable.title}}</strong></span>
+                                <i class="icon group-arrow group-arrowDir" ng-class="{'active': variable.isVariableVisible}">
+                                    <svg>
+                                        <use xlink:href="#icon_DownChevron"></use>
+                                    </svg>
+                                </i>
+                            </div>
+                            <div ng-show="variable.isVariableVisible">
+                                <smart-scroll height="250px">
+                                    <ul class="panel-content-iteamList">
+                                        <li ng-repeat="name in variable.variableGrp" class="panel-content-iteamList-item cursorPointer" ng-click="getDeclarationText(name);">
+                                            <span>{{name.name}}</span>
+                                        </li>
+                                    </ul>
+                                </smart-scroll>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--Variables-->
+                </div>
+            </div>
+            <div class="col s12">
+                <section>
+                   <div class="row">
+                        <div class="col s12 marginTop10">
+                          
+                            <smart-textfield class="col s12" label="Subject" type="text" ng-model="notifySub"  ng-click="activePreview()" on-blur="notificationtext()"></smart-textfield>
+                        </div>
+                        <div class="col s12">
+                            <div class="ckeditorContainer">
+                                <textarea name="editor1" id="editor1" rows="10" cols="80" height="100%" ng-model="editorData"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                </section>
+            </div>
+        </div> 
+        <smart-popup template-url="previewPopup.html" show="{{showpreviewPopup}}" on-hide="previewPopupOnHideCallback(e)"></smart-popup>
+    </div>
+    <footer class="page-footer marginTop0">
+        <div class="row">
+            <!--<div class="left-align col s3">
+                <smart-button flat="true" config='{"title":"Preview","allignRight":"true"}' disable="false" callback="popupPreview"></smart-button>
+                </div>
+                -->
+            <div class="right-align col s9 offset-s3">
+                <smart-button config='{"title":"Cancel"}' class="whiteSecondaryBtn marginRight10" ng-class="waves-effect waves-light btn" ng-click="editNotification(e)"></smart-button>
+                <smart-button config='{"title":"Save"}' ng-class="waves-effect waves-light btn" ng-click="saveNotification(notificationNew)"></smart-button>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+
+<script>
+	CKEDITOR.replace('editor1');
+</script>
+
+<script type="text/ng-template" id="previewPopup.html">
+ <div id="reviewsPopup" class="scrollableModel preview-popup-view">
+    <div class="modal-header">
+        <i class="icon iconSmall left modal-header--Icon grey-text">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Preview"></use>
+            </svg>
+        </i>
+        <span class="title">{{'Preview' || translate  }}</span>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+            <div class="row">
+                <div class="col s12">
+                    <smart-scroll height="350px">
+                        <smart-multiselect class="col s12 clearfix" label="To" is-mandatory="true" on-change="getEmailToData($event)" on-select="onSelectEmailTo($event)" options="emailToOpts" ng-model="emailToPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}" disable="true"></smart-multiselect>
+                        <smart-multiselect class="col s12 clearfix" label="CC" on-change="getEmailCcData($event)" on-select="onSelectEmailCc($event)" options="emailCcOpts" ng-model="emailCcPreSelect" displayformat="{UserName}" filterkeys="['UserName']" optionformat="{UserName}" disable="true"></smart-multiselect>
+                        <smart-textfield class="col s12 active" label="Subject" type="text" ng-model="notifySub" disable="true" readonly="true"></smart-textfield>
+                    
+                        <smart-textfield ng-if="showSubjectPreview" type="area" ng-model="editorData" charactercounter="true" class="col s12 l12" label="" cols="40" readonly="true"></smart-textfield>
+                   
+                    </smart-scroll>
+                </div>
+
+
+            </div>
+
+            <div class="desistement">
+                <div class="row">
+                    <div class="col s12 grey-text">
+        Desistement:<br />
+                        The information contained in this e-mail message is for the use of the addressee and is solely intended for the person to whom it has been sent. This message may contain legally privileged and confidential information which may not be made public. If the message is received by anyone other than the addressee, please return the message to the sender by replying to it and then delete the same. Internet e-mails are not necessarily secure.
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+            <!--<div class="modal-footer">
+            <div class="row marginBottom0">
+                <div class="col s12 right-align">
+                    <smart-button flat="true" class="modal-close" config='{"title":"CLOSE"}'></smart-button>
+                </div>
+            </div>
+        </div>-->
+</div>
+</script>

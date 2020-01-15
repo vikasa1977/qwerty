@@ -1,0 +1,9 @@
+<div class="padding15 itemDetailsCnt">
+    <div class="H_devider"></div>
+    <div class="catalog-cust-attr-section">
+        <div ng-include="'shared/admin/itemMaster/views/templateAdditionalInfo.html'" class="questionnaire-section clearfix " ng-repeat="item in dataModel"></div>
+    </div>
+    <div class="clearfix right-align">
+        <a href="javascript:void(0)" ui-sref="admin.itemMaster.additionalInfo({id: 0 })">{{'20 fields more...'}}</a>
+    </div>
+</div>

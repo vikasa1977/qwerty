@@ -1,0 +1,69 @@
+<div class="row white card-panel padding0" ng-controller="p2pCreditMemoCtrl">
+	<div class="col s12 padding20 borderBtmGray">
+		<smart-radio class="marginBtm0" ng-model="selectedOption" options='[{ "title": "Materials", "checked": true, "disable": false }, { "title": "Service", "checked": false, "disable": false }]' gap='true'></smart-radio>
+	</div>
+
+	<div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col s6 m5 l4 xl3 xxl2 requItemContainerLeft">
+				<div>
+					<smart-checkbox class="input-chk left" fill="true" label="1"></smart-checkbox>
+				</div>
+				<div class="input-field col s12 padding0">
+					<smart-textfield class="col s12" label="Item Name" ng-model="'Credit Memo Item 1'"></smart-textfield>
+					<smart-textfield class="col s8" label="Item Number" ng-model="'CM-46:4355-353'"></smart-textfield>
+					<smart-textfield class="col s4" label="UOM" readonly=true ng-model="'Each'"></smart-textfield>
+					<smart-textfield class="col s6" label="Unit Price (USD)" readonly=true ng-model="'28.23'"></smart-textfield>
+					<smart-select class="col s6" label="Quantity" disable="false" options='[{"title": "Quantity","selected": true}, {"title": "Amount (USD)","selected": false}]'></smart-select>
+				</div>
+			</div>
+			<div class="col s6 m7 l8 xl9 xxl10 padding0">
+				<div class="col s12 right relative padding10 borderBtmGraye7">
+					<smart-dropdown config="{{dropDownConfig}}">
+						<span class="right">Credit Memo Line Value:
+							<a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownUSD_LineCM" data-constrainwidth="false" data-alignment="right">USD 1000</a>
+						</span>
+						<ul id="dropdownUSD_LineCM" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+							<li>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+							</li>
+							<li>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+							</li>
+							<li>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+							</li>
+							<li>
+								<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+							</li>
+							<li></li>
+						</ul>
+					</smart-dropdown>
+					<span class="right">
+						<a class="icon iconSmall left marginRight20" ng-click="showCommentsPopupCallback()" smart-tooltip position="bottom" delay="50" message="Comments">
+							<svg>
+								<use xlink:href="#icon_Comments"></use></svg>
+						</a>
+					</span>
+				</div>
+				<div class="row">
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Supplier Item Number" ng-model="'23634774'" readonly=true></smart-textfield>
+					<!--<div class="col l3 m4 s12 input-field">
+						<div class="grey-text fontSize12">Taxes</div>
+						<smart-button flat="true" class="textCapitalize" config='{"title":"Add Taxes"}' callback="showTaxesPopupCallback"></smart-button>
+					</div>-->
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Tax Exempt" ng-model="'False'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Other Charges (USD)" ng-model="'20'"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Shipping & Freight (USD)" ng-model="'10'"></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Ordered Quantity" ng-model="'1'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Ordered Unit Price (USD)" ng-model="'1'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Invoiced Quantity" ng-model="'1'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Total Invoiced Amount (USD)" ng-model="'1'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Total Paid Quantity" ng-model="'0'" readonly=true></smart-textfield>
+					<smart-textfield class="col s12 m6 l4 xl3 xxl2" label="Invoiced Paid Amount (USD)" ng-model="'0.00'" readonly=true></smart-textfield>
+				</div>
+			</div>
+		</div>
+	</div>
+	<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback()"></smart-popup>
+</div>

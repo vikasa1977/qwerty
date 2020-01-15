@@ -1,0 +1,70 @@
+
+   
+            <div class="col s12" ng-init="locationFn()">
+                <section class="section-container">
+                    <div class="row section">
+                        <div class="col s6">
+                             <span>{{DocumentName}}</span>
+                        </div>
+                        <div class="col s6 right-align">
+                           {{DocumentNumber}}
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row section add-verticle-divider">
+                        <div class="col l4 m4 s12 ">
+                            <span class="label-text">VALUE</span><br />
+                            <span>{{getAmount}}</span> <span>{{getCurrencyCode}}</span>
+                        </div>
+                        <div class="col l4 m4 s12">
+                            <span class="label-text">STATUS</span><br />
+                            <span>{{getdocumentStatus}}</span>
+                        </div>
+                        <div class="col l4 m4 s12">
+                            <span class="label-text">CREATED ON</span><br />
+                            <span>{{getCreatedOn}}  <span> by </span> <span>{{getCreatedByName}}</span></span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row section"  ng-if="cycleObject.length > 0">
+                        <div class="col m2 s12">
+                            <smart-select ng-model="selectCycle" options="cycleObject"></smart-select>
+                        </div>
+
+                    </div>
+                </section>
+               
+                <smart-scroll height="{{ heightTrackStatus }}" >
+                <section class="track-section-container">
+                    <div class="t-s-c-wrap {{ proccesStatus(statusList.process) }}" ng-class="{'before-not-in-pro': checkNextStatus(statusLists[$index + 1].process)}" ng-repeat="statusList in statusLists">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content {{ approvalGroupType(statusList.approvalGroupName) }}" ng-class="{ 'approval-group' : statusList.isGroupApproval }">
+                            <span class="t-s-c-title">{{ statusList.status }}</span>
+                            <div ng-if="!statusList.isGroupApproval"> <span ng-if="!statusList.onDated == ''">{{ statusList.onDated }}</span> <span ng-if="statusList.onDated == ''">{{ statusList.status }}</span>
+                             {{ joinWordwith(statusList.onDated ) }}
+                             <span ng-if="statusList.approver == getCreatedByName" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">{{ statusList.approver }}</span>
+                             <a ng-if="statusList.approver != getCreatedByName"  href="javascript:void(0)" ng-click="emailerPopupCallback(e)" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">
+                                {{ statusList.approver }}
+                             </a>
+                            </div>
+                            <div ng-if="statusList.isGroupApproval">
+                                <div ng-repeat="list in statusList.approversLists">
+                                    <span class="{{applyStatusColor(list.status)}}">{{ list.status}}</span> 
+                                    <span ng-if="!list.onDated == ''"> on {{ list.onDated}}</span> {{ joinWordwith(list.onDated ) }}
+                                    
+                                    <span ng-if="statusList.approver == getCreatedByName" class="t-c-approver-name" ng-class="{'modal-close':ispopup}" >{{ list.approver}}</span>
+                                    <a ng-if="statusList.approver != getCreatedByName" href="javascript:void(0)"  ng-click="emailerPopupCallback(e)" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">
+                                    {{ list.approver}}
+                                    </a>
+                                </div>
+                                <div class="chip-for-approval-group">{{ statusList.approvalGroupName }}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                </smart-scroll>
+            </div>
+<smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)" ng-if="showEmailPopup"></smart-popup>
+    
+

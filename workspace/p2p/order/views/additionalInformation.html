@@ -1,0 +1,12 @@
+
+<div ng-controller="additionalInfoCtrl" class="padding15">
+
+<div ng-include="'p2p/order/views/templateAdditionalInfo.html'" class="questionnaire-section clearfix " ng-repeat="item in dataModel">
+   
+</div>
+
+
+<div class="clearfix right-align" ng-if="fieldCout(dataModel) != 0">
+<a href="javascript:void(0)" ng-click="moreFieldsClick()">{{'20 fields more...'}}</a>
+</div>
+</div>

@@ -1,0 +1,17 @@
+<div item="{{item}}" class="clearfix padding10 relative" ng-click="contentAdded = true" >
+    <div ng-class="{'is-added': contentAdded }">
+    <span ng-class="{ 'contentInTitle': item.contentIn }">{{ item.name }}</span>
+    <span class="collecton-item-secondary-text-wrapper" ng-if="item.contentIn">{{ item.contentIn}}</span>
+        </div>
+    <div class="secondary-content absolute" ng-show="contentAdded == true" style="right: 5px;">
+        <a href="javascript:void(0)" ng-click="contentAdded = false; $event.stopPropagation();">
+            <i class="icon iconSmall s-dd-icon-wth-color">
+                
+                <svg>
+                    <use xlink:href="#icon_Close"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+   
+</div>

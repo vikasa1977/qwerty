@@ -1,0 +1,103 @@
+﻿/* alertbar for showing inline alert bar */
+.alert-bar{
+        padding:10px 20px;
+        clear:both;       
+		height:42px;
+}
+.alert-bar:before , .alert-bar:after{
+      content: " ";
+    display: table;
+    clear:both
+}
+.alert-bar--warning{
+    background:#fff8c6!important;
+}
+.alert-bar--with-button{
+    padding:2px 0 2px 20px; 
+    line-height:36px;
+}
+
+.alert-bar--fixed{	
+	width: 100%;
+	z-index: 55;	
+	box-shadow: 0 2px 2px 0 rgba(128, 128, 128, 0.75);
+    position: relative;
+    /*border-bottom: 1px solid #e0e0e0;*/
+}
+
+.alert-bar--fixed-to-nav{
+	top: 50px;
+	position:fixed;
+}
+/*well*/
+ .well{
+      background:#eee;
+     box-sizing:border-box;
+     padding: 0.95rem;
+     }
+ .well:before , .well:after{
+      content: " ";
+    display: table;
+    clear:both
+}
+
+ .info-bar{    border-bottom: 1px solid #e0e0e0;
+     i{line-height:30px;}
+ }
+
+ .appliedFiltersName {
+     width: 88%;
+     &.pendingFilters{
+         width: 80%;
+     }
+ }
+
+ .resetFilterButton {
+    float: right;
+    margin: 0 11px;
+ }
+ .appliedFiltersName {
+     width: 88%;
+     /*-webkit-transition: width 1s; 
+    transition: width 1s;*/
+     &.savedFilterApplied{width:95%;}
+     &.pendingFilters{
+         width: calc(100% - 140px);
+     }
+ }
+ @media  (min-width: 1900px){.appliedFiltersName { 
+     &.savedFilterApplied{width:96%;}
+     }}
+ @media (max-width: 1300px) and (min-width: 960px){
+     .appliedFiltersName { 
+     &.savedFilterApplied{width:92%;}
+     }
+}
+ .chipDataCont{
+      overflow:hidden;
+       height:38px;
+                .chipWrapLeft{
+                    width:calc(100% - 84px);
+                    float:left !important;
+                   
+                }
+ }
+
+ .showSelectedValues {
+     position: absolute;
+    left: 20px;
+    top: 27px;
+    color: #5c5c5c;
+    font-size:12px;
+ }
+ .relativePosition {
+     position: relative;
+ }
+ .fillterPanelLinks i {
+     height: auto !important;
+     svg {
+        fill: $link !important;
+    }
+ }
+ .fillterPanelLinks{color:#191919;}
+.tabs-vertical .tabs .tab>div .fillterPanelLinks.filterPanelSubLink a{height:54px; padding:7px 20px 7px 20px}

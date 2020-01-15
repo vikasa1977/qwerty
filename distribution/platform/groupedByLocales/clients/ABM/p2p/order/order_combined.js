@@ -1,0 +1,20 @@
+if (typeof Resources$en_US  === 'undefined' || Resources$en_US ===null ){ Resources$en_US = [];  } Resources$en_US.push({
+	"requestorName": "Order Requestor Name",
+	"businessUnit": "Order Business Unit",
+	"currency": "Order Currency",
+	"item": "Order Item",
+	"locationName": "Order Location Name",
+	"locationCode": "Order Location Code",
+	"addressLine1": "Order Address Line 1",
+	"addressLine2": "Order Address Line 2",
+	"city": "Order City",
+	"country": "Order Country",
+	"zipCode": "Order Zip Code",
+	"state": "Order State",
+	"contactPerson": "Order Contact Person",
+	"telephoneNumber": "Order Telephone Number",
+	"requisitionName": "Order Requisition Name",
+	"requisitionNumber": "Order Requisition Number",
+	"DocumentName": "Order Document Name",
+	"DocumentNumber": "Order Document Number"
+});

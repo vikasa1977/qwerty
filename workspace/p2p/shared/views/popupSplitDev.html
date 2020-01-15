@@ -1,0 +1,91 @@
+<div class="scrollableModel">
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_Split"></use>
+            </svg>
+        </i>
+        <span class="title">{{'Split'| translate}}</span>
+        <a href="javaScript:void(0);" class="right" ng-click="addSplit()">
+            <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add'| translate}}">
+                <svg>
+                    <use xlink:href="#icon_CirclePlus"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div class="modal-content padding0">
+        <div class="row margin0" id="radioGroup">
+            <smart-radio gap="true" class="col s12 radio-space" ng-model="selectedSplitType" options="splitTypes" on-change="onChangeSplitType()" datakey="name" ></smart-radio>
+        </div>
+        <div class="is-scrolled" style="height:250px">
+            <smart-scroll height="270px">
+                <table class="bordered marginBtm50">
+                    <colgroup>
+                        <col style="width:25%" />
+                        <col style="width:50%" />
+                        <col style="width:25%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="left-align">{{'Split'| translate}}</th>
+                            <th class="right-align">{{splitName}}</th>
+                            <th class="right-align"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="split in listSplits track by $index">
+                            <td> {{$index + 1}}</td>
+                            <td class="right-align">
+                                <div class="relative">
+                                    <smart-dropdown single-element-dropdown="true">
+                                        <a href="javaScript:void(0);" class='dropdown-button' data-activates='splitNumber_{{$index}}'>{{split.value }}</a>
+                                        <div id='splitNumber_{{$index}}' class='dropdown-content dd-close-off'>
+                                            <div class="row marginBtm0">
+                                                <smart-textfield type="number" min="0" ng-model="split.value" class="col s12" align="right" on-change="onSplitchange($event,split)"></smart-textfield>
+                                            </div>
+                                        </div>
+                                    </smart-dropdown>
+                                </div>
+
+                            </td>
+                            <td class="right-align">
+                                <a href="javaScript:void(0);" ng-click="deleteSplit($index)" ng-hide="listSplits.length == 1" >
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete'| translate}}">
+                                        <svg>
+                                            <use xlink:href="#icon_TrashCan"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </smart-scroll>
+
+        </div>
+        <table class="is-scrolled">
+            <colgroup>
+                <col style="width:25%" />
+                <col style="width:50%" />
+                <col style="width:25%" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="grey-text">{{'Total'| translate}}</td>
+                    <td class="right-align invalid-container">
+                        <p class="right-align" >{{total| minPrecisionHandler}}</p>
+                        
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <smart-button ng-if="true" flat="true" class="left btn-reset" config='{"title":("Reset"|translate)}' callback="reset"></smart-button>
+        <smart-button flat="true"  class="modal-close" config='{"title":("Apply"|translate)}' callback="splitsApply"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":("Cancel"|translate)}' callback="cancelSplits"></smart-button>
+    </div>
+    <div id="disableOverlay" n style="top: 0px;left: 0px;height: 100%;width: 100%;"></div>
+</div>

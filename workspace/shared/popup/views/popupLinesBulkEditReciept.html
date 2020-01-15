@@ -1,0 +1,93 @@
+<!-- modal  -->
+<!-- modal -- header -->
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left modal-header--Icon">
+        <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use>
+        </svg>
+    </i>
+    <span class="title">{{'EDIT MULTIPLE LINES '|| translate}}</span>
+
+
+</div>
+
+<!-- modal -- content -->
+<div class="modal-content padding0 is-scrolled paddingLeft10">
+    <!-- vertical tabs -->
+    <div class="left marginTop25 paddingRight20" style="width:65%;">
+        <!-- vertical tabs -- left sidebar -->
+        <!-- vertical tabs -- content -->
+        <div class="row formEdit paddingLeft12">
+            <smart-textfield type="number" class="col s6 line-height-manager" label="Accepted Quantity"></smart-textfield>
+            <smart-textfield type="number" class="col s6 line-height-manager" label="Recieved Quantity"></smart-textfield>
+        </div>
+        <div class="row formEdit paddingLeft12">
+            <smart-textfield type="date" label="Received Date" ng-model="Date" class="col s12 m6 l6"></smart-textfield>
+            <smart-textfield type="text" class="col s6 line-height-manager" label="Custom Attribute 1"></smart-textfield>
+        </div>
+        <div class="row formEdit paddingLeft12">
+           <smart-textfield type="text" class="col s6 line-height-manager" label="Custom Attribute 2"></smart-textfield>
+            <smart-textfield type="text" class="col s6 line-height-manager" label="Custom Attribute 3"></smart-textfield>
+        </div>
+        <div class="row formEdit paddingLeft12">
+            <smart-checkbox class="col s6 paddingLeft8" ng-model='bulkEditDeliveryComplete' on-change='onChange(bulkEditDeliveryComplete)' label="Delivery Complete"></smart-checkbox>
+        </div>
+    </div>
+    <div class="right borderLeftLight " style="width:35%;">
+        <!-- Tabs Content -->
+        <div class="clearfix">
+            <div class="collection">
+                <div class="black-text ng-binding padding15 nowrap borderBtmLight fontSize16">
+                    {{'SELECT LINES'|| translate}}
+                </div>
+                <div class="collection-item clearfix paddingBtm5">
+
+                    <div class="paddingTop15">
+                        <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex2 " data-ng-init="mysearch=false;">
+                            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                                <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                                    <i class="icon iconSmall center grey-text">
+                                        <svg><use xlink:href="#icon_Close"></use></svg>
+                                    </i>
+                                </a>
+
+                                <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="focusSearch"></smart-textfield>
+                                <a href="javascript:void(0)" class="search-icon waves-circle waves-effect btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                                    <i class="icon iconSmall center grey-text">
+                                        <svg><use xlink:href="#icon_Search"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        <div ng-class="{'filled-partial' : fillpartialBulkEdit == true }" class="marginBtm15 clearfix">
+                            <smart-checkbox label="{{'All' || translate }}" ng-model="selectedAll" ng-click="checkAllC(selectedAll)" class="left marginTop5" fill="true"></smart-checkbox>
+                        </div>
+                        <div class="borderBtmLight clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <smart-scroll height="250px">
+                    <smart-list model="{{itemList}}"
+                                style-class="collection noBorder"
+                                item-class="collection-item clearfix"
+                                template="orderItems.html">
+                    </smart-list>
+                </smart-scroll>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal -- footer -->
+<div class="modal-footer_new is-scrolled row margin0">
+    <div class="col s12">
+        <smart-button flat="true" class="modal-close right" config='{"title":"DONE"}'></smart-button>
+        <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>    
+    </div>
+</div>
+
+<script id="orderItems.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill="true"></smart-checkbox>
+    </div>
+</script>

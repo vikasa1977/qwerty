@@ -1,0 +1,308 @@
+<div id="tabItemDetails">
+    <div class="col s12 paddingTop10" data-ng-init='taxExemptOpts=[{"title": "NO","selected": true}, {"title": "YES","selected": false}];matchingOpts=[{"title": "3 Way","selected": true}, {"title": "2 Way","selected": false}]'>
+        <div class="container">
+            <div class="row marginBtm10">
+                <div class="col s12 m6 l6 xl6 xxl6">
+                    <div ng-init="showErrorAlert = false" class="">
+                        {{'Lines'|| translate}} (42) : {{'Materials'|| translate}} (1) <!--+  {{'Variable Service'|| translate}} (23) | |<a href="javascript:void(0)" class="red-text" ng-click="showErrorAlert = !showErrorAlert">1 errors</a>-->
+
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l6 xl6 xxl6 right-align">
+                    <ul class="panelBox-header--action">
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="showAddLinesCallback()">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add Lines from Contract'|| translate}}">
+                                    <svg><use xlink:href="#icon_linesFromContract"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTBulkAdd" data-constrainwidth="false" data-alignment="right">
+                                    <i class="add-row icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="Add Multiple Lines">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+
+                                <ul id="tabMatLineTBulkAdd" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off">
+                                    <li><span class="center-align fontSize16">{{'ADD MULTIPLE LINES'|| translate}}</span></li>
+                                    <li>
+                                        <smart-textfield class="col s12" label="Add" ng-model="addLines"></smart-textfield>
+                                    </li>
+                                    <li class="marginTop17">
+                                        <div class="right">
+                                            <a href="javaScript:void(0)" class="waves-circle waves-effect">
+                                                <i class="icon iconSmall blue-text paddingRight0">
+                                                    <svg><use xlink:href="#icon_Close"></use></svg>
+                                                </i>
+                                            </a>
+                                            <a href="javaScript:void(0)" class="waves-circle waves-effect">
+                                                <i class="icon iconSmall blue-text addBulkRow paddingRight0">
+                                                    <svg><use xlink:href="#icon_Check"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="calculateTaxCalled()">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Calculate Tax'|| translate}}">
+                                    <svg><use xlink:href="#icon_calculateTax"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)" ng-click="reqLineItemUploadPopupCallback(e)">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Upload'|| translate}}">
+                                    <svg><use xlink:href="#icon_Upload"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Download'|| translate}}">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Duplicate'|| translate}}">
+                                    <svg><use xlink:href="#icon_Duplicate"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <a href="javaScript:void(0)">
+                                <i class="add-row icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Delete Selected Lines'|| translate}}">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </li>
+
+                        <!--<li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTabOrder" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add Lines From'|| translate}}">
+                                        <svg><use xlink:href="#icon_BulkImport"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabMatLineTabOrder" class="dropdown-content width400  dd-close-off">
+                                    <li class="dropdown-content-header">
+                                        <div class="title">{{'ADD LINES FROM'|| translate}}</div>
+                                    </li>
+                                    <li class="dropdown-content-content is-scrolled">
+                                        <div class="col s12"><smart-tabs tab-config="{{importLineItemsTabDataset}}"></smart-tabs></div>
+
+                                    </li>
+                                    <li class="dropdown-content-footer is-scrolled">
+                                        <smart-button config='{"title":"RESET","flat":true}' flat="true" class="left"></smart-button>
+                                        <smart-button config='{"title":"SELECT","flat":true}' flat="true" class="right"></smart-button>
+                                        <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right"></smart-button>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>-->
+                        <!--<li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTabReq" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Add Lines From'|| translate}}">
+                                        <svg><use xlink:href="#icon_BulkImport"></use></svg>
+                                    </i>
+                                </a>
+
+
+                                <ul id="tabMatLineTabReq" class="dropdown-content dd-close-off width400" ng-class="">
+                                    <li class="dropdown-content-header ">
+                                        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+                                        </div>
+                                        <div class="title">{{'ADD LINES FROM'|| translate}}</div>
+                                    </li>
+                                    <li class="dropdown-content-content is-scrolled">
+                                        <div class="col s12">
+											<smart-tabs tab-config="{{importLineItemsTabDataset}}" ></smart-tabs>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-content-footer is-scrolled">
+                                        <smart-button config='{"title":"RESET","flat":true}' ng-click="closePopOver();" flat="true" class="left"></smart-button>
+                                        <smart-button config='{"title":"ADD","flat":true}' ng-click="closePopOver();" flat="true" class="right"></smart-button>
+                                        <smart-button config='{"title":"CANCEL","flat":true}' ng-click="closePopOver();" flat="true" class="right"></smart-button>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>-->
+                        <li class="panelBox-header--aLink hide">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTBulkEd" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="Manage Lines">
+                                        <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+                                    </i>
+                                </a>
+                                <div id="tabMatLineTBulkEd" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup">
+                                    <smart-scroll height="200px">
+                                        <ul>
+                                            <li><span class="left-align fontSize16">Manage Lines</span> </li>
+                                            <li>
+                                                <smart-textfield class="col s6" label="Supplier Item Number"></smart-textfield>
+                                                <smart-textfield class="col s3" label="Quantity"></smart-textfield>
+                                                <smart-textfield class="col s3" label="UOM"></smart-textfield>
+                                                <div class="col s6 input-field">
+                                                    <div class="grey-text fontSize12">Taxes</div>
+                                                    <smart-button flat="true" class="textCapitalize" config='{"title":"Add Taxes"}' callback="showTaxesPopupCallback"></smart-button>
+                                                </div>
+                                                <smart-select class="col s6 input-field" label="Tax Exempt" options="taxExemptOpts"></smart-select>
+                                                <smart-textfield class="col s6" label="Other Charges"></smart-textfield>
+                                                <smart-textfield class="col s6" label="Freight Charges(USD)"></smart-textfield>
+                                                <smart-textfield class="col s6" type="date" label="Requested Date"></smart-textfield>
+                                                <smart-textfield class="col s6" type="date" label="Need by Date"></smart-textfield>
+                                                <div class="col s6 input-field">
+                                                    <div class="grey-text fontSize12">{{'Category'|| translate}}</div>
+                                                    <smart-button flat="true" class="textCapitalize" config='{"title":"Choose Category"}' callback="showCategoryPopupCallback"></smart-button>
+                                                </div>
+                                            <li>
+                                                <smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+                                            </li>
+                                        </ul>
+                                    </smart-scroll>
+                                </div>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatLineTFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns('line')">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Columns'|| translate}}">
+                                        <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabMatLineTFilter" class="dropdown-content dropdown-content-large  dd-close-off">
+                                    <li class="dropdown-content-header ">
+                                        <div class="title">{{'MANAGE COLUMNS'|| translate}}</div>
+                                    </li>
+                                    <li class="padding0 is-scrolled">
+                                        <ul class="collection">
+                                            <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                                <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                                <span class="right padding0">({{selectedCount}}) Selected</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                        <smart-scroll height="230px" class="inlineList">
+                                            <div class="listHolder" ng-style="listHolderWidth">
+												<div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init = "myIndex = $index">
+													<div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                                        <smart-checkbox  class="label-truncate" title="{{field.lable}}" fill="true" ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                                    </div>
+												</div>
+											</div>
+                                        </smart-scroll>
+
+
+                                    </li>
+                                    <li class="dropdown-content-footer is-scrolled">
+                                        <smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right close-lookup"></smart-button>
+										<smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup"></smart-button>
+                                        <smart-button config='{"title":"Reset","flat":true}'  flat="true" ng-click="reset()" class="left"></smart-button>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+                        <li class="panelBox-header--aLink">
+                            <smart-dropdown config="{{dropDownConfig}}">
+                                <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabItemDetailsAction" data-constrainwidth="false" data-alignment="right">
+                                    <i class="icon icon-fix-overlay iconSmall tooltipped" smart-tooltip position="bottom" delay="50" message="Action">
+                                        <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                                    </i>
+                                </a>
+                                <ul id="tabItemDetailsAction" class="dropdown-content">
+                                    <!--<li><a href="javaScript:void(0)">{{'Duplicate Line'|| translate}}</a> </li>-->
+                                    <li><a href="javaScript:void(0)" ng-click="addLinesFormPopUpCallback(e)">{{'Add Lines From'|| translate}}</a></li>
+                                    <li><a href="javaScript:void(0)" ng-click="applyToAllPopUpCallback(e)">{{'Edit Multiple Lines'|| translate}}</a></li>
+                                    <li><a href="javaScript:void(0)">{{'Cancel'|| translate}}</a></li>
+                                    <!--<li><a href="javaScript:void(0)">{{'Delete'|| translate}}</a></li>-->
+                                </ul>
+                            </smart-dropdown>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="container" ng-show="showErrorAlert">
+        <div class="row marginBtm0">
+            <div class="col s12">
+                <div class="alert-bar alert-bar--warning alert-bar--with-button">  <!--ng-class="showErrorAlert ? 'animated flipInX' : 'animated flipOutX'"--> <!--use this class for animation-->
+
+                    <div class="left red-text"><span>Validation Error message goes here</span></div>
+                    <div class="right">
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Privious">
+                            <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Next">
+                            <svg><use xlink:href="#icon_RightChevro"></use></svg>
+                        </i>
+                        <i class="icon iconSmall left blue-text" smart-tooltip position="bottom" delay="50" message="Close" ng-click="showErrorAlert = false">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col s12 padding0">
+        <smart-ui-grid col-def="{{itemConfig}}" model="itemModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition" ></smart-ui-grid>
+    </div>
+
+</div>
+
+<!-- popup -- apply to all -->
+<smart-popup template-url="{{addLinesFormUrl}}" show="{{addLinesFormPopUp}}" on-hide="addLinesFormPopUpClose(e)" type="small"></smart-popup>
+
+<!-- popup -- apply to all -->
+<smart-popup template-url="{{applyToAllUrl}}" show="{{applyToAllPopUp}}" on-hide="applyToAllPopUpClose(e)"></smart-popup>
+
+<!-- popup -- apply to all -- Select Items -->
+<smart-popup template-url="{{applyToAllItemsUrl}}" show="{{applyToAllItemPopUp}}" on-hide="applyToAllItemPopUpClose(e)" type="small"></smart-popup>
+
+<!-- popup -- manufacturer details -->
+<smart-popup template-url="{{manufatureDetails}}" show='{{manufatureDetailsPopup}}' on-hide="manufatureDetailsPopupHideCallback(e)" type="small"></smart-popup>
+
+<!-- popup -- add Taxes -->
+<smart-popup template-url="{{taxesPopupUrl}}" show="{{showTaxesPopup}}" on-hide="taxesPopUpOnHideCallback()" type="medium"></smart-popup>
+
+<!-- popup -- supplier location -->
+<smart-popup template-url="{{supLocationUrl}}" show="{{supLocationPopup}}" on-hide="supLocationPopupOnHideCallback()" type="small"></smart-popup>
+<!-- popup -- add Taxes -->
+<smart-popup template-url="{{deliveryPopupUrl}}" show="{{showDeliveryPopup}}" on-hide="deliveryPopUpOnHideCallback()" type="large"></smart-popup>
+<!-- popup -- contract number -->
+<smart-popup template-url="{{contractNumberUrl}}" show="{{contractNumberPopup}}" on-hide="contractNumberPopupOnHideCallback()" type="small"></smart-popup>
+
+<smart-popup template-url="p2p/req/views/reqTemplatePopupContent.html" show="{{showReqTemp}}" on-hide="hideReqTempCallback(e)"></smart-popup>
+
+<smart-popup template-url="{{reqLineItemUploadPopupUrl}}" show="{{reqLineItemUploadPopup}}" on-hide="reqLineItemUploadPopupHideCallback(e)"></smart-popup>
+
+<smart-popup template-url="shared/popup/views/popupSupplierIcard.html" show="{{showSupplierIcardPopup}}" on-hide="hideSupplierIcardPopupCallback(e)" class="supplier-icard-popup"></smart-popup>
+
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showItemDetailsCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+
+<smart-popup template-url="p2p/req/views/dispatchMode.html" show='{{resendOptionShow}}' on-hide="resendOptionPopupOnHideCallback(e)" type="small"></smart-popup>
+
+<smart-popup template-url="{{addLinesPopupUrl}}" expand-collapse="#addLinesPopupExpand" show='{{showAddLinesPopup}}' on-hide="hideAddLinesCallback(e)" type="large"></smart-popup>
+
+<!--<smart-popup template-url="shared/popup/views/popupEmailer.html" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)"></smart-popup>-->
+
+
+<!--<smart-popup template-url="p2p/req/views/DeliveryPopup.html" show="{{showTaxesPopup}}" on-hide="taxesPopUpOnHideCallback(e)"></smart-popup>-->

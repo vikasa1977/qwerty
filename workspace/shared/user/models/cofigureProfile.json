@@ -1,0 +1,527 @@
+{
+  "modelData": {
+    "orderData": {
+      "fname": "Emily",
+      "lname": "Ross",
+      "username": "emily.ross",
+      "email": "emily.ross@gep.com",
+      "phone1": "+1 732 428 1578",
+      "phone2": "+1 732 428 1577",
+      "defaultCategory": "MRO",
+      "region": "Americas",
+      "defaultBelongingBusinessUnit": "1009 - CapOne",
+      "defaultServingBusinessUnit": "New Jersey",
+      "shipLocation": "Clark",
+      "accessibleGroup": "Trainee",
+      "currency": {"name": "British Pound . GBP"},
+      "contractCurrency": {"name": "British Pound . GBP"},
+      "documentType": {"name": "Change Order"},
+      "contractType": {"name": "Confidentiality Agreement"},
+      "legalCompanyName": {"name": "Buyer Company"},
+      "contractPartyType": {"name": "Supplier"},
+      "paymentTerm": { "name": "NET 20" },
+      "timezone": {"name": "(UTC-12:00) International Date Line West"},
+      "language": {"name": "English"}
+    },
+    "uplaodOf": {
+      "title": "on",
+      "name": "EUR"
+    }
+  },
+
+  "formConfig": {
+    "sections": [
+      {
+        "label": "PERSONAL DETAILS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 1,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/personalDetailTemplate.html"
+              },
+              {
+                "label": "First Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.fname",
+                "focus": true,
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Last Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.lname",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Username",
+                "type": "textfield",
+                "editable": false,
+                "isMandatory": false,
+                "data": "orderData.username",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "User Email",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.email",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Phone 1",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.phone1",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Phone 2",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "orderData.phone2",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Default Category",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.defaultCategory",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Default Region",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.region",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Default Belonging Business Unit",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.defaultBelongingBusinessUnit",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Default Serving Business Unit",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.defaultServingBusinessUnit",
+                "attributes": {
+                  "readonly": false
+                }
+              },
+              {
+                "label": "Default Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.currency",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "British Pound . GBP"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Andorran Franc . ADF"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Ship to Location",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.shipLocation",
+                "attributes": {
+                  "readonly": false
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "CONTRACT",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Contract Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.contractCurrency",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "British Pound . GBP"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Andorran Franc . ADF"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Document Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.documentType",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "Change Order"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Master Agreement"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Contract Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.contractType",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "Confidentiality Agreement"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Additional Information"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Legal Company Name",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.legalCompanyName",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "Buyer Company"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Supplier Company"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Contract Party Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.contractPartyType",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "Supplier"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Vendor"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Payment Term",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.paymentTerm",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "NET 20"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "NET 10"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Accessible Group",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.accessibleGroup",
+                "attributes": {
+                  "readonly": false
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Upload of Presigned Contract",
+                "type": "radio",
+                "isMandatory": true,
+                "data": "uplaodOf",
+                "colspan": 12,
+                "attributes": {
+                  "options": [
+                    { "title": "on" },
+                    { "title": "off" }
+                  ],
+                  "datakey": "title"
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/contractautoRenewal.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "NOTIFICATION",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/notificationUserProfile.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "PASSWORD",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/passwordTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "REGIONAL SETTINGS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "TIMEZONE",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "colspan": 1,
+                "data": "orderData.timezone",
+
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "(UTC-12:00) International Date Line West"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "(UTC-11:00) Coordinated Universal Time-11"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "LANGUAGE",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "orderData.language",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "2w",
+                      "name": "English"
+                    },
+                    {
+                      "code": "3w",
+                      "name": "Italian"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ELECTRONIC SIGNATURE SETTINGS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/eSignatureTemplate.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "DELEGATION",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "attachementObj",
+                "templateUrl": "shared/user/views/delegationTable.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "THEME",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isDraggable": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "selectedTheme",
+                "templateUrl": "shared/user/views/themeForm.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

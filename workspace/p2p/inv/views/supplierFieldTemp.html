@@ -1,0 +1,3 @@
+<div ng-controller="supplierFieldCtrl" class="paddingLeft0">
+    <smart-typeahead class="col s12 line-height-manager" showwarning="{{modelData.showwarning}}" clienterror="modelData.clienterror" is-mandatory="true" multiselect="false" show-lookup="true" ng-model="modelData.selectedSupplier" options="modelData.supplierOptions" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span><div class='showDescription'>{UserName}</div>" displayformat="{FirstName} {LastName}" desckey="UserName" label="Supplier Name" callback-on-icon-click="showSupplierIcard(e)" info-icon="#icon_ContactCard" info-icon-tooltip="iCard"></smart-typeahead>
+</div>

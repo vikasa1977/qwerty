@@ -1,0 +1,26 @@
+<div ng-style=cardHeight>
+    <smart-list item-class="collection-item avatar" enable-action="true" model="{{eachCardContent.documents}}" style-class="collection with-header" template="shared/view/cards/cardListWithActions.html"
+                click-callback="clickHandler" height="{{cardListHeight}}" selective-display-config="{{listDisplayConfig}}" ng-if="!eachCardContent.isAdmin">
+    </smart-list>
+
+    <div ng-if="eachCardContent.isAdmin" class="cardWithTabs" ng-style="cardListH">
+        <smart-tabs tab-config="{{eachCardContent.tabConfig}}" width="100%" on-select="callbackFunc(e)"></smart-tabs>
+    </div>
+
+    <div id="{{miniFilterID}}" ng-if="eachCardContent.filters.length > 0" class="dropdown-content dd-close-off select-dropdown filterDropDown minWidth200">
+        <smart-scroll height="500px">
+            <ul class="clearfix">
+                <li ng-repeat="eachFilter in eachCardContent.filters track by $index">
+                    <span>
+                        <smart-checkbox ng-model="eachFilter.checked" fill='true' on-change="onMiniFiltersUpdate(isUrgent)" label='{{eachFilter.translatedFilterValue}}'></smart-checkbox>
+                    </span>
+                </li>
+            </ul>
+        </smart-scroll>
+        <div class="disabled">
+            <div class="drop-down-footer">
+                <a href="javascript:void(0);" type="button" ng-click="miniFilterServiceCall(eachCardContent.groupName, miniFilterID)" class="right btn-flat card-button waves-effect dev_btnShowAll">{{'done' | translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div>
+<div class="modal-header">
+        <i class="icon grey-text iconSmall left ng-scope">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Ordered"></use></svg>
+        </i>
+        <span class="title">ORDER NUMBER</span>
+</div>
+<div class="modal-content padding0 is-scrolled">
+<div class="content left padding0 paddingTop25 scroll-inner-container" style="min-height:200px">
+                <smart-scroll height="200px">
+                    <div class="panel-content paddingBtm0">
+                      <ul class="paddingLeft25 panel-content-iteamList panel-content-iteamList-withoutHover">
+                       <li class="row" ng-repeat="n in modelData.mSelectedOrder">
+                         <span class="fontSize16">{{n.OrderNumber}}</span>
+                       </li>
+                      </ul>
+                     </div>
+                 </smart-scroll>
+</div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+     

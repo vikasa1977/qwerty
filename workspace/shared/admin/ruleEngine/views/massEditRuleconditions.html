@@ -1,0 +1,50 @@
+﻿<div class="masseditconditionaladdbtn" ng-if="massEditRuleconditionsData.length">
+    <smart-dropdown>
+        <a href="javascript:void(0)" class="left dropdown-button" data-constrainwidth="false" data-activates="masseditaddnewcondition" data-alignment="right">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Add New Condition' || translate }}" position="bottom">
+                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+            </i>
+        </a>
+        <ul id="masseditaddnewcondition" class="padding0 dropdown-content zIndex10">
+            <li class="margin0 list-item"><a href="javascript:void(0)" ng-click="actionconditionalFn(massEditRuleconditionsData, 'Add Attribute')">Add</a></li>
+            <li class="margin0 list-item"><a href="javascript:void(0)" ng-click="actionconditionalFn(massEditRuleconditionsData, 'Update Attribute')">Update</a></li>
+            <li class="margin0 list-item"><a href="javascript:void(0);" ng-click="actionconditionalFn(massEditRuleconditionsData, 'Remove Attribute')">Remove</a></li>
+        </ul>
+    </smart-dropdown>
+</div>
+<div  class="row marginBtm0" ng-repeat="condition in massEditRuleconditionsData">
+    <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" label="" is-mandatory='true' ng-model="condition.selectedTypeOption" options="conditionSelectOption" datakey="name"></smart-select>
+    <smart-typeahead titleofmodel="Attributes" multiselect="false" addnew="false" show-lookup="true" label="Attributes" class="col s12 m4 l4 xl3 xxl2 input-field line-height-manager" ng-model="condition.selectedAttrOption" options="typeOptionsAttrName" filterkeys="['name']"></smart-typeahead>
+    
+    <smart-select class="col s12 m4 l4 xl3 xxl2 line-height-manager input-field" ng-if="condition.selectedAttrOption.name && condition.selectedTypeOption.name === 'Add Attribute'" label="Operators" ng-model="condition.selectedPoratorOption" options="conditionOpOption" datakey="name"></smart-select>
+    <div class="col s12 m4 l4 xl3 xxl2 padding0" ng-if="condition.selectedPoratorOption.value.length  && condition.selectedTypeOption.name === 'Add Attribute'">
+        <div class="col padding0" ng-class="condition.selectedPoratorOption.value.length === 1 ? 's12' : 's6'" ng-repeat="contList1 in condition.selectedPoratorOption.value">
+            <smart-textfield class="col s12 line-height-manager input-field" label="Value" ng-model="contList1.title"></smart-textfield>
+        </div>
+    </div>
+   
+    <div class="col s12 padding0" ng-if="condition.selectedAttrOption.name  && condition.selectedTypeOption.name === 'Update Attribute'">
+        <div class="col s12 m4 l4 xl3 xxl2 relative conditionalupadteattr">
+            <span class="absolute">From:</span>
+            <smart-select class="col s12 line-height-manager input-field paddingLeft50 paddingRight0" label="Operators" ng-model="condition.selectedPoratorOptionFrom" options="conditionOpOption" datakey="name"></smart-select>
+        </div>
+        <div class="col s12 m4 l4 xl3 xxl2 padding0">
+            <div class="col padding0" ng-class="condition.selectedPoratorOptionFrom.value.length === 1 ? 's12' : 's6'" ng-repeat="contList2 in condition.selectedPoratorOptionFrom.value">
+                <smart-textfield class="col s12 line-height-manager input-field" ng-if="condition.selectedPoratorOptionFrom.value.length  && condition.selectedTypeOption.name === 'Update Attribute'" label="Value"  ng-model="contList2.title"></smart-textfield>
+            </div>
+        </div>
+
+        <div class="col s12 m4 l4 xl3 xxl2 relative conditionalupadteattr">
+            <span class="absolute">To:</span>
+            <smart-select class="col s12 line-height-manager input-field paddingLeft50 paddingRight0" label="Operators" ng-model="condition.selectedPoratorOptionTo" options="conditionOpOption" datakey="name"></smart-select>
+        </div>
+        <div class="col s12 m4 l4 xl3 xxl2 padding0">
+            <div class="col padding0" ng-class="condition.selectedPoratorOptionTo.value.length === 1 ? 's12' : 's6'" ng-repeat="contList in condition.selectedPoratorOptionTo.value">
+                <smart-textfield class="col s12 line-height-manager input-field" ng-class="condition.selectedPoratorOptionTo.value.length === 1 ? 's12' : 's6'" ng-if="condition.selectedPoratorOptionTo.value.length  && condition.selectedTypeOption.name === 'Update Attribute'" label="Value" ng-model="contList.title"></smart-textfield>
+            </div>
+        </div>
+    </div>
+      
+    <smart-typeahead titleofmodel="Value" multiselect="true" addnew="false" ng-if="condition.selectedAttrOption.name  && condition.selectedTypeOption.name === 'Remove Attribute'" show-lookup="true" label="Value" class="col s12 m4 l4 xl3 xxl2 input-field line-height-manager" ng-model="condition.selectedValueOption" options="condition.selectedAttrOption.data" filterkeys="['name']"></smart-typeahead>
+
+</div>

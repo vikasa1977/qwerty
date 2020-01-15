@@ -1,0 +1,210 @@
+<div>
+    <div class="modal-header">
+        <i class="icon grey-text iconSmall left ng-scope">
+            <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Ordered"></use></svg>
+        </i>
+        <span class="title">ORDER</span>
+        <!--<div class="autoSuggest">
+        
+            <smart-typeahead class="col s12 templatize-field line-height-manager" multiselect="true" addnew="false" titleofmodel="Select Order Number" show-lookup="true" placeholder="" readonly="false" is-mandatory="true" disable="false" selecttypeoption="mSelectedTypeOrder" ng-model="parentScope.mSelectedOrder" options="parentScope.orderNumOptions" filterkeys="['number']" lookup-Open="parentScope.hideOrderDetailsPopupCallback(e)" lookup-Hide="parentScope.orderDetailsPopupCallback(e)" on-select="parentScope.selectedItem(0)" label="Order Number"></smart-typeahead>
+        </div>-->
+</div>
+    <div class="modal-content padding0 is-scrolled">
+        <div class="wrapper clearfix wrapper--withSidebar padding0">
+            <div class="sidebar sidebar--left Set-Top" style="min-height:353px">
+                <div class="panel-content">
+                    
+                    <smart-scroll height="350px">
+                        <ul class="panel-content-iteamList">
+                            <li class="clearfix panel-content-iteamList-item marginTop10 paddingBtm7 paddingLeft5 paddingRight0">
+                                <div>
+                                    <smart-typeahead class="col s12" multiselect="true" addnew="false" titleofmodel="Select Order Number" show-lookup="true" placeholder="" readonly="false" is-mandatory="true" disable="false" selecttypeoption="mSelectedTypeOrder" ng-model="parentScope.mSelectedOrder" options="parentScope.orderNumOptions" filterkeys="['number']" lookup-Open="parentScope.hideOrderDetailsPopupCallback(e)" lookup-Hide="parentScope.orderDetailsPopupCallback(e)" on-select="parentScope.selectedItem(0)" label="Order Number"></smart-typeahead>
+
+                                </div>
+                            </li>
+                            <li custom-tab tabindex="{{ ($index == parentScope.indexToShow ) ? 0 : -1 }}" ng-repeat="n in parentScope.mSelectedOrder" class="manage-panel-iteamList-item panel-content-iteamList-item " ng-class="($index == parentScope.indexToShow ) ? 'selected' : 'cursorPointer'" ng-click="parentScope.selectedItem($index)">
+                                <span>{{n.number}}</span>
+                            </li>
+                        </ul>
+                    </smart-scroll>
+                </div>
+            </div>
+            <div class="content left padding0 scroll-inner-container" style="min-height:353px;">
+                <smart-scroll height="353px">
+                    
+                    <div class="panel-content width1400 paddingBtm0" ng-if="parentScope.mSelectedOrder.length > 0">
+                       
+                        <div class="right filterView is-floating-menu-active col s12 padding0 marginBtm0 padding0 no-animate" ng-if="parentScope.mSelectedOrder.length > 0">
+                            <div class="row rightPanelHeader marginBottom0" style="background-color: #efefef; line-height: 51px;">
+                                <div class="s9 m9 l9 left paddingLeft0 marginLeft15 fontSize16">
+                                    <span class="left paddingLeft5 milestoneTitle truncate cursorDefault" title="{{parentScope.selectedPO.number}}">{{parentScope.selectedPO.number}}</span>
+
+                                </div>
+                                <!--<div class="right s4 paddingRight15">
+                                    <ul class="activityHeaderNav">
+
+                                        <li>
+                                            <a href="javascript:void(0)" ng-click="deleteCurrentOrder(indexToShow)">
+                                                <i class="icon iconSmall" smart-tooltip message="Delete" position="bottom">
+                                                    <svg>
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>-->
+                            </div>
+                        </div>
+                        
+
+                        <div class="row">
+                            <table class="bordered" ng-if="parentScope.mSelectedOrder.length > 0" >
+                                <colgroup>
+                                    
+                                    <col style="width:7%;" />
+                                    <col style="width:11%;" />
+                                    <col style="width:11%;" />
+                                    <col style="width:12%;" />
+                                    <col style="width:11%;" />
+                                    <col style="width:11%;" />
+                                    <col style="width:12%;" />
+                                    
+                                    <col style="width:13%;" />
+                                    <col style="width:12%;" />
+                                    
+                                </colgroup>
+                                <thead>
+                                    
+                                    <tr>
+                                        
+                                        <th class="right-align">
+                                            {{'Line No.' || translate}}
+                                        </th>
+                                        <th>
+                                            {{'Description' || translate}}
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Item No.' || translate}}
+
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Supplier Item No.' || translate}}
+
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Unit Price' || translate}}
+
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Quantity' || translate}}
+
+                                        </th>
+                                        
+                                        <th class="right-align">
+                                            {{'Charges (USD)' || translate}}
+
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Shipping Charges (USD)' || translate}}
+
+                                        </th>
+                                        <th class="right-align">
+                                            {{'Other Charges (USD)' || translate}}
+
+                                        </th>
+                                       
+
+                                    </tr>
+                                </thead>
+                                <smart-scroll height="100%" v-offset="350px">
+                                    <tbody>
+                                        <tr ng-repeat="orderDetail in parentScope.selectedPO.OrderDetails">
+                                            
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.LineNo}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="truncate">
+                                                    {{orderDetail.Description}}
+                                                </div>
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.ItemNo}}
+                                                </div>
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.SupplierItemNo}}
+                                                </div>
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.UnitPrice}}
+                                                </div>
+                                                
+
+
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.Quantity}}
+                                                </div>
+                                                 
+                                                
+                                            </td>
+                                            
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.Charges}}
+                                                </div>
+                                                
+                                                
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.ShippingCharges}}
+                                                </div>
+
+
+                                            </td>
+                                            <td class="right-align">
+                                                <div class="truncate">
+                                                    {{orderDetail.OtherCharges}}
+                                                </div>
+
+
+                                            </td>
+                                            
+                                            
+                                        </tr>
+                                    </tbody>
+                                </smart-scroll>
+                            </table>
+                        </div>
+                        
+
+                    </div>
+                    
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

@@ -1,0 +1,29 @@
+<div class="modal-header clearfix">
+    <i class="icon iconSmall grey-text left marginTop3">
+        <svg>
+            <use xlink:href="#icon_validateSplitAccount"></use>
+        </svg>
+    </i>
+    <span class="title left">Validate Budget Split Accounting</span>
+</div>
+
+<div class="modal-content padding0 is-scrolled">
+    <smart-scroll height="412px">
+        <div class="clearfix ui-grid-previewmode" ng-if="uiGridVisibility">
+                <smart-ui-grid col-def="{{validateAccountConfig}}" other-grid-options="{{hideSelection}}" model="validateAccountModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition"></smart-ui-grid>
+                
+        </div>
+    </smart-scroll>
+</div>
+
+<div class="modal-footer is-scrolled">
+    <div class="row marginBottom0">
+        <div class="col s12">
+            <!--<smart-button flat="true" class="left" config='{"title":"RESET"}'></smart-button>-->
+            <div class="right">
+                <smart-button flat="true" class="right modal-close" config='{"title":"PROCEED"}' ng-if="showProceed"></smart-button>
+                <smart-button flat="true" class="right modal-close" config='{"title":"CLOSE"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,269 @@
+<div class="padding15" ng-controller="p2pInvNonPoExceptionTypeInfoCtrl">
+    <div class="tableCnt" ng-switch on="selectedExceptionType">
+        <table class="bordered sTable" ng-switch-when="approvalRequiredExcTbl">
+            <colgroup>
+                <col style="width:15%" />
+                <col style="width:10%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:10%" />
+                <col style="width:35%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Supplier Item Number</th>
+                    <th>Item Type</th>
+                    <th>Item Matching Type</th>
+                    <th class="center-align">Override Exception</th>
+                    <th class="right-align">Item Total</th>
+                    <th>Exception Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="are in exceptionData.approvalRequiredExcData track by $index">
+                    <td>{{::are.supplierItemNumber}}</td>
+                    <td>{{::are.itemType}}</td>
+                    <td>{{::are.itemMatchingType}}</td>
+                    <td class="center-align">
+                        <div style="width: 70px; display: inline-block;">
+                            <smart-select class="marginBottom0" ng-model="are.overrideExc" options="are.overrideExcOpt" datakey="excOpt" displaykey="excOpt" on-change="overrideExcChange(are.overrideExc)"></smart-select>
+                        </div>
+                    </td>
+                    <td class="right-align">{{::are.itemTotal}}</td>
+                    <td>{{::are.exceptionComment}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="chargesTbl">
+            <colgroup>
+                <col style="width:10%" />
+                <col style="width:25%" />
+                <col style="width:25%" />
+                <col style="width:25%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th class="right-align">Ordered Charges<br />(USD)</th>
+                    <th class="right-align">Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Total Invoiced Charges<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="charges in exceptionData.chargesData track by $index">
+                    <td>{{::charges.item}}</td>
+                    <td class="right-align">{{::charges.orderedCharges}}</td>
+                    <td class="right-align"><span class="red-text">{{::charges.invoicedCharges}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::charges.totalInvoicedCharges}}</span></td>
+                    <td class="right-align">{{::charges.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="orderTotalTbl">
+            <colgroup>
+                <col style="width:10%" />
+                <col style="width:25%" />
+                <col style="width:25%" />
+                <col style="width:25%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Amount for</th>
+                    <th class="right-align">In Order<br />(USD)</th>
+                    <th class="right-align">In Invoice<br />(USD)</th>
+                    <th class="right-align">Total Invoiced<br />(USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ot in exceptionData.orderTotalData track by $index">
+                    <td>{{::ot.amount}}</td>
+                    <td class="right-align">{{::ot.inOrder}}</td>
+                    <td class="right-align"><span class="red-text">{{::ot.inInvoice}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::ot.totalInvoice}}</span></td>
+                    <td class="right-align">{{::ot.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="itemMismatchTbl">
+            <colgroup>
+                <!--<col style="width:15%" />-->
+                <col style="width:30%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <!--<th>Sr. No.</th>-->
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Quantity / Effort</th>
+                    <th class="right-align">Unit Price / Amount (USD)</th>
+                    <th class="right-align">Item Value (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="im in exceptionData.itemMismatchExcData track by $index">
+                    <td>{{::im.item}}</td>
+                    <td>{{::im.itemType}}</td>
+                    <td>{{::im.quantity}}</td>
+                    <td class="right-align">{{::im.unitPrice}}</td>
+                    <td class="right-align">{{::im.itemValue}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="quantityTbl">
+            <colgroup>
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:15%" />
+                <col style="width:10%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Order Quantity / Effort</th>
+                    <th>Received Quantity / Effort</th>
+                    <th>Accepted Quantity / Efforts</th>
+                    <th>Invoiced Quantity / Effort</th>
+                    <th>Total Invoiced Quantity / Effort</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="q in exceptionData.quantityData track by $index">
+                    <td>{{::q.item}}</td>
+                    <td>{{::q.orderQuantity}}</td>
+                    <td>{{::q.recQuantity}}</td>
+                    <td>{{::q.acceptedQuantity}}</td>
+                    <td>{{::q.invQuantity}}</td>
+                    <td>{{::q.totalInvoice}}</td>
+                    <td class="right-align">{{::q.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="shippingTbl">
+            <colgroup>
+                <col style="width:40%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th class="right-align">Order Shipping (USD)</th>
+                    <th class="right-align">Invoiced Shipping (USD)</th>
+                    <th class="right-align">Total Invoiced Shipping (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shp in exceptionData.shippingData track by $index">
+                    <td>{{::shp.item}}</td>
+                    <td class="right-align">{{::shp.orderShipping}}</td>
+                    <td class="right-align"><span class="red-text">{{::shp.invShipping}}</span></td>
+                    <td class="right-align"><span class="red-text">{{::shp.totalInvShipping}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="unitPriceTbl">
+            <colgroup>
+                <col style="width:30%" />
+                <!--<col style="width:15%" />-->
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <!--<th>Item Type</th>-->
+                    <th>Order Unit Price / Rate (USD)</th>
+                    <th>Invoiced Unit Price / Rate (USD)</th>
+                    <th class="right-align">Tolerance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="up in exceptionData.unitPriceData track by $index">
+                    <td>{{::up.item}}</td>
+                    <!--<td>{{up.itemType}}</td>-->
+                    <td>{{::up.orderUnitPrice}}</td>
+                    <td>{{::up.invUnitPrice}}</td>
+                    <td class="right-align">{{::up.tolerance}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="taxTbl">
+            <colgroup>
+                <col style="width:25%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:15%" />
+                <col style="width:20%" />
+                <!--<col style="width:15%" />-->
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th class="right-align">Ordered Tax (USD)</th>
+                    <th class="right-align">Invoiced Tax (USD)</th>
+                    <th class="right-align">Total Invoiced Tax (USD)</th>
+                    <th class="right-align">Use Tax (USD)</th>
+                    <!--<th class="right-align">Tolerance</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="t in exceptionData.taxData track by $index">
+                    <td>{{::t.item}}</td>
+                    <td class="right-align">{{::t.orderTax}}</td>
+                    <td class="right-align">{{::t.invTax}}</td>
+                    <td class="right-align">{{::t.totalInvTax}}</td>
+                    <td class="right-align">{{::t.useTax}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="bordered sTable" ng-switch-when="uomTbl">
+            <colgroup>
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:20%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Items</th>
+                    <th>Item Type</th>
+                    <th>Order UOM</th>
+                    <th>Received UOM</th>
+                    <th>Invoice UOM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="uom in exceptionData.uomData track by $index">
+                    <td>{{::uom.item}}</td>
+                    <td>{{::uom.itemType}}</td>
+                    <td>{{::uom.orderUOM}}</td>
+                    <td>{{::uom.receivedUOM}}</td>
+                    <td>{{::uom.invUOM}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

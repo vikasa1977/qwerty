@@ -1,0 +1,233 @@
+﻿<!-- subheader -->
+
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'Item Master' || translate | uppercase}}</span>
+        </div>
+   
+        <ul class="right extra-nav-right-icon right-panel">
+          <!-- <li class="extra-nav-icon">
+          <a href="javascript:void(0)"  class="white-text waves-circle waves-effect waves-light"  ng-click="toggleFilter(e);" smart-tooltip position="Down" delay="250" message="{{'Space' || translate }}">
+                    <i class="icon iconSmall red-text">
+                        <svg>
+                            <use xlink:href="#icon_RecentlyPublished"></use>
+                        </svg>
+                    </i>
+                </a>
+          </li> -->
+
+          
+            <li class=" extra-nav-icon" ng-if="docType !== 'supplier' && !scannedImg ">
+                      <smart-dropdown config="{{dropDownConfig}}">
+                    <!-- <a class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-activates='landingPageAction' data-position="bottom" data-delay="50" data-constrainwidth="false">
+                        <i class="icon iconSmall" message="{{'Actions' || translate }}">
+                            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                        </i>
+                    </a> -->
+                    <ul id='landingPageAction' class='dropdown-content'>
+                        <li>
+                            <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="savedViewPopupCallback(e)">
+                                <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                    <svg>
+                                        <use xlink:href="#icon_SavedView"></use>
+                                    </svg>
+                                </i>
+                                {{ 'Saved Views' || translate }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="grey-text text-darken-4" ng-click="manageAttributesPopupCallback()">
+                                <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                    <svg>
+                                        <use xlink:href="#icon_ManageFields"></use>
+                                    </svg>
+                                </i>
+                                {{ 'Manage Attributes' || translate }}
+                            </a>
+                        </li>
+                        <li class="divider" ng-if="docType === 'order'"></li>
+                        <li ng-if="docType === 'order'">
+                            <a ui-sref="p2p.order.mass" class="grey-text text-darken-4">
+                                <i class="icon iconSmall s-dd-icon-wth-color marginRight5">
+                                    <svg>
+                                        <use xlink:href="#icon_BulkEdit"></use>
+                                    </svg>
+                                </i>
+                                {{ 'Order Processing Workbench' || translate }}
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+         
+
+        </ul>
+         
+    </div>
+ </div>
+
+
+
+<!-- <div class="clearfix alert-bar--fixed relative zIndex1" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+<!-- <div class="alert-bar alert-bar--warning alert-bar--with-button enter-from-top" ng-if="isApplyFilters"> -->
+
+    <!-- <a href="javascript:void(0)">Sorting</a>, <a href="javascript:void(0)">Manage Attributes</a>, <a href="javascript:void(0)">Filters</a>
+    <div class="right">
+        <smart-button flat="true" class="modal-close marginRight5" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+    </div>
+</div> -->
+<div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isSavedView">
+    <div>
+        <span class="saved-view-content" ng-click="savedViewPopupCallback(e)">
+            {{ selectedSavedview.name }}  <span class="is-modified" ng-if="isSavedViewModified"><em>Modified</em> </span>
+        </span>
+        <div class="right" ng-if="isSavedViewModified">
+            <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallback(e)"></smart-button>
+        </div>
+    </div>
+</div>
+<div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="isUploadStatus">
+    <div>
+        <span>Error in upload. </span>
+
+        <div class="right">
+            <smart-button flat="true" class="modal-close" config='{"title": "VIEW LOG" }' ng-click="viewUploadLog(e)"></smart-button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- page content -->
+<section class="white clearfix">
+<div class="page-container" style="padding:0px 24px 24px;">
+    <div class="panelBox paddingTop40 ccc">
+        <div class="panelBox-content">
+            <!-- panel Box-- body -->
+            <div class="marginBtm10">
+                <!-- <div class="row">
+                    <div class="col s12">
+                        <wj-menu value="groupBy" header="Group by" items-source="currencyOptions"></wj-menu>
+                    </div>
+                </div> -->
+                <div class="row panelBox-body padding0 ">
+                    <div class="col s12">
+                        <!-- <wj-flex-grid style="height: 400px;width:100%;box-sizing:border-box;" items-source="data" item-formatter="itemFormatter" initialized="init(s, e)" is-read-only="true"></wj-flex-grid> -->
+                        <smart-ui-grid col-def="{{itemConfig}}" model="itemModel" callback="callbackFucn" cell-class-function="cellClass" cell-editable-condition-function="cellEditableCondition" ></smart-ui-grid>
+                    </div>
+                    <!-- <div class="col s12">
+                        <ul class="table-pagination right" ng-init="selecteNumPages = 10">
+                            <li class="t-p-content">
+                                <div class="t-p-label">
+                                    Rows Per Page:
+                                </div>
+                                <div class="t-p-dropdown">
+                                    <smart-dropdown config="{{dropDownConfig}}">
+                                        <a class="dropdown-button  black-text right " href="javascript:void(0);" data-activates="lineItemPagination1" data-constrainwidth="false" data-alignment="right">
+                                            <span class="t-p-dd-label">{{ currentNumofItem.number  || translate}}</span>
+                                            <i class="icon iconSmall grey-text  marginLeft0">
+                                                <svg class=" ">
+                                                    <use xlink:href="#icon_DropArrow"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                        <ul id='lineItemPagination1' class='dropdown-content'>
+                                            <li ng-repeat="item in numberOptions">
+                                                <a href="javascript:void(0)" ng-click="setTheItemWithNumber(item.number)">
+                                                    {{  item.number }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </div>
+                            </li>
+
+                            <li class="t-p-content">
+                                1-10 out of 50
+                            </li>
+                            <li class="t-p-content">
+                                <a href="javascript:void(0)" class="page-back is-disabled waves-effect waves-circle waves-grey">
+                                    <i class="icon chevron_left">
+                                        <svg>
+                                            <use xlink:href="#icon_DownChevron">
+                                            </use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" class="page-next waves-effect waves-circle waves-grey">
+                                    <i class="icon chevron_right">
+                                        <svg>
+                                            <use xlink:href="#icon_DownChevron">
+                                            </use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+<!--<style>.test {display:none;}</style>ng-class="{'test' : test1 }"-->
+<footer class="page-footer">
+<div class="row">
+    <div class="col s12 right-align ">
+        <div class="btn-group">
+            <smart-button config='{"title":"Create RFx"}' ng-class="btn-first-button" ng-click="submitRfx()" disable="false"></smart-button>
+            <!-- <smart-dropdown config="{{dropDownConfig}}">
+                <a data-activates='exportActionBtn' class="white-text dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                    <i class="icon iconSmall">
+                        <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                    </i>
+                </a>
+                <ul id='exportActionBtn' class='dropdown-content footer-dropdown-for-landing'>
+                    <li ng-repeat="item in exportActions">
+                        <a href="javascript:void(0)" class="black-text"> {{  item.key }}</a>
+                    </li>
+                </ul>
+            </smart-dropdown> -->
+        </div>
+    </div>
+</div>
+</footer>
+
+<!-- SAVED VIEW -->
+<smart-saved-view-popup show="savedViewPopUp" hide="savedViewPopupHideCallback(e)" ng-model="selectedSavedview" open-popup-saved-view="showSavedViewList" config="getSavedViewsList" is-apply-filter="isApplyFilters" is-saved-filter="isSavedView" is-modified="isSavedViewModified"></smart-saved-view-popup>
+
+
+<!-- Manage Attributes -->
+<smart-popup type="small" template-url="{{manageAttributesPopupUrl}}" show='{{manageAttributesPopUp}}' on-hide="manageAttributesPopupHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{uploadPoupUrl}}" show="{{showUploadlogpopup}}" on-hide="onUploadlogpopupHide(e)"></smart-popup>
+<!-- save filter--->
+<smart-popup type="small" template-url="{{saveFilterPopupUrl}}" show='{{saveFilterPopUp}}' on-hide="saveFilterPopupHideCallback(e)"></smart-popup>
+
+<!-- Upload / Download Log -->
+<smart-popup template-url="contract/views/popupUploadExcelLog.html" type="large" show="{{uploadDownloadLogPopup}}" on-hide="uploadDownloadLogPopupHide(e)"></smart-popup>
+
+<!-- Contract Popups-->
+<smart-popup template-url="contract/views/contractQuickCreate.html" show="{{contractQuickCreateRootCall}}" on-hide="contractQuickCreateHideRootCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupUploadExcel.html" show="{{showUploadExcelrootCall}}" on-hide="onUploadlExcelHideCall(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showAddAttachmentPopup}}" on-hide="showAddAttachmentPopupHideCall(e)"></smart-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Category" default-text="Choose Category" show="showFormRootC" mode="true" selected-value="categoryRootData" modal-content="category" modal-button="categoryBtn" initial-display-text="categoryDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit" show="showFormRootBU" mode="true" selected-value="businessUnitRootData" modal-content="businessUnit" modal-button="businessUnitBtn" initial-display-text="businessUnitDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-list-popup template-url="shared/popup/views/smartCatPopupMultiLevel.html" read-mode-text="Region" default-text="Choose Region" show="showRegionRoot" mode="true" selected-value="regionRootData" modal-content="region" modal-button="regionBtn" initial-display-text="RegionDatainitialDisplayRootText" openpopup="catPopUpShowRootCallback()" callback="catPopUpOnHideRootCallback(e)"></smart-list-popup>
+<smart-popup template-url="{{addDocumentPoupUrl}}" show="{{addDocumentPopup}}" on-hide="hideAddDocumentPopupCallback(e)"></smart-popup>
+
+<!-- popup -- on behalf of -->
+<smart-popup template-url="{{popupOnBehalfOfUrl}}" show='{{popupOnBehalfOf}}' on-hide="popupOnBehalfOfCallback(e)" type="small"></smart-popup>

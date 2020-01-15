@@ -1,0 +1,90 @@
+﻿/***********************************\
+      blue-overlay
+\***********************************/
+.blue-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(0, 103, 176, 0.92);
+	z-index: 1000;
+    &.singleLineRecords{
+        .centered {
+            padding:0 200px;
+        }
+    }
+    .doubleLineRecords{}
+	.centered {
+		position: relative;
+        top: 50%;
+         -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%); 
+		.action-box{
+			width:500px;
+			margin:1px 5px;
+			padding:10px;
+			border-radius: 2px;
+			display: inline-block;
+			position:relative;
+			cursor: pointer;
+
+			.action-box-icon{
+				padding:10px 0 10px 5px;
+                float:left;
+				.action-icon{
+					margin:0 auto;
+					svg{
+					width:24px;
+					height:24px;
+					}
+				}
+			}
+
+			.action-box-text{
+				width:calc(100% - 29px);
+				padding:0 10px;
+                float:left;
+                text-align:left; 
+                display:table;
+                height:44px;
+                > span{
+                    display:table-cell;
+                    vertical-align:middle;
+                } 
+			}
+		}
+	}
+
+	.overlay-okay-button {
+		position: absolute;
+		bottom: 15px;
+		right: 20px;
+	}
+
+	.layout-profile-image {
+		width: 15vw;
+		height: 15vw;
+	}
+
+	.slider-container {
+		display: inline;
+		float: left;
+		position: relative;
+		width: 100%;
+	}
+	.action-block-disable{
+		color:#e7e7e7;
+		cursor: default !important;
+		box-shadow: none;
+	}
+}
+@media only screen and (min-width: 1501px){
+.blue-overlay.singleLineRecords .centered{padding:0 530px}
+}
+@media only screen and (min-width: 500px) and (max-width: 980px){
+.blue-overlay.singleLineRecords .centered{padding:0}
+}

@@ -1,0 +1,6 @@
+<div>
+
+    <smart-typeahead class="col s12" multiselect="false" addnew="true" show-lookup="true" ng-model="modelData.ShipToLocation" options="modelData.shippingOptions" filterkeys="['location']" readonly="{{ modelData.ShipToLocation.readonly }}" label="Ship to Location"  call-add-new="showLocationPopupFn(e)"></smart-typeahead>
+    <!---<smart-textfield class="col s6" label="Ship To Address" readonly="true" ng-model="modelData.ShipToLocation.shipToAddress"></smart-textfield>-->
+    <smart-popup template-url="p2p/req/views/shipToPopup.html" show="{{ showLocationPopup }}" on-hide="showLocationPopupClBack()"></smart-popup>
+</div>

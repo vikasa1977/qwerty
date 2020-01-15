@@ -1,0 +1,101 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+		<i class="left icon iconSmall red-text">
+			<svg>
+				<use xlink:href="#icon_Filter"></use>
+			</svg>
+		</i>
+		<span class="title">RATING</span>
+        <div class="right">
+            <a href="javascript:void(0)" class="left paddingRight30" smart-tooltip position="bottom" delay="50" message="Reset">
+			    <i class="icon iconSmall center blue-text">
+				    <svg><use xlink:href="#icon_Reset"></use></svg>
+			    </i>
+		    </a>
+            <a href="javascript:void(0)" class="right paddingTop2" smart-tooltip position="bottom" delay="50" message="Add">
+			    <i class="icon iconSmall center blue-text">
+				    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+			    </i>
+		    </a>
+       </div>
+	</div>
+	<div class="modal-content padding0 paddingTop10 ratePop">
+		<smart-scroll height="450px" class="clearfix clear">
+            <div class="row paddingTop10">
+                <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="From" ng-model="from1"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="To" ng-model="to1"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20 selectBox">
+                     <smart-select is-mandatory='true' ng-model="selectedColor1" options="typeSelectColor" class="col s12" datakey="name" on-change="onChange(selectedColor)"></smart-select>
+                </div>
+                 <div class="col s5 paddingLeft20">
+                     <smart-textfield type="text" class="col s12 marginBtm20" label="Description" ng-model="Description1"></smart-textfield>
+                </div>
+                 <div class="col s1 paddingTop25 paddingRight20">
+                     <a href="javascript:void(0)" class="right s12" smart-tooltip position="bottom" delay="50" message="Delete">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_TrashCan"></use></svg>
+						</i>
+					</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="From" ng-model="from2"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="To" ng-model="to2"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-select is-mandatory='true' ng-model="selectedColor2" options="typeSelectColor" class="col s12" datakey="name" on-change="onChange(selectedColor)"></smart-select>
+                </div>
+                 <div class="col s5 paddingLeft20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="Description" ng-model="Description2"></smart-textfield>
+                </div>
+                 <div class="col s1 paddingTop25 paddingRight20">
+                     <a href="javascript:void(0)" class="right s12" smart-tooltip position="bottom" delay="50" message="Delete">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_TrashCan"></use></svg>
+						</i>
+					</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="From" ng-model="from3"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="To" ng-model="to3"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingLeft20 paddingRight20">
+                    <smart-select is-mandatory='true' ng-model="selectedColor3" options="typeSelectColor" class="col s12" datakey="name" on-change="onChange(selectedColor)"></smart-select>
+                </div>
+                 <div class="col s5 paddingLeft20">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="Description" ng-model="Description3"></smart-textfield>
+                </div>
+                 <div class="col s1 paddingTop25 paddingRight20">
+                     <a href="javascript:void(0)" class="right s12" smart-tooltip position="bottom" delay="50" message="Delete">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_TrashCan"></use></svg>
+						</i>
+					</a>
+                </div>
+            </div>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+            <div class="col l5 s6"><a href="javascript:void(0)" class="waves-effect btn-flat">Apply To All Questions</a></div>
+			<div class="col l7 s6 right-align">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"APPLY"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

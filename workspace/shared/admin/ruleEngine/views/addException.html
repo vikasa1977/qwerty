@@ -1,0 +1,19 @@
+﻿<div class="addExceptionPopUp">
+    <div class="modal-header">
+        <i class="icon  grey-text left">
+            <svg>
+                <use xlink:href="#icon_CirclePlus"></use>
+            </svg>
+        </i>
+        <span class="title">Add Exception</span>
+    </div>
+    <smart-scroll height="300px">
+        <div class="scroll-inner-container">
+            <smart-textfield class="col s12 m8 line-height-manager paddingRight0" ng-model="exceptionName.name"  label="Exception Name"></smart-textfield>
+        </div>
+    </smart-scroll>
+    <div class="modal-footer paddingLeft4">
+        <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="AddException(exceptionName)"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+    </div>
+</div>

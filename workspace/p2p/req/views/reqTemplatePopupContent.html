@@ -1,0 +1,71 @@
+<div class="popHdr">
+	<div class="clearfix">
+        <div class="popHdr-name left">{{ currentTemplateData.Name   | translate}}</div>  
+        <span class="right">{{reqTempCount + 1}} / {{selectedTemplateData.length}}</span>
+    </div>    
+    <div class="popHdr-status">
+        <div> {{currentTemplateData.Number | translate}} </div>
+        <div class="popHdr-info">
+            {{ currentTemplateData.countItem  | translate }}
+            {{ 'Items' | translate }}
+            | <span>
+                {{ 'created by' | translate }}
+                {{ currentTemplateData.createdBy  | translate }}
+                {{ 'On' | translate }}
+                {{ currentTemplateData.createdOn  |  date : 'MMM d, y' }}
+            </span>
+        </div>
+    </div>
+    <div class="popHdr-info">
+        {{ currentTemplateData.summary  }}
+    </div>
+</div>
+<div class="modal-content padding0">
+    <ul class="collection noBorder">
+        <li class="collection-item clearfix templDoc">
+            <div class="templDoc-manage marginTop6 paddingRight35">
+                <div class="searchSlideMain searchSlideMain--inputBdrBNone " data-ng-init="focusSearch=false;">
+                    <smart-checkbox fill="true" label="All" ng-model="currentTemplateData.isCheckedAll" on-change="selectAllTemple(currentTemplateData)" class="left"></smart-checkbox>
+                    <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                        <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch();focusSearch = false" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text marginTop0">
+                            <i class="icon iconSmall center grey-text">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg>
+                            </i>
+                        </a>
+                        <smart-textfield ng-model="treeSearchModel" class="input-field" focus="focusSearch"></smart-textfield>
+                        <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" ng-click="showSearch(); focusSearch = true">
+                            <i class="icon iconSmall center grey-text">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right templDoc-selected">
+                <span class="grey-text text-darken-1"> {{ selectedItems  }}  / {{ currentTemplateData.tempAttr.length  }} {{ 'Selected' | translate }}</span>
+            </div>
+        </li>
+    </ul>
+    <smart-list model="{{currentTemplateData.tempAttr}}"
+                style-class="collection section-collection-item margin0 collection--BorderNone"
+                item-class="collection-item"
+                template="p2p/shared/views/attributeTempList.html"
+                height="250px">
+    </smart-list>   
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left" config='{"title":"PREVIOUS"}' ng-click="prevReqTemp()" ng-if="reqTempCount > 0"></smart-button>
+                    <smart-button flat="true" class="left" config='{"title":"NEXT"}' ng-click="nextReqTemp()" ng-if="reqTempCount < selectedTemplateData.length - 1"></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}' ng-if="reqTempCount == selectedTemplateData.length - 1"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

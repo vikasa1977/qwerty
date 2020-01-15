@@ -1,0 +1,15 @@
+<div ng-controller="p2pBuCtrl">
+    <div class="line-height-manager">
+
+        <div class="col s12 input-field margin0">
+
+            <label class="active label-common-color" ng-show="showFormBU">Invoice Number</label>
+
+            <span class="catpopup-title left" ng-class="{'marginTop16' : !showFormBU}">{{ BUDatainitialDisplayText }}</span>
+        </div>
+
+    </div>
+    <smart-list-popup template-url="{{smartCatPopupMultiLevel}}" read-mode="true" type="small" read-mode-text="Receiver" default-text="Choose Business Unit" show="showFormBU" mode="true" selected-value="BusinessUnit" modal-content="BU" modal-button="BUBtn" initial-display-text="BUDatainitialDisplayText"></smart-list-popup>
+
+
+</div>

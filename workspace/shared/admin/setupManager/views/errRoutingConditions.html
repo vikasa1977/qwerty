@@ -1,0 +1,14 @@
+﻿<div ng-controller="errApprovalCtrl">
+    <smart-typeahead class="col s13 m3 l3 xl3 xxl3 input-field line-height-manager" is-mandatory="true" lookup-Hide="LOBCallback(data)" titleofmodel="{{routingConditions.routingLOBData[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{routingConditions.routingLOBData[0].displaytext}}" ng-model="routingConditions.routingLOBData[0].selectedoption" options="routingConditions.routingLOBData[0].options" filterkeys="['name']" label="{{'LOB/Division' || translate}}"></smart-typeahead>
+    <smart-typeahead class="col s13 m3 l3 xl3 xxl3 input-field line-height-manager marginLeft30" is-mandatory="true" lookup-Hide="supplierCallback(data)" titleofmodel="{{routingConditions.routingSupplierData[0].displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{routingConditions.routingSupplierData[0].displaytext}}" ng-model="routingConditions.routingSupplierData[0].selectedoption" options="routingConditions.routingSupplierData[0].options" filterkeys="['name']" label="{{'Supplier' || translate}}"></smart-typeahead>
+
+    <div class="col s13 m3 l3 xl3 xxl3 line-height-manager input-field marginLeft30">
+        <label class="active" ng-if="selectedCategoryNodes.length > 0">Choose Category</label>
+        <a href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{selectedCategoriesTxt}}</a>
+    </div>
+
+    <smart-typeahead class="col s13 m3 l3 xl3 xxl3 input-field line-height-manager marginTop30" is-mandatory="true" lookup-Hide="purchaseCallback(data)" titleofmodel="{{routingConditions.routingPurchaseData[0].displaytitle}}" multiselect="true" show-lookup="true" placeholder="{{routingConditions.routingPurchaseData[0].displaytext}}" ng-model="routingConditions.routingPurchaseData[0].selectedoption" options="routingConditions.routingPurchaseData[0].options" filterkeys="['name']" label="{{'Purchase Type' || translate}}"></smart-typeahead>
+    <smart-typeahead class="col s13 m3 l3 xl3 xxl3 input-field line-height-manager marginTop30 marginLeft30" is-mandatory="true" lookup-Hide="lineCallback(data)" titleofmodel="{{routingConditions.routingLineData[0].displaytitle}}" multiselect="true" show-lookup="true" placeholder="{{routingConditions.routingLineData[0].displaytext}}" ng-model="routingConditions.routingLineData[0].selectedoption" options="routingConditions.routingLineData[0].options" filterkeys="['name']" label="{{'Line Type' || translate}}"></smart-typeahead>
+
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div>

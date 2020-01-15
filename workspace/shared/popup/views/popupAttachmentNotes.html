@@ -1,0 +1,34 @@
+<div>
+    <div class="modal-header">        
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_Notes"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'NOTES' || translate }} </span>
+    </div>
+  
+        <div class="modal-content padding10 is-scrolled">
+            <div class="row">                
+                <smart-textfield class="col s12" ng-model="noteName.name" label="Name" ></smart-textfield>       
+            </div>
+			<div class="row">                
+                <smart-textfield type="area" class="col s12" ng-model="noteName.desp" label="Description" charactercounter="true" maxlength="2000"></smart-textfield>                
+            </div>
+			<div class="row" ng-if="isClassificationWithRequired">               
+                <smart-select ng-model="selectedClassification" label="Classification" options="classificationOptions" class="col s4 " style="max-width:200px"></smart-select>			
+			</div>
+            <div class="row" ng-if="isSharedWithRequired">
+                <smart-checkbox class="col s12 paddingTop5" label="{{sharedWithText}}"></smart-checkbox>
+            </div>
+        </div>
+
+        <div class="modal-footer is-scrolled">
+            <smart-button flat="true" class="modal-close" config='{"title":"SAVE"}' ng-click="notesSaveCall()"></smart-button>
+            <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+
+        </div>
+
+</div>
+
+

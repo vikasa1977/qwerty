@@ -1,0 +1,959 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Requisition"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{dataModel.setup.reqNo}} - {{dataModel.setup.reqName}} {{ '(Preview Mode)' || translate }}</span>
+            </div>
+       
+
+
+  <ul class="right extra-nav-right-icon right-panel">
+             <li class="extra-nav-icon ">
+                <a target="_blank" href="shared/theme/images/downLoadReqn.pdf" class="white-text waves-circle waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Download">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a href="javascript:void(0)" class="white-text waves-circle waves-effect waves-light dropdown-button " data-activates='dropdown21' data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="Share">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Share"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul id='dropdown21' class='dropdown-content'>
+                        <li>
+                            <a href="javascript:void(0)" class="modal-trigger">
+                                <i class="icon iconSmall left blue-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Email"></use>
+                                    </svg>
+                                </i>Email
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left blue-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Chat"></use>
+                                    </svg>
+                                </i>Chat
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left blue-text">
+                                    <svg>
+                                        <use xlink:href="#icon_Discuss"></use>
+                                    </svg>
+                                </i>Discussion Forum
+                            </a>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" onclick="window.print()" class="white-text waves-circle waves-effect waves-light " data-position="bottom" data-delay="50" data-tooltip="Print">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Print"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>     
+        </div>
+     </div>
+
+<!-- sub header end-->
+
+
+
+
+<div class="previewModeContainer row">
+	<div class="preview-text">PREVIEW</div>
+	<div class="col s12 l12 m12">
+        <div class="row card ng-cloak" style="width: 895px; margin: 0 auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="padding-bottom: 0;padding:24px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th width="60%" align="left" valign="bottom" scope="col" style="padding:0;">
+                                    <h2 style="color: #5C5C5C;"> <img src="https://gepmtstorage.blob.core.windows.net/smartcontent/workspace/shared/theme/user/logo/5954_logo.png" alt="" height="39" /></h2>
+                                </th>
+                                <th width="40%" align="center" valign="top" scope="col"></th>
+                            </tr>
+                            <tr>
+                                <td width="60%" align="left" valign="bottom" scope="col" style="padding:0;">
+                                    <table width="80%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left" valign="top" style="padding-bottom: 25px; padding-left:0; padding-right:0;">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; border-top: 1px solid #bbb; background: #eee;height:47px;">Company Address</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" valign="top" style="padding: 3px 10px; border-right: 1px solid #bbb; border-bottom: 1px solid #bbb; border-left: 1px solid #bbb;">
+                                                            Broadgate West,5th Numberth avenue,NY,Alabama,United States,45213
+                                                            Email Id/Fax Number
+                                                        </td>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="30%" align="center" valign="top" scope="col" style="text-align: center;"><h3 style="color: #A6A6A6;">REQUISITION</h3></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" style="padding-bottom: 25px; vertical-align: top; padding-left:0; padding-right:0;">
+                                    <!-- partnet details -->
+
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th width="40%" colspan="2" align="left" valign="top" scope="col" style="padding: 3px 10px; border: 1px solid #bbb;background: #eee;height:47px;">Supplier Details</th>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Supplier Name and Address:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;">Alliance Sourcing Network, Inc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Supplier Contact Name:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;">534543534514300</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Supplier Contact Email / Phone:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;">steven.henry@alliance.com/ +91-98988265653 , 2589</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Supplier Ordering Location:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;">::</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Dispatch Mode:</td>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;">Email (steven.henry@alliance.com)</td>
+                                        </tr>
+                                    </table>
+
+                                    <!-- end -->
+                                </td>
+                                <td align="left" valign="top" style="padding-bottom: 25px; vertical-align: top; padding-left:25px; padding-right:0;">
+                                    <!-- summary -->
+
+                                    <table border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; background: #eee;height:47px;" scope="col">Summary </th>
+                                            <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; background: #eee;" scope="col">Amount (USD)</th>
+                                        </tr>
+                                        <tr>
+                                            <td width="62%" align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Requisition Value</td>
+                                            <td width="38%" align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;text-align:right;">60,785.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Freight Charges</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;text-align:right;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Other Charges</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;text-align:right;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Tax</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;text-align:right;">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;color:rgba(0, 0, 0, 0.87);">Requisition Total</td>
+                                            <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;text-align:right;">60,785.00</td>
+                                        </tr>
+                                    </table>
+
+                                    <!-- end -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 25px; padding:24px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th align="left" valign="top" scope="col" style="padding: 3px 10px; border: 1px solid #bbb; border-bottom: 0; background: #eee;height:47px;">Requisition Details</th>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" style="padding: 0;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Requisition  Name</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">REQ1010115731</td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Requisition Number</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">1500006984</td>
+                                        </tr>
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Creation Date</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Mar 02, 2015 2:28 PM uTC</td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Cancellation Date</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;"></td>
+                                        </tr>
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Issue Date</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Acknowledge Date</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;"></td>
+                                        </tr>
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Requisition  Contact</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">js@gep.com/ +91-98988265653</td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Currency</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">USD</td>
+                                        </tr>
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Requisition  Status</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Draft</td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Requisition Type</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">New Requisition </td>
+                                        </tr>
+                                        <tr>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; background: #E8E8E8;">Requisition Contact Name</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Gep1 admin1</td>
+                                            <th align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; background: #E8E8E8;">Requester Name, Email, Phone</th>
+                                            <td align="left" valign="top" scope="col" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Gep1 admin1, js@gep.com, +91-98988265653</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 25px; ">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th align="left" valign="top" scope="col" style="padding: 3px 10px; border: 1px solid #bbb; border-bottom: 0; background: #eee;height:47px;" colspan="4">Delivery and Payment</th>
+                            </tr>
+                            <tr>
+                                <th align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Bill To </th>
+                                <th align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Deliver To </th>
+                                <th align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Ship To </th>
+                                <th align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Payment Terms </th>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">
+                                    London, 21/7 harrow, kenton, middlesex,
+                                    Middleton, Alaska, united States, 40061
+                                    Email ID / Fax Number
+                                </td>
+                                <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;"></td>
+                                <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">
+                                    abc location name, add line1, lake city,
+                                    California, united States, 31156
+                                </td>
+                                <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">NET 10 </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 25px;padding:24px;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <th width="10%" align="center" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Line No.</th>
+                                    <th width="10%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Item Number</th>
+                                    <th width="25%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Category</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Description</th>
+                                    <th width="10%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Quantity/ Effort</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">UOM</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Price (USD)</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Additional Charges (USD)</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col"></th>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 3px 10px; border-top: none; border: 1px solid #bbb; vertical-align: top;">1 </td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">112-2152</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">IT/Telecom</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Dell Inspiron N5110</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">10</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">each</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">150</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">10</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                </tr>
+                                <tr>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Type</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Shipping Charges (USD)</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Taxes (USD)</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Line Total (USD)</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Supplier Name</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Supplier Part Number</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Manufacturer Details</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Requested Date</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Need by Date</th>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; border-right: 1px solid #bbb;vertical-align:top;" rowspan="7">Material</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">0</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">150</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">1660</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Dell</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">112151-516</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"> Dell:1521531, Dell:6516515</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">4/27/2016</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">31-04-2016</td>
+                                </tr>
+                                <tr>
+
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Start Date</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">End Date</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Ship to Location</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Deliver To</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Deliver to Location</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Billable</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Capitalized</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Capital Code</th>
+                                </tr>
+                                <tr>
+
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">4/27/2016</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">8/27/2016</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Mumbai</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Hyderabad</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Ground-1 (Minus 1) floor, Jayabheri Silicon Tower, Kondapur Village Hi tech City, Hyderabad, Telangana 500032</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"> -</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">CAP-12</td>
+                                </tr>
+                                <tr>
+
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Contract Number</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Matching Type</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 1</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 2</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 3</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                </tr>
+                                <tr>
+
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">552155199</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Sample Value</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Sample Value</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Sample Value </td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" colspan="8">
+                                        <table style="width: auto; padding: 10px 0; margin: 10px 0 0 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border-bottom: none; border: 1px solid #bbb;background: #eee;height:47px;" colspan="9">Accounting Details </th>
+                                                </tr>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;" rowspan="8">SPLIT 1 </th>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Requester </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Business Unit</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">GL Code </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Ashwin SM1 Kalra</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1003-Gep New Jersey</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1011-Outsourcing</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Project Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Contract Number</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Period</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Organization</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">234000-General Services</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        234040-Project Code 1
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">2016-2017</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1000-Gep Purchasing Org</td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Company Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Account Assignment Category</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Plant Code</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">
+                                                        1000-GEP-Inc
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">D-Indiv.cust./project</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">110-211-COGS</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">GL Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Internal Order</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">WBS Element</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Group</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">10000-PAYROLL CASH</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        GEP-Technology
+                                                    </td>
+                                                </tr>
+
+
+
+
+                                            </tbody>
+                                        </table>
+
+                                        <table style="width: auto;margin-bottom:10px;">
+                                            <tbody>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;border-top:none;" rowspan="8">SPLIT 2 </th>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Requester </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Business Unit</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">GL Code </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Ashwin SM1 Kalra</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1003-Gep New Jersey</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1011-Outsourcing</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Project Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Contract Number</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Period</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Organization</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">234000-General Services</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        234040-Project Code 1
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">2016-2017</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1000-Gep Purchasing Org</td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Company Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Account Assignment Category</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Plant Code</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">
+                                                        1000-GEP-Inc
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">D-Indiv.cust./project</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">110-211-COGS</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">GL Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Internal Order</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">WBS Element</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Group</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">10000-PAYROLL CASH</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        GEP-Technology
+                                                    </td>
+                                                </tr>
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 10px;padding:24px;">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <th width="10%" align="center" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Line No.</th>
+                                    <th width="10%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Item Number</th>
+                                    <th width="25%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Category</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Description</th>
+                                    <th width="10%" align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Quantity/ Effort</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">UOM</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Price (USD)</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col">Additional Charges (USD)</th>
+                                    <th width="15%" align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-top: 1px solid #bbb;" scope="col"></th>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 3px 10px; border-top: none; border: 1px solid #bbb; vertical-align: top;">1 </td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">112-2152</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">IT/Telecom</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Dell Inspiron N5110</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">10</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">each</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">150</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">10</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                </tr>
+                                <tr>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Type</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Shipping Charges (USD)</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Taxes (USD)</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Line Total (USD)</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Supplier Name</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Supplier Part Number</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Manufacturer Details</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Requested Date</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Need by Date</th>
+                                </tr>
+                                <tr>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border: 1px solid #bbb; border-right: 1px solid #bbb;vertical-align:top;" rowspan="7">Service</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">0</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">150</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">1660</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Dell</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">112151-516</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"> Dell:1521531, Dell:6516515</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">4/27/2016</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">31-04-2016</td>
+                                </tr>
+                                <tr>
+
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Start Date</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">End Date</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Ship to Location</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Deliver To</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Deliver to Location</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Billable</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Capitalized</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Capital Code</th>
+                                </tr>
+                                <tr>
+
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">4/27/2016</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">8/27/2016</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Mumbai</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Hyderabad</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Ground-1 (Minus 1) floor, Jayabheri Silicon Tower, Kondapur Village Hi tech City, Hyderabad, Telangana 500032</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"> -</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">CAP-12</td>
+                                </tr>
+                                <tr>
+
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Contract Number</th>
+                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Matching Type</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 1</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 2</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col">Custom Attribute 3</th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;" scope="col"></th>
+                                </tr>
+                                <tr>
+
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">552155199</td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;">Sample Value</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Sample Value</td>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Sample Value </td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" colspan="8">
+                                        <table style="width: auto; padding: 10px 0; margin: 10px 0 0 0;">
+                                            <tbody>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border-bottom: none; border: 1px solid #bbb; background: #eee;height:47px;" colspan="9">Accounting Details </th>
+                                                </tr>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;" rowspan="8">SPLIT 1 </th>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Requester </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Business Unit</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">GL Code </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Ashwin SM1 Kalra</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1003-Gep New Jersey</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1011-Outsourcing</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Project Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Contract Number</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Period</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Organization</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">234000-General Services</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        234040-Project Code 1
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">2016-2017</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1000-Gep Purchasing Org</td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Company Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Account Assignment Category</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Plant Code</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">
+                                                        1000-GEP-Inc
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">D-Indiv.cust./project</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">110-211-COGS</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">GL Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Internal Order</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">WBS Element</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Group</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">10000-PAYROLL CASH</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        GEP-Technology
+                                                    </td>
+                                                </tr>
+
+
+
+
+                                            </tbody>
+                                        </table>
+
+
+                                        <table style="width: auto;margin-bottom:10px;">
+                                            <tbody>
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; border: 1px solid #bbb;border-top:none;" rowspan="8">SPLIT 2 </th>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Requester </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Business Unit</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center </th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">GL Code </th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Ashwin SM1 Kalra</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1003-Gep New Jersey</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1011-Outsourcing</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Project Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Contract Number</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Period</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Organization</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">234000-General Services</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        234040-Project Code 1
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">2016-2017</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">1000-Gep Purchasing Org</td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">Company Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Account Assignment Category</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Cost Center</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Plant Code</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">
+                                                        1000-GEP-Inc
+                                                    </td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">D-Indiv.cust./project</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">110-211-COGS</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;"></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th align="left" valign="top" style="padding: 3px 10px; background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">GL Code</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Internal Order</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px; background: #f2f2f2;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">WBS Element</th>
+                                                    <th align="right" valign="top" style="padding: 3px 10px;background: #f2f2f2; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">Purchasing Group</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb; border-left: 1px solid #bbb;" scope="col">10000-PAYROLL CASH</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px; border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">-</td>
+                                                    <td align="right" valign="top" style="padding: 3px 10px;border-bottom: 1px solid #bbb; border-right: 1px solid #bbb;">
+                                                        GEP-Technology
+                                                    </td>
+                                                </tr>
+
+
+
+
+                                            </tbody>
+                                        </table>
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 0px; padding-left:0; padding-right:0;padding:24px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th style="border: 1px solid #bbb; background: #eee;height:47px;" colspan="4">Comments </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-bottom: none; border: 1px solid #bbb; background: #f2f2f2;" colspan="4">Order: 1500006984 </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">User Name </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Date and Time </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Visibility </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Comment </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-top: none; border: 1px solid #bbb;">DTCC1 Admin1 </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">February 11, 2016 12:27:18 PM uTC </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Internal users </td>
+                                            <td style="border-top: none; border: 1px solid #bbb;">Header Invoice - Internal users </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 0px; padding-left:0; padding-right:0;padding:24px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th style="border: 1px solid #bbb; background: #eee;height:47px;">Terms and Conditions </th>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-bottom: none; border: 1px solid #bbb;padding-bottom: 11px;">
+                                                <p>
+                                                    Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciu csicjhsidjdhciwhc sdichsdihciwoudehc sdijhcisdjhciwouhcosisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv sisudhcoiwih
+                                                    ujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciu csicjhsidjdhciwhcsdichsdihciwoudehc sdijhcisdjhciwouhco sisudhcoiwihujcfowcfwvc
+                                                    wdv sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv</br>
+                                                    Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciu csicjhsidjdhciwhc sdichsdihciwoudehc sdijhcisdjhciwouhcosisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv sisudhcoiwih
+                                                    ujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciu csicjhsidjdhciwhcsdichsdihciwoudehc sdijhcisdjhciwouhco sisudhcoiwihujcfowcfwvc
+                                                    wdv sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciucsicjhsidjdhciwhc sdichsdihciwoudeh
+                                                    c sdijhcisdjhciwouhco sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv</br>
+                                                    hc sdijhcisdjhciwouhcosisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv sisudhcoiwih
+                                                    ujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv Ahdsfjahscdjdhciwhcsdichsdihciwoudehc sdijhcisdjhciwouhco sisudhcoiwihujcfowcfwvc
+                                                    wdv sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv Ahdsfjahscfhsdciundsjchsiuhcfw sdichiuhciucsicjhsidjdhciwhc sdichsdihciwoudehc
+                                                    sdijhcisdjhciwouhco sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdv sisudhcoiwihujcfowcfwvcwdvsisudhcoiwihujcfowcfwvcwdv sisud
+                                                    hcoiwihujcfowcfwvcwdv hhhhhhhhhhhhhhhscvsdgffffffff58745896358
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-bottom: none; border: 1px solid #bbb; padding-top: 8px;">
+                                                <p>Termes et conditions regissant les achats</p>
+                                                <ol>
+                                                    <li style="margin-bottom: 13px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">OFFRE</span> - Cette offre d'achat est explicitement conditionnelle a l'assentiment du Vendeur relativement a tous les presents Termes et Conditions. Cette offre
+                                                        d'achat (Commande d'achat) est applicable et explicitement conditionnelle a l'assentiment du Vendeur relativement a tous les termes et conditions de la
+                                                        presente Commande d'achat qui soient additionnels ou differents de ceux stipules dans la proposition du Vendeur ou tout autre document et/ou
+                                                        communication en rapport avec l'offre. Toute tentative par le Vendeur d'interposer des termes et conditions additionnels ou differents ou d'alterer ou rejeter
+                                                        toute disposition des Termes et Conditions de l'Acheteur, est rejetee par l'Acheteur et ne sera pas integree au contrat de vente entre l'Acheteur et le Vendeur. Cette
+                                                        Commande d'achat sera acceptee a partir du debut de la prestation de services ou de la livraison de produits par le Vendeur. Les obligations de l'Acheteur sont
+                                                        limitees aux obligations contenues dans les presentes.
+                                                    </li>
+                                                      <li style="margin-bottom: 13px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">GARANTIE</span> - Le Vendeur garantit explicitement que tous les biens respectent les specifications de l'Acheteur en tous points, sont commercialisables, conviennent
+                                                        aux fins particulieres pour lesquelles l'Acheteur souhaite utiliser les biens et sont exempts de defauts. Aucune tentative par le Vendeur de decliner toute garantie,
+                                                        explicite, implicite, statuaire ou collaterale, ne sera applicable, et toute telle tentative de decliner toute garantie, explicite, implicite, statuaire ou collaterale, est
+                                                        explicitement rejetee par l'Acheteur. Telles garanties devront survivre a l'inspection, l'examen et l'acceptation. La presente garantie sera offerte a l'Acheteur, ses
+                                                        successeurs, ses ayant-droits, ses clients et les utilisateurs des produits de l'Acheteur. Le Vendeur garantit explicitement qu'aucune formule, aucun ingredient,
+                                                        aucune specification ni aucun processus de fabrication ne sera change sans le consentement prealable explicite et par ecrit de l'Acheteur.
+                                                    </li>
+                                                    <li style="margin-bottom: 13px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">GARANTIE DE NON-VIOLATION</span> - Le titre de propriete sera cede en bonne et due forme et son transfert legitime; les biens seront livres quittes de toute surete
+                                                        reelle, tout privilege ou toute charge dont l'Acheteur n'a aucune connaissance au moment de la conclusion de l'entente. La presente garantie sera exclue ou modifiee
+                                                        uniquement si un langage ou des circonstances specifiques font en sorte que l'Acheteur sait ou a lieu de savoir que le Vendeur ne revendique pas le titre de propriete
+                                                        ou que le Vendeur pretend vendre tel droit ou titre que le Vendeur puisse posseder. Le Vendeur garantit que les biens seront livres libres de toute reclamation
+                                                        legitime de tout tiers fondee sur la violation d'un droit de propriete ou de quelque chose du genre.
+                                                    </li>
+                                                    <li style="margin-bottom: -3px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">RESPECT DES DISPOSITIONS LeGISLATIVES ET ReGLEMENTAIRES</span> - Le Vendeur garantit et certifie que lui-meme et ses produits respectent et
+                                                        continueront de respecter toutes les dispositions legislatives et reglementaires, les regles, les lois et les ordonnances (de la Cour) dont la responsabilite, en raison de
+                                                        la violation, pourrait remonter a l'Acheteur, et toutes les lois du Canada ou de toute province ou subdivision politique de celle-ci, y compris mais sans s'y limiter,
+                                                        toute Loi relative a la main-d'oeuvre, la remuneration, les horaires et autres conditions de travail.
+                                                    </li>
+                                                </ol>
+                                                <p>Termes et conditions regissant les achats</p>
+                                                <ol>
+                                                    <li style="margin-bottom: 13px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">OFFRE</span> - Cette offre d'achat est explicitement conditionnelle a l'assentiment du Vendeur relativement a tous les presents Termes et Conditions. Cette offre
+                                                        d'achat (Commande d'achat) est applicable et explicitement conditionnelle a l'assentiment du Vendeur relativement a tous les termes et conditions de la
+                                                        presente Commande d'achat qui soient additionnels ou differents de ceux stipules dans la proposition du Vendeur ou tout autre document et/ou
+                                                        communication en rapport avec l'offre. Toute tentative par le Vendeur d'interposer des termes et conditions additionnels ou differents ou d'alterer ou rejeter
+                                                        toute disposition des Termes et Conditions de l'Acheteur, est rejetee par l'Acheteur et ne sera pas integree au contrat de vente entre l'Acheteur et le Vendeur. Cette
+                                                        Commande d'achat sera acceptee a partir du debut de la prestation de services ou de la livraison de produits par le Vendeur. Les obligations de l'Acheteur sont
+                                                        limitees aux obligations contenues dans les presentes.
+                                                    </li>
+                                                    <li style="margin-bottom: -4px;">
+                                                        <span style="color:rgba(0, 0, 0, 0.87);">GARANTIE</span> - Le Vendeur garantit explicitement que tous les biens respectent les specifications de l'Acheteur en tous points, sont commercialisables, conviennent
+                                                        aux fins particulieres pour lesquelles l'Acheteur souhaite utiliser les biens et sont exempts de defauts. Aucune tentative par le Vendeur de decliner toute garantie,
+                                                        explicite, implicite, statuaire ou collaterale, ne sera applicable, et toute telle tentative de decliner toute garantie, explicite, implicite, statuaire ou collaterale, est
+                                                        explicitement rejetee par l'Acheteur. Telles garanties devront survivre a l'inspection, l'examen et l'acceptation. La presente garantie sera offerte a l'Acheteur, ses
+                                                        successeurs, ses ayant-droits, ses clients et les utilisateurs des produits de l'Acheteur. Le Vendeur garantit explicitement qu'aucune formule, aucun ingredient,
+                                                        aucune specification ni aucun processus de fabrication ne sera change sans le consentement prealable explicite et par ecrit de l'Acheteur.
+                                                    </li>
+                                                </ol>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+
+            </table>
+        </div>
+	</div>
+</div>
+<footer class="page-footer bounceInUp animated">
+	<div class="clearfix row">
+		<div class="left left-align col s6">
+			<smart-button flat="true" class="editRequest" config='{"title":"EDIT"}' callback="editReq"></smart-button>
+		</div>
+		<div class="right right-align col s6">
+			<smart-button class="right" config='{"title":"SUBMIT REQUEST"}' callback="" ng-click="submitReq()"></smart-button>
+			<!--<smart-button flat="true" class="right" config='{"title":"SAVE AS TEMPLATE"}' callback=""></smart-button>-->
+            <smart-button flat="true" config='{"title":"SAVE AS DRAFT","allignRight":"false"}' class="marginRight10"></smart-button>
+            <smart-button config='{"title":"CREATE RETURN NOTE","allignRight":"false"}' class="whiteSecondaryBtn marginRight10" ng-click="createNote()"></smart-button>
+		</div>
+	</div>
+</footer>
+<smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)"></smart-popup>
+
+<style>
+   @media print {
+    body * {visibility: hidden;}
+    .extra-nav-wrap,.page-footer,.extraHeader {display: none;}
+    .previewModeContainer * {visibility: visible;}
+    table { page-break-after:auto } 
+    tr { page-break-inside:avoid; page-break-after:auto } 
+    td { page-break-inside:avoid; page-break-after:auto } 
+    thead { display:table-header-group } 
+    tfoot { display:table-footer-group } 
+}
+</style>

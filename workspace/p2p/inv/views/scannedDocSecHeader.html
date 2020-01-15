@@ -1,0 +1,17 @@
+<div ng-controller="p2pInvScannedDocSecHeaderCtrl" >	
+   <span class="fontSize18">
+                            <i  class="icon iconSmall isArrowIcon" ng-class="{'dirArrow': !isScannedDocCollaps || !isScannedDocCollaps && popupout}">
+                                <svg>
+                                    <use xlink:href="#icon_DownChevron"></use>
+                                </svg>
+                            </i>                            
+                        </span> 
+	<div class="secHeader " >
+		    <span class="left">{{ 'SCANNED DOCUMENT' | translate  }} </span>
+<div class="fontSize14 right" ng-hide="popupout"> <span class="marginLeft5 marginRight5">|</span>  <a ng-click=" selectedImage(0);$event.stopPropagation()" >{{ 'Change Image' | translate | uppercase }}</a>
+            </div>
+            <div id="pdfControlWrapper" class="right fontSize14">
+            </div>
+	</div>
+
+  

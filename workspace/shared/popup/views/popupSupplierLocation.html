@@ -1,0 +1,40 @@
+
+<div class="modal-header">
+    <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+        <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+            <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                <i class="icon iconSmall center grey-text">
+                    <svg><use xlink:href="#icon_Close"></use></svg>
+                </i>
+            </a>
+            <!--<div class="input-field" >
+                <input id="Text2" type="text">
+            </div>-->
+            <smart-textfield class="input-field" focus="focusSearch"></smart-textfield>
+            <a href="javascript:void(0)" class="waves-circle waves-effect search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                <i class="icon iconSmall center grey-text">
+                    <svg><use xlink:href="#icon_Search"></use></svg>
+                </i>
+            </a>
+        </div>
+    </div>
+    <i class="icon iconSmall grey-text">
+        <svg>
+            <use xlink:href="#icon_Location"></use>
+        </svg>
+    </i>
+    <span class="title">{{'Supplier Location'|| translate}}</span>
+</div>
+<div class="modal-content padding0 is-scrolled">
+    <div class="modal-inner-content">
+        <smart-scroll height="400px" class="clearfix">
+            <smart-radio class="clearfix col s12 popupWithRadioList" label="" ng-model="defaultSelectedSupplierLocation" options="supplierLocationOptions" datakey="locationName" gap="true"></smart-radio>
+        </smart-scroll>
+    </div>
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='ApplyBtnConfig'></smart-button>
+    <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+</div>
+
+

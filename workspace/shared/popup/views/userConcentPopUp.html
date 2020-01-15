@@ -1,0 +1,27 @@
+﻿<div id="confidentialityNoticePopUp" class="confidentialityNoticePopUp userConsentPopUp">
+    <div class="modal-header clearfix">
+        <span class="announcementImage"></span>
+        <span class="title">User Consent</span>
+    </div>
+    <div class="modal-content is-scrolled padding0">
+        <div class="model_body">
+            <div class="row marginBtm0 messageContentContainer">
+                <smart-scroll height="290px">
+                    <div class="messageContent paddingRight24">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis mollis ligula. Nullam porttitor dapibus leo sagittis porta. Nulla vitae ante sed turpis semper lobortis. Pellentesque elit sem, rhoncus non suscipit et, maximus et orci. Maecenas interdum diam ante, eget sagittis elit maximus id. Integer elit nibh, mollis ultricies pulvinar sit amet, feugiat pharetra ligula. Mauris ut est feugiat tortor faucibus lacinia ut vel nibh. Integer viverra mattis ipsum, sed gravida magna lobortis quis. Nunc eu orci sed velit luctus mattis. Suspendisse ac metus magna.
+                        <br /><br />Nulla pulvinar blandit mi. Sed rutrum, lacus eu viverra rhoncus, ipsum diam placerat sapien, non consequat dui felis eu ex. Duis vehicula justo vel felis dapibus, aliquam sagittis ex tincidunt. Sed quis orci nec mauris vehicula tristique malesuada mattis dolor. Morbi pharetra, massa at sagittis convallis, turpis lectus vulputate lorem, at iaculis quam urna luctus arcu. Maecenas mauris diam, volutpat et facilisis nec, varius ac orci.
+                        <br /><br />Nulla pulvinar blandit mi. Sed rutrum, lacus eu viverra rhoncus, ipsum diam placerat sapien, non consequat dui felis eu ex. Duis vehicula justo vel felis dapibus, aliquam sagittis ex tincidunt. Sed quis orci nec mauris vehicula tristique malesuada mattis dolor. Morbi pharetra, massa at sagittis convallis, turpis lectus vulputate lorem, at iaculis quam urna luctus arcu. Maecenas mauris diam, volutpat et facilisis nec, varius ac orci.
+                    </div>
+
+                </smart-scroll>
+                <smart-checkbox label="I agree" class="marginTop20 marginBtm20" ng-model="isAgreed" on-change="onChange(isAgreed)"></smart-checkbox>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer left" ng-class="{'is-scrolled': true}">
+        <div class="right gotItLink userConsentFooter">
+            <smart-button flat="true" config='{"title":"PROCEED"}' class="modal-close proceedBtn" disable="showProceedBtn" on-click="closeConfidentialityPopUp($event);"></smart-button>
+            <smart-button flat="true" config='{"title":"CANCEL"}' class="modal-close" on-click="goToLogin($event);"></smart-button>
+        </div>
+    </div>
+</div>

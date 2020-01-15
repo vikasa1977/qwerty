@@ -1,0 +1,76 @@
+<div ng-controller="popupManageFieldCtrl" class="scrollableModel">
+	<div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" class="waves-circle waves-effect cancel-icon btn-flat black-text" ng-class="showMe" ng-click="treeSearchModel='';hideSearch(e)" smart-tooltip position="Down" message="{{'Close' || translate }}"  delay="250"  ng-show="hideClose">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield  class="input-field" focus="focusSearch"></smart-textfield>
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}"  ng-click="showSearch(e)">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+		<i class="icon iconSmall grey-text  left">
+			<svg>
+				<use xlink:href="#icon_ManageFields"></use>
+			</svg>
+		</i>
+		<span class="title">{{ 'MANAGE ATTRIBUTES' || translate }} </span>
+    
+	</div>
+	<div class="modal-content padding0" ng-class="{'is-scrolled': scrolled}">
+        <div class="model_body manageFieldsDraggable">
+            <ul class="collection noBorder">
+                <li class="collection-item">
+                    <div class="clearfix">
+                        <smart-checkbox class="displayInlineBlock" label="Select All" ng-model="isSelectAll" smart-selectall checker-flag="value" data="attributes|.chkAll"></smart-checkbox>
+                    </div>
+                </li>
+            </ul>
+
+            <smart-list model="{{attributes}}"
+                        style-class="collection noBorder dragList"
+                        item-class="collection-item ui-sortable"
+                        template="checkboxList.html" height="283px">
+            </smart-list>
+        </div>
+            
+    </div>
+
+	<div class="modal-footer is-scrolled paddingLeft10" ng-class="{'is-scrolled': scrolled}">
+       <div>
+		  <smart-button flat="true" class="pull-left" config='{"title":"RESET"}' ng-click="resetChanges()"></smart-button>
+         <!-- <a href="javascript:void(0)" class="waves-circle waves-effect cancel-icon pull-left black-text" smart-tooltip message="Reset" position="bottom" delay="50">
+                    <i class="icon iconSmall center blue-text">
+                        <svg><use xlink:href="#icon_Reset"></use></svg>
+                    </i>
+                </a>-->
+          <smart-button flat="true" class="modal-close" config='{"title":"DONE"}' ng-click="applyChanges()"></smart-button>
+          <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+       </div>
+	</div>
+
+</div>
+<script id="checkboxList.html" type="text/ng-template">
+
+    <div item="{{item}}" class="clearfix">
+       <span class="manageCol-tbl--type-nameTd">
+            <icon class="icon iconSmall ui-sortable-handle">
+                <svg>
+                    <use xlink:href="#icon_Drag"></use>
+                </svg>
+            </icon>
+        </span>
+        <smart-checkbox id="{{'attribute_' + $index}}" ng-model="item.value" class="displayInlineBlock chkAll" label="{{item.title}}" ng-change="onChange(item.title)"></smart-checkbox>
+        <!--<input smart-selectall type="checkbox" class="filled-in" id="{{'attribute_' + $index}} " checked="checked" ng-change="onChange(item.title)" ng-model="item.value"  />
+        <label for="{{'attribute_' + $index}} " class="grey-text text-darken-4"> {{item.title}}</label>-->
+    </div>
+</script>
+
+
+

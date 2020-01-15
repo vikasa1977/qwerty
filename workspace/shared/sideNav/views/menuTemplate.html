@@ -1,0 +1,41 @@
+
+<div>
+	<div ng-if="(item.type=='label')">
+		<a href="javascript:void(0)"class="nav-list-item" ng-click="closeNav(item.sref)">
+            <i class="icon iconSmall left">
+		<svg>
+			<use xlink:href="{{item.navIcon}}"></use>
+		</svg> 
+            </i>
+            
+        {{ item.navTitle || translate | uppercase }}
+            
+        </a>
+	</div>
+	<form ng-if="(item.type=='input')">
+		<div class="side-nav-search">
+			<i class="icon iconSmall  icon-left tooltipped" data-position="left" data-delay="50" data-tooltip="Search">
+			<svg>
+				<use xlink:href="#icon_Search"></use>
+			</svg> 
+			</i>
+		    <!-- <div class="input-field"> -->
+		    	<!-- $state.go('masterform', {action:'Get', assetId:1234, folderId:999}); -->
+		        <input id="searchBox" placeholder="{{placeholderText}}" type="text" data-ng-model="searchValue" ng-focus="placeholderText=''" ng-blur="placeholderText=placeholderTextCopy" ng-keydown="onKeyDown($event)" />
+		        <!-- <a href="#searchResult?search={{searchValue}}" class="search">
+		            <i class="icon iconSmall"><svg><use xlink:href="#icon_Search"></use></svg></i>
+		        </a> -->
+		    <!-- </div> -->
+			<!-- <input type="text" value="SEARCH" id="searchBox" ng-keydown="onKeyDown($event)" class=""> --> <!-- Toggle "searchActive" class for interaction -->
+			<span class="bar"></span>
+			<i class="icon iconSmall header_search_undo icon-right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clear Search" id="close-search-box" style="display: none;">
+			<svg>
+				<use xlink:href="#icon_Close"></use>
+			</svg> </i>
+		</div>
+	</form>
+   </div>
+
+
+
+

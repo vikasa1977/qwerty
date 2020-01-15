@@ -1,0 +1,27 @@
+﻿<div class="row wj-lg-select noFilter">
+    <wj-flex-grid items-source="data" item-formatter="itemFormatter" allow-sorting="false" Allow-resizing="none" allowDragging="false" initialized="init(s, e)" is-read-only="true" headers-visibility="Column">
+        <wj-flex-grid-column header="Rule Name" width="*">  
+            <a class="truncate" ng-if="$item.CreationMethod !== 'Approval Matrix'" href="javascript:void(0)" ui-sref="admin.createRule({ type: 'Standard Creation', mode: 'edit' })">{{$item.RuleName}}</a>
+            <a class="truncate" ng-if="$item.CreationMethod === 'Approval Matrix'" href="javascript:void(0)" ui-sref="admin.createRule({ type: 'Approval Matrix', mode: 'edit' })">{{$item.RuleName}}</a>
+        </wj-flex-grid-column>
+        <wj-flex-grid-column header="Rule Number" align="right" width="*" binding="RuleNumber"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Status" width="*" is-read-only="true">
+            <smart-switch ng-model="notificationToggle" left-label="emptyText" right-label="emptyText"></smart-switch>
+        </wj-flex-grid-column>
+        <wj-flex-grid-column header="Rule Category" width="*" binding="RuleCategory"></wj-flex-grid-column>
+
+        <wj-flex-grid-column header="Update Date" width="*" binding="UpdateDate"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Update By" width="*" binding="UpdateBy"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Document Group" width="*" binding="DocumentGroup"></wj-flex-grid-column>
+
+        <wj-flex-grid-column header="Document Type" width="*" binding="DocumentType"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Creation Method" width="*" binding="CreationMethod"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Condition" align="right" width="*" binding="Condition"></wj-flex-grid-column>
+
+        <wj-flex-grid-column header="Action Type" width="*" binding="Action Type"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Last Modified" width="*" binding="LastModified"></wj-flex-grid-column>
+
+    </wj-flex-grid>
+</div>
+
+

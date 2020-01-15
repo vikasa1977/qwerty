@@ -1,0 +1,112 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_Configure"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Configuration</span>
+
+        </div>
+
+        <ul class="right extra-nav-right-icon right-panel paddingRight1">
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="configureUserIconBtnCallback('configureUserIcon')">
+                    <i class="icon iconSmall white-text" message="Configure users" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_configureUser"></use></svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="showUploadPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Upload" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Upload"></use></svg>
+                    </i>
+                </a>
+            </li>
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="viewLogPopupShowCallback(e)">
+                    <i class="icon iconSmall white-text" message="View log" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_viewLog"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="extendBg mgrTask">
+    <div class="col s12 overflowAuto">
+        <table class="bordered manage-task-list" sticky-header scroll-type="page">
+            <thead>
+                <tr class="height60">
+                    <th class="padding0">
+                        <table>
+                            <colgroup>
+                                <col style="width:20%;" />
+                                <col style="width:20%;" />
+                                <col style="width:20%;" />
+                                <col style="width:20%;" />
+                                <col style="width:20%;" />
+                            </colgroup>
+                            <tr>
+                                <th>{{ 'Product' || translate}}</th>
+                                <th>{{ 'Functional Area' || translate}}</th>
+                                <th>{{ 'Enable On' || translate}}</th>
+                                <th class="right-align">{{ 'Active users in 1.0' || translate}}</th>
+                                <th class="right-align">{{ 'Active users in 2.0' || translate}}</th>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr style="border:none;">
+                    <td colspan="12" style="padding:0;" ng-include="'temp.html'"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/ng-template" id="temp.html">
+        <table class="bordered sTable">
+            <colgroup>
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+            </colgroup>
+            <tbody ng-repeat="data in configurationData | orderBy:sortKey:reverse">
+                <tr>
+                    <td>
+                        {{data.Product}}
+                    </td>
+                    <td>
+                        {{data.FunctionalArea}}
+                    </td>
+                    <td>
+                        <smart-select class="left" ng-model="data.selectedEnableVal" options="data.Enable" datakey="name" displaykey="name" on-change="onChangeUser(data.selectedEnableVal)"></smart-select>
+                        <a ng-if="data.selectedEnableVal.name == 'Both'" href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button marginTop0" ng-click="configureUserIconBtnCallback(data.selectedEnableVal.name)">
+                            <i class="icon iconSmall" message="Configure users" smart-tooltip data-position="bottom" delay="50">
+                                <svg><use xlink:href="#icon_configureUser"></use></svg>
+                            </i>
+                        </a>
+                    </td>
+                    <td class="right-align">{{data.activeUsersIn1}}</td>
+                    <td class="right-align">{{data.activeUsersIn2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+</div>
+
+<smart-popup template-url="{{uploadPopupUrl}}" show="{{showUploadPopup}}" on-hide="uploadPopUpOnHideCallback(e)" type="medium"></smart-popup>
+<smart-popup template-url="{{viewLogPopupUrl}}" show="{{showViewLogPopup}}" on-hide="viewLogPopupHideCallback(e)" type="large"></smart-popup>

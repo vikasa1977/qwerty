@@ -1,0 +1,814 @@
+{
+  "dataModel": {
+    "setup": {
+      "name": "MSA Contract for IT Category (Laptop)",
+      "contractNumber": "CON-2016.002802",      
+      "requesterName": "Emily Ross",
+      "businessUnit": "101-BrassCraft Manufacturing",
+      "reqName": "Office supply savings project",
+      "requester": "Avishek Jana",
+      "createdOn": "/Date(1476316800000)/",
+      "masterContractNumber": "CON-2016.002800",
+      "masterContactName": "ZBAP Contract for IT Category (Laptop)",
+      "discription": "This project is to keep track on savings for office supply.",
+      "referredAs": "Buyer",
+      "location": "001, Moonland Drive",
+      "pointOfContact": "Jacob John",
+      "supplier": "ABC Trader",
+      "ans": "Answer",
+      "contractValue": "540,000.00",
+      "contractLimit": "600,000.000",
+      "currency": {
+        "title": "SOW"
+      },
+      "contarctAuthor": "Avishek Jana",
+      "currencyValue": {
+        "title": "EUR"
+      },
+      "legalEntity": {
+        "title": "GEP INDIA"
+      },
+      "paymantTerm": {
+        "title": "NET 40"
+      },
+      "documentType": "",
+      "contractType": "",
+      "inEffect": {
+        "title": "for period of"
+      },
+      "isConfidential": false,
+      "isGlobal": false,
+      "enforceLineRef": false,
+      "ersEnabled": false,
+      "autoCreateRelease": false,
+      "autoSubmitRelease": false
+    },
+    "itemDetails": {
+      "itemType": [
+        {
+          "key": "materials",
+          "title": "Materials",
+          "selected": true
+        },
+        {
+          "key": "services",
+          "title": "Services"
+        }
+      ],
+      "selectedOption": {
+        "key": "materials",
+        "title": "Materials",
+        "selected": true
+      }
+    },
+    "items": {
+      "shipTo": [
+        {
+          "key": "headerLevel",
+          "title": "Specify at Header",
+          "selected": true
+        },
+        {
+          "key": "lineItemLevel",
+          "title": "Different for Each Line Item"
+        }
+      ],
+      "location": {
+        "locationName": "Vashi",
+        "locationCode": "1234",
+        "addressLine1": "Vashi sector 17",
+        "addressLine2": "",
+        "city": "Navi Mumbai",
+        "country": "India",
+        "zipCode": "234567",
+        "state": "MH",
+        "contactPerson": "Sushant Ahirrao",
+        "telephoneNumber": "1234567890"
+      }
+    }
+  },
+  "dataModelBlank": {
+    "setup": {
+      "name": "",
+      "contractNumber": "",      
+      "requesterName": "",
+      "businessUnit": "",
+      "reqName": "",
+      "masterContractNumber": "",
+      "masterContactName": "",
+      "discription": "",
+      "referredAs": "",
+      "location": "",
+      "pointOfContact": "",
+      "supplier": "",
+      "ans": "",
+      "contractValue": "",
+      "contractLimit": "",
+      "currency": {
+        "title": "SOW"
+      },
+      "contarctAuthor":"Avishek Jana",
+      "currencyValue": {
+        "title": "EUR"
+      },
+      "legalEntity": {
+        "title": "GEP INDIA"
+      },
+      "paymantTerm": {
+        "title": "NET 40"
+      },
+      "documentType": "",
+      "contractType": "",
+      "inEffect": {
+        "title": "for period of"
+      },
+      "isConfidential": false,
+      "isGlobal": false,
+	  "enforceLineRef": false,
+	  "ersEnabled": false,
+	  "autoCreateRelease": false,
+	  "autoSubmitRelease": false
+    },
+    "itemDetails": {
+      "itemType": [
+        {
+          "key": "materials",
+          "title": "Materials",
+          "selected": true
+        },
+        {
+          "key": "services",
+          "title": "Services"
+        }
+      ],
+      "selectedOption": {
+        "key": "materials",
+        "title": "Materials",
+        "selected": true
+      }
+    },
+    "items": {
+      "shipTo": [
+        {
+          "key": "headerLevel",
+          "title": "Specify at Header",
+          "selected": true
+        },
+        {
+          "key": "lineItemLevel",
+          "title": "Different for Each Line Item"
+        }
+      ],
+      "location": {
+        "locationName": "Vashi",
+        "locationCode": "1234",
+        "addressLine1": "Vashi sector 17",
+        "addressLine2": "",
+        "city": "Navi Mumbai",
+        "country": "India",
+        "zipCode": "234567",
+        "state": "MH",
+        "contactPerson": "Sushant Ahirrao",
+        "telephoneNumber": "1234567890"
+      }
+    }
+  },
+  "formConfig": {
+    "sections": [
+      {
+        "isCollapsible": true,
+        "isDraggable": false,
+        "isMandatory": true,
+        "label": "Basic Details",
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "Request Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.reqName",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                 "colspan": 6,
+                "label": "Description",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.discription",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 100
+                }
+              },
+
+              {
+                "label": "Request Owner",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.requester",
+                "attributes": {
+                  "readonly": true
+                }
+              },
+              {
+                "label": "Created On",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.createdOn",
+                "attributes": {
+                  "type": "date",
+                  "format": "dd/MM/yyyy",
+                  "readonly": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Applicable For",
+        "isDraggable": false,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "project/projectRequester/views/applicableFor.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Additional Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "id": "additional_fields",
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "OPEX",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 6,
+                "groupName": "Opex Group Name",
+                "templateUrl": "project/projectRequester/views/groupLabels.html"
+
+              },
+              {
+                "label": "Currency",
+                "type": "dropdown",
+                "isVisible": true,
+                "isMandatory": true,
+                "data": "BuyerConfidenceValue",
+                "colspan": 1,
+                "onChange": "onChange",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "USD",
+                      "name": "US Dollar (USD)"
+                    },
+                    {
+                      "code": "EUR",
+                      "name": "Euro (EUR)"
+                    },
+                    {
+                      "code": "GBP",
+                      "name": "British Pound (GBP)"
+                    },
+                    {
+                      "code": "ADF",
+                      "name": "Andorran Franc (ADF)"
+                    },
+                    {
+                      "code": "AED",
+                      "name": "Utd. Arab Emir.Dirham. (AED)"
+                    },
+                    {
+                      "code": "ANG",
+                      "name": "NL Antillian Guilder (ANG)"
+                    },
+                    {
+                      "code": "CNY",
+                      "name": "Chinese Yuan Renminbi (CNY)"
+                    },
+                    {
+                      "code": "INR",
+                      "name": "Indian Rupee (INR)"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Amount",
+                "type": "textfield",
+                "editable": true,
+                "data": "amount",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number"
+                }
+              }
+
+            ]
+          },
+          {
+            "properties": [
+              {
+                "label": "IR&S Projects Involvement",
+                "type": "dropdown",
+                "data": "IRSInvolvement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Ys",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "No",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Contract Type",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prContractType",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "A",
+                      "name": "Addendum"
+                    },
+                    {
+                      "code": "CA",
+                      "name": "Consulting Agreement"
+                    },
+                    {
+                      "code": "CAM",
+                      "name": "Consulting Amendment"
+                    },
+                    {
+                      "code": "CE",
+                      "name": "Contract Extension"
+                    },
+                    {
+                      "code": "EULA",
+                      "name": "EULA"
+                    },
+                    {
+                      "code": "Ext",
+                      "name": "Extension"
+                    },
+                    {
+                      "code": "MSA",
+                      "name": "MSA"
+                    },
+                    {
+                      "code": "NDA",
+                      "name": "NDA"
+                    },
+                    {
+                      "code": "Other",
+                      "name": "Other"
+                    },
+                    {
+                      "code": "SFPA",
+                      "name": "SFPA"
+                    },
+                    {
+                      "code": "SOW",
+                      "name": "SOW/ER"
+                    },
+                    {
+                      "code": "SA",
+                      "name": "Supplier Agreement"
+                    },
+                    {
+                      "code": "SC",
+                      "name": "Supplier Contract"
+                    },
+                    {
+                      "code": "TL",
+                      "name": "Termination Letter"
+                    },
+                    {
+                      "code": "VA",
+                      "name": "Variation Agreement"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Project Segmentation Risk Score",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prSegRiskScore",
+                "isVisible": true,
+                "isMandatory": true,
+                "onChange": "showFields",
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "1",
+                      "name": "1"
+                    },
+                    {
+                      "code": "2",
+                      "name": "2"
+                    },
+                    {
+                      "code": "3",
+                      "name": "3"
+                    },
+                    {
+                      "code": "4",
+                      "name": "4"
+                    },
+                    {
+                      "code": "5",
+                      "name": "5"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "IR&S Rating",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prIRSRating",
+                "isVisible": false,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "L",
+                      "name": "Low"
+                    },
+                    {
+                      "code": "M",
+                      "name": "Medium"
+                    },
+                    {
+                      "code": "H",
+                      "name": "High"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "IR&S Contact",
+                "type": "textfield",
+                "editable": true,
+                "data": "prIRSContact",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number"
+                }
+              },
+              {
+                "label": "If Sourcing, more than 2 suppliers invited",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prSuppliersInvited",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "If Sourcing, did you use SMART?",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prUsedSmart",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Rationale for IR&S engagement",
+                "type": "textfield",
+                "editable": true,
+                "data": "prRationaleIRSEngagement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Legal Involvement",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prLegalInvolvement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "Y",
+                      "name": "Yes"
+                    },
+                    {
+                      "code": "N",
+                      "name": "No"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "label": "Date Legal first involved",
+                "type": "textfield",
+                "editable": true,
+                "data": "prDateLegalFirstInvolved",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Legal Rating",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prLegalRating",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "L",
+                      "name": "Low"
+                    },
+                    {
+                      "code": "M",
+                      "name": "Medium"
+                    },
+                    {
+                      "code": "H",
+                      "name": "High"
+                    }
+                  ],
+                  "datakey": "name"
+
+                }
+              },
+              {
+                "label": "Legal Contact",
+                "type": "textfield",
+                "editable": true,
+                "data": "prLegalContact",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "number"
+                }
+              },
+              {
+                "label": "Rationale for legal Engagement",
+                "type": "textfield",
+                "editable": true,
+                "data": "prRationaleLegalEngagement",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Business Led or Procedure Led?",
+                "type": "dropdown",
+                "editable": true,
+                "data": "prBLorPL",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "options": [
+                    {
+                      "code": "BL",
+                      "name": "Busness Led"
+                    },
+                    {
+                      "code": "PL",
+                      "name": "rocurement Led"
+                    }
+                  ],
+                  "datakey": "name"
+                }
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/signOffBaselineTemp.html"
+              },
+              {
+                "label": "VPM Date",
+                "type": "textfield",
+                "editable": true,
+                "data": "prVPMDate",
+                "isVisible": true,
+                "isMandatory": true,
+                "attributes": {
+                  "disable": false,
+                  "maxlength": 20,
+                  "type": "date"
+                }
+              },
+              {
+                "label": "Lorem Ipsum(%)",
+                "type": "textfield",
+                "editable": true,
+                "data": "perField",
+                "isVisible": true,
+                "isMandatory": false,
+                "attributes": {
+                  "type": "number"
+                }
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/multiChoiceSingleRadio.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/multiChoiceMultiSelect.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/categoryTemp.html"
+              },
+              {
+                "colspan": 1,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/categorySingleTemp.html"
+              },
+              {
+                "label": "Savings Type And Impact",
+                "editable": true,
+                "isMandatory": true,
+                "isVisible": true,
+                "colspan": 1,
+                "type": "subsection",
+                "controller": "multiChoiceCtrl",
+                "templateUrl": "project/projectRequester/views/savingsImpactTemp_AF.html"
+              },
+              {
+                "label": "Lorem Ipsum",
+                "type": "textfield",
+                "isMandatory": true,
+                "isVisible": true,
+                "data": "DocumentDescription",
+                "colspan": 6,
+                "onChange": "onChange",
+                "attributes": {
+                  "charactercounter": "true",
+                  "maxlength": 4000,
+                  "type": "area"
+                }
+              },
+              {
+                "colspan": 6,
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "isVisible": true,
+                "templateUrl": "project/projectRequester/views/richTextArea.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Team Members",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "headerTemplate": "project/projectRequester/views/teamMemberSecHeader.html",
+        "isHeader": true,
+        "isActive": false,
+        "isVisible": true,
+        "isDraggable": true,
+        "id": "team-members-section",
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "controller": "teamMemberCtrlProj",
+                "templateUrl": "project/projectRequester/views/teamMemberData.html"
+              }
+            ]
+          }
+        ]
+      },
+     
+      {
+        "label": "Attachments",
+        "isDraggable": false,
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "project/projectRequester/views/attachmentSection.html"
+              }
+            ]
+          }
+        ]
+      }  
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

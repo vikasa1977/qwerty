@@ -1,0 +1,392 @@
+﻿<div ng-controller="addActionTypesCtrl">
+    <div class="row marginBtm20">
+        <div class="col s12">
+            COMMON CONDITIONS
+            <a href="javascript:void(0);">
+                <i class="icon iconSmall iconDefaultCursor catpopup-title" smart-infotip position="right" message="Provide attributes which will be commonly considered for other attributes." style="top:6px;">
+                    <svg>
+                        <use xlink:href="#icon_Info"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="row marginBtm0 commmonCondtionData" ng-repeat="condition in conditionsData">
+        <!--<smart-typeahead titleofmodel="Attributes" multiselect="true" addnew="false" show-lookup="true" placeholder="Attributes" class="col s12 m4 l4 xl3 xxl2 input-field line-height-manager" ng-model="condition.attributeOptions.selectedoption" options="condition.attributeOptions.options" filterkeys="['attrName']"></smart-typeahead>-->
+        <!--<smart-typeahead titleofmodel="Attributes" class="col s12 m4 l4 xl3 xxl2 input-field line-height-manager" multiselect="false" show-lookup="true" ng-model="{{condition.attributeName.attrName}}" options="typeOptionsAttrName" filterkeys="['attrName']" optionformat="<span>{attrName}</span>" displayformat="{attrName}" label="{{'Attributes' || translate}}"></smart-typeahead>-->
+
+        <smart-typeahead class="col s12 m2 l3 xl2 xxl2 input-field line-height-manager" titleofmodel="{{condition.attributeName.displaytitle}}" multiselect="false" show-lookup="true" placeholder="{{condition.attributeName.displaytext}}" ng-model="condition.attributeName.selectedoption" options="condition.attributeName.options" filterkeys="['name']" label="{{'Attributes' || translate}}"></smart-typeahead>
+        <smart-select class="col s12 m2 l3 xl2 xxl2 line-height-manager input-field" label="Operators" is-mandatory='true' ng-model="conditionOp" options="conditionOpOption" datakey="name" on-change="onChangeOperator(conditionOp, $index)"></smart-select>
+        <smart-typeahead ng-show="condition.attributeName.selectedoption.name!='Amount' && conditionOp.name !='In between'" addnew="false" class="col s12 m4 l3 xl2 xxl2 input-field line-height-manager" titleofmodel="{{condition.conditionValue.displaytitle}}" multiselect="true" show-lookup="true" placeholder="{{condition.conditionValue.displaytext}}" ng-model="condition.conditionValue.selectedoption" options="condition.conditionValue.options" filterkeys="['name']" label="{{'Value' || translate}}" ng-show="condition.conditionValuestate"></smart-typeahead>
+
+        <div ng-show="condition.attributeName.selectedoption.name=='Amount' && conditionOp.name !='In between'" class="col s12 m4 l3 xl2 xxl2 paddingRight0">
+            <smart-textfield class="s12 m3 l4 xl3 xxl2 input-field line-height-manager typeaHeade dynamicValText" ng-show="!condition.isDynamicVal && !condition.showRange" ng-model="condition.amtVal" label="Value" style="float:left;width:95%;"></smart-textfield>
+            <div ng-if="condition.isDynamicVal">
+                <label class="grey-text active" style="float:left;position:absolute;">Value</label>
+                <a href="javascript:void(0);" class="left marginTop15 " ng-click="dynamicValuePopupCallback($index, '1')" style="width:80%;">{{condition.amountValue}}</a>
+            </div>
+        </div>
+
+        <!--<smart-textfield class="col s12 l3 xl2 xxl2 line-height-manager input-field condtionValueFirst" ng-model="condition.conditionValueFirst" label="Value" ng-show="condition.conditionValue"></smart-textfield>-->
+        <smart-textfield class="col s12 m2 l1 xl1 xxl1 line-height-manager input-field" maxlength="10" ng-model="condition.fromRange" label="From" smart-character-restrict="" patternreg="[^0-9]" ng-show="condition.showRange"></smart-textfield>
+        <smart-textfield class="col s12 m2 l1 xl1 xxl1 line-height-manager input-field" maxlength="10"  ng-model="condition.toRange" label="To" smart-character-restrict="" patternreg="[^0-9]" ng-show="condition.showRange"></smart-textfield>
+        <!--<div class="col s12 m6 l4 xl3 xxl2 marginTop15">-->
+
+        <a href="javascript:void(0);" ng-if="condition.resetToLink && !condition.showRange && condition.attributeName.selectedoption.name=='Amount' && conditionOp.name !='In between'" class="left marginTop15 marginLeft12" ng-click="resetValue($index, '1')">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Reset' || translate }}" position="bottom">
+                <svg><use xlink:href="#icon_Close"></use></svg>
+            </i>
+        </a>
+
+        <a href="javascript:void(0);" ng-show="condition.attributeName.selectedoption.name=='Amount' && conditionOp.name !='In between'" ng-if="!condition.resetToLink && !condition.showRange" class="left marginTop15 marginRight3 marginLeft5" ng-click="dynamicValuePopupCallback($index, '1')">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Dynamic' || translate }}" position="bottom">
+                <svg><use xlink:href="#Icon_function"></use></svg>
+            </i>
+        </a>
+
+        <a ng-show="($index + 1) != conditionsData.length || ($index + 1) === conditionsData.length && $index != 0" href="javascript:void(0)" class="left marginTop15" ng-click="deleteConditionData(conditionsData, $index)" style="padding:0 10px;">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+            </i>
+        </a>
+
+
+        <a ng-show="($index + 1) === conditionsData.length && $index == 0" href="javascript:void(0)" class="left marginTop15 marginLeft20" ng-click="addConditionData(conditionsData)">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Add New Condition' || translate }}" position="bottom">
+                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+            </i>
+        </a>
+        <a ng-show="($index + 1) === conditionsData.length && $index != 0" href="javascript:void(0)" class="left marginTop15" ng-click="addConditionData(conditionsData)">
+            <i class="icon left marginRight0" smart-tooltip message="{{'Add New Condition' || translate }}" position="bottom">
+                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+            </i>
+        </a>
+        <!--</div>-->
+    </div>
+
+
+    <div class="row" ng-if="parentScope.pageType.type === 'Standard Creation'">
+        <div class="secContentWithBorder noBorder">
+            <div class="left">Other Conditions</div>
+            <div class="right">
+                <a href="javascript:void(0)" class="marginLeft10 right" smart-tooltip message="Add" position="bottom" ng-click="showEnableGroupCallback()">
+                    <i class="icon  right blue-text">
+                        <svg><use xlink:href="#icon_Settings"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div class="row marginBtm0">
+            <div class="col s12 borderTopLight padding0">
+                <table class="bordered sTable  otherConditionsTable">
+                    <thead>
+                        <tr>
+                            <th class="left-align paddingLeft10" width="20%" style="white-space:nowrap;">
+                                Attributes
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip show-full-tip="true" is-fixed="true" position="top" delay="50" message="Please select attribute based on which rule will be evaluated." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+
+                            <th class="left-align" width="20%" ng-if="document.isEnableRuleGroup" style="white-space:nowrap;">
+                                Rule Group
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip position="top" show-full-tip="true" is-fixed="true" delay="50" message="Please mention a arbitrary identifier to combine multiple conditions. It is mandatory to have at least one condition without any action type code. The former will get concatenated with other condition under the same rule group." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+                            <th class="left-align" width="20%" style="white-space:nowrap;">
+                                Operators
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip position="top" show-full-tip="true" is-fixed="true" delay="50" message="Please select the logical operator to evaluate the previously selected attribute during rule execution." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+                            <th class="left-align" width="20%" style="white-space:nowrap;">
+                                Value
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip position="top" show-full-tip="true" is-fixed="true" delay="50" message="Please mention attribute value to be evaluated during rule execution." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+
+
+                            <th class="left-align" ng-if="document.isEnableLevel" width="15%" style="white-space:nowrap;">
+                                Level
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip position="top" show-full-tip="true" is-fixed="true" delay="50" message="Please select this based on approval levels to be followed during rule execution." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+                            <th class="left-align" width="20%" style="white-space:nowrap;">
+                                Actions
+                                <a href="javascript:void(0);">
+                                    <i class="icon iconSmall" smart-infotip position="top" show-full-tip="true" is-fixed="true" delay="50" message="Please select this based on action type codes created in action type section." custom-style="customStyle" style="top:8px;">
+                                        <svg>
+                                            <use xlink:href="#icon_Info"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </th>
+                            <th class="left-align" width="5%" style="white-space:nowrap;"></th>
+                            <th class="left-align" width="5%" style="white-space:nowrap;"></th>
+                            <th class="right-align" width="5%" style="white-space:nowrap;"></th>
+                            <th class="left-align" width="5%" style="white-space:nowrap;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="borderTop" ng-repeat="otherConditions in otherConditionsData track by $index">
+
+                            <td class="left-align">
+                                <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                    <a ng-show="!otherConditions.attributeOptions.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-group1-' + parentIndex + '-' + $index, otherConditions);" href='javascript:void(0)' data-activates='dropdowngrid-group1-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                        {{otherConditions.attributeOptions.selectedoption.name  || otherConditions.attributeOptions.displaytitle }}
+                                    </a>
+                                    <div ng-class="{'table-typeahead-lookup--active' : otherConditions.attributeOptions.selectedoption[0].name}" id="dropdowngrid-group1-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                        <smart-typeahead class="" titleofmodel="{{otherConditions.attributeOptions.displaytitle}}" multiselect="false" addnew="false" show-lookup="true" placeholder="{{otherConditions.attributeOptions.displaytext}}" ng-model="otherConditions.attributeOptions.selectedoption" options="otherConditions.attributeOptions.options" filterkeys="['name']"></smart-typeahead>
+                                    </div>
+                                </smart-dropdown>
+                            </td>
+                            <td class="left-align" ng-if="document.isEnableRuleGroup">
+                                <!--<smart-select class="col s12 line-height-manager input-field margin0 padding0"   is-mandatory='true' ng-model="otherConditions.rulegrOptions.selectedoption.name" on-change="onChange(otherConditions.rulegrOptions.selectedoption.name, $index)" options="otherConditions.rulegrOptions.options" datakey="name"></smart-select>-->
+                                <smart-dropdown config="{{dropDownConfig}}" class="relative line-height-manager">
+                                    <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-identificationData-'+$index);" href='javascript:void(0)' data-activates='dropdowngrid-identificationData-{{$index}}' data-constrainwidth="false">
+                                        {{otherConditions.rulegrOptions.selectedoption.name || otherConditions.rulegrOptions.displaytitle }}
+                                    </a>
+                                    <div id="dropdowngrid-identificationData-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                        <smart-textfield placeholder="Please Enter" ng-model="otherConditions.rulegrOptions.selectedoption.name" id="gridTextField-identificationData-{{$index}}"></smart-textfield>
+                                    </div>
+                                </smart-dropdown>
+
+                            </td>
+                            <td class="left-align">
+                                <smart-select class="col s12 input-field margin0 padding0" is-mandatory='true' ng-model="otherConditions.opratorValues.selectedoption.name" on-change="onChange(otherConditions.opratorValues.selectedoption.name, $index)" options="otherConditions.opratorValues.options" datakey="name"></smart-select>
+                            </td>
+                            <td class="left-align">
+                                <div ng-show="otherConditions.attributeOptions.selectedoption.name=='Amount'" class="relative">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="relative line-height-manager" ng-if="!otherConditions.isDynamicVal1">
+                                        <a class='dropdown-button btn-in-header' ng-click="makegridFocuse('gridTextField-identificationData1-'+$index);" href='javascript:void(0)' data-activates='dropdowngrid-identificationData1-{{$index}}' data-constrainwidth="false">
+                                            {{otherConditions.valgrpOptions.selectedoption.name || otherConditions.valgrpOptions.displaytitle }}
+                                        </a>
+                                        <div id="dropdowngrid-identificationData1-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                            <smart-textfield ng-show="!otherConditions.isDynamicVal1" ng-model="otherConditions.valgrpOptions.selectedoption.name" placeholder="Value"></smart-textfield>
+                                        </div>
+                                    </smart-dropdown>
+
+                                    <div ng-if="otherConditions.isDynamicVal1">
+                                        <a href="javascript:void(0);" ng-click="dynamicValuePopupCallback($index,'2')" class="left truncate" style="width:70%;">{{otherConditions.amountValue}}</a>
+                                    </div>
+                                    <a href="javascript:void(0);" ng-if="!otherConditions.resetToLink" class="marginTop15" ng-click="dynamicValuePopupCallback($index, '2')">
+                                        <i class="icon marginRight0" smart-tooltip message="{{'Dynamic' || translate }}" position="bottom">
+                                            <svg><use xlink:href="#Icon_function"></use></svg>
+                                        </i>
+                                    </a>
+                                    <a href="javascript:void(0);" ng-if="otherConditions.resetToLink" class="marginLeft10" ng-click="resetValue($index, '1')">
+                                        <i class="icon marginRight0" smart-tooltip message="{{'Reset' || translate }}" position="bottom">
+                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+                                <smart-dropdown config="{{dropDownConfig}}" class="relative" ng-show="otherConditions.attributeOptions.selectedoption.name!='Amount'">
+                                    {{otherConditions.conditionValue.selectedoption[0].name}}
+                                    <a ng-show="!otherConditions.conditionValue.selectedoption[0].name" class='dropdown-button btn-in-header' ng-click="makegridFocuse('dropdowngrid-group11-' + parentIndex + '-' + $index, otherConditions);" href='javascript:void(0)' data-activates='dropdowngrid-group11-{{parentIndex}}-{{$index}}' data-constrainwidth="false">
+                                        {{otherConditions.conditionValue.selectedoption.name  || otherConditions.conditionValue.displaytitle }}
+                                    </a>
+                                    <div ng-class="{'table-typeahead-lookup--active' : otherConditions.conditionValue.selectedoption[0].name}" id="dropdowngrid-group11-{{parentIndex}}-{{$index}}" class="dropdown-content lookup-popup fontNormal table-typeahead-lookup lookup-popup-quantity dd-close-off">
+                                        <smart-typeahead class="" titleofmodel="{{otherConditions.conditionValue.displaytitle}}" multiselect="false" addnew="false" show-lookup="true" placeholder="{{otherConditions.conditionValue.displaytext}}" ng-model="otherConditions.conditionValue.selectedoption" options="otherConditions.conditionValue.options" filterkeys="['name']"></smart-typeahead>
+                                    </div>
+                                </smart-dropdown>
+                            </td>
+                            <td class="left-align" ng-if="document.isEnableLevel">
+                                <smart-select class="col s12  input-field margin0 padding0" is-mandatory='true' ng-model="otherConditions.sequenceOptions.selectedoption.name" on-change="onChange(otherConditions.sequenceOptions.selectedoption.name, $index)" options="otherConditions.sequenceOptions.options" datakey="name"></smart-select>
+                            </td>
+
+                            <td class="left-align">
+                                       <smart-select class="col s10 input-field margin0 padding10 line-height-manager" is-mandatory='true' ng-model="otherConditions.actions.selectedoption.name" on-change="onChangeAction(otherConditions, $index)" options="otherConditions.actions.options" datakey="name"></smart-select>
+                            </td>
+                            <td class="left-align">
+                                <a href="javascript:void(0)" class="left" ng-if="otherConditions.previewIcon">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'View Action details' || translate }}" position="bottom" ng-click="showApprovalGroupCallback()">
+                                        <svg><use xlink:href="#icon_Preview"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+
+
+                            <td class="left-align">
+                                <a style="margin-left:30px;" ng-show="otherConditionsData.length > 1" href="javascript:void(0)" class="left">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'Copy' || translate }}" position="bottom" ng-click="copyData(otherConditions, otherConditionsData, $index)">
+                                        <svg><use xlink:href="#icon_Copy"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+
+                            <td class="left-align">
+                                <a style="margin-left:30px;" ng-show="($index + 1) != otherConditionsData.length || ($index + 1) === otherConditionsData.length && $index != 0" href="javascript:void(0)" class="left" ng-click="deleteConditionData(otherConditionsData,otherConditions, $index)">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+                            <td class="left-align">
+                                <a style="margin-left:30px;" ng-show="otherConditionsData.length > 1 && ($index +1) === otherConditionsData.length" href="javascript:void(0)" class="left" ng-click="addOtherConditionsData(otherConditionsData,otherConditions, $index)">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'Add New Condition' || translate }}" position="bottom">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+                            <td class="left-align" ng-show="otherConditionsData.length <= 1">
+                                <a href="javascript:void(0)" style="margin-left:30px;" class="left">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'Copy' || translate }}" position="bottom" ng-click="copyData(otherConditions, otherConditionsData, $index)">
+                                        <svg><use xlink:href="#icon_Copy"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+                            <!-- add icon for 1st time -->
+                            <td class="left-align" ng-show="otherConditionsData.length <= 1" style="padding-right:0px !important;">
+                                <a style="margin-right:8px;margin-left:30px;" ng-show="($index +1) === otherConditionsData.length" href="javascript:void(0)" class="left" ng-click="addOtherConditionsData(otherConditionsData,otherConditions, $index)">
+                                    <i class="icon left marginRight0" smart-tooltip message="{{'Add New Condition' || translate }}" position="bottom">
+                                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="parentScope.pageType.type === 'Approval Matrix'">
+        <div ng-show="!showMatrixData">
+            <div class="center action-block">
+                <a href="javascrpt:void(0)" ng-click="addMatrixPopupCallback(false)" class="action-block-cont">
+                    <span class="action-block-cont-icon">
+                        <i class="icon icon--xLarge">
+                            <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                        </i>
+                    </span>
+                    <span class="action-block-cont-lbl">Add Matrix</span>
+                </a>
+            </div>
+        </div>
+        <div ng-show="showMatrixData">
+            <div class="secContentWithBorder noBorder">
+                <div class="left">APPROVAL MATRIX</div>
+                <a href="javascript:void(0)" class="right" ng-click="addMatrixPopupCallback(true)">
+                    <i class="icon left marginRight0" smart-tooltip message="{{'Configure' || translate }}" position="bottom">
+                        <svg><use xlink:href="#icon_Configure"></use></svg>
+                    </i>
+                </a>
+            </div>
+            <table class="bordered sTable matrixTable">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="border" width="15%">Cost center</th>
+                        <th class="center-align" colspan="{{getColSpan}}" width="85%">Amount (USD)</th>
+                    </tr>
+                    <tr>
+                        <th ng-repeat="data in addAttributesData">{{data.fromVal.value}}<span ng-if="data.toVal.value"> - </span>{{data.toVal.value}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="appMatrix in matrixTableData track by $index">
+                        <td ng-repeat="data in appMatrix.data track by $index" width="{{getWidth}}">
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative">
+                                <smart-select class="col  line-height-manager input-field margin0 padding0" is-mandatory='true' ng-model="data.actions.selectedoption.name" on-change="onChange(data.actions.selectedoption.name, $index)" options="data.actions.options" datakey="name"></smart-select>
+                            </smart-dropdown>
+                        </td>
+
+                        <td class="center-align" width="8%">
+                            <a ng-show="($index + 1) === matrixTableData.length" href="javascript:void(0)" class="right" ng-click="addMatrixTableData(matrixTableData)">
+                                <i class="icon  marginRight0" smart-tooltip message="{{'Add New' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                </i>
+                            </a>
+
+                            <a ng-show="($index + 1) != matrixTableData.length || ($index + 1) === matrixTableData.length && $index != 0" href="javascript:void(0)" ng-class="{'marginRight24' : ($index + 1) != matrixTableData.length}" class="right" ng-click="deleteConditionData(matrixTableData, $index)">
+                                <i class="icon  marginRight0" smart-tooltip message="{{'Delete' || translate }}" position="bottom">
+                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <smart-popup template-url="shared/admin/ruleEngine/views/addActionTypes.html" show="{{showApprovalGroup}}" on-hide="hideApprovalGroupCallback(e)" type="large"></smart-popup>
+    <smart-popup template-url="shared/admin/ruleEngine/views/enabledGroupPopup.html" show="{{showEnableRuleGroup}}" on-hide="hideEnableGroupPopupCallback(e)"></smart-popup>
+</div>
+<smart-popup template-url="shared/admin/ruleEngine/views/approvalMatrixPopup.html" show="{{showAppMatrixPopup}}" on-hide="hideaddMatrixPopupCallback(e)"></smart-popup>
+<smart-popup template-url="dynamicValue.html" show="{{dynamicValuePopup}}" on-hide="dynamicValuePopupOnHideCallback(e)" type="small"></smart-popup>
+
+<style>
+    .matrixTable tr td:first-child {
+        width: 10% !important;
+    }
+
+    .otherConditionsTable .line-height-manager.input-field input:focus:not([readonly]) + label {
+        bottom: 28px;
+        font-size: 12px;
+    }
+
+    .dynamicValText label {
+        left: 0 !important;
+    }
+</style>
+
+<script id="dynamicValue.html" type="text/ng-template">
+    <div>
+        <div class="modal-header">
+            <i class="icon iconSmall grey-text left marginTop2">
+                <svg><use xlink:href="#icon_Questionaire"></use></svg>
+            </i>
+            <span class="title">{{'DYNAMIC VALUE' | translate}}</span>
+        </div>
+        <div class="modal-content padding10 pricesheet-type is-scrolled">
+            <div id="conditionDataWrap" class="questionnarie-type-wrap paddingBtm2 ">
+                <div class="row marginBtm0" id="conditionData{{$index}}" ng-repeat="condition in conditionsData track by $index">
+                    <smart-select class="left marginLeft10 col s4" ng-model="selectedServicesInfo1" on-change="selectedOption1(selectedServicesInfo1);" options="questionsNo" disable="{{!condition.isVisibleSwitch}}" preview="{{!condition.isVisibleSwitch}}" fixed="true"></smart-select>
+                    <smart-select class="left marginLeft10 col s2" ng-model="selectedServicesInfo2" on-change="selectedOption2(selectedServicesInfo2);" options="questionsNo2" disable="{{!condition.isVisibleSwitch}}" preview="{{!condition.isVisibleSwitch}}" fixed="true"></smart-select>
+                    <div class="left marginTop4 col s5">
+                        <smart-textfield type="text" smart-character-restrict="" patternreg="[^0-9]" class="left col s12 questionnaire-range input-field line-height-manager" ng-model="fromRange" on-blur="onChangeTexValue(fromRange)"></smart-textfield>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12">
+                    <smart-button flat="true" config='{"title":"DONE"}' ng-click="setDynamicVal($index)"></smart-button>
+                    <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left marginRight10 marginTop2">
+        <svg>
+            <use xlink:href="#icon_BookmarkAdd"></use>
+        </svg>
+    </i><span class="title">BOOKMARK THIS PAGE</span>
+
+    <div class="right" ng-show="!announcement.adding">
+        <div>
+            <a class="prevAnn icon" ng-click="announcement.backward()">
+                <svg>
+                    <use xlink:href="#icon_LeftChevron"></use>
+                </svg>
+            </a>
+            <a class="nextAnn icon" ng-click="announcement.forward()">
+                <svg>
+                    <use xlink:href="#icon_LeftChevron"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="modal-content is-scrolled paddingTop0 paddingBtm0">
+    <div class="container">
+        <div class="row paddingTop16">
+            <!--<smart-textfield type="area" maxlength="80" class="col s12 marginBtm20" label="Bookmark Name" ng-model="myBookmarkName"></smart-textfield>-->
+            <div class="col s12 announcement_options marginBtm20" ng-if="!announcement.viewing">
+                <span class="grey-text fontSize12 annTitle">Type</span>
+                <smart-radio gap="true" ng-model="announcement.type" options="[{title:'Smart',name:'IntExt',active:true},{title:'External',name:'IntExt'}]"></smart-radio>
+            </div>
+            <smart-textfield readonly="{{announcement.viewing}}" label="Name" ng-model="announcement.data.bookMarkName" class="col s12 active clearfix marginBtm20" type="text"></smart-textfield>
+            <smart-textfield  disable="{{announcement.urlState}}" type="text" ng-model="announcement.data.bookMarkUrl" class="col s12 l12  fieldEditable commentField marginBtm20" label="URL" ng-show="announcement.type.title == 'External'"></smart-textfield>
+            <smart-textfield ng-model="announcement.urlStateText" disable="{{announcement.urlState}}" type="text" readonly="true" class="col s12 l12  fieldEditable commentField marginBtm20" label="URL" ng-show="announcement.type.title == 'Smart'"></smart-textfield>
+        </div>
+    </div>      
+</div>
+<div class="modal-footer is-scrolled right-align right">
+    <div class="left marginTop10" ng-if="announcement.type.title!='External'">
+        <input type="checkbox" class="filled-in" id="markAsFavourite" ng-model="isMarkAsFavourite.check"  ng-change="setFavourite(isMarkAsFavourite.check)" />
+        <label for="markAsFavourite" class="grey-text text-darken-4" ng-class="{'disabled' : disableDoneButton}">Mark as homepage</label>
+    </div>
+
+    <smart-button config='{"title":"ADD"}' flat="true" class="modal-close"></smart-button>
+    <smart-button config='{"title":"CANCEL"}' flat="true" class="modal-close"></smart-button>
+</div>

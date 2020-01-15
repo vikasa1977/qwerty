@@ -1,0 +1,59 @@
+<!-- usage of this directive -->
+<!--<smart-widgetized-search ng-model="config"></smart-widgetized-search>-->
+
+<div>
+    <smart-dropdown>
+        <a href="javaScript:void(0);" class="dropdown-button" data-alignment="right" data-activates='searchContent' data-constrainwidth="false">
+            <i class="icon iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Find a field or section' || translate }}" data-position="bottom" data-delay="50">
+                <svg><use xlink:href="#icon_SearchField"></use></svg>
+            </i>
+        </a>
+        <ul id='searchContent' class='dropdown-content dropdown-content--size-medium dd-close-off'>
+            <li class="dropdown-content-header">
+                <div class="searchSlideMain searchSlideMain--inputBdrBNone">
+                    <div class="searchWithHiddenTextField active">
+                        <a href="javascript:void(0)" smart-tooltip position="Down" ng-show="showClose" message="{{'Close' || translate }}" ng-click="reset(); searchinList = '';" delay="250" class="cancel-icon btn-flat black-text waves-circle waves-effect">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Close"></use></svg>
+                            </i>
+                        </a>
+
+                        <smart-textfield on-key-press="searchKeyPress()" class="input-field" focus="true" placeholder="Search Field or Section" ng-model="searchinList"> </smart-textfield>
+                        <a href="javascript:void(0)" class="search-icon btn-flat black-text waves-circle waves-effect" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Search"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown-content-content is-scrolled">
+                <smart-scroll height="230px">
+                    <ul class="collection noBorder">
+                        <li ng-repeat="item in ngModelTemp track by $index" ng-class="{'disabled': item.visible}">
+                            <a href="javascript:void(0);" class="waves-block waves-light" ng-click="addItem(item)">
+                                <span>{{item.label | translate}}</span>
+                                <i ng-if="item.visible" class="widget-option-field icon iconSmall ng-scope blue-text">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use>
+                                    </svg>
+                                </i>
+                                <span class="fontSize12" style="display:block;" ng-if="!item.isSection">In {{item.sectionLabel | translate}}</span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </smart-scroll>
+
+                <!--<smart-list model="ngModel | filter: searchinList"
+                            style-class="collection noBorder "
+                            item-class="collection-item collection-title-font-size-medium"
+                            height="230px" template="shared/view/searchinSection/sectionSearchList.html">
+                </smart-list>-->
+            </li>
+
+        </ul>
+
+    </smart-dropdown>
+
+</div>

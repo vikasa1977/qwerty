@@ -1,0 +1,127 @@
+<div>
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_AddSupplier"></use>
+            </svg>
+        </i>
+        <span class="title">ADD NEW SUPPLIER</span>
+    </div>
+    <div class="modal-content padding0 is-scrolled">
+        <smart-scroll height="360px">
+            <div class="row marginTop15 scroll-inner-container">
+                <div class="col s12 ">
+                    <div class="row marginBtm0">
+                        <smart-textfield label="Legal Company Name"  class="col s6 xxl4 marginBtm25"></smart-textfield>
+                        <smart-select label="Supplier Source Type" class="col s6 xxl4 marginBtm25 " ng-model="" options="supplierSourceType" on-change=""></smart-select>
+                    </div>
+                    <div class="row  marginBtm0">
+                        <div class="col s12 m6 l6 xl6 xxl6 input-field marginTop30">
+                            <label class="active" ng-if="selectedCategoryNodes.length > 0">Category</label>
+                            <a href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{selectedCategoriesTxt}}</a>
+                            <span class="clearfix">
+                                <span ng-if="selectedCategoriesValidate && !selectedCategoryNodes.length" class="listerrortxt">This is required field.</span>
+                            </span>
+                        </div>
+                        <div class="col s12 m6 l6 xl6 xxl6 input-field marginTop30">
+                            <label class="active" ng-if="selectedBUNodes.length > 0">Business Unit</label>
+                            <a href="javascript:void(0)" ng-click="treeOpenCallback('bu')">{{selectedBUTxt}}</a>
+                            <span class="clearfix">
+                                <span ng-if="selectedBUValidate && !selectedBUNodes.length" class="listerrortxt">This is required field.</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row marginBtm0">
+                        <smart-textfield label="Send Additional Forms" ng-model="" class="col s12 xxl6 marginBtm25 "></smart-textfield>
+                    </div>
+                    <div class="blockSeparator marginBtm25 marginTop15"></div>
+                    <div class="row  marginBtm0">
+                        <smart-textfield label="First Name"  class="col s6 xxl4 marginBtm25"></smart-textfield>
+                        <smart-textfield label="Last Name"  class="col s6 xxl4 marginBtm25"></smart-textfield>
+                        <smart-textfield label="Business Phone No"  class="col s6 xxl4 marginBtm25"></smart-textfield>
+                        <smart-textfield label="Extn." class="col s6 xxl4 marginBtm25"></smart-textfield>
+                        <smart-textfield label="Contact Email ID"  rules="{{emailRules}}" class="col s6 xxl4 marginBtm25 valid"></smart-textfield>
+                        <smart-checkbox class="col s6 xxl4 line-height-manager marginBtm25" label="Send Invitation"></smart-checkbox>
+                    </div>
+                    <div class="row marginBtm0">
+                        <smart-select label="Time Zone" class="col s6 xxl4"  options="selectTimeZone" on-change=""></smart-select>
+                        <smart-select label="Language" class="col s6 xxl4"  options="selectLanguage" on-change=""></smart-select>
+                    </div>
+                    <div class="blockSeparator marginBtm25 marginTop15"></div>
+                    <div class="row  marginBtm0">
+                        <smart-multiselect class="col s12 xxl6" ng-model="selectedSupp" type="autocomplete" options="optionsSupp" datakey="FirstName" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span>" displayformat="{FirstName} {LastName}" label="Supplier Manager"></smart-multiselect>
+                    </div>
+                    <div class="blockSeparator marginBtm25 marginTop15"></div>
+                    <div class="row marginBtm0">
+                        <smart-radio gap="true" ng-model="selectedOption" class="col s12 paddingBtm15" datakey="name" options="selectedOptionitemType"></smart-radio>
+                        <div class="col s12 paddingLeft0" data-ng-show="selectedOption.code == 'Single'">
+                            <smart-select label="Type" is-mandatory='true' ng-model="selectedtypeSelect" options="typeSelectOption" class="col s6 xxl4 dropdowm-slideUp" datakey="name" on-change="onChange(selectedtype)"></smart-select>
+                            <div class="col s6 xxl4 input-field">
+                                <div class="grey-text fontSize12" ng-show="showFormAs">Approvers</div>
+                                <span id="approversBtn" data-target="approvers" class="catpopup-title" ng-class="{'marginTop16' : !showFormAs}" ng-click="closeSupplierPopup();">{{ approversinitialDisplayText }}</span>
+                            </div>
+                            <smart-checkbox checked='false' fill='true' disable='false' label="Include Supplier Manager" class="col s6 xxl4 line-height-manager" ng-model="isIncludeSupplierManager.check" on-change="onChange(isIncludeSupplierManager.check)"></smart-checkbox>
+                        </div>
+                        <div class="col s12 borderTopLight padding0" data-ng-show="selectedOption.code == 'Multiple'">
+                            <table class="bordered sTable">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:15%;">
+                                    <col style="width:20%;">
+                                    <col style="width:25%;">
+                                    <col style="width:20%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="left-align"><span class="left paddingTop2">Approval Level</span></th>
+                                        <th class="left-align">Type</th>
+                                        <th class="left-align">Approvers</th>
+                                        <th class="center-align">Include Manager Supplier</th>
+                                        <th class="left-align supplierApprovalTableDeleteCol"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="listData in approversMultiLevelList">
+                                        <td class="left-align">{{ ($index + 1) | ordinal }} Level</td>
+                                        <td class="left-align" ng-init="listData.types.typeSelect = listData.types.options[0]">
+                                            <smart-select label="" is-mandatory='true' ng-model="listData.types.typeSelect" options="listData.types.options" class="col m9 l10 fieldcollapse marginBtm0 marginTop0" datakey="name" on-change="onChange(selectedtype)"></smart-select>
+                                        </td>
+                                        <td class="left-align">
+                                            <span id="" data-target="approvers" class="catpopup-title">Add Approvers</span>
+                                        </td>
+                                        <td class="center-align">
+                                            <smart-checkbox checked='{{listData.check}}' fill='true' disable='false' label="" ng-model="listData.check" on-change="onChange(listData.check)" input-field="false"></smart-checkbox>
+                                        </td>
+                                        <td class="center-align sTable-addAction">
+                                            <span class="left approvers-delete-icon" ng-if="approversMultiLevelList.length !== 1" ng-click="deleteapproversData($index)">
+                                                <i class="icon small left blue-text dropdown-button marginRight0 smallest" data-alignment="right" smart-tooltip message="{{'Delete Rows' || translate}}" delay="50" position="bottom">
+                                                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                                </i>
+                                            </span>
+                                            <span class="left marginLeft15" ng-click="addapproversData()" ng-if="approversMultiLevelList.length === ($index + 1)">
+                                                <i class="icon small left blue-text dropdown-button marginRight0 smallest" data-constrainwidth="false" data-activates="createPricesheet" data-alignment="right" smart-tooltip message="{{'Add Rows' || translate}}" delay="50" position="bottom">
+                                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                </i>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12">
+                <div class="right">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"ADD"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

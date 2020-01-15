@@ -1,0 +1,73 @@
+<div id="approver">
+	<div class="modal-header">
+		<div class="regularSearch">
+			<a href="#" class="waves-circle waves-effect wave-blue search-icon btn-flat black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.search}}" alt="Search">
+
+				<i class="icon iconSmall left grey-text">
+					<svg>
+						<use xlink:href="#icon_Search"></use>
+					</svg>
+				</i>
+			</a>
+			<a href="#" class="waves-circle waves-effect wave-blue cancel-icon btn-flat black-text tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.reset}}" alt="Reset">
+				<i class="icon iconSmall left grey-text">
+					<svg>
+						<use xlink:href="#icon_Close"></use>
+					</svg>
+				</i>
+			</a>
+			<div class="input-field">
+				<input id="Text3" type="text" class="validate" placeholder="{{$label_U.approvalPendingWith}}">
+			</div>
+		</div>
+		<i class="icon iconSmall grey-text left">
+			<svg>
+				<use xlink:href="#icon_Lookup"></use>
+			</svg>
+		</i>
+		<span class="title">APPROVER
+		</span>
+	</div>
+	<div class="modal-content padding0 approver-content-height">
+		<div class="scrollingListBg">
+		<ul class="collection">
+			<li class="collection-item  waves-effect"><smart-checkbox class="input-chk" fill="true" label='All' ng-model="selectedAll" ng-click="checkAll1($event)" class="test"></smart-checkbox></li>
+		</ul>
+		<smart-list model="{{approvers}}"
+			style-class="collection "
+			item-class="collection-item noBorder waves-effect"
+			template="p2p/req/views/approverList.html"
+			height="{{WrapHeight}}"></smart-list>
+		<div class="see-more-divider center-align">
+			<smart-button flat="true" config='{"title":shwMore == true ? "SEE LESS" : "15 MORE"}' ng-click="collapsUser()"></smart-button>
+		</div>
+		<smart-list model="{{addApprovers}}"
+			style-class="collection "
+			item-class="collection-item noBorder waves-effect"
+			template="p2p/req/views/approverList.html"
+			click-callback="clickHandler(e)"
+			lazy-load-callback="onLazyLoad(e)"
+			height="186px"></smart-list>
+			</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="row marginBottom0">
+		<div class="col s12">
+			<smart-button flat="true" class="left" config='{"title":"RESET"}'></smart-button>
+			<div class="right">
+				<smart-button flat="true" class="left" config='{"title":"CANCEL"}'></smart-button>
+				<smart-button flat="true" class="left" config='{"title":"DONE"}'></smart-button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<style>
+	/*temporary css*/
+
+	.approver-content-height {
+		height: 400px;
+	}
+</style>

@@ -1,0 +1,11 @@
+<ul class="search-list" style="display:flex;">
+    <li><smart-checkbox fill="true" label="" class="left" on-change="changeSearch()"></smart-checkbox></li>
+    <li ng-repeat="(a, b) in item">
+       <div>
+            <span>{{a}}</span>
+           <span ng-repeat="(c, d) in b">
+               <span class="highlighted">{{d}}</span>
+           </span>
+        </div>
+     </li>
+</ul>

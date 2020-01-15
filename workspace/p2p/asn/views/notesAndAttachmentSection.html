@@ -1,0 +1,129 @@
+
+<div class="" ng-controller="notesAndAttachmentCtrl">	
+	<div class="row action-content-center center" ng-show="!isAttachmentAdded">	
+		<div class="center action-block ">
+			<a href="javascript:void(0);" class="action-block-cont" ng-click="adduploadCallback(e)">
+				<span class="action-block-cont-icon">
+					<i class="icon icon--xLarge">
+						<svg><use xlink:href="#icon_Upload"></use></svg>
+					</i>
+				</span>
+				<span class="action-block-cont-lbl">File Upload</span>
+			</a>	
+			<a href="javascript:void(0);" class="action-block-cont" ng-click="showNotesAttachCall()">
+				<span class="action-block-cont-icon">
+					<i class="icon icon--xLarge">
+						<svg><use xlink:href="#icon_Notes"></use></svg>
+					</i>
+				</span>
+				<span class="action-block-cont-lbl">Notes</span>
+			</a>	
+			<a href="javascript:void(0);" class="action-block-cont" ng-click="showExternalLinkAttachCall()">
+				<span class="action-block-cont-icon">
+					<i class="icon icon--xLarge">
+						<svg><use xlink:href="#icon_Link"></use></svg>
+					</i>
+				</span>
+				<span class="action-block-cont-lbl">External Link</span>
+			</a>	
+		</div>					
+	</div>	
+	<div ng-show="isAttachmentAdded">
+		<div class="row marginBtm0 borderTopLight">
+			<div class="clearfix secContentWithBorder fontSize12">
+				<div class="right ">			
+					<!--<a href="javascript:void(0)" class="marginLeft10 right" ng-click="adduploadContractCallback(e)">
+						<i class="icon left blue-text  marginRight0"  smart-tooltip message="Add Attachments" position="bottom">
+							<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+						</i>
+					</a>	-->
+					<smart-dropdown config="{{dropDownConfig}}">
+						<a href="javaScript:void(0)" class="marginLeft10 right dropdown-button" data-activates="addAttachOptions" data-constrainwidth="false" data-alignment="right" >
+							<i class="icon  iconSmall tooltipped" smart-tooltip position="bottom" delay="50" message="Add Attachments">
+								<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+							</i>
+						</a>
+						<ul id="addAttachOptions" class="dropdown-content">
+							<li><a href="javaScript:void(0)" ng-click="adduploadCallback()">{{'Upload File'|| translate}}</a> </li>
+							<li><a href="javaScript:void(0)" ng-click="showNotesAttachCall()">{{'Notes'|| translate}}</a></li>
+							<li><a href="javaScript:void(0)" ng-click="showExternalLinkAttachCall()">{{'External Link'|| translate}}</a> </li>   									        
+						</ul>
+					</smart-dropdown>				
+					<a href="javascript:void(0)" class="marginLeft10 right" ng-class="{'disabled':!fillpartial && !selectAllAttach.checkedAll}" smart-tooltip message="Delete Selected" position="bottom" ng-click="deleteMultiPricesheet($event)">
+						<i class="icon left blue-text">
+							<svg><use xlink:href="#icon_TrashCan"></use></svg>
+						</i>
+					</a>				
+				</div>
+			</div>
+		</div>
+		<table class="bordered sTable marginBtm10" sticky-header scroll-type="page">
+			<thead>
+				<tr>
+					<th ng-class="{'filled-partial' : fillpartial == true }" width="50px">
+						<smart-checkbox ng-model="selectAllAttach.checkedAll" on-change="checkedAllAttach(selectAllAttach.checkedAll)"></smart-checkbox>
+					</th>
+					<th>Name</th>
+					<th></th>
+					<th>Type
+						<smart-dropdown>
+                                <a href="javascript:void(0)" class="dropdown-button" data-alignment="left" data-activates='filterAttachType' data-constrainwidth="false">
+                                    <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                        <svg>
+                                            <use xlink:href="#icon_Filter"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul id="filterAttachType" class='dropdown-content dd-close-off'>
+                                    <li><smart-checkbox  label="Files" class="padding10"></smart-checkbox></li>
+                                    <li><smart-checkbox  label="Notes" class="padding10"></smart-checkbox></li>
+                                    <li><smart-checkbox  label="External Link" class="padding10"></smart-checkbox></li>                                    
+                                </ul>
+                        </smart-dropdown>
+					</th>
+					<th>Classification</th>		
+					<th class="center">Shared Externally</th>
+					<th class="center">Added On</th>
+					<th>Added By</th>
+					<th class="center">File Size</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="x in attachments| itemsPerPage:selectedOption.size" pagination-id="notesAttachment">
+					<td>
+						<smart-checkbox ng-model="x.isChecked" on-change="attachListChange(x.isChecked)"></smart-checkbox>
+					</td>
+					<td>
+						<a href="javascript:void(0);" ng-click="attachmentNameCall(x)">{{x.name}}</a>						
+					</td>
+					<td>
+						<a href="javascript:void(0);" ng-if="x.type == 'External Link'" class="marginLeft5">
+							<i class="icon " smart-tooltip message="Link" position="bottom">
+								<svg><use xlink:href="#icon_Link"></use></svg>
+							</i>
+						</a>
+					</td>
+					<td>{{x.type}} 											
+					</td>
+					<td><smart-select ng-model="selectedClassification" options="classificationOptions" fixed="true" is-mandatory="true" class="col s12 l9 input-field margin0 padding0"></smart-select></td>	
+					<td class="center">
+                        <smart-checkbox ng-model="x.sharedWith"></smart-checkbox>
+                    </td>										
+					<td class="center">{{x.uploadDate}}</td>
+					<td>{{x.uploadBy}}</td>
+					<td class="center">{{x.fileSize}}</td>
+				</tr>
+			</tbody>
+		</table>
+        <div class="clearfix paginationWrapper savable right" ng-show="attachments.length>defaultOption.size">
+            <div class="left selectPaginationDropDown">
+                <span class="rowsToShow"> Rows Per Page:</span>
+                <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts" ng-model="selectedOption" datakey="size"></smart-select>
+            </div>
+            <dir-pagination-controls class="left" pagination-id="notesAttachment" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+        </div>
+	</div>	
+	<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)" callback="attachmentAddedCall()"></smart-popup>
+	<smart-popup template-url="shared/popup/views/popupAttachmentNotes.html" show="{{showNotesAttach}}" on-hide="hideNotesAttachPopupCallback(e)" ></smart-popup>
+	<smart-popup template-url="shared/popup/views/popupAttachmentExternalLink.html" show="{{showExternalLinkAttach}}" on-hide="hideExternalLinkAttachPopupCallback(e)"></smart-popup>
+</div>	

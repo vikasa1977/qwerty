@@ -1,0 +1,217 @@
+<!--<!--subheader stats-->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader, 'boxShadowNone':showDocumentFilter}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="extra-nav-title--back waves-block waves-effect waves-circle sh-icon waves-light">
+                <i class="icon small ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xlink:href="#icon_CopyRepo"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text">{{'IMPORT FROM REPOSITORY' || translate}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon">
+            <li class="extra-nav-icon">
+                <a class="waves-circle waves-effect waves-light" ng-click="toggleDocumentFilter()" smart-tooltip position="bottom" message="{{'Filter' || translate }}">
+                    <i class="icon iconSmall">
+                        <svg ng-if="!filterApplied"><use xlink:href="#icon_Filter"></use></svg>
+                        <svg ng-if="filterApplied"><use xlink:href="#icon_FilterAppli"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+        <div class="importRepoSearch searchSlideMain headersearch searchSlideMain--inputBdrBNone">
+            <div class="searchWithHiddenTextField " ng-class="{'active': isActiveHeader}">
+            <a href="javascript:void(0)" ng-click="hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect cancel-icon waves-light white-text ">
+                <i class="icon iconSmall center white-text">
+                <svg>
+                    <use xlink:href="#icon_Close"></use>
+                </svg>
+                </i>
+            </a>
+            <smart-textfield class="input-field" focus="focusSearchHeader"></smart-textfield>
+            <a href="javascript:void(0)" class="waves-circle waves-effect search-icon waves-light white-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearchHeader()">
+                <i class="icon iconSmall center white-text">
+                <svg>
+                    <use xlink:href="#icon_Search"></use>
+                </svg>
+                </i>
+            </a>
+            </div>
+        </div>
+    </div>
+
+    <div ng-class="{'top-to-bottom-slide':showDocumentFilter,'bottom-to-top-slide':!showDocumentFilter}" class="panelBox-withSpace panelBox--filter padding0 ">
+        <div class="enter-from-top" ng-include="'shared/questionnaire/views/headerFilters.html'"></div>
+    </div>
+
+    <div class="filter-overlay" ng-show="showDocumentFilter"></div>
+</div>
+
+<div class="clearfix alert-bar--fixed relative is-overflowHidden" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar-rfx alert-bar--warning alert-bar--with-button enter-from-top" ng-class="{'show-dv-msg': isApplyFilters}">
+        <span class="fontSize14" style="color:#000">Filters Applied: </span>
+        <span>
+            <a href="javascript:void(0)">{{ 'Created By' || translate }}</a>,
+            <a href="javascript:void(0)">{{ 'Creation Date' || translate }}</a>,
+            <a href="javascript:void(0)">{{ 'Type' || translate }}</a>
+        </span>
+        <div class="right">
+            <smart-button flat="true" class="modal-close" ng-click="resetFilter();" config='{"title": "RESET" }'></smart-button>
+        </div>
+    </div>
+</div>
+<!--subheader ends-->
+
+<!--<div ng-if="showFilter" class="enter-from-top" ng-include="'shared/filter/views/filter.html'"></div>-->
+
+<!--main content starts-->
+<div class="extendBg">
+  <div class="wrapper clearfix wrapper--withSidebar" ng-class="{'wrapper--withSidebar':!isActive}" style="transition: all 0.5s ease;" ng-style="{'min-height':contHeight}">
+    <div class="sidebar  sidebar--left vertical-itemList-tab" ng-style="pricesheetListTop">
+      <a href="javascript:void(0)" class="sidebar-btn white-text" ng-click="activeButton()">
+        <i class="icon iconSmall">
+          <svg>
+            <use xlink:href="#icon_RightChevro"></use>
+          </svg>
+        </i>
+      </a>
+      <div class="panel-content">
+        <ul class="panel-content-iteamList ">
+          <li class="panel-content-iteamList-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+            <smart-checkbox fill="true" class="left" label="Select All" ng-model="pricesheetAll.checkedAll" on-change="checkedAllPricesheet(pricesheetAll.checkedAll)"></smart-checkbox>
+            <div class="right paddingRight30 grey-text">{{countPricesheetList}}/{{iteams.length}}</div>
+          </li>
+        </ul>
+        <!--<smart-scroll height="468px">-->
+        <ul class="panel-content-iteamList" ng-style="pricesheetListScroll">
+          <li ng-repeat="n in iteams" class="panel-content-iteamList-item" ng-class="{selected : $index == indexToShow}">
+            <span>
+              <smart-checkbox class="chklink left" ng-class="{!chklink : $index == indexToShow}" fill="true" ng-model="n.isChecked" on-change="pricesheetListChange(n.isChecked)"></smart-checkbox>
+            </span>
+            <a href="javascript:void(0)" ng-click="selectedItem($index)">{{n.title}}</a>
+          </li>
+        </ul>
+        <!--	</smart-scroll>-->
+      </div>
+    </div>
+
+    <div class="content left" style="width: 100%;">
+      <section>
+        <div class="row">
+          <smart-textfield class="col s6" label="Title" readonly="true" ng-model="selectedRepo.title"></smart-textfield>
+          <!--<smart-textfield class="col s3" label="Type" readonly="true" ng-model="selectedRepo.type"></smart-textfield>-->
+          <div class="col s6" ng-show="iteams.length > 1">
+            <a href="javascript:void(0)" class="contentPreviousBtn right" smart-tooltip position="Down" delay="250" message="{{indexToShow == iteams.length - 1  ? iteams[0].title : iteams[indexToShow + 1].title}}" ng-hide="nextbtn" ng-click="change()">
+              <i class="icon iconSmall width16">
+                <svg>
+                  <use xlink:href="#icon_RightChevro"></use>
+                </svg>
+              </i>
+            </a>
+            <a href="javascript:void(0)" class="contentPreviousBtn right marginRight7" smart-tooltip position="Down" delay="250" message="{{indexToShow == 0 ? iteams[(iteams.length) - 1].title : iteams[indexToShow - 1].title}}" ng-hide="prevbtn" ng-click="change1()">
+              <i class="icon iconSmall">
+                <svg>
+                  <use xlink:href="#icon_LeftChevron"></use>
+                </svg>
+              </i>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <smart-textfield class="col s12" label="Description" readonly="true" type="area" ng-model="selectedRepo.description"></smart-textfield>
+        </div>
+
+        <div class="row">
+            <div class="col s3 input-field readOnlyField" >
+                <div class="elements-include">
+                    <label class="active">Type</label>
+                    <a href="javascript:void(0)" class="truncate readonly-value-manager" ng-click="QQPopupOnShowCallback(e)" ng-if="selectedRepo.queType != 'Event questionnaire'">{{selectedRepo.queType}}</a>
+                    <span class="truncate readonly-value-manager" ng-if="selectedRepo.queType == 'Event questionnaire'">{{selectedRepo.queType}}</span>
+                </div>
+            </div>
+            <smart-textfield class="col s3" label="Created By" readonly="true" ng-model="selectedRepo.createdBy"></smart-textfield>
+            <smart-textfield class="col s3" label="Created On" readonly="true" ng-model="selectedRepo.createdOn"></smart-textfield>
+        </div>
+
+        <div class="row supplierQuest">
+          <div class="questionnaireSectionNavContainer">
+            <div class="questionnaireSection">
+              <div class="questionnaireSection-header clearfix">
+                <div class="center row col s12 collapsible-header-drag-wrap relative ng-scope padding0">
+                  <span class="left">SECTION 1 OF 2</span>
+                </div>
+                <label class="clear paddingBtm25">Section Name</label>
+                <div class="paddingBtm45 col s10 padding0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="col s12 padding0">
+                  <div class="col s10 padding0">
+                    <label>Attached is the document, what option do you want?</label>
+                    <span class="grey-text"> Bug-57313--scroller-postion-is-proper.png </span>
+                    <i class="icon small blue-text dropdown-button marginLeft13 smallest" data-constrainwidth="false" data-alignment="right" smart-tooltip message="{{'Download' || translate}}" delay="50" position="right">
+                      <svg>
+                        <use xlink:href="#icon_Download"></use>
+                      </svg>
+                    </i>
+                  </div>
+                  <div class="col s2 padding0">
+                    <smart-textfield class="fieldEditable" label="Weight" ng-init="questionWeight = 10" readonly="true" type="text" ng-model="weight" placeholder="0"></smart-textfield>
+                  </div>
+                </div>
+                <div class="sectionOpt">
+                  <smart-checkbox checked='false' fill='true' disable='false' label="Option 1" ng-model="option1" input-field="false"></smart-checkbox>
+                  <smart-checkbox checked='false' fill='true' disable='false' label="Option 2" ng-model="option2" input-field="false"></smart-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!--main content ends-->
+<!--footer starts-->
+<footer class="page-footer paddingLeft10 footerSpace">
+  <smart-button class="left footerBtn marginLeft0" flat="true" config='{"title":"EDIT"}' disable="false"></smart-button>
+  <smart-button class="right footerBtn" config='{"title":"IMPORT"}' disable="false"></smart-button>
+  <smart-button class="right footerBtn whiteSecondaryBtn blue-text" ui-sref="sourcing.rfx.new" config='{"title":"CANCEL"}' disable="false"></smart-button>
+</footer>
+<!--footer ends-->
+
+<smart-popup template-url="QQTemplate.html" show="{{showQQPopup}}" on-hide="QQPopupOnHideCallback(e)" class="questionnaire-type-popup" type="medium"></smart-popup>
+
+<script id="QQTemplate.html" type="text/ng-template">
+    <div>
+        <div class="modal-header">
+            <i class="icon iconSmall grey-text left marginTop2">
+                <svg><use xlink:href="#icon_Questionaire"></use></svg>
+            </i>
+            <span class="title">{{'QUALIFICATION QUESTIONNAIRE' | translate}}</span>
+        </div>
+        <div class="modal-content padding0 pricesheet-type is-scrolled">
+            <smart-scroll height="300px">
+                <ul class="margin0">
+                    <li class="padding10 paddingLeft24" ng-repeat="condition in conditionsData" ng-class="{'borderBottme5e5e5': !$last}">
+                        <span>Score for {{"'" + condition.selectedQue.title + "' " + condition.selectedComp.title + " " + condition.fromRange + "%"}}</span>
+                    </li>
+                </ul>
+            </smart-scroll>
+        </div>
+        <div class="modal-footer is-scrolled">
+            <div class="row marginBottom0">
+                <div class="col s12">
+                    <smart-button flat="true" class="modal-close" config='{"title":"CLOSE"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

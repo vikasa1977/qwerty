@@ -1,0 +1,686 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_LpWorkQ"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Manage Task list (Client:  J.Davis)</span>
+            <div class="sub-header-dd select-wrapper ng-cloak left">
+                <div class="col input-field s12">
+                    <smart-dropdown config="{{dropDownConfig}}" class="left marginRight10 cursorPointer">
+                        <span data-activates='taskListView' class="white-text dropdown-button lineHeight43 fontSize14" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            {{ selectedListView.title || translate}}
+                            <i class="icon iconSmall white-text">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                                </svg>
+                            </i>
+                        </span>
+                        <ul id='taskListView' class='dropdown-content'>
+                            <li ng-repeat="item in listViews">
+                                <a href="javascript:void(0)" class="" ng-click="changeListView(item.title)">
+                                    {{ item.title || translate }}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </div>
+            </div>
+        </div>
+
+        <!-- <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="showCommentsPopupCallback(e)">
+                    <i class="icon iconSmall white-text" message="Download To Excel" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_Download"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul> -->
+    </div>
+</div>
+
+<div class="row marginBtm0 summary-container" ng-show="IV">
+    <div class="col s12">
+        <div class="summary-inner-container">
+            <div class="overviewContainer-section left">
+                <div class="overviewContainer-title"><span>Completed</span></div>
+                <div class="overviewContainer-count"><span>3</span></div>
+            </div>
+            <div class="overviewContainer-section left">
+                <div class="overviewContainer-title"><span>In Progress</span></div>
+                <div class="overviewContainer-count"><span>16</span></div>
+            </div>
+            <div class="overviewContainer-section left">
+                <div class="overviewContainer-title"><span>Not Started</span></div>
+                <div class="overviewContainer-count"><span>20</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row marginBtm0 panel-header-action-container">
+    <div class="col s12">
+        <ul class="panelBox-header--action">
+            <li class="panelBox-header--aLink">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button">
+                    <i class="icon iconSmall blue-text" message="My Task" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_myTask"></use></svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="panelBox-header--aLink">
+                <smart-dropdown>
+                    <a href="javaScript:void(0)" class="dropdown-button" data-activates="manageColumn_dd" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns()">
+                        <i class="icon iconSmall" message="Manage Columns" smart-tooltip position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_ManageColumns"></use></svg>
+                        </i>
+                    </a>
+                    <ul id="manageColumn_dd" class="dropdown-content dropdown-content-large  dd-close-off">
+                        <li class="dropdown-content-header ">
+                            <div class="title">{{'MANAGE COLUMNS'|| translate}}</div>
+                        </li>
+                        <li class="padding0 is-scrolled">
+                            <ul class="collection noBorder">
+                                <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                    <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                    <span class="right padding0" ng-if="selectedCount > 0">({{selectedCount}}) Selected</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                            <smart-scroll height="230px" class="inlineList">
+                                <div class="listHolder" ng-style="listHolderWidth">
+                                    <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index">
+                                        <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized($index) | limitTo:itemsLimit">
+                                            <smart-checkbox fill="true" ng-model="field.selected" label="{{field.lable}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </smart-scroll>
+                        </li>
+                        <li class="dropdown-content-footer is-scrolled">
+                            <smart-button config='{"title":"APPLY"}' disable="(!fillpartial  && !selectedAll.selection)" flat="true" ng-click="applyCurrentFields()" class="right"></smart-button>
+                            <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right close-lookup" ng-click="cancelAllFields()"></smart-button>
+                            <smart-button config='{"title":"Reset","flat":true}' disable="(!fillpartial  && !selectedAll.selection)" flat="true" ng-click="resetAllFields()" class="left"></smart-button>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </li>
+
+            <li class="panelBox-header--aLink">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="massEditPopupShowCallBack(e)">
+                    <i class="icon iconSmall blue-text" message="Mass Edit" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_BulkEdit"></use></svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="panelBox-header--aLink">
+                <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button">
+                    <i class="icon iconSmall blue-text" message="Reset Sequence" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="#icon_ResetSequence"></use></svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="extendBg mgrTask">
+    <div class="col s12 overflowAuto">
+		<!-- PRODUCT VIEW ENDS -->
+        <table class="bordered manage-task-list" sticky-header scroll-type="page" ng-show="!IV">
+            <thead>
+                <tr>
+                    <th class="padding0">
+                        <table>
+                            <colgroup>
+                                <col style="width:2%;" />
+                                <col style="width:3%;" />
+                                <col style="width:20%;" />
+								<col style="width:20%;" />
+                                <col style="width:8%;" />
+                                <col style="width:9%;" />
+                                <col style="width:6%;" />
+                            </colgroup>
+                            <tr>
+                                <th style="min-width: 40px;">&nbsp;</th>
+                                <th style="min-width: 40px;" ng-class="{'filled-partial' : allCheck.partialFill == true }">
+                                    <smart-checkbox label="" ng-model="allCheck.isChecked" on-change="allChkOnChange(allCheck.isChecked, mainData)"></smart-checkbox>
+                                </th>
+                                <th>
+                                    {{ 'Task Name' || translate}}
+                                    <a href="javascript:void(0)" ng-click="sortTaskName('taskName')" smart-tooltip message="{{typeSortTaskNameIconTooltip}}" position="bottom">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use ng-if="sortKey!='taskName'" xlink:href="#icon_Sort"></use>
+                                                <use ng-if="sortKey=='taskName'" xlink:href="" data-ng-href="{{ '#'+sortTaskNameIcon }}"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </th>
+                                <th>
+                                    {{ 'Task Description' || translate}}
+                                </th>
+                                <th style="min-width: 130px;">{{ 'Last Worked By' || translate}}</th>
+                                <th style="min-width: 135px;">
+                                    {{ 'Status' || translate}}
+                                    <smart-dropdown>
+                                        <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='statusFilter' data-constrainwidth="false">
+                                            <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="statusFilter" class='dropdown-content dd-close-off'>
+                                            <li ng-repeat="item in arrStatus"><smart-checkbox ng-model="type1" label="{{item}}" class="padding10"></smart-checkbox></li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </th>
+                                <th style="min-width: 120px;">&nbsp;</th>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr style="border:none;">
+                    <td colspan="7" style="padding:0;" ng-include="'temp1.html'"></td>
+                </tr>
+            </tbody>
+        </table> 
+
+		<!-- PRODUCT VIEW ENDS -->
+		<!-- IMPLEMENTATION VIEW -->
+		<table class="bordered manage-task-list" sticky-header scroll-type="page" ng-show="IV">
+            <thead>
+                <tr>
+                    <th class="padding0">
+                        <table>
+                            <colgroup>
+                                <col style="width:2%;" />
+                                <col style="width:3%;" />
+                                <col style="width:5%;" />
+                                <col style="width:4%;" />
+                                <col style="width:20%;" />
+                                <col style="width:8%;" />
+                                <col style="width:8%;" />
+                                <col style="width:9%;" />
+                                <col style="width:8%;" />
+                                <col style="width:9%;" />
+                                <col style="width:8%;" />
+                                <col style="width:9%;" />
+                                <col style="width:6%;" />
+                            </colgroup>
+                            <tr>
+                                <th style="min-width: 40px;">&nbsp;</th>
+                                <th style="min-width: 40px;" ng-class="{'filled-partial' : allCheck.partialFill == true }">
+                                    <smart-checkbox label="" ng-model="allCheck.isChecked" on-change="allChkOnChange(allCheck.isChecked, mainData)"></smart-checkbox>
+                                </th>
+                                <th>{{ 'Sr No.' || translate}}</th>
+                                <th style="min-width: 40px;">Configure</th>
+                                <th>
+                                    {{ 'Task Name' || translate}}
+                                    <a href="javascript:void(0)" ng-click="sortTaskName('taskName')" smart-tooltip message="{{typeSortTaskNameIconTooltip}}" position="bottom">
+                                        <i class="icon iconSmall">
+                                            <svg>
+                                                <use ng-if="sortKey!='taskName'" xlink:href="#icon_Sort"></use>
+                                                <use ng-if="sortKey=='taskName'" xlink:href="" data-ng-href="{{ '#'+sortTaskNameIcon }}"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </th>
+                                <th style="min-width: 90px;">
+                                    {{ 'Mandatory' || translate}}
+                                    <smart-dropdown>
+                                        <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='mandatoryFilter' data-constrainwidth="false">
+                                            <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="mandatoryFilter" class='dropdown-content dd-close-off'>
+                                            <li ng-repeat="item in arrMandatory"><smart-checkbox ng-model="type1" label="{{item}}" class="padding10"></smart-checkbox></li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </th>
+                                <th style="min-width: 90px;">{{ 'Dependent On' || translate}}</th>
+                                <th style="min-width: 95px;">{{ 'Expected Start Date' || translate}}</th>
+                                <th style="min-width: 95px;">{{ 'Expected End Date' || translate}}</th>
+                                <th style="min-width: 120px;">
+                                    {{ 'Assign To' || translate}}
+                                    <smart-dropdown>
+                                        <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='assignToFilter' data-constrainwidth="false">
+                                            <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="assignToFilter" class='dropdown-content dd-close-off'>
+                                            <li ng-repeat="item in arrAssignTo"><smart-checkbox ng-model="type1" label="{{item}}" class="padding10"></smart-checkbox></li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </th>
+                                <th style="min-width: 130px;">{{ 'Last Worked By' || translate}}</th>
+                                <th style="min-width: 135px;">
+                                    {{ 'Status' || translate}}
+                                    <smart-dropdown>
+                                        <a href="javascript:void(0)" class="dropdown-button" data-alignment="right" data-activates='statusFilter' data-constrainwidth="false">
+                                            <i class="icon iconSmall blue-text " smart-tooltip position="bottom" delay="50" message="{{'Filter' || translate }}">
+                                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="statusFilter" class='dropdown-content dd-close-off'>
+                                            <li ng-repeat="item in arrStatus"><smart-checkbox ng-model="type1" label="{{item}}" class="padding10"></smart-checkbox></li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </th>
+                                <th style="min-width: 120px;">&nbsp;</th>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr style="border:none;">
+                    <td colspan="13" style="padding:0;" ng-include="'temp.html'"></td>
+                </tr>
+            </tbody>
+        </table>  		
+    </div>
+	<!-- IMPLEMENTATION VIEW ENDS -->
+	<!-- PRODUCT VIEW TEMPLATE -->
+	<script type="text/ng-template" id="temp1.html">
+        <table class="bordered">
+            <colgroup>
+                <col style="width:2%;" />
+                <col style="width:3%;" />
+                <col style="width:20%;" />
+                <col style="width:20%;" />
+                <col style="width:8%;" />				
+                <col style="width:9%;" />
+                <col style="width:6%;" />
+            </colgroup>
+            <tbody ng-repeat="data in mainData | orderBy:sortKey:reverse">
+                <tr>
+                    <td style="min-width: 40px;">&nbsp;</td>
+                    <td style="min-width: 40px;">
+                        <smart-checkbox label="" ng-model="data.isChecked" on-change="dataLevelOnChange(data.isChecked, data, data.isLevel, mainTaskData)"></smart-checkbox>
+                    </td>
+                    <td class="task-list-name-cell" ng-class="{'level1': data.isLevel == 1, 'level2': data.isLevel == 2, 'level3': data.isLevel == 3, 'level4': data.isLevel == 4, 'level5': data.isLevel == 5, 'level6': data.isLevel == 6}">
+                        <a href="javascript:void(0)" class="black-text" ng-click="expandCollapseSections(data); ">
+                            <i class="icon iconSmall left black-text configure-eventTbl-arr" ng-style="!data.isShowTask && {'transform': 'rotate(-92deg)'}">
+                                <svg><use xlink:href="#icon_DownChevron"></use></svg>
+                            </i>
+                            {{data.name}}
+                        </a>
+                    </td>
+                    <td style="min-width: 90px;">&nbsp;</td>
+					<td style="min-width: 90px;">&nbsp;</td>
+                    <td style="min-width: 135px;">&nbsp;</td>
+                    <td style="min-width: 120px;">
+                        <div ng-if="data.list == undefined">&nbsp;</div>
+
+                        <div ng-if="data.list">
+                            <ul class="margin0">
+                                <!-- <li class="left marginRight10">
+                                    <a href="javaScript:void(0)" class="" ng-click="showCommentsGridPopupCallback(e)">
+                                        <i class="icon iconSmall blue-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                                            <svg><use xlink:href="#icon_Comments"></use></svg>
+                                        </i>
+                                    </a>
+                                </li> -->
+
+                                <li class="left">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                        <a href="javaScript:void(0)" class="dropdown-button" data-activates="level1_Help_{{data.id}}" data-constrainwidth="false" data-alignment="right">
+                                            <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Help">
+                                                <svg><use xlink:href="#icon_Help"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="level1_Help_{{data.id}}" class="dropdown-content">
+                                            <li ng-repeat="helpItem in data.helpMenu">
+                                                <a href="javaScript:void(0)">{{helpItem.name}}</a>
+                                            </li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="data.list == undefined && data.data" ng-show="data.isShowTask" style="border:none;">
+                    <td colspan="7" ng-include="'temp1.html'" ng-repeat="mainData in [data.data] | orderBy:sortKey:reverse" style="padding:0;"></td>
+                </tr>
+                <tr ng-if="data.list" ng-show="data.isShowTask" ng-repeat="list in data.list | orderBy:sortKey:reverse" class="task-list-Row">
+                    <td class="highlightCell" style="min-width: 40px;" >
+                        <i class="icon iconSmall collection-item-drag-icon collapsible-header-drag-icon" message="Drag" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Drag"></use></svg>
+                        </i>
+                    </td>
+                    <td class="highlightCell" style="min-width: 40px;">
+                        <smart-checkbox label="" ng-model="list.isChecked" on-change="listLevelOnChange(list.isChecked)"></smart-checkbox>
+                    </td>
+                    <td class="highlightCell task-list-name-cell" ng-class="{'level1': list.isLevel == 1, 'level2': list.isLevel == 2, 'level3': list.isLevel == 3, 'level4': list.isLevel == 4, 'level5': list.isLevel == 5, 'level6': list.isLevel == 6}">
+                        <table>
+                            <tr>
+                                <td class="padding0" style="width: 35px;">
+                                    <a href="javaScript:void(0)" class="infoIcon">
+                                        <i class="icon iconSmall blue-text marginRight10" smart-infotip position="right" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." mode="mouseover">
+                                            <svg><use xlink:href="#icon_Info"></use></svg>
+                                        </i>
+                                    </a>
+                                </td>
+                                <td class="padding0">
+                                    <a class="" ng-if="list.taskname !== 'Product/Feature enablement' && list.taskname !== 'Product/Feature configurations' && list.taskname !== 'Setup approval matrix' && list.taskname !== 'Setup Accounting Derivation Rules' && list.taskname !== 'Exceptions Routing & Resolution'"  href="javascript:void(0)" ui-sref="admin.setupManager.adr"> {{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Product/Feature enablement'" href="javascript:void(0)" ui-sref="admin.setupManager.addFeature">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Product/Feature configurations'" href="javascript:void(0)" ui-sref="admin.setupManager.configureFeature">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Setup approval matrix'" href="javascript:void(0)" ui-sref="admin.setupManager.approvalMatrix">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Setup Accounting Derivation Rules'" href="javascript:void(0)" ui-sref="admin.setupManager.adr">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Exceptions Routing & Resolution'" href="javascript:void(0)" ui-sref="admin.setupManager.errApproval">{{list.taskname}}</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="highlightCell" style="min-width: 90px;">
+                        {{list.desc}}
+                    </td>
+                    <td class="highlightCell" style="min-width: 130px;">
+                        <div>{{list.lastWorkedBy.name}}</div>
+                        <div class="last-worked-date-time-cnt"><span>{{list.lastWorkedBy.date}}</span> <span>{{list.lastWorkedBy.hours}}:{{list.lastWorkedBy.minutes}} {{list.lastWorkedBy.dayStatus}}</span></div>
+                    </td>
+                    <td class="highlightCell" style="min-width: 135px;">
+                        <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                            <a href="javascript:void(0)" data-activates='changeStatus_{{list.id}}' class="black-text clearfix dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                <span class="clearfix statusIndicator">
+                                    <span ng-class="{'partiallyReceived': list.selectedStatus.name == 'Complete', 'inProgress': list.selectedStatus.name == 'In Progress', 'fullyReceived': list.selectedStatus.name == 'Not Started'}"></span>
+                                </span>
+                                <span>
+                                    {{ list.selectedStatus.name || translate}}
+                                </span>
+                                <i class="icon iconSmall black-text">
+                                    <svg>
+                                        <use xlink:href="#icon_DropArrow"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul id='changeStatus_{{list.id}}' class='dropdown-content'>
+                                <li ng-repeat="item in list.status" ng-class="{'active': list.selectedStatus.name == item.name}">
+                                    <a href="javascript:void(0)" ng-click="statusChange(item.name, list.selectedStatus)" ng-class="{'blue-text cusror-default': list.selectedStatus.name == item.name}">
+                                        <span class="clearfix statusIndicator">
+                                            <span ng-class="{'partiallyReceived': item.name == 'Complete', 'inProgress': item.name == 'In Progress', 'fullyReceived': item.name == 'Not Started'}"></span>
+                                        </span>
+                                        {{ item.name || translate }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </td>
+                    <td class="highlightCell" style="min-width: 120px;">
+                        <ul class="margin0">
+                            <!-- <li class="left marginRight10">
+                                <a href="javaScript:void(0)" class="" ng-click="showCommentsGridPopupCallback(e)">
+                                    <i class="icon iconSmall blue-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                                        <svg><use xlink:href="#icon_Comments"></use></svg>
+                                    </i>
+                                </a>
+                            </li> -->
+
+                            <li class="left marginRight10">
+                                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                    <a href="javaScript:void(0)" class="dropdown-button white-text" data-activates="level2_Help_{{list.id}}" data-constrainwidth="false" data-alignment="right">
+                                        <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Help">
+                                            <svg><use xlink:href="#icon_Help"></use></svg>
+                                        </i>
+                                    </a>
+                                    <ul id="level2_Help_{{list.id}}" class="dropdown-content">
+                                        <li ng-repeat="helpItem in list.helpMenu">
+                                            <a href="javaScript:void(0)">{{helpItem.name}}</a>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </li>
+
+                            <li class="left">
+                                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                    <a href="javaScript:void(0)" class="dropdown-button white-text" data-activates="gotoView_{{list.id}}" data-constrainwidth="false" data-alignment="right">
+                                        <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Action">
+                                            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                                        </i>
+                                    </a>
+                                    <ul id="gotoView_{{list.id}}" class="dropdown-content">
+                                        <li ng-repeat="kebabItem in list.kebabMenu" ng-click="taskListPopupShowCallBack(e);">
+                                            <a href="javaScript:void(0)">{{kebabItem.name}}</a>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script> 
+	<!-- PRODUCT VIEW TEMPLATE ENDS -->
+	<!-- IMPLEMENTATION VIEW TEMPLATE -->
+    <script type="text/ng-template" id="temp.html">
+        <table class="bordered">
+            <colgroup>
+                <col style="width:2%;" />
+                <col style="width:3%;" />
+                <col style="width:5%;" />
+                <col style="width:4%;" />
+                <col style="width:20%;" />
+                <col style="width:8%;" />
+                <col style="width:8%;" />
+                <col style="width:9%;" />
+                <col style="width:8%;" />
+                <col style="width:9%;" />
+                <col style="width:8%;" />
+                <col style="width:9%;" />
+                <col style="width:6%;" />
+            </colgroup>
+            <tbody ng-repeat="data in mainData | orderBy:sortKey:reverse">
+                <tr>
+                    <td style="min-width: 40px;">&nbsp;</td>
+                    <td style="min-width: 40px;">
+                        <smart-checkbox label="" ng-model="data.isChecked" on-change="dataLevelOnChange(data.isChecked, data, data.isLevel, mainTaskData)"></smart-checkbox>
+                    </td>
+                    <td>
+                        {{data.srNo}}
+                    </td>
+                    <td style="min-width: 50px;">&nbsp;</td>
+                    <td class="task-list-name-cell" ng-class="{'level1': data.isLevel == 1, 'level2': data.isLevel == 2, 'level3': data.isLevel == 3, 'level4': data.isLevel == 4, 'level5': data.isLevel == 5, 'level6': data.isLevel == 6}">
+                        <a href="javascript:void(0)" class="black-text" ng-click="expandCollapseSections(data); ">
+                            <i class="icon iconSmall left black-text configure-eventTbl-arr" ng-style="!data.isShowTask && {'transform': 'rotate(-92deg)'}">
+                                <svg><use xlink:href="#icon_DownChevron"></use></svg>
+                            </i>
+                            {{data.name}}
+                        </a>
+                    </td>
+                    <td style="min-width: 90px;">&nbsp;</td>
+                    <td style="min-width: 90px;">&nbsp;</td>
+                    <td style="min-width: 95px;">&nbsp;</td>
+                    <td style="min-width: 95px;">&nbsp;</td>
+                    <td style="min-width: 120px;">&nbsp;</td>
+                    <td style="min-width: 130px;">&nbsp;</td>
+                    <td style="min-width: 135px;">&nbsp;</td>
+                    <td style="min-width: 120px;">
+                        <div ng-if="data.list == undefined">&nbsp;</div>
+
+                        <div ng-if="data.list">
+                            <ul class="margin0">
+                                <!-- <li class="left marginRight10">
+                                    <a href="javaScript:void(0)" class="" ng-click="showCommentsGridPopupCallback(e)">
+                                        <i class="icon iconSmall blue-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                                            <svg><use xlink:href="#icon_Comments"></use></svg>
+                                        </i>
+                                    </a>
+                                </li> -->
+
+                                <li class="left">
+                                    <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                        <a href="javaScript:void(0)" class="dropdown-button" data-activates="level1_Help_{{data.id}}" data-constrainwidth="false" data-alignment="right">
+                                            <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Help">
+                                                <svg><use xlink:href="#icon_Help"></use></svg>
+                                            </i>
+                                        </a>
+                                        <ul id="level1_Help_{{data.id}}" class="dropdown-content">
+                                            <li ng-repeat="helpItem in data.helpMenu">
+                                                <a href="javaScript:void(0)">{{helpItem.name}}</a>
+                                            </li>
+                                        </ul>
+                                    </smart-dropdown>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-if="data.list == undefined && data.data" ng-show="data.isShowTask" style="border:none;">
+                    <td colspan="13" ng-include="'temp.html'" ng-repeat="mainData in [data.data] | orderBy:sortKey:reverse" style="padding:0;"></td>
+                </tr>
+                <tr ng-if="data.list" ng-show="data.isShowTask" ng-repeat="list in data.list | orderBy:sortKey:reverse" class="task-list-Row">
+                    <td class="highlightCell" style="min-width: 40px;" >
+                        <i class="icon iconSmall collection-item-drag-icon collapsible-header-drag-icon" message="Drag" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Drag"></use></svg>
+                        </i>
+                    </td>
+                    <td class="highlightCell" style="min-width: 40px;">
+                        <smart-checkbox label="" ng-model="list.isChecked" on-change="listLevelOnChange(list.isChecked)"></smart-checkbox>
+                    </td>
+                    <td class="highlightCell">
+                        {{list.srNo}}
+                    </td>
+
+                    <td class="highlightCell" style="padding-left:0px;">
+                        <a href="javaScript:void(0)">
+                        <i class="icon iconSmall blue-text" message="Configure" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Settings"></use></svg>
+                        </i>
+                    </a>
+                </td>
+                    <td class="highlightCell task-list-name-cell" ng-class="{'level1': list.isLevel == 1, 'level2': list.isLevel == 2, 'level3': list.isLevel == 3, 'level4': list.isLevel == 4, 'level5': list.isLevel == 5, 'level6': list.isLevel == 6}">
+                        <table>
+                            <tr>
+                                <td class="padding0" style="width: 35px;">
+                                    <a href="javaScript:void(0)" class="infoIcon">
+                                        <i class="icon iconSmall blue-text marginRight10" smart-infotip position="right" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." mode="mouseover">
+                                            <svg><use xlink:href="#icon_Info"></use></svg>
+                                        </i>
+                                    </a>
+                                </td>
+                                <td class="padding0">
+                                    <a class="" ng-if="list.taskname !== 'Product/Feature enablement' && list.taskname !== 'Product/Feature configurations' && list.taskname !== 'Setup approval matrix' && list.taskname !== 'Setup Accounting Derivation Rules' && list.taskname !== 'Exceptions Routing & Resolution'"  href="javascript:void(0)" ui-sref="admin.setupManager.adr"> {{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Product/Feature enablement'" href="javascript:void(0)" ui-sref="admin.setupManager.addFeature">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Product/Feature configurations'" href="javascript:void(0)" ui-sref="admin.setupManager.configureFeature">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Setup approval matrix'" href="javascript:void(0)" ui-sref="admin.setupManager.approvalMatrix">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Setup Accounting Derivation Rules'" href="javascript:void(0)" ui-sref="admin.setupManager.adr">{{list.taskname}}</a>
+                                    <a class="" ng-if="list.taskname === 'Exceptions Routing & Resolution'" href="javascript:void(0)" ui-sref="admin.setupManager.errApproval">{{list.taskname}}</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="highlightCell" style="min-width: 90px;">
+                        {{list.mandatory}}
+                    </td>
+                    <td class="highlightCell" style="min-width: 90px;">
+                        {{list.dependency}}
+                    </td>
+                    <td class="highlightCell" style="min-width: 95px;">
+                        <smart-textfield type="date" label="" ng-model="list.expectedstartDate" class="datepicker-wrapper"></smart-textfield>
+                    </td>
+                    <td class="highlightCell" style="min-width: 95px;">
+                        <smart-textfield type="date" label="" ng-model="list.expectedendDate" class="datepicker-wrapper"></smart-textfield>
+                    </td>
+                    <td class="highlightCell assignToCell" style="min-width: 120px;">
+                        <span ng-if="!list.isAdmin">{{list.assignTo.selectedOption.name}}</span>
+                        <smart-list-lookup ng-if="list.isAdmin" readonly="false" disable="false" class="left marginBtm0 titleless-typeahead" titleofmodel="Assign To" multiselect="true" is-mandatory="true" label="{{list.assignTo.selectedOption.name}}" addnew="false" selecttypeoption="list.assignTo.selectTypeOption" ng-model="list.assignTo.selectedOption" options="list.assignTo.options" displayformat="['name']"></smart-list-lookup>
+                    </td>
+                    <td class="highlightCell" style="min-width: 130px;">
+                        <div>{{list.lastWorkedBy.name}}</div>
+                        <div class="last-worked-date-time-cnt"><span>{{list.lastWorkedBy.date}}</span> <span>{{list.lastWorkedBy.hours}}:{{list.lastWorkedBy.minutes}} {{list.lastWorkedBy.dayStatus}}</span></div>
+                    </td>
+                    <td class="highlightCell" style="min-width: 135px;">
+                        <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                            <a href="javascript:void(0)" data-activates='changeStatus_{{list.id}}' class="black-text clearfix dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                <span class="clearfix statusIndicator">
+                                    <span ng-class="{'partiallyReceived': list.selectedStatus.name == 'Complete', 'inProgress': list.selectedStatus.name == 'In Progress', 'fullyReceived': list.selectedStatus.name == 'Not Started'}"></span>
+                                </span>
+                                <span>
+                                    {{ list.selectedStatus.name || translate}}
+                                </span>
+                                <i class="icon iconSmall black-text">
+                                    <svg>
+                                        <use xlink:href="#icon_DropArrow"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul id='changeStatus_{{list.id}}' class='dropdown-content'>
+                                <li ng-repeat="item in list.status" ng-class="{'active': list.selectedStatus.name == item.name}">
+                                    <a href="javascript:void(0)" ng-click="statusChange(item.name, list.selectedStatus)" ng-class="{'blue-text cusror-default': list.selectedStatus.name == item.name}">
+                                        <span class="clearfix statusIndicator">
+                                            <span ng-class="{'partiallyReceived': item.name == 'Complete', 'inProgress': item.name == 'In Progress', 'fullyReceived': item.name == 'Not Started'}"></span>
+                                        </span>
+                                        {{ item.name || translate }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </td>
+                    <td class="highlightCell" style="min-width: 120px;">
+                        <ul class="margin0">
+                            <!-- <li class="left marginRight10">
+                                <a href="javaScript:void(0)" class="" ng-click="showCommentsGridPopupCallback(e)">
+                                    <i class="icon iconSmall blue-text" message="Comments" smart-tooltip data-position="bottom" delay="50">
+                                        <svg><use xlink:href="#icon_Comments"></use></svg>
+                                    </i>
+                                </a>
+                            </li> -->
+
+                            <li class="left marginRight10">
+                                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                    <a href="javaScript:void(0)" class="dropdown-button white-text" data-activates="level2_Help_{{list.id}}" data-constrainwidth="false" data-alignment="right">
+                                        <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Help">
+                                            <svg><use xlink:href="#icon_Help"></use></svg>
+                                        </i>
+                                    </a>
+                                    <ul id="level2_Help_{{list.id}}" class="dropdown-content">
+                                        <li ng-repeat="helpItem in list.helpMenu">
+                                            <a href="javaScript:void(0)">{{helpItem.name}}</a>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </li>
+
+                            <li class="left">
+                                <smart-dropdown config="{{dropDownConfig}}" class="cursorPointer" stop-prog="true">
+                                    <a href="javaScript:void(0)" class="dropdown-button white-text" data-activates="gotoView_{{list.id}}" data-constrainwidth="false" data-alignment="right">
+                                        <i class="icon iconSmall blue-text" smart-tooltip position="bottom" message="Action">
+                                            <svg><use xlink:href="#icon_MenuKebab"></use></svg>
+                                        </i>
+                                    </a>
+                                    <ul id="gotoView_{{list.id}}" class="dropdown-content">
+                                        <li ng-repeat="kebabItem in list.kebabMenu" ng-click="taskListPopupShowCallBack(e);">
+                                            <a href="javaScript:void(0)">{{kebabItem.name}}</a>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </script> 
+	<!-- IMPLEMENTATION VIEW TEMPLATE ENDS -->
+</div>
+
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsGridPopup}}" on-hide="commentsGridPopUpOnHideCallback(e)" type="medium"></smart-popup>
+<smart-popup template-url="{{massEditPopupUrl}}" show="{{massEditPopupShow}}" on-hide="massEditPopupHideCallBack(e)" type="small"></smart-popup>
+
+<smart-popup template-url="{{taskListPopupUrl}}" show="{{taskListPopupShow}}" on-hide="taskListPopupUrlHideCallBack(e)" type="small"></smart-popup>

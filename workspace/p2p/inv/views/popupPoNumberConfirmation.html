@@ -1,0 +1,46 @@
+<div ng-controller="p2pInvPOnumberPopupCtrl">
+	<div class="modal-header borderBtmLight">
+		<span class="title marginLeft15">{{ 'Create Invoice' | translate}}</span>
+	</div>
+	<div class="modal-content height285">
+        <div class="row">
+            <div class="col s12">
+              
+                {{'Do you have a PO number for this Invoice?' | translate}}
+            </div>
+        </div>
+		
+        <div class="row">
+        	  <smart-radio gap="true" label="" ng-model="poNumberDetailsType.selected" options="poNumberDetailsType.option" datakey="name" on-change="onPoDetailsChange(poNumberDetailsType.selected)"></smart-radio>
+
+        	  <div class="col s12 marginTop10" ng-if="poNumberDetailsType.selected.code == 'yes'">
+ <div class="row marginBtm0">
+<smart-typeahead class="col s6 input-field" multiselect="false" show-lookup="true" ng-model="poNumberDetails" options="options" filterkeys="['OrderNumber']" optionformat="<span>{OrderNumber} </span>" displayformat="{OrderNumber}" label="Order Number" is-mandatory="true" lookup-open="PoNumberConfClose(poNumberDetails)"  lookup-hide="PoNumberConfOpen(poNumberDetails)" on-change="onOrderNumberSelect(poNumberDetails)"  on-select ="onOrderNumberSelect(poNumberDetails)" ></smart-typeahead>
+
+
+        <smart-textfield label="Supplier Name" readonly="true" ng-model="poNumberDetails.supplier"  class="col s6 input-field"></smart-textfield>
+		
+ </div>
+			 <div class="row marginBtm0">
+			<smart-textfield label="{{'Supplier Invoices Number' | translate}}" ng-model="poNumberDetails.supplierInvoicesNumber"  optional-field  class="col s6 input-field"></smart-textfield>
+			<smart-textfield type="date" label="{{'Invoive Date' | translate}}" ng-model="poNumberDetails.invoiceDate" optional-field  class="col s6 input-field"></smart-textfield>
+				  </div>
+        	  </div>
+		</div>
+		   <div class="row marginBtm0">
+        	  <smart-radio gap="true" label="" ng-model="poNumberDetailsType.selected" options="poNumberDetailsType.option1" datakey="name" on-change="onPoDetailsChange(poNumberDetailsType.selected)"></smart-radio>
+
+        	  <div class="col s12 marginTop10" ng-if="poNumberDetailsType.selected.code == 'no'">
+						<div class="row margin0">
+						<smart-textfield label="{{'Supplier Invoices Number' | translate}}" ng-model="withoutPoNumberDetails.supplierInvoicesNumber"  optional-field  class="col s6 input-field"></smart-textfield>
+						<smart-textfield type="date" label="{{'Invoive Date' | translate}}" ng-model="withoutPoNumberDetails.invoiceDate" optional-field  class="col s6 input-field"></smart-textfield>
+						</div>
+        	  </div>
+		</div>
+
+	</div>
+    <div class="modal-footer clearfix is-scrolled">
+        <smart-button flat="true"  config='{"title":"NEXT"}' ng-click="gotToInvoice(poNumberDetailsType.selected,nextDisabled)" disable="nextDisabled"></smart-button>
+        <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}' ng-click="cancelCurrentInfo()" ></smart-button>
+    </div>
+</div>

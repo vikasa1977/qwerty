@@ -1,0 +1,114 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <!-- subheader -- right side actions -->
+        <ul class="right extra-nav-right-icon">
+            <!-- subheader -- right side actions -- search -->
+            <li class="extra-nav-icon" id="formSearchDv"></li>
+            <li class="left">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a class='dropdown-button left btn-in-header white-text' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+                        <span>{{ 'USD' || translate }} {{ getTotalTax()  || translate | number:2 }}</span>
+                        <i class="icon iconSmall white-text">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                            </svg>
+                        </i>
+                    </a>
+
+                    <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                        <li ng-repeat="item in taxConfig">
+                            <div class="input-field col s12 detail-field-summary">
+                                <span class="left grey-text">{{item.dataName || translate}} ({{'USD' || translate}}) </span>
+                                <div class="right">
+                                    <div class="right-align">
+                                        {{ item.dataValue | number:2 }}
+                                    </div>
+                                    <div ng-if="item.taxEditable"><a href="javascript:void(0)" class="blue-text fontSize12" ng-click="makeEditCurrent($index)">{{'Prorate' || translate}}</a></div>
+                                </div>
+                                <div class="slider-pop" animate-on-load ng-show="item.makeEdit">
+                                    <div class="well single-edit-panel paddingBtm10">
+                                        <div class="single-edit-panel-input-box row">
+                                            <smart-textfield class="col s12" label="{{'Prorate' || translate}}" ng-model="newTaxValue" focus="item.editableFieldFocus"></smart-textfield>
+                                        </div>
+                                        <div class="single-edit-panel-secondary-content">
+
+                                            <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="cancelupdateTaxValue($index)">
+                                                <i class="icon iconSmall blue-text padding0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Close"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="waves-effect waves-circle circle  waves-effect-circle" ng-click="updateTaxValue($index,newTaxValue)">
+                                                <i class="icon iconSmall blue-text padding0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Check"></use>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="marginBtm18">
+                            <div class="input-field col s12 detail-field-summary"><span class="left grey-text">{{ "Order Total (USD)" || translate}}</span> <span class="right"> {{ getTotalTax()  || translate | number:2 }} </span> </div>
+                        </li>
+                        <li></li>
+                    </ul>
+                </smart-dropdown>
+
+            </li>
+           
+        </ul>
+
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back">
+                <i class="icon small ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xlink:href="#icon_OnBehalf"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">Item Master</span>
+        </div>
+    </div>
+</div>
+
+<!-- body -- form widget -->
+<div class="row smartFormWidgetContainer marginBtm40" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader }">
+    <smart-form-widget form-config="config" search-holder="formSearchDv" model-data="dataModel" widget-panel-top="115"></smart-form-widget>
+</div>
+
+<!-- footer -->
+<footer class="page-footer bounceInUp animated">
+    <div class="row">
+        <div class="left-align col s3">
+            <smart-button flat="true"  disable="false" callback="showOrderPreview"></smart-button>
+        </div>
+        <div class="right-align col s9">
+            <smart-button flat="true" config='{"title":"CANCEL","allignRight":"false"}' disable="false"></smart-button>
+            <smart-button flat="true" config='{"title":"SAVE","allignRight":"false"}' disable="false"></smart-button>
+            <!--<smart-button config='{"title":"SAVE AS DRAFT","allignRight":"false"}' disable="false" class="whiteSecondaryBtn marginRight10"></smart-button>
+            <smart-button config='{"title":"SUBMIT","allignRight":"false"}' disable="false" ng-click="submitReq()"></smart-button>-->
+        </div>
+
+    </div>
+</footer>
+
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<!-- popup -- attchments -->
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+<!-- popup -- manage approval  -->
+<smart-popup template-url="{{manageApprovalPopupPath}}" show='{{mngAppShow}}' on-hide="mngAppPopupOnHideCallback(e)" type="small"></smart-popup>
+<!-- popup -- track status -->
+<smart-popup template-url="{{trackStatusPopupUrl}}" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" expand-collapse="#trackStatusPopup"  ></smart-popup>

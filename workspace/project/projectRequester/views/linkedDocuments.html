@@ -1,0 +1,141 @@
+<div ng-controller="linkedDocsHeaderCntrl"> 
+    <table class="bordered sTable left fixedTbl">
+        <thead>
+            <tr>
+                <th class="left-align"><span class="left">Document Name</span></th>
+                <th class="left-align" ng-if="showDocType">Type
+                    <!--<smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='assignedTo' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="assignedTo">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'All' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Assigned To Me' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>-->
+                </th>
+                <th class="left-align">Status
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='statusFilterOptions' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="statusFilterOptions">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Draft' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Response In Progress' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Approved' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Closed' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <th class="left-align">Author
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a href="javaScript:void(0);" class="waves-circle sh-icon waves-effect waves-light dropdown-button " data-alignment="right" data-activates='MSType' data-constrainwidth="false">
+                            <i class="icon iconSmall" smart-tooltip message="Filter" data-position="bottom" data-delay="50">
+                                <svg><use xlink:href="#icon_Filter"></use></svg>
+                            </i>
+                        </a>
+                        <ul class='dropdown-content' id="MSType">
+                            <li></li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Created By Me' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'Pallav Thakker' || translate}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="grey-text text-darken-4">
+                                    {{'All' || translate}}
+                                </a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </th>
+                <!--<th class="left-align">Last Modified
+                    <a href="javaScript:void(0);" ng-click="sortByDate()" data-alignment="right" data-constrainwidth="false">
+                        <i class="icon iconSmall" smart-tooltip message="{{sortToolTip}}" data-position="bottom" data-delay="50">
+                            <svg>
+                                <use ng-if="sortIcon == 'both_Sort'" xlink:href="#icon_Sort"></use>
+                                <use ng-if="sortKey !='both_Sort'" xlink:href="" data-ng-href="{{ '#'+sortIcon }}"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr pagination-id="secondTierSupplierPagination" dir-paginate="summaryItem in summaryDetailedData | itemsPerPage: selectedOption.size | orderBy:sortKey:reverse">
+                <td class="left-align"><a href="javascript:void(0)" class="paddingTop5 truncate">{{summaryItem.DocumentName}}</a></td>
+                <td class="left-align" ng-if="showDocType">
+                    {{summaryItem.DocumentTypeInfo}}
+                </td>
+                <td class="left-align">
+                    {{summaryItem.DocumentStatusInfo}}
+                </td>
+                <td class="left-align">{{summaryItem.FirstName}} {{summaryItem.LastName}}</td>
+                <!--<td class="left-align">{{getDate(summaryItem.lastModified)}}</td>-->
+            </tr>
+        </tbody>
+    </table>
+    <div class="clearfix paginationWrapper right" ng-if="!noLinkedDocsFound && summaryDetailedData.length > 5">
+        <span class="left rowsToShow">
+            Rows per page:
+            <select name="mySelect" id="mySelect" ng-options="option.size for option in rowsToShowOpts track by option.size" ng-model="selectedOption"></select>
+        </span>
+        <dir-pagination-controls class="left" pagination-id="secondTierSupplierPagination" max-size="5" direction-links="true" boundary-links="true" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+    </div>
+    <div ng-if="noLinkedDocsFound">
+        <div class="center action-block">
+            <a href="javascript:void(0);" class="action-block-cont" ng-click="addDocRfx()">
+                <span class="action-block-cont-icon">
+                    <i class="icon icon--xLarge">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </span>
+                <span class="action-block-cont-lbl">Add RFx</span>
+            </a>
+            <a href="javascript:void(0);" class="action-block-cont" ng-click="addContract()">
+                <span class="action-block-cont-icon">
+                    <i class="icon icon--xLarge">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </span>
+                <span class="action-block-cont-lbl">Add Contract</span>
+            </a>
+        </div>
+    </div>
+    <document-route linker="documentObj"></document-route>
+</div>

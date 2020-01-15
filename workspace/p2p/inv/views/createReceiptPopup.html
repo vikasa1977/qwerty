@@ -1,0 +1,46 @@
+<div>
+	<div class="modal-header">
+		<i class="icon iconSmall red-text ">
+			<svg>
+				<use xlink:href="#icon_TrackStatus"></use>
+			</svg>
+		</i>
+		<span class="title">CREATE RECEIPT - SELECT MATERIALS </span>
+		<smart-dropdown config="{{dropDownConfig}}" class="right marginTop5">
+		  <a href="	javascript:void(0);" class="dropdown-button right black-text" data-activates='buyInvoiceExcep' data-constrainwidth="false" data-alignment="right">Legends
+				<i class="icon iconSmall grey-text right">
+					<svg class="marginTop5">
+						<use xlink:href="#icon_DropArrow"></use>
+					</svg>
+				</i>		
+		  </a>
+		  <ul id='buyInvoiceExcep' class='dropdown-content dd-close-off legends'>
+			<li><a href="javascript:void(0);" class="grey-text"><span class="notReceived"></span>Not Received</a></li>
+			<li><a href="javascript:void(0);" class="grey-text"><span class="partiallyReceived"></span>Partially Received</a></li>		
+			<li><a href="javascript:void(0);" class="grey-text"><span class="fullyReceived"></span>Fully Received</a></li>
+			<li><a href="javascript:void(0);" class="grey-text"><span class="overReceived"></span>Over Received</a></li>
+		</ul>
+	</smart-dropdown>
+	</div>
+	<div class="modal-content padding0">
+		
+		 <div class="row"> <div smart-grid config="gridConfig"></div></div>
+	
+	</div>
+	<div class="modal-footer">
+		<div class="row marginBottom0">
+			<div class="col s12">
+                <div class="left">
+					<smart-button flat="true" class="left" config='{"title":"SAVE IN DRAFT"}'></smart-button>
+					
+				</div>
+				<div class="right">
+					<smart-button flat="true" class="left" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left" config='{"title":"FINALIZE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

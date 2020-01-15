@@ -1,0 +1,102 @@
+<div class="modal-header">
+	<i class="icon iconSmall grey-text left paddingTop2">
+		<svg><use xlink:href="#icon_Timeline"></use></svg>
+	</i>
+	<span class="title">TIMELINES</span>
+	<div class="right relative row margin0">
+		<div class="timeLine-addNew-label" ng-show="addNewflag">
+			<div class="row marginBtm0">
+				<smart-textfield class="col s8 marginBtm0" label="New Timeline" ng-model="newTimeline.newTimwlineText" maxlength="50"></smart-textfield>
+				<div class="col s2 padding10">
+					<a href="javascript:void(0)" class="icon iconSmall left" ng-click="closeAddNewTimeline()">
+						<svg><use xlink:href="#icon_Close"></use></svg>
+					</a>
+				</div>
+				<div class="col s2 padding10">
+					<a href="javascript:void(0)" class="icon iconSmall left" ng-click="closeAddNewTimeline(); updateTimelineWithNew(newTimeline.newTimwlineText);">
+						<svg><use xlink:href="#icon_Check"></use></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-content padding0 comment-poup-content">
+	<div class="row margin0">
+		<div class="section-status-bar rejected-state paddingLeft12" ng-if="timelineError">
+			<div class="left width100P paddingTop5 paddingBtm5">
+				<div class="left">
+                    <span class="left paddingTop2 waves-circle">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_rejectedState"></use></svg>
+                        </i>
+                    </span>
+                    <span>Response Timeline can start only after Creation timeline ends.</span>
+                </div>
+                <div class="right">
+                    <i class="icon iconSmall left blue-text cursorPointer" smart-tooltip position="bottom" delay="50" message="Previous">
+                        <svg><use xlink:href="#icon_LeftChevron"></use></svg>
+                    </i>
+                    <i class="icon iconSmall left blue-text cursorPointer" smart-tooltip position="bottom" delay="50" message="Next">
+                        <svg><use xlink:href="#icon_RightChevro"></use></svg>
+                    </i>
+                </div>
+			</div>
+		</div>
+		<div class="col s12 m5 padding0">
+			<div class="vertical-tabs">
+				<smart-scroll height="300px">
+					<ul class="vertical_tab_wrapper">
+						<li ng-repeat="timeline in timelinePeriodTemp track by $index" ng-click="selectTimeline(timeline)">
+							<a href="javascript:void(0)" data-taburl="#comment_model_room_requisition" ng-class="{'is-active':timeline.uniqueID == timelinePeriodSelected.uniqueID}" class="vertical__tab">
+								<span class="truncate timeline-title" ng-class="{'red-text' : timeline.title === 'Custom Timeline'}" title="{{timeline.title}}">{{timeline.title}}</span>
+                                
+							</a>
+						</li>
+					</ul>
+				</smart-scroll>
+			</div>
+		</div>
+		<div class="col s12 m7">
+			<div class="vertical-tabs-content">
+				<smart-scroll height="300px">
+					<div class="scrollbar-outer" style="min-height: 210px; max-height: 310px;">
+						<div class="row padding0 marginTop20" ng-show="timelinePeriodSelected != null">
+							
+						</div>
+						<div class="row" ng-repeat="line in timelinePeriodSelected.lines track by $index">
+							<smart-textfield type="date" readonly="true" class="col s6 line-height-manager" 
+                              label="{{line.firstLabel}}" ng-model="line.start" time-picker="true" format="dd/MM/yyyy" time-picker12-hour="true" minute-increment="1" disable="{{buyerPreview || supplierView ||line.start.getTime() < curreDateTime}}" min="{{(line.start.getTime() < curreDateTime)?line.start.getTime():curreDateTime}}"></smart-textfield>
+							<smart-textfield type="date" class="col s6 line-height-manager" label="{{line.secondLabel}}" ng-model="line.end" time-picker="true" time-picker12-hour="true" min="{{line.start.getTime()}}" format="dd/MM/yyyy" minute-increment="1"
+                              on-date-change="onDateChange($date)"></smart-textfield>
+                            <div class="labelInfoPosition">
+                                <i class="icon small blue-text">
+                                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Info"></use></svg>
+                                </i>
+                            </div>
+						</div>
+						<div class="row" ng-if="timelinePeriodSelected.type == 'scoring'">
+							<smart-textfield type="area"class="col s12" label="Scoring Instructions" disable="{{buyerPreview}}"></smart-textfield>
+						</div>
+						<div class="row" ng-if="timelinePeriodSelected.removable">
+							<smart-checkbox class="col s12" label="Display Timeline to Suppliers" disable="{{buyerPreview}}"></smart-checkbox>
+						</div>
+						<div class="row marginBtm10" ng-if="timelinePeriodSelected != null && timelinePeriodSelected.removable && !buyerPreview">
+							<a class="icon col s6" href="javascript:void(0)" ng-click="deleteTimeline(timelinePeriodSelected.uniqueID)" smart-tooltip message="Delete" position="bottom">
+								<svg><use xlink:href="#icon_TrashCan"></use></svg>
+							</a>
+						</div>
+					</div>
+				</smart-scroll>
+			</div>
+		</div>
+		<div class="vertical-tabs-footer v-t-footer-with-form-element clearfix">
+			<div class="row margin0">
+				<div class="col s12 right-align padding10">
+					<smart-button config='{"title":"CANCEL"}' class="modal-close" flat="true"></smart-button>
+					<smart-button config='{"title":"DONE"}' class="modal-close" flat="true" on-click="saveTimeline()" ></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

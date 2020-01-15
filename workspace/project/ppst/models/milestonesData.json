@@ -1,0 +1,1595 @@
+[
+  {
+		"phaseName": "Ideation",
+    "totCount": 2,
+    "checkedCount": 0,
+    "type": "listSearch",
+    "isChecked": false,
+    "data": [      
+      {
+        "milestoneName": "Ideation Milestone 1",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Not Required",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "Yes"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": {
+					"code": "true",
+					"name": "Achieved"
+			  },
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone1",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+						"activityName": "Activity Name 1",
+						"type": "Mandatory",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "100",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity1",
+            "showExpanded": false
+          },
+          {
+            "activityName": "Activity Name 2",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "25%",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity2"
+
+          }
+        ]
+      },
+      {
+        "milestoneName": "Ideation Milestone 2",
+        "assignedTo": "Rahul Newton",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Approval Required",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "Yes"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone2",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+            "activityName": "Activity Name 1",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity3"
+          },
+          {
+						"activityName": "Activity Name 2",
+						"type": "Mandatory",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity4"
+
+          }
+        ]
+      },
+      {
+        "milestoneName": "Ideation Milestone 3",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "approvalStatus": "Approval Required",
+		    "type":"Non-Mandatory",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "No"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": {
+					"code": "false",
+					"name": "To Be Achieved"
+				},
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone3",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+            "activityName": "Activity Name 1",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity5"
+          },
+          {
+            "activityName": "Activity Name 2",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity6"
+
+          }
+        ]
+      },
+      {
+        "milestoneName": "Ideation Milestone 4",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Approval Pending",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "No"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": { 
+					"code": "false",
+					"name": "To Be Achieved" 
+				},
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone4",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+            "activityName": "Activity Name 1",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity7"
+          },
+          {
+            "activityName": "Activity Name 2",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity8"
+
+          }
+        ]
+      },
+      {
+        "milestoneName": "Ideation Milestone 5",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Approval Withdrawn",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "Yes"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone5",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+            "activityName": "Activity Name 1",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "100",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity9"
+          },
+          {
+            "activityName": "Activity Name 2",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity10"
+
+          }
+        ]
+      },
+      {
+        "milestoneName": "Ideation Milestone 6",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+        "dueBy": "15/07/2018",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approved",
+        "progressStatus": {
+          "icon": "url",
+          "completion": "Yes"
+        },
+        "description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "comment": {
+          "commentBy": "Pallav Thakkar",
+          "commentDate": "14/04/2017",
+          "commentMsg": "Everything is fine , good to proceed."
+        },
+        "achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+        "notAchieved": false,
+        "attachments": [
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          },
+          {
+            "fileName": "file name 1",
+            "path": "path"
+          }
+        ],
+        "id": "ideationMilestone6",
+        "isChecked": false,
+        "isActive": false,
+        "activities": [
+          {
+            "activityName": "Activity Name 1",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "25",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity11"
+          },
+          {
+            "activityName": "Activity Name 2",
+            "description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            "infoIcon": {
+              "url": "path",
+              "message": "Info Icon message"
+            },
+            "completionStatus": "100",
+            "activityCount": 2,
+            "stageStatus": "Completed",
+            "attachments": [
+              {
+                "fileName": "filename 1"
+              }
+            ],
+            "comments": {
+              "commentBy": "Rahul Newton",
+              "commentDate": "12/12/2017"
+            },
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+            "beginDate": "12/09/2017",
+            "dueBy": "12/12/2017",
+            "isItemChecked": false,
+            "id": "ideationActivity12"
+
+          }
+        ]
+      }
+    ]
+	},
+	{
+		"phaseName": "Execution",
+    "totCount": 2,
+    "checkedCount": 0,
+    "type": "listSearch",
+    "isChecked": false,
+		"data": [{
+				"milestoneName": "Execution Milestone 1",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approval Pending",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone1",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "40",
+						"activityCount": 2,
+						"stageStatus": "aCompleted",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity1"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "15",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity2"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Execution Milestone 2",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Mandatory",
+        "approvalStatus": "Approval Required",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone2",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity3"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "29",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity4"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Execution Milestone 3",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approval Required",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "No"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": { 
+					"code": "false",
+					"name": "To Be Achieved" 
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone3",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "p.t@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity5"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity6"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Execution Milestone 4",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Mandatory",
+        "approvalStatus": "Rejected",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone4",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity7"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "100",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity8"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Execution Milestone 5",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approval Withdrawn",
+        "email" :  "satyen.ku@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "No"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": { 
+					"code": "false",
+					"name": "To Be Achieved" 
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone5",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity9"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity10"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Execution Milestone 6",
+        "assignedTo": "Pallav Thakkar",
+        "type": "Mandatory",
+        "approvalStatus": "Rejected",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "executionMilestone6",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity11"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "executionActivity12"
+
+					}
+				]
+			}
+		]
+	},
+	{
+		"phaseName": "Realization",
+    "totCount": 2,
+    "checkedCount": 0,
+    "type": "listSearch",
+    "isChecked": false,
+		"data": [{
+				"milestoneName": "Realization Milestone 1",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Not Required",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone1",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity1"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity2"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Realization Milestone 2",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approval Required",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone2",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity3"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity4"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Realization Milestone 3",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Approval Pending",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "No"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": { 
+					"code": "false",
+					"name": "To Be Achieved" 
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone3",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity5"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity6"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Realization Milestone 4",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Rejected",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone4",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity7"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity8"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Realization Milestone 5",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Non-Mandatory",
+        "approvalStatus": "Approval Pending",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "No"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": { 
+					"code": "false",
+					"name": "To Be Achieved" 
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone5",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity9"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity10"
+
+					}
+				]
+			},
+			{
+				"milestoneName": "Realization Milestone 6",
+        "assignedTo": "Pallav Thakkar",
+        "email" :  "p.t@gep.com",
+				"dueBy": "15/07/2018",
+        "type": "Mandatory",
+        "approvalStatus": "Rejected",
+				"progressStatus": {
+					"icon": "url",
+					"completion": "Yes"
+				},
+				"description": "Description about the milestone goes here.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+				"comment": {
+					"commentBy": "Pallav Thakkar",
+					"commentDate": "14/04/2017",
+					"commentMsg": "Everything is fine , good to proceed."
+				},
+				"achieved": {
+					"code": "true",
+					"name": "Achieved"
+				},
+				"notAchieved": false,
+				"attachments": [{
+						"fileName": "file name 1",
+						"path": "path"
+					},
+					{
+						"fileName": "file name 1",
+						"path": "path"
+					}
+				],
+				"id": "realizationMilestone6",
+				"isChecked": false,
+				"isActive": false,
+				"activities": [{
+						"activityName": "Activity Name 1",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+          "assignedTo": "Satyendra K",
+          "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity11"
+					},
+					{
+						"activityName": "Activity Name 2",
+						"description": "Activity description goes here - Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+						"infoIcon": {
+							"url": "path",
+							"message": "Info Icon message"
+						},
+						"completionStatus": "25",
+						"activityCount": 2,
+						"stageStatus": "Completed",
+						"attachments": [{
+							"fileName": "filename 1"
+						}],
+						"comments": {
+							"commentBy": "Rahul Newton",
+							"commentDate": "12/12/2017"
+						},
+            "assignedTo": "Satyendra K",
+            "email" :  "satyen.ku@gep.com",
+						"beginDate": "12/09/2017",
+						"dueBy": "12/12/2017",
+						"isItemChecked": false,
+						"id": "realizationActivity12"
+
+					}
+				]
+			}
+		]
+	}
+]

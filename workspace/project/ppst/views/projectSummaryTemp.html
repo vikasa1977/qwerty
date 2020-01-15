@@ -1,0 +1,202 @@
+<style>
+   .projectSummaryPanel .projectPhase input[type=text][readonly].select-dropdown {
+       border: 0;
+       margin-top: 0px;
+       color: #e85e34;
+       font-size: 1.2rem;
+    }
+    .projectSummaryPanel .projectPhase .select-wrapper span.caret {
+        top: 10%
+    }
+    .projectSummaryPanel input[type=text][readonly].select-dropdown {
+       border: 0;
+       margin-top: 0px;
+       color: #2196F3;
+    }
+    .summaryWrapper .icon>svg {
+        height: 40px;
+        width: 40px;
+    }
+    .projectStatus {
+        width: 48px;
+        height: 133px;
+        float: left;
+    }
+    .is-fixed-sec .projectStatus {
+        width: 48px;
+        height: 75px;
+        float: left;
+    }
+    .projectFields {
+        height: 135px;
+    }
+    .is-fixed-sec .projectFields {
+        height: 75px;
+    }
+    .is-fixed-sec .projectSummaryPanel {
+        display: none;
+    }
+    .is-fixed-sec .projectStatusUpdate {
+        display: none;
+    }
+    .progressWrap {
+        position: relative;
+    }
+
+    .progressWrap i {
+        position: absolute;
+        top: 16px;
+        left: 19px;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        color: #FFF;
+        text-align: center;
+        line-height: 44px;
+    }
+
+    .iconActive {
+        background: #e85e34;
+        fill: #fff;
+    }
+    .iconCompleted {
+        background: #77a6cc;
+        fill: #fff;
+    }
+    .iconNotStarted{
+        background: #fff;
+    }
+
+    .progressWrap i>svg{
+        width: 24px;
+        height: 24px;
+        color: #FFF;
+    }
+
+    .progressWrap .progressMeterWrapper:after {
+        display: none;
+    }
+    .progressWrap .progressMeter circle {
+        stroke-width: 8px;
+    }
+    .activePhase {
+        background: #e85e34;
+    }
+    .completedPhase {
+        background: #77a6cc;
+    }
+    .notStartedPhase {
+        background: #EEEEEE;
+    }
+    .spendText {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .riskMessage {
+        position: absolute;
+        top: 32px;
+        margin-left: 10px;
+    }
+</style>
+<div class="col s12">
+    <div class="summaryWrapper paddingLeft0">
+        <div class="center activePhase projectStatus">
+        <i class="center icon white-text marginTop10" position="right">
+            <svg ng-if="parentScope.selectedPhase.code == 'ID'"><use xlink:href="#icon_Ideation"></use></svg>
+            <svg ng-if="parentScope.selectedPhase.code == 'EX'"><use xlink:href="#icon_Execution"></use></svg>
+            <svg ng-if="parentScope.selectedPhase.code == 'REL'"><use xlink:href="#icon_Realization"></use></svg>
+        </i>
+        </div>
+    </div>
+          
+    <div class="col s11 paddingLeft15 paddingRight0">
+        <div class="row borderBtmLight paddingBtm0 marginBtm0 projectSummaryPanel">
+            <div class="col m3 xl3 xxl2 paddingLeft0">
+                <smart-select class="col s10 line-height-manager input-field marginBtm0 marginTop0 projectPhase" label="" ng-model="parentScope.selectedPhase" options="parentScope.phasesOptions" datakey="title" is-mandatory="true" on-change="parentScope.phaseChangeCallback(parentScope.selectedPhase)"></smart-select>
+                <div class="left fontSize12 grey-text riskMessage">Due today</div>
+            </div>
+            <div class="col m3 xl3 xxl2 marginTop24">
+                <smart-select class="col s10 input-field marginBtm0" label="Status" ng-model="parentScope.projectStatus" options="parentScope.projectStatusOptions" datakey="title" is-mandatory="true"></smart-select>
+            </div>
+            <!--<smart-textfield class="col m3 xl3 xxl2 line-height-manager input-field" label="Status" ng-model="parentScope.projectStatus" readonly="true"></smart-textfield>-->
+            <div class="col m3 xl3 xxl2 marginTop18">
+                <smart-textfield class="col s7 input-field marginBtm0" label="Viewing Currency" ng-model="parentScope.currency" readonly="true"></smart-textfield>
+                <i class="left icon blue-text" smart-tooltip message="Project currency selected is same as base currency" position="bottom">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+            </div>
+            <div class="col m3 xl3 xxl2 marginTop24">
+                <div class="col s6 paddingLeft10 left paddingRight10 input-field marginBtm0">
+                    <label class="active">Review Status</label>
+                    <span class="readonly-value-manager">{{parentScope.status}}</span>
+                </div>
+                <a href="javascript:void(0)">
+                    <i class="icon marginRight0 blue-text" smart-tooltip message="Review Status" position="bottom">
+                        <svg><use xlink:href="#icon_ReviewStatus"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <div class="row borderBtmLight paddingBtm5 marginBtm0">
+            <div class="col m3  xl3 xxl2 paddingRight0 marginTop10">
+                <div>SAVINGS</div>
+                <div class="grey-text left spendText">Fiscal Year 2017
+                    <div class="grey-text">USD 700K</div>
+                </div>
+                <div>
+                <i class="icon marginLeft10 blue-text" smart-tooltip message="Lorem Ipsum" position="bottom">
+                    <svg><use xlink:href="#icon_Info"></use></svg>
+                </i>
+                </div>
+            </div>
+            <div class="col m3  xl3 xxl2 paddingLeft0">
+                <div class="left marginTop3 progressWrap">
+                    <i ng-class="parentScope.selectedPhase.code == 'EX' || parentScope.selectedPhase.code == 'REL'? 'iconCompleted' : 'iconActive'">
+                        <svg><use xlink:href="#icon_Ideation"></use></svg>
+                    </i>
+                    <progress-meter percent="100" stroke-color="{{parentScope.idStrokeColor}}"></progress-meter>
+                </div>
+                <div class="marginTop10 marginLeft10">
+                    <div class="fontSize16 blue-text">USD 2000K</div>
+                    <div class="spendText">100% of USD 2000K Spend</div>
+                </div>
+            </div>
+            <div class="col m3  xl3 xxl2 paddingLeft0">
+                <div class="left marginTop3 progressWrap">
+                    <i ng-class="{iconNotStarted:parentScope.selectedPhase.code == 'ID',iconActive:parentScope.selectedPhase.code == 'EX', iconCompleted:parentScope.selectedPhase.code == 'REL' }">
+                        <svg><use xlink:href="#icon_Execution"></use></svg>
+                    </i>
+                    <progress-meter percent="100" stroke-color="{{parentScope.exStrokeColor}}"></progress-meter>
+                </div>
+                <div class="marginTop10 marginLeft10">
+                    <div class="marginTop25" ng-if="parentScope.selectedPhase.code == 'ID'">NOT STARTED</div>
+                    <!--<div class="fontSize16 blue-text">USD 2010K</div>-->
+                    <!--<div class="spendText truncate">80% of USD 2010K Spend</div>-->
+                    <div class="blue-text marginTop25" ng-if="parentScope.selectedPhase.code == 'EX' || parentScope.selectedPhase.code == 'REL'">ADD SAVING</div>
+                </div>
+            </div>
+            <div class="col m3  xl3 xxl2 paddingLeft0 paddingRight0">
+                <div class="left marginTop3 progressWrap">
+                    <i ng-class="parentScope.selectedPhase.code == 'REL' ? 'iconActive':'iconNotStarted'">
+                        <svg><use xlink:href="#icon_Realization"></use></svg>
+                    </i>
+                    <progress-meter percent="100" stroke-color="{{parentScope.realStrokeColor}}"></progress-meter>
+                </div>
+                <div class="marginTop1truncate0 marginLeft10">
+                    <div class="marginTop25" ng-if="parentScope.selectedPhase.code == 'EX' || parentScope.selectedPhase.code == 'ID'">NOT STARTED</div>
+                    <!--<div class="fontSize16 blue-text">USD 2000K</div>
+                    <div class=" spendText" title="90% of USD 2000K Negotiated">90% of USD 2000K Negotiated</div>-->
+                    <div class="blue-text marginTop25" ng-if="parentScope.selectedPhase.code == 'REL'">ADD SAVING</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 paddingLeft0 marginTop5 projectStatusUpdate">
+        <div class="left">Status Update:</div>
+        <div class="left">
+            <div class="blue-text paddingLeft5">Project is going to move into execution phase soon.</div>
+            <div class="paddingLeft5">Lucy Star, 21/05/2017, 2.00 pm</div>
+        </div>
+    </div>
+</div>

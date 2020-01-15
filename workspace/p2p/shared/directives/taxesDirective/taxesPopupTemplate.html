@@ -1,0 +1,44 @@
+<div id="addTaxes">
+    <div class="modal-header clearfix">
+        <div class="title"><span class="left">Add Taxes</span><span class="right">{{totalTaxPercentage}}%</span></div>
+    </div>
+    <div class="modal-content padding10">
+        <div class="row">
+            <smart-textfield class="col s3" type="autocomplete" ng-model="selectedTaxMaster.data" filterkeys="['code', 'description']" displayformat="{code}" label="Tax Code" options="options" on-change="getTaxMasterDetailsOnChange()" optionformat="<span>{code} {description} {percent}</span>" on-select="onSelect(selectedTaxMaster.data)" readonly="{{!IS_EDITABLE()}}" disable="{{!IS_EDITABLE()}}"></smart-textfield>
+            <smart-textfield class="col s3" type="autocomplete" label="Tax Description" ng-model="selectedTaxMaster.data" filterkeys="['code', 'description']" displayformat="{description}" options="optionsDesc" on-change="getTaxMasterDetailsOnChange('description')" optionformat="<span>{code} {description} {percent}</span>" on-select="onSelect(selectedTaxMaster.data)" readonly="{{!IS_EDITABLE()}}" disable="{{!IS_EDITABLE()}}"></smart-textfield>
+            <smart-textfield class="col s3" label="Tax Rate" readonly="true" ng-model="selectedTaxMaster.data.percent"></smart-textfield>
+            <div class="col s2">
+                <a href="javascript:void(0)" class="icon iconSmall right marginTop20" ng-click="addTaxItem()" ng-if="IS_EDITABLE()">
+                    <svg>
+                        <use xlink:href="#icon_CirclePlus"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="row " ng-repeat="taxItem in taxItems">
+            <div class="col s3 input-field">
+                <span>{{taxItem.code}}</span>
+            </div>
+            <div class="col s4 input-field">
+                <span>{{taxItem.description}}</span>
+            </div>
+            <div class="col s3 input-field">
+                <span class="right">{{taxItem.percent}}</span>
+            </div>
+            <div class="col s2">
+                <a href="javascript:void(0)" class=" icon iconSmall right" ng-click="deleteTaxItem(taxItem)" ng-if="IS_EDITABLE()">
+                    <svg>
+                        <use xlink:href="#icon_TrashCan"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row marginBottom0" ng-if="IS_EDITABLE()">
+            <smart-button flat="true" config='{"title":"EXEMPT"}' callback="exemptCallback" class="left"></smart-button>
+            <smart-button flat="true" config='{"title":"APPLY"}' callback="applyCallback"></smart-button>
+            <smart-button flat="true" config='{"title":"CANCEL"}' callback="cancelCallback"></smart-button>
+        </div>
+    </div>
+</div>

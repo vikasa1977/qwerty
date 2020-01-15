@@ -1,0 +1,51 @@
+<div class="white row smartFormWidgetContainer paddingBtm40">
+    <!--<smart-form-widget form-config="config" search-holder="formSearchDv" model-data="dataModel" widget-panel-top="115"></smart-form-widget>-->
+    <!--<smart-select class="col s10 line-height-manager input-field" label="Project Phase" ng-model="selectedPhase" options="phasesOptions" datakey="phase" is-mandatory="true" validate="validateFlag" readonly="false" on-change="phaseChangeCallback(selectedPhase)"></smart-select>-->
+    <smart-textfield label="Description" class="col s9 input-field" type="area" is-mandatory="true"></smart-textfield><i class="left icon blue-text marginTop13 paddingLeft7" smart-infotip is-fixed="true" mode="click" bind-on="click" message="Project currency selected is same as base currency" position="bottom">
+    <svg><use xlink:href="#icon_Info"></use></svg>
+</i>
+    <!--<smart-textfield label="Number" class="col s6 input-field line-height-manager" type="number" is-mandatory="true" validate="validateFlag" readonly="false" minmaxprecision="[2,2]" ng-model="currencyField" currency-symbol="currencySymbol" on-change="checkCurrency(currencyField)"></smart-textfield>-->
+    <!--<smart-textfield label="Number" class="col s6 input-field line-height-manager" type="number" is-mandatory="true" validate="validateFlag" readonly="false" minmaxprecision="[0,12]" rules="{{numberRules}}"></smart-textfield>
+    <smart-textfield label="Date" class="col s6 input-field line-height-manager" type="date"  readonly="false" ng-model="testVari" min="{{dateValues.minDate}}" max="{{dateValues.maxDate}}" auto-apply="true" is-mandatory="true"></smart-textfield>{{$parent.dateValues}}
+    <smart-typeahead class="col s6" multiselect="false" showlookup="true" is-mandatory="true" validate="validateFlag" ng-model="" options="assigneeData" filterkeys="['name']" is-lazy-loading-enabled="true" optionformat="<span>{name}</span>" displayformat="{name}" label="Assignee" on-select="selectCallback()"></smart-typeahead>-->
+    <!--<smart-textfield label="Number" class="col s6 input-field line-height-manager" type="number" minmaxprecision="[2,2]" min="100" max="50000" is-mandatory="true"></smart-textfield>-->
+</div>
+
+<!--<div class="row marginBottom0 summaryPanel" style="height:700px;" ng-class="{'summaryPanelFixed':fixedSubHeader && !onErrorFound.isWarningHeader, 'summaryPanelErrorHeader' : onErrorFound.isWarningHeader && fixedSubHeader}">
+    <div class="col s12 relative paddingTop10 highRisk">
+        <div class="center activePhase projectStatus summaryWrapper" ng-class="{'projectStatusFixed':minimizePanel}">
+            <i class="center icon white-text marginTop10" position="right">
+                <svg ng-if="selectedPhase.code == 'ID'"><use xlink:href="#icon_Ideation"></use></svg>
+                <svg ng-if="selectedPhase.code == 'EX'"><use xlink:href="#icon_Execution"></use></svg>
+                <svg ng-if="selectedPhase.code == 'REL'"><use xlink:href="#icon_Realization"></use></svg>
+            </i>
+        </div>
+
+        <div class="col projectFieldsContainer">
+            <div smart-infotip template-url="fiscalYearTemplate.html">Test</div>
+        </div>
+    </div>
+</div>-->
+<script id="fiscalYearTemplate.html" type="text/ng-template">
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5"><b>FY 2017: $ 110K</b></div>
+    <div class="paddingLeft5">FY 2018: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+    <div class="paddingLeft5">FY 2016: $ 110K</div>
+</script>
+
+<!--<br />
+<br />-->
+<!--<button ng-click="checkValidate()">Check Validate</button>-->
+<!--<div class="white">
+    <smart-typeahead class="col s12" multiselect="false" show-lookup="false" addnew="false" placeholder="Sachin Kurkute" ng-model="selectedForType" options="optionsTe" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span>" displayformat="{FirstName} {LastName}" label="{{selectLabel}}"></smart-typeahead>
+</div>-->
+
+<!--<smart-lookup></smart-lookup>-->
+<!--<div class="white">
+    <smart-textfield type="number" is-mandatory="true" label="tessssss" required ng-model="inte" error-message="tess"></smart-textfield>
+</div>-->

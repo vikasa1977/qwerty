@@ -1,0 +1,139 @@
+Note: we can use this trackstatus code for popup as well 
+<br />
+
+<!-- trackstatus page HTML structure -->
+<div class="row">
+    <div class="col s12">
+        <div class="white card  trackStatusCard">
+            <div class="col s12">
+                <section class="section-container">
+                    <div class="row section">
+                        <div class="col s12">
+                            REQUISITION <span>1477239843210</span>
+                        </div>
+                        <div class="col s12">
+                            REQ2015 - 001552
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row section add-verticle-divider">
+                        <div class="col l4 m4 s12 ">
+                            <span class="label-text">VALUE</span><br />
+                            <span>544.74</span> <span>USD</span>
+                        </div>
+                        <div class="col l4 m4 s12">
+                            <span class="label-text">STATUS</span><br />
+                            <span>Approval Pending</span>
+                        </div>
+                        <div class="col l4 m4 s12">
+                            <span class="label-text">CREATED ON</span><br />
+                            <span>Nov 12, 2015 by <span>Emily Ross</span></span>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row section">
+                        <div class="col m2 s12">
+                            <select id="cycleSelect">
+                                <option value="cycle1">cycle 1</option>
+                                <option value="cycle2">cycle 2</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+                <section class="track-section-container  scrollbar-outer" id="cycle1">
+                    <div class="t-s-c-wrap pro-completed">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">SUBMITTED ON</span>
+                            <br />
+                            <div>Nov 12, 2015 by <span>Emily Ross</span></div>
+                        </div>
+                    </div>
+                    <div class="t-s-c-wrap in-pro">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">APPROVAL PENDING</span>
+                            <br />
+                            <div><span class="green-text">Approved</span> on <span>Nov 16, 2015</span> by <a href="#sendEmailCall" class="modal-trigger">Josh Write</a></div>
+                            <div><span class="orange-text">Approval</span> <span>Pending with</span> <a href="#sendEmailCall" class="modal-trigger">Allen Kutcher</a></div>
+                            <div><span class="red-text">Rejected</span> on <span>Nov 20, 2015</span> by <a href="#sendEmailCall" class="modal-trigger">Whitney H</a></div>
+                        </div>
+                    </div>
+                    <div class="t-s-c-wrap not-in-pro">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">APPROVAL PENDING</span>
+                            <br />
+                            <div>
+                                <span class="warning-text">Approval</span>
+                                <span>Pending with</span>
+                                <a href="#sendEmailCall" class="modal-trigger">Mark Mckinskey</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="track-section-container" id="cycle2" style="display: none;">
+                    <div class="t-s-c-wrap pro-completed">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">SUBMITTED ON</span>
+                            <br />
+                            <div>Nov 12, 2015 by <a href="#sendEmailCall" class="modal-trigger">John Depp</a></div>
+                        </div>
+                    </div>
+                    <div class="t-s-c-wrap pro-completed">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">SUBMITTED ON</span>
+                            <br />
+                            <div>Dec 12, 2015 by <span>Emily Ross</span></div>
+                        </div>
+                    </div>
+                    <div class="t-s-c-wrap in-pro">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">APPROVAL PENDING</span>
+                            <br />
+                            <div><span class="green-text">Approved</span> on <span>Nov 16, 2015</span> by <a href="#sendEmailCall" class="modal-trigger">Josh Write</a></div>
+                            <div><span class="orange-text">Approval</span> <span>Pending with</span> <a href="#sendEmailCall" class="modal-trigger">Allen Kutcher</a></div>
+                            <div><span class="red-text">Rejected</span> on <span>Nov 20, 2015</span> by <a href="#sendEmailCall" class="modal-trigger">Whitney H</a></div>
+                        </div>
+                    </div>
+                    <div class="t-s-c-wrap not-in-pro">
+                        <i class="t-s-c-icon"></i>
+                        <div class="t-s-content">
+                            <span class="t-s-c-title">APPROVAL PENDING</span>
+                            <br />
+                            <div><span class="warning-text">Approval</span> <span>Pending with</span> <a href="#sendEmailCall" class="modal-trigger">Mark Mckinskey</a></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- Js Code -->
+<script>
+    $(document).ready(function () {
+        $('.track-section-container').velocity({ opacity: 1, translateY: 0 }).promise().done(function () {
+            $('.t-s-c-wrap:nth-child(odd) .t-s-content').velocity({ opacity: 1, translateX: 75 }, 500);
+            $('.t-s-c-wrap:nth-child(even) .t-s-content').velocity({ opacity: 1, translateX: -318 }, 500)
+        });
+
+        $('#cycleSelect').on("change", function () {
+            var thisValue = $(this).val();
+            $('.track-section-container').hide();
+            $('#' + thisValue).show();
+        });
+        $('select').material_select(); //initialize select dropdown
+    });
+
+</script>
+

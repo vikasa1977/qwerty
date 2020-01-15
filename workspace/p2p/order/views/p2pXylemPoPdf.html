@@ -1,0 +1,429 @@
+<link type="text/css" rel="stylesheet" href="shared/resources/css/noto.css" media="screen,projection" />
+<style>
+	@media print {
+		body * {
+			visibility: hidden;
+		}
+
+		.extra-nav-wrap, .page-footer, .extraHeader, .headerWrapper {
+			display: none;
+		}
+
+		.pdf-container * {
+			visibility: visible;
+		}
+		table { page-break-after:auto;}
+		tr { page-break-inside:avoid; page-break-after:auto }
+		td { page-break-inside:avoid; page-break-after:auto }
+		thead { display:table-header-group }
+		tfoot { display:table-footer-group }
+		* {
+			-webkit-print-color-adjust: exact;
+		}
+
+		table {
+			margin-bottom: 20px;
+		}
+        .thin-border-table tr td{
+            border: 1px solid #c2c2c2;
+            padding: 5px 15px;
+        }
+
+        .thik-border-table tr th, .thik-border-table tr td{
+            border: 1px solid #c2c2c2;
+            padding: 10px 5px;
+            height: 50px;
+        }
+	}
+
+	.pdf-container {
+		color: #000000;
+	}
+
+	.pdf-container .pdf-title {
+		padding: 0;
+		font-size: 18px;
+		color: #000000;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.pdf-container .invoice-table {
+		width: 40%;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		font-family: Noto Sans;
+	}
+
+	.pdf-container .invoice-details-table {
+		width: 40%;
+		font-family: Noto Sans;
+		color: #000000;
+	}
+
+	.pdf-container .shipping-details-table {
+		width: 45%;
+		font-family: Noto Sans;
+		color: #000000;
+	}
+
+	.border-grey {
+		border: 1px solid #A2A2A2;
+	}
+
+	.background-grey {
+		background: #E8E8E8;
+	}
+
+	.table-title {
+		font-size: 14px;
+		text-align: left;
+		background: #E8E8E8;
+		color: #000000;
+	}
+
+	.table-header {
+		font-size: 12px;
+		padding: 10px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		line-height: 20px;
+	}
+
+	.table-data {
+		font-size: 14px;
+		padding: 10px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+		line-height: 20px;
+	}
+
+	.table-data-para {
+		font-family: Noto Sans;
+		font-size: 14px;
+		padding: 10px !important;
+		line-height: 25px;
+		color: #000000;
+	}
+
+	.terms {
+		font-family: Noto Sans;
+		font-size: 14px;
+		padding: 24px;
+		line-height: 25px;
+		border: 1px solid #A2A2A2;
+		color: #000000;
+	}
+
+	.direct-inquiries {
+		font-size: 14px;
+		padding: 24px;
+		line-height: 25px;
+		color: #000000;
+	}
+    .thin-border-table tr td{
+        border: 1px solid #c2c2c2;
+        padding: 5px 15px;
+    }
+    .thik-border-table tr th, .thik-border-table tr td{
+        border: 1px solid #c2c2c2;
+        padding: 10px 5px;
+        height: 50px;
+    }
+</style>
+<!--new sub header-->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Order"></use>
+                </svg>
+                </i>
+            <span class="extra-nav-title--text ng-cloak">{{'PO-12:15-001401' | translate}} - {{'ORDER-PO-12:15-001401' | translate}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Download">
+                    <i class="icon iconSmall">
+                <svg>
+                <use xlink:href="#icon_Download"></use>
+                </svg>
+                </i>
+                </a>
+            </li>
+            
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" onclick="window.print()" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Print">
+                    <i class="icon iconSmall">
+                <svg>
+                <use xlink:href="#icon_Print"></use>
+                </svg>
+                </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--end sub header-->
+
+<!-- PDF Content Starts -->
+<div class="col s12 l12 m12">
+    <div class="row card ng-cloak pdf-container" style="width: 885px; margin: 20px auto;">
+        <table width="100%" align="center" rules="none">
+            <thead style="border: none;">
+                <tr>
+                    <td>
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; border-bottom: 1px solid #e0e0e0;">
+                            <tbody>
+                                <tr>
+                                    <th width="40%" align="left" valign="bottom" style="padding: 20px 10px !important;">
+                                        <img src="shared/theme1/user/logo/xylem-logo.png" alt="" height="50">
+                                    </th>
+                                    <th width="30%" align="right" valign="middle" style="padding: 10px !important; text-align: right;">
+                                        <span style="color: #0086ab; font-size: 20px; font-weight: bold; margin-right: 10px;">PURCHASE ORDER</span>
+                                    </th>
+                                    <th width="30%" align="left" valign="middle" style="padding: 10px !important; color: #fff; font-size: 14px; background-color: #0086ab;">
+                                        <div><strong>XYLEM</strong></div>
+                                        <div>Airoli Station, Thane - Belapur Road, Mind Space, Navi Mumbai, United State, 400708</div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <table width="100%" class="thin-border-table" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">SUPPLIER NAME:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">SUPPLIER SITE NAME:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">PO NUMBER:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">ORDER CURRENCY:</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top">BALDOR ELECTRIC COMPANY</td>
+                                    <td style="vertical-align: top">236451 - BALDOR ELECTRIC CO</td>
+                                    <td style="vertical-align: top">PO-04:18-000608-001</td>
+                                    <td style="vertical-align: top">USD</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">SUPPLIER ADDRESS:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">PO DATE:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">REQUESTER NAME:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align: top">&nbsp;</td>
+                                    <td style="vertical-align: top">04/04/2018 | 5:47:00 AM</td>
+                                    <td style="vertical-align: top">Mark Brown</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">SUPPLIER CONTACT:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">PO ORIGINAL NUMBER:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%; vertical-align: top">ORDER CONTACT:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="vertical-align: top">Jitendra Nihalani</td>
+                                    <td style="vertical-align: top">PO-04:18-000608</td>
+                                    <td style="vertical-align: top; word-break: break-all;">Xylem.buyer.na@xyleminc.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">SHIPPING DETAILS:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">INVOICING & PAYMENT DETAILS:</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">DELIVER TO:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">BILL TO:</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top">Mark Brown, Floor No. 5, Desk No. 516</td>
+                                    <td style="vertical-align: top">Xylem Inc</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">SHIP TO ADDRESS:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">BILL TO ADDRESS:</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top">&nbsp;</td>
+                                    <td style="vertical-align: top">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">INCO TERM:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%; vertical-align: top">PAYMENT TERMS:</td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top">FOB</td>
+                                    <td style="vertical-align: top">Net 60 - Due in 60 days from the date of Invoice</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="10" style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">ITEM DETAILS - MATERIALS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; width: 50px;">Line No.</td>
+                                    <td style="font-size: 11px;">Item Description</td>
+                                    <td style="font-size: 11px;">Need By Date</td>
+                                    <td style="font-size: 11px;">Item Number</td>
+                                    <td style="font-size: 11px;">Supplier Item Number</td>
+                                    <td style="font-size: 11px;">Quantity</td>
+                                    <td style="font-size: 11px;">UOM</td>
+                                    <td style="font-size: 11px;">Unit Price</td>
+                                    <td style="font-size: 11px;">Line Total</td>
+                                    <td style="font-size: 11px; width: 150px;">Comments</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">1</td>
+                                    <td>Servicing Oil</td>
+                                    <td>05/04/2018</td>
+                                    <td>xy-0019b</td>
+                                    <td>abc-0031</td>
+                                    <td>5.00</td>
+                                    <td>Each</td>
+                                    <td>200</td>
+                                    <td>1,000.00</td>
+                                    <td style="width: 150px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">2</td>
+                                    <td>Servicing Tools</td>
+                                    <td>05/04/2018</td>
+                                    <td>xy-0019b</td>
+                                    <td>abc-0031</td>
+                                    <td>5.00</td>
+                                    <td>Liters</td>
+                                    <td>200</td>
+                                    <td>2,000.00</td>
+                                    <td style="width: 150px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="10" style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">ITEM DETAILS - SERVICES</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px; width: 50px;">Line No.</td>
+                                    <td style="font-size: 11px;" colspan="2">Item Description</td>
+                                    <td style="font-size: 11px;">Need By Date</td>
+                                    <td style="font-size: 11px;">End Date</td>
+                                    <td style="font-size: 11px;">Quantity</td>
+                                    <td style="font-size: 11px;">UOM</td>
+                                    <td style="font-size: 11px;">Unit Price</td>
+                                    <td style="font-size: 11px;">Line Total</td>
+                                    <td style="font-size: 11px; width: 150px;">Comments</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">1</td>
+                                    <td colspan="2">Labor Charges</td>
+                                    <td>05/04/2018</td>
+                                    <td>05/04/2018</td>
+                                    <td>5.00</td>
+                                    <td>Hours</td>
+                                    <td>100</td>
+                                    <td>500.00</td>
+                                    <td style="width: 150px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">2</td>
+                                    <td colspan="2">Freight</td>
+                                    <td>05/04/2018</td>
+                                    <td>05/04/2018</td>
+                                    <td>0.00</td>
+                                    <td>Each</td>
+                                    <td>650</td>
+                                    <td>650.00</td>
+                                    <td style="width: 150px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8" style="font-weight: bold; background-color: #ebebeb; text-align: right;">TOTAL</td>
+                                    <td colspan="2">4,150.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">STANDARD NOTES</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">1</td>
+                                    <td>This order is subject to Xylem Inc.'s Standard Terms and Conditions of Purchase effective on the date the order is accepted which terms are available at http://www.xyleminc.com/en-us/Pages/supplier-terms-conditions.aspx and incorporated herein by reference and made a part of the agreement between the parties</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">2</td>
+                                    <td>Order Number, Line Item Number, Deliver To and Item Number (where provided) must appear on all correspondence including Packing Slips, Bill of Lading, Invoices and Packages</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px; border: 1px solid #c2c2c2; border-bottom: 0px;">SPECIAL PO INSTRUCTIONS / NOTES:</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="thin-border-table" width="100%" cellspacing="0" cellpadding="0" style="font-family: Noto Sans; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="2" style="background-color: #ebebeb; width: 25%">INVOICE SUBMISSION INSTRUCTIONS</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">MOST PREFERRED:  Electronic Submission</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">A</td>
+                                    <td style="width: 100%;">EDI for setup support; please contact us at apoperations@Xyleminc.com</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">B</td>
+                                    <td style="width: 100%;">Supplier Portal - see attached procedural guidelines for setup/registration instructions</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;">C</td>
+                                    <td style="width: 100%;">Email invoices to: XylemInvoices@cognizant.com</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">LEAST PREFERRED:  (note the new PO Box address)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Xylem, Inc., Attn:  Accounts Payable, PO Box 30160, College Station, TX 77842</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

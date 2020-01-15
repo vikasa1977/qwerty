@@ -1,0 +1,98 @@
+<!--new header-->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak max-width277 truncate"  ng-if="!isAdminCatalogApproval" title="{{documentNumber}} - {{documentName}} - Manage Approvals">{{documentNumber}} - {{documentName}} - Manage Approvals</span>
+                <span class="extra-nav-title--text ng-cloak marginLeft10" ng-if="!isAdminCatalogApproval">(DRAFT)</span>
+                <span class="extra-nav-title--text ng-cloak" ng-if="isAdminCatalogApproval">{{catdocumentDetail.DocumentName  | translate }}</span><br />
+            </div>             
+        </div>
+     </div>
+
+
+
+<div class="row smartFormWidgetContainer marginBtm40" ng-class="{'subHeaderFixedPlaceHolder':fixedSubHeader }">
+<!-- top section -->
+    <section class="section-container" ng-class="{'marginBtm30': currPage === 'contract.approval'}">
+        <div class="row marginBtm0 relative">
+            <div class="col s12" ng-if="currPage === 'contract.approval'">
+                <div class="clearfix section add-verticle-divider">
+                    <div class="col m3 s12 ">
+                        <span class="label-text-normal" ng-hide="isBlanketMode">{{ 'Order for IT Equipment' | translate }}</span>
+                        <span class="label-text-normal" ng-if="isBlanketMode">{{ 'Blanket PO' | translate }}</span><br />
+                            
+                        <span>{{documentDetail.DocumentName }}</span> 
+                    </div>
+                      
+                    <div class="col m3 s12">
+                        <span class="label-text-normal">{{ 'Created On' | translate }}</span><br />
+                        <span>{{documentDetail.createdOn | date:'MM/dd/yyyy'}}  <span> by </span> <span>{{documentDetail.createdBy}}</span></span>
+                    </div>
+                    <div class="col m3 s12">
+                        <span class="label-text-normal">{{ 'Submitted On' | translate }}</span><br />
+                        <span>{{documentDetail.createdOn | date:'MM/dd/yyyy'}}  <span> by </span> <span>{{documentDetail.createdBy}}</span></span>
+                    </div>
+                        <div class="col m3 s12">
+                        <span class="label-text-normal">{{ 'Current Status' | translate }}</span><br />
+                        <span>{{documentDetail.currentStatus}}</span>
+                    </div>
+                </div>
+
+                <div class="divider clearfix"></div>
+            </div>
+        </div>
+    </section>
+<!--directive content-->
+    <section ng-if="currPage === 'contract.approval'">
+        <smart-approval data="approvalPathList"></smart-approval>
+    </section>
+    <section ng-if="currPage !== 'contract.approval'">
+        <smart-approval-with-track-status data="approvalPathList" on-tab-change="tabClickedCallback"></smart-approval-with-track-status>
+    </section>
+
+    <footer class="page-footer">
+        <div class="row marginBtm15">
+            <div class="col s12 normalMode right-align" ng-hide="isBlanketMode">
+                <smart-button class="marginRight15" config='{"title":"DISCARD","allignRight":"false"}' flat="true"  disable="false" ng-click="cancelLink();"></smart-button>
+                <smart-button class="whiteSecondaryBtn blue-text marginRight15" config='{"title":"SELF APPROVE","allignRight":"false"}' ng-click="selfApproval()" disable="false" ng-if="currPage === 'contract.approval'"></smart-button>
+                <div class="btn-group whiteSecondaryBtn marginRight24" ng-if="currPage !== 'contract.approval'">
+                    <smart-button config='{"title":"SAVE", "allignRight":"false"}' ng-click="selectReqPopupCallback(e)" disable="false" ng-if="docType != 'order' && docType != 'asn' && docType != 'supplier'"></smart-button>
+                    <smart-dropdown config="{{dropDownConfig}}" ng-if="docType != 'order' && docType != 'asn' && docType != 'supplier'">
+                        <a data-activates='exportActionBtn' class="dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            <i class="icon iconSmall">
+                                <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='exportActionBtn' class='dropdown-content footer-dropdown-for-landing'>
+                            <li ng-repeat="item in splitActions">
+                                <a href="javascript:void(0)" ng-click="triggerAction(item.key)" class="black-text"> {{  item.key }}</a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </div>
+                <smart-button class="marginRight10" config='{"title":"SEND FOR APPROVAL","allignRight":"false"}' ng-click="levelApproval()" disable="false"></smart-button>
+            </div>
+            <div class="col s12 normalMode right-align" ng-if="isBlanketMode">
+                <smart-button class="marginRight15" config='{"title":"CANCEL","allignRight":"false"}' flat="true"  disable="false" ng-click="cancelLink();"></smart-button>
+                <smart-button class="whiteSecondaryBtn blue-text marginRight15" config='{"title":"SAVE","allignRight":"false"}'  disable="false"></smart-button>
+                <smart-button class="marginRight10" config='{"title":"SEND FOR APPROVAL","allignRight":"false"}' ng-click="sendForApprovalCall()" disable="false"></smart-button>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<!-- popup -- attchments -->
+<smart-popup template-url="shared/popup/views/popupAddAttachment.html"  show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>

@@ -1,0 +1,19 @@
+<div ng-controller="p2pServiceConfNewCtrl">	
+    <div class="row paddingLeft5 paddingRight5 lifecycleBoxWrap marginBtm10">
+        <div ng-repeat="lifeCycle in lifeCycleData" class="col s12 m6 l3">
+            <div class="lifecycleBox">
+                <div class="lc_boxHeading">{{lifeCycle.docName}}</div>
+                <div class="black-text"><span class="lc_totalAmount">{{lifeCycle.totalAmount}}</span> USD</div>
+                <div class="marginBtm10">Total <span ng-if="lifeCycle.docName == 'FULFILLMENT'">Serviced</span> Amount</div>
+
+                <ul>
+                    <li ng-repeat="detail in lifeCycle.otherDetails">
+                        <span>{{detail.fieldName}} - </span>
+                        <span class="black-text">{{detail.fieldValue}}</span>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>

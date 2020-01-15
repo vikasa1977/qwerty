@@ -1,0 +1,13 @@
+<div ng-controller="linesDetailsHeaderCtrl">
+    
+	<div class="secHeader clearfix">
+        <div class="left headerTextHolder truncate">{{'LINES DETAILS ' |translate}} </div>
+    
+        <a href="javascript:void(0)" ng-click="openPopout();$event.stopPropagation()" class="icon iconSmall right"
+           message="{{ islineDetailsPopOut ? 'Pop In' : 'Pop Out' }}" smart-tooltip data-position="bottom" delay="50">
+            <svg>
+                <use xlink:href="" data-ng-href="{{islineDetailsPopOut ? '#icon_popIn' : '#icon_popOut' }} "></use>
+            </svg>
+        </a> 
+    </div>
+</div>

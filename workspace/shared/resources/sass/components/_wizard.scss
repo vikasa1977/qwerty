@@ -1,0 +1,292 @@
+.wizard-stepperH {
+    padding:40px 80px 10px 40px;
+    background:#fff;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+    z-index:1;        
+}
+.wizard-stepperH-container{
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    line-height: 24px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: -o-flex;
+}
+.wizard-stepperH-container-step .wizard-stepperH-line {
+    position: absolute;
+    display: block;
+    height: 1px;   
+    background-color: #e0e0e0;
+    z-index: -1;
+    width: calc( 100% - 45px);
+    top: 50%;
+    left: 35px;
+}
+.wizard-stepperH-container .wizard-stepperH-container-step:last-child .wizard-stepperH-line{display:none;}
+.wizard-stepperH-container-step{
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -o-flex-grow: 1;
+    flex-basis: 0;
+    -webkit-flex-basis: 0;
+    -ms-flex-basis: 0;
+    -moz-flex-basis: 0;
+    -o-flex-basis: 0;
+    position: relative;
+    z-index: 1;
+}
+.wizard-stepperH-step-state{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: $link;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.wizard-stepperH-fixed {
+    position:fixed;
+    width:100%;
+    top:50px;
+    left:0;
+}
+.wizard-cont-holder {
+    background-color:#fff;
+    padding:40px 30px;
+}
+    
+.wizard-stepperH .wizard-stepperH-step-state-title {
+    position: absolute;
+    bottom: 35px;
+    left: -53px;
+    z-index: -1;
+    width: 130px;
+    text-align: center;
+    font-size:12px;
+    line-height:16px;
+}
+.wizard-stepperH .wizard-stepperH-container-step:last-child {
+    flex-grow:0;
+}
+
+.wizard-stepperH .wizard-stepperH-container {
+    border:none;        
+}
+.wizard-stepperH-content {
+    padding:16px;    
+}
+.wizard-stepperH-cont-fix{
+    padding-top:136px;
+}
+.wizard-stepperH-container-step .wizard-stepperH-step-state.initial-state i svg {
+    width: 24px;
+    height: 24px;    
+    margin-left: -1px;
+    margin-top: 0px;
+}
+.wizard-stepperH-container-step .wizard-stepperH-step-state.initial-state i{
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+@keyframes wizardStepAnimation {
+    from {margin-left: -100%;opacity:0;}
+    to {margin-left:0;opacity:1;}
+}
+@-webkit-keyframes wizardStepAnimation {
+    from {margin-left: -100%;opacity:0;}
+    to {margin-left:0;opacity:1;}
+}
+@-moz-keyframes wizardStepAnimation {
+    from { margin-left: -100%; opacity:0;}
+    to {margin-left:0;opacity:1;}
+}
+@-ms-keyframes wizardStepAnimation {
+    from {margin-left: -100%;opacity:0;}
+    to {margin-left:0;opacity:1;}
+}   
+.wizard-initial-state {
+    width:300px;
+}
+.wizard-stepperH-container-step.wizard-step-animate .wizard-stepperH-line,.wizard-step-animate .wizard-stepperH-step-state{      
+    animation-name: wizardStepAnimation;
+    -webkit-animation-name: wizardStepAnimation;
+    -moz-animation-name: wizardStepAnimation;
+    -ms-animation-name: wizardStepAnimation;
+    animation-duration: .4s; 
+    -webkit-animation-duration: .4s;
+    -ms-animation-duration: .4s;
+    -moz-animation-duration: .4s;
+    animation-fill-mode: forwards;  
+    -webkit-animation-fill-mode: forwards;  
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards; 
+   
+} 
+.wizard-stepperH-container-step .wizard-stepperH-line,.wizard-stepperH-container-step .wizard-stepperH-step-state{
+     opacity:0;
+}
+.wizard-stepperH-container-step .wizard-stepperH-line.initial-first-line{opacity:1;}
+.wizard-stepperH-container .wizard-stepperH-container-step:first-child .wizard-stepperH-step-state,.wizard-stepperH-container-step.stepper-dot .wizard-stepperH-step-state
+{opacity:1;}
+.wizard-stepperH-container-step.active .wizard-stepperH-step-state-title {
+  font-weight: bold;
+}
+
+.wizard-stepperH-container-step.disable .wizard-stepperH-step-state {
+  background-color: #9e9e9e;
+  cursor: default;
+}
+.wizard-stepperH-container-step .wizard-stepperH-step-state svg {
+    width: 18px;
+    height: 18px;
+}
+.wizard-stepperH-step-state .wizard-stepperH-step-icon svg {
+    margin-top: -3px;
+}
+.wizard-stepperH-container-step.disable .wizard-stepperH-step-state-title {
+  color: #9e9e9e;
+  cursor: default;
+}
+.wizard-container {
+    position:relative;
+}   
+.wizard-step {
+    position:relative;
+       
+}    
+.wizard-step-content {
+    padding:0 0 40px 30px;
+}    
+@keyframes wizardLineAnimation {
+    from {height: 0;}
+    to {height: 100%;}
+}
+@-webkit-keyframes wizardLineAnimation {
+    from {height: 0;}
+    to {height: 100%;}
+}
+@-moz-keyframes wizardLineAnimation {
+    from {height: 0;}
+    to {height: 100%;}
+}
+@-ms-keyframes wizardLineAnimation {
+    from {height: 0;}
+    to {height: 100%;}
+}
+@keyframes wizardDotAnimation {    
+    0% {transform: scale(0);opacity:0;}
+    100% {transform: scale(1);opacity:1;}
+}    
+@-webkit-keyframes wizardDotAnimation {    
+    0% {transform: scale(0);opacity:0;}
+    100% {transform: scale(1);opacity:1;}
+}
+@-moz-keyframes wizardDotAnimation {    
+    0% {transform: scale(0);opacity:0;}
+    100% {transform: scale(1);opacity:1;}
+}
+@-ms-keyframes wizardDotAnimation {    
+    0% {transform: scale(0);opacity:0;}
+    100% {transform: scale(1);opacity:1;}
+}
+@-webkit-keyframes wizardTextAnimation {    
+    0% {
+        
+        opacity:0; 
+     }
+     100% {
+        
+        opacity:1;   
+     }
+}
+@-moz-keyframes wizardTextAnimation {    
+    0% {
+        
+        opacity:0; 
+     }
+     100% {
+        
+        opacity:1;   
+     }
+}
+@-ms-keyframes wizardTextAnimation {    
+    0% {
+        
+        opacity:0; 
+     }
+     100% {
+       
+        opacity:1;   
+     }
+}
+.wizard-text-animate {
+    opacity:0;
+    animation-name:wizardTextAnimation;
+    animation-duration:.8s;      
+    animation-fill-mode:forwards; 
+    -webkit-animation-name:wizardTextAnimation;
+    -moz-animation-name:wizardTextAnimation;
+    -ms-animation-name:wizardTextAnimation;
+    -webkit-animation-duration:.8s;     
+    -moz-animation-duration:.8s;     
+    -ms-animation-duration:.8s; 
+    -webkit-animation-fill-mode:forwards; 
+    -moz-animation-fill-mode:forwards; 
+    -ms-animation-fill-mode:forwards; 
+}
+.wizard-stepperH-line-animate{
+    opacity:0;
+    animation-name:wizardStepAnimation;
+    animation-duration:.5s;      
+    animation-fill-mode:forwards; 
+    -webkit-animation-name:wizardStepAnimation;
+    -moz-animation-name:wizardStepAnimation;
+    -ms-animation-name:wizardStepAnimation;
+    -webkit-animation-duration:.5s;     
+    -moz-animation-duration:.5s;     
+    -ms-animation-duration:.5s; 
+    -webkit-animation-fill-mode:forwards; 
+    -moz-animation-fill-mode:forwards; 
+    -ms-animation-fill-mode:forwards; 
+}
+ .wizard-step .wizard-step-point::before{
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 2px;
+    opacity:0;
+    height: 16px;
+    width: 16px;
+    background: #03ACFF;
+    border-radius: 50%;
+    display: inline-block;       
+    animation:wizardDotAnimation .3s ease .3s forwards;
+    -webkit-animation:wizardDotAnimation .3s ease .3s forwards;      
+    -moz-animation: wizardDotAnimation .3s ease .3s forwards;
+    -ms-animation: wizardDotAnimation .3s ease .3s forwards;        
+        
+}
+ .wizard-step.wizard-step-next-visible .wizard-step-point::after{
+    content: "";
+    position: absolute;
+    top: 8px;
+    bottom: -10px;
+    width: 2px;
+    background-color: #03ACFF;
+    animation:wizardLineAnimation .3s ease;
+    -webkit-animation:wizardLineAnimation .3s ease;
+    -moz-animation:wizardLineAnimation .3s ease;
+    -ms-animation:wizardLineAnimation .3s ease;        
+}    
+.wizard-step:last-child .wizard-step-point::after {
+    content:none;
+}

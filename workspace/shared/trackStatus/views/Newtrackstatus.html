@@ -1,0 +1,140 @@
+﻿<div ng-init="locationFn()" ng-controller="trackStatusCtrl">
+    <section class="section-container">
+        
+        <div class="divider"></div>
+        <div class="row add-verticle-divider">
+            <div class="col l4 m4 s12 ">
+                <div class="section-part">
+                    <span class="">Long Document Name</span><br />
+                    <span>23712839120320423958345</span>
+                </div>
+            </div>
+            <div class="col l4 m4 s12">
+                <div class="section-part">
+                    
+                        <span class="grey-text left fontSize14">Created On</span>
+                        <smart-dropdown config="{{dropDownConfig}}" class="right">
+                            <a href="javaScript:void(0)" class="dropdown-button" data-activates="commentData1" data-constrainwidth="false" data-alignment="right" data-hover="true">
+                                <i class="icon iconSmall">
+                                    <svg>
+                                        <use xlink:href="#icon_Commented"></use>
+                                    </svg>
+                                </i>
+                            </a>
+                            <div id="commentData1" class="dropdown-content dd-close-off row shades white " style="width:40%">
+                                <div class="col s12 padding20 dropdown-content-header">
+                                    <div class="light ">
+                                        <div class="shade black-text">Whitney  H<span class="grey-text">- External User</span></div>
+                                        <div class="">Order Exceed the budget</div>
+                                        <div class=""><span class="red-text">Rejected</span><span> on Nov 20,2015 03:54 PM</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </smart-dropdown>
+                   
+                   <br/>
+                    <span class="truncate">{{getCreatedOn}}  by {{getCreatedByName}}</span> 
+                    
+                </div>
+             </div>
+            <div class="col l4 m4 s12">
+                <div class="section-part">
+                    <span class="grey-text fontSize14">Current Status</span><br />
+                    <span class="color-approved-pending">{{getdocumentStatus}}</span>
+                </div>
+             </div>
+           
+        </div>
+        <div class="divider"></div>
+        <div class="row paddingTop5 relative">
+            <smart-dropdown config="{{dropDownConfig}}" class="right">
+                <a href="javaScript:void(0)" class="dropdown-button absolute legend-dropdown" data-activates="tabMatLineTReqSending" data-constrainwidth="false" data-alignment="right">
+                    {{'Legend'|| translate}}
+                </a>
+                <div id="tabMatLineTReqSending" class="dropdown-content dd-close-off row shades white paddingBtm15" style="width:550px">
+                   
+                        <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                            <!--<li class="dropdown-content-header"><div class="title">{{'APPROVAL TYPES'|| translate }} </div></li>-->
+                            <li class="paddingTop10 paddingBtm10 left valign-wrapper" ng-repeat="approvarType in approvarTypes">
+                                <i class="icon iconMedium left {{approvarType.color}}">
+                                    <svg>
+                                        <use xlink:href="{{approvarType.icon}}"></use>
+                                    </svg>
+                                </i>
+                                <div class="white-space-normal">{{approvarType.text}}</div>
+                            </li>
+                        </ul>
+                   
+                    
+                        <ul class="col s6 m6 padding0 dropdown-content-header margin0 ">
+                            <!--<li class="dropdown-content-header"><div class="title">{{'STATUSES'|| translate }} </div></li>-->
+                            <li class="paddingTop10 paddingBtm10 left valign-wrapper" ng-repeat="status in statuss">
+                                <i class="icon iconMedium left {{status.color}}">
+                                    <svg>
+                                        <use xlink:href="{{status.icon}}"></use>
+                                    </svg>
+                                </i>
+                                <div class="white-space-normal">{{status.text}}</div>
+                            </li>
+                        </ul>
+                   
+                    <!--<div class="col s4 m4 padding0 dropdown-content-header">
+                <ul class="margin0 ">
+                    <li class="dropdown-content-header"><div class="title">{{'APPROVEL TYPE'|| translate }} </div></li>
+                    <li class="dropdown-content-header" ng-repeat="approverType in approverTypes">
+                        <i class="t-s-c-icon icon iconMedium {{approverType.color}}">
+                            <svg>
+                                <use xlink:href="{{approverType.icon}}"></use>
+                            </svg>
+                        </i>
+                        <div class="displayInlineBlock">{{approverType.text}}</div>
+                    </li>
+                </ul>
+            </div>-->
+
+                </div>
+            </smart-dropdown>
+            <div class="col m12 s12 padding0">
+                
+                <smart-tabs tab-config="{{trackStatusTabs}}" width="350px" class="marginBtm0">
+                </smart-tabs> 
+            </div>
+
+        </div>
+    </section>
+
+    <!--<smart-scroll height="{{ heightTrackStatus() }}">
+        <section class="track-section-container">
+            <div class="t-s-c-wrap {{ proccesStatus(statusList.process) }}" ng-class="{'before-not-in-pro': checkNextStatus(statusLists[$index + 1].process)}" ng-repeat="statusList in statusLists">
+                <i class="t-s-c-icon"></i>
+                <div class="t-s-content {{ approvalGroupType(statusList.approvalGroupName) }}" ng-class="{ 'approval-group' : statusList.isGroupApproval }">
+                    <span class="t-s-c-title">{{ statusList.status }}</span>
+                    <div ng-if="!statusList.isGroupApproval">
+                        <span ng-if="!statusList.onDated == ''">{{ statusList.onDated }}</span> <span ng-if="statusList.onDated == ''">{{ statusList.status }}</span>
+                        {{ joinWordwith(statusList.onDated ) }}
+                        <span ng-if="statusList.approver == getCreatedByName" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">{{ statusList.approver }}</span>
+                        <a ng-if="statusList.approver != getCreatedByName" href="javascript:void(0)" ng-click="emailerPopupCallback(e)" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">
+                            {{ statusList.approver }}
+                        </a>
+                    </div>
+                    <div ng-if="statusList.isGroupApproval">
+                        <div ng-repeat="list in statusList.approversLists">
+                            <span class="{{applyStatusColor(list.status)}}">{{ list.status}}</span>
+                            <span ng-if="!list.onDated == ''"> on {{ list.onDated}}</span> {{ joinWordwith(list.onDated ) }}
+
+                            <span ng-if="statusList.approver == getCreatedByName" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">{{ list.approver}}</span>
+                            <a ng-if="statusList.approver != getCreatedByName" href="javascript:void(0)" ng-click="emailerPopupCallback(e)" class="t-c-approver-name" ng-class="{'modal-close':ispopup}">
+                                {{ list.approver}}
+                            </a>
+                        </div>
+                        <div class="chip-for-approval-group">{{ statusList.approvalGroupName }}</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </smart-scroll>-->
+</div>
+<smart-popup template-url="{{emailer}}" show='{{emailerPopup}}' on-hide="emailerPopupHideCallback(e)" ng-if="showEmailPopup"></smart-popup>
+
+

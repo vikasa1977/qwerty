@@ -1,0 +1,35 @@
+<div>
+    <div class="modal-header">
+        
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_SavedView"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'SAVE VIEW' || translate }} </span>
+    </div>
+  
+        <div class="modal-content is-scrolled padding0">
+
+            <div class="row marginTop20">
+                <div class="col s12">
+                    <smart-textfield class="col s12" label="View Name" ng-model="SaveViewName" is-mandatory="true"></smart-textfield>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+
+            <smart-button flat="true" class="modal-close" config='{"title":"SAVE"}' on-click="saveCurrentView(SaveViewName)" disable="false"></smart-button>
+            <smart-button flat="true" class="modal-close" config='{"title":"CANCEL"}'></smart-button>
+
+        </div>
+
+</div>
+
+
+
+
+
+
+

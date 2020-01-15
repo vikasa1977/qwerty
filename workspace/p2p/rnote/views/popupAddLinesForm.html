@@ -1,0 +1,26 @@
+﻿<div>
+    <div class="modal-header">
+
+        <i class="icon iconSmall left grey-text">
+            <svg>
+                <use xlink:href="#icon_BulkImport"></use>
+            </svg>
+        </i>
+        <span class="title">{{'ADD LINES FROM'|| translate}}</span>
+    </div>
+
+    <div class="modal-content padding0 comment-poup-content">
+
+        <div class="row ">
+            <smart-tabs tab-config="{{importLineItemsTabDataset}}" on-select="tabChangeCall(e)"></smart-tabs>
+        </div>
+
+    </div>
+
+    <div class="modal-footer is-scrolled comment-poup-footer">
+        <smart-button class="modal-close wave-effect grey-color left" config='{"title":"RESET","flat":true}' flat="true"></smart-button>
+        <smart-button class="modal-close wave-effect grey-color right cancel-button" config='{"title":"CANCEL","flat":true}' flat="true"></smart-button>
+        <smart-button class="wave-effect grey-color right" config='{"title":"NEXT","flat":true}' flat="true" ng-click="reqTemplateNextCall()"></smart-button>
+    </div>
+
+</div>

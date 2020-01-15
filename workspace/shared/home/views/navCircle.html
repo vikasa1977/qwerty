@@ -1,0 +1,35 @@
+<div class="workqueueBtnGroup" data-ng-controller="navCircleCtrl">
+	<ul class="row">
+		<li class="col {{nav.classes}}" data-ng-repeat="nav in navObj track by $index" data-post-repeat-nav="">
+			<div class="navMenuContainer introStep_{{$index+1}}">
+				<div data-ng-show="isRequestClicked" data-ng-if="nav.hasRequestNav" class="hoverRing" ng-class="{ 'animated bounceIn' : (isRequestClicked)}"></div>
+				<a data-ng-class="{'navInactive' : !isSelected(nav.id)}" class="btn-large-circle waves-effect waves-light z-depth-2 zIndex2 home-page-bubble-button {{nav.bubbleClass}}" data-ng-click="navCircleClick(nav.id,nav.href,null)" smart-tooltip position="bottom" delay="250" message="{{::nav.tooltipLabel|translate}}">
+					<i class="icon iconMedium">
+						<svg>
+							<use xlink:href="{{nav.icon}}"></use>
+						</svg>
+					</i> <div class="marginTop8" ng-bind="::nav.label"></div>
+				</a>
+				<span data-ng-if="(nav.bubble&&nav.count>0)" data-ng-class="{navInactive : !isSelected(nav)}" class="z-depth-1 small-notification-bubble circle g-animate" ng-click="navCircleClick(nav.id,nav.href,null)" ng-bind="nav.count>99?'99+':nav.count"> </span>
+
+				<div data-ng-if="nav.hasRequestNav" data-ng-show="isRequestClicked">
+					<div ng-show="showBar(bottomObject)">
+						<smart-carousel api-obj="bottomAPIObject" carousel-arr="bottomObject" arrow-click="bottomForwardClick(e)" get-item="smartNavCallback(e)"></smart-carousel>
+					</div>
+					<div ng-show="showBar(topObject)">
+						<smart-carousel api-obj="topAPIObject" carousel-arr="topObject" arrow-click="topBackClick(e)" get-item="smartNavCallback(e)"></smart-carousel>
+					</div>
+					<div ng-show="showBar(leftObject)">
+						<smart-carousel api-obj="leftAPIObject" carousel-arr="leftObject" arrow-click="leftBackClick(e)" get-item="smartNavCallback(e)"></smart-carousel>
+					</div>
+					<div ng-show="showBar(rightObject)">
+						<smart-carousel api-obj="rightAPIObject" carousel-arr="rightObject" arrow-click="rightForwardClick(e)" get-item="smartNavCallback(e)"></smart-carousel>
+					</div>
+				</div>
+
+			</div>
+		</li>
+	</ul>
+	<on-load on-load-callback="onLoadFunc"></on-load>
+	
+</div>

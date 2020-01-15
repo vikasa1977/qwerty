@@ -1,0 +1,201 @@
+<div class="center action-block" ng-if="!isShowLinkendDoc" ng-style="middleAlign">
+    <a href="javascript:void(0);" class="action-block-cont" ng-click="adDocs(doc)" ng-repeat="doc in documents">
+        <span class="action-block-cont-icon">
+            <i class="icon icon--xLarge">
+                <svg><use xlink:href="{{doc.icon}}"></use></svg>
+            </i>
+        </span>
+        <span class="action-block-cont-lbl">Add {{doc.name}}</span>
+    </a>
+</div>
+
+<div class="center action-block" ng-if="isNoevent" ng-style="middleAlign">
+    No event associated with this Project
+</div>
+
+<div class="container" ng-if="isShowLinkendDoc">
+    <div class="row cardsRow">
+        <div class="col s4 cardContainer" ng-class="{'prevent-activity':!rfxFilter}">
+            <div class="clearfix cards-header-linkeddoc">
+                <div class="cards-title-linkeddoc color-one">
+                    <span class="card-header-title">RFX</span>
+                    <div class="doc-count" ng-bind="'999+'">999+</div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col s4 cardContainer" ng-class="{'prevent-activity':!auctionFilter}">
+            <div class="clearfix cards-header-linkeddoc">
+                <div class="cards-title-linkeddoc color-two">
+                    <span class="card-header-title">Auctions</span>
+                    <div class="doc-count" ng-bind="'999+'">999+</div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col s4 cardContainer" ng-class="{'prevent-activity':!contractFilter}">
+            <div class="clearfix cards-header-linkeddoc">
+                <div class="cards-title-linkeddoc color-three">
+                    <span class="card-header-title">Contracts</span>
+                    <div class="doc-count" ng-bind="'999+'">999+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row cardsRow myBox paddingTop0" ng-repeat="linkedDoc in linkedDocData[0].documents | filter:searchfilter">
+      <div class="boxItem col s4 cardContainer" ng-if="linkedDoc.Data.length > 0" ng-repeat="subDoc in linkedDoc.Data" ng-class="{'prevent-activity': (subDoc.DocumentTypeInfo.toUpperCase() == 'RFX' && !rfxFilter) || (subDoc.DocumentTypeInfo.toUpperCase() == 'AUCTION' && !auctionFilter) || (subDoc.DocumentTypeInfo.toUpperCase() == 'CONTRACT' && !contractFilter)}">
+          
+            <div class="prevent-activity-overlay"></div>
+            <span class="beforHiddenNode" ng-show="!subDoc.isCardVisible && !subDoc.isShowHandler"></span>
+            <div class="clearfix card cardContent" ng-class="{'visibility-hidden' :!subDoc.isCardVisible}">
+                <div class="card-icon">
+                    <div class="checkboxWithIconGroup checkboxOnLanding ">
+                        <div class="checkboxWithIcon " ng-class="{'showCheckboxOnly': false }">
+                            <i class="icon iconSmall circle white-text noBorder" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+                                <svg>
+                                    <use xlink:href="{{setValue(subDoc.DocumentStatusInfo)}}"></use>
+                                </svg>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-contents marginLeft55">
+                    <a class="doc-title displayBlock truncate" ng-click="linkedDocCall(subDoc)" href="javascript:void(0);" target="_blank"><span title="{{linkedDoc.Data[$index].DocumentName}}" ng-bind-html="linkedDoc.Data[$index].DocumentName | highlights:searchfilter"></span></a>
+
+                    <div class="summary">
+
+                        <span class="displayBlock truncate" ng-bind-html="linkedDoc.Data[$index].DocumentStatusInfo | highlights:searchfilter"></span>
+                        
+
+                        <div class="row margin0">
+                            <span class="left">
+                                <span ng-bind-html="linkedDoc.Data[$index].DocumentTypeInfo | highlights:searchText"> </span>
+                                <span> Number</span>
+                                <span ng-show="!linkedDoc.Data[$index].DocumentNumber == ''"> :</span>
+                            </span>
+                            <span class="col l6 truncate paddingLeft3" title="{{linkedDoc.Data[$index].DocumentNumber}}" ng-bind-html="linkedDoc.Data[$index].DocumentNumber | highlights: searchText"></span>
+
+                        </div>
+
+                        <div class="row margin0">
+                            <span class="left">
+                                <span>Author</span>
+                                <span ng-show="!linkedDoc.Data[$index].detail.item2.value == ''">:</span>
+                            </span>
+
+                            <span class="col l6 truncate paddingLeft3" title="{{linkedDoc.Data[$index].detail.item2.value}}" ng-bind-html="linkedDoc.Data[$index].detail.item2.value | highlights:searchText"></span>
+                        </div>
+
+                        <div class="row margin0">
+                            <span class="left">
+                                <span>Created On</span>
+                                <span ng-show="!linkedDoc.Data[$index].DateCreated == ''">:</span>
+                            </span>
+
+                            <span class="col l6 truncate paddingLeft3" title="{{linkedDoc.Data[$index].DateCreated}}" ng-bind-html="linkedDoc.Data[$index].DateCreated | highlights:searchText"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="beforNode" ng-if="subDoc.isCardVisible && subDoc.isCardRightHandler && linkedDoc.Data[$index].DocumentTypeInfo != 'contract'">
+                    <div class="add-more-doc" ng-show="linkedDoc.Data[$index].showBubble">
+
+                    </div>
+                    <div class="connectorDots"></div>
+                </div>
+                <div class="afterNode" ng-if="subDoc.isCardVisible && subDoc.isCardLeftHandler && linkedDoc.Data[$index].DocumentTypeInfo != 'rfx'">
+                    <div class="add-more-doc" ng-show="subDoc.showBubble">
+                        <div class="prevent-activity-overlay"></div>
+                        <a class="waves-circle  waves-effect waves-light dropdown-button" ng-click="showCards(subDoc)">
+                            <i class="icon iconSmall plus-icon" ng-show="!subDoc.isExpand">
+                                +
+                            </i>
+                            <i class="icon iconSmall minus-icon" ng-show="subDoc.isExpand">
+                                -
+                            </i>
+                        </a>
+                    </div>
+                    <div class="connectorDots"></div>
+                </div>
+                <div class="View-more-doc" ng-show="subDoc.innerData.length > 0 && !subDoc.isShowCard" ng-click="showCards(subDoc)">
+                    <a href="">
+                        +{{subDoc.innerData.length}}
+                    </a>
+                </div>
+
+            </div>
+
+            <!--Blank DIV for cascading styling start-->
+            <div class="boxItem col s12 padding0 card-{{$index}}" ng-repeat="innerCardData in subDoc.innerData | limitTo:2">
+                <div class="clearfix card cardContent paddingLeft70">
+                </div>
+            </div>
+            <!--Blank DIV for cascading styling end-->
+
+            <div class="boxItem col s12 padding0 added-card" ng-repeat="innerCardData in subDoc.innerData" ng-show="subDoc.isShowCard">
+              
+                <div class="clearfix card cardContent paddingLeft70 beforVNode">
+                    <div class="card-icon">
+                        <div class="checkboxWithIconGroup checkboxOnLanding " ng-click="$event.stopPropagation();">
+                            <div class="checkboxWithIcon " ng-class="{'showCheckboxOnly': false }">
+                                <i class="icon iconSmall circle white-text noBorder" ng-class="{'icon-color-one' : $index % 5 === 0, 'icon-color-two' : $index % 5 === 1, 'icon-color-three' : $index % 5 === 2, 'icon-color-four' : $index % 5 === 3, 'icon-color-five' : $index % 5 === 4}">
+                                    <svg>
+                                        <use xlink:href="{{setValue(innerCardData.DocumentStatusInfo)}}"></use>
+                                    </svg>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-contents">
+                        <a class="doc-title displayBlock truncate" ng-click="linkedDocCall(subDoc)" href="javascript:void(0);" target="_blank"><span title="{{innerCardData.DocumentTypeInfo}}" ng-bind-html="innerCardData.DocumentTypeInfo | highlights:searchfilter"></span></a>
+                        <div class="summary">
+                            <span class="displayBlock truncate" title="{{innerCardData.DocumentStatusInfo}}" ng-bind-html="innerCardData.DocumentStatusInfo | highlights:searchfilter"></span>
+                           <div class="row margin0">
+                                <span class="left">
+                                    <span ng-bind-html="innerCardData.DocumentTypeInfo | highlights:searchText"> </span>
+                                    <span> Number</span>
+                                    <span ng-show="!linkedDoc.Data[$index].DocumentNumber == ''"> :</span>
+                                </span>
+                                <span class="col l6 truncate paddingLeft3" title="{{linkedDoc.Data[$index].DocumentNumber}}" ng-bind-html="innerCardData.DocumentNumber | highlights:searchfilter"></span>
+
+                            </div>
+
+                            <div class="row margin0">
+                                <span class="left">
+                                    <span>Author</span>
+                                    <span ng-show="!innerCardData.detail.item2.value == ''">:</span>
+                                </span>
+
+                                <span class="col l6 truncate paddingLeft3" title="{{linkedDoc.Data[$index].detail.item2.value}}" ng-bind-html="innerCardData.detail.item2.value | highlights:searchfilter"></span>
+                            </div>
+
+                            <div class="row margin0">
+                                <span class="left">
+                                    <span>Created On</span>
+                                    <span ng-show="!innerCardData.DateCreated  == ''">:</span>
+                                </span>
+
+                                <span class="col l6 truncate paddingLeft3" title="{{innerCardData.DateCreated}}" ng-bind-html="innerCardData.DateCreated | highlights:searchfilter"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="afterNode">
+                    <div class="connectorDots"></div>
+                </div>
+
+            </div>
+
+           
+
+            </div>
+
+
+    </div>
+</div>
+<document-route linker="documentObj"></document-route>

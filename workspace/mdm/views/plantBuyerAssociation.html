@@ -1,0 +1,36 @@
+<div class="row marginBtm20 borderTopLight">
+    <div class="clearfix secContentWithBorder fontSize12">
+        <div class="right is-scrolled borderVolvo">
+                <a href="#!">
+                        <i class="add-row icon iconSmall right marginRight20 marginBtm10 dropdown-button blue-text" data-position="bottom" data-delay="50">
+                            <svg>
+                                <use xlink:href="#icon_CirclePlus"></use>
+                            </svg>
+                        </i>
+                </a>
+        </div>
+    </div>
+</div>
+<div ng-controller="plantBuyAssoCtrl">
+    <table class="bordered sTable fixedTbl marginTop10" sticky-header scroll-type="page">
+            <colgroup>
+                <col style="width:33%"/>
+                <col style="width:33%"/>
+                <col style="width:34%"/>
+            </colgroup>
+            <thead>
+                <tr class="is-scrolled">
+                    <th class="left-align">Plant</th>
+                    <th class="left-align">Buyer</th>
+                    <th class="left-align">Default Buyer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="plantbuyer in plantBuyerList">
+                    <td class="left-align">{{plantbuyer.plant}}</td>
+                    <td class="left-align">{{plantbuyer.buyer}}</td>
+                    <td class="left-align">{{plantbuyer.defaultBuyer}}</td>
+                </tr>
+            </tbody>
+    </table>
+</div>

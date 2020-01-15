@@ -1,0 +1,532 @@
+{
+  "supplierData": [
+    {
+      "highlight":  false,
+      "bu": {
+        "selectedOption": {
+          "name": "BU1"
+        },
+        "options": [
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU1"
+        }
+      },
+      "facility": {
+        "selectedOption": {
+          "name": "ALL"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BER"
+          },
+          {
+            "name": "SUN"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "ALL"
+        }
+      },
+      "supplier": {
+        "selectedOption": {
+          "name": "Evertek Inc"
+        },
+        "options": [
+          {
+            "name": "Evertek Inc"
+          },
+          {
+            "name": "General Electrical"
+          },
+          {
+            "name": "Crompton Greaves"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "Evertek Inc"
+        }
+      },
+      "supLocation": {
+        "id": 0,
+        "name": "All"
+      },
+      "supLocationOpt": [
+        {
+          "id": 0,
+          "name": "All"
+        },
+        {
+          "id": 1,
+          "name": "Mumbai"
+        },
+        {
+          "id": 2,
+          "name": "Hyderabad"
+        },
+        {
+          "id": 3,
+          "name": "Pune"
+        },
+        {
+          "id": 4,
+          "name": "Bangalore"
+        }
+      ],
+      "status": {
+        "id": 0,
+        "name": "Preferred"
+      },
+      "statusOpt": [
+        {
+          "id": 0,
+          "name": "Preferred"
+        },
+        {
+          "id": 1,
+          "name": "Contracted"
+        },
+        {
+          "id": 2,
+          "name": "Soul Sourced"
+        }
+      ],
+      "conNum": {
+        "number": "",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "blanketNum": {
+        "number": 8769073451,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "bu": {
+        "selectedOption": {
+          "name": "BU2"
+        },
+        "options": [
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU2"
+        }
+      },
+      "facility": {
+        "selectedOption": {
+          "name": "BER"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BER"
+          },
+          {
+            "name": "SUN"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BER"
+        }
+      },
+      "supplier": {
+        "selectedOption": {
+          "name": "General Electrical"
+        },
+        "options": [
+          {
+            "name": "Evertek Inc"
+          },
+          {
+            "name": "General Electrical"
+          },
+          {
+            "name": "Crompton Greaves"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "General Electrical"
+        }
+      },
+      "supLocation": {
+        "id": 0,
+        "name": "All"
+      },
+      "supLocationOpt": [
+        {
+          "id": 0,
+          "name": "All"
+        },
+        {
+          "id": 1,
+          "name": "Mumbai"
+        },
+        {
+          "id": 2,
+          "name": "Hyderabad"
+        },
+        {
+          "id": 3,
+          "name": "Pune"
+        },
+        {
+          "id": 4,
+          "name": "Bangalore"
+        }
+      ],
+      "status": {
+        "id": 1,
+        "name": "Contracted"
+      },
+      "statusOpt": [
+        {
+          "id": 0,
+          "name": "Preferred"
+        },
+        {
+          "id": 1,
+          "name": "Contracted"
+        },
+        {
+          "id": 2,
+          "name": "Soul Sourced"
+        }
+      ],
+      "conNum": {
+        "number": "67567849-90",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "blanketNum": {
+        "number": "",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "bu": {
+        "selectedOption": {
+          "name": "BU3"
+        },
+        "options": [
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU3"
+        }
+      },
+      "facility": {
+        "selectedOption": {
+          "name": "SUN"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BER"
+          },
+          {
+            "name": "SUN"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "SUN"
+        }
+      },
+      "supplier": {
+        "selectedOption": {
+          "name": "Crompton Greaves"
+        },
+        "options": [
+          {
+            "name": "Evertek Inc"
+          },
+          {
+            "name": "General Electrical"
+          },
+          {
+            "name": "Crompton Greaves"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "Crompton Greaves"
+        }
+      },
+      "supLocation": {
+        "id": 4,
+        "name": "Bangalore"
+      },
+      "supLocationOpt": [
+        {
+          "id": 0,
+          "name": "All"
+        },
+        {
+          "id": 1,
+          "name": "Mumbai"
+        },
+        {
+          "id": 2,
+          "name": "Hyderabad"
+        },
+        {
+          "id": 3,
+          "name": "Pune"
+        },
+        {
+          "id": 4,
+          "name": "Bangalore"
+        }
+      ],
+      "status": {
+        "id": 2,
+        "name": "Soul Sourced"
+      },
+      "statusOpt": [
+        {
+          "id": 0,
+          "name": "Preferred"
+        },
+        {
+          "id": 1,
+          "name": "Contracted"
+        },
+        {
+          "id": 2,
+          "name": "Soul Sourced"
+        }
+      ],
+      "conNum": {
+        "number": "",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "blanketNum": {
+        "number": 9090785423,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "bu": {
+        "selectedOption": {
+          "name": "BU1"
+        },
+        "options": [
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU1"
+        }
+      },
+      "facility": {
+        "selectedOption": {
+          "name": "ALL"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BER"
+          },
+          {
+            "name": "SUN"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "ALL"
+        }
+      },
+      "supplier": {
+        "selectedOption": {
+          "name": "General Electrical"
+        },
+        "options": [
+          {
+            "name": "Evertek Inc"
+          },
+          {
+            "name": "General Electrical"
+          },
+          {
+            "name": "Crompton Greaves"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "General Electrical"
+        }
+      },
+      "supLocation": {
+        "id": 0,
+        "name": "All"
+      },
+      "supLocationOpt": [
+        {
+          "id": 0,
+          "name": "All"
+        },
+        {
+          "id": 1,
+          "name": "Mumbai"
+        },
+        {
+          "id": 2,
+          "name": "Hyderabad"
+        },
+        {
+          "id": 3,
+          "name": "Pune"
+        },
+        {
+          "id": 4,
+          "name": "Bangalore"
+        }
+      ],
+      "status": {
+        "id": 0,
+        "name": "Preferred"
+      },
+      "statusOpt": [
+        {
+          "id": 0,
+          "name": "Preferred"
+        },
+        {
+          "id": 1,
+          "name": "Contracted"
+        },
+        {
+          "id": 2,
+          "name": "Soul Sourced"
+        }
+      ],
+      "conNum": {
+        "number": "78892699-90",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "blanketNum": {
+        "number": "",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    }
+  ]
+}

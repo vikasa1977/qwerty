@@ -1,0 +1,222 @@
+﻿.datetimemodal {
+    width: 595px;
+}
+
+.time-date {
+	width: 100%;
+}
+
+.time-date > .control > .slider {
+	height: 100%;
+}
+
+.time-date > .control > .slider > .date-control .day-cell {
+    width: 34px;
+	height: 36px;
+	padding: 7px 2px 0 0;
+}
+
+.btn-link-now {
+	display: none;
+}
+
+.time-date > .control > .slider > .date-control > .headers {
+    margin-top: -5px;
+    font-weight: 700;
+    font-size: 1rem;
+    padding-left: 20px;
+}
+
+.time-date > .control > .slider > .date-control > .days {
+    font-size: 1rem;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.time-date > .display > .content,
+.time-date.full-mode > .buttons,
+.time-date > .control > .slider > .date-control > .days .day-cell:hover,
+.time-date > .control > .slider > .date-control > .days .day-cell:active,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand:hover,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand:active,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand:hover:before,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand:active:before {
+	background-color: $link;
+}
+
+.time-date > .control > .slider > .date-control > .days .day-cell.today,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand {
+	color: $link;
+}
+
+.time-date .button.active,
+.time-date > .display > .title,
+.time-date > .control > .slider > .date-control > .days .day-cell.selected,
+.time-date > .control > .slider > .time-control > .buttons > button.active,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand.selected,
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand.selected:before {
+	background-color: #0067b0;
+}
+
+.time-date > .control > .slider > .time-control > .buttons > input {
+    margin-bottom: -14px;
+    width: 66px;
+    margin-left: -30px;
+}
+
+.time-date > .display > .content {
+    top: 32px;
+    padding: 30px;
+    font-size: 20px;
+}
+
+.time-date > .display > .title { 
+	color: #fff;
+}
+
+.time-date > .display > .content > .super-title {
+    margin: 31px 0 0;
+}
+
+.time-date > .display > .content > .main-title {
+    font-size: 80px;
+    padding: 0 0 6px;
+	line-height: 79px;
+	color: #fff;
+}
+
+.time-date > .display > .content > .sub-title,
+.time-date > .display > .content > .super-title {
+	color: #fff;
+}
+
+.time-date > .display,
+.time-date > .control,
+.time-date > .control > .slider > .date-control,
+.time-date > .control > .slider > .time-control,
+.time-date > .control > .slider > .switch-control {
+    height: 300px;
+}
+
+.time-date > .buttons {
+	padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.time-date > .control > .slider > .date-control > .title {
+    font-weight: 600;
+    padding-top: 12px;
+}
+
+.time-date .switch-control.button,
+.time-date .switch-control.button:hover {
+    background-color: #f6f6f6;
+}
+
+.time-date > .control > .slider > .time-control > .clock > .clock-face > .hand {
+    height: 40px;
+    width: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    padding: 9px 10px;
+}
+
+.time-date > .control > .slider > .time-control > .clock {
+    padding-top: 30px;
+}
+
+button.btn-flat:focus {
+    box-shadow: none;
+    background-color: transparent;
+    color: $link;
+}
+
+.time-date > .control > .slider > .time-control > .buttons > .btn {
+    width: 50px;
+    height: 50px;
+    padding: 0 10px;
+    box-shadow: none;
+    background-color: transparent;
+    color: $link;
+}
+
+.time-date > .control > .slider > .time-control > .buttons {
+	bottom: 10px;
+}
+
+.button.switch-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	color: #fb4242;
+}
+
+.time-date .button.switch-control:hover {
+	color: #fb4242;
+}
+
+.month-part select {
+	display: block;
+	padding: 0;
+	height: 100%;
+}
+
+.time-date > .control > .slider > .date-control > .title > input {
+    width: 56px;
+}
+
+.icon-timezone { margin: 0 3px 0 0; }
+
+.icon-calendar { margin: 0 0 0 3px; }
+
+.input-field .buttons .btn-flat {
+    padding-left: 20px;
+}
+
+.time-date.time-mode > .control > .slider > .time-control > .clock > .clock-face:before {
+    top: -24px;
+    left: -24px;
+    height: 198px;
+    width: 198px;
+}
+
+.time-date.time-mode > .display > .content {
+    padding: 43px 19px 48px 13px;
+}
+
+$elements: 14;
+@for $i from 1 to $elements {
+  .time-date > .control > .slider > .time-control > .clock > .clock-face > .hand:nth-child(#{$i}):before {
+     left: 20px;
+     top: 20px;
+  }
+}
+.prev i.glyphicon-chevron-left{
+    width: 0px;
+    height: 0px;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #828282;
+    display: block;
+}
+.next i.glyphicon-chevron-right{
+    width: 0px;
+    height: 0px;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-left: 10px solid #828282;
+    margin-left: 10px;
+    display: block;
+}
+
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.ampmselect{
+    font-size: 12px;
+    padding: 1px;
+    height: auto;
+    margin: 0;
+    cursor: default;
+    color: #5e5e5e;
+}

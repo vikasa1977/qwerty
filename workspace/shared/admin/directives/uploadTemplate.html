@@ -1,0 +1,226 @@
+<div>
+    <div ng-if="attachmenttype === 'viewmode'">
+        <div class="clearfix" ng-if="downloadList.length === 1">
+            <i class="icon left grey-text marginRight3" smart-tooltip position="bottom" message="{{'Attachments' | translate}}"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+
+            <span class="attachmentcontainer-dropdown-content-title left small-text grey-text">
+                <span title="{{downloadList[0].fileName}}.{{downloadList[0].extn}}" class="truncate">{{downloadList[0].fileName}}</span>
+            </span>
+
+            <span class="attachment-title attachment-title-extn small-text grey-text">.{{downloadList[0].extn}}</span>
+
+            <a href="javascript:void(0)" class="left paddingLeft10">
+                <i smart-tooltip position="bottom" message="{{'Download' | translate}}" class="icon center blue-text">
+                    <svg><use xlink:href="#icon_Download"></use></svg>
+                </i>
+            </a>
+        </div>
+        <div class="clearfix" ng-if="downloadList.length > 1">
+            <smart-dropdown fixed="true">
+                <i class="icon left grey-text marginRight3" smart-tooltip position="bottom" message="{{'Attachments' | translate}}"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                <a href="javascript:void(0)" class="attachmentcontainer-dropdown-content-title left small-text blue-text dropdown-button" data-activates="commentPsendAttchmnt{{$id}}" data-constrainwidth="false" data-alignment="left">                    
+                    <span title="{{downloadList.length + ' Files'}}" class="truncate">{{downloadList.length + ' Files'}}</span>                    
+                </a>
+                <div id="commentPsendAttchmnt{{$id}}" class="dropdown-content attachment-dropdown-content dd-close-off">
+                    <div class="clearfix">
+                        <div class="attachmentcontainer-header clearfix">
+                            <span class="truncate attachmentcontainer-header-title" title="{{(downloadList.length) + ' '}}Attachments">{{(downloadList.length) + ' '}}Attachments</span>
+                            <a href="javascript:void(0)" class="right paddingLeft10">
+                                <i smart-tooltip position="bottom" message="{{'Download All' | translate}}" class="icon iconSmall center blue-text">
+                                    <svg><use xlink:href="#icon_Download"></use></svg>
+                                </i>
+                            </a>
+
+                        </div>
+                        <div class="attachmentcontainer-content clearfix">
+
+                            <div class="clearfix relative" ng-repeat="downloadItem in downloadList">
+
+                                <span title="{{downloadItem.fileName}}.{{downloadItem.extn}}" class="attachmentcontainer-header-title">
+                                    <span class="truncate attachment-title attachmentcontainer-content-width">{{downloadItem.fileName}}</span>
+                                    <span class="attachment-title">.{{downloadItem.extn}}</span>
+                                </span>
+                                <span class="truncate attachmentcontainer-header-errortext" ng-if="downloadItem.status == 'fail'">{{downloadItem.errorMsg}}</span>
+
+                                <div class="right">
+                                    <a href="javascript:void(0)" class="left">
+                                        <i smart-tooltip position="bottom" message="{{'Download' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </smart-dropdown>
+
+        </div>
+    </div>
+
+    <div ng-if="attachmenttype === 'writemode'">
+        <div class="clearfix" ng-if="downloadList.length === 1">
+            <i class="icon left grey-text marginRight3" smart-tooltip position="bottom" message="{{'Attachments' | translate}}"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+
+            <span class="attachmentcontainer-dropdown-content-title left small-text grey-text">
+                <span ng-if="attachmentStatus(downloadList) != 'loading'" title="{{downloadList[0].fileName}}.{{downloadList[0].extn}}" class="truncate">{{downloadList[0].fileName}}</span>
+                <span ng-if="attachmentStatus(downloadList) === 'loading'" title="{{'Uploading' | translate}}" class="truncate">{{'Uploading' | translate}}</span>
+            </span>
+
+            <span ng-if="attachmentStatus(downloadList) != 'loading'" class="attachment-title attachment-title-extn">.{{downloadList[0].extn}}</span>
+
+            <a ng-if="attachmentStatus(downloadList) === 'success'" href="javascript:void(0)" class="left paddingLeft10">
+                <i smart-tooltip position="bottom" message="{{'Download' | translate}}" class="icon center blue-text">
+                    <svg><use xlink:href="#icon_Download"></use></svg>
+                </i>
+            </a>
+
+            <a ng-if="attachmentStatus(downloadList) === 'success'" href="javascript:void(0)" ng-click="deleteattchmentFn()" class="left paddingLeft10">
+                <i smart-tooltip position="bottom" message="{{'Delete' | translate}}" class="icon center blue-text">
+                    <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                </i>
+            </a>
+            <a ng-if="attachmentStatus(downloadList) === 'fail'" href="javascript:void(0)" class="left attchmenterrorIcon red-text">
+                <i class="icon marginRight0" smart-infotip position="top" message="{{'Error: 1' | translate}}"><svg><use xlink:href="#icon_Warning"></use></svg></i>
+            </a>
+            <a ng-if="attachmentStatus(downloadList) === 'fail'" href="javascript:void(0)" class="left paddingLeft10">
+                <i class="icon marginRight0" smart-tooltip position="bottom" message="{{'Retry' | translate}}"><svg><use xlink:href="#icon_Reset"></use></svg></i>
+            </a>
+
+            <div ng-if="attachmentStatus(downloadList) === 'loading'" class="marginTop3 circle-loading-container attachfileloader left paddingLeft10">
+                <div class="preloader-wrapper x-small active ">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper circle-clipper--x left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper circle-clipper--x right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a ng-if="addBtn === true || addBtn === 'true'" href="javascript:void(0)" ng-click="clickcallback();" class="left paddingLeft10">
+                <i smart-tooltip position="bottom" message="{{'Add More' | translate}}" class="icon center blue-text">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+            </a>
+        </div>
+        <div class="clearfix" ng-if="downloadList.length > 1">
+            <smart-dropdown fixed="true">
+                <i class="icon left grey-text marginRight3" smart-tooltip position="bottom" message="{{'Attachments' | translate}}"><svg><use xlink:href="#icon_Attachment"></use></svg></i>
+                <a href="javascript:void(0)" class="attachmentcontainer-dropdown-content-title left small-text blue-text dropdown-button" data-activates="commentPsendAttchmnt{{$id}}" data-constrainwidth="false" data-alignment="left">
+                    <span ng-if="attachmentStatus(downloadList) != 'loading'" title="{{downloadList.length + ' Files'}}" class="truncate">{{downloadList.length + ' Files'}}</span>
+                        
+                    <span ng-if="attachmentStatus(downloadList) === 'loading'" title="{{'Uploading' | translate}}" class="truncate">{{'Uploading' | translate}}</span>
+                </a>
+                
+                <div id="commentPsendAttchmnt{{$id}}" class="dropdown-content attachment-dropdown-content dd-close-off">
+                    <div class="clearfix">
+                        <div class="attachmentcontainer-header clearfix">
+                            <span class="truncate attachmentcontainer-header-title" title="{{(downloadList.length) + ' '}}Attachments">{{(downloadList.length) + ' '}}Attachments</span>
+
+                            <div class="left" ng-class="{'make-it-disabled ': attachmentStatus() != 'success'}">
+                                <a href="javascript:void(0)" class="left">
+                                    <i smart-tooltip position="bottom" message="{{'Download All' | translate}}" class="icon iconSmall center blue-text">
+                                        <svg><use xlink:href="#icon_Download"></use></svg>
+                                    </i>
+                                </a>
+                                <a href="javascript:void(0)" ng-click="attachmentStatus() === 'success' && deleteattchmentFn();" class="left paddingLeft15">
+                                    <i smart-tooltip position="bottom" message="{{'Delete All' | translate}}" class="icon iconSmall center blue-text">
+                                        <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="attachmentcontainer-content clearfix">
+                            <div class="clearfix relative" ng-repeat="downloadItem in downloadList">
+                                <span title="{{downloadItem.fileName}}.{{downloadItem.extn}}" class="attachmentcontainer-header-title">
+                                    <span class="truncate attachment-title attachmentcontainer-content-width">{{downloadItem.fileName}}</span>
+                                    <span class="attachment-title">.{{downloadItem.extn}}</span>
+                                </span>                            
+
+                                <div class="left" ng-if="downloadItem.status === 'fail'">
+                                    <span class="truncate attachmentcontainer-header-errortext">{{ downloadItem.errorMsg || 'Network Error' | translate}}</span>
+                                    <a href="javascript:void(0)" class="left">
+                                        <i smart-tooltip position="bottom" message="{{'Retry' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_Reset"></use></svg>
+                                        </i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="left paddingLeft15">
+                                        <i smart-tooltip position="bottom" message="{{'Cancel' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+
+                                <div class="left" ng-if="downloadItem.status === 'success'">
+                                    <a href="javascript:void(0)" class="left">
+                                        <i smart-tooltip position="bottom" message="{{'Download' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_Download"></use></svg>
+                                        </i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="left paddingLeft15" ng-click="deleteattchmentFn($index,'single')">
+                                        <i smart-tooltip position="bottom" message="{{'Delete' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+
+                                <div class="left" ng-if="downloadItem.status === 'loading'">
+                                    <div class="marginTop3 circle-loading-container attachfileloader left">
+                                        <div class="preloader-wrapper x-small active ">
+                                            <div class="spinner-layer spinner-blue-only">
+                                                <div class="circle-clipper circle-clipper--x left">
+                                                    <div class="circle"></div>
+                                                </div><div class="gap-patch">
+                                                    <div class="circle"></div>
+                                                </div><div class="circle-clipper circle-clipper--x right">
+                                                    <div class="circle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:void(0)" class="left paddingLeft15">
+                                        <i smart-tooltip position="bottom" message="{{'Cancel' | translate}}" class="icon iconSmall center blue-text">
+                                            <svg><use xlink:href="#icon_Close"></use></svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="attachmentcontainer-footer clearfix">
+                        <smart-button config='{"title":"ADD MORE"}' class="right" flat="true" on-click="clickcallback();"></smart-button>
+                    </div>
+                </div>
+                <a ng-if="attachmentStatus(downloadList) === 'fail'" href="javascript:void(0)" class="left attchmenterrorIcon red-text">
+                    <i class="icon marginRight0" smart-infotip position="top" message="{{'Error: 1' | translate}}"><svg><use xlink:href="#icon_Warning"></use></svg></i>
+                </a>
+                <div ng-if="attachmentStatus(downloadList) === 'loading'" class="marginTop3 circle-loading-container attachfileloader left paddingLeft10">
+                    <div class="preloader-wrapper x-small active ">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper circle-clipper--x left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper circle-clipper--x right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a ng-if="addBtn === true || addBtn === 'true'" href="javascript:void(0)" ng-click="clickcallback();" class="left paddingLeft10">
+                    <i smart-tooltip position="bottom" message="{{'Add More' | translate}}" class="icon center blue-text">
+                        <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                    </i>
+                </a>
+            </smart-dropdown>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿<div class="scrollableModel dropdownPop removePopBorder">
+	<div class="modal-header paddingLeft22">
+		<i class="left icon iconSmall red-text">
+			<svg>
+				<use xlink:href="#icon_Lookup"></use>
+			</svg>
+		</i>
+		<span class="title">DROPDOWN OPTIONS</span>
+	</div>
+	<div class="modal-content padding10 paddingBtm40 ratePop">
+		<smart-scroll height="450px" class="clearfix clear">
+            <div class="row marginBottom0 paddingTop10">
+                <div class="col s1">
+                     <smart-checkbox checked='false' fill='true' disable='false' class="right paddingTop13" ng-model="chk1" input-field="false"></smart-checkbox>
+                </div>
+                 <div class="col s7">
+                    <smart-textfield type="text" class="col s12 marginBtm17" label="Option1" ng-model="option1"></smart-textfield>
+                </div>
+                 <div class="col s2">
+                      <smart-textfield type="text" class="col s12 marginBtm20" label="Score" ng-model="score1"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingTop12">
+                     <a href="javascript:void(0)" class="left s12 marginLeft10" smart-tooltip position="bottom" delay="50" message="Close">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_Close"></use></svg>
+						</i>
+					</a>
+                </div>
+            </div>
+            <div class="row marginBottom0">
+                <div class="col s1">
+                     <smart-checkbox checked='false' fill='true' disable='false' class="right paddingTop13" ng-model="chk2" input-field="false"></smart-checkbox>
+                </div>
+                 <div class="col s7">
+                    <smart-textfield type="text" class="col s12 marginBtm20" label="Option2" ng-model="option2"></smart-textfield>
+                </div>
+                 <div class="col s2">
+                      <smart-textfield type="text" class="col s12 marginBtm20" label="Score" ng-model="score2"></smart-textfield>
+                </div>
+                 <div class="col s2 paddingTop12">
+                      <a href="javascript:void(0)" class="right s12" smart-tooltip position="bottom" delay="50" message="Add">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+						</i>
+					</a>
+                     <a href="javascript:void(0)" class="right s12" smart-tooltip position="bottom" delay="50" message="Close">
+						<i class="icon small right blue-text marginRight0 smallest" delay="50" position="bottom">
+							<svg><use xlink:href="#icon_Close"></use></svg>
+						</i>
+					</a>
+                </div>
+            </div>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+            <div class="col l5 s6 paddingLeft4"><a href="javascript:void(0)" class="waves-effect btn-flat">RESET</a></div>
+			<div class="col l7 s6 right-align">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"APPLY"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,174 @@
+{
+	"data": [{
+			"field": "lineNumber",
+			"width": 110,
+			"displayName": "Line Number",
+
+			"isVisible": true,
+			"isReadOnly": true,
+			"autoIncrement": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "buyerItemNumber",
+			"width": 112,
+			"displayName": "Item Number",
+
+			"isVisible": true,
+			"isReadOnly": true,
+			"autoIncrement": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "description",
+			"width": 200,
+			"displayName": "Description",
+
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "splitNumber",
+			"width": 110,
+			"displayName": "Split Number",
+
+			"isRegFocusCol": true,
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"attributes": {
+				"type": "splitNumber",
+				"defaultTitle": "SPLITS"
+			},
+			"type": "popup"
+		},
+
+		{
+			"field": "quantity",
+			"width": 150,
+			"displayName": "Quantity",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "uom.name",
+			"width": 150,
+			"displayName": "UOM",
+			"isVisible": false,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "splitTaxes",
+			"width": 230,
+			"displayName": "Split Taxes & Charges (USD)",
+			"isVisible": false,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "taxes",
+			"width": 100,
+			"displayName": "Taxes",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "splitValues",
+			"width": 150,
+			"displayName": "Split Value (USD)",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "splittotal",
+			"width": 150,
+			"displayName": "Split Total (USD)",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable",
+			"attributes": {
+				"type": "number"
+			}
+		}, {
+			"field": "requester.name",
+			"width": 150,
+			"displayName": "Requester",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "corporation.name",
+			"width": 150,
+			"displayName": "Corporation",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "bu.name",
+			"width": 150,
+			"displayName": "Cost Center",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "account.name",
+			"width": 150,
+			"displayName": "Account Number",
+			"isVisible": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}, {
+			"field": "project.name",
+			"width": 170,
+			"displayName": "Project Number",
+			"isVisible": true,
+			"autoIncrement": true,
+			"isReadOnly": true,
+			"filterObject": {
+				"enableFiltering": true
+			},
+			"type": "editable"
+		}
+	]
+}

@@ -1,0 +1,82 @@
+<table class="bordered" sticky-header scroll-type="page">
+    <thead>
+        <tr>
+            <th>{{'Document Type' || translate}}</th>
+            <th>{{'Document No.' || translate}}</th>
+            <th>{{'Status' || translate}}</th>
+            <th>{{'Supplier' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber == 'All'" class="right-align paddingRight5">{{'Document Value' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber == 'All'" class="right-align paddingRight5">{{'Document Total' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber != 'All'">{{'Line Description' || translate}}</th>
+            <th class="right-align paddingRight5">{{'Submission Date' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber != 'All'" class="right-align paddingRight5">{{'Quantity/UOM' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber != 'All'" class="right-align paddingRight5">{{'Price/Current' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber != 'All'" class="right-align paddingRight5">{{'Line Value' || translate}}</th>
+            <th ng-show="selectedLineOption.lineNumber != 'All'" class="right-align paddingRight20">{{'Line Total' || translate}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in transHistory[0].historyData">
+            <td>
+                <div>
+                    {{item.docType}}
+                </div>
+            </td>
+            <td>
+                <div class="truncate maxWidth200" title="{{item.docNo}}">
+                    <a href="javascript:void(0)" ui-sref="{{item.sref}}">{{item.docNo}}</a>
+                </div>
+            </td>
+            <td>
+                <div class="truncate maxWidth200" title="{{item.status}}">
+                    {{item.status}}
+                </div>
+            </td>
+            <td>
+                <div title="{{item.supplier}}">
+                    {{item.supplier}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber == 'All'">
+                <div class="right-align" title="{{item.docValue}}">
+                    {{item.docValue}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber == 'All'">
+                <div class="right-align" title="{{item.docTotal}}">
+                    {{item.docTotal}}
+                </div>
+            </td>
+            <td class="truncate maxWidth200" ng-show="selectedLineOption.lineNumber != 'All'">
+                <div title="{{item.lineDesc}}">
+                    {{item.lineDesc}}
+                </div>
+            </td>
+            <td>
+                <div class="right-align" title="{{item.subDate}}">
+                    {{item.subDate}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber != 'All'">
+                <div class="right-align" title="{{item.quantity}} {{item.uom}}">
+                    {{item.quantity}} {{item.uom}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber != 'All'">
+                <div class="right-align" title="{{item.price}} {{item.currency}}">
+                    {{item.price}} {{item.currency}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber != 'All'">
+                <div class="right-align" title="{{item.lineValue}}">
+                    {{item.quantity}}
+                </div>
+            </td>
+            <td ng-show="selectedLineOption.lineNumber != 'All'">
+                <div class="right-align" title="{{item.lineTotal}}">
+                    {{item.lineTotal}}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

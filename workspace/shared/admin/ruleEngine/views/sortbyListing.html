@@ -1,0 +1,14 @@
+<div item="{{item}}" class="clearfix ">
+ <input class="with-gap" type="radio" ng-model="isSortBy.name" name="selectSortBy" ng-value="item.name" id="getsortBy-{{ $index }}" ng-click="itemClicked($index)">
+        <label for="getsortBy-{{ $index }}" class="grey-text text-darken-4 truncate width88P" >{{ item.name}}</label>
+    <div class="secondary-content">
+        <a href="javascript:void(0)" ng-click="ascDescToggler($index)">
+            <i class="icon iconSmall grey-text" ng-class=" { 's-dd-icon-wth-color': $index == selectedIndex }" smart-tooltip position="bottom" delay="50" message="{{ tooltip | translate }}">                
+           
+                <svg>
+                    <use xlink:href="{{ setSortAsicon(item.sortas) }}"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+</div>

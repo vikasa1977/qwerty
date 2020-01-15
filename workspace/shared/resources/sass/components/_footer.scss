@@ -1,0 +1,22 @@
+﻿.footerLogo {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	background: url(../images/logo.png) no-repeat;
+	width: 144px;
+	height: 25px;
+	opacity: 0.8;
+}
+
+.footerLogoImg {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	height: 40px;
+}
+/* FOOTER BUTTONS */
+.footerSpace{padding:15px;}
+.footerSpace .footerBtn.right{margin-right:15px;}
+/*.footerSpace .footerBtn.right .btn-flat:first-child{padding-right:0;}*/
+.footerSpace .footerBtn.left{margin-left:15px;}
+/*.footerSpace .footerBtn.left .btn-flat:first-child{padding-left:0;}*/

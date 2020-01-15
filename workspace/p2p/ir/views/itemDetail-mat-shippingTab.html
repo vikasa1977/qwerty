@@ -1,0 +1,151 @@
+<div id="tabShipping">
+	<div class="col s12 padding10 borderBtmGray">
+		<div class="left paddingLeft10">
+			<smart-checkbox class="input-chk" fill="true" label="All"></smart-checkbox>
+		</div>
+		<div class="right">
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left dropdown-button blue-text" data-activates="MatShipTBulke" data-constrainwidth="false" data-alignment="right" smart-tooltip position="bottom" delay="50" message="Edit Multiple Lines">
+					<svg>
+						<use xlink:href="#icon_BulkEdit"></use>
+					</svg>
+				</i>
+				<ul id="MatShipTBulke" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup" style="width: 400px;">
+					<li><span class="left-align fontSize16">EDIT MULTIPLE LINES</span> </li>
+					<li>
+						<smart-textfield class="col s6 marginBtm15" label="Ship To"></smart-textfield>
+					</li>
+					<li>
+						<smart-textfield class="col s6 marginBtm15" label="Deliver To"></smart-textfield>
+					</li>
+					<li>
+						<smart-button config='{"title":"DONE","flat":true}' flat="true" class="right"></smart-button>
+					</li>
+				</ul>
+			</smart-dropdown>
+
+			<i class="icon iconSmall left dropdown-button blue-text" smart-tooltip position="bottom" delay="50" message="Bulk Add">
+				<svg><use xlink:href="#icon_BulkAdd"></use></svg>
+			</i>
+
+			<smart-dropdown config="{{dropDownConfig}}">
+				<i class="icon iconSmall left blue-text dropdown-button" smart-tooltip position="bottom" delay="50" message="Filter" data-activates="MatShipTFilter" data-constrainwidth="false" data-alignment="right">
+					<svg><use xlink:href="#icon_Filter"></use></svg>
+				</i>
+				<ul id="MatShipTFilter" class="dropdown-content lookup-bulk-order-edit dd-close-off lookup-popup dropdown-content-large">
+					<li><span class="left-align fontSize16">SHOW / HIDE OPTIONAL FIELDS</span> </li>
+					<li class="marginTop20"><span class="left-align fontSize16">ITEM DETAILS</span> </li>
+					<li class="row">                                      
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Supplier Item Number"></smart-checkbox>                                                            
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Quantity"></smart-checkbox>  
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="UOM"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Taxes (USD)"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Tax Exempt"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Freight"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Lorem"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Ipsum"></smart-checkbox> 
+						<smart-checkbox class="col s12 m6 l4" fill="true" label="Dolor sit amet"></smart-checkbox> 
+					</li>
+					<li>
+						<smart-button config='{"title":"APPLY","flat":true}' flat="true" class="right"></smart-button>
+					</li>
+				</ul>
+			</smart-dropdown>
+		</div>
+	</div>
+	<div class="col s12 paddingLeft0 paddingRight0 paddingBottom20 requItemContainer">
+		<div class="row marginBtm0 requItemWrap">
+			<div class="col s6 m5 l4 xl3 xxl2 requItemContainerLeft">
+				<div class="col s12">
+					<smart-checkbox fill="true" label="1" class="input-chk left"></smart-checkbox>
+					<span class="right">
+						<a href="javascript:void(0)" class="modal-trigger add-row icon iconSmall right dropdown-button" smart-tooltip position="bottom" delay="50" message="Copy Line Details">
+							<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BulkApply"></use></svg>
+						</a>
+						<a href="javascript:void(0)" class="add-row icon iconSmall right dropdown-button marginRight20" smart-tooltip position="bottom" delay="50" message="Duplicate Line">
+							<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Copy"></use></svg>
+						</a>
+					</span>
+				</div>
+                      <div class="col s12 marginTop10 marginBtm15">
+                    <span class="title">{{materials.lineValue.itemName}}</span>
+                    </div>
+                    <smart-textfield class="col s12 " ng-model="materials.lineValue.itemNum" label="Item Number"></smart-textfield>
+                    <smart-textfield class="col s8" ng-model="materials.lineValue.unitPrice" readonly label="Unit Price (USD)"></smart-textfield>
+                    <smart-textfield class="col s4" ng-model="materials.lineValue.quantity" readonly label="Quantity"></smart-textfield>
+                    <div class="input-field col s12">
+                        <smart-dropdown config="{{dropDownConfig}}">
+                            <a href="javascript:void(0)" class="dropdown-button" data-activates="addSplitt_{{$index}}" data-constrainwidth="false" data-alignment="right">
+                                <i class="icon iconSmall blue-text">
+                                    <svg><use xlink:href="#icon_Split"></use></svg>
+                                </i>
+                                <span>Split</span>
+                            </a>
+                            <ul id="addSplitt_{{$index}}" class="dropdown-content lookup-bulk-order lookup-popup dd-close-off" ng-init="splitByOpts=[{'title':'Quantity', 'key':'quantity', 'selected':true}, {'title':'Percentage', 'key':'percentage'}]; splitByOptsModel={'title':'Quantity', 'key':'quantity'}">
+                                <li><span class="fontSize16">Split</span></li>
+                                <li>
+                                    <smart-radio gap="true" ng-model="splitByOptsModel" options="splitByOpts"></smart-radio>
+                                </li>
+                                <li class="marginTop20" style="border-top: 1px solid #e7e7e7;">
+                                    <div class="row marginTop10">
+                                        <div class="col s3">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <smart-textfield class="col s6" label="Number of Splits"></smart-textfield>
+                                        <div class="col s3">
+                                            <a href="javascript:void(0)">
+                                                <i class="icon iconSmall blue-text">
+                                                    <svg><use xlink:href="#icon_CircleMinus"></use></svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <smart-button config='{"title":"DONE"}' class="right"></smart-button>
+                                    <smart-button config='{"title":"CANCEL","flat":true}' flat="true" class="right"></smart-button>
+                                </li>
+                            </ul>
+                        </smart-dropdown>
+                    </div>
+                </div>
+			<div class="col s6 m7 l8 xl9 xxl10 padding0">
+				<div class="col s12 right relative padding10 borderBtmGraye7">
+					<div class="right">Line Value: 
+						<smart-dropdown config="{{dropDownConfig}}">
+							<a href="javascript:void(0)" class="dropdown-button" data-activates="dropdownShipUSD_{{$index}}" data-constrainwidth="false" data-alignment="right">USD 1000</a>
+							<ul id="dropdownShipUSD_{{$index}}" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+								</li>
+								<li>
+									<div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+								</li>
+							</ul>
+						</smart-dropdown>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<smart-textfield class="col s12 m4 l4 xl3 xxl2" ng-model="materials.shipping.shipTo" label="Ship to" readonly="true"></smart-textfield>
+						<smart-textfield class="col s12 m8 l8 xl9 xxl10" ng-model="materials.shipping.shipToAdd" label="Ship to Address" readonly="true"></smart-textfield>
+					</div>
+					<div class="col s12">
+						<smart-textfield class="col s12 m4 l4 xl3 xxl2" ng-model="materials.shipping.delivarTo" label="Deliver to" readonly="true"></smart-textfield>
+						<smart-textfield class="col s12 m8 l8 xl9 xxl10" ng-model="materials.shipping.delivarAddress" label="Deliver to Address" readonly="true"></smart-textfield>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

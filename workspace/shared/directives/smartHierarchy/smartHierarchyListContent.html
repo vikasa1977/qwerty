@@ -1,0 +1,92 @@
+<div>
+    <!-- container -->
+    <div class="tree-view-str-item singleSelectTree waves-effect">
+
+        <!-- expand buttons -->
+        <a href="javascript:void(0)" style="cursor: pointer;" class="icon iconSmall left tree-view-str-collapsible-trigger" ng-if="category.ChildCount != 0 && searchFieldVal.length<=2" ng-click="expandNode(category,$index)">
+            <svg ng-if="category.isExpanded">
+                <use xlink:href="#icon_DropArrow"></use>
+            </svg>
+            <svg ng-if="!category.isExpanded" style="transform: rotate(-90deg);">
+                <use xlink:href="#icon_DropArrow"></use>
+            </svg>
+        </a>
+
+
+        
+        <!-- !expand buttons -->
+        <!-- check boxes isDisabled -->
+
+        <!-- if not checkbox not readonly and not disabled and if !enableLastLevelSelection and enableLastLevelSelection included --> 
+
+        <div ng-if="!isSingleSelect && !isReadOnly && !isDisabled" class="tree_view_content">
+            <div ng-class="{'filled-partial':category.selection=='2'}">
+                
+                <input class="filled-in" ng-checked="category.selection=='1'" ng-click="selectNode(category,(category.selection=='1')?'0':'1')" type="checkbox" id="radio_{{category[codeProperty]}}" ng-disabled="treeConfig.disableLevelSelection && treeConfig.disableLevelSelection.indexOf(category[levelProperty]) != -1 || category.disabled" ng-if="!enableLastLevelSelection" />
+
+                <input class="filled-in" ng-checked="category.selection=='1'" ng-click="selectNode(category,(category.selection=='1')?'0':'1')" type="checkbox" id="radio_{{category[codeProperty]}}" ng-disabled="treeConfig.disableLevelSelection && treeConfig.disableLevelSelection.indexOf(category[levelProperty]) != -1 || category.disabled" ng-if="enableLastLevelSelection && category.ChildCount == 0" />
+
+               <label for="radio_{{category[codeProperty]}}" ng-style="{'background':category.bgColor,'color':'black', 'width' : 'calc(100% - 50px)'}" style=" white-space nowrap; overflow hidden;text-overflow ellipsis; width
+                calc(100% - 39px) ;">{{category[titleProperty]}}</label> 
+            </div>
+        </div>
+
+
+        <!-- check boxes isDisabled -->
+
+<!-- 
+         if not checkbox not readonly and  disabled and if !enableLastLevelSelection and enableLastLevelSelection included  -->
+
+
+        <div ng-if="!isSingleSelect && !isReadOnly && isDisabled" class="tree_view_content">
+
+            <div ng-class="{'filled-partial':category.selection=='2'}">
+                
+                <input class="filled-in" ng-checked="category.selection=='1'" ng-click="selectNode(category,(category.selection=='1')?'0':'1')" type="checkbox" id="radio_{{category[codeProperty]}}" ng-disabled="treeConfig.disableLevelSelection && treeConfig.disableLevelSelection.indexOf(category[levelProperty]) != -1 || category.disabled || isDisabled" ng-if="!enableLastLevelSelection" />
+
+                <input class="filled-in" ng-checked="category.selection=='1'" ng-click="selectNode(category,(category.selection=='1')?'0':'1')" type="checkbox" id="radio_{{category[codeProperty]}}" ng-disabled="treeConfig.disableLevelSelection && treeConfig.disableLevelSelection.indexOf(category[levelProperty]) != -1 || category.disabled || isDisabled" ng-if="enableLastLevelSelection && category.ChildCount == 0" />
+
+                 <label for="radio_{{category[codeProperty]}}" ng-style="{'background':category.bgColor,'color':'black', 'width' : 'calc(100% - 50px)'}" style=" white-space nowrap; overflow hidden;text-overflow ellipsis; width
+                calc(100% - 39px) ;">{{category[titleProperty]}}</label> 
+
+            </div>
+        </div>
+<!-- 
+        No checkBoxed only readonly -->
+
+        <div ng-if="!isSingleSelect && isReadOnly && !isDisabled" class="tree_view_content">
+            <div ng-class="{'filled-partial':category.selection=='2'}">
+                <input class="filled-in" ng-checked="category.selection=='1'" ng-click="selectNode(category,(category.selection=='1')?'0':'1')" type="checkbox" id="radio_{{category[codeProperty]}}"  ng-if="!isReadOnly" />
+                 <label for="radio_{{category[codeProperty]}}" ng-style="{'background':category.bgColor,'color':'black', 'width' : 'calc(100% - 50px)'}" style=" white-space nowrap; overflow hidden;text-overflow ellipsis; width
+                calc(100% - 39px) ;">{{category[titleProperty]}}</label> 
+
+            </div>
+        </div>
+
+
+        <!-- !check boxes -->
+        <!-- radio buttons -->
+        <div ng-if="isSingleSelect" class="tree_view_content">
+            <input class="with-gap" ng-checked="category.selection=='1'" ng-click="selectNode(category,'1')" type="radio" id="radio_{{category[codeProperty]}}" />
+             <label for="radio_{{category[codeProperty]}}" ng-style="{'background':category.bgColor, 'color':'black', 'width' : 'calc(100% - 50px)'}" style=" white-space nowrap; overflow hidden;text-overflow ellipsis; width
+            calc(100% - 39px) ;">{{category[titleProperty]}}</label>
+        </div>
+        <!-- !radio buttons -->
+        <!-- parent hierarchy label -->
+        
+
+        <div class="col s12" id="span_{{category[codeProperty]}}" ng-style="{'margin-left': '34px','color':'gray','font-size':'12px'}" ng-if="searchFieldVal.length>2 && category.parentString.length>0" ng-highlight="searchFieldVal">{{category.parentString}}
+        </div> 
+
+        <!-- !parent hierarchy label -->
+    </div>
+
+    <!-- !container -->
+    <!-- Repetative nesting of ul's & li's to form a tree structure -->
+    <ul style="list-style: none;" ng-if="category.children.length>0 && category.isExpanded && searchFieldVal.length<=2">
+        <li id="{{category[codeProperty]}}" ng-repeat="category in category.children" ng-include="'shared/directives/smartHierarchy/smartHierarchyListContent.html'"></li>
+    </ul>
+    <!-- !Repetative nesting of ul's & li's to form a tree structure -->
+
+
+</div>

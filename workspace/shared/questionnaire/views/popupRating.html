@@ -1,0 +1,77 @@
+﻿<!--<script type="text/javascript" src="shared/libraries/evol-colorpicker.min.js"></script>-->
+<div class="scrollableModel">
+	<div class="modal-header">
+		<i class="left icon grey-text iconSmall">
+			<svg>
+				<use xlink:href="#icon_Rating"></use>
+			</svg>
+		</i>
+		<span class="title">ADD RATING</span>
+        <!--<div class="right">
+            <a href="javascript:void(0)" class="left" ng-click="resetRatingData();$event.stopPropagation();" smart-tooltip position="bottom" delay="50" message="Reset">
+			    <i class="icon iconSmall center blue-text">
+				    <svg><use xlink:href="#icon_Reset"></use></svg>
+			    </i>
+		    </a>
+       </div>-->
+	</div>
+	<div class="modal-content padding0 paddingTop10 ratePop">
+		<smart-scroll height="320px" class="clearfix clear"> 
+			<div class="scroll-inner-container">
+				<div class="row paddingTop10" ng-repeat="ratingPopupDataItem in ratingPopupData.value">
+		<div class="col s3 paddingLeft13">
+			<smart-textfield type="text" readonly="{{enableSupplierActions}}" class="col s12 m6 line-height-manager marginBtm0" label="From" on-key-up="validateNum(ratingPopupDataItem, 'from')" on-blur="validateNumBlur(ratingPopupDataItem, 'from')" ng-model="ratingPopupDataItem.from"></smart-textfield>
+			<smart-textfield type="text" readonly="{{enableSupplierActions}}" class="col s12 m6 line-height-manager marginBtm0" label="To" on-key-up="validateNum(ratingPopupDataItem, 'to')" on-blur="validateNumBlur(ratingPopupDataItem, 'to')" ng-model="ratingPopupDataItem.to"></smart-textfield>
+		</div>
+		<div class="col s2 selectBox">
+			<div class="rateColor col s12 marginTop5">
+				<a href="javascript:void(0);"  class="right colorPickerArrow marginRight0" ng-click="triggerColorPicker($event)"></a>
+				<div class="colorPickerWrap" style="background-color: {{ratingPopupDataItem.color}}">
+					<input type="text" ng-model="ratingPopupDataItem.color" class="colorPicker" />
+					<div class="evo-colorind ng-hide"></div>
+				</div>
+            </div>
+		</div>
+		<div class="col s7">
+			<smart-textfield type="text" readonly="{{enableSupplierActions}}" class="col s10 m8 l9 line-height-manager marginBtm0" label="Description" charactercounter="true" maxlength="300" ng-model="ratingPopupDataItem.description"></smart-textfield>
+			<div class="col right ratingPopupIconField" ng-hide="enableSupplierActions">
+				<a href="javascript:void(0)" class="left" ng-class="{'disabled': ratingPopupData.value.length === 1}" ng-click="DeleteRatingData($index)" smart-tooltip position="bottom" delay="50" message="Delete">
+					<i class="icon small right blue-text marginLeft0 marginRight10 smallest" delay="50" position="bottom">
+						<svg><use xlink:href="#icon_TrashCan"></use></svg>
+					</i>
+				</a>
+				<a href="javascript:void(0)" class="right" ng-click="addRatingData();$event.stopPropagation();" ng-if="ratingPopupData.value.length === ($index + 1)" smart-tooltip position="bottom" delay="50" message="Add">
+					<i class="icon iconSmall center blue-text">
+						<svg><use xlink:href="#icon_CirclePlus"></use></svg>
+					</i>
+				</a>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+			</div>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+            <div class="col l5 s6 paddingLeft5 left">
+                <smart-button flat="true" class="left modal-close" config='{"title":"RESET"}' ng-click="resetRatingData();$event.stopPropagation();"></smart-button>
+			<!--<a href="javascript:void(0)" class="waves-effect btn-flat modal-close" >Apply To All Questions</a>-->
+                <div ng-if="kpiRating">
+				<smart-button flat="true" class="left modal-close" config='{"title":"Apply To All Questions"}' ng-click="ratingApplyAll(ratingPopupData)"></smart-button>
+			   </div>
+         </div>
+			<div class="col l7 s6 right paddingRight5">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"APPLY"}' ng-click="ratingApply(parentIndex,childIndex,ratingPopupData)"></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

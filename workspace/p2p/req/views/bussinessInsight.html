@@ -1,0 +1,245 @@
+﻿<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title col s12 m6 l8 xl9 xxl10">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_BusinessIns"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak  width70P truncate">{{'Business Insight'}}</span>
+        </div>
+      
+
+    </div>
+</div>
+<div class="clearfix alert-bar--fixed" ng-class="{'alert-bar--fixed-to-nav':fixedSubHeader}">
+    <div class="alert-bar alert-bar-rfx white alert-bar--with-button enter-from-top show-dv-msg">
+        <div class="left">
+            <i class="icon iconSmall left marginRight0 red-txt">
+                <svg>
+                    <use xlink:href="#icon_Info"></use>
+                </svg>
+            </i>
+            FTL price tracking index is predicting spike in prices due to increased consumer confidence and rising deisel prices.
+            Saving opportunity of upto $10M
+        </div>
+    </div>
+</div>
+
+<!-- sub header end-->
+<!-- body -- form widget -->
+<div class="row paddingBtm40 shades white" style="min-height: 800px;">
+    <div class="section1" ng-init="isPredictionVisible=false"> 
+        <div style="position:absolute;top:120px;left:73px;width: 0;overflow:hidden;transition:5s all linear" ng-class="{'actualGraphAnimation':isActualVisible}">
+            <img src="shared/resources/images/FTLPriceGraph.png" border="0" >
+        </div>
+        <div style="position: absolute;top: 114px;left: 48px;width:0;overflow:hidden;transition:8s all linear" ng-class="{'predictionGraphAnimation':isPredictionVisible}">
+            <img src="shared/resources/images/Tracking Index Graph.png" border="0" >  
+        </div>       
+        <img src="shared/resources/images/businessInsightFull.png" border="0" usemap="#Map" />
+        <map name="Map" id="Map">
+            <area shape="poly" coords="618,140,617,140,619,162,859,163,857,142" href="javascript:void(0)" ui-sref="p2p.req.reqDemo" alt="Sun" class="viewClick" />
+            <area shape="poly" coords="335,133,337,154,468,155,469,136" href="javascript:void(0)" ng-click="emailNotifyCallback()" alt="Sun" class="viewClick" />
+            <area shape="poly" coords="339,175,340,198,465,199,464,177" href="javascript:void(0)" ng-click="emailNotifyCallback()" alt="Sun" class="viewClick" />
+            <area shape="poly" coords="270,200,274,221,469,224,469,205" href="javascript:void(0)"  alt="Sun" class="viewClick" />
+            <area shape="poly" coords="792,504,794,542,935,542,932,503" href="javascript:void(0)" alt="Sun" class="viewClick" ng-click="isPredictionVisible = true"/>
+
+        </map>
+        <table class="bordered">
+            <tr>
+                <th class="right-align ">Observation Date</th>
+                <th class="right-align ">FTL Price</th>
+                <th class="right-align ">Tracking index</th>
+                <th class="right-align ">Consumer Confidence Index</th>
+                <th class="right-align ">Diesel Prices</th>
+            </tr>
+
+            <tr class="red-o"><td class="right-align">   2016-09-01</td><td class="right-align">	127.4 </td><td class="right-align">	124.639	   </td><td class="right-align">99.041	  </td><td class="right-align">4.12  </td></tr>
+            <tr class="red-o"><td class="right-align">   2016-10-01</td><td class="right-align">	127.2</td><td class="right-align">	123.3809	</td><td class="right-align">99.26932</td><td class="right-align">4.094     </td></tr>
+            <tr class="red-o"><td class="right-align">   2016-11-01</td><td class="right-align">	126.9</td><td class="right-align">	124.5377	</td><td class="right-align">99.18236</td><td class="right-align">4         </td></tr>
+            <tr class="red-o"><td class="right-align">   2016-12-01</td><td class="right-align">	127	  </td><td class="right-align">  125.4489	</td><td class="right-align">98.8462	</td><td class="right-align">3.961  </td></tr>
+            <tr class="red-o"><td class="right-align">   2017-01-01</td><td class="right-align">	126.7</td><td class="right-align">	127.0761	</td><td class="right-align">98.71695</td><td class="right-align">3.909     </td></tr>
+            <tr class="red-o"><td class="right-align">   2017-02-01</td><td class="right-align">	127.2</td><td class="right-align">	128.7568	</td><td class="right-align">98.82062</td><td class="right-align">4.111     </td></tr>
+            <tr class="red-o"><td class="right-align">   2017-03-01</td><td class="right-align">	127	  </td><td class="right-align">  128.4013	</td><td class="right-align">98.98855</td><td class="right-align">4.068     </td></tr>
+            <tr class="red-o"><td class="right-align">   2017-04-01</td><td class="right-align">	127	  </td><td class="right-align">  128.2194	</td><td class="right-align">99.2021	</td><td class="right-align">3.93   </td></tr>
+
+            <tr><td class="right-align red-o">   2017-05-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  129.5425	</td><td class="right-align red-o">99.54273</td><td class="right-align yellow-o">3.87      </td></tr>
+            <tr><td class="right-align red-o">   2017-06-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  129.7451	</td><td class="right-align red-o">99.71883</td><td class="right-align yellow-o">3.849     </td></tr>
+            <tr><td class="right-align red-o">   2017-07-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  129.7968	</td><td class="right-align red-o">99.68089</td><td class="right-align yellow-o">3.866     </td></tr>
+            <tr><td class="right-align red-o">   2017-08-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  130.2349	</td><td class="right-align red-o">99.39809</td><td class="right-align yellow-o">3.905     </td></tr>
+            <tr><td class="right-align red-o">   2017-09-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  131.1089	</td><td class="right-align red-o">99.01437</td><td class="right-align yellow-o">3.961     </td></tr>
+            <tr><td class="right-align red-o">   2017-10-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  130.986	</td><td class="right-align red-o">98.77714</td><td class="right-align yellow-o">3.885     </td></tr>
+            <tr><td class="right-align red-o">   2017-11-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  132.7278	</td><td class="right-align red-o">98.87832</td><td class="right-align yellow-o">3.839     </td></tr>
+            <tr><td class="right-align red-o">   2017-12-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  131.7835	</td><td class="right-align red-o">99.18416</td><td class="right-align yellow-o">3.882     </td></tr>
+            <tr><td class="right-align red-o">   2018-01-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  129.9021	</td><td class="right-align yellow-o">99.35825</td><td class="right-align yellow-o">3.893     </td></tr>
+            <tr><td class="right-align red-o">   2018-02-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  132.162	</td><td class="right-align yellow-o"> 99.42884</td><td class="right-align yellow-o">3.984    </td></tr>
+            <tr><td class="right-align red-o">   2018-03-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  132.8674	</td><td class="right-align yellow-o">99.46133</td><td class="right-align red-o">4.001     </td></tr>
+            <tr><td class="right-align red-o">   2018-04-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  133.1075	</td><td class="right-align yellow-o">99.53487</td><td class="right-align red-o">3.964     </td></tr>
+            <tr><td class="right-align red-o">   2018-05-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  133.4064	</td><td class="right-align yellow-o">99.52116</td><td class="right-align red-o">3.943     </td></tr>
+            <tr><td class="right-align red-o">   2018-06-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  132.9312	</td><td class="right-align yellow-o">99.49455</td><td class="right-align red-o">3.906     </td></tr>
+            <tr><td class="right-align red-o">   2018-07-01</td><td class="right-align red-o">	127	  </td><td class="right-align red-o">  133.1519	</td><td class="right-align yellow-o">99.48631</td><td class="right-align red-o">3.884     </td></tr>
+         
+        </table>
+    </div>   
+    <script>
+        $(document).ready(function () {
+            $('.section2').hide();
+            $('.section3, .section5, .section6, .section7, .section8').hide();
+
+            $('.timelineClick11').click(function () {
+
+                $('.section4, .section5, .section6, .section7, .section8').slideUp();
+                $('.section3').slideDown();
+            });
+            $('.timelineClick12').click(function () {
+                $('.section4').slideDown();
+                $('.section3, .section5, .section6, .section7, .section8').slideUp();
+            });
+            $('.timelineClick13').click(function () {
+                $('.section5').slideDown();
+                $('.section3, .section4, .section6, .section7, .section8').slideUp();
+            });
+            $('.timelineClick14').click(function () {
+                $('.section6').slideDown();
+                $('.section3, .sectio4, .section5, .section7, .section8').slideUp();
+            });
+            $('.timelineClick15').click(function () {
+                $('.section7').slideDown();
+                $('.section3, .section5, .section6, .section8, .section4').slideUp();
+            });
+            $('.timelineClick16').click(function () {
+                $('.section8').slideDown();
+                $('.section3, .section5, .section6, .section7, .section4').slideUp();
+            });
+
+
+
+            $('.clickDropdown_01').hide();
+            $('.clickDropdown_03').hide();
+            $('.openCallout1').click(function (e) {
+                e.stopPropagation();
+                $('.clickDropdown_01').slideDown();
+                $('.clickDropdown_03').slideUp();
+                return false;
+            });
+            $('.openCallout2').click(function (e) {
+                e.stopPropagation();
+                $('.clickDropdown_03').slideDown();
+                $('.clickDropdown_01').slideUp();
+                return false;
+            });
+            $(document).click(function () {
+                if ($('.clickDropdown_01').css('display') == 'block') {
+                    $('.clickDropdown_01').slideUp();
+                }
+                if ($('.clickDropdown_03').css('display') == 'block') {
+                    $('.clickDropdown_03').slideUp();
+                }
+            });
+
+            $('.redCards').hide();
+            $('.riskReq').click(function (e) {
+                $('.redCards').slideDown();
+                $('.mixCards').slideUp();
+            });
+            $('.allReq').click(function (e) {
+                $('.mixCards').slideDown();
+                $('.redCards').slideUp();
+            });
+
+
+        })
+    </script>
+
+
+    <style>
+        .actualGraphAnimation {
+            width:597px !important;
+        }
+        .predictionGraphAnimation {
+            width:864px !important;
+        }
+        .red-border {
+            border: 1px red solid;
+        }
+
+        .orange-border {
+            border: 1px solid orange;
+        }
+
+        .section1, .section2, .section3, .section4, .section5, .section6, .section7, .section8 {
+            margin: 0 auto;
+            width: 960px;
+            text-align: center;
+            display: block;
+            position: relative;
+        }
+        .red-o {
+            background-color:rgba(255, 0, 0, .08);
+        }
+        .yellow-o {
+            background-color:rgba(255, 198, 0, .2);
+        }
+    </style>
+</div>
+
+
+
+
+<!-- model view slider -->
+<div ng-show="openPopuFlag">
+    <a href="javascript:void(0);" class="slide-view-modal-next" ng-click="next($event)" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RightChevro"></use>
+            </svg>
+        </i>
+    </a>
+    <a href="javascript:void(0);" class="slide-view-modal-previous" ng-click="prev()" ng-class="{'btn-show' : previewFlag}">
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_LeftChevron"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="slide-view-modal-overlay" ng-click="closeSlideView();" ng-class="{'overlay-show' : previewFlag}"></div>
+
+    <div class="slide-view-modal modal " ng-class="[slide{{$index + 1}}, openSlideModal]" ng-hide="slideHide{{$index  + 1}}" ng-repeat="item in [1,2,3]">
+        <div ng-include="'p2p/shared/views/templateAttibuteContent.html'">
+
+        </div>
+    </div>
+</div>
+
+
+<smart-popup template-url="{{emailNotifyPopupUrl}}" show='{{emailNotify}}' on-hide="emailNotifyOnHideCallback(e)" modal-type="large"></smart-popup>
+
+<!-- popup -- comments -->
+<smart-popup template-url="{{commentsPopupUrl}}" show="{{showCommentsPopup}}" on-hide="commentsPopUpOnHideCallback(e)"></smart-popup>
+<smart-popup template-url="{{commentsPopupgTabUrl}}" expand-collapse="#{{showCommentsPopupexpand}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+<!-- popup -- attchments -->
+<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)"></smart-popup>
+<!-- popup -- manage approval  -->
+<smart-popup template-url="{{manageApprovalPopupPath}}" show='{{mngAppShow}}' on-hide="mngAppPopupOnHideCallback(e)" type="small"></smart-popup>
+<!-- popup -- track status -->
+<smart-popup template-url="{{trackStatusPopupUrl}}" show='{{trackStatusPopup}}' on-hide="trackStatusOnHideCallback(e)" expand-collapse="#trackStatusPopup"></smart-popup>
+<!-- popup -- Copy Req -->
+<smart-popup template-url="{{copyReqPopupUrl}}" show='{{copyReqPopup}}' on-hide="copyReqOnHideCallback(e)" type="small"></smart-popup><!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>

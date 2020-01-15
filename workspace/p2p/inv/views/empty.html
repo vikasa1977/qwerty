@@ -1,0 +1,28 @@
+<!--<section class="marginTop50">
+	<div class="emptyBox ">
+		<div class="centered-contentbox">
+			<div class="row">
+				<div class="col l6 m6 s12 centered center">
+					<p class="marginBtm25 grey-text text-darken-3 fontSize18">You have not created any Invoice yet. Go ahead create one. </p>
+                    <smart-button config='{"title":"UPLOAD SCANNED"}' class="waves-effect waves-light " ui-sref="p2p.req.new" callback="showPopupCallback"></smart-button>
+                    <smart-button config='{"title":"USE EXCEL"}' class="waves-effect waves-light marginLeft15" callback="invFromExcelCallback">USE TEMPLATE</smart-button>
+					<smart-button config='{"title":"CREATE BLANK"}' class="waves-effect waves-light marginLeft15" ui-sref="p2p.req.new" callback="showPopupCallback"></smart-button>
+                    
+				</div>
+			</div>
+		</div>
+	</div>
+    
+</section>-->
+
+<section class="emptyBox" data-ng-controller="invoiceEmptyCtrl">
+		<div class="centered-contentbox row marginBtm0">
+				<div class="col l8 m8 s12 centered center">
+					<p class="marginBtm25 grey-text text-darken-3 fontSize18">You have not created any Invoice yet. Go ahead create one. </p>
+                    <smart-button config='{"title":"UPLOAD SCANNED"}' class="waves-effect hoverable waves-light " ui-sref="p2p.inv.create" callback="showPopupCallback"></smart-button>
+                    <smart-button config='{"title":"USE EXCEL"}' class="waves-effect hoverable waves-light marginLeft15" callback="invFromExcelCallback">USE TEMPLATE</smart-button>
+					<smart-button config='{"title":"CREATE BLANK"}' class="waves-effect waves-light hoverable marginLeft15" ui-sref="p2p.inv.create" callback="showPopupCallback"></smart-button>
+                </div>
+		</div>
+	<smart-popup template-url="{{invFromExcel}}" show='{{invFromExcelPopup}}' on-hide="inFromExcelOnHideCallback" type="small"></smart-popup>
+</section>

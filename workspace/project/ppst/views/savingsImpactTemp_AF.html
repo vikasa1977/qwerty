@@ -1,0 +1,9 @@
+<div class="col s12 input-field line-height-manager">
+    <label class="active" ng-if="selectedSavings > 0">Savings Type And Impact</label>
+    <a href="javascript:void(0)" ng-click="selectSavings_AF()" 
+       ng-if="selectedSavings > 0">{{selectedSavings + " Savings Type"}}</a>
+    <a href="javascript:void(0)" ng-click="selectSavings_AF()" ng-if="selectedSavings == 0">Savings Type And Impact</a>
+    
+</div>
+<!-- popup -- Assign / Re-assign -->
+<smart-popup template-url="project/ppst/views/popupSavingsImpact_AF.html" show='{{savingsPopup}}' on-hide="savingsPopupOnHideCallback(e)" type="medium"></smart-popup>

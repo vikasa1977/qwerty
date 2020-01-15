@@ -1,0 +1,356 @@
+{
+  "notesData": [
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "uploadIcon": "icon_Upload",
+      "uploadTooltip": "Upload",
+      "notesName": {
+        "name": "Quality Tasks",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "bu": {
+        "selectedOption": {
+          "name": "ALL"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "ALL"
+        }
+      },
+      "classification": {
+        "id": 0,
+        "name": "S&P"
+      },
+      "classificationOpt": [
+        {
+          "id": 0,
+          "name": "S&P"
+        },
+        {
+          "id": 1,
+          "name": "D&G"
+        },
+        {
+          "id": 2,
+          "name": "Q&C"
+        },
+        {
+          "id": 3,
+          "name": "P&T"
+        }
+      ],
+      "internalChk": false,
+      "editableChk": false,
+      "includeOn": {
+        "id": 0,
+        "name": "PO"
+      },
+      "includeOnOpt": [
+        {
+          "id": 0,
+          "name": "PO"
+        },
+        {
+          "id": 1,
+          "name": "BPO"
+        },
+        {
+          "id": 2,
+          "name": "KPO"
+        },
+        {
+          "id": 3,
+          "name": "TPO"
+        }
+      ]
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "uploadIcon": "icon_Upload",
+      "uploadTooltip": "Upload",
+      "notesName": {
+        "name": "Shipping Inst",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "bu": {
+        "selectedOption": {
+          "name": "BU1"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU1"
+        }
+      },
+      "classification": {
+        "id": 0,
+        "name": "S&P"
+      },
+      "classificationOpt": [
+        {
+          "id": 0,
+          "name": "S&P"
+        },
+        {
+          "id": 1,
+          "name": "D&G"
+        },
+        {
+          "id": 2,
+          "name": "Q&C"
+        },
+        {
+          "id": 3,
+          "name": "P&T"
+        }
+      ],
+      "internalChk": false,
+      "editableChk": false,
+      "includeOn": {
+        "id": 0,
+        "name": "BPO"
+      },
+      "includeOnOpt": [
+        {
+          "id": 0,
+          "name": "PO"
+        },
+        {
+          "id": 1,
+          "name": "BPO"
+        },
+        {
+          "id": 2,
+          "name": "KPO"
+        },
+        {
+          "id": 3,
+          "name": "TPO"
+        }
+      ]
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "uploadIcon": "icon_Upload",
+      "uploadTooltip": "Upload",
+      "notesName": {
+        "name": "Inspection Inst",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "bu": {
+        "selectedOption": {
+          "name": "BU2"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU2"
+        }
+      },
+      "classification": {
+        "id": 0,
+        "name": "S&P"
+      },
+      "classificationOpt": [
+        {
+          "id": 0,
+          "name": "S&P"
+        },
+        {
+          "id": 1,
+          "name": "D&G"
+        },
+        {
+          "id": 2,
+          "name": "Q&C"
+        },
+        {
+          "id": 3,
+          "name": "P&T"
+        }
+      ],
+      "internalChk": false,
+      "editableChk": false,
+      "includeOn": {
+        "id": 2,
+        "name": "KPO"
+      },
+      "includeOnOpt": [
+        {
+          "id": 0,
+          "name": "PO"
+        },
+        {
+          "id": 1,
+          "name": "BPO"
+        },
+        {
+          "id": 2,
+          "name": "KPO"
+        },
+        {
+          "id": 3,
+          "name": "TPO"
+        }
+      ]
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "uploadIcon": "icon_Upload",
+      "uploadTooltip": "Upload",
+      "notesName": {
+        "name": "Reject Task",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "bu": {
+        "selectedOption": {
+          "name": "BU3"
+        },
+        "options": [
+          {
+            "name": "ALL"
+          },
+          {
+            "name": "BU1"
+          },
+          {
+            "name": "BU2"
+          },
+          {
+            "name": "BU3"
+          }
+        ],
+        "selectTypeOption": {
+          "selectiontext": "BU3"
+        }
+      },
+      "classification": {
+        "id": 0,
+        "name": "S&P"
+      },
+      "classificationOpt": [
+        {
+          "id": 0,
+          "name": "S&P"
+        },
+        {
+          "id": 1,
+          "name": "D&G"
+        },
+        {
+          "id": 2,
+          "name": "Q&C"
+        },
+        {
+          "id": 3,
+          "name": "P&T"
+        }
+      ],
+      "internalChk": false,
+      "editableChk": false,
+      "includeOn": {
+        "id": 3,
+        "name": "TPO"
+      },
+      "includeOnOpt": [
+        {
+          "id": 0,
+          "name": "PO"
+        },
+        {
+          "id": 1,
+          "name": "BPO"
+        },
+        {
+          "id": 2,
+          "name": "KPO"
+        },
+        {
+          "id": 3,
+          "name": "TPO"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "manufacturerData": [
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "isActive": true,
+      "mfrName": {
+        "name": "T&C Inc",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "modelNum": {
+        "number": "1345689340-19",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "partNum": {
+        "number": 1232267450,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "isActive": false,
+      "mfrName": {
+        "name": "General Electrical",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "modelNum": {
+        "number": "155214876",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "partNum": {
+        "number": 668936249,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "isActive": true,
+      "mfrName": {
+        "name": "L&T Inc",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "modelNum": {
+        "number": "5128703867-19",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "partNum": {
+        "number": 12666783455,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    },
+    {
+      "highlight":  false,
+      "isChecked": false,
+      "isActive": true,
+      "mfrName": {
+        "name": "Power Tool Inc",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "modelNum": {
+        "number": "2015555120420-34",
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "this.length.toString() < 1",
+            "error": "Enter some value"
+          },
+          {
+            "rule": "this.length.toString() < 2",
+            "error": "Length should greater than 2"
+          }
+        ]
+      },
+      "partNum": {
+        "number": 1785648902,
+        "errorMsg": "",
+        "validateRule": [
+          {
+            "rule": "!(/[0-9]/.test(this))",
+            "error": "Need atleast a number"
+          },
+          {
+            "rule": "(/^[0]$/.test(this))",
+            "error": "Number should greater than 0"
+          }
+        ]
+      }
+    }
+  ]
+}

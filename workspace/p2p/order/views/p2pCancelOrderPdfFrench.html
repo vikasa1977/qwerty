@@ -1,0 +1,421 @@
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .extra-nav-wrap, .page-footer, .extraHeader, .headerWrapper {
+            display: none;
+        }
+
+        .pdf-container * {
+            visibility: visible;
+        }
+
+        table {
+            page-break-after: auto;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        td {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-footer-group;
+        }
+
+        * {
+            -webkit-print-color-adjust: exact;
+        }
+
+        table {
+            margin-bottom: 20px;
+        }
+
+        .thin-border-table tr td {
+            border: 1px solid #c2c2c2;
+            padding: 5px 15px;
+        }
+
+        .thik-border-table tr th, .thik-border-table tr td {
+            border: 1px solid #c2c2c2;
+            padding: 10px 5px;
+            height: 50px;
+        }
+    }
+
+    .pdf-container {
+        color: #000000;
+    }
+
+        .pdf-container .pdf-title {
+            padding: 0;
+            font-size: 18px;
+            color: #000000;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .pdf-container .invoice-table {
+            width: 40%;
+            border: 1px solid #A2A2A2;
+            color: #000000;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .pdf-container .invoice-details-table {
+            width: 40%;
+            font-family: 'Noto Sans', sans-serif;
+            color: #000000;
+        }
+
+        .pdf-container .shipping-details-table {
+            width: 45%;
+            font-family: 'Noto Sans', sans-serif;
+            color: #000000;
+        }
+
+    .border-grey {
+        border: 1px solid #A2A2A2;
+    }
+
+    .background-grey {
+        background: #E8E8E8;
+    }
+
+    .table-title {
+        font-size: 14px;
+        text-align: left;
+        background: #E8E8E8;
+        color: #000000;
+    }
+
+    .table-header {
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+        line-height: 20px;
+    }
+
+    .table-data {
+        font-size: 14px;
+        padding: 10px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+        line-height: 20px;
+    }
+
+    .table-data-para {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        padding: 10px !important;
+        line-height: 25px;
+        color: #000000;
+    }
+
+    .terms {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 14px;
+        padding: 24px;
+        line-height: 25px;
+        border: 1px solid #A2A2A2;
+        color: #000000;
+    }
+
+    .direct-inquiries {
+        font-size: 14px;
+        padding: 24px;
+        line-height: 25px;
+        color: #000000;
+    }
+
+    .thin-border-table tr td {
+        border: 1px solid #c2c2c2;
+        padding: 5px 15px;
+    }
+
+    .thik-border-table tr th, .thik-border-table tr td {
+        border: 1px solid #c2c2c2;
+        padding: 10px 5px;
+        height: 50px;
+    }
+</style>
+<!--new sub header-->
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                <i class="icon small">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon ng-scope">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Order"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'PO-12:15-001401' | translate}} - {{'ORDER-PO-12:15-001401' | translate}}</span>
+        </div>
+        <ul class="right extra-nav-right-icon right-panel">
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Download">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+
+            <li class="extra-nav-icon">
+                <a href="javascript:void(0)" onclick="window.print()" class="waves-circle sh-icon waves-effect waves-light " data-position="bottom" data-delay="50" smart-tooltip message="Print">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Print"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--end sub header-->
+<!-- PDF Content Starts -->
+<div class="col s12 l12 m12">
+    <div class="row card ng-cloak pdf-container" style="width: 885px; margin: 20px auto;">
+        <table width="100%" align="center" rules="none">
+            <thead style="border: none;">
+                <tr>
+                    <td>
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: 'Noto Sans', sans-serif; border-bottom: 1px solid #e0e0e0;">
+                            <tbody>
+                                <tr>
+                                    <th width="40%" align="left" valign="bottom" style="padding: 20px 10px !important;">
+                                        <img src="shared/theme1/user/logo/MyLan_logo.png" alt="" height="50">
+                                    </th>
+                                    <th width="30%" align="right" valign="middle" style="padding: 10px !important; text-align: right;">
+                                        <span style="color: #0177d6; font-size: 20px; font-weight: bold; margin-right: 10px;">BON DE COMMANDE</span>
+                                    </th>
+                                    <th width="30%" align="left" valign="middle" style="padding: 10px !important; color: #fff; font-size: 14px; background-color: #0177d6;">
+                                        <div><strong>Numéro de commande: </strong>4900003071</div>
+                                        <div><strong>Date de création: </strong>Janv.25, 2018 | 9:48 PM</div>
+                                        <div><strong>NumérodeTVA: </strong>FR90399295385</div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%">LIVRAISON à:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%;">DEVISE:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 25%;">TYPE DE COMMANDE:</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">1194 - Mylan S.A.S, 117, Allée des Parcs, -, 69800 Saint Priest, France, France</td>
+                                    <td>EUR</td>
+                                    <td>New Order</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb;">PAYMENT:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Z006 - NET 60 DAYS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb;">BILL TO:</td>
+                                    <td colspan="2" style="font-weight: bold; background-color: #ebebeb;">INCO TERMS:</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">MYLAN S.A.S., 117 allée des Parcs, CS 60081, 69792 Saint Priest Cedex, France, France</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb;">CODE</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb;">POINT</td>
+                                </tr>
+                                <tr>
+                                    <td>Free Carrier</td>
+                                    <td>PROUVY</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thin-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%">DESTINATION:</td>
+                                    <td style="font-weight: bold; background-color: #ebebeb; width: 50%;">ADRESSE MAIL:</td>
+                                </tr>
+                                <tr>
+                                    <td>2009200 :: ECONOCOM, 5 Allée Alban Vistel, SAINTE FOY LES LYON, -, France, 69110</td>
+                                    <td>rittika.buyervat 1 | rittika.kumari@gep.com | rkumari@gep.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="12" style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">ITEM DETAILS</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: 11px;">N° de Poste</td>
+                                    <td style="font-size: 11px;">Line Type</td>
+                                    <td style="font-size: 11px;">N° d’article du fournisseur</td>
+                                    <td style="font-size: 11px;">Article</td>
+                                    <td style="font-size: 11px;">Date demandée</td>
+                                    <td style="font-size: 11px;">Date souhaitée</td>
+                                    <td style="font-size: 11px;">Start Date</td>
+                                    <td style="font-size: 11px;">End Date</td>
+                                    <td style="font-size: 11px;">Quantité</td>
+                                    <td style="font-size: 11px;">UOM</td>
+                                    <td style="font-size: 11px;">Unit Price</td>
+                                    <td style="font-size: 11px;">Total (EUR)</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Material</td>
+                                    <td>--</td>
+                                    <td>Spira/Metro Bidose Lot Y1251 ogs2014 T36</td>
+                                    <td>15/12/2014</td>
+                                    <td>22/12/2017</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>1.00</td>
+                                    <td>Each</td>
+                                    <td>2,300.00</td>
+                                    <td>2,300.00</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Fixed Service</td>
+                                    <td>--</td>
+                                    <td>Spira/Metro monodose 1 Lot ogs2014 T36</td>
+                                    <td>15/12/2014</td>
+                                    <td>--</td>
+                                    <td>15/12/2014</td>
+                                    <td>30/12/2017</td>
+                                    <td>1.00</td>
+                                    <td>Each</td>
+                                    <td>2,300.00</td>
+                                    <td>2,300.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="11" style="font-weight: bold; background-color: #ebebeb; text-align: right;">TOTAL</td>
+                                    <td>4,600.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0;">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="padding-top: 0; padding-bottom: 0;">To ensure prompt processing of your Invoice, please always mention the Purchase Order number on the Packing Slips include with your material and on the Invoices.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="thik-border-table" width="100%" align="center" cellspacing="0" cellpadding="0" style="font-family: 'Noto Sans', sans-serif; font-size: 14px;">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; background-color: #ebebeb; padding-left: 15px; padding-right: 15px;">CONDITIONS GENERALES</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px;">
+                                        1. Champ d'application Les présentes Conditions Générales d'Achat s'appliquent à l'achat de toutes marchandises et/ou tous services commandés par les sociétés MYLAN SAS, MYLAN MEDICAL SAS, MYLAN LABORATORIES SAS (ci-après désignées « MYLAN »). Le fait d'accepter commande implique l'adhésion pleine et entière et sans réserve du fournisseur aux présentes Conditions Générales d'Achat. Toute dérogation aux présentes Conditions Générales d'Achat, comme toute modification de la commande, doit faire l'objet d'un accord écrit préalable de MYLAN. Toute commande passée dans le cadre d’un contrat est soumise aux présentes Conditions Générales d’Achat. En cas de contradiction entre les dispositions des présentes et celles du contrat, les dispositions de ce dernier prévaudront.<br />
+                                        2. Acceptation de la commande / Exécution de la commande Les bons de commande doivent être datés et signés, sous peine de nullité. Le fournisseur doit retourner impérativement à MYLAN un accusé de réception dans un délai de huit (8) jours à compter de la date d’émission de la commande. Passé ce délai, la commande sera réputée acceptée sans réserve par le fournisseur. En cas de commande d’un montant supérieur ou égal à 5000 € HT, le fournisseur remettra à MYLAN l’attestation et les documents prévus à l’article D 8222-5 du Code du Travail. La marchandise et/ou le service doit être exempt(s) de tous défauts et doit être conforme(s) à sa destination, ainsi qu’aux cahiers des charges ou spécifications communiqués par MYLAN, aux exigences de la réglementation notamment en terme de santé, sécurité, environnement et des normes techniques en vigueur, aux standards internationaux de qualité, en ce compris mais non limité aux BPF. Si la marchandise et/ou le service commandé entre dans le cadre d’une certification du fournisseur, ce dernier s’engage alors à fournir la marchandise et/ou le service selon ce système qualité certifié.<br />
+                                        3. Livraison Le lieu, les délais, l’échéancier de livraison de la commande sont mentionnés sur le bon de commande de MYLAN et sont impératifs pour le fournisseur. Toutes les fournitures doivent faire l’objet d’un bordereau de livraison indiquant le nom du fournisseur, le numéro de la commande, le nombre de colis, le poids, le détail des marchandises, le code douanier, le mode et la date d’expédition. Chaque colis doit être étiqueté et porter, outre la désignation du contenu, les poids brut, tare et net. Les matières premières doivent être accompagnées d’un bulletin d’analyse ; à défaut, la livraison pourra être refusée par MYLAN. Le fournisseur reconnaît être réputé en demeure de livrer la marchandise et/ou de réaliser le service du seul fait de l'échéance desdits délais sans aucune autre formalité. Tout retard prévisible doit être signalé à MYLAN aussitôt que le fournisseur en a connaissance. Tout retard entraînera de plein droit, au choix de MYLAN, (i) la facturation d'une indemnité de 5 % du montant total de la commande par semaine de retard, (ii) ou l'annulation totale ou partielle de la commande et ce, à la charge matérielle et financière du fournisseur, et ce sans préjudice des dommages et intérêts auxquels MYLAN pourrait prétendre du fait de cette annulation. Toute contestation, réclamation du fournisseur inhérente à la commande devra, pour être valable, être effectuée par écrit par le fournisseur.<br />
+                                        4. Réception et contrôle des marchandises et/ou services Les marchandises et/ou services livrés sont soumis à acceptation par MYLAN. Leur conformité sera contrôlée selon les spécifications/clauses particulières convenues. En cas de nonconformité, MYLAN émettra une réclamation écrite au fournisseur. Toute marchandise non conforme sera, au frais et selon le choix du fournisseur, retournée à ses risques ou détruite. Dans le cas d’un refus pour non-conformité, MYLAN se réserve le droit de demander le remplacement aux conditions initiales de la commande ou de demander un avoir correspondant au litige. Dans le cas où un manquement du fournisseur obligerait MYLAN à s’approvisionner auprès d’une autre source, le fournisseur défaillant supportera de plein droit le surcoût constaté entre la nouvelle commande et la commande initiale.<br />
+                                        5. Prix, facturation et modalités de paiement Les prix mentionnés sur la commande sont fermes et définitifs. Ils s'entendent hors taxes et seront augmentés des taxes en vigueur à la date de leur exigibilité. Les factures relatives aux marchandises
+                                        et/ou services sont payables à 60 jours date d’émission de facture, étant entendu que la date de facture doit être postérieure à la date de livraison des marchandises et/ou de réalisation des services. La facture doit obligatoirement circuler en
+                                        même temps que la marchandise ou parvenir à MYLAN dans les trois jours qui suivent la livraison. Dans le cas de service ou prestation continue, la facturation se fera sur présentation d’une situation d’avancement dûment validée par MYLAN, la
+                                        fréquence de facturation ne pourra être inférieure à une fréquence mensuelle. Le règlement se fera dans ce cas à 45 jours date d’émission de facture. Les factures sont réglées par virement bancaire. La première facture devra être
+                                        obligatoirement accompagnée d'un relevé d'identité bancaire ou relevé d'identité postal. Les factures ne seront payées qu'après réception définitive et sans réserve de MYLAN des marchandises et/ou services. Les factures doivent impérativement
+                                        être envoyées en double exemplaires à l’adresse de facturation et mentionner les références du bon de commande. Toute facture ne comportant pas ces indications sera retournée au fournisseur. Toute revalorisation tarifaire doit être transmise à
+                                        MYLAN TROIS (3) mois avant la date d’application proposée par le fournisseur et devra faire l’objet de l’accord écrit de MYLAN.<br />
+                                        6. Utilisation du nom L’utilisation du nom, des coordonnées de MYLAN ou de toute information appartenant à MYLAN ou à ses affiliées, par le fournisseur à des fins marketing ou promotionnelles ne pourra être réalisée qu’après l’accord
+                                        préalable et écrit de MYLAN.<br />
+                                        7. Transport – Assurance Sauf accords exprès et spécifiques contraires, toutes les livraisons sont effectuées : 1. FRANCO le lieu de livraison indiqué sur la commande, les marchandises voyageant aux risques et périls des fournisseurs, ou ; 2.
+                                        suivant l’Incoterm (ICC 2010) mentionné sur la commande, ce dernier déterminera alors le moment du transfert des risques attachés aux produits. Les présentes conditions ne peuvent être modifiées sans l’accord préalable de MYLAN<br />
+                                        8. Assurance matières Le fournisseur est responsable du stockage de toute marchandise que MYLAN pourrait être amenée à lui fournir pour la bonne réalisation d’une prestation et s’engage, par conséquent, à souscrire et maintenir en vigueur
+                                        une police d’assurance couvrant sa responsabilité.<br />
+                                        9.Avis d’inspection Le fournisseur doit avertir préalablement et par écrit MYLAN de toute inspection réglementaire relative à tout établissement et/ou site dans lequel des activités de fabrication, traitement, analyse ou stockage des
+                                        marchandises/produits sont réalisées (Activités Couvertes) afin de lui laisser la possibilité d’assister à l’inspection. A défaut, le fournisseur lui transmettra la synthèse des résultats de l’inspection dans les trois (3) jours ouvrables suivant ladite
+                                        inspection. Le fournisseur lui transmettra également les copies de tout rapport d’inspection, des demandes, des instructions et toutes autres correspondances ou communications remises au fournisseur par toute agence réglementaire concernant
+                                        les Activités Couvertes ou les marchandises/produits (Communications Réglementaires) dans les trois (3) jours ouvrables suivant leur réception par le fournisseur. Toute communication/réponse apportée par le fournisseur aux autorités
+                                        réglementaires relative à ladite inspection doit faire l’objet d’une revue préalable de MYLAN.<br />
+                                        10. Résiliation Dans le cas où le fournisseur manquerait à l'une quelconque de ses obligations, MYLAN pourra résoudre ou résilier tout ou partie de la commande après une mise en demeure adressée par lettre recommandée avec accusé de
+                                        réception restée sans effet après 8 jours à compter de sa date d'envoi, et ce sans préjudice des dommages et intérêts auxquels MYLAN pourrait prétendre.<br />
+                                        11. Responsabilité Toute clause pouvant exister dans les documents contractuels du fournisseur et prévoyant une exonération totale ou partielle de responsabilité est nulle et de nul effet.<br />
+                                        12. Confidentialité Le fournisseur s’engage à garder, et à faire garder par ses éventuels sous-traitants, confidentiels les renseignements / documents qui lui sont fournis par MYLAN ou dont il aurait eu connaissance à l’occasion de l’exécution de
+                                        la commande. Cette obligation n’est pas limitée dans le temps, mais ne s’applique pas aux informations qui pourraient être rendues publiques par MYLAN. Sur demande du fournisseur, MYLAN pourra signer avec celui-ci un accord de
+                                        confidentialité.<br />
+                                        13. Anti-corruption Le fournisseur s’engage à respecter, et s’engage à mettre tout en oeuvre afin que MYLAN, ses affiliées, directeurs, employés, actionnaires, représentants ou agents ne se trouvent pas en violation des dispositions de toute
+                                        réglementation en matière d’anti-corruption, et notamment, sans que cette liste ne soit limitative, les dispositions de l’United States Foreign Corrupt Practices Act ("FCPA") et U.K. Bribery Act 2010 du fait du fournisseur. Le fournisseur s’engage
+                                        notamment, mais non exclusivement, à ne pas, directement ou indirectement, verser de contrepartie financière ou consentir un avantage de quelque nature ou valeur que ce soit à un employé ou représentant gouvernemental, tel que défini dans
+                                        la FCPA, dans le but d’obtenir ou de garder un marché, ou de garantir un avantage commercial ou financier pour MYLAN, lui-même ou leurs affiliées. Le fournisseur s’engage à ne pas corrompre de représentant gouvernemental ou de société
+                                        privée ou individuelle, la corruption étant définie comme suit : offrir, promettre, ou donner un avantage financier ou tout autre catégorie d’avantage à une personne dans le cas où il est destiné à inciter une mauvaise exécution d’une fonction ou
+                                        d’une action ou rémunérer cette mauvaise exécution. L’acceptation de l’avantage offert, promis, ou donné constitue en soi une mauvaise exécution d’une fonction ou d’une activité requise. Le terme « mauvaise exécution » signifie une violation
+                                        du comportement que l’on serait en droit d’attendre d’une personne agissant de bonne foi, de manière impartiale ou conformément à une position de confiance. Le fournisseur s’engage également à (1) conserver toutes les preuves comptables
+                                        et financières qui reflètent les transactions et ventes d’actifs de sa société, (2) mettre en place et maintenir un système de contrôle de gestion interne, et (3) autoriser MYLAN, sur demande écrite de celle-ci, à auditer lesdites pièces comptables et
+                                        financières. Chacune des Parties ne pourra avoir recours aux services d’une personne figurant sur la liste d’exclusion (« Debarment List ») publiée par la FDA (Food & Drug Administration) ou par toute autre autorité gouvernementale.<br />
+                                        14. Cession – Sous-traitance Sans l'accord préalable et écrit de MYLAN, le fournisseur ne pourra en aucun cas (i) ni céder directement ou indirectement tout ou partie de la commande émise par MYLAN, (ii) ni la sous-traiter en tout ou partie.<br />
+                                        15. Droit applicable et attribution de juridiction Le droit applicable aux présentes conditions est le droit français. En cas de litige et d’échec de la négociation directe, seuls les tribunaux de Lyon seront compétents.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td style="padding: 0;">
+                        <table width="100%" align="center" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 20px; background-color: #ebebeb;">
+                                        Sociedad Unipersonal. Inscrita en el Registro Mercantil de Barcelona. Inscripcion 1a, hoja nD B240742, folio nD 75, tomo nD 34115. (N.I.F.B62735675) Mylan Pharmaceuticals S.L, C/Plom 2-4, 5a planta, 08038 Barcelona, Espana. Tel: +(34) 933786400. Fax: +(34) 933786401
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</div>

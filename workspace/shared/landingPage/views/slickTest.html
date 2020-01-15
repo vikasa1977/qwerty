@@ -1,0 +1,29 @@
+﻿<style>
+    .header, .container, .footer {
+        padding:10px;
+    }  
+</style>
+
+<div class="row">
+    <!--<div id="card-slider">
+        <slick ng-if="dataLoaded" init-onload="false" data="dataLoaded" dots="true" infinite="true" slides-to-show="3" slides-to-scroll="3">
+            <div ng-repeat="item in items">
+                <div class="" ng-include="'tpl.html'"></div>
+            </div>
+        </slick>
+    </div>-->
+    <div id="card-slider">
+      <slick ng-if="dataLoaded" init-onload="false" data="dataLoaded" slides-to-show="3" dots="true">
+      <div ng-repeat="item in items">
+          <div class="" ng-include="'tpl.html'"></div>
+      </div>
+    </slick>
+    </div>
+</div>
+<script type="text/ng-template" id="tpl.html">
+    <div>
+        <div class="header">{{item.header}}</div>
+       <div class="container">{{greetings}}<img ng-src="{{ item.imgSrc }}" alt="{{ item.label}}" /></div>
+        <div class="footer">{{item.name}}</div>
+    </div>
+</script>

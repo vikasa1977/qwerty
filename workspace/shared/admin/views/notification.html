@@ -1,0 +1,74 @@
+<section class="white">
+    <div class="row marginBtm0">
+        <div class="panelBox">
+            <div class="panelBox-body padding0">
+                <div class="row marginBtm0">
+
+                    <div class="right padding15 marginRight10">
+
+                        <a href="javascript:void()" class="marginRight10" ng-click="removeNotification()">
+                            <i class="icon iconSmall">
+                                <svg><use xlink:href="#icon_TrashCan"></use></svg>
+                            </i>
+                        </a>
+
+                        <a href="javascript:void()" ui-sref="admin.notificationView" class="" ng-click="addNoti()">
+                            <i class="icon iconSmall">
+                                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row marginBtm0">
+                    <table class="table-header-fix borderTopLight">
+                        <thead>
+                            <tr>
+                                <th class="left-align" style="width:5%;">
+
+                                    <smart-checkbox class="left paddingTop5" fill="true" ng-model="checkedAll" ng-click="selectAll()"></smart-checkbox>
+
+                                </th>
+                                <th class="left-align" style="width:5%;">{{'Status'|| translate}}</th>
+                                <th class="left-align" style="width:25%;">{{'Name'|| translate}}</th>
+                                <th class="left-align" style="width:25%;">{{'Event'|| translate}}</th>
+                                <th class="left-align" style="width:20%;">{{'Notify To'|| translate}}</th>
+                                <th class="left-align" style="width:10%;">{{'Added By'|| translate}} </th>
+                                <th class="left-align" style="width:5%;">{{'Next Due On'|| translate}}</th>
+                                <th class="left-align"style="width:5%;"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <smart-scroll height="100%" class="clearfix clear" v-offset="170px">
+
+                        <table class="bordered highlight marginBtm50">
+                            
+                            <tbody>
+                                <tr ng-repeat="entry in notificationData" animate-on-load="" class="staggeredTop">
+                                    <td style="width:5%;">
+                                        <smart-checkbox class="left paddingTop5" ng-model="entry.checked" ng-click="checkIfAllSelected()"></smart-checkbox>
+                                    </td>
+                                    <td class="left-align" style="width:5%;"><div class="manange-legend left {{entry.status}}"></div></td>
+                                    <td class="left-align" style="width:25%;">{{entry.name}}</td>
+                                    <td class="left-align" style="width:25%;">{{entry.event}}</td>
+                                    <td class="left-align" style="width:20%;">{{entry.notifyTo.event}}</td>
+                                    <td class="left-align" style="width:10%;">{{entry.addedBy}}</td>
+                                    <td class="left-align" style="width:5%;">{{entry.nextDueOn}}</td>
+                                    <td class="left-align" style="width:5%;">
+                                        <a href="javascript:void(0)" ng-click="addNotification()">
+                                            <i class="icon iconSmall">
+                                                <svg>
+                                                    <use xlink:href="#icon_Edit"></use>
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </smart-scroll>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

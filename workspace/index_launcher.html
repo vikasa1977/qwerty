@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html ng-app="SMART2" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2" name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <title>WORKSPACE</title>
+    <!-- STYLES -->
+
+	<link rel="shortcut icon" href="favicon.ico?ver=5" type="image/x-icon" />
+	<link rel="icon" href="favicon.ico?ver=2" type="image/x-icon" />
+
+    <!-- Temp added -->
+    <link href="../distribution/platform/externalLibraries/ui-grid.css" rel="stylesheet">
+    <!--   -->
+
+    <link href='shared/resources/css/noto.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="shared/resources/jscrollpane/jquery.jscrollpane.css">
+    <link type="text/css" rel="stylesheet" href="shared/resources/css/common.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="shared/resources/css/modules.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="shared/resources/css/smartTable.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="shared/resources/ckeditor/skins/moono/editor.css" />
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEe1wVNUHb77gjlBgZ88mxnnCbM7Px0RA"></script>
+    <script src="shared/libraries/markerclusterer.js"></script>
+   
+    <link rel="stylesheet" id="theme" type="text/css">
+    
+    <!-- SCRIPTS -->
+    <script type="text/javascript">
+	var userInfo = {
+		"UserBasicDetails": {
+			//"ClientName": "DTCC LN of(Test3's)",
+			"ClientName": "JohnDeere",
+			"UserId": 19224,
+			"ContactCode": 59540040000001,
+			"LoggerCode": "EC101",
+			"EntityId": 0,
+			"EntityType": "",
+			"Product": 9,
+			"Culture": "en_US",
+			"UserName": "EMILY",
+			"Contexts": [],
+			"CompanyName": "BuyerSqlConn",
+			"ClientID": 9090,
+			"BuyerPartnerCode": 5954,
+			"IsAdmin": false,
+			"IsSupplier": false,
+			"IsSuperUser": false,
+			"DefaultCurrencyCode": null
+		},
+		"NAVButtonsAccessRights": {
+			"Task": 100,
+			"Manage": [7, 8, 10, 20, 9, 22, 24, 27, 14],
+			"Create": [32, 31, 7, 1, 9, 101, 1011,105,106, 95, 8, 20, 22, 27, 4, 10, 5, 2, 14, 98],
+			"Analyze": [0],
+            "Shop" : [0]
+		},
+		"URLs": {
+			"AppURL": "https://smartdev.gep.com/",
+			"ContentURL": "https://gepmtstorage.blob.core.windows.net/",
+			"ServiceURL": "https://smartdev.gep.com/"
+		}
+	};
+
+	//service worker invoke
+	if ('serviceWorker' in navigator) {
+	    navigator.serviceWorker.register('/smart2ux/workspace/serviceWorker.js');
+	    window.addEventListener('load', function () {
+	        if (navigator.serviceWorker.controller) {
+	            navigator.serviceWorker.controller.postMessage({ 'command': 'trimCaches' });
+	        }
+	    });
+	}
+    </script>
+
+    <script>
+        //document.querySelector('#theme').setAttribute('href', 'shared/resources/css/themes/' + userInfo.UserBasicDetails.ClientName + '.css');
+    </script>
+
+    <script src="../distribution/workspace.dist/shared/libraries/platformJSLibs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../distribution/workspace.dist/shared/libraries/sourcingJSLib.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/libraries/moment-with-locales.min.js"></script>
+    <script src="shared/libraries/jquery.ui.touch-punch.min.js"></script>
+    <script src="shared/libraries/moment-timezone-with-data.min.js"></script>
+    <script src="shared/libraries/newHighChart/highcharts.js"></script>
+    <script src="shared/libraries/newHighChart/highcharts-more.js"></script>
+    <script src="shared/libraries/newHighChart/exporting.js"></script>
+    <script src="shared/libraries/highchart.map.js"></script>
+    <script src="shared/libraries/highchart.world-continents.js"></script>
+    <script src="shared/libraries/customEvents.min.js"></script>
+    <script src="shared/resources/js/go.js"></script>
+    <script src="shared/resources/js/dataInspector.js"></script>
+	<script src="shared/resources/js/ResizeMultipleTool.js"></script>
+
+    <!--<script src="shared/libraries/jquery-ui.min.lib.js" type="text/javascript" charset="utf-8"></script>-->
+    <!--script src="shared/libraries/jquery.ui.touch-punch.min.js" type="text/javascript" charset="utf-8"></script-->
+
+    <script src="shared/libraries/jquery.autocomplete.min.lib.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--files for wijmo flexsheet plugin-->
+    <script src="shared/libraries/wijmo.min.js" type="text/javascript"></script>
+    <script src="shared/libraries/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="shared/libraries/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="shared/libraries/wijmo.grid.filter.min.js" type="text/javascript"></script>
+    <script src="shared/libraries/wijmo.grid.sheet.min.js" type="text/javascript"></script>
+	<script src="shared/libraries/wijmo.angular.min.js" type="text/javascript"></script>
+
+	<script src="shared/libraries/ng-ckeditor.min.js"></script>
+
+
+    <script src="../distribution/platform/externalLibraries/ui-grid.js"></script>
+    
+
+    <!--file called for google map popup-->
+   <!-- <script src="shared/resources/svg/icons-svg.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="shared/resources/svg/Platform-icons-svg.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../distribution/locale_dist/groupedByLocales/common/common_combined.js" type="text/javascript"></script>
+    <script src="../distribution/locale_dist/groupedByLocales/p2p/p2p_combined.js" type="text/javascript"></script>
+    <script src="../distribution/locale_dist/groupedByLocales/UX/UX_combined.js" type="text/javascript"></script>
+    <!-- <script src="../../smartcontent/distribution/locale_dist/groupedByLocales/UX/UX_combined.js" type="text/javascript"></script> -->
+    <script src="shared/resources/ckeditor/ckeditor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/resources/js/labels.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/resources/js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="shared/customLibraries/createLocaleResource.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/customLibraries/smartController.service.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- APP CONFIGS -->
+    <script src="shared/libraries/wheelzoom.js"></script>
+    <script src="shared/libraries/screenfull.js"></script>
+    <script src="shared/libraries/ubislider.js"></script>
+    <script src="shared/libraries/ocLazyLoad.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/app/config/app.config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/app/config/route.config_forLauncher.js" type="text/javascript" charset="utf-8"></script>
+    <!-- CONSTANTS -->
+    <script src="shared/constants/paths.constants.js" type="text/javascript" charset="utf-8"></script>
+    <!--    <script src="shared/constants/application.constants.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="shared/constants/application_ux.constants.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/constants/shared.constants.js" type="text/javascript" charset="utf-8"></script>
+    <!-- MODELS -->
+    <!--<script src="shared/myTask/models/allTasks.model.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/myTask/models/myTask.model.js" type="text/javascript" charset="utf-8"></script>-->
+    <!-- SERVICES -->
+    <!-- <script src="supplierManagement/erpmapping/shared/services/erpService.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="p2p/inv/services/scannedInvoice.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/services/shareData.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/log.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/RuleEngine.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/grid/jsonToGrid.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/Http.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/utilities.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/route.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/favorites.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/services/globalSearch.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/services/ng.upload.file.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/services/ng-file-upload-shim.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="supplierManagement/scorecard/services/kpi.service.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- <script src="mdm/services/MDM.services.js" type="text/javascript" charset="utf-8"></script> -->
+    <!--<script src="shared/customLibraries/smartController.service.js" type="text/javascript" charset="utf-8"></script>-->
+    <!-- UI Elements -->
+    <script src="../distribution/platform/shared/services/services.js" type="text/javascript" charset="utf-8"></script>
+    <script  type="text/javascript" charset="utf-8">
+        function isDirectiveV2enabled() { return true; }
+        isDirectiveV2enabled();
+    </script>
+    <script src="../distribution/platform/shared/directives/directives.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../distribution/platform/shared/directives/directivesTemplate.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/header/directives/smartProfileOverlay/profileOverlay.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/3DSearchableCube/three.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/3DSearchableCube/tween.min.js" type="text/javascript" charset="utf-8"></script>
+   
+
+
+    <!-- Included for showing Manage page
+    <script src="../../smartcontent/distribution/workspace.dist/shared/directives/directives.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../smartcontent/distribution/workspace.dist/shared/directives/directivesTemplate.js" type="text/javascript" charset="utf-8"></script>
+    -->
+    <script src="shared/services/notification.service.js"></script>
+    <!-- CONTROLLERS -->
+ <!--<script src="p2p/shared/app/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="shared/home/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mdm/controllers/workbench.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/home/controllers/navCircle.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/header/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/sideNav/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/sideNav/controllers/bookmark.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/sideNav/controllers/menu.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/popup/controllers/managecolumnpopup.controller.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="p2p/shared/controllers/shipTo.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/myTask/services/mytask.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/myTask/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/myTask/controllers/expandedLanding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/landingPage/controllers/landing.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/popup/controllers/map.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="p2p/inv/controllers/dynamicDiscounting.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/ir/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/order/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/p2pReqEmpty.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/p2pReqPreview.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/p2pReqNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/p2pReqViewChanges.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/req/controllers/p2pReqLineChanges.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="workbench/controllers/workbench.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/shared/controllers/p2pReqTemplate.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/shared/controllers/p2pApprovalPage.controller.js" type="text/javascript" charset="utf-8"></script>
+      <!-- // <script src="p2p/shared/home/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>  -->	
+    <script src="p2p/inv/controllers/p2pinvexcel.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/controllers/invEmpty.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/controllers/p2pinvbasicDetails.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/controllers/p2pInvScanned.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/inv/controllers/p2pInvnonPoBasicDetails.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/receipts/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/receipts/controllers/p2pReceiptNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/ir/controllers/p2pirbasicDetails.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/paymentReq/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/paymentReq/controllers/paymentReqNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/serviceConfirmation/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/serviceConfirmation/controllers/serviceConfirmationNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/order/controllers/p2pOrderViewChanges.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/order/controllers/p2pOrderLineChanges.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/order/controllers/p2pOrderNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/order/controllers/massUpdate.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/asn/controllers/p2pAsnNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="catalog/requesterCatalog/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogItemDetail.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalog.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogSearch.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogLanding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogItemDetail.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogCompare.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogCart.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogWishlist.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogAdvancedSearch.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogPunchout.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogContracted.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/requesterCatalog/controllers/catalogBudgetWidget.controller.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="shared/login/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/user/controllers/userProfile.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/trackStatus/controllers/trackStatus.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/rnote/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/rnote/controllers/rnote.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/creditMemo/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/procurementProfile/controllers/procProfileTemplate.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="p2p/procurementProfile/controllers/procProfileNew.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="mdm/controllers/mdmNew.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="mdm/controllers/mdmManage.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mdm/controllers/duplicate.controller.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="mdm/controllers/mdmNew.controller1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mdm/controllers/mdmNew.controller2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mdm/controllers/mdmNew.controller3.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- directives -->
+    <script src="shared/directives/sharedPopup/sharedWithPopup.directive.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="catalog/requesterCatalog/directives/imageZoomer/smartImageZoomer.directive.js" type="text/javascript" charset="utf-8"></script> -->
+    
+    <!-- Service for sourcing module -->
+    <!-- <script src="sourcing/shared/service/sourcingService.js"></script>
+    <script src="shared/errorPages/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingRfx.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/responseWorkbench.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingRfxNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/priceSheet.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/importRepo.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/document.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/response.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/questionnaireResponse.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/teamMember.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/sourcingQuestionnaire.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/sourcingAttachment.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/scoringAnalysis.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/awardScenario.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/awarding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/responseFeedback.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/sourcingLinkedDocuments.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/sourcingContractingTerm.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingQualificationResults.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingEventDownload.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/sourcingFlipToContract.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingEventLog.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingEmailLog.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingNonAwardSupplier.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingDownloadLog.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/basicDetail.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/supplierAcceptance.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/timeline.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/rfxEvaluationStatus.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/rfxSupplierResponses.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/rfxAwardSummary.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="sourcing/rfx/controllers/buyerContactInformation.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingSupplier.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingTemplateLanding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingAdhocRequest.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="sourcing/rfx/controllers/sourcingSupplierAuditLog.controller.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="shared/landingPage/controllers/searchBox.controller.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="contract/controllers/contractNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractNewcommon.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/uploadContract.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractLanguage.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractSignedLanguagePreview.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="contract/controllers/contractLanguagePreviewPDF.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractCompareVersion.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractLanguageTemplate.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractTemplateLanding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="contract/controllers/contractWizard.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/profile/controllers/supplier.profile.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="supplierManagement/prf/controllers/supplier.prf.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/erpmapping/controllers/supplier.erpmapping.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/form/controllers/supplier.form.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/form/controllers/formViewResponse.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/scorecard/controllers/supplier.scorecard.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/scorecard/controllers/scorecardViewResponse.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/scorecard/controllers/scorecardSummary.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/scorecard/controllers/scorecardSupplierSec.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/shared/controllers/addSupplier.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/form/controllers/formSupplierSec.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/secondTierSupplier/controllers/supplier.secondtiersup.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/controllers/supplier.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="supplierManagement/form/controllers/formSummaryController.js" type="text/javascript" charset="utf-8"></script> -->
+
+    <script src="supplierManagement/request/controller/supplier.request.controller.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="shared/quickAddSupplier/controllers/supplierNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/questionnaire/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/questionnaire/controllers/questionnaireCompareResponse.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/questionnaire/controllers/questionnaireImportRepo.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/popup/controllers/addNewSupplier.controller.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="catalog/adminCatalog/controllers/catalogNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/adminCatalog/controllers/adminCatUsageInfo.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/adminCatalog/controllers/adminCatVerHistory.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/adminCatalog/controllers/itemMaster.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="catalog/adminCatalog/controllers/viewLog.controller.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="shared/admin/itemMaster/controllers/adminItemMasterLanding.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/itemMaster/controllers/adminItemMasterNew.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/controllers/emailLog.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/controllers/popup.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/controllers/adminCommon.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/controllers/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/ruleEngine/services/storeTempService.service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/ruleEngine/controllers/ruleEngine.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/ruleEngine/controllers/massEditeRule.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/ruleEngine/controllers/createNewRule.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/ruleEngine/controllers/rulegraph.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/setupManager.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/approvalMatrix.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/addFeature.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/configureFeature.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/implementationProject.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/adr.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/controllers/errApproval.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/landingPage/controllers/card.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/index.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/analyticReport.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/oppFinder.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/dataExport.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/feed.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/dashboard.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/gReport.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/spendDashboard.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/spendAlerts.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/visionCard.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="shared/analyse/controller/spendViDashboard.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="shared/analyse/controller/reportsCard.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/controller/spendDcc.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/poc/datetimeformat/controllers/datetimeformat.controller.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- <script src="supplierManagement/changeHistory/controllers/supplierChangeHistoryTemp.controller.js"></script> -->
+    <!-- <script src="supplierManagement/changeHistory/controllers/basicDetails.controller.js"></script> -->
+    <!-- <script src="supplierManagement/changeHistory/location/controllers/changeHistory.location.controller.js" type="text/javascript" charset="utf-8"></script> -->
+
+    <!-- <script src="supplierManagement/changeHistory/questionnaire/controllers/index.controller.js"></script> -->
+    <!-- <script src="supplierManagement/changeHistory/questionnaire/controllers/questionnaireImportRepo.controller.js"></script> -->
+    <!-- UI Components Dependancy -->
+    <script src="uiComponents/controllers/index.controller.js"></script>
+    <!-- DIRECTIVES -->
+    <!-- <script src="spend/dcc/directives/searchHead.directive.js"></script> -->
+    <!--<script src="shared/components/directives/profilePic/profilePic.directive.js" type="text/javascript" charset="utf-8"></script>-->
+
+    <script src="shared/directives/sortable/sortable.directive.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="shared/header/directives/headerButton.directive.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="shared/directives/smartInfoDirective/smartInfoTooltip.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/directives/dragDropUpload.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/directive/fixedTableHeader.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/admin/setupManager/directive/searchProductSetting.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/searchHeader/searchHeader.directive.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="shared/directives/smartGlobalTextfield/smartGlobalTextfield.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/slider/slider.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/animateOnLoad/animateOnLoad.directive.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="shared/directives/repeatEnd/repeatEnd.directive.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="shared/directives/smartListPopup/smartListPopup.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/toast/toast.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/zoom/zoom.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="shared/directives/fixedTableHeader/fixedTableHeader.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="shared/analyse/directives/analyseItem.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/directives/GreportTooltip.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/analyse/directives/spendShowinfo.directive.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="shared/directives/smartSavedViewPopup/smartSavedViewPopup.directive.js" type="text/javascript" charset="utf-8"></script>-->
+    <!-- <script src="spend/mapping/directives/smartSpendSlickgrid.directive.js" type="text/javascript" charset="utf-8"></script> -->
+    
+    <script src="shared/landingPage/directives/smartDomElement.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/quickAddSupplier/filter/ordinal.filter.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/landingPage/directives/filterChips.directive.js" type="text/javascript" charset="utf-8"></script>
+
+    <!--     Included for showing Manage page-->
+    <script src="../distribution/workspace.dist/directives/directives.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../distribution/workspace.dist/directives/directivesTemplate.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="catalog/requesterCatalog/directives/catalog.directive.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="shared/home/directives/messageBanner.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/home/directives/recentDocSlider.directive.js" type="text/javascript" charset="utf-8"></script>
+	<script src="shared/directives/highchart/highcharts-ng.js" type="text/javascript" charset="utf-8"></script>
+
+
+	<!-- <script src="spend/dcc/controllers/spendDccUI.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="spend/dataProcessing/controllers/dataProcessing.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/dataProcessing/controllers/configAI.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/controllers/spendMapping.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="spend/mapping/controllers/spendIntegration.controller.js" type="text/javascript" charset="utf-8"></script>
+    <script src="spend/mapping/controllers/spendRegionMap.controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/shared/lib/js/slick.core.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/shared/lib/js/slick.dataview.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/shared/lib/js/slick.formatters.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/shared/lib/js/slick.columngroup.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spend/mapping/shared/lib/js/slick.grid.js" type="text/javascript" charset="utf-8"></script> -->
+
+    <!-- <script src="spend/profile/controllers/spendProfile.controller.js" type="text/javascript" charset="utf-8"></script> -->
+
+    <script src="shared/approval/filter/shortname.filter.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/approval/approval.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/approval/approvalWithTrackStatus.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/customField/customField.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/directives/ckeditor/ckeditor.directive.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="shared/resources/jscrollpane/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="shared/resources/jscrollpane/jquery.jscrollpane.min.js"></script>
+	<!-- Project related dependency -->
+    <!-- <script src="project/ppst/services/ppst.service.js" charset="utf-8"></script>
+	<script src="project/ppst/controllers/ppst.controller.js"></script>
+    <script src="project/ppst/controllers/savingProject.controller.js"></script>
+    <script src="project/projectRequester/controllers/projectRequester.controller.js"></script>
+    <script src="project/ppst/controllers/strategy.controller.js"></script>
+    <script src="project/ppst/controllers/cbr.controller.js"></script>
+    <script src="project/ppst/controllers/baseline.controller.js"></script>
+    <script src="project/ppst/controllers/milestones.controller.js"></script>
+    <script src="project/ppst/controllers/milestonesDetail.controller.js"></script>
+    <script src="project/ppst/controllers/linkedDocs.controller.js"></script>
+    <script src="project/ppst/controllers/linkedDocs.detailed.controller.js"></script>
+    <script src="project/ppst/controllers/projectApproval.controller.js"></script>
+    <script src="project/ppst/directives/accordianProject.directive.js"></script>
+    <script src="project/ppst/directives/linkedDoc.directive.js"></script> -->
+    <!--<script src="project/trackStatus/trackStatus.service.js"></script>
+    <script src="project/trackStatus/trackStatus.controller.js"></script>
+    <script src="project/trackStatus/trackStatus.directive.js"></script>-->
+    
+
+    <!--SMART HIERARCHY (Pop Up)-->
+    <script src="shared/smartHierarchyRoute/controllers/smartHierarchyController.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- PDF VIEWER -->
+    <script src="shared/directives/pdfJs/pdfviewer.directive.js"></script>
+
+    <!-- TODO add manifest here -->
+    <link rel="manifest" href="/smart2ux/workspace/manifest.json">
+</head>
+<body scroll-content class="pageBg" custom-wheel-forie="{{IEcustomWheel}}" ng-style="BGImage"  ng-class="{'pagePlainWhite': isPageWithoutImage, 'isMac':isMac, 'page-plain-gray': isPageWithgray,'overflowHidden' : showScrollBar}">
+    <!--ng-class="{'pagePlainWhite': isPageWithoutImage}"-->
+    <div ng-controller="headerCtrl" class="headerWrapper" ng-hide="hideHeader">
+        <header ng-if="false" data-ng-include="'shared/header/views/header1.0.html'"></header>
+        <header ng-if="!showHeader" data-ng-include="'shared/header/views/header.html'"></header>
+        <smart-profile-overlay is-show={{showUserProfileOverlay}}></smart-profile-overlay>
+        <smart-popup template-url="shared/sideNav/views/addBookmark.html" show="{{bookmarkPopupFlag1}}" type="small" on-hide="addBookmarkOnHideCallback(e)"></smart-popup>
+        <smart-popup template-url="shared/popup/views/popupAddAnnouncement.html" show="{{addAnnouncementPopup}}" on-hide="addAnnouncementOnHideCallback(e)" type="small"></smart-popup>
+    
+    <!--<div style="background-color: lightgrey;" smart-tooltip message="{{ 'testLoc' | translate}}" position="bottom">sachin {{ 'testLoc' | translate}}
+        <smart-button config='{"title":localizationTest}'></smart-button>
+        </div>-->
+    </div>
+    
+    <div class="main-app-parent-container" ui-view ng-class="{'apply-height-100-percent' : applyFullHeight}"></div>
+    
+    <smart-notification></smart-notification>
+    <smart-lookup></smart-lookup>
+    <smart-global-loader is-fixed="true" ng-if="pageLoaderFlagController"></smart-global-loader>
+    <script src="shared/libraries/pdf.compat.js" ></script>
+    <script src="shared/libraries/pdf.js" ></script>
+    <script src="p2p/invoiceTemplateCache.js" type="text/javascript" charset="utf-8"></script>
+    <script src="shared/popup/popupTemplateCache.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mdm/controllers/highStyle.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    
+   
+   
+</body>
+</html>

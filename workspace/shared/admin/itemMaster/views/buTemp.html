@@ -1,0 +1,11 @@
+<div ng-controller="adminItemMasterBuCtrl">
+	<div class="line-height-manager">
+		
+		<div class="col s12 input-field margin0">
+            <label class="active label-common-color" ng-show="showFormBU">Category</label>
+			<span class="catpopup-title left" id="BUBtn" data-target="BU" ng-class="{'marginTop16' : !showFormBU}">{{ BUDatainitialDisplayText }}</span>
+		</div>
+	
+	</div>
+   <smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" read-mode-text="Business Unit" default-text="Choose Business Unit"  read-mode="false" show="true" mode="false" selected-value="BusinessUnit" modal-content="BU" modal-button="BUBtn" initial-display-text="BUDatainitialDisplayText" callback="additionalFormPopUpOnHideCallback(e)"></smart-list-popup>
+</div>  

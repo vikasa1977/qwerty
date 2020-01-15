@@ -1,0 +1,33 @@
+<div class="clearfix">
+   <div class="row marginBtm0 marginTop20">
+        <div class="col s12 l6 m6">
+            <smart-checkbox label="Show Not Inscope" ng-model="inScope" on-change="moveToScope(inScope)"></smart-checkbox>
+        </div>
+        <div class="col s12 l6 m6">
+            
+            <a class="right" href="javascript:void(0)" ng-if="!isInscope">Move to not Inscope</a>
+            <a class="right" href="javascript:void(0)" ng-if="isInscope">Move to Inscope</a>
+            <a href="javascript:void(0)" class="right marginRight10" smart-tooltip position="Down" message="Export Excel">
+                <i class="icon iconSmall">
+                    <svg><use xlink:href="#icon_exportExcel"></use></svg>
+                </i>
+            </a>
+            <a href="javascript:void(0)" class="right marginRight10" smart-tooltip position="Down" message="Import Excel">
+                <i class="icon iconSmall">
+                    <svg><use xlink:href="#icon_ImportExcel"></use></svg>
+                </i>
+            </a>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col s12">
+            <div class="uiGridContainer borderAll marginTop20">
+                <wj-flex-sheet initialized="initialized(s)" item-formatter="itemFormatterPricesheetData">
+                    <wj-sheet items-source="cvPaging1"></wj-sheet>
+                </wj-flex-sheet>
+            </div>
+        </div>
+    </div>
+    </div>
+

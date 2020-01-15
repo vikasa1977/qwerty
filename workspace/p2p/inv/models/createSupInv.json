@@ -1,0 +1,760 @@
+{
+  "dataModel": {
+    "setup": {
+          "invNam": "Invoice3 for Test O 2 1 2 ",
+          "invNum": "INV-02:16-002057",
+          "invAmount": "200.00",
+          "supInvNum": "Test O 2 1 2-2",
+          "InvCreateDt": "02/01/2016",
+          "supInvDt": "02/01/2016",
+          "invRecDt": "02/01/2016",
+          "poInv": true,
+          "supName": "",
+          "supCode": "PC-2015.000001",
+          "ordNum": "4800004412-001",
+          "ordName": "Test O 2 1 2",
+          "LegalEntity": "",
+          "reqName": "Requisition for laptop",
+          "currency": "USD",
+          "remitToLoc": "HeadQuarter",
+          "SupNamAddress": "Lionbridge Technologies, 100 Park Street, New York, New York, United States of America, 18900",
+          "supCont": "Collette Vahed",
+          "contEmailorPhone": "Ketan.patil@gep.com, 123-456-789",
+          "ordLoc": "LC-2015.000004:Headquarter",
+          "ordSupNameAdd": "100 Park Street, New York, New York, 18900.",
+          "buyName ": "Mylan",
+          "orderContact": "Mylan's Admin",
+          "contactEmailPhone": "",
+          "erpOrderType": "",
+          "workOrder": ""
+    },
+    "scannedImage": {
+      "image": "shared/theme/images/scan_invoice.jpg",
+      "label": "SCANNED INVOICE"
+
+    },
+    "p2pInvoiceShipping": {
+        "billTo": "Mumbai",
+        "billToAddress": "Airoli Station, Thane-Belapur Road, Mind Space, Navi Mumbai, New State4  of US, 400708",
+        "billToEmailId": "testing1@gep.com/91 (22) 6137 2121",
+        "billToPaymentTerms": "NET 45"
+    }, 
+    "shipTo": {
+      "shiptoType": [
+        {
+          "key": "specifyatHeader",
+          "title": "Specify at Header",
+          "selected": true
+        },
+        {
+          "key": "differentForEachLineItem",
+          "title": "Different for Each Line Item"
+        }
+      ],
+      "shiptoTypeSelected": {
+        "key": "specifyatHeader",
+        "title": "Specify at Header",
+        "selected": true
+      }
+    },
+    "itemDetails": {
+      "itemDetailfor": [
+        {
+          "key": "materials",
+          "title": "Materials",
+          "selected": true
+        },
+        {
+          "key": "services",
+          "title": "Services"
+        }
+      ],
+      "selectedItemDetailfor": {
+        "key": "materials",
+        "title": "Materials",
+        "selected": true
+      }
+    }
+  },
+  "formConfig": {
+    "sections": [
+    
+      {
+        "label": "Invoice Details",
+        "isMandatory": true,
+        "isHeader": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "Invoice Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory":true,
+                "data": "setup.invNam",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Invoice Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.invNum",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+
+              {
+                "label": "Invoice Amount",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "setup.invAmount",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Supplier Invoice Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.supInvNum",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Invoice Creation Date",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.InvCreateDt",
+
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20,
+                  "type": "date"
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  }
+                ]
+              },
+              {
+                "label": "Supplier Invoice Date",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.supInvDt",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20,
+                  "type": "date"
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  }
+                ]
+              },
+
+              {
+                "label": "Invoice Received On",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.invRecDt",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20,
+                  "type": "date"
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  }
+                ]
+              },
+              {
+                "label": "PO Invoice",
+                "type": "checkbox",
+                "isMandatory": true,
+                "data": "setup.poInv"
+              },
+              {
+                "label": "Supplier Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.supName",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Supplier Code",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.supCode",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Order Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.ordNum",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Order Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.ordName",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Currency",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.currency",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "USD",
+                      "selected": true
+                    },
+                    {
+                      "title": "DNY"
+                    },
+                    {
+                      "title": "RUPEE"
+                    }
+                  ],
+                  "readonly": false,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Legal Entity",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "setup.LegalEntity",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Supplier Details",
+        "isMandatory": true,
+        "isHeader": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "Remit To Location",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.remitToLoc",
+                "colspan": "3",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "loc1"
+                    },
+                    {
+                      "title": "New Remit To"
+                    },
+                    {
+                      "title": "RahulT"
+                    },
+                    {
+                      "title": "location1"
+                    },
+                    {
+                      "title": "location2"
+                    }
+                  ],
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Supplier Name & Address",
+                "type": "textfield",
+                "editable": false,
+                "isMandatory": true,
+                "data": "setup.SupNamAddress",
+                "colspan": "9",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                }
+
+              },
+              {
+                "label": "Supplier Contact",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.supCont",
+                "colspan": "3",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "contact 1",
+                      "selected": true
+                    },
+                    {
+                      "title": "contact 2"
+                    },
+                    {
+                      "title": "contact 3"
+                    },
+                    {
+                      "title": "contact 3"
+                    },
+                    {
+                      "title": "contact 4"
+                    }
+                  ],
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Contact E-mail/ Phone",
+                "type": "textfield",
+                "editable": false,
+                "isMandatory": true,
+                "data": "setup.contEmailorPhone",
+                "colspan": "9",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                }
+
+              },
+              {
+                "label": "Order Location",
+                "type": "textfield",
+                "editable": false,
+                "isMandatory": true,
+                "data": "setup.ordLoc",
+                "colspan": "3",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                }
+
+              },
+              {
+                "label": "Order Supplier Name & Address",
+                "type": "textfield",
+                "editable": false,
+                "isMandatory": true,
+                "colspan": "9",
+                "data": "setup.ordSupNameAdd",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                }
+
+              }
+
+
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Buyer Details",
+        "isMandatory": true,
+        "isHeader": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "Buyer Name",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.buyName",
+                "attributes": {
+                  "disable": true,
+                  "maxlength": 20
+                }
+              },
+              {
+                "label": "Order Contact",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.orderContact",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              },
+              {
+                "label": "Contact E-mail/Phone",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.contactEmailPhone",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "colspan": "12"
+
+              }
+
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Payment & Delivery Info",
+        "isMandatory": true,
+        "isHeader": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+
+              {
+                "colspan": "12",
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "p2pInvoiceShipping",
+                "templateUrl": "p2p/inv/views/p2pInvoiceShippingTemp.html"
+              },
+              {
+                "label": "Bill To",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "p2pInvoiceShipping.billTo",
+                "attributes": {
+                  "readonly": false,
+                  "maxlength": 20
+                },
+                "colspan": "3"
+
+              },
+              {
+                "label": "Bill To Address",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "p2pInvoiceShipping.billToAddress",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "colspan": "9"
+
+              },
+              {
+                "label": "E-mail ID/Fax Number",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "p2pInvoiceShipping.billToEmailId",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                }
+
+              },
+              {
+                "label": "Payment Terms",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "p2pInvoiceShipping.billToPaymentTerms",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                }
+
+
+              },
+              {
+                "label": "Deliver To",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": false,
+                "data": "p2pInvoiceShipping.billToDeliverTo",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                }
+
+
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Custom Fields",
+        "isMandatory": true,
+        "isHeader": true,
+        "rows": [
+          {
+            "colspan": "12",
+            "properties": [
+              {
+                "label": "ERP Order Type",
+                "type": "dropdown",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.erpOrderType",
+                "attributes": {
+                  "options": [
+                    {
+                      "title": "ERP Order Type 1"
+                    },
+                    {
+                      "title": "ERP Order Type 2"
+                    },
+                    {
+                      "title": "ERP Order Type 3"
+                    },
+                    {
+                      "title": "ERP Order Type 3"
+                    },
+                    {
+                      "title": "ERP Order Type 4"
+                    }
+                  ],
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 10",
+                    "error": "Length should not be greater than 10"
+                  }
+                ]
+              },
+              {
+                "label": "Work Order",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.workOrder",
+                "attributes": {
+                  "readonly": true,
+                  "maxlength": 20
+                },
+                "rules": [
+                  {
+                    "rule": "this == \"\"",
+                    "error": "Should not be empty"
+                  },
+                  {
+                    "rule": "this.length > 20",
+                    "error": "Length should not be greater than 20"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Item Details",
+        "isMandatory": true,
+        "isHeader": true,
+        "plain": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": "12",
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "itemDetails",
+                "templateUrl": "p2p/inv/views/itemDetailTemplate.html"
+              }
+            ]
+          }
+        ]
+      }
+
+    ]
+  },
+  "isSequenceToBeMaintained": true
+}

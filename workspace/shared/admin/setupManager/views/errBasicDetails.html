@@ -1,0 +1,4 @@
+﻿<div ng-controller="errApprovalCtrl" style="position: relative;height: 70px;">
+    <smart-textfield class="col 13 m3 l3 xl3 xxl3 line-height-manager input-field" is-mandatory="true" ng-model="basicDetail.RuleName" on-key-up="onNameChange($event)" label="Rule Name"></smart-textfield>
+    <smart-select disable="{{basicDetail.LOBOptions}}" class="col 13 m3 l3 xl3 xxl3 line-height-manager input-field marginLeft30" label="Exception Type" is-mandatory='true' ng-model="basicDetail.selectedExceptionType" options="basicDetail.ExceptionTypeOption" datakey="name" on-change="onExceptionTypeChange(basicDetail.selectedExceptionType)"></smart-select>
+</div>

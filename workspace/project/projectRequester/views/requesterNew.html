@@ -1,0 +1,98 @@
+<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBottom0 extra-nav-wrap">
+    <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left  waves-circle waves-effect waves-light left extra-nav-title--back">
+                    <i class="icon small ">
+                        <svg>
+                            <use xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon">
+                    <svg>
+                        <use xlink:href="#icon_projects"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">
+                    <span class="truncate inline-text paddingRight5 contract-title-truncate" title="{{requesterTitle}}">{{requesterTitle}}</span><span>{{requesterStatus}}</span>
+                </span>
+            </div>
+
+            <!--<ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon ng-scope">
+                    <a class="waves-circle sh-icon waves-effect waves-light dropdown-button" href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')" ng-show="mode == 'supervisorActive' || mode == 'completedRequester' || mode == 'requestCanceled' || mode == 'supervisorInProgress'">
+                        <i class="icon iconSmall white-text tooltipped">
+                            <svg>
+                                <use xlink:href="#icon_Comments"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>-->
+        </div>
+    
+    <div class='requester-form alert-bar--fixed white bandcontainer clearfix' ng-show="mode == 'supervisorActive' || mode == 'drafted' || mode =='supervisorInProgress' || mode =='completedRequester' || mode =='requestCanceled'">
+        <div class="alert-bar enter-from-top info-bar paddingLeft15 paddingRight15 eventBar paddingLeft25">
+            <div class="row marginLeft25 marginBtm0" ng-class="{'marginTop13':message == 'Add Comment'}">
+                <div class="left paddingLeft5">
+                    <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">
+                        <span class="commentStatus truncate marginTop5" title="{{message}}">{{message || translate}}</span>
+                    </a>
+                </div>
+                <div class="left marginRight20" ng-hide="message == 'Add Comment'">
+                    <a href="javascript:void()" ng-click="showCommentsPopupTabCallback(e, 'type1')">
+                        <i class="icon grey-text" smart-tooltip position="bottom" message="Attachments">|<svg><use xlink:href="#icon_Attachment"></use></svg></i><span>Attachment 1 + 4 more</span>
+                    </a>
+                </div>
+            </div>
+            <div class="row marginLeft25 marginBtm0">
+                <div class="paddingLeft5 fontSize12" ng-hide="message == 'Add Comment'">Lucy Star {{dformat}}</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+
+<div class="row paddingBtm50 smartFormWidgetContainer requester-form">
+    <smart-form-widget form-config="config" model-data="dataModel" widget-panel-top="{{topValueSectionTrack}}"></smart-form-widget>
+</div>
+
+<footer class="page-footer">
+    <div class="row">
+        <div class="col s12">
+            <div class="right-align col s12">
+                <smart-button flat="(mode == 'drafted') ? true : false " class="marginRight10" ng-class="(mode == 'drafted') ?  '' : 'whiteSecondaryBtn'" config='{"title":"CANCEL","allignRight":"false"}'  ng-hide="mode == 'completedRequester' || mode == 'requestCanceled'"></smart-button>
+                <smart-button config='{"title":"SAVE","allignRight":"false"}' ng-class="(mode == 'drafted'|| mode=='supervisorActive') ? 'whiteSecondaryBtn' : ''" ng-hide="mode == 'supervisorInProgress' || mode == 'completedRequester' || mode == 'requestCanceled' || mode == 'supervisorActive'" ng-click="startProcess()" ></smart-button>
+                <smart-button class="marginLeft10" config='{"title":"SUBMIT","allignRight":"false"}' ng-show="mode == 'drafted'" ng-class="(mode == 'drafted') ? 'whiteSecondaryBtn' : ''" ng-click="submitProcess()"></smart-button>
+                <smart-button class="marginLeft10" config='{"title":"CHANGE OWNER","allignRight":"false"}' ng-show="mode == 'drafted'" ng-click="changHistoryPopup()"></smart-button>
+                <smart-button class="marginLeft10" config='{"title":"FLIP TO PROJECT","allignRight":"false"}' ng-show="mode == 'supervisorActive'" ng-click="filpToProject()"></smart-button>
+
+                <div class="btn-group right marginLeft10" ng-show="mode == 'supervisorInProgress'">
+                    <smart-button config='{title: statusProgress}' ng-click="getCurrentSelected(e, 'MARK AS COMPLETE')"></smart-button>
+                    <smart-dropdown config="{{dropDownConfig}}">
+                        <a data-activates='statusProgress' class="white-text dropdown-button btn btn-last-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                            <i class="icon iconSmall">
+                                <svg><use xlink:href="#icon_DropArrow"></use></svg>
+                            </i>
+                        </a>
+                        <ul id='statusProgress' class='dropdown-content footer-dropdown-for-landing'>
+                            <li ng-repeat="status in statusActions">
+                                <a href="javascript:void(0)" class="black-text" ng-click="getCurrentSelected(e, status.name)"> {{status.name}}</a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                </div>
+
+                <smart-button class="whiteSecondaryBtn marginRight10" config='{"title":"CANCEL REQUEST","allignRight":"false"}' ng-show="mode == 'completedRequester'"></smart-button>
+                <smart-button class="whiteSecondaryBtn marginRight10 " config='{"title":"MARK AS COMPLETE","allignRight":"false"}' ng-show="mode == 'requestCanceled'"></smart-button>
+                <smart-button config='{"title":"REOPEN","allignRight":"false"}' ng-show="mode == 'completedRequester' || mode == 'requestCanceled'"></smart-button>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<smart-popup template-url="{{commentsPopupgTabUrl}}" show='{{showCommentsPopupTab}}' on-hide="commentsPopupOnHideTabCallback(e)"></smart-popup>
+<smart-popup template-url="{{reasonForStatusPopupUrl}}" show='{{reasonForStatusPopup}}' on-hide="reasonForStatusPopupHide(e)"></smart-popup>
+<smart-popup template-url="{{changeHistoryUrl}}" show='{{showChangeHistory}}' on-hide="changeHistoryCallback(e)"></smart-popup>

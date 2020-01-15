@@ -1,0 +1,58 @@
+﻿<div id="subheaderwrapper" class="subheadercontainer clearfix">
+    <div class="row marginBtm0 extra-nav-wrap" scrolled>
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                    <i class="icon small">
+                        <svg><use xlink:href="#icon_Back"></use></svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon">
+                    <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+                </i>
+                <span class="extra-nav-title--text">Create Account Derivation Mapping Set</span>
+            </div>
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="downloadTemplate()">
+                        <i class="icon iconSmall white-text" message="Download Template" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Download"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon" ng-if="uploadApprovalMatrix.show">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="uploadAppMatrixCallback(e)">
+                        <i class="icon iconSmall white-text" message="Upload Approval Matrix" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_Upload"></use></svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon" ng-if="uploadApprovalMatrix.show">
+                    <a href="javaScript:void(0)" class="waves-circle sh-icon waves-effect waves-light dropdown-button" ng-click="viewUploadLog(e)">
+                        <i class="icon iconSmall white-text" message="View Log" smart-tooltip data-position="bottom" delay="50">
+                            <svg><use xlink:href="#icon_viewLog"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="row paddingBtm40 smartFormWidgetContainer smartFormWidgetContainerList">
+    <smart-form-widget form-config="config.formConfig" model-data="config.modelData"></smart-form-widget>
+</div>
+
+<footer class="page-footer footerSpace">
+    <div class="row marginBtm0">
+        <div class="right paddingRight15">
+            <smart-button flat="true" class="footerBtn marginRight15" config='{"title":"CANCEL"}'></smart-button>
+
+            <smart-button class="footerBtn whiteSecondaryBtn marginRight15" config='{"title":"SAVE AS DRAFT"}'></smart-button>
+            <smart-button class="footerBtn" config='{"title":"CONTINUE"}' ng-if="showSaveBtn" ng-click="showDerivationSets();"></smart-button>
+            <smart-button class="footerBtn" config='{"title":"PUBLISH"}' ng-if="showPublishBtn" ng-click="publishMappingSet()" ui-sref="admin.setupManager.adr"></smart-button>
+        </div>
+    </div>
+</footer>
+

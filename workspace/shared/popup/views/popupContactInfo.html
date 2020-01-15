@@ -1,0 +1,122 @@
+﻿<div class="scrollableModel">
+    <div class="modal-header">
+        <i class="left icon grey-text iconSmall paddingTop3">
+            <svg>
+                <use xlink:href="#icon_AddContact"></use>
+            </svg>
+        </i>
+        <span class="title">ADD NEW ACDV</span>
+    </div>
+
+    <div class="modal-content padding0" >
+        <smart-scroll height="350px" class="clearfix clear">
+            <div class="scroll-inner-container">
+                <div class="outer-row paddingTop10">
+                    <div class="row paddingTop10 paddingBtm15 marginBtm0">
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}" type="text" class="col s12 m4 line-height-manager" is-mandatory="true" label="First Name" ng-model="contactinfoNewData.firstname"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 line-height-manager" is-mandatory="true" label="Last Name" ng-model="contactinfoNewData.lastname"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 line-height-manager" is-mandatory="true" label="E-mail Address" ng-model="contactinfoNewData.email"></smart-textfield>
+                    </div>
+
+                    <div class="blockSeparator"></div>
+
+                    <div class="row marginBtm0 paddingTop30  paddingBtm15">
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 line-height-manager" label="Designation" optional-field ng-model="contactinfoNewData.designation"></smart-textfield>
+                        <!--<smart-checkbox class="col s12 m4 line-height-manager" label="Send Invitation"></smart-checkbox>-->
+                        <smart-select preview="{{contactReadonly.check}}" disable="{{contactReadonly.check}}" is-mandatory="true"  label="Default Role" ng-model="contactinfoNewData.roles.selectedoption" options="typeSelectDefaultRole" class="col s12 m4 line-height-manager supplierprofile-dropdown" datakey="name" on-change="onChange(typeSelectDefaultRole)"></smart-select>
+                    </div>
+
+                    <div class="blockSeparator"></div>
+
+                    <div class="row marginBtm0 paddingTop30  paddingBtm15">
+                        <smart-textfield  readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}" type="text" class="col s9 m3 line-height-manager" label="Primary Business Phone" optional-field ng-model="contactinfoNewData.primarybusinessno.phoneno"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s3 m1 line-height-manager" label="Extn" ng-model="contactinfoNewData.primarybusinessno.extn"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s9 m3 line-height-manager" optional-field label="Sec. Business Phone" ng-model="contactinfoNewData.secondarybusinessno.phoneno"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s3 m1 line-height-manager" label="Extn" ng-model="contactinfoNewData.secondarybusinessno.extn"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 line-height-manager" optional-field label="Mobile" ng-model="contactinfoNewData.mobileno"></smart-textfield>
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 line-height-manager" optional-field label="Fax" ng-model="contactinfoNewData.faxno"></smart-textfield>
+                    </div>
+
+                    <div class="blockSeparator"></div>
+
+                    <div class="row paddingTop30 paddingBtm30 marginBtm0">
+                        <div class="col s12 m4 line-height-manager paddingTop14 margin0 hierarchyList" ng-class="contactinfoNewData.category.selectedTxt[0] ? 'fielddata' + contactinfoNewData.category.selectedTxt.length : 'fielddataempty'">
+                            <div class="paddingBtm5 input-field margin0 clearfix">
+
+                                <label class="active" ng-show="contactReadonly.check || contactinfoNewData.category.selectedTxt[0] !== 'Choose Category'">Category <span class='optionalFieldTxt'>(Optional)</span></label>
+
+                                <a ng-if="!contactReadonly.check || (contactReadonly.check && contactinfoNewData.category.selectedTxt.length > 1)" href="javascript:void(0)" optional-field class="hierarchylinktxt" ng-class="{'cbuOptnField' : contactinfoNewData.category.selectedTxt[0] === 'Choose Category'}" ng-click="treeOpenCallback('category')">
+                                    <span class="truncate hierarchyTitle"  title="{{contactinfoNewData.category.selectedTxt[0]}}">{{contactinfoNewData.category.selectedTxt[0]}}</span>
+                                    <span class="listmoreTxt" ng-if="contactinfoNewData.category.selectedTxt.length > 1">{{contactinfoNewData.category.selectedTxt[1]}}</span>
+                                </a>
+
+                                <span ng-if="contactReadonly.check && contactinfoNewData.category.selectedTxt[0] === 'Choose Category'" class="truncate hierarchyTitle marginLeft2">--</span>
+
+                                <span ng-if="contactReadonly.check && contactinfoNewData.category.selectedTxt[0] !== 'Choose Category' && contactinfoNewData.category.selectedTxt.length === 1" class="truncate hierarchyTitle" title="{{::contactinfoNewData.category.selectedTxt[0]}}">{{::contactinfoNewData.category.selectedTxt[0]}}</span>
+                                <!--<span class="listerrortxt">This is required field.</span>-->
+
+                            </div>
+                        </div>
+                        <div class="col s12 m4 line-height-manager paddingTop14 margin0 hierarchyList" ng-class="contactinfoNewData.regions.selectedTxt[0] ? 'fielddata' + contactinfoNewData.regions.selectedTxt.length : 'fielddataempty'">
+                            <div class="paddingBtm5 input-field margin0 clearfix">
+
+                                <label class="active" ng-show="contactReadonly.check || contactinfoNewData.regions.selectedTxt[0] !== 'Choose Region'">Region <span class='optionalFieldTxt'>(Optional)</span></label>
+
+                                <a ng-if="!contactReadonly.check || (contactReadonly.check && contactinfoNewData.regions.selectedTxt.length > 1)" href="javascript:void(0)" optional-field class="hierarchylinktxt" ng-class="{'cbuOptnField' : contactinfoNewData.regions.selectedTxt[0] === 'Choose Region'}" ng-click="treeOpenCallback('region')">
+                                    <span class="truncate hierarchyTitle"  title="{{contactinfoNewData.regions.selectedTxt[0]}}">{{contactinfoNewData.regions.selectedTxt[0]}}</span>
+                                    <span class="listmoreTxt" ng-if="contactinfoNewData.regions.selectedTxt.length > 1">{{contactinfoNewData.regions.selectedTxt[1]}}</span>
+                                    <!--<span class="listerrortxt">This is required field.</span>-->
+                                </a>
+
+                                <span ng-if="contactReadonly.check && contactinfoNewData.regions.selectedTxt[0] === 'Choose Region'" class="truncate hierarchyTitle marginLeft2">--</span>
+
+                                <span ng-if="contactReadonly.check && contactinfoNewData.regions.selectedTxt[0] !== 'Choose Region' && contactinfoNewData.regions.selectedTxt.length === 1" class="truncate hierarchyTitle" title="{{::contactinfoNewData.regions.selectedTxt[0]}}">{{::contactinfoNewData.regions.selectedTxt[0]}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blockSeparator"></div>
+
+                    <div class="row paddingBtm30 paddingTop30 marginBtm0">
+                        <smart-select preview="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  label="Language" ng-model="contactinfoNewData.language.selectedoption" is-mandatory="true" options="languageOptions" class="col s12 m4 marginBtm0 line-height-manager supplierprofile-dropdown" datakey="name" on-change="onChange(contactinfoNewData.language.selectedoption)"></smart-select>
+                        <smart-select preview="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  label="Timezone" ng-model="contactinfoNewData.timezone.selectedoption" is-mandatory="true" options="timezoneOptions" class="col s12 m4 marginBtm0 line-height-manager supplierprofile-dropdown" datakey="name" on-change="onChange(contactinfoNewData.timezone.selectedoption)"></smart-select>
+                    </div>
+
+                    <div class="blockSeparator"></div>
+
+                    <div class="row paddingBtm30 paddingTop30 marginBtm0">
+
+                        <smart-textfield readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}"  type="text" class="col s12 m4 marginBtm0 line-height-manager" optional-field label="Contact Code" ng-model="contactinfoNewData.code"></smart-textfield>
+
+                        <smart-typeahead readonly="{{contactReadonly.check}}" disable="{{contactReadonly.check}}" class="col s12 m4 marginBtm0 line-height-manager" multiselect="true" addnew="false" show-lookup="true" lookup-Open="lookupOpeno()" lookup-Hide="lookupHides()" placeholder="" titleofmodel="Choose Tracking Option" ng-model="contactinfoNewData.suppliermselectedData" options="suppliermData" filterkeys="['name']" label="Tracking Option"></smart-typeahead>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </smart-scroll>
+    </div>
+    <div class="modal-footer_new is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col left-align paddingTop6" ng-if="contactinfoNewData.isinvite && contactReadonly.check">
+                <smart-checkbox readonly="true" disable="true" ng-model="contactinfoNewData.isinvite" class="col s12" label="Send Invitation"></smart-checkbox>
+            </div>
+            <div class="col left-align paddingTop6" ng-if="!contactReadonly.check">
+                <smart-checkbox ng-model="contactinfoNewData.isinvite" class="col s12" label="Send Invitation"></smart-checkbox>
+            </div>
+            <div class="col right right-align">
+                <div class="right" ng-if="!contactReadonly.check">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"Cancel"}'></smart-button>
+                    <smart-button flat="true" class="left modal-close" config='{"title":"SAVE"}' ng-click="supplierContactInfoSave(contactinfoNewData)"></smart-button>
+                </div>
+                <div class="right" ng-if="contactReadonly.check">
+                    <smart-button flat="true" class="left modal-close" config='{"title":"DONE"}' ng-click="supplierContactInfoSave(contactinfoNewData)"></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

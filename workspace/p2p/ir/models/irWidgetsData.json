@@ -1,0 +1,604 @@
+ {
+  "exceptionData": {
+        "approvalRequiredExcData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  5,
+            "supplierItemNumber": "9489T514",
+            "itemType": "Service",
+            "itemMatchingType": "2 Way",
+            "overrideExc": {
+              "excOpt": "No"
+            },
+            "overrideExcOpt": [
+              { "excOpt": "Yes" },
+              { "excOpt": "No" }
+            ],
+            "itemTotal": 1000,
+            "exceptionComment": "Approvals are required for the received service line item.",
+            "status": "Pending" 
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  45,
+            "supplierItemNumber": "9489T514",
+            "itemType": "Service",
+            "itemMatchingType": "2 Way",
+            "overrideExc": {
+              "excOpt": "No"
+            },
+            "overrideExcOpt": [
+              { "excOpt": "Yes" },
+              { "excOpt": "No" }
+            ],
+            "itemTotal": 1000,
+            "exceptionComment": "Approvals are required for the received service line item.",
+            "status": "Pending"
+
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  23,
+            "supplierItemNumber": "9489T514",
+            "itemType": "Service",
+            "itemMatchingType": "2 Way",
+            "overrideExc": {
+              "excOpt": "No"
+            },
+            "overrideExcOpt": [
+              { "excOpt": "Yes" },
+              { "excOpt": "No" }
+            ],
+            "itemTotal": 1000,
+            "exceptionComment": "Approvals are required for the received service line item.",
+            "status": "Pending"
+
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  17,
+            "supplierItemNumber": "9489T514",
+            "itemType": "Service",
+            "itemMatchingType": "2 Way",
+            "overrideExc": {
+              "excOpt": "No"
+            },
+            "overrideExcOpt": [
+              { "excOpt": "Yes" },
+              { "excOpt": "No" }
+            ],
+            "itemTotal": 1000,
+            "exceptionComment": "Approvals are required for the received service line item.",
+            "status": "Pending"
+
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  30,
+            "supplierItemNumber": "9489T514",
+            "itemType": "Service",
+            "itemMatchingType": "2 Way",
+            "overrideExc": {
+              "excOpt": "No"
+            },
+            "overrideExcOpt": [
+              { "excOpt": "Yes" },
+              { "excOpt": "No" }
+            ],
+            "itemTotal": 1000,
+            "exceptionComment": "Approvals are required for the received service line item.",
+            "status": "Pending"
+
+          }
+        ],
+        "chargesData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  56,
+            "item": "Test",
+            "orderedCharges": "100.00",
+            "invoicedCharges": "10.00",
+            "totalInvoicedCharges": "10.00",
+            "tolerance": "250.00"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  89,
+            "item": "Test",
+            "orderedCharges": "100.00",
+            "invoicedCharges": "10.00",
+            "totalInvoicedCharges": "10.00",
+            "tolerance": "50.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  67,
+            "item": "Test",
+            "orderedCharges": "100.00",
+            "invoicedCharges": "10.00",
+            "totalInvoicedCharges": "10.00",
+            "tolerance": "25.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  90,
+            "item": "Test",
+            "orderedCharges": "100.00",
+            "invoicedCharges": "10.00",
+            "totalInvoicedCharges": "10.00",
+            "tolerance": "125.00"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  35,
+            "item": "Test",
+            "orderedCharges": "100.00",
+            "invoicedCharges": "10.00",
+            "totalInvoicedCharges": "10.00",
+            "tolerance": "268.00"
+          }
+        ],
+        "orderTotalData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  65,
+            "amount": "Item Total",
+            "inOrder": "9600.00",
+            "inInvoice": "10800.00",
+            "totalInvoice": "10800.00",
+            "tolerance": "5.00%",
+            "resolver": {
+              "user": { "name": "Kamlesh Bhalde" },
+              "isEdit": false
+            }
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  81,
+            "amount": "Item Total",
+            "inOrder": "9600.00",
+            "inInvoice": "10800.00",
+            "totalInvoice": "10800.00",
+            "tolerance": "8.00",
+            "resolver": {
+              "user": { "name": "Joel Almeida" },
+              "isEdit": false
+            }
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  76,
+            "amount": "Item Total",
+            "inOrder": "9600.00",
+            "inInvoice": "10800.00",
+            "totalInvoice": "10800.00",
+            "tolerance": "10.00%",
+            "resolver": {
+              "user": { "name": "Joel Almeida" },
+              "isEdit": false
+            }
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  94,
+            "amount": "Item Total",
+            "inOrder": "9600.00",
+            "inInvoice": "10800.00",
+            "totalInvoice": "10800.00",
+            "tolerance": "25.00",
+            "resolver": {
+              "user": { "name": "Nandini Barve" },
+                "isEdit": false
+            }
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  26,
+            "amount": "Item Total",
+            "inOrder": "9600.00",
+            "inInvoice": "10800.00",
+            "totalInvoice": "10800.00",
+            "tolerance": "18.00",
+            "resolver": {
+              "user": { "name": "Godwin Anand" },
+                "isEdit": false
+            }
+          }
+        ],
+        "itemMismatchExcData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  11,
+            "srModel": {
+              "opt": "Select"
+            },
+            "srOpt": [
+              { "opt": "Select" },
+              { "opt": "Mark as default" },
+              { "opt": "Laptop" },
+              { "opt": "Mouse" },
+              { "opt": "Pendrive" }
+            ],
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "quantity": "12 each",
+            "unitPrice": "10.00",
+            "itemValue": "120.00"
+
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  7,
+            "srModel": {
+              "opt": "Select"
+            },
+            "srOpt": [
+              { "opt": "Select" },
+              { "opt": "Mark as default" },
+              { "opt": "Laptop" },
+              { "opt": "Mouse" },
+              { "opt": "Pendrive" }
+            ],
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "quantity": "12 each",
+            "unitPrice": "10.00",
+            "itemValue": "120.00"
+
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  69,
+            "srModel": {
+              "opt": "Select"
+            },
+            "srOpt": [
+              { "opt": "Select" },
+              { "opt": "Mark as default" },
+              { "opt": "Laptop" },
+              { "opt": "Mouse" },
+              { "opt": "Pendrive" }
+            ],
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "quantity": "12 each",
+            "unitPrice": "10.00",
+            "itemValue": "120.00"
+
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  88,
+            "srModel": {
+              "opt": "Select"
+            },
+            "srOpt": [
+              { "opt": "Select" },
+              { "opt": "Mark as default" },
+              { "opt": "Laptop" },
+              { "opt": "Mouse" },
+              { "opt": "Pendrive" }
+            ],
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "quantity": "12 each",
+            "unitPrice": "10.00",
+            "itemValue": "120.00"
+
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  43,
+            "srModel": {
+              "opt": "Select"
+            },
+            "srOpt": [
+              { "opt": "Select" },
+              { "opt": "Mark as default" },
+              { "opt": "Laptop" },
+              { "opt": "Mouse" },
+              { "opt": "Pendrive" }
+            ],
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "quantity": "12 each",
+            "unitPrice": "10.00",
+            "itemValue": "120.00"
+
+          }
+        ],
+        "quantityData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  73,
+            "item": "Apple iPad 4",
+            "itemType": "Material",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "10 each",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "16.00"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  13,
+            "item": "Repair Service",
+            "itemType": "Fixed Service",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "NA",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "6.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  36,
+            "item": "Painting Service",
+            "itemType": "Variable Service",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "NA",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "5.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  99,
+            "item": "HTC One",
+            "itemType": "Material",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "10 each",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "55.00"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  3,
+            "item": "Apple iPhone",
+            "itemType": "Material",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "10 each",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "78.00"
+          },
+          {
+            "orderNumber": "PO-80.1004881",
+            "orderLineNumber":  55,
+            "item": "Samsung 3",
+            "itemType": "Material",
+            "acceptedQuantity": "12 each",
+            "orderQuantity": "12 each",
+            "recQuantity": "10 each",
+            "invQuantity": "12 each",
+            "totalInvoice": "12 each",
+            "tolerance": "30.00%"
+          }
+        ],
+        "shippingData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  75,
+            "item": "Chair",
+            "orderShipping": "20.00",
+            "invShipping": "21.00",
+            "totalInvShipping": "21.00"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  83,
+            "item": "Laptop",
+            "orderShipping": "200.00",
+            "invShipping": "201.00",
+            "totalInvShipping": "201.00"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  37,
+            "item": "Chair",
+            "orderShipping": "20.00",
+            "invShipping": "21.00",
+            "totalInvShipping": "21.00"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  44,
+            "item": "Laptop",
+            "orderShipping": "200.00",
+            "invShipping": "201.00",
+            "totalInvShipping": "201.00"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  27,
+            "item": "Chair",
+            "orderShipping": "20.00",
+            "invShipping": "21.00",
+            "totalInvShipping": "21.00"
+          },
+          {
+            "orderNumber": "PO-80.1004881",
+            "orderLineNumber":  9,
+            "item": "Laptop",
+            "orderShipping": "200.00",
+            "invShipping": "201.00",
+            "totalInvShipping": "201.00"
+          }
+        ],
+        "unitPriceData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  20,
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "orderUnitPrice": "12 each",
+            "invUnitPrice": "10 each",
+            "tolerance": "20.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  10,
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "orderUnitPrice": "12 each",
+            "invUnitPrice": "10 each",
+            "tolerance": "165.00"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  70,
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "orderUnitPrice": "12 each",
+            "invUnitPrice": "10 each",
+            "tolerance": "75.00"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  69,
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "orderUnitPrice": "12 each",
+            "invUnitPrice": "10 each",
+            "tolerance": "89.00"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  66,
+            "item": "Item description comes here",
+            "itemType": "Material",
+            "orderUnitPrice": "12 each",
+            "invUnitPrice": "10 each",
+            "tolerance": "26.00%"
+          }
+        ],
+        "taxData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  33,
+            "item": "Item Total",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "24.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  38,
+            "item": "Shipping Charges",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "62.00"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  48,
+            "item": "Taxes",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "33.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  52,
+            "item": "Total Value",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "56.00"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  93,
+            "item": "Other Charges",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "88.00"
+          },
+          {
+            "orderNumber": "PO-80.1004881",
+            "orderLineNumber":  71,
+            "item": "Taxes",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "25.00%"
+          },
+          {
+            "orderNumber": "PO-80.1004882",
+            "orderLineNumber":  28,
+            "item": "Total Value",
+            "orderTax": "12 (5%)",
+            "invTax": "110 (4%)",
+            "totalInvTax": "22",
+            "useTax": "2 (1%)",
+            "tolerance": "35.00%"
+          }
+        ],
+        "uomData":[
+          {
+            "orderNumber": "PO-80.1004876",
+            "orderLineNumber":  22,
+            "item": "Laptop",
+            "itemType": "Material",
+            "orderUOM": "12 each",
+            "receivedUOM": "10 each",
+            "invUOM": "2 packs"
+          },
+          {
+            "orderNumber": "PO-80.1004877",
+            "orderLineNumber":  2,
+            "item": "Laptop",
+            "itemType": "Material",
+            "orderUOM": "12 each",
+            "receivedUOM": "10 each",
+            "invUOM": "2 packs"
+          },
+          {
+            "orderNumber": "PO-80.1004878",
+            "orderLineNumber":  16,
+            "item": "Laptop",
+            "itemType": "Material",
+            "orderUOM": "12 each",
+            "receivedUOM": "10 each",
+            "invUOM": "2 packs"
+          },
+          {
+            "orderNumber": "PO-80.1004879",
+            "orderLineNumber":  46,
+            "item": "Laptop",
+            "itemType": "Material",
+            "orderUOM": "12 each",
+            "receivedUOM": "10 each",
+            "invUOM": "2 packs"
+          },
+          {
+            "orderNumber": "PO-80.1004880",
+            "orderLineNumber":  87,
+            "item": "Laptop",
+            "itemType": "Material",
+            "orderUOM": "12 each",
+            "receivedUOM": "10 each",
+            "invUOM": "2 packs"
+          }
+        ]
+
+    }
+
+
+}

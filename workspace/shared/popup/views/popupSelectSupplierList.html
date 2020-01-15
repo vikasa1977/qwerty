@@ -1,0 +1,61 @@
+<div>
+    <div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="catalogSearchField='';hideSearch()" smart-tooltip position="Close" message="{{'Close' || translate }}" delay="250" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="focusSearch" ng-model="catalogSearchField"></smart-textfield>
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg><use xlink:href="#icon_Supplier"></use></svg>
+        </i>
+        <span class="title">{{ 'SELECT SUPPLIER' || translate }} </span>
+    </div>
+    <div class="modal-content padding0" ng-class="{'is-scrolled': true}">
+        <div class="model_body">
+
+            <smart-scroll height="100%" v-offset="260px" is-fixed-header="true">
+                <table class="bordered sTable">
+                    <tr>
+                        <th style="padding-left: 45px;">Supplier</th>
+                        <th>Ordering Location</th>
+                        <th>Remit Location</th>
+                    </tr>
+                    <tr ng-repeat="supplier in poSuppliers">
+                        <td>
+                            <!--<smart-radio label="Currency" ng-model="selectedCurrency" options="currencyOptions" datakey="name" id="catalog-{{ $index }}"></smart-radio>-->
+                        
+                            <input class="with-gap" type="radio" ng-model="supplier.checked" name="supplier" id="catalog-{{ $index }}" ng-change="handleRadioClick(supplier)"
+             ng-selected="supplier.checked">
+                            <label for="catalog-{{ $index }}" class="grey-text text-darken-4 truncate">{{ supplier.name  || translate }}</label>
+                        </td>
+                        <td>{{supplier.orderingLocation || translate}}</td>
+                        <td>{{supplier.remitLocation || translate}}</td>
+                    </tr>
+                </table>
+                <smart-scroll>
+        </div>
+    </div>
+    <div class="modal-footer paddingLeft8" ng-class="{'is-scrolled': true}">
+        <div class="clearfix">
+            <smart-button flat="true" class="modal-close right" config='{"title":"CREATE PO"}' ng-click="createPOWithSupplier()"></smart-button>
+            <smart-button flat="true" class="modal-close right" config='{"title":"CANCEL"}'></smart-button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader, 'shadowNone': !supplierView}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back">
+                <i class="icon small">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_ImpProject"></use></svg>
+            </i>
+            <span class="extra-nav-title--text">Setup Manager</span>
+        </div>
+    </div>
+</div>
+
+<div class="projectCards">
+    <smart-cards-view data="dataLoaded" responsive="{{responsiveSettings}}">
+        <smart-card-item ng-repeat="projectCardContent in projectCardsContent" header-template="shared/admin/setupManager/views/projectCardHeader.html" content-template="shared/admin/setupManager/views/projectCardContent.html" footer-template="shared/admin/setupManager/views/projectCardFooter.html" card-identifer="{{projectCardContent.groupName}}" expand="{{projectCardContent.expand}}">
+        </smart-card-item>
+    </smart-cards-view>
+</div>
+
+<div class="home-page hide-on-down fixed-action-btn activeOnClick">
+    <a class="btn-floating btn-large waves-effect waves-light is-action-btn-trigger" ui-sref="admin.setupManager.new" smart-tooltip position="left" message="Add New Project">
+        <i class="icon icon-fix-overlay iconSmall">
+            <svg>
+                <use xlink:href="#icon_LpAdd"></use>
+            </svg>
+        </i>
+    </a>
+</div>
+
+    <!--<smart-popup template-url="{{selectValuePopupUrl}}" show='{{selectValue}}' on-hide="selectValueOnHideCallback()" type="small"></smart-popup>
+    <smart-popup template-url="{{divisionPopupUrl}}" show='{{selectDivision}}' on-hide="selectDivisionOnHideCallback()" type="small"></smart-popup>
+    <smart-popup template-url="{{entityPopupUrl}}" show='{{selectEntity}}' on-hide="selectEntityOnHideCallback()" type="small"></smart-popup> -->

@@ -1,0 +1,158 @@
+<div class="row white smart1-navigation">
+	<div class="col s12">
+		<div class="left">
+			<a href="https://smartqc.gep.com/Portal/Dashboard?oloc=101&amp;md=bT0x0">
+				<img id="Img1" src="https://az528272.vo.msecnd.net/cumuluscontent/logo/6315_logo.png?v=294">
+			</a>
+		</div>
+		<div class="right">
+			<ul class="smart1-right-icon">
+				<li class="smat1-icon" ng-init="supportOn=false">
+					<a class="tooltippedtemp header-action-icon icon-query smat1-icon-a" ng-click="supportOn = !supportOn;settingOn = false " href="javascript:void(0);" data-position="bottom" data-delay="50" data-tooltip="Support"></a>
+					<div class="smart1-setting-dropdown support-wrap" ng-show="supportOn">
+						<span class="arrow-up"></span>
+						<div class="smart1-setting-dropdown-support">
+							<div class="smart1-support-label">Support</div>
+							<div class="smart1-support-phone-lable">Phone</div>
+							<ul class="smart1-support-contact-wrap">
+								<li class=""><span><strong>US:</strong> +1 732 428 1578</span></li>
+								<li class=""><span><strong>Europe:</strong>  +42 022 598 6501</span></li>
+								<li class=""><span><strong>Asia:</strong> +91 22 6137 2148</span></li>
+								<li class=""><span><strong>Australia:</strong> +61 285 181 914</span></li>
+								<li class=""><span><strong>UK:</strong> +44 203 106 0145</span></li>
+							</ul>
+							<div class="">
+								<div class="">Email:</div>
+								<div><a class="smart1-support-email" href="mailto:support@gep.com">support@gep.com</a></div>
+								<div>CC:</div>
+								<div><a class="smart1-support-email" href="mailto:GAP-Spend@gep.com">GAP-Spend@gep.com</a></div>
+							</div>
+						</div>
+						<div class="smart1-setting-dropdown-support">
+							<a href="javascript:void(0);" ng-click="goToHelpCenter()">
+								<span class=""><b>Help Center</b></span>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="smat1-icon" ng-init="settingOn=false">
+					<a class="tooltippedtemp header-action-icon icon-setting smat1-icon-a" ng-click="settingOn = !settingOn;supportOn=false" href="javascript:void(0);" data-position="bottom" data-delay="50" data-tooltip="Settings" id="A2" original-title="Settings"></a>
+					<div class="smart1-setting-dropdown setting-wrap" ng-show="settingOn">
+						<span class="arrow-up"></span>
+						<div class="query-links">
+							<a href="https://smartqc.gep.com/Administration?oloc=101">Admin</a>
+						</div>
+						<div class="query-links">
+							<a href="javascript:void(0);" ng-click="goToSettingsPage()">Settings</a>
+						</div>
+						<div class="query-links">
+							<a href="javascript:void(0);" ng-click="performLogout()" data-resourcekey="Logout">Logout</a>
+						</div>
+					</div>
+				</li>
+				
+				<li class="smat1-icon">
+					<div class="left black-text">
+						<div id="searchHeader" ng-init="searchOption=false">
+							<div class="smart1-search-wrap" style="">
+								
+								<div class="right relative">
+									<a href="javascrip:void(0);" class="smart1-search-icon-wrap icon iconSmall">
+										<svg>
+											<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Search"></use>
+										</svg>
+									</a>
+									<input class="smart1-search-wrap-input" type="text" id="searchFieldClick" autofocus>
+									<div class="smart1-search-recent-dropdown" ng-show="false">
+										<div>RECENT SEARCHES</div>
+										<ul class="smart1-search-recent-list">
+											<li class="smart1-search-recent-list-item">test</li>
+											<li class="smart1-search-recent-list-item">CLI-3670-Test April 19</li>
+											<li class="smart1-search-recent-list-item">"PC-2016.004651"</li>
+											<li class="smart1-search-recent-list-item">PC-2016.004651</li>
+											<li class="smart1-search-recent-list-item">Test_Gep_DuplicateTeamMember</li>
+										</ul>
+									</div>
+									<div class="smart1-search-result-dropdown" ng-show="false">
+										<dl class="smart1-search-result-list">
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">ALL</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">RFx</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Auction</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Scorecard</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Forms</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Contracts</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Orders</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Requisitions</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Invoices</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">IR</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Partners</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+											<dd class="smart1-search-result-item">
+												<span class="smart1-search-result-item-title">Catalogs</span>
+												<span class="smart1-search-result-item-result"><a href="javascript:void(0);">2125 Result Found</a></span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="smart1-search-wrap-setectbox relative" ng-click="searchOption =!searchOption">
+									<div >All<span class="smart1-search-drop-arrow"></span> </div>
+									<dl class="smart1-search-suggest-dropdown" ng-show="searchOption">
+										<dd class="smart1-dropdown-item">All</dd>
+										<dd class="smart1-dropdown-item">RFx</dd>
+										<dd class="smart1-dropdown-item">Auction</dd>
+										<dd class="smart1-dropdown-item">Scorecard</dd>
+										<dd class="smart1-dropdown-item">Forms</dd>
+										<dd class="smart1-dropdown-item">Contracts</dd>
+										<dd class="smart1-dropdown-item">Orders</dd>
+										<dd class="smart1-dropdown-item">Requisitions</dd>
+										<dd class="smart1-dropdown-item">Invoices</dd>
+										<dd class="smart1-dropdown-item">IR</dd>
+										<dd class="smart1-dropdown-item">Partners</dd>
+										<dd class="smart1-dropdown-item">Catalogs</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="smat1-icon">
+					<span class="left black-text" ng-bind="welcomeuser"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="sidenav-overlay" style="opacity: 1;" class="" ng-click='resetPanes()' ng-if='sidePaneVisible'></div>

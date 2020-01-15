@@ -1,0 +1,44 @@
+<div>
+    <div class="modal-header">          
+        <span class="title">{{ 'SELECT SUPPLIER' || translate }} </span>
+    </div>
+    <div class="modal-content padding0"  ng-class="{'is-scrolled': true}">
+        <div class="model_body">       
+            <div class="portal-supplier-desp">
+                Lorem ipsum dolor sit amet, eam eu quis congue elaboraret, possit vocibus ei nec. Per utroque maiestatis deterruisset in. An iriure deleniti sit, per facer dictas no. Nam dico etiam consetetur cu, elit complectitur in nam, vel quem postea interpretaris ne.
+            </div>              
+            <smart-list model="{{supplierList}}"
+                        style-class="collection supplier-portal-collection is-overflowHidden row marginBtm0"
+                        item-class="collection-item col s6 "
+                        template="supplierList.html" height="283px">
+            </smart-list>
+                  
+        </div>
+    </div>
+    <div class="modal-footer is-scrolled paddingRight20">
+        <div class="clearfix">            
+            <smart-button flat="true" class="modal-close right" config='{"title":"SELECT"}' ></smart-button>           
+        </div>
+    </div>
+</div>
+
+
+
+<script id="supplierList.html" type="text/ng-template"> 
+    <div item="{{item}}" class="clearfix portal-supplier-list">       
+        <div class="left marginTop20">
+            <!--<input class="with-gap" type="radio" ng-model="model.ischecked" name="selectSupplier" ng-value="true" id="supplierPortal-{{ $index }}">-->
+            <input type="radio" class="with-gap" value="" name="ui_cont" ng-change='changeOnPrimary(contact)' ng-model="contact.primary" ng-value="true" id="supplierPortal-{{ $index }}" ng-checked="{{$index == 0 ? true : false}}">
+            <label for="supplierPortal-{{ $index }}" class="grey-text text-darken-4 truncate rad-portal-supplier"></label>
+        </div>
+            <div class="supplier-logo-cont left">
+               <div class="supplier-portal-logo">
+                   <img src="shared/resources/images/kelloggs_logo.png" />
+               </div>
+                <div class="supplier-portal-name grey-text text-darken-2 truncate">{{ item.name  || translate }}</div>
+            </div>
+    </div>
+</script>
+
+
+

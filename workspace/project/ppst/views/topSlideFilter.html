@@ -1,0 +1,26 @@
+<div ng-class="{'top-to-bottom-slide':slideTopFilter,'bottom-to-top-slide':!slideTopFilter}" class="panelBox-withSpace panelBox--filter">
+    <div class="panelBox-content panel-tab-align">
+        <div class="panelBox-header clearfix row marginBottom0">
+            <div class="col s12">
+                <div class="left fontSize16">FILTER</div>
+                <div class="right">
+                    <a href="javaScript:void(0)" class="gray-text" ng-click="savedViewPopupCallback(e, 'filter')">
+                        Saved Filters
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panelBox-body padding0">
+            <div class="row margin0">
+                <div class="col s12 padding0">
+                    <smart-tabs tab-config="{{importDocumentFilterTabData}}" width="100%" tab-panel-height="300px" vertical="true" on-select="tabFilterSelectCallback(e)"></smart-tabs>
+                </div>
+            </div>
+        </div>
+        <div class="panelBox-footer row footerSpace ">
+            <smart-button flat="true" class="modal-close footerBtn left marginLeft0" config='{"title":"RESET"}' ng-click="filterResetHeader(e);"></smart-button>
+            <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"APPLY"}' ng-click="applyFilter();" disable="enableApplyBtn"></smart-button>
+            <smart-button flat="true" class="modal-close footerBtn right marginRight2" config='{"title":"CANCEL"}' ng-click="toggleDocumentFilter(e);"></smart-button>
+        </div>
+    </div>
+</div>

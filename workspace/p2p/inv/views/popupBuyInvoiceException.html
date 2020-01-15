@@ -1,0 +1,43 @@
+<div>
+	<div class="modal-header">
+		<i class="icon iconSmall red-text ">
+			<svg>
+				<use xlink:href="#icon_TrackStatus"></use>
+			</svg>
+		</i>
+		<span class="title">Buy Invoice Exception </span>
+		<smart-dropdown config="{{dropDownConfig}}" class="right marginTop5">
+		  <a href="	javascript:void(0);" class="dropdown-button right black-text" data-activates='buyInvoiceExcep' data-constrainwidth="false" data-alignment="right">Quantity		
+				<i class="icon iconSmall grey-text right">
+					<svg class="marginTop5">
+						<use xlink:href="#icon_DropArrow"></use>
+					</svg>
+				</i>		
+		  </a>
+		  <ul id='buyInvoiceExcep' class='dropdown-content dd-close-off'>
+			<li><a href="javascript:void(0);" class="grey-text">Quantity</a></li>
+			<li><a href="javascript:void(0);" class="grey-text">Unit Cost/Rate</a></li>		
+			<li><a href="javascript:void(0);" class="grey-text">Line Item Value</a></li>
+			<li><a href="javascript:void(0);" class="grey-text">Tax & Shipping</a></li>
+			<li><a href="javascript:void(0);" class="grey-text">Order Total</a></li>
+			<li><a href="javascript:void(0);" class="grey-text">UOM</a></li>
+		  </ul>
+	</smart-dropdown>
+	</div>
+	<div class="modal-content padding0">
+		
+		<div smart-grid config="buyInvoiceExceptionGridConfig" class="invoiceExcepGridContent"></div>
+	
+	</div>
+	<div class="modal-footer">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left" config='{"title":"OK"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

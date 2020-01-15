@@ -1,0 +1,16 @@
+<!-- card header template-->
+<!--<i class="card-header-icon icon">
+    <svg>
+        <use xlink:href={{cardBucketImageByDocType}}></use>
+    </svg>
+</i>-->
+
+<div class="apply-height-100-percent" ng-class="{'stateInProgress': projectCardContent.status == 'In Progress','stateCompleted': projectCardContent.status == 'Completed', 'stateNotStarted': projectCardContent.status == 'Not Started'}">
+    <div class="apply-height-100-percent">
+        <div class="cards-title-container">
+            <div class="cards-title">
+                <span class="card-header-title" smart-tooltip message="" position="bottom">{{projectCardContent.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

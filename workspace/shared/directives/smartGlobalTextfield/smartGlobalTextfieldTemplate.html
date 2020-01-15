@@ -1,0 +1,40 @@
+<div>
+    <div class="input-field" ng-show="pageName === 'home'">
+        <input id="input"  placeholder="Search" type="text" data-ng-model="searchValue" />
+        <a href="#searchResult?search={{searchValue}}" class="search">
+            <i class="icon iconSmall"><svg><use xlink:href="#icon_Search"></use></svg></i>
+        </a>
+    </div>
+
+
+    <div id="header_search_box" ng-show="pageName === 'searchResult'">
+        <div class="input-field">
+            <input id="search" placeholder="Search" type="text" ng-keydown="onKeyDown($event)" data-ng-model="searchValue" ng-value="searchValue" />
+            <label for="search">
+                <a class="extra-nav-item waves-block waves-effect waves-light right" ng-click="searchBox()" href="javascript:void(0)" style="float:left!important">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+            </label>
+            <a class="extra-nav-item waves-block waves-effect waves-light right" ng-click="clearSearch()" href="javascript:void(0)">
+                <i class="icon iconSmall left">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+

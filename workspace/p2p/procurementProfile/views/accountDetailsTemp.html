@@ -1,0 +1,242 @@
+<div class="clearfix" >
+
+        <div class="col s12 paddingTop10" data-ng-init='taxExemptOpts=[{"title": "NO","selected": true}, {"title": "YES","selected": false}];matchingOpts=[{"title": "3 Way","selected": true}, {"title": "2 Way","selected": false}]'>
+            <div class="container">
+                <div class="row marginBtm10">
+
+                    <div class="col s12 m6 l6 xl6 xxl6 right-align offset-m6  offset-l6 offset-xl6 offset-xxl6">
+                        <ul class="panelBox-header--action">
+                            <li class="panelBox-header--aLink">
+                                <a href="javaScript:void(0)" smart-tooltip position="bottom" delay="50" message="Add Line" ng-click="addLine()">
+                                    <i class="icon iconSmall">
+                                        <svg focusable="false"><use xlink:href="#icon_CirclePlus"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="panelBox-header--aLink">
+                                <smart-dropdown config="{{dropDownConfig}}">
+                                    <a href="javaScript:void(0)" class="dropdown-button" data-activates="tabMatAccFilter" data-constrainwidth="false" data-alignment="right" ng-click="manageColumns('accounting')">
+                                        <i class="icon icon-fix-overlay iconSmall" smart-tooltip position="bottom" delay="50" message="{{'Manage Columns'|| translate}}">
+                                            <svg focusable="false"><use xlink:href="#icon_ManageColumns"></use></svg>
+                                        </i>
+                                    </a>
+                                    <ul id="tabMatAccFilter" class="dropdown-content dropdown-content-large  dd-close-off">
+                                        <li class="dropdown-content-header ">
+                                            <div class="title">{{'MANAGE COLUMNS'|| translate}}</div>
+                                        </li>
+                                        <li class="padding0 is-scrolled">
+                                            <ul class="collection">
+                                                <li class="collection-item clearfix" ng-class="{'filled-partial' : fillpartial == true }">
+                                                    <smart-checkbox label="All" ng-model="selectedAll.selection" fill='true' class="left" ng-click="checkAll(selectedAll.selection)"></smart-checkbox>
+                                                    <span class="right padding0">({{selectedCount}}) Selected</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-content-content is-scrolled clearfix paddingTop10">
+                                            <smart-scroll height="230px" class="inlineList">
+                                                <div class="listHolder" ng-style="listHolderWidth">
+                                                    <div class="left listHolder-width200" ng-repeat="n in cloneDiv(noOfCol) track by $index" ng-init="myIndex = $index">
+                                                        <div class="col s12 inlineList-item staggeredRight" ng-repeat="field in itemsColumnized(myIndex) | limitTo:itemsLimit">
+                                                            <smart-checkbox class="label-truncate" title="{{field.label}}" fill="true" ng-model="field.selected" label="{{field.label}}" ng-change="onChange(field.selected)"></smart-checkbox>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </smart-scroll>
+
+
+                                        </li>
+                                        <li class="dropdown-content-footer is-scrolled">
+                                            <smart-button config='{"title":"Reset","flat":true}' flat="true" ng-click="reset()" class="left"></smart-button>
+                                            <smart-button config='{"title":"APPLY","flat":true}' flat="true" callback="showSelectedColumn" class="right close-lookup"></smart-button>
+                                            <smart-button config='{"title":"CANCEL","flat":true}' callback="cancelMangeColumn" call-param="selectedAll.selection" flat="true" class="right close-lookup"></smart-button>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+                            </li>
+                            <li class="panelBox-header--aLink">
+                               <a href="javaScript:void(0)" ng-click="deleteSelected(delDisabled)" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}" ng-class="{'disabled': delDisabled}" tabindex="{{ !delDisabled ? '1' : '-1' }}">
+                                    <i class="icon icon-fix-overlay iconSmall">
+                                        <svg focusable="false"><use xlink:href="#icon_TrashCan"></use></svg>
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="clearfix">
+            <smart-scroll>
+            <table class="bordered sTable left fixedTbl" sticky-header scroll-type="page" style="width:1500px;">
+                <colgroup>
+                    <col style="width: 5%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 18%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%" />
+                    <col style="width: 9%"/>
+                    <col  style="width: 5%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="left-align">
+                            <smart-checkbox class="left paddingTop5" ng-model="accountTbl.isSelected" smart-selectall data="accountLists|.secTierSup" checker-flag="isSelected" on-change="accountItemChange()"></smart-checkbox>
+                        </th>
+                        <th class="left-align">
+                            {{ 'Line Type' | translate }}
+                        </th>
+                        <th class="left-align">{{ 'Item Type ' | translate }}</th>
+                        <th class="left-align">
+                        {{ 'Account Assignment Category' | translate }}
+                        </th>
+                        <th class="left-align">{{ 'Cost Center' | translate }}</th>
+                        <th class="left-align">{{ 'Internal Order' | translate }}</th>
+                   
+                        <th class="left-align" >
+                           {{ 'Project Code' | translate }}
+                        </th>
+                        <th class="left-align" >
+                            {{ 'GL Code' | translate }}
+                        </th>
+                        
+                        <th class="left-align" >
+                            {{ 'Splite Type' | translate }}
+                        </th>
+                        <th class="left-align" >
+                            {{ 'Split' | translate }}
+                        </th>
+                        <th class="left-align" >
+                            {{ 'Splite Percentages' | translate }}
+                        </th>
+                        <th class="left-align">
+                           
+                            </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr pagination-id="accountDetailstbl" dir-paginate="item in accountLists | itemsPerPage: rowsToShowOpts.selectedOption.size" >
+                        <td class="left-align paddingLeft19">
+                            <smart-checkbox ng-if="!item.isparentItem" class="left paddingTop5 secTierSup" ng-model="item.isSelected" on-change="accountItemChange()"></smart-checkbox>
+                        </td>
+                        <td class="left-align">
+                                <div ng-if="((0 < item.spliteCount) && item.isparentItem) || item.isparentItem">
+                            <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'lineType')">
+                                <span ng-if="item.lineType.selected == ''">{{ 'Please Select'}}</span>
+                                <span ng-if="item.lineType.selected != ''">{{item.lineType.selected[0].name}} <span ng-if="item.lineType.selected.length > 1">+ {{ item.lineType.selected.length }} More</span></span>
+                            </a>
+                            </div>
+                        </td>
+                        <td class="left-align">
+                                <div ng-if="((0 < item.spliteCount) && item.isparentItem) || item.isparentItem">
+                            <a href="javascript:void(0)" ng-click="multiSelectLookupCallback(e,$index,'itemType')">
+                                <span ng-if="item.itemType.selected == ''">{{ 'Please Select'}}</span>
+                                <span ng-if="item.itemType.selected != ''">{{item.itemType.selected[0].name}} <span ng-if="item.itemType.selected.length > 1">+ {{ item.itemType.selected.length }} More</span></span>
+                            </a>
+                            </div>
+                        </td>
+                        <td class="left-align">
+                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                            <a class="left" href="javascript:void(0)" ng-click="treeOpenCallback('category')">{{ 'Category' || item.costCenter }}</a>
+                              </div>
+                        </td>
+                        <td class="left-align" ng-class="{'typeHeadTd' : item.costCenter.selected != ''}">
+                            <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                            <smart-dropdown fixed="true" class="relative" ng-if="item.costCenter.selected == ''">
+                                <a href="javascript:void(0)" class='dropdown-button btn-in-header' data-activates='dropdowngrid_{{$index}}_costCenter' data-constrainwidth="false">
+                                    {{ 'Please Enter' }}
+                                </a>
+                                <div id="dropdowngrid_{{$index}}_costCenter" class="table-typeahead-lookup--active dropdown-content lookup-popup dropdown-content--size-medium fontNormal lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="col s12" is-mandatory="true" error-model="item.costCenter.errorMsg" titleofmodel="Choose Cost Center" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.costCenter.selected" options="item.costCenter.options" filterkeys="['name']" ></smart-typeahead>
+                              
+                                 </div>
+                            </smart-dropdown>
+                            <smart-typeahead ng-if="item.costCenter.selected != ''" class="typeHeadInsideTable" is-mandatory="true" error-model="item.costCenter.errorMsg"  titleofmodel="Choose Cost Center" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.costCenter.selected" options="item.costCenter.options" filterkeys="['name']"></smart-typeahead>
+                            <div class="red-text fontSize12" ng-if="item.costCenter.errorMsg">{{item.costCenter.errorMsg}}</div>
+                            </div>
+                        </td>
+                        <td class="left-align" ng-class="{'typeHeadTd' : item.internalOrder.selected != ''}">
+                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                            <smart-dropdown fixed="true" class="relative" ng-if="item.internalOrder.selected == ''">
+                                <a href="javascript:void(0)" class='dropdown-button btn-in-header' data-activates='dropdowngrid_{{$index}}_internalOrder' data-constrainwidth="false">
+                                    {{ 'Please Enter'}}
+                                </a>
+                                <div id="dropdowngrid_{{$index}}_internalOrder" class="table-typeahead-lookup--active dropdown-content lookup-popup dropdown-content--size-medium fontNormal lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="col s12" is-mandatory="true" error-model="item.internalOrder.errorMsg" titleofmodel="Choose Internal Order" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.internalOrder.selected" options="item.internalOrder.options" filterkeys="['name']"></smart-typeahead>
+
+                                </div>
+                            </smart-dropdown>
+                            <smart-typeahead ng-if="item.internalOrder.selected != ''" class="typeHeadInsideTable" is-mandatory="true" error-model="item.internalOrder.errorMsg" titleofmodel="Choose Internal Order" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.internalOrder.selected" options="item.internalOrder.options" filterkeys="['name']"></smart-typeahead>
+                            <div class="red-text fontSize12" ng-if="item.internalOrder.errorMsg">{{item.internalOrder.errorMsg}}</div>
+                            </div>
+                        </td>
+                         <td class="left-align" ng-class="{'typeHeadTd' : item.projectCode.selected != ''}">
+                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                            <smart-dropdown fixed="true" class="relative" ng-if="item.projectCode.selected == ''">
+                                 <a href="javascript:void(0)" class='dropdown-button btn-in-header' data-activates='dropdowngrid_{{$index}}_projectCode' data-constrainwidth="false">
+                                     {{ 'Please Enter'}}
+                                 </a>
+                                 <div id="dropdowngrid_{{$index}}_projectCode" class="table-typeahead-lookup--active dropdown-content lookup-popup dropdown-content--size-medium fontNormal lookup-popup-quantity dd-close-off">
+                                     <smart-typeahead class="col s12" is-mandatory="true" error-model="item.projectCode.errorMsg" titleofmodel="Choose Project Code" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.projectCode.selected" options="item.projectCode.options" filterkeys="['name']"></smart-typeahead>
+
+                                 </div>
+                             </smart-dropdown>
+                             <smart-typeahead ng-if="item.projectCode.selected != ''" class="typeHeadInsideTable" is-mandatory="true" error-model="item.projectCode.errorMsg" titleofmodel="Choose Project Code" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.projectCode.selected" options="item.projectCode.options" filterkeys="['name']"></smart-typeahead>
+                             <div class="red-text fontSize12" ng-if="item.projectCode.errorMsg">{{item.projectCode.errorMsg}}</div>
+                        </div>
+                            </td>
+                        <td class="left-align" ng-class="{'typeHeadTd' : item.glCode.selected != ''}">
+                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                            <smart-dropdown fixed="true" class="relative" ng-if="item.glCode.selected == ''">
+                                <a href="javascript:void(0)" class='dropdown-button btn-in-header' data-activates='dropdowngrid_{{$index}}_glCode' data-constrainwidth="false">
+                                    {{ 'Please Enter'}}
+                                </a>
+                                <div id="dropdowngrid_{{$index}}_glCode" fixed class="table-typeahead-lookup--active dropdown-content lookup-popup dropdown-content--size-medium fontNormal lookup-popup-quantity dd-close-off">
+                                    <smart-typeahead class="col s12" is-mandatory="true" error-model="item.glCode.errorMsg" titleofmodel="Choose GLCode" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.glCode.selected" options="item.glCode.options" filterkeys="['name']"></smart-typeahead>
+
+                                </div>
+                            </smart-dropdown>
+                            <smart-typeahead ng-if="item.glCode.selected != ''" class="typeHeadInsideTable" is-mandatory="true" error-model="item.glCode.errorMsg" titleofmodel="Choose GLCode" multiselect="true" addnew="false" show-lookup="true" placeholder="{{'Please Enter'}}" ng-model="item.glCode.selected" options="item.glCode.options" filterkeys="['name']"></smart-typeahead>
+                            <div class="red-text fontSize12" ng-if="item.glCode.errorMsg">{{item.glCode.errorMsg}}</div>
+                        </div>
+                        </td>
+                        <td class="left-align paddingLeft10"> 
+                                <div ng-if="!((0 < item.spliteCount) && item.isparentItem)">
+                             <a href="javascript:void(0)" ng-click="showSplitePopup($index)"> {{ item.spliteType }}</a>
+                             </div>
+                            </td>
+                        <td class="left-align paddingLeft10">{{ item.splite || '--' }}</td>
+                        <td class="left-align paddingLeft10"> {{ item.splitePercentages || '--' }} </td>
+						 <td class="left-align">
+                            <a href="javaScript:void(0)" ng-if="!item.isparentItem" ng-click="deleteCurrent($index)" smart-tooltip position="bottom" delay="50" message="{{'Delete'|| translate}}" >
+                                <i class="icon icon-fix-overlay iconSmall">
+                                    <svg focusable="false"><use xlink:href="#icon_TrashCan"></use></svg>
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="noResultsBar" ng-if="accountLists.length == 0">
+                        <td class="noResultsBar-cell" colspan="12">No Account Details Available!</td>
+                    </tr>
+                </tbody>
+            </table>
+            </smart-scroll>
+            <div class="clearfix paginationWrapper savable right">
+                <div class="left selectPaginationDropDown">
+                    <span class="rowsToShow"> Rows Per Page:</span>
+                    <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts.availableOptions" ng-model="rowsToShowOpts.selectedOption" datakey="size"></smart-select>
+                </div>
+                <dir-pagination-controls class="left" pagination-id="accountDetailstbl" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged(newPageNumber, oldPageNumber)" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+            </div>        
+      </div>
+    </div>
+<!--category popup-->
+<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+<!--split Popup-->
+<smart-popup template-url="p2p/shared/views/popupSplitDev.html" show="{{showSplitPopup}}" on-hide="onSplitePopupHideCallback(e)" cancel-button="true"></smart-popup>
+
+

@@ -1,0 +1,222 @@
+<div class="nav-icon-row navLogoutButton">
+    <a href="javascript:void(0);" class="waves-effect waves-block waves-light left tooltipped" smart-tooltip position="bottom" delay="250" message="Exit Punchout">
+        <i class="icon iconSmall">
+            <svg>
+                <use xlink:href="#icon_Exit"></use>
+            </svg>
+        </i>
+    </a>
+	<a href="#/login" class="waves-effect waves-block waves-light right tooltipped logoutBtn" smart-tooltip position="bottom" delay="250" message="Logout" ng-click="logoutSession()">
+		<i class="icon iconSmall">
+			<svg>
+				<use xlink:href="#icon_Logout"></use>
+			</svg>
+		</i>
+	</a>
+</div>
+<div ng-controller="menuCtrl">
+    <div id="slide-out-bookmark">
+        <smart-scroll height="100%" v-offset="155px">
+            <div class="collection">
+                <!--<smart-list model="{{menulist}}"  style-class="collection" template="shared/sideNav/views/menuTemplate.html" controller-name="headerCtrl" click-callback="clickHandler" lazy-load-callback="onLazyLoad"></smart-list>-->
+
+                <ul>
+                    <li>
+                        <div class="side-nav-search">
+                            <i class="icon iconSmall  icon-left tooltipped" data-position="left" data-delay="50" data-tooltip="Search">
+                                <svg>
+                                    <use xlink:href="#icon_Search"></use>
+                                </svg>
+                            </i>
+                            <!-- <div class="input-field"> -->
+                            <!-- $state.go('masterform', {action:'Get', assetId:1234, folderId:999}); -->
+                            <input id="searchBox" placeholder="{{placeholderText}}" type="text" data-ng-model="searchValue" ng-focus="placeholderText=''" ng-blur="placeholderText=placeholderTextCopy" ng-keydown="onKeyDown($event)" />
+                            <!-- <a href="#searchResult?search={{searchValue}}" class="search">
+                            <i class="icon iconSmall"><svg><use xlink:href="#icon_Search"></use></svg></i>
+                        </a> -->
+                            <!-- </div> -->
+                            <!-- <input type="text" value="SEARCH" id="searchBox" ng-keydown="onKeyDown($event)" class=""> --> <!-- Toggle "searchActive" class for interaction -->
+                            <span class="bar"></span>
+                            <i class="icon iconSmall header_search_undo icon-right tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clear Search" id="close-search-box" style="display: none;">
+                                <svg>
+                                    <use xlink:href="#icon_Close"></use>
+                                </svg>
+                            </i>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://smartqc.gep.com/Administration?oloc=101 " class="white-text waves-effect waves-block waves-light">
+                            <i class="icon iconSmall left marginRight0">
+                                <svg>
+                                    <use xlink:href="#icon_Settings"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Admin</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <smart-accordion show="{{accordianshow}}" on-change="onAccordianChange(e)">
+                            <div class="accordion-header">
+                                <a href="" class="white-text waves-effect waves-block waves-light">
+                                    <i class="icon iconSmall left marginRight0">
+                                        <svg>
+                                            <use xlink:href="#icon_Settings"></use>
+                                        </svg>
+                                    </i>
+                                    <span class="left navigation-links">Quick Access</span>
+                                    <i class="icon iconSmall right marginRight0 accordian-status" ng-class="{'rotate180':accordianshow}">
+                                        <svg>
+                                            <use xlink:href="#icon_DownChevron"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="collection DarkColor" style="background-color:#01365c;">
+                                    <ul style="margin-left:38px;">
+                                        <li>
+                                            <a ui-sref="p2p.asn.new"  class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_asn"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">ASN</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="contract.new" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Order"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Blanket PO</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="catalog.requestercatalog" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Catalog"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Catalog</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="contract.new" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Contract"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Contract</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="p2p.creditmemo.new" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_CredMemo"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Credit Memo</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="p2p.ir.new" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_Invoice"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Invoice</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="p2p.inv.nonpoinv" class="white-text waves-effect waves-block waves-light">
+                                                <i class="icon iconSmall left marginRight0">
+                                                    <svg>
+                                                        <use xlink:href="#icon_InvRecon"></use>
+                                                    </svg>
+                                                </i>
+                                                <span class="left navigation-links">Invoice Reconcilation</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </smart-accordion>
+
+                    </li>
+
+                    <li>
+                        <a class="white-text waves-effect waves-block waves-light" ng-click="closeSideBar()">
+                            <i class="icon iconSmall left marginRight0">
+                                <svg>
+                                    <use xlink:href="#icon_DashboardRe"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Spend Dashboard</span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref="admin.ruleSummary" class="white-text waves-effect waves-block waves-light" ng-click="closeSideBar()">
+                            <i class="icon iconSmall left marginRight0">
+                                <svg>
+                                    <use xlink:href="#icon_Catalog"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Manage Rules &amp; Workflow</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="admin.setupManager.implementationProject" class="white-text waves-effect waves-block waves-light" ng-click="closeSideBar()">
+                            <i class="icon iconSmall left marginRight0">
+                                <svg>
+                                    <use xlink:href="#icon_ImpProject"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Setup Manager</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="p2p.req.reqDemo" class="white-text waves-effect waves-block waves-light" ng-click="closeSideBar()">
+                            <i class="icon iconSmall left marginRight0 red-txt">
+                                <svg>
+                                    <use xlink:href="#icon_Fraud"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Fraud Detection</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="p2p.req.bussinessInsight" class="white-text waves-effect waves-block waves-light" ng-click="closeSideBar()">
+                            <i class="icon iconSmall left marginRight0 red-txt">
+                                <svg>
+                                    <use xlink:href="#icon_BusinessIns"></use>
+                                </svg>
+                            </i>
+                            <span class="left navigation-links">Business Insight</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </smart-scroll>
+            <div class="nav-bottom-stick copyrightBtmCont">
+                <img src="shared/resources/images/SBG16_logo.png" />
+                <p class="copyrightPara">&copy; Copyright GEP 2018. All rights reserved.</p>
+                <ul class="copyrightLinks">
+                    <li><a href="https://www.gep.com/terms-use" target="_blank">Terms of Use</a></li>
+                    <li><a href="https://www.gep.com/privacy-statement" target="_blank">Privacy Statement</a></li>
+                    <!--<li><a href="javascript:;">Data Security</a></li>-->
+                </ul>
+            </div>
+</div>
+</div>

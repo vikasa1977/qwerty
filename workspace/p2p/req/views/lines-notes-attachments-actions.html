@@ -1,0 +1,26 @@
+<div><smart-dropdown config="{{dropDownConfig}}"><a href="javaScript:void(0)" class="marginLeft10  dropdown-button" data-activates="addLineAttachOptions" data-constrainwidth="false" data-alignment="right">
+            <i class="icon  iconSmall tooltipped" smart-tooltip position="bottom" delay="50" message="ADD ATTACHMENTS">
+                <svg><use xlink:href="#icon_CirclePlus"></use></svg>
+            </i>
+        </a>
+        <ul id="addLineAttachOptions" class="dropdown-content">
+            <li><a href="javaScript:void(0)" ng-click="adduploadCallback()">{{'Upload File'|| translate}}</a> </li>
+            <li><a href="javaScript:void(0)" ng-click="showNotesAttachCall()">{{'Notes'|| translate}}</a></li>
+            <li><a href="javaScript:void(0)" ng-click="showExternalLinkAttachCall()">{{'External Link'|| translate}}</a> </li>
+        </ul>
+    </smart-dropdown>
+    <a href="javascript:void(0)" class="marginLeft10 " smart-tooltip message="Delete" position="bottom" ng-click="">
+        <i class="icon left blue-text">
+            <svg><use xlink:href="#icon_TrashCan"></use></svg>
+        </i>
+    </a>
+    <a href="javascript:void(0)" class="marginLeft10 " smart-tooltip message="Delete" position="bottom" ng-click="">
+        <i class="icon left blue-text">
+            <svg><use xlink:href="#icon_Download"></use></svg>
+        </i>
+    </a>
+</div>	
+
+<smart-popup template-url="shared/popup/views/popupUploadDoc.html" show="{{showUploadPopup}}" on-hide="hideUploadPopupCallback(e)" callback="attachmentAddedCall()"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAttachmentNotes.html" show="{{showNotesAttach}}" on-hide="hideNotesAttachPopupCallback(e)"></smart-popup>
+<smart-popup template-url="shared/popup/views/popupAttachmentExternalLink.html" show="{{showExternalLinkAttach}}" on-hide="hideExternalLinkAttachPopupCallback(e)"></smart-popup>

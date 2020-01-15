@@ -1,0 +1,7 @@
+	<div class="col s12 m12 right" ng-controller="editbuttonCtr">
+						<div class="right">
+							<smart-button flat="true" class="left" config='{"title":"CANCEL"}' ng-click="toggleEditing()" ng-if="!editing"></smart-button>
+							<smart-button flat="true" class="left" config='{"title":"SAVE"}' ng-if="!editing"></smart-button>
+							<smart-button flat="true" class="left" config='{"title":"EDIT"}' ng-click="toggleEditing()"  ng-if="editing"></smart-button>
+                        </div>
+					</div>

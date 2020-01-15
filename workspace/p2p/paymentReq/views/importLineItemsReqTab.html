@@ -1,0 +1,69 @@
+<div class="clearfix">
+    <div class="collection noBorder">
+        <div class="collection-item clearfix">
+            <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex9" data-ng-init="mysearch=false;">
+                <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                    <a href="javascript:void(0)" ng-click="treeSearchModel='';hideSearch(e)" smart-tooltip position="bottom" delay="50" message="Close" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Close"></use></svg>
+                        </i>
+                    </a>
+
+                    <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="focusSearch"></smart-textfield>
+                    <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                        <i class="icon iconSmall center grey-text">
+                            <svg><use xlink:href="#icon_Search"></use></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+			<div ng-class="{'filled-partial' : fillpartial == true }">
+				<smart-checkbox label="{{'All' || translate }}" ng-model="reqCheckedAll.check" on-change="checkAllReq(reqCheckedAll.check)" class="left marginTop4 marginBtm4"></smart-checkbox>
+			</div>
+		</div>
+    </div>
+    <div class="is-scrolled">
+        <!--<smart-list model="{{importFromReq}}"
+                    style-class="collection noBorder"
+                    item-class="collection-item clearfix"
+                    height="230px" template="addLinesFromReq.html">
+        </smart-list>-->
+        <smart-scroll height="230px">
+            <ul class="collection noBorder">
+                <li class="collection-item clearfix" ng-repeat="item in importFromReq">
+                    <div class="col s10 paddingLeft0">
+                        <smart-checkbox label="{{item.Name}}" ng-model="item.isSelected" fill='true' on-change="reqChange(item.isSelected)"></smart-checkbox>
+                        <div class="grey-text paddingLeft30 fontSize12">{{item.Number}}</div>
+                    </div>
+                    <div class="col s2 paddingRight0" ng-if="item.showFlag">
+                        <span class="right" smart-tooltip position="bottom" delay="50" message="Requisition created urgently">
+                            <i class="icon iconSmall">
+                                <svg><use xlink:href="#icon_Flag"></use></svg>
+                            </i>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </smart-scroll>
+    </div>
+
+</div>
+
+
+<!-- ADD LINES FROM popover -- requisition List -->
+<!--<script id="addLinesFromReq.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <div class="col s10 paddingLeft0">
+			<smart-checkbox label="{{item.Name}}" ng-model="item.isSelected" fill='true'></smart-checkbox>
+			<div class="grey-text paddingLeft30 fontSize12">{{item.Number}} {{item.isSelected}}</div>
+		</div>
+		<div class="col s2 paddingRight0" ng-if="item.showFlag">
+			<span class="right" smart-tooltip position="bottom" delay="50" message="Requisition created urgently">
+				<i class="icon iconSmall">
+					<svg><use xlink:href="#icon_Flag"></use></svg>
+                </i>
+			</span>
+	    </div>
+    </div>
+</script>-->
+

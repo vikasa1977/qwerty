@@ -1,0 +1,281 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+    <div class="col s12">
+        <div class="extra-nav-title">
+            <a href="javascript:void(0)" ng-click="backToHistory()" class="left  waves-circle waves-effect waves-light left extra-nav-title--back" smart-tooltip position="bottom" delay="50" message="{{ 'Back' || translate }}">
+                <i class="icon small ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg>
+                    <use xlink:href="#icon_Order"></use>
+                </svg>
+            </i>
+            <span class="extra-nav-title--text max-width277 truncate ng-cloak" title="{{dataModel.orderData.DocumentNumber}} - {{dataModel.orderData.DocumentName}}">{{dataModel.orderData.DocumentNumber}} - {{dataModel.orderData.DocumentName}}</span>
+            <span class="extra-nav-title--text marginLeft10 ng-cloak">{{ '(TERMS AND CONDITIONS)' || translate }}</span>
+        </div>
+        <div class="right">
+            <smart-checkbox class="left marginTop12" label="Select Tearms & Conditions" ng-model="selectTNC" on-change="headerChangeTNC()"></smart-checkbox>
+            <ul class="extra-nav-right-icon extra-nav-action">
+                <li class="extra-nav-icon">
+                    <a target="_blank" href="javaScript:void(0)" class="waves-circle waves-effect waves-light tooltipped" smart-tooltip message="Download" position="bottom" delay="50">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_Download"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+                <li class="extra-nav-icon">
+                    <a href="javascript:void(0)" onclick="window.print()" class="waves-circle waves-effect waves-light tooltipped" smart-tooltip message="Print" position="bottom" delay="50">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_Print"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- body content -->
+<div class="tnc-wrapper" ng-style="{'min-height':contHeight}">
+    <div class="clearfix wrapper--sidebar--left">
+        <!-- body content -- sidebar -->
+        <div class="white animated bounceInLeft sidebar--leftDv" ng-class="{'sidebar--left--isHidden':!isBtnActive}" ng-style="{'top':(showFilter === true ? '0' :(fixedSubHeader === true ? '50px' : '114px')),'position':(showFilter === true ? 'relative' : (fixedSubHeader === true ? 'fixed' : 'absolute')), 'height': contHeight}">
+            <a href="javascript:void(0)" class="sidebar-btn white-text hide-on-xlarge-only hide-on-xxlarge-and-up" ng-class="{'sidebar-btn--hidden':!isBtnActive}" ng-click="activeButton()">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_RightChevro"></use>
+                    </svg>
+                </i>
+            </a>
+            <div class="panel-content">
+                <smart-scroll height="{{dynamicScroll}}">
+                    <div class="select-all-wrap" ng-if="selectTNC" ng-class="{'filled-partial' : fillpartial == true }">
+                        <smart-checkbox class="" label="Select All" ng-model="selectAllChecked" on-change="selectAllChangeCallback()"></smart-checkbox>
+                    </div>
+                    <div class="collection" id="dyScroll">
+                        <div ng-repeat="n in iteams" class="relative" ng-class="{'selectedTNC': selectTNC}">
+                            <a href="javascript:void(0)" class="collection-item truncate" ng-class="{active : $index == indexToShow}" ng-click="selectedItem($index, n.lable)" smart-tooltip position="bottom" delay="50" message="{{ n.title || translate }}">
+                                <span class="black-text fldFxdWrapper--sidebar--count">{{$index + 1}}</span>{{n.title}}
+                            </a>
+
+                            <div class="tnc-checkbox-wrap" ng-if="selectTNC">
+                                <smart-checkbox class="" label="" ng-model="n.isChecked" on-change="changeCallback()"></smart-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </smart-scroll>
+            </div>
+        </div>
+        <!-- body content -- right side page display -->
+        <div class="content">
+            <div class="row">
+                <div class="col s12">
+                    <div class="previewModeContainer card animated bounceInUp" style="width: 895px; margin: 0 auto;">
+                        <div class="" style="padding:50px;">
+                            <h4>PURCHASE ORDER TERMS AND CONDITIONS</h4>
+                            <ol>
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="definitions">DEFINITIONS:</b>
+                                    <ul class="marginBtm15">
+                                        <li>Buyer means the CA company as specified in the Purchase Order (as defined below). Confidential Information shall have the meaning as specified in clause 14 below. Delivery Date means the date when the goods are delivered to CA pursuant to clause 6 below. Purchase Order means an order for goods and/or services to be provided by the Supplier and the corresponding fees to be paid by the Buyer issued by Buyer subject to these terms and conditions. Supplier means the company as specified in the Purchase Order. Warranty Period means the period of twelve months from the later of either the Delivery Date or acceptance.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="application">APPLICATION OF TERMS:</b>
+                                    <ul class="marginBtm15">
+                                        <li>2.1 Supplier agrees to deliver goods and/or perform the services as described in the Purchase Order and in accordance with the terms and conditions stated in this Purchase Order</li>
+                                        <li>2.2 Additional or different terms in the Supplier's acknowledgement or any other Supplier documents are hereby rejected.</li>
+                                        <li>2.3 This Purchase Order is non-exclusive. Buyer is free to engage others to provide goods the same as or similar to Supplier's.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="cancellation">CANCELLATION OR CHANGE OF PURCHASE ORDERS:</b>
+                                    <ul class="marginBtm15">
+                                        <li>Buyer reserves the right to cancel any Purchase Order at any time prior to shipment of the goods and shall not be subject to any charges or other fees whatsoever as a result of such cancellation. Buyer may by written communication cancel or make changes to any Purchase Order subject to an equitable adjustment in the price, delivery schedule, or both, where appropriate.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="prices">PRICES AND TAXES:</b>
+                                    <ul class="marginBtm15">
+                                        <li>4.1 Prices or fees specified in the applicable Purchase Order will be exclusive of GST and/or VAT unless provided otherwise on the Purchase Order but inclusive of any other incidental costs and taxes including without limitation all freight, insurance and packing charges, all sales, use, excise, added value and similar taxes, and all customs, duties or governmental impositions unless agreed otherwise in writing by the Buyer. All taxes to be paid by Buyer must be separately itemized on the invoice.</li>
+                                        <li>4.2 In the event that any payment to be made in respect of any invoice issued by Supplier pursuant to a Purchase Order is subject by law to any withholding tax, Buyer shall make payment to Supplier of the amount owing, less a deduction for such withholding tax and shall account to the relevant tax authority for the appropriate withholding tax. Payment of such net sum to Supplier and to the relevant tax authority of the said withholding tax shall, for the purposes of this Agreement, constitute full settlement of the sums owing under the relevant Purchase Order. Buyer hereby agrees that it will, upon written request from Supplier and at Supplier's expense, furnish any necessary evidence that may reasonably be required of the payment of the said withholding tax. Purchase Order Terms and Conditions Page 2</li>
+                                        <li>4.3 Supplier warrants that the prices for the goods sold and/or services performed hereunder are not less favorable than those currently extended to any other customer for the same or similar products in similar quantities and/or services. In the event Supplier reduces its prices for such goods and/or services prior to accepting Buyer's Purchase Order or during the term of performance of any Purchase Order for services, Supplier agrees to reduce the prices hereof accordingly. Supplier warrants that the prices shown in the Purchase Order shall be complete and no additional charges shall be added without Buyer's express written consent. Such additional charges include, but are not limited to, shipping, packaging, labeling, custom duties, taxes, insurance, storage, boxing and crating.</li>
+                                        <li>4.4 If a decrease in the price for any goods and/or services becomes effective after Supplier accepts a Purchase Order for the goods and/or services, but before Supplier has shipped the goods or performed the services, the price Buyer will pay will be the price in effect when the Seller ships the goods to Buyer or performs the services. In the event of a price decrease, Supplier will grant to Buyer a credit with respect to goods then in Buyer’s inventory or the services performed. The price protection credit will be equal to the difference between the price originally paid by the Buyer and the new adjusted price of the goods and/or services less any previously issued credits. If an increase in the price for any goods and/or services becomes effective after Supplier accepts a Purchase Order for the goods and/or services but before Seller has shipped the goods or performed the services, the price Buyer will pay will be the price in effect when the Seller accepted the Purchase Order from Buyer.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="payment">PAYMENT TERMS AND INVOICES:</b>
+                                    <ul class="marginBtm15">
+                                        <li>5.1 As full consideration for the delivery of goods and/or performance of the services and the assignment of rights to Buyer as provided herein, Buyer shall pay Supplier the amount specified in the applicable Purchase Order. Supplier shall submit invoices in compliance with the tax legislation in the local jurisdiction and showing applicable Purchase Order number, description of goods, quantity, unit prices, extended totals, completion date of services (if any), shipping date, product serial numbers and any other information requested by Buyer.</li>
+                                        <li>5.2 All properly submitted and undisputed invoices will be paid within sixty (60) days of the date the invoice is received by Buyer. Payment of any invoice shall not constitute acceptance of any goods. An invoice may be rejected for noncompliance with any terms and conditions. Any credit memos due to Buyer's organization shall be transacted within five (5) business days. 5.3 All invoices shall be issued in the currency as set out in the Purchase Order. 5.4 The mode of payment shall be at Buyer's sole discretion and all bank charges or back charges relating thereto shall be borne by Supplier.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="shipping">SHIPPING, DELIVERY AND ACCEPTANCE:</b>
+                                    <ul class="marginBtm15">
+                                        <li>6.1 Supplier shall deliver the goods and/or perform the services as specified in the applicable Purchase Order</li>
+                                        <li>6.2 Supplier shall package and ship all goods in accordance with such industry standards as may be applicable to ensure that the goods are received by Buyer in good condition compliance with the Purchase Order. The applicable Purchase
+                                        Order number must appear on all shipping containers, packing lists, delivery tickets and bills of lading. Title and risk of loss shall pass to Buyer upon delivery at the destination nominated by the Buyer or upon final acceptance by Buyer whichever is later.</li>
+                                        <li>6.3 Buyer reserves the right to refuse shipments and/or performance of services made before or after the date set forth in the Purchase Order. If goods ordered are destroyed prior to the title passing to Buyer or if the delivery of the goods
+                                        (and/or performance of services) is not completed on time, Buyer may, at its option, require delivery of substitute goods of equal quantity and quality, terminate the Purchase Order as to items not yet shipped or services not yet rendered and to purchase substitute items or services elsewhere or to direct
+                                        Supplier to ship by the most expeditious means available, all at Supplier's risk and expense. Supplier assumes all risk of loss, damage or destruction to any goods rejected by Buyer. Time for delivery shall be of the essence</li>
+                                        <li>6.4 Acceptance of deliveries not in conformance with the Purchase Order or the terms of this Agreement shall not be deemed a waiver of Buyer's right to hold Supplier liable for any loss or damage to Buyer or modify Supplier's obligation to make future deliveries in conformance with the terms herein. Shipments which do
+                                        not conform with the terms of this Agreement may be returned to Supplier and Supplier shall pay Buyer for all handling and transportation costs incurred in connection therewith. Supplier shall bear all costs of shipping, transportation and packing unless otherwise agreed to in writing by Buyer. </li>
+                                        <li>6.5 Acceptance by Buyer will occur (i) for services or goods installed by Supplier, upon completion to the satisfaction of Buyer of any acceptance tests or programs described in the Purchase Order or attachments thereto, as evidenced by any 
+                                        acceptance certificate signed by Buyer; or (ii) for goods not installed by the Supplier, on the thirtieth (30th) day following receipt of the goods by Buyer, unless Supplier is notified in writing within this period that, in Buyer's sole judgment, the goods do not conform to Supplier's specifications, in which event
+                                        Buyer may return the goods to Supplier, freight collect, and be refunded all advance payment made therefore. </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="representations">REPRESENTATIONS AND WARRANTIES:</b>
+                                    <ul class="marginBtm15">
+                                        <li>7.1 Supplier hereby represents and warrants that (i) it is authorized to sell the goods and/or performance the services set out in the Purchase Order; (ii) all goods provided and/or services performed will comply with the descriptions and specifications as set out in the Purchase Order; (iii) all goods provided are of genuine and authentic manufacture, new and unused, and will throughout the Warranty Period be free from defects in design, materials, workmanship and manufacture, be of satisfactory quality and fit for the purposes communicated by Buyer or if not communicated by the Buyer fit for the purposes as can be reasonably deemed; and (iv) all services will be performed in a workmanlike and professional manner by employees or subcontractors of Supplier having a level of skill commensurate with the requirements of the agreed upon scope of work and that its performance of services do not and will not infringe any patent, copyright, trademark, trade secret or other proprietary right of any third party. Supplier hereby agrees that it will make spare parts available to Buyer for a period of five (5) years from the date of final acceptance by Buyer at Supplier's then current price less applicable discounts.</li>
+                                        <li>7.2 The foregoing warranties are in addition to all other warranties, express or implied, and shall survive the delivery, performance, inspection, acceptance or payment by Buyer. Buyer's inspection, test, approval, acceptance or use of any goods will not relieve Supplier of any warranties specified herein or otherwise applicable. If Buyer identifies a warranty problem during the Warranty Period, Buyer will notify Supplier and may, at its sole option, and at Supplier's expense: Purchase Order Terms and Conditions Page 4 (i) require Supplier to correct any defect or nonconformance; (ii) return deficient or nonconforming goods to Supplier for a full refund of amounts paid for those deficient or non-conforming goods; (iii) correct the deficient or nonconforming goods itself, or (iv) re-perform the services or any part thereof which fails to conform to Buyer's specifications. Replacement or repaired goods shall be warranted for the remainder of the warranty period or six (6) months, whichever is longer.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="termination">TERMINATION:</b>
+                                    <ul class="marginBtm15">
+                                        <li>8.1 Buyer may terminate any Purchase Order upon written notice to Supplier if Supplier: (i) fails to perform or otherwise materially breaches any term of this Purchase Order and such failure or breach is not remedied within seven (7) days of Buyer's notice to do so; (ii) files a petition in bankruptcy, becomes insolvent, or dissolves; (iii) breaches any confidentiality obligations; or (iii) assigns or attempts to assign this Purchase Order in whole or in part to a third party without prior written consent of Buyer.</li>
+                                        <li>8.2 Buyer may terminate any Purchase Order in whole or in part at its discretion and without any liability to Supplier for damages or loss (whether direct or indirect) upon thirty (30) days written notice to Supplier, except for payment of the price of the goods supplied and services performed and accepted by Buyer prior to the date of termination specified in such notice. Supplier shall cease to provide goods under the applicable Purchase Order on the date of termination specified in such notice.</li>
+                                        <li>8.3 Upon the termination of the Purchase Order for any reason, Supplier will promptly deliver at the expense of Supplier and in accordance with Buyer's instructions to Buyer all work product (whether in process or completed) created by Supplier pursuant to such Purchase Order prior to the date of termination and all Buyer's Confidential Information.</li>
+                                        <li>8.4 The termination of any Purchase Order shall not affect any obligation of the parties incurred before the termination date. Notwithstanding the termination or expiration of the Purchase Order, the terms of this Agreement which by their context, intent and meaning are intended to survive the termination or expiration of the Purchase Order shall survive any termination or expiration of the Purchase Order.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="independent">INDEPENDENT CONTRACTOR SERVICES:</b>
+                                    <ul class="marginBtm15">
+                                        <li>The parties agree that Supplier is an independent contractor for all purposes, without express or implied authority to bind Buyer by contract or otherwise. Supplier is responsible for all costs and expenses incident to performing its obligations under any Purchase Order and shall provide its own supplies and equipment.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="ownership">OWNERSHIP:</b>
+                                    <ul class="marginBtm15">
+                                        <li>10.1 All work product and goods (including without limitation all documentation, user manuals, training materials, guides, specifications and other information relating thereto whether in writing, electronic format or otherwise created or delivered by Supplier pursuant to a Purchase Order) shall be and remain the sole and exclusive property of Buyer. Supplier hereby agrees to irrevocably assign and transfer to Buyer and does hereby assign and transfer to Buyer all of its worldwide rights, title and interest in and to the work product and/or the goods Purchase Order Terms and Conditions Page 5 including all associated intellectual property rights. All tools and equipment supplied by Buyer to Supplier shall remain the sole property of Buyer.</li>
+                                        <li>10.2 Supplier warrants that it has all right and authority necessary to confer clear title and ownership to the Buyer in accordance with this Purchase Order. Supplier irrevocably agrees not to assert against Buyer, any affiliate or holding or parent company of the Buyer, or its direct or indirect customers, assignees or licensees any claim of any intellectual property rights of Supplier affecting the work product and/or goods and/or the services.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="indemnity">INDEMNITY:</b>
+                                    <ul class="marginBtm15">
+                                        <li>11.1 Supplier shall indemnify, defend, and hold harmless Buyer and Buyer's officers, directors, employees, successors, assigns, agents, and customers from and against any, and all claims, actions, liabilities, damages, losses, costs, and expenses (including legal fees) arising out of or in any way connected with the goods provided and/or the services performed under any Purchase Order including without limitation: (i) defective workmanship, quality of material or service (ii) any claim by a third party alleging that goods or services, the results of such services, or any other products or processes provided under any Purchase Order infringe a patent, copyright, trademark, trade secret or other proprietary right of a third party, whether such are provided alone or in combination with other products, software or processes; (iii) Supplier's failure to comply with any applicable law, statute, rule or regulation, including without limitation, related to privacy and publicity; (iv) the negligence or willful misconduct of the Supplier, its agents or employees; (v) death or bodily injury to any person; or (vi) damage or destruction to property, caused by, arising out of, connected with or resulting from the goods and/or the acts or omissions of the Supplier, its agents, subcontractors.</li>
+                                        <li>11.2 Should Buyer's use, or use by its employees, contractors, subcontractors or customers, of any goods or services purchased from Supplier be threatened by injunction or any legal proceeding, Supplier shall, at is sole cost and expense, either: (i) substitute fully equivalent non-infringing goods; (ii) modify such goods so that they no longer infringe but remain fully equivalent in functionality; (iii) obtain for Buyer, its employees, contractors, subcontractors or customers the right to continue using such goods; or (iv) if none of the foregoing is possible, refund all amounts paid for the infringing goods.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="insurance">INSURANCE:</b>
+                                    <ul class="marginBtm15">
+                                        <li>Supplier shall obtain and maintain at its expense in full force and effect during the term of this Agreement (i) commercial general liability insurance (including contractual liability coverage) on an occurrence basis for bodily injury, death, “broad form” property damage, advertising injury and personal injury, with coverage limits of not less than Two Million Dollars ($2,000,000), per occurrence and Two Million Dollars ($2,000,000), general aggregate for bodily injury and property damage, (ii) auto liability insurance covering all owned, non-owned and hired vehicles, with coverage limits of not less than One Million Dollars ($1,000,000), per occurrence for bodily injury and property damage, (iii) worker's compensation insurance as required by law in the state where the services will be performed, (iv) employer's liability coverage for injury, disease and death with coverage limits of not less than One Million Dollars ($1,000,000), per accident and employee, (v) employee dishonesty coverage (including coverage for third party crimes) for loss of money, securities, and other property with extended Purchase Order Terms and Conditions Page 6 coverage to cover property and money at non-owned premises for limits not less than $250,000 and a deductible no greater than $5,000, per loss per occurrence, naming Buyer as loss payee, (vi) an umbrella liability coverage on an occurrence form, for limits of Three Million Dollars ($3,000,000), per occurrence and in the aggregate. The insurance policies described herein shall name Buyer as an additional insured thereunder. Supplier's insurance coverage shall be considered primary without right of contribution of Buyer's insurance policies. Notwithstanding the foregoing, Supplier's insurance policy will contain a severability of interests clause. Upon request, Supplier shall provide Buyer with a certificate of insurance evidencing the insurance coverages required herein. The insurance companies now or hereafter issuing the foregoing insurance policies shall be insurance carriers to be rated A- or better by A.M. Best Company. Any material modification, renewal, replacement or cancellation of such insurance coverages shall require at least thirty (30) days prior written notice to Buyer with the exception of non-payment, in which case, such policy shall require ten (10) days prior written notice to Buyer. In no event shall the foregoing coverage limits affect or limit in any manner Supplier's contractual liability for indemnification under this Agreement.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="force">FORCE MAJEURE:</b>
+                                    <ul class="marginBtm15">
+                                        <li>In the event that either party is unable to perform any of its obligations under the Purchase Order, or to enjoy any of its benefits because of (or if loss of the goods is caused by) natural disaster, actions or decrees of governmental bodies or communications line failure not the fault of, or that could not reasonably have been prevented or avoided by, the affected party (hereinafter referred to as a “Force Majeure Event” or “Event”), the party who has been so affected shall immediately give notice to the other party and shall do everything possible to resume performance. Upon receipt of such notice, all obligations under the Purchase Order shall be immediately suspended. If the period of nonperformance exceeds fifteen (15) days from the receipt of notice of the Force Majeure Event, the Party whose ability to perform has not been so affected may give written notice to terminate the Purchase Order. Except as provided herein, delays in delivery due to Force Majeure Events shall automatically extend the delivery date for a period equal to the duration of such Events; any warranty period affected by a Force Majeure Event shall likewise be extended for a period equal to the duration of such Event.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="confidentiality">CONFIDENTIALITY:</b>
+                                    <ul class="marginBtm15">
+                                        <li>Unless expressly provided herein, Supplier agrees not to use, copy, alter or directly or indirectly disclose any of Buyer's proprietary or confidential information whether written or verbal (“Confidential Information”), except in the course of performing its obligations under this Purchase Order. Additionally, Supplier agrees to limit its distribution of Confidential Information to Supplier's employees who have a need to know, and to take reasonable steps to ensure that the dissemination limited. In no event will Supplier use less than the degree of care and means that it uses to protect its own information of like kind, but in any event not less than reasonable care to prevent the unauthorized use of Confidential Information. Supplier shall not advertise or release any statement mentioning Buyer or the fact that Seller has contracted to furnish goods to Buyer without the prior written consent of Buyer. Notwithstanding the foregoing, Buyer shall have the right to use any information concerning Supplier's products, manufacturing Purchase Order Terms and Conditions Page 7 methods, or processes which Supplier shall disclose to Buyer without restriction during the performance of the Purchase Order.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="limitation">LIMITATION OF LIABILITY:</b>
+                                    <ul class="marginBtm15">
+                                        <li>15.1 In no event shall Buyer be liable to Supplier for anticipated or actual lost profits, loss of business, loss of savings, loss of data or for any indirect, special, incidental or consequential loss or damage however arising (in contract tort or otherwise), even if Buyer has been advised of the possibility of such damage.</li>
+                                        <li>15.2 Buyer's liability in contract tort (including negligence) or otherwise arising under this Purchase Order shall not exceed the amount equal to the fees paid for the good that gives rise to the claim.</li>
+                                        <li>15.3 Nothing in this Purchase Order shall exclude the parties' liability for death or personal injury caused by their negligence.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="compliance">COMPLIANCE WITH LAWS:</b>
+                                    <ul class="marginBtm15">
+                                        <li>16.1 General: Supplier shall comply fully with all applicable laws and regulations in the performance of this Purchase Order including without limitation all applicable import or export laws and regulations. Supplier will otherwise comply in any and all respects with all applicable laws, ordinances, rules and regulations and other legal requirements that apply to this Agreement.</li>
+                                        <li>16.2 Customs: Upon Buyer's request, Supplier will promptly provide Buyer with a statement of origin for all goods.</li>
+                                        <li>16.3 Supplier will not use any payment or other benefit derived from Buyer to offer, promise or pay any money, gift or any other thing of value to any person for the purpose of influencing official actions or decisions affecting this Agreement, while knowing or having reason to know that any portion of this money, gift or thing will, directly or indirectly, be given, offered or promised to an employee, officer or other person acting in an official capacity for any government or agency or any political party, party official or candidate for political office.</li>
+                                        <li>16.4 Supplier will at all times refrain from engaging in any illegal, unfair or deceptive trade practices or unethical business practices. Supplier shall at its expense obtain any and all permits, licenses, authorizations, and/or certificates that may be required in any jurisdiction or by any regulatory or administrative agency in connection with its activities hereunder. Supplier shall adhere to Buyer's rules and policies and disseminate current information and materials as announced or provided from time to time by Buyer to Supplier. Supplier shall comply with Buyer's Code of Ethics and Business Conduct at all times.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="general">GENERAL:</b>
+                                    <ul class="marginBtm15">
+                                        <li>17.1 If any provision of this Purchase Order shall be deemed to be invalid, illegal or unenforceable, the validity, legality and enforceability of the remaining provisions shall not in any way be affected or impaired thereby.</li>
+                                        <li>17.2 Any party's delay or failure to exercise any of its rights under the Purchase Order and/or the terms set out herein shall not be deemed or construed to operate as that party's waiver of any such rights.</li>
+                                        <li>17.3 All notices, and other communications hereunder shall be in writing, and shall be addressed to Supplier's address for payment or to an authorized Buyer representative, and shall be considered given when (a) delivered personally, (b) sent by confirmed facsimile, (c) sent by commercial overnight courier with written verification receipt, or (d) three (3) days after having been sent, postage prepaid, by first class or certified mail. Purchase Order Terms and Conditions Page 8</li>
+                                        <li>17.4 The Purchase Order and the terms set out herein contains the whole agreement between the parties and supercedes all previous written or oral agreements relating to the subject matter.</li>
+                                        <li>17.5 The parties acknowledge and agree that: (a) they have not been induced to enter into this Purchase Order by any representation warranty or other assurance not expressly incorporated into it; and (b) in connection with this Purchase Order their only rights and remedies in relation to any representation warranty or other assurance are for breach of this Purchase Order and that all other rights and remedies are excluded.</li>
+                                        <li>17.6 The provisions of clause 17.4 and 17.5 shall not affect the parties rights or remedies in relation to any fraud or fraudulent misrepresentation.</li>
+                                        <li>17.7 This Purchase Order does not and is not intended to confer any benefit on nor create any right exercisable or enforceable by any third party.</li>
+                                        <li>17.8 This Purchase Order may not be varied, modified, altered, or amended except in writing, signed by both parties. The terms and conditions of this Purchase Order shall prevail notwithstanding any variance with the terms and conditions of any acknowledgment or other document submitted by Supplier.</li>
+                                        <li>17.9 During the term of the Purchase Order, Supplier will, and will be responsible for ensuring that its employees, servants, and agents will, whenever on the Buyer's premises, obey all reasonable instructions and directions issued by the Buyer.</li>
+                                        <li>17.10 Supplier shall keep complete and accurate records of all costs of performance under the Purchase Order, which shall be subject to inspection and audit by Buyer in the event of termination or equitable adjustment or with respect to any Purchase Order for which the price is based on time and cost of materials.</li>
+                                        <li>17.11 Supplier shall not assign or subcontract its obligations under the Purchase Order, in whole or in part, or any interest therein, without Buyer's written consent. If Buyer consents to any assignment or subcontract, Supplier shall remain liable and responsible for all of its obligations hereunder, and shall guarantee performance by its assignee or subcontractor.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <b class="fontSize16 internalPageLink" id="governing">GOVERNING LAW AND JURISDICTION:</b>
+                                    <ul class="marginBtm15">
+                                        <li>The Purchase Order shall be governed by the laws of the country in which the goods are delivered to or the services are performed. Any dispute or cause of action which arises in connection with the Purchase Order shall be brought before a court of competent jurisdiction in the country in which the goods are delivered to or the services are performed.</li>
+                                    </ul>
+                                </li>
+
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer" ng-show="isVisible">
+    <div class="row">
+        <div class="col s12 right-align">
+            <smart-button config='{"title":"DONE"}' disable="false" ng-click="doneCallback()"></smart-button>
+        </div>
+    </div>
+</footer>
+
+<!-- print CSS -- can only use inside page -->
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .extra-nav-wrap {
+            display: none;
+        }
+
+        .previewModeContainer * {
+            visibility: visible;
+        }
+    }
+</style>

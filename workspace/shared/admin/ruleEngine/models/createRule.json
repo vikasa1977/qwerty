@@ -1,0 +1,94 @@
+{
+  "formConfig": {
+    "sections": [
+      {
+        "label": "Basic Details",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "ruleCreationBasicDetailsCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/ruleCreationBasicDetails.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "ACTION TYPES",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/ruleCreationMethod.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "CONDITIONS",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isActive": false,
+        "isDraggable": true,
+        "isProgress": 0,
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "ruleCreationMethodCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/conditions.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Visual Flow",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isHeader": true,
+        "isDraggable": true,
+        "isProgress": 0,
+        "onHeaderClick": "canvasLayout",
+        "rows": [
+          {
+            "properties": [
+              {
+                "label": "",
+                "type": "subsection",
+                "controller": "rulegraphCtrl",
+                "isMandatory": true,
+                "templateUrl": "shared/admin/ruleEngine/views/rulegraph.html",
+                "colspan": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

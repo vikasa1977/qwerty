@@ -1,0 +1,15 @@
+<div class="scannedInvSheet" ng-controller="itemDetailScannedInvCtrl">
+    <div ng-include="selectedTab.contentUrl">
+    </div>
+</div>
+
+
+    <!-- popup -- manufacturer details -->
+<smart-popup template-url="{{manufatureDetails}}" show='{{manufatureDetailsPopup}}' on-hide="manufatureDetailsPopupHideCallback(e)" type="small"></smart-popup>
+
+<!-- popup -- add Taxes -->
+<smart-popup template-url="{{taxesPopupUrl}}" show="{{showTaxesPopup}}" on-hide="taxesPopUpOnHideCallback()" type="medium"></smart-popup>
+
+<smart-popup template-url="shared/popup/views/popupShowAddedSandP.html" show='{{showGridSandPPopup}}' on-hide="showGridSandPPopupHideCallback(e)" ></smart-popup>
+<smart-popup template-url="shared/popup/views/popupStandardAndProcedure.html" show="{{showSPPopup}}" on-hide="hideSPPopupCall(e)" ></smart-popup>
+<smart-popup template-url="p2p/req/views/reqTemplatePopupContent.html" show="{{showReqTemp}}" on-hide="hideReqTempCallback(e)"></smart-popup>

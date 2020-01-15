@@ -1,0 +1,24 @@
+<!--sub header-->
+<div class="clearfix">
+    <div class="col s12 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="left">
+            <a href="javascript:history.go(-1);" class="extra-nav-wrap-back-arrow left waves-block waves-effect waves-light white-text">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a><i class="icon small left">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrackStatus"></use>
+                </svg>
+            </i><span class="headingText ng-cloak left marginTop8">TRACK STATUS</span>
+            <!--<div class="left small-input small-input_next_headingText_subheader">
+                <smart-select ng-model="selectedDoc" options="selectDocOpt" datakey="title" on-change=""></smart-select>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!--page start-->
+
+<div class="white card marginTop0 trackStatusCard" ng-include="'shared/trackStatus/views/Newtrackstatus.html'"></div>

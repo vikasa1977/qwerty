@@ -1,0 +1,829 @@
+[
+  {
+    "projectId": "",
+    "projectTitle": "",
+    "documents": [
+      {
+        "type": "rfx",
+        "Data": [
+          {
+            "DocumentName": "Doc Name Rfx",
+            "DocumentTypeInfo": "Rfx",
+            "DocumentStatusInfo": "Draft",
+            "DocumentNumber": "294567",
+            "FirstName": "Satyendra",
+            "LastName": "Kumar",
+            "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-09-01T06:11:00.000Z",
+            "id": "rfx_1",
+            "isSelected": true,
+            "DocumentCode": "12ee",
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "createdOn": "12",
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "DocumentName": "Auction",
+            "DocumentTypeInfo": "auction",
+            "DocumentStatusInfo": "exception",
+             "DocumentNumber": "2945627",
+            "FirstName": "Pallav",
+            "LastName": "Thaker",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_1_auction_1",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardLeftHandler": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "Auction Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "DocumentName": "Contract",
+            "DocumentTypeInfo": "Contract",
+            "DocumentStatusInfo": "response in progress",
+            "DocumentNumber": "2294567",
+            "FirstName": "Pallav",
+            "LastName": "Thaker",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_1_auction_1",
+            "isSelected": true,
+            "showBubble": true,
+            "isCardVisible": true,
+            "isCardLeftHandler": true,
+            "isShowCard":false,
+            "detail": {
+              "item1": {
+                "key": "Auction Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            },
+            "type": "rfx",
+           "innerData": [
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "in progress",
+                "DocumentNumber": "2946567",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "completed",
+                "DocumentNumber": "2945697",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "closed",
+                "DocumentNumber": "2945657",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rfx",
+        "Data": [
+          {
+            "DocumentName": "RFX doc header",
+            "DocumentTypeInfo": "rfx",
+            "DocumentStatusInfo": "response in progress",
+            "DocumentNumber": "294567",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_1",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "isCardVisible": false
+          },
+          {
+            "DocumentName": "Contract",
+            "DocumentTypeInfo": "Contract",
+            "DocumentStatusInfo": "draft withdrawn",
+            "DocumentNumber": "29432567",
+            "FirstName": "Pallav",
+            "LastName": "Thaker",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_1_auction_1",
+            "isSelected": true,
+            "showBubble": true,
+            "isCardVisible": true,
+            "isCardLeftHandler": true,
+            "detail": {
+              "item1": {
+                "key": "Auction Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            },
+            "type": "rfx",
+            "innerData": [
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "invited",
+                "DocumentNumber": "29453367",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "pending",
+                "DocumentNumber": "29452367",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "response in progress",
+                "DocumentNumber": "2294567",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "Draft",
+                "DocumentNumber": "23394567",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "draft",
+                "DocumentNumber": "2945967",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Contract",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "approval required",
+                "DocumentNumber": "2945637",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "rfx",
+        "Data": [
+          {
+            "DocumentName": "RFX doc header",
+            "DocumentTypeInfo": "rfx",
+            "DocumentStatusInfo": "pending",
+            "DocumentNumber": "294567",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "DocumentName": "Auction",
+            "DocumentTypeInfo": "auction",
+            "DocumentStatusInfo": "draft",
+            "DocumentNumber": "2945067",
+            "FirstName": "Pallav",
+            "LastName": "Thaker",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "",
+            "isSelected": true,
+            "showBubble": true,
+            "isCardVisible": true,
+            "isCardLeftHandler": true,
+            "detail": {
+              "item1": {
+                "key": "Auction Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            },
+            "type": "rfx",
+           "innerData": [
+              {
+                "DocumentName": "Auction",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "in progress",
+                "DocumentNumber": "2946567",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Auction",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "completed",
+                "DocumentNumber": "2945697",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              },
+              {
+                "DocumentName": "Auction",
+                "DocumentTypeInfo": "Contract",
+                "DocumentStatusInfo": "closed",
+                "DocumentNumber": "2945657",
+                "FirstName": "Pallav",
+                "LastName": "Thaker",
+                 "DateCreated": "2017-09-01T06:11:00.000Z",
+                "lastModified": "2017-08-22T06:11:00.000Z",
+                "id": "rfx_1_auction_1",
+                "isSelected": true,
+                "showBubble": true,
+                "isCardVisible": true,
+                "isCardLeftHandler": true,
+                "detail": {
+                  "item1": {
+                    "key": "Auction Detail",
+                    "value": "294567"
+                  },
+                  "item2": {
+                    "key": "author",
+                    "value": "Some one"
+                  },
+                  "item3": {
+                    "key": "Summary",
+                    "value": ""
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          }
+        ]
+      },
+      {
+        "type": "rfx",
+        "Data": [
+          {
+            "DocumentName": "RFX doc header",
+            "DocumentTypeInfo": "rfx",
+            "DocumentStatusInfo": "pending",
+            "docLink": "sourcing.rfx.new",
+            "DocumentNumber": "294567",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": false,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "294567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "isCardVisible": false,
+             "isShowHandler": true
+           },
+          {
+            "isCardVisible": false,
+             "isShowHandler": true
+          }
+        ]
+      },
+
+      {
+
+        "type": "Auction",
+        "Data": [
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+          {
+            "DocumentName": "Auction doc header",
+            "DocumentTypeInfo": "Auction",
+            "DocumentStatusInfo": "live",
+            "docLink": "sourcing.rfx.new",
+            "DocumentNumber": "294567",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardHandler": false,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "1234567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          }
+        ]
+      },
+      {
+
+        "type": "Auction",
+        "Data": [
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+          {
+            "DocumentName": "Auction doc header",
+            "DocumentTypeInfo": "Auction",
+            "DocumentStatusInfo": "draft",
+             "DocumentNumber": "293849",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "1234567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+
+        "type": "Auction",
+        "Data": [
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+          {
+            "DocumentName": "Auction doc header",
+            "DocumentTypeInfo": "Auction",
+            "DocumentStatusInfo": "live",
+            "DocumentNumber": "293849",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "1234567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          },
+          {
+            "DocumentName": "Contract doc header",
+            "DocumentTypeInfo": "Contract",
+            "DocumentStatusInfo": "approved",
+            "DocumentNumber": "294234",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardLeftHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "1234567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          }
+        ]
+      },
+       {
+
+        "type": "Auction",
+        "Data": [
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+
+          {
+            "isCardVisible": false,
+            "isShowHandler": true
+          },
+          {
+            "DocumentName": "Auction doc header",
+            "DocumentTypeInfo": "Auction",
+            "DocumentStatusInfo": "draft",
+             "DocumentNumber": "293849",
+            "FirstName": "Rahul",
+            "LastName": "N",
+             "DateCreated": "2017-09-01T06:11:00.000Z",
+            "lastModified": "2017-08-22T06:11:00.000Z",
+            "id": "rfx_2_auction_2",
+            "isSelected": true,
+            "isCardVisible": true,
+            "isCardRightHandler": true,
+            "detail": {
+              "item1": {
+                "key": "rfx Detail",
+                "value": "1234567"
+              },
+              "item2": {
+                "key": "author",
+                "value": "Some one"
+              },
+              "item3": {
+                "key": "Summary",
+                "value": ""
+              }
+            }
+          }
+        ]
+      }
+      
+    ]
+
+  }
+]

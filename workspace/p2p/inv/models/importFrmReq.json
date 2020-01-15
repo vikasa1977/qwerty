@@ -1,0 +1,51 @@
+{
+	"data": [{
+		"lable": "Payment Term",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Legal Entity",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": false
+	}, {
+		"lable": "shipping & freight",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Payment Term",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Legal Entity",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": false
+	}, {
+		"lable": "shipping & freight",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Payment Term",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": false
+	}, {
+		"lable": "Legal Entity",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": false
+	}, {
+		"lable": "shipping & freight",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Payment Term",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "Legal Entity",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": true
+	}, {
+		"lable": "shipping & freight",
+		"reqNo": "REQ-2016.000313",
+		"showFlag": false
+	}]
+}

@@ -1,0 +1,263 @@
+Note: Icons & label may vary 2)mostly it will be used in secondary nav. 3)multiple occurance of location field in single page hence output field should not be ID
+<br />
+<!-- location Trigger -->
+<div class="shipingLocation googleLocation">
+    <a href="javascript:void(0);" class="waves-effect waves-block waves-light" id="location">
+        <i class="icon iconSmall tooltipped" data-position="left" data-delay="50" data-tooltip="{{$label_FU.shippingLocation}}">
+            <svg>
+                <use xlink:href="#icon_ShipLoc"></use>
+            </svg>
+        </i> <span>+ </span><span class="_optionalFieldLabel">Location Address</span>
+    </a>
+    <i class="reactive icon iconSmall">
+        <svg>
+            <use xlink:href='#icon_Close'></use>
+        </svg>
+    </i>
+</div>
+
+
+
+
+<!-- location modal -->
+<div id="locationMap" class="modal modal responsive-height">
+    <div class="modal-header">
+        <div class="regularSearch">
+            <a href="#" class="waves-circle waves-effect  search-icon btn-flat black-text" title="Search" alt="Search">
+
+                <i class="icon iconSmall left grey-text">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="#" class="waves-circle waves-effect cancel-icon btn-flat black-text" title="Reset" alt="Reset">
+                <i class="icon iconSmall left grey-text">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+
+            </a>
+            <div class="input-field">
+                <input id="Text2" type="text" class="validate" placeholder="Search Location">
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_Lookup"></use>
+            </svg>
+        </i>
+        <span class="title">Shipping Location</span>
+    </div>
+
+    <div class="modal-content padding10 ">
+        <div id="locationMapContainer" style="width:100%;height:100%;"></div>
+    </div>
+    <div class="modal-footer">
+        <div class="row marginBottom0">
+            <a href="javaScript:void(0);" class=" modal-action modal-close waves-effect btn-flat">Done</a>
+            <a href="javaScript:void(0);" class="btn-flat editRequest modal-close waves-effect  ">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<!-- output field -->
+<div class="row " id="o-b-h">
+</div>
+
+
+
+
+<!-- Js Code -->
+
+<script>
+    var shingCurrentId;
+    $(document).ready(function () {
+
+        var globalID = 0;
+        $(".googleLocation").click(function () {
+            var el = $(this), closeBtn, elID, enderEl, optioFild, colseOtside, inputF, inputTetLab, inputLab;
+            if (!el.hasClass('selected')) {
+                el.addClass('selected');
+                closeBtn = el.find('.reactive');
+                elID = "optionalFID" + globalID++;
+                enderEl = $("<div class='input-field col s12 l6 optionalField'></div>"); //2
+                optioFild = $("<div class='optionalFieldHover hilighted'></div>"); //1
+                colseOtside = $("<i class='closingOpt icon iconSmall blue-text'><svg><use xlink:href='#icon_Close'></use></svg></i>"); //0
+
+                if (el.hasClass('shipingLocation')) {
+                    shingCurrentId = elID;
+                    inputF = ("<textarea id='" + elID + "' class='materialize-textarea'></textarea>"); //1
+                    inputTetLab = el.find('._optionalFieldLabel').text();
+                    inputLab = $("<label style='width:75%;' for='" + elID + "' class='addText'>" + inputTetLab + "</label>"); //1
+                    $('#locationMap').openModal();
+                    setMap();
+                } else {
+                    inputF = ("<input id='" + elID + "' type='text' class='validate'>"); //1
+                    inputTetLab = el.find('._optionalFieldLabel').text();
+                    inputLab = $("<label style='width:75%;' for='" + elID + "' class='addText'>" + inputTetLab + "</label>"); //1
+                }
+                optioFild.append(colseOtside);
+                enderEl.append(optioFild);
+                enderEl.append(inputF);
+                enderEl.append(inputLab);
+                $('#o-b-h').append(enderEl);
+                $('.saveFormButton').removeClass('disabled');
+
+                //Below statement for opening the collaps using the count eq(count)
+                if (!$('.collapsible-header').eq(2).hasClass('active')) {
+                    $('.collapsible-header').eq(2).click();
+                }
+
+                closeActive(colseOtside, enderEl, el);
+                closeActive(closeBtn, enderEl, el);
+                function closeActive(ele, toele, onClick) {
+                    ele.click(function (e) {
+                        toele.remove();
+                        onClick.removeClass('selected');
+                        e.stopPropagation();
+                    });
+                }
+                window.setHideInterval(optioFild);
+            }
+        });
+
+        $(window).scroll(function () {
+            var objH = $('.optionalFieldHover.hilighted');
+            for (var i = 0; i < objH.length; i++) {
+                window.setHideInterval($(objH[i]));
+            }
+        });
+
+        $('.previewAction').click(function () {
+            $('.normalMode').hide();
+            $('.previewMode').show();
+            $('.scrolledContainer').velocity({ marginTop: "-50%" }, {
+                duration: 400, complete: function () {
+                    $('.previewModeContainer').show();
+                    $('.editableMode').hide();
+                    $('.scrolledContainer').velocity("reverse");
+
+                }
+            });
+
+        });
+        $('.editRequest').click(function () {
+            $('.normalMode').show();
+            $('.previewMode').hide();
+            $('.scrolledContainer').velocity({ marginTop: "-50%" }, {
+                duration: 400, complete: function () {
+                    $('.previewModeContainer').hide();
+                    $('.editableMode').show();
+                    $('.scrolledContainer').velocity("reverse");
+                }
+            });
+        });
+        setTimeout(function () {
+            $('.profileFiels').fadeIn();
+        }, 600);
+
+        //Map Start
+        var styleArray = [
+        {
+            featureType: "all",
+            stylers: [
+            { saturation: -50 }
+            ]
+        }, {
+            featureType: "road.arterial",
+            elementType: "geometry",
+            stylers: [
+            { hue: "#00ffee" },
+            { saturation: 50 }
+            ]
+        }, {
+            featureType: "poi.business",
+            elementType: "labels",
+            stylers: [
+            { visibility: "off" }
+            ]
+        }
+        ];
+
+        var locations = [
+                    ['Clark, NJ, USA', 40.6195409, -74.3169885, 'Clark (Global Headquarters), 100 Walnut Avenue,  Clark, NJ 07066'],
+                    ['Princeton, NJ, USA', 40.3534264, -74.6737054, "Carnegie Center, Princeton, NJ 08540"],
+                    ['Mexico City, Mexico', 19.4165048, -99.175037, 'Torre Esmeralda II Blvd. Manuel Avila Camacho No 36 pisos 10 y 12 Col. Lomas de Chapultepec, Mexico DF CP 11000'],
+                    ['Sao Paulo, Brazil', -23.5822968, -46.6949008, 'Av. Paulista, 1079 7° /8° Andar CEP: 01311-200 S. Paulo, Brazil'],
+                    ['Costa Rica', 10.0366838, -84.7362652, 'Lindora Park, Edificio B, Primer piso. Pozos de Santa Ana, San Jose'],
+                    ['Mumbai, India', 19.1631417, 73.002021, '701, Mindspace, Airoli, Navi Mumbai - 400708']
+        ];
+
+        var map, myLatLng = { lat: 25, lng: -60 };
+
+
+        function initialize() {
+            var mapProp = {
+                center: myLatLng,
+                zoom: 2,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: styleArray
+            };
+            map = new google.maps.Map(document.getElementById("locationMapContainer"), mapProp);
+        }
+
+        var setMap = function () {
+            google.maps.event.trigger(map, 'resize');
+            setMarkers(map, locations);
+            map.setCenter(myLatLng);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function setMarkers(map, locations) {
+            var marker, i
+            for (i = 0; i < locations.length; i++) {
+                var bu = locations[i][0]
+                var lat = locations[i][1]
+                var long = locations[i][2]
+                var add = locations[i][3]
+                var image = "shared/theme/images/marker.png";
+                latlngset = new google.maps.LatLng(lat, long);
+                var marker = new google.maps.Marker({
+                    map: map, title: bu, position: latlngset, icon: image
+                });
+                map.setCenter(marker.getPosition())
+                var parentC = '<div style="width:200px;"><h6>' + bu + '</h6><div>' + add + '</div><button onclick="getData(\'' + add + '\');" class="btn hoverable waves-effect wave-light">Get Address</button></div>';
+                var content = parentC;
+                var infowindow = new google.maps.InfoWindow()
+                google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+                    return function () {
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    };
+                })(marker, content, infowindow));
+            }
+        }
+
+    });
+
+    function setHideInterval(elem) {
+        console.log("in remove function");
+        var ee = elem.offset().top;
+        var winHeight = $(window).height() - 100;
+
+        console.log("Windo Height: " + winHeight + ", ele Top :" + ee);
+        if (ee < winHeight) {
+            setTimeout(function () {
+                elem.removeClass('hilighted');
+            }, 3000);
+        }
+    };
+
+    // Map Call Back
+    function getData(addr) {
+        console.log(addr);
+        $('#' + shingCurrentId).val(addr).focus();
+        $('#locationMap').closeModal();
+    }
+    // Map Call Back End
+
+</script>
+

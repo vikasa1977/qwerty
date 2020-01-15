@@ -1,0 +1,73 @@
+<div class="modal-header clearfix">
+    <i class="icon iconSmall grey-text left marginTop1">
+        <svg>
+            <use xlink:href="#icon_changeLineMapping"></use>
+        </svg>
+    </i>
+    <span class="title left">Change Lines Mapping</span>
+</div>
+
+<div class="modal-content padding0 is-scrolled">
+    <div class="modal-inner-content">
+        <smart-scroll height="400px" class="clearfix clear" is-fixed-header="true">
+            <table class="bordered sTable">
+                <colgroup>
+                    <col style="width:15%" />
+                    <col style="width:5%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                    <col style="width:10%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>PO Line Number</th>
+                        <th class="right-align">Line Number</th>
+                        <th>Item Number</th>
+                        <th>Supplier Item Number</th>
+                        <th>Description</th>
+                        <th>Contract Number</th>
+                        <th>Line Type</th>
+                        <th >Quantity / Efforts</th>
+                        <th class="right-align">Cost / Rate ($)</th>
+                        <th class="right-align">Line Value ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lineMapItem in changeLineMappingData track by $index">
+                        <td>
+                            <div>
+                                <smart-select class="marginBottom0" fixed="true" ng-model="lineMapItem.poLineNumber" options="lineMapItem.poLineNumberOpt" datakey="lineOption" displaykey="lineOption" on-change="changedPoLineNumber(lineMapItem.poLineNumber)"></smart-select>
+                            </div>
+                        </td>
+                        <td class="right-align">{{::lineMapItem.lineNumber}}</td>
+                        <td>{{::lineMapItem.itemNumber}}</td>
+                        <td>{{::lineMapItem.supplierItemNumber}}</td>
+                        <td>{{::lineMapItem.item}}</td>
+                        <td>{{::lineMapItem.contractNumber}}</td>
+                        <td>{{::lineMapItem.itemType}}</td>
+                        <td>{{::lineMapItem.quantity}}</td>
+                        <td class="right-align">{{::lineMapItem.cost}}</td>
+                        <td class="right-align">{{::lineMapItem.itemValue}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </smart-scroll>
+    </div>
+</div>
+
+<div class="modal-footer is-scrolled">
+    <div class="row marginBottom0">
+        <div class="col s12">
+            <!--<smart-button flat="true" class="left" config='{"title":"RESET"}'></smart-button>-->
+            <div class="right">
+                <smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+                <smart-button flat="true" class="left modal-close" config='{"title":"SAVE & REMATCH"}'></smart-button>
+            </div>
+        </div>
+    </div>
+</div>

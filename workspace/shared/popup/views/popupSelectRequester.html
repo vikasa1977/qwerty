@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <i class="icon iconSmall grey-text left">
+        <svg>
+            <use xlink:href="#icon_SentToRequester"></use>
+        </svg>
+    </i>
+    <span class="title">{{'SEND TO REQUESTER'|| translate}}</span>
+</div>
+<div class="modal-content padding0 is-scrolled">
+    <smart-scroll height="346px" class="clearfix" is-fixed-header="true">
+        <table class="bordered">
+            <thead>
+                <tr>
+                    <th class="left-align">{{'Order No.'|| translate}}</th>
+                    <th class="left-align">{{'Requester Name'|| translate}}</th>
+                    <th class="left-align">{{'Buyer\'s Action'|| translate}}</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="order in orderNumOptions">
+                    <td class="paddingTop0 paddingBtm0">{{order.number || translate}}</td>
+                    <td class="paddingTop0 paddingBtm0 "><smart-typeahead titleofmodel="Select Receiver" class="margin0 showLookupHeight" multiselect="false" show-lookup="true" ng-model="selectedRequester" options="optionsRequester" lookup-Open="selectRequesterPopupOnHideCallback()" lookup-hide="selectRequesterPopupCallback()" filterkeys="['reqId', 'reqName']" optionformat="<span>{reqId} {reqName}</span>" displayformat="{reqId} {reqName}"></smart-typeahead></td>
+                    <td class="paddingTop0 paddingBtm0" ng-class="{'orange-text':order.status=='Pending', 'green-text':order.status=='Accepted'}">{{order.status}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </smart-scroll>
+     <!--<div class="height200 padding20">
+        <smart-scroll height="200px" class="clearfix">
+            <div class="row">
+                <smart-typeahead titleofmodel="Select Requester" class="col s12 input-field line-height-manager" multiselect="false" show-lookup="true" ng-model="selectedRequester" options="optionsRequester" lookup-Open="selectRequesterPopupOnHideCallback()" lookup-hide="selectRequesterPopupCallback()" filterkeys="['reqId', 'reqName']" optionformat="<span>{reqId} {reqName}</span>" displayformat="{reqId} {reqName}" label="{{'Requester' || translate}}"></smart-typeahead>
+                
+            </div>
+        </smart-scroll>
+    </div>-->
+</div>
+<div class="modal-footer is-scrolled">
+    <smart-button flat="true" class="modal-close" config='sendBtnConfig'></smart-button>
+    <smart-button flat="true" class="modal-close" config='cancelBtnConfig'></smart-button>
+</div>
+
+

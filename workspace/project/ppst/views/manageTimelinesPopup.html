@@ -1,0 +1,42 @@
+<div>
+    <div class="modal-header">
+        <i class="icon grey-text iconSmall left marginTop2">
+            <svg><use xlink:href="#icon_manageTimeline"></use></svg>
+        </i>
+        <span class="title">MANAGE TIMELINES</span>
+    </div>
+
+    <div class="modal-content is-scrolled padding15">
+        <div class="row marginBtm0">
+            <smart-textfield label="Execution Start Date" class="col s6 line-height-manager" type="date" ng-model="1487269800000" readonly="true"></smart-textfield>
+            <smart-textfield label="Execution End Date" class="col s6 line-height-manager" type="date" ng-model="1494959400000" readonly="true"></smart-textfield>
+        </div>
+        <div class="row marginBtm0">
+            <smart-select class="col s6 line-height-manager" label="Realization Start Month (Baseline)" ng-model="rsmModel.month" options="rsmOptions.months" datakey="month" on-change="monthChange(rsmMmodel.month)" is-mandatory="true">
+            </smart-select>
+            <smart-select class="col s6 line-height-manager" label="Realization Start Year (Baseline)" ng-model="rsmModel.year" options="rsmOptions.years" datakey="year" on-change="yearChange(rsmModel.year)" is-mandatory="true">
+            </smart-select>
+        </div>
+        <div class="row marginBtm0">
+            <smart-textfield class="col s6 line-height-manager" type="number" label="Realization Period (Baseline) " ng-model="baselineRP.value"></smart-textfield>
+            <smart-select class="col s6 line-height-manager" ng-model="baselineRP.unit" options="baselineRPOpt.options" datakey="opt" on-change="unitChangeRP(baselineRP)">
+            </smart-select>
+        </div>
+        <div class="row marginBtm0">
+            <smart-checkbox class="col s6 paddingLeft5 line-height-manager" label="Retain the already reported values" ng-model="isUrgent" on-change="onChange(isUrgent)"></smart-checkbox>
+            <div class="col s6 line-height-manager"></div>
+        </div>
+    </div>
+
+    <div class="modal-footer is-scrolled">
+        <div class="row marginBottom0">
+            <div class="col s12 padding0">
+
+                <div class="right">
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"DONE"}'></smart-button>
+                    <smart-button flat="true" class="modal-close footerBtn right marginRight0" config='{"title":"CANCEL"}'></smart-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

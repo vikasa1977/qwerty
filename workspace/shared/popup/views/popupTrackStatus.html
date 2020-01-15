@@ -1,0 +1,26 @@
+<div id="popupTrackStatus" ng-controller="trackStatusCtrl">
+    <div class="modal-header">
+        
+        <i class="icon iconSmall left lineHeight30">
+            <svg>
+                <use xlink:href="#icon_TrackStatus"></use>
+            </svg>
+        </i>
+        <span class="title left">TRACK STATUS -</span>
+        <div class="left small-input small-input_next_in_model_title">
+            <smart-select ng-model="selectedDoc" options="selectDocOpt" datakey="title" on-change=""></smart-select>
+         </div>
+        <a href="javascript:void(0)" ng-click="goToTracksatusDetail(e)" class="modal-close right black-text waves-effect waves-light">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Fullscreen"></use>
+                </svg>
+            </i>
+        </a>
+    </div>
+    <div class="modal-content padding0">
+        <div class="model_body">
+            <div ng-include="'shared/trackStatus/views/trackstatus.html'" class="clearfix"> </div>
+        </div>
+    </div>
+</div>

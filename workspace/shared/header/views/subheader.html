@@ -1,0 +1,1314 @@
+<!--back arrow-->
+<div class="col s7" ng-if="pageName == 'landing'">
+    <a class="extra-nav-item waves-circle  waves-effect waves-light left" href="javascript:history.go(-1);">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Back"></use>
+            </svg>
+        </i>
+    </a>
+    <!--page title-->
+    <div id="page-header">
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+        </span>
+        <span class="headingText ng-cloak">MY CART</span>
+    </div>
+    <!--header title-->
+    <div id="header_search_box" ng-if="false">
+        <div class="input-field">
+            <input id="search" type="text" required placeholder="MY CART">
+            <label for="search">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_Search"></use>
+                    </svg>
+                </i>
+            </label>
+            <a class="extra-nav-item waves-block waves-effect waves-light right" ng-click="searchbox()" href="javascript:void(0)">
+                <i class="icon iconSmall left">
+                    <svg>
+                        <use xlink:href="#icon_Close"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col s12" ng-if="pageName == 'landing'">
+    <div class="normalMode">
+        <div class="left">
+            <a href="javascript:history.go(-1);" class="left waves-block waves-effect waves-light">
+                <i class="icon small ">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a><i class="icon small left">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_OnBehalf"></use>
+                </svg>
+            </i><span class="headingText left ng-binding">NEW REQUISITION</span>
+        </div>
+        <div class="right">
+            <a class="dropdown-button" data-activates="dropdownUSD" data-constrainwidth="false" data-alignment="right">
+                1000 <span>USD</span>
+                <spna>
+                    <i class="icon iconSmall white-text right">
+                        <svg class="marginTop8">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                        </svg>
+                    </i>
+                </spna>
+            </a>
+            <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+                <li>
+                    <div class="input-field col s12 detail-field-summary">
+                        <span class="left grey-text">Unit Price</span><span class="right">100.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-field col s12 detail-field-summary">
+                        <span class="left grey-text">Quantity</span><span class="right">10</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-field col s12 detail-field-summary">
+                        <span class="left grey-text">Taxes</span><span class="right">0.00</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-field col s12 detail-field-summary">
+                        <span class="left grey-text">Total Price (USD)</span><span class="right">1000.00</span>
+                    </div>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="previewMode" style="display: none;">
+        <div class="left">
+            <a class="extra-nav-item waves-block waves-effect waves-light left" href="javascript:history.go(-1);">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a><span class="extra-nav-item  icon">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RfxReq"></use>
+                    </svg>
+                </i>
+            </span><span class="headingText ng-binding">REQUISITION - (Preview Mode) </span>
+        </div>
+        <ul class="right">
+            <li>
+                <a href="../theme/images/downLoadReqn.pdf" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Download" data-tooltip-id="ce310926-8b0e-9688-04b1-93782edae63e">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Download"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="waves-block waves-effect waves-light dropdown-button tooltipped " data-activates="dropdown2" data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="Share" data-tooltip-id="ef871559-c424-2557-0b58-fa167c92b789">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Share"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul id="dropdown2" class="dropdown-content">
+                    <li>
+                        <a href="#sendEmailCall" class="modal-trigger">
+                            <i class="icon iconSmall left">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Email"></use>
+                                </svg>
+                            </i>Email
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!">
+                            <i class="icon iconSmall left">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Chat"></use>
+                                </svg>
+                            </i>Chat
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!">
+                            <i class="icon iconSmall left">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Discuss"></use>
+                                </svg>
+                            </i>Discussion Forum
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#!" onclick="window.print()" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Print" data-tooltip-id="75231988-48aa-bc12-cfb9-0b3b2e80fe17">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Print"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#track_status" class="track-status-modal waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="TRACK STATUS" data-tooltip-id="84ac4fcf-0972-50f1-b027-7106650a4564">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrackStatus"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--icons right side-->
+<ul class="right" ng-if="pageName == 'landing'">
+    <li>
+        <a href="javascript:void(0)" class="white-text waves-block waves-effect  waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Search" ng-click="searchbox()" ng-show="isShow">
+            <i class="icon iconSmall " id="iconSearch">
+                <svg>
+                    <use xlink:href="#icon_Search"></use>
+                </svg>
+            </i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0);" class="white-text waves-block waves-effect  waves-light tooltipped dropdown-button" data-position="bottom" data-delay="50" data-tooltip="Edit" data-activates='dropdownBOedit' data-constrainwidth="false" data-alignment="right" dropdown>
+            <i class="icon iconSmall " id="i1">
+                <svg>
+                    <use xlink:href="#icon_Edit"></use>
+                </svg>
+            </i>
+        </a>
+        <ul id='dropdownBOedit' class='customModified dropdown-content lookup-bulk-order-edit lookup-popup'>
+            <li><span class="left-align fontSize16">BULK EDIT</span> </li>
+            <li>
+                <div class="input-field marginBtm15">
+                    <i class="icon iconSmall iconFix blue-text" style="position: absolute; left: 103px;">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Calendar"></use>
+                        </svg>
+                    </i>
+                    <input value="07/12/2015" id="datePik" type="date" class="datepicker" inputdate>
+                    <label class="active" for="datePik">Need by Date</label>
+                </div>
+            </li>
+            <li>
+                <div class="input-field">
+                    <input value="1" id="quantity" type="text" class="validate">
+                    <label class="active" for="quantity">{{$label.quantity}}</label>
+                </div>
+            </li>
+            <li>
+                <div class="input-field">
+                    <input value="0.00" id="Text1" type="text" class="validate">
+                    <label class="active" for="Text1">Shipping</label>
+                </div>
+            </li>
+            <li>
+                <a href="#accountionDetailsPopup" class="modal-trigger" style="color: #159dfc; padding: 1rem 0;">Accounting Details</a>
+            </li>
+            <li>
+                <div class="right">
+                    <a href="#!" class="btn-flat waves-effect">{{$label_U.cancel}}</a>
+                    <a href="#bulk-edit-modal-warning" class="modal-trigger btn-flat waves-effect">{{$label_U.set}} {{$label_U.as}} {{$label_U.default}}</a>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a class='dropdown-button' href='#' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right" dropdown>
+            1000 <span>USD</span>
+            <span>
+                <i class="icon iconSmall white-text right">
+                    <svg class="marginTop8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                    </svg>
+                </i>
+            </span>
+        </a>
+        <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal">
+            <li>
+                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Unit Price</span> <span class="right">100.00</span> </div>
+            </li>
+            <li>
+                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Quantity</span> <span class="right">10</span> </div>
+            </li>
+            <li>
+                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Taxes</span> <span class="right">0.00</span> </div>
+            </li>
+            <li>
+                <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Total Price (USD)</span> <span class="right">1000.00</span> </div>
+            </li>
+            <li></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.quick}} {{$label.cart}}">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_CartQuick"></use>
+                </svg>
+            </i>
+        </a>
+    </li>
+    <li>
+        <a href="#" class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.wishlist}}">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Wishlist"></use>
+                </svg>
+            </i>
+        </a>
+    </li>
+    <li class="cartCountWrap">
+        <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.cart}}" data-activates='cartAddedList' data-constrainwidth="false">
+            <i class="icon iconSmall">
+                <svg>
+                    <use xlink:href="#icon_Cart"></use>
+                </svg>
+            </i>
+        </a>
+        <ul id="cartAddedList" class='dropdown-content cart-lookaup-popup lookup-popup'>
+            <li>
+                <div class="input-field"><span class="left">{{$label_U.shoping}} {{$label_U.cart}}</span> <span class="right">{{$label_FU.item}} 2</span></div>
+            </li>
+            <li>
+                <div class="input-field "><span class="left">Cost</span> <span class="right">500.00</span></div>
+            </li>
+            <li>
+                <div class="input-field "><span class="left">Tax</span> <span class="right">20.00</span></div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <div class="input-field "><span class="left">You Pay</span> <span class="right">USD 1020.00</span></div>
+            </li>
+            <li class="">
+                <div class="right">
+                    <a href="viewCart.html" class="btn-flat blue-text left waves-effect">{{$label_U.view}} {{$label_U.cart}}</a>
+                    <a href="newRfq.html" class="btn-flat blue-text left waves-effect">{{$label_U.checkout}}</a>
+                </div>
+            </li>
+        </ul>
+        <div class="z-depth-1 small-cart-count bubble _icon_Cart " style="opacity: 0;"><span>0</span></div>
+    </li>
+    <li>
+        <a href="#" class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.list}} {{$label.view}}">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_ViewList"></use>
+                </svg>
+            </i>
+        </a>
+        <a href="#" class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.card}} {{$label.view}}" style="display: none;">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_ViewGrid"></use>
+                </svg>
+            </i>
+        </a>
+    </li>
+    <li>
+        <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.sort}}" data-activates='filterLookup' data-constrainwidth="false">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Sort"></use>
+                </svg>
+            </i>
+        </a>
+        <ul id="filterLookup" class='dropdown-content width170'>
+            <li><a href="#!">Popular</a></li>
+            <li><a href="#!">New</a></li>
+            <li><a href="#!">High Price</a></li>
+            <li><a href="#!">Low Price</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="white-text filterActive waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.filter}}">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Filter"></use>
+                </svg>
+            </i>
+        </a>
+    </li>
+</ul>
+<!--subheader for userprofile-->
+<div class="col s7" ng-if="pageName == 'user.profile'">
+    <a class="extra-nav-item waves-circle  waves-effect waves-light left" href="javascript:history.go(-1);">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Back"></use>
+            </svg>
+        </i>
+    </a>
+    <!--page title-->
+    <div>
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_User"></use>
+                </svg>
+            </i>
+        </span>
+        <span class="headingText ng-cloak">ACCOUNT DETAILS</span>
+    </div>
+    <!--header title-->
+</div>
+<!--subheader for wishlist-->
+<div class="col s12 extra-nav-wrap search-reverse" ng-if="pageName == 'catalog.wishlist'">
+    <ul class="right">
+        <li class="cartCountWrap">
+            <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.cart}}" data-activates='cartAddedList' data-constrainwidth="false">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_Cart"></use>
+                    </svg>
+                </i>
+            </a>
+            <ul id="Ul1" class='dropdown-content cart-lookaup-popup lookup-popup'>
+                <li>
+                    <div class="input-field"><span class="left">{{$label_U.shoping}} {{$label_U.cart}}</span> <span class="right">{{$label_FU.item}} 2</span></div>
+                </li>
+                <li>
+                    <div class="input-field "><span class="left">Cost</span> <span class="right">500.00</span></div>
+                </li>
+                <li>
+                    <div class="input-field "><span class="left">Tax</span> <span class="right">20.00</span></div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div class="input-field "><span class="left">You Pay</span> <span class="right">USD 1020.00</span></div>
+                </li>
+                <li class="">
+                    <div class="right"><a href="viewCart.html" class="btn-flat blue-text left waves-effect">{{$label_U.view}} {{$label_U.cart}}</a> <a href="newRfq.html" class="btn-flat blue-text left waves-effect">{{$label_U.checkout}}</a> </div>
+                </li>
+            </ul>
+            <div class="z-depth-1 small-cart-count bubble _icon_Cart " style="opacity: 0;"><span>0</span></div>
+        </li>
+        <li>
+            <a class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.list}} {{$label.view}}" ng-click="viewTypeCallback($event)">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_ViewList"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="#" class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.card}} {{$label.view}}" style="display: none;">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_ViewGrid"></use>
+                    </svg>
+                </i>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.sort}}" data-activates='filterLookup' data-constrainwidth="false">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_Sort"></use>
+                    </svg>
+                </i>
+            </a>
+            <ul id="Ul2" class='dropdown-content width170'>
+                <li><a href="#!">Popular</a></li>
+                <li><a href="#!">New</a></li>
+                <li><a href="#!">High Price</a></li>
+                <li><a href="#!">Low Price</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.filter}}">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_Filter"></use>
+                    </svg>
+                </i>
+            </a>
+        </li>
+    </ul>
+    <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Back"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="extr-nav-wrap-content search-header left catalog-landing">
+        <div id="Div1">
+            <span class="extra-nav-item  icon">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_RfxReq"></use>
+                    </svg>
+                </i>
+            </span><span class="headingText ng-cloak">WISHLIST</span>
+        </div>
+    </div>
+</div>
+<!--Catalog subheader-->
+<div data-ng-if="pageName === 'catalog.landing'">
+    <div class="col s12 extra-nav-wrap search-reverse">
+        <ul class="right">
+            <li>
+                <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.search}}" id="subNavSearchTrigger">
+                    <i class="icon iconSmall " id="i2">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.quick}} {{$label.cart}}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_CartQuick"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.wishlist}}">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Wishlist"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li class="cartCountWrap">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a data-activates='dropdown1' class="white-text dropdown-button waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.cart}}" data-activates='cartAddedList' data-constrainwidth="false">
+                        <i class="icon iconSmall">
+                            <svg><use xlink:href="#icon_Cart"></use></svg>
+                        </i>
+                    </a>
+                    <ul id='dropdown1' class='dropdown-content cart-lookaup-popup lookup-popup dd-close-off'>
+                        <li>
+                            <div class="input-field"><span class="left">{{$label_U.shoping}} {{$label_U.cart}}</span> <span class="right">{{$label_FU.items}} 2</span></div>
+                        </li>
+                        <li>
+                            <div class="input-field "><span class="left">Cart Value</span> <span class="right">500.00</span></div>
+                        </li>
+                        <li>
+                            <div class="input-field "><span class="left">Taxes</span> <span class="right">20.00</span></div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="input-field "><span class="left">Cart Total</span> <span class="right">USD 1020.00</span></div>
+                        </li>
+                        <li class="">
+                            <div class="right"> <a href="viewCart.html" class="btn-flat blue-text left waves-effect">{{$label_U.view}} {{$label_U.cart}}</a> <a href="newRfq.html" class="btn-flat blue-text left waves-effect">{{$label_U.checkout}}</a> </div>
+                        </li>
+                    </ul>
+                    <div class="z-depth-1 small-cart-count bubble _icon_Cart " style="opacity:0;"><span>0</span></div>
+                </smart-dropdown>
+            </li>
+            <li>
+                <a class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.list}} {{$label.view}}" ng-click="viewTypeCallback($event)">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_ViewList"></use>
+                        </svg>
+                    </i>
+                </a>
+                <a href="#" class="white-text waves-block waves-effect waves-light _cardListTrigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.card}} {{$label.view}}" style="display: none;">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_ViewGrid"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="white-text waves-block waves-effect waves-light _cartDropDown tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.sort}}" data-activates='filterLookup' data-constrainwidth="false">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Sort"></use>
+                        </svg>
+                    </i>
+                </a>
+                <ul id="Ul6" class='dropdown-content width170'>
+                    <li><a href="#!">Popular</a></li>
+                    <li><a href="#!">New</a></li>
+                    <li><a href="#!">High Price</a></li>
+                    <li><a href="#!">Low Price</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="#/">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        <span class="left">
+            All CATEGORIES
+        </span>
+        <div class="extr-nav-wrap-content search-header left catalog-landing">
+            <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label.back}}" href="javascript:history.go(-1);" style="visibility: hidden">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_Back"></use>
+                    </svg>
+                </i>
+            </a>
+            <div id="Div2">
+                <span class="extra-nav-item  icon">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_RfxReq"></use>
+                        </svg>
+                    </i>
+                </span><span class="headingText ng-cloak">Laptops (<span>8981 ITEMS</span>)</span>
+            </div>
+            <smart-global-textfield></smart-global-textfield>
+        </div>
+    </div>
+</div>
+<!--View Cart subheader-->
+<div data-ng-if="pageName === 'catalog.cart'">
+    <div class="col s12 extra-nav-wrap search-reverse">
+        <ul class="right">
+            <li>
+                <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" smart-tooltip message="{{$label.Search}}" id="subNavSearchTrigger">
+                    <i class="icon iconSmall" id="i2">
+                        <svg>
+                            <use xlink:href="#icon_Search"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" smart-tooltip message="Edit">
+                    <i class="icon iconSmall ">
+                        <svg>
+                            <use xlink:href="#icon_Edit"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+            
+        </ul>
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left tooltipped" data-position="bottom" data-delay="50" smart-tooltip message="{{$label.back}}" href="#/">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        <div class="extr-nav-wrap-content search-header left catalog-landing">
+            <div id="Div2">
+                <span class="extra-nav-item  icon">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_RfxReq"></use>
+                        </svg>
+                    </i>
+                </span><span class="headingText ng-cloak">MY CART</span>
+            </div>
+            <smart-global-textfield></smart-global-textfield>
+        </div>
+    </div>
+</div>
+<!--trackstatus subheader-->
+
+<!--req new subheader-->
+<div ng-if="pageName == 'p2p.req.new'">
+    <div class="col s12 extra-nav-wrap">
+        <div class="normalMode">
+            <div class="left">
+                <a href="javascript:history.go(-1);" class="left waves-block waves-effect waves-light">
+                    <i class="icon small ">
+						<svg><use xlink:href="#icon_Back"></use></svg>
+                    </i>
+                </a>
+                <i class="icon small left">
+					<svg><use xlink:href="#icon_OnBehalf"></use></svg>
+				</i>
+                <span class="headingText ng-cloak left">(DRAFT) - NEW REQUISITION </span>
+            </div>
+            <div class="right">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a class="dropdown-button btn-in-header" href="javascript:void(0)" data-activates="dropdownUSD" data-constrainwidth="false" data-alignment="right">
+                        <i class="icon iconSmall white-text right">
+                            <svg class="marginTop8">
+								<use xlink:href="#icon_DropArrow"></use>
+                            </svg>
+                        </i>
+                        <span>1000 USD</span>
+                    </a>
+                    <ul id="Ul3" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                        <li>
+                            <div class="input-field col s12 detail-field-summary">
+                                <span class="left grey-text">Document Value(USD)</span>
+                                <span class="right">678.00</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary header-input-edit">
+                                <span class="left grey-text">Shipping(USD)</span>
+                                <div class="right">
+                                    <div>109.00</div>
+                                    <div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12 ">Prorate</a></div>
+                                </div>
+                                <div class="slider-pop">
+                                    <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                        <div class="col s6 input-field">
+                                            <input value="00.00" id="prorate1" type="text" />
+                                            <label for="prorate1" class="active">Prorate</label>
+                                        </div>
+                                        <div class="col s6">
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Check"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary header-input-edit ">
+                                <span class="left grey-text">Taxes & Charges(USD)</span>
+                                <div class="right">
+                                    <div>00.00</div>
+                                    <div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12 shwEditMode">Prorate</a></div>
+                                </div>
+                                <div class="slider-pop">
+                                    <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                        <div class="col s6 input-field">
+                                            <input value="00.00" id="Text11" type="text" />
+                                            <label for="prorate1" class="active">Prorate</label>
+                                        </div>
+                                        <div class="col s6">
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Check"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Document Total (USD)</span> <span class="right">1000.00</span> </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+        </div>
+        <div class="previewMode" style="display: none;">
+            <div class="left">
+                <a class="extra-nav-item waves-block waves-effect waves-light left" href="javascript:history.go(-1);">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a><span class="extra-nav-item  icon">
+                    <i class="icon iconSmall">
+                        <svg>
+                            <use xlink:href="#icon_RfxReq"></use>
+                        </svg>
+                    </i>
+                </span><span class="headingText ng-cloak">{{$label_U.requisition}} - (Preview Mode) </span>
+            </div>
+            <ul class="right">
+                <li>
+                    <a href="../theme/images/downLoadReqn.pdf" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.download}}">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_Download"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#!" class="waves-block waves-effect waves-light dropdown-button tooltipped " data-activates="dropdown2" data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.share}}">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_Share"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <ul id="Ul4" class="dropdown-content">
+                        <li>
+                            <a href="#sendEmailCall" class="modal-trigger">
+                                <i class="icon iconSmall left">
+                                    <svg>
+                                        <use xlink:href="#icon_Email"></use>
+                                    </svg>
+                                </i>Email
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!">
+                                <i class="icon iconSmall left">
+                                    <svg>
+                                        <use xlink:href="#icon_Chat"></use>
+                                    </svg>
+                                </i>Chat
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!">
+                                <i class="icon iconSmall left">
+                                    <svg>
+                                        <use xlink:href="#icon_Discuss"></use>
+                                    </svg>
+                                </i>Discussion Forum
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#!" onclick="window.print()" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.print}}">
+                        <i class="icon iconSmall">
+                            <svg>
+                                <use xlink:href="#icon_Print"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#track_status" class="track-status-modal waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.trackStatus}}">
+                        <i class="icon iconSmall ">
+                            <svg>
+                                <use xlink:href="#icon_TrackStatus"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div ng-if="pageName == 'p2p.order.new'">
+    <div class="col s12 extra-nav-wrap">
+        <div class="normalMode">
+            <div class="left">
+                <a href="javascript:history.go(-1);" class="left waves-block waves-effect waves-light">
+                    <i class="icon small">
+						<svg><use xlink:href="#icon_Back"></use></svg>
+					</i>
+                </a><i class="icon small left">
+					<svg><use xlink:href="#icon_Order"></use></svg>
+				</i>
+                <span class="headingText ng-cloak left">NEW ORDER (Draft)</span>
+            </div>
+            <div class="right">
+                <smart-dropdown config="{{dropDownConfig}}">
+                    <a class="dropdown-button" href="javascript:void(0)" data-activates="dropdownUSD1" data-constrainwidth="false" data-alignment="right">
+						1000 <span>USD</span> <span>
+							<i class="icon iconSmall white-text right">
+								<svg class="marginTop8">
+									<use xlink:href="#icon_DropArrow"></use>
+								</svg>
+							</i>
+						</span>
+					</a>
+                    <ul id="dropdownUSD1" class="dropdown-content looup-data-summary lookup-popup fontNormal dd-close-off" style="min-width: 350px;">
+                        <li>
+                            <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Document Value</span> <span class="right">678.00</span> </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary header-input-edit">
+                                <span class="left grey-text">Shipping</span>
+                                <div class="right">
+                                    <div>109.00</div>
+                                    <div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12 ">Prorate</a></div>
+                                </div>
+                                <div class="slider-pop">
+                                    <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                        <div class="col s6 input-field">
+                                            <input value="00.00" id="prorate1" type="text" />
+                                            <label for="prorate1" class="active">Prorate</label>
+                                        </div>
+                                        <div class="col s6">
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Check"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary header-input-edit ">
+                                <span class="left grey-text">Taxes & Charges</span>
+                                <div class="right">
+                                    <div>00.00</div>
+                                    <div class="shwEditMode"><a href="javascript:void(0)" class="blue-text fontSize12 shwEditMode">Prorate</a></div>
+                                </div>
+                                <div class="slider-pop">
+                                    <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                        <div class="col s6 input-field">
+                                            <input value="00.00" id="Text114" type="text" />
+                                            <label for="prorate1" class="active">Prorate</label>
+                                        </div>
+                                        <div class="col s6">
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Check"></use>
+                                                </svg>
+                                            </a>
+                                            <a href="javascript:void(0)" class=" icon iconSmall right marginTop15 hideEditMode blue-text">
+                                                <svg>
+                                                    <use xlink:href="#icon_Close"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-field col s12 detail-field-summary"><span class="left grey-text">Document Total (USD)</span> <span class="right">1000.00</span> </div>
+                        </li>
+                    </ul>
+                </smart-dropdown>
+            </div>
+        </div>
+        <div class="previewMode" style="display: none;">
+            <div class="left">
+                <a class="extra-nav-item waves-block waves-effect waves-light left" href="javascript:history.go(-1);">
+                    <i class="icon iconSmall">
+						<svg>
+							<use xlink:href="#icon_Back"></use>
+						</svg>
+					</i>
+                </a><span class="extra-nav-item  icon">
+					<i class="icon iconSmall">
+						<svg>
+							<use xlink:href="#icon_Order"></use>
+						</svg>
+					</i>
+				</span><span class="headingText ng-cloak">{{$label_U.order}} PRINT- (Preview Mode) </span>
+            </div>
+            <ul class="right">
+                <li>
+                    <a href="../theme/images/downLoadReqn.pdf" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.download}}">
+                        <i class="icon iconSmall">
+							<svg>
+								<use xlink:href="#icon_Download"></use>
+							</svg>
+						</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="waves-block waves-effect waves-light dropdown-button" data-activates="dropdown2" data-constrainwidth="false" data-alignment="right" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.share}}">
+                        <i class="icon iconSmall ">
+							<svg><use xlink:href="#icon_Share"></use></svg>
+						</i>
+                    </a>
+                    <ul id="dropdown2" class="dropdown-content">
+                        <li>
+                            <a href="javascript:void(0)" class="modal-trigger">
+                                <i class="icon iconSmall left">
+									<svg><use xlink:href="#icon_Email"></use></svg>
+								</i>Email
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left">
+									<svg><use xlink:href="#icon_Chat"></use></svg>
+								</i>Chat
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="icon iconSmall left">
+									<svg><use xlink:href="#icon_Discuss"></use></svg>
+								</i>Discussion Forum
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onClick="window.print()" class="waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.print}}">
+                        <i class="icon iconSmall">
+							<svg><use xlink:href="#icon_Print"></use></svg>
+						</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="track-status-modal waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.trackStatus}}">
+                        <i class="icon iconSmall ">
+							<svg><use xlink:href="#icon_TrackStatus"></use></svg>
+						</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--inv invoice excel-->
+<div class="col s7" ng-if="pageName == 'p2p.inv.excel'">
+    <!--page title-->
+    <div id="page-header">
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+        </span>
+        <span class="headingText ng-cloak">INVOICE EXCEL</span>
+    </div>
+</div>
+<div class="col s12 extra-nav-wrap" data-ng-if="pageName == 'p2p.inv.dynamicDis'">
+    <ul class="right">
+		<li data-ng-if="pageName == 'p2p.inv.dynamicDisSupplier'">
+            <a href="#" class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.filter}}">
+                <i class="icon iconSmall" style="color:red;">
+                    <svg>
+                        <use xlink:href="#icon_Filter"></use>
+                    </svg>
+                </i>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="white-text waves-block waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.filter}}">
+                <i class="icon iconSmall">
+                    <svg>
+                        <use xlink:href="#icon_Filter"></use>
+                    </svg>
+                </i>
+            </a>
+        </li>
+    </ul>
+    <a class="extra-nav-item waves-block waves-effect waves-light left tooltipped" href="javascript:history.go(-1);" data-position="bottom" data-delay="50" data-tooltip="{{$label_FU.back}}">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="#icon_Back"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="extr-nav-wrap-content left">
+        <span class="extra-nav-item  icon">
+            <i class="icon iconSmall tooltipped" data-position="bottom" data-delay="50" data-tooltip="{{$label_U.rfx}} {{$label_U.request}}">
+                <svg>
+                    <use xlink:href="#icon_RfxReq"></use>
+                </svg>
+            </i>
+        </span>
+        <span class="headingText ng-cloak">DYNAMIC DISCOUNTING</span>
+    </div>
+</div>
+<!--inv invoice create basic-->
+<div class="col s12 extra-nav-wrap" ng-if="pageName == 'p2p.inv.create'">
+    <div class="right">
+        <smart-dropdown config="{{dropDownConfig}}">
+            <a class='dropdown-button btn-in-header right' href='javascript:void(0)' data-activates='dropdownMoreAction' data-constrainwidth="false" data-alignment="right">
+                <i class="icon iconSmall white-text ">
+                    <svg>
+                        <use xlink:href="#icon_MenuKebab"></use>
+                    </svg>
+                </i>
+            </a>
+            <ul id="dropdownMoreAction" class="dropdown-content dd-close-off">
+                <li>
+                    <a herf="!#">
+                        <i class="icon iconSmall left">
+                            <svg>
+                                <use xlink:href="#icon_TrashCan"></use>
+                            </svg>
+                        </i> <span>Delete</span>
+                    </a>
+                </li>
+                <li>
+                    <a herf="!#">
+                        <i class="icon iconSmall left">
+                            <svg>
+                                <use xlink:href="#icon_TrackStatus"></use>
+                            </svg>
+                        </i>
+                        <span>Track Status</span>
+                    </a>
+                </li>
+                <li>
+                    <a herf="!#">
+                        <i class="icon iconSmall left" style="color:red;">
+                            <svg>
+                                <use xlink:href="#icon_ProcPolicy"></use>
+                            </svg>
+                        </i>
+                        <span>Export</span>
+                    </a>
+                </li>
+                <li>
+                    <a herf="!#">
+                        <i class="icon iconSmall left">
+                            <svg>
+                                <use xlink:href="#icon_Print"></use>
+                            </svg>
+                        </i>
+                        <span>Print</span>
+                    </a>
+                </li>
+                <li>
+                    <a herf="!#">
+                        <i class="icon iconSmall left">
+                            <svg>
+                                <use xlink:href="#icon_Comments"></use>
+                            </svg>
+                        </i>Comments
+                    </a>
+                </li>
+            </ul>
+        </smart-dropdown>
+        <smart-dropdown config="{{dropDownConfig}}">
+            <a class='dropdown-button btn-in-header right' href='javascript:void(0)' data-activates='dropdownUSD' data-constrainwidth="false" data-alignment="right">
+                <i class="icon iconSmall white-text right">
+                    <svg class="marginTop8">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_DropArrow"></use>
+                    </svg>
+                </i>
+                <span>1000 USD</span>
+            </a>
+            <ul id="dropdownUSD" class="dropdown-content looup-data-summary lookup-popup fontNormal dropdown-content-medium dd-close-off">
+                <li>
+                    <dl class="input-field col s12 detail-field-summary">
+                        <dt class="left grey-text">Document Value(USD)</dt>
+                        <dd class="right">
+                            <span>
+                                678.00
+                            </span>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="input-field col s12 detail-field-summary edit-tootip-from-right-side">
+                        <dt class="left grey-text">
+                            Shipping(USD)
+                        </dt>
+                        <dd class="right right-align">
+                            <div>
+                                <span>
+                                    109.00
+                                </span>
+                            </div>
+                            <a href="javascript:void(0)" class="small-text-link " ng-click="showSlidePop = {'right':'0'}">Prorate</a>                    
+                            <div class="slider-pop left-align" ng-style="showSlidePop">
+                                <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                    <smart-textfield class="col s6" label="Prorate"></smart-textfield>
+                                    <div class="col s6">
+                                        <a href="javascript:void(0)" class="icon iconSmall right marginTop15 blue-text" ng-click="showSlidePop = {'right':'-100%'}">
+                                            <svg>
+                                                <use xlink:href="#icon_Check"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="javascript:void(0)" class="icon iconSmall right marginTop15 hideEditMode blue-text" ng-click="showSlidePop = {'right':'-100%'}">
+                                            <svg>
+                                                <use xlink:href="#icon_Close"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="input-field col s12 detail-field-summary edit-tootip-from-right-side">
+                        <dt class="left grey-text">
+                            Taxes & Charges(USD)
+                        </dt>
+                        <dd class="right right-align">
+                            <div><span> 00.00 </span> </div>
+                          <a href="javascript:void(0)" class="small-text-link" ng-click="showSlidePopNext = {'right':'0'}">Prorate</a>
+                            <div class="slider-pop left-align" ng-style="showSlidePopNext">
+                                <div class="row grey greyPanel lighten-3 paddingBtm10">
+                                    <smart-textfield class="col s6" label="Prorate"></smart-textfield>
+                                    <div class="col s6">
+                                        <a href="javascript:void(0)" class="icon iconSmall right marginTop15 blue-text" ng-click="showSlidePopNext = {'right':'-100%'}">
+                                            <svg>
+                                                <use xlink:href="#icon_Check"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="javascript:void(0)" class="icon iconSmall right marginTop15 hideEditMode blue-text" ng-click="showSlidePopNext = {'right':'-100%'}">
+                                            <svg>
+                                                <use xlink:href="#icon_Close"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="input-field col s12 detail-field-summary">
+                        <dt class="left grey-text">Document Total (USD)</dt>
+                        <dd class="right"><span>1000.00 </span></dd>
+                    </dl>
+                </li>
+                <li class="dropdown-content_footer">
+                    <dl class="input-field col s12 detail-field-summary edit-tootip-from-right-side">
+                        <dt class="left grey-text">
+                            Accrued Taxes(USD)
+                        </dt>
+                        <dd class="right right-align">
+                            <div>
+                                <span>
+                                    00.00
+                                </span>
+                            </div>
+                           <a href="#!" class="small-text-link ">Add</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </smart-dropdown>
+    </div>
+    <div>
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left" href="javascript:history.go(-1);">
+            <i class="icon iconSmall ">
+                <svg>
+                    <use xlink:href="#icon_Back"></use>
+                </svg>
+            </i>
+        </a>
+        <!--page title-->
+        <div id="page-header">
+            <span class="extra-nav-item  icon">
+                <i class="icon iconSmall ">
+                    <svg>
+                        <use xlink:href="#icon_RfxReq"></use>
+                    </svg>
+                </i>
+            </span>
+            <span class="headingText ng-cloak">INVOICE 3 - SCN-2016.00641 (DRAFT)</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="col s12 extra-nav-wrap indexHeader" ng-if="$root.pageName === 'home'" style="display: block;">
+    <a class="extra-nav-item waves-circle  waves-effect waves-light left" href="javascript:history.go(-1);">
+        <i class="icon iconSmall ">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                                </svg>
+                            </i>
+    </a>
+    <div class="extr-nav-wrap-content search-header left">
+        <a class="extra-nav-item waves-circle  waves-effect waves-light left" href="javascript:history.go(-1);" style="visibility: hidden">
+            <i class="icon iconSmall ">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                                    </svg>
+                                </i>
+        </a>
+        <div id="">
+            <div class="input-field">
+                <input id="search_nav" type="text" placeholder="Search" required="" tabindex="9" class="margin0" ng-keydown="onKeyDown($event)" >
+                <label for="search_nav" class="active">
+                    <i class="icon iconSmall">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Search"></use></svg></i>
+                </label>
+                <a class="extra-nav-item waves-effect waves-light right" href="#!" id="clear-value">
+                    <i class="icon iconSmall left">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Close"></use></svg></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	$(document).ready(function () {
+
+		if ($('.search-header').parent().hasClass('search-reverse')) {
+			$("#iconSearch").parent().parent('li').css({ visibility: 'hidden' });
+
+			$("#left-content").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+			$("#iconClose").click(function () {
+				$("#left-content").css('left', '0%').velocity({ opacity: 1, translateX: 0 });
+				$("#header_search_box").velocity({ opacity: 0, translateX: -1200 });
+				$("#iconSearch").parent().parent('li').css({ visibility: 'visible' }).end().end().fadeIn();
+				$('#iconClose').fadeOut();
+
+			});
+
+
+			$("#iconSearch").click(function () {
+				$("#left-content").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+				$("#header_search_box").velocity({ opacity: 1, translateX: 0 }).find('input').focus();
+				$("#iconSearch").parent().parent('li').css({ visibility: 'hidden' });
+				$('#iconClose').fadeIn();
+
+			});
+
+
+		}
+
+		else {
+
+			$("#header_search_box").css('left', '-100%').velocity({ opacity: 0, translateX: -1200 });
+			$("#iconSearch").click(function () {
+				$("#left-content").velocity({ opacity: 0, translateX: -1200 });
+				$("#header_search_box").css('left', '0').velocity({ opacity: 1, translateX: 0 }).find('input').focus();
+				$("#iconSearch").fadeOut();
+				$('#iconClose').fadeIn();
+
+			});
+
+			$("#iconClose").click(function () {
+				$("#left-content").velocity({ opacity: 1, translateX: 0 })
+				$("#header_search_box").velocity({ opacity: 0, translateX: -1200 });
+				$("#iconSearch").fadeIn();
+				$('#iconClose').fadeOut();
+
+			});
+
+		}
+		$('#RequestingFor').change(function () {
+			var el = $(this);
+			var valu = el.val();
+			if (valu == "2") {
+				$('#RequestingForOthersPopup').openModal();
+			} else {
+				$("#OnBehalfOfUser").hide();
+			}
+		});
+	});
+</script>

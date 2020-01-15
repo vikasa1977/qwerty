@@ -1,0 +1,81 @@
+﻿<div class="scrollableModel scorePopup removePopBorder">
+	<div class="modal-header paddingLeft22">
+		<i class="left icon iconSmall red-text">
+			<svg>
+				<use xlink:href="#icon_Lookup"></use>
+			</svg>
+		</i>
+		<span class="title">SCORE</span>
+	</div>
+	<div class="modal-content">
+		<smart-scroll height="422px" class="clearfix clear">
+            <smart-dropdown config="{{dropDownConfig}}">
+				<div id="dropdownComputed" class="computed">
+					<div class="clearfix computed-header">
+						<div class="computed-header-label">Formula :</div>
+						<div><span>(Response1*Response2)/2</span></div>
+						<smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+					</div>
+					<div class="clearfix computed-content">
+						<div class="row marginBottom0">
+							<div class="computed-formulalist">
+								<smart-scroll height="188px">
+									<ul>
+										<li>Response1</li>
+										<li>Response2</li>
+									</ul>
+								</smart-scroll>
+							</div>
+							<div class="computed-operatorlist">
+								<ul class="clearfix">
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_Plus"></use></svg>
+										</i>
+									</li>
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_Minus"></use></svg>
+										</i>
+									</li>
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_Multiply"></use></svg>
+										</i>
+									</li>
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_Divide"></use></svg>
+										</i>
+									</li>
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_LeftBracket"></use></svg>
+										</i>
+									</li>
+									<li>
+										<i class="icon iconSmall blue-text cursorPointer">
+											<svg><use xlink:href="#icon_RightBracket"></use></svg>
+										</i>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</smart-dropdown>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer_new is-scrolled">
+		<div class="row marginBottom0">
+            <div class="col l5 s6 paddingLeft4"><a href="javascript:void(0)" class="waves-effect btn-flat">RESET</a></div>
+			<div class="col l7 s6 right-align">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CANCEL"}'></smart-button>
+					<smart-button flat="true" class="left modal-close" config='{"title":"DONE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

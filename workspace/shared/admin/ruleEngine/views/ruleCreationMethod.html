@@ -1,0 +1,21 @@
+﻿<div ng-controller="ruleCreationMethodCtrl">
+    <div class="row marginBtm0">
+        <div class="col s12 ng-isolate-scope input-field">
+            <ul class='documentTypeDropDown'>
+                <li ng-repeat="item in parentScope.actionType" class="col s12 m6 l4 xl3 xxl2 line-height-manager marginBtm0 padding0">
+                    <smart-checkbox fill="true" ng-model="item.ischeck" label="{{item.name}}"></smart-checkbox>
+                    <a ng-if="item.ischeck" href="javascript:void(0)" ng-click="showConfigureApprovalGroupPopupCallback(item)" class="line-height-manager waves-circle waves-effect waves-light right marginBtm0 configureApprovalGroup">
+                        <i class="icon small marginTop4" smart-tooltip position="bottom" message="Configure">
+                            <svg><use xlink:href="#icon_Configure"></use></svg>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <smart-popup template-url="shared/admin/ruleEngine/views/addActionTypes.html" type="large" show="{{showConfigureApprovalGroupPopup}}" on-hide="configureApprovalGroupPopupHideCallback(e)"></smart-popup>
+    <smart-popup template-url="shared/admin/ruleEngine/views/PopupSuperHierarchy.html" type="large" show="{{showConfigureSuperHierarchyPopup}}" on-hide="configureSuperHierarchyPopupHideCallback(e)"></smart-popup>
+    <smart-popup template-url="shared/admin/ruleEngine/views/addException.html" type="small" show="{{showAddExceptionPopUp}}" on-hide="showAddExceptionPopUpHideCallback(e)"></smart-popup>
+</div>
+

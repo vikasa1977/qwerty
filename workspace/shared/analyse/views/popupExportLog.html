@@ -1,0 +1,113 @@
+﻿<div class="scrollableModel">
+	<div class="modal-header">
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': vm.isActiveSearch}">
+                <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="{{'Search' || translate }}" ng-click="vm.showSearch()">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield class="input-field" focus="vm.focusSearch" ng-model="vm.searchinList"></smart-textfield>
+                <a href="javascript:void(0)" ng-class="vm.showMe" ng-click="vm.searchinList='';vm.hideSearch()" smart-tooltip position="Close" message="{{'Close' || translate }}" delay="250" ng-show="vm.hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+		<i class="left icon iconSmall grey-text">
+			<svg><use xlink:href="#icon_logFile"></use></svg>
+		</i>
+		<span class="title">EXPORT LOG ({{vm.exportData.length}})</span>
+	</div>
+	<div class="modal-content padding0" style="height: 350px">
+		<table class="bordered uploadDownloadLog noTransitionTr" ng-if="( vm.exportData | filter:{name:vm.searchinList}).length != 0">
+			<thead>
+				<tr>
+					<th class="left-align" width="10%">
+						{{'ID' || translate}}
+					</th>
+                    <th class="left-align"  width="15%">
+						{{'Report Name' || translate}}
+					</th>
+					<th class="left-align" width="14%">
+						{{'Request Type' || translate}}
+					</th>
+					<th class="left-align" width="19%">
+						{{'Execution Time' || translate}}
+					</th>
+					<th class="left-align" width="12%">
+						{{'Status' || translate}}
+					</th>
+					<th class="left-align" width="10%">
+						{{'Size' || translate}}
+					</th>
+					<th class="left-align" width="13%">
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<smart-scroll height="300px">
+			<table class="bordered uploadDownloadLog noTransitionTr">
+				<tbody>
+					<tr ng-repeat="n in vm.exportData | filter: {name:vm.searchinList}">
+						<td class="left-align" width="10%"><span class="truncate" title="{{n.id}}">{{n.id}}</span></td>
+						<td class="left-align"  width="15%">
+							<span class="truncate" title="{{n.name}}" ng-bind-html="n.name | highlights:vm.searchinList"> </span>
+						</td>
+						<td class="left-align" width="14%">
+                            <span class="truncate" title="{{n.requestType}}">{{n.requestType}}</span> </td>
+						<td class="left-align" width="19%">{{n.time}}</td>
+						<td class="left-align" width="12%">
+							<span class="green-text" ng-if="n.status === 0">Completed</span>
+							<span class="orange-text" ng-if="n.status === 1">In Progress</span>
+							<span class="red-text" ng-if="n.status === 2">
+                                <span class="left">Failed</span>
+                                <a href="javascript:void(0)" class="left marginLeft10 red-text" ng-if="n.status === 2" smart-tooltip message="Failed due to network error" position="bottom">
+                                    <i class="icon iconSmall">
+                                        <svg><use xlink:href="#icon_Warning"></use></svg>
+                                    </i>
+                                </a>
+                            </span>
+						</td>
+						<td width="10%">{{n.size}}</td>
+						<td width="13%">
+							<a href="javascript:void(0)" class="left" ng-if="n.status === 0 || n.status === 1" ng-class="{'disabled': n.status === 1}" 
+							   smart-tooltip message="Download" position="bottom">
+								<i class="left icon iconSmall">
+									<svg><use xlink:href="#icon_Download"></use></svg>
+								</i>
+							</a>
+							<a href="javascript:void(0)" class="left" ng-if="n.status === 2" smart-tooltip message="Retry" position="bottom">
+								<i class="left icon iconSmall">
+									<svg><use xlink:href="#icon_Reset"></use></svg>
+								</i>
+							</a>
+							<a href="javascript:void(0)" class="left" smart-tooltip message="Delete" position="bottom" ng-click="vm.deleteExportLog($index);">
+								<i class="left icon iconSmall marginRight0">
+									<svg><use xlink:href="#icon_TrashCan"></use></svg>
+								</i>
+							</a>
+						</td>
+					</tr>
+                   <tr class="colorError alignErrorMsg" style="height: 300px" ng-if="vm.searchinList.length >= 1 && ( vm.exportData | filter:{name:vm.searchinList}).length == 0">
+                       <td colspan="6" class="center-align">
+                           <span class="marginTop50 displayBlock">
+                               {{'No Records Found' || translate }}
+                           </span>
+                       </td>
+                    </tr>
+				</tbody>
+			</table>
+		</smart-scroll>
+	</div>
+	<div class="modal-footer modal-footer-normalScroll">
+		<div class="row marginBottom0">
+			<div class="col s12">
+				<div class="right">
+					<smart-button flat="true" class="left modal-close" config='{"title":"CLOSE"}'></smart-button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

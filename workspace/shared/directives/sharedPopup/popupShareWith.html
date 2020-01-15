@@ -1,0 +1,113 @@
+<div>
+    <div class="modal-header">   
+        <div class="searchSlideMain searchSlideMain--inputBdrBNone" data-ng-init="mysearch=false;">
+            <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                <a href="javascript:void(0)" id="searchField" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch();">
+                    <i class="icon iconSmall center grey-text">
+                        <svg focusable="false"><use xlink:href="#icon_Search"></use></svg>
+                    </i>
+                </a>
+                <smart-textfield ng-show="hideClose" on-key-down="keyDownCallback($event)" placeholder="Search" ng-model="searchInput.text" class="input-field searchInputField" ></smart-textfield>
+                <a href="javascript:void(0)" ng-class="showMe" ng-click="hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                    <i class="icon iconSmall center grey-text">
+                        <svg focusable="false"><use xlink:href="#icon_Close"></use></svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+        <i class="icon iconSmall grey-text left">
+            <svg focusable="false"><use xlink:href="#icon_Lookup"></use></svg>
+        </i>           
+        <span class="title">{{ 'Share With' | translate }} </span>
+    </div>
+    <div class="modal-content padding0"  ng-class="{'is-scrolled': true}">
+        <div class="model_body"> 
+            <div>
+                <ul class="compactListView margin0">
+                    <li class="list white" >
+                        <div class="cardList relative">
+                            <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="!showSelectedMasterList">
+                                <div class="row margin0 listTbl listTbl--withChk" ng-class="{'filled-partial' : teamMemberMasterHead.fillpartial }">
+                                    <smart-checkbox class="left listTbl-chk" ng-model="teamMemberMasterHead.check" on-change="onChangeMasterTeamMember(teamMemberMasterHead.check)" label="Select all"></smart-checkbox>
+                                    <div class="left marginTop2 marginLeft5">
+                                        <span class="listTbl-meta">({{ listCount(teamMemberMasterList) }} of {{teamMemberMasterList.length}} selected)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cardListContent paddingLeft22 paddingRight22 paddingBtm10 paddingTop15" ng-if="showSelectedMasterList">
+                                <div class="row marginBtm6">
+                                    <div class="left relative" style="top: 3px;">
+                                        {{ listCount(teamMemberMasterList) }} Selected
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="showSelectCheckboxWrap">
+                                <smart-checkbox label="Show Selected" disable="{{ listCount(teamMemberMasterList) == 0 }}" ng-model="showSelected.check" on-change="showSelectedCallback(showSelected.check)"></smart-checkbox>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="height300 is-scrolled">
+					<smart-scroll height="300px" ng-if="show" on-scroll-end="smartScrollEnd()">
+                        <ul class="collection with-header" ng-if="!showSelectedMasterList">
+                           
+                            <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in filteredData.tml = (teamMemberMasterList | limitTo: totalDisplayed | filter: {'title': searchInput.text})">
+                                <div class="cardList">
+                                    <div class="cardListContent">
+                                        <div class="row margin0 listTbl listTbl--withChk">
+                                            <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="teamMemberMasterListChange(item.check, $index)" disable="{{item.added}}" style="margin-top: -2px;"></smart-checkbox>
+                                            <div class="trucate" ng-bind-html="item.title | highlightSearch: searchInput.text"></div>
+                                            <ul class="listTbl-meta-list">
+                                                <li class="listTbl-meta-list-item" ng-if="item.designation">{{::item.designation}} </li>
+                                                <li class="listTbl-meta-list-item"  ng-if="item.email"> <a href="mailto:{{item.email}}" ng-bind-html="item.email | highlightSearch: searchInput.text"></a> </li>
+                                                 <li class="listTbl-meta-list-item" ng-if="item.phone"> {{::item.phone}}</li>                   
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li ng-if="!filteredData.tml.length"  class="height300"><span class="lookupnorecord">{{ 'No Records Found ' | translate }}</span></li>
+                        </ul>
+
+                        <ul class="collection with-header" ng-if="showSelectedMasterList">
+                            <li class="col l6 xl4 xxl3 m6 s12 list white collection-item" ng-repeat="item in filteredData.selectedData = (selectedTeamMemberMasterList | limitTo:totalDisplayed | filter: {'title': searchInput.text})">
+                                <div class="cardList">
+                                    <div class="cardListContent">
+                                        <div class="row margin0 listTbl listTbl--withChk">
+                                            <smart-checkbox class="left listTbl-chk" ng-model="item.check" on-change="teamMemberMasterListChange(item.check, $index)" style="margin-top: -2px;"></smart-checkbox>
+                                            <div class="trucate" ng-bind-html="item.title | highlightSearch: searchInput.text"></div>
+                                            <ul class="listTbl-meta-list">
+                                                <li class="listTbl-meta-list-item" ng-if="item.designation">{{::item.designation}} </li>
+                                                <li class="listTbl-meta-list-item" ng-if="item.email"> <a href="mailto:{{item.email}}" ng-bind-html="item.email | highlightSearch: searchInput.text"></a> </li>
+                                                <li class="listTbl-meta-list-item" ng-if="item.phone"> {{::item.phone}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="height300" ng-if="!selectedTeamMemberMasterList"><span class="lookupnorecord">{{ 'No Records Found ' | translate }}</span></li>
+                        </ul>
+                    </smart-scroll>
+					</li>
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer paddingLeft8"  ng-class="{'is-scrolled': true}">
+        <!--<div class="col s6">
+            <smart-button flat="true" class="left" config='{"title":"RESET"}' disable="disReset" callback="resetallCheckbox"></smart-button>
+            </div>-->
+        <div class="col s6 offset-s6">           
+           <smart-button flat="true" class="modal-close right" disable="isChangeed.disabled" config='{"title":"DONE"}' callback="sharedWithSelected" ></smart-button>
+           <smart-button flat="true" class="modal-close right"   config='{"title":"CANCEL"}' ></smart-button>           
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

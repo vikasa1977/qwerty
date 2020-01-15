@@ -1,0 +1,528 @@
+{
+	"datalist": [
+		{
+			"docName": "Quanta",
+			"docStatus": "Approved",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": "supplier.profile"
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+				{
+					"datakey": "",
+					"value": "Created by Akshai on 21st Jan 2018"
+				},
+				{
+					"datakey": "",
+					"value": "2 RFx"
+				},
+				{
+					"datakey": "",
+					"value": "1 forms"
+				},
+				{
+					"datakey": "",
+					"value": "1 Auction"
+				},
+				{
+					"datakey": "",
+					"value": "3 Assessment"
+				}
+			]
+		},
+		{
+      "docName": "kellogg's",
+      "docStatus": "Approved",
+      "isdocSelected": false,
+      "docType": "supplier",
+      "docLink": "supplier.profile",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": "supplier.profile"
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        },
+        {
+          "key": "View documents",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Akshai on 21st Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "2 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "1 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+    },
+		{
+			"docName": "Evertek",
+			"docStatus": "Disqualified",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Ashwin on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+		},
+		{
+			"docName": "NB Ventures Ltd",
+			"docStatus": "Identified",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Hari on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "20 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        }
+      ]
+		},
+		{
+			"docName": "Rackspace",
+			"docStatus": "Invited",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Imran on 28th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "7 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "6 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "5 Assessment"
+        }
+      ]
+		},
+		{
+      "docName": "Fastenal V-Tech",
+      "docStatus": "Registered",
+      "isdocSelected": false,
+      "docType": "supplier",
+      "docLink": "supplier.profile",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        },
+        {
+          "key": "View documents",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Bharat on 21st Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "2 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "1 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+    },
+		{
+			"docName": "Datamatic",
+			"docStatus": "Waitlisted",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Rishi on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+		},
+		{
+			"docName": "CDW",
+			"docStatus": "Approved",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Sajul on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "20 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        }
+      ]
+		},
+		{
+			"docName": "Staples",
+			"docStatus": "Disqualified",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+				{
+					"datakey": "",
+					"value": "Created by Bianca on 28th Jan 2018"
+				},
+				{
+					"datakey": "",
+					"value": "7 RFx"
+				},
+				{
+					"datakey": "",
+					"value": "6 Auction"
+				},
+				{
+					"datakey": "",
+					"value": "5 Assessment"
+				}
+			]
+		},
+		{
+      "docName": "IT Micro system",
+      "docStatus": "Identified",
+      "isdocSelected": false,
+      "docType": "supplier",
+      "docLink": "supplier.profile",
+      "actions": [
+        {
+          "key": "Edit",
+          "value": ""
+        },
+        {
+          "key": "Delete",
+          "value": ""
+        },
+        {
+          "key": "View documents",
+          "value": ""
+        }
+      ],
+      "attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Neha on 21st Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "2 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "1 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+    },
+		{
+			"docName": "Grainger",
+			"docStatus": "Invited",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Naushad on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        },
+        {
+          "datakey": "",
+          "value": "3 Assessment"
+        }
+      ]
+		},
+		{
+			"docName": "Relix",
+			"docStatus": "Registered",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+        {
+          "datakey": "",
+          "value": "Created by Joseph on 25th Jan 2018"
+        },
+        {
+          "datakey": "",
+          "value": "20 RFx"
+        },
+        {
+          "datakey": "",
+          "value": "3 forms"
+        },
+        {
+          "datakey": "",
+          "value": "1 Auction"
+        }
+      ]
+		},
+		{
+			"docName": "Home Depot",
+			"docStatus": "Approved",
+			"isdocSelected": false,
+			"docType": "supplier",
+			"docLink": "supplier.profile",
+			"actions": [
+				{
+					"key": "Edit",
+					"value": ""
+				},
+				{
+					"key": "Delete",
+					"value": ""
+				},
+				{
+					"key": "View documents",
+					"value": ""
+				}
+			],
+			"attributes": [
+				{
+					"datakey": "",
+					"value": "Created by Amol on 28th Jan 2018"
+				},
+				{
+					"datakey": "",
+					"value": "7 RFx"
+				},
+				{
+					"datakey": "",
+					"value": "6 Auction"
+				},
+				{
+					"datakey": "",
+					"value": "5 Assessment"
+				}
+			]
+		}
+	]
+
+ }

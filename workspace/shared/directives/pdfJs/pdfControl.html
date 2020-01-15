@@ -1,0 +1,113 @@
+<ul class="pdfControls">
+<li ng-hide="isPopout && poupoutoption">
+<span> {{'Page' | translate }} <span>{{ $parent.$parent.currentPage.pageNo || currentpage | translate }}</span> {{'of'}} <span> {{ totalpage }}</span></span>
+</li>
+<li  ng-hide="isPopout && poupoutoption">
+<span class="inline-divider">|</span>
+</li>
+<li ng-hide="isPopout && poupoutoption" class="hide-on-med-and-down">
+<!--zoom in-->
+<a href="javaScript:void(0)" class="waves-circle  waves-effect waves-grey " ng-click="ZoomIn(scale);$event.stopPropagation()">
+<i class="icon iconSmall " message="Zoom In" smart-tooltip data-position="bottom" delay="50">
+ <svg><use xlink:href="#icon_zoomIn"></use></svg>
+</i>
+</a>
+</li>
+<li ng-hide="isPopout && poupoutoption" class="hide-on-med-and-down">
+<!--zoom out-->
+<a href="javaScript:void(0)" class="waves-circle  waves-effect waves-grey " ng-click="ZoomOut(scale);$event.stopPropagation()">
+<i class="icon iconSmall" message="Zoom Out" smart-tooltip data-position="bottom" delay="50">
+<svg><use xlink:href="#icon_zoomOutNew"></use></svg>
+</i>
+</a>
+</li>
+<li ng-hide="isPopout && poupoutoption" class="hide-on-med-and-down">
+<!--zoom reset-->
+<a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="zoomReset(scale);$event.stopPropagation()">
+<i class="icon iconSmall " message="Reset Zoom" smart-tooltip data-position="bottom" delay="50">
+<svg><use xlink:href="#icon_zoomReset"></use></svg>
+</i>
+</a>
+</li>
+<li ng-hide="isPopout && poupoutoption" class="hide-on-med-and-down">
+<!--clockwise-->
+<a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="rotateRight(e);$event.stopPropagation()">
+<i class="icon iconSmall " message="Rotate Clockwise" smart-tooltip data-position="bottom" delay="50">
+<svg><use xlink:href="#icon_RotateClock"></use></svg>
+</i>
+</a>
+</li>
+<li ng-hide="isPopout && poupoutoption" class="hide-on-med-and-down">
+<!--anti clockwise-->
+<a href="javaScript:void(0)" class="waves-circle waves-effect waves-grey " ng-click="rotateLeft(e);$event.stopPropagation()">
+<i class="icon iconSmall " message="Rotate Anti-clockwise" smart-tooltip data-position="bottom" delay="50">
+<svg><use xlink:href="#icon_RotateAntiClock"></use></svg>
+</i>
+</a>
+</li>
+<li class="hide-on-large-and-up" ng-hide="isPopout && poupoutoption">
+<!-- dropdown for small resolution  -->
+<smart-dropdown config="{{dropDownConfig}}">
+<a ng-click="$event.stopPropagation()" class="waves-circle  waves-effect waves-grey dropdown-button hide-on-large-and-up" data-activates='{{ id }}-pdfOptions' data-position="bottom" data-delay="50" data-constrainwidth="false">
+<i class="icon iconSmall" message="{{'Actions' || translate }}">
+<svg><use xlink:href="#icon_MenuKebab"></use></svg>
+</i>
+</a>
+<ul id='{{ id }}-pdfOptions' class='dropdown-content dd-close-off dropdown-content--size-medium'>
+<li>
+<a href="javaScript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="ZoomIn(scale);$event.stopPropagation()">
+<i class="icon iconSmall s-dd-icon-wth-color">
+<svg>
+<use xlink:href="#icon_zoomIn"></use>
+</svg>
+</i> {{ 'Zoom In' | translate }}
+</a>
+</li>
+<li>
+<a href="javaScript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="ZoomOut(scale);$event.stopPropagation()">
+<i class="icon iconSmall s-dd-icon-wth-color">
+<svg>
+<use xlink:href="#icon_zoomOutNew"></use>
+</svg>
+</i> {{ 'Zoom Out' | translate }}
+</a>
+</li>
+<li>
+<a href="javaScript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="zoomReset();$event.stopPropagation()">
+<i class="icon iconSmall s-dd-icon-wth-color">
+<svg>
+<use xlink:href="#icon_zoomReset"></use>
+</svg>
+</i> {{ 'Reset Zoom' | translate }}
+</a>
+</li>
+<li>
+<a href="javaScript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="rotateRight(e);$event.stopPropagation()">
+<i class="icon iconSmall s-dd-icon-wth-color">
+<svg>
+<use xlink:href="#icon_RotateClock"></use>
+</svg>
+</i> {{ 'Rotate Clockwise' | translate }}
+</a>
+</li>
+<li>
+<a href="javaScript:void(0)" class="grey-text text-darken-4 paddingLeft3" ng-click="rotateLeft(e);$event.stopPropagation()">
+<i class="icon iconSmall s-dd-icon-wth-color">
+<svg>
+<use xlink:href="#icon_RotateAntiClock"></use>
+</svg>
+</i> {{ 'Rotate Anti-clockwise' | translate }}
+</a>
+</li>
+
+</ul>
+</smart-dropdown>
+</li>
+<li ng-if="poupoutoption" >
+<a href="javaScript:void(0)" class="waves-circle  waves-effect waves-grey dropdown-button " ng-click="openPDFinPopup(isPopout);$event.stopPropagation()" >
+                    <i class="icon iconSmall " message="{{popoutTootip}}" smart-tooltip data-position="bottom" delay="50">
+                        <svg><use xlink:href="" data-ng-href="{{ isPopout  ? '#icon_popIn' : '#icon_popOut'  }}"></use></svg>
+                    </i>
+                </a>
+                </li>
+</ul>

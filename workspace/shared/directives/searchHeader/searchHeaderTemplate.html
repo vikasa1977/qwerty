@@ -1,0 +1,20 @@
+<div class="searchSlideMain global-search" id="{{searchId}}">
+    <div class="searchWithHiddenTextField" ng-class="{'active': isActiveHeader}">
+        <a href="javascript:void(0)" class="waves-circle waves-effect waves-light search-icon black-text" smart-tooltip position="bottom" delay="50" message="{{'Search'|| translate}}" ng-click="showSearchHeader()">
+            <i class="icon iconSmall center">
+                <svg><use xlink:href="#icon_Search"></use></svg> 
+            </i>
+        </a>
+         
+       
+       
+        <smart-textfield class="input-field" placeholder="{{placeholder}}" ng-model="searchValue" focus="focusSearchHeader" on-key-down="onKeyDownCalled($event)"></smart-textfield>
+
+        <a href="javascript:void(0)" ng-click="hideSearchHeader()" ng-show="hideCloseHeader" class="waves-circle waves-effect waves-light cancel-icon black-text" smart-tooltip position="bottom" delay="50" message="{{'Close'|| translate}}">
+            <i class="icon iconSmall center">
+                <svg><use xlink:href="#icon_Close"></use></svg>
+            </i>
+        </a>
+      
+    </div>
+</div>

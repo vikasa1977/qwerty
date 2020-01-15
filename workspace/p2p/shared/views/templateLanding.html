@@ -1,0 +1,86 @@
+<!--sub header--> 
+<div class="row marginBottom0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed':fixedSubHeader}">
+        <div class="col s12">
+            <div class="extra-nav-title">
+                <a href="javascript:history.go(-1);" class="left white-text waves-circle waves-effect waves-light extra-nav-title--back left-panel" smart-tooltip position="bottom" delay="10" message="{{'Back'|| translate}}">
+                    <i class="icon small">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Back"></use>
+                        </svg>
+                    </i>
+                </a>
+                <i class="icon small extra-nav-title--icon ng-scope">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Catalog"></use>
+                    </svg>
+                </i>
+                <span class="extra-nav-title--text ng-cloak">{{ 'USE TEMPLATES' || translate | uppercase  }} </span>
+            </div>
+       
+            <ul class="right extra-nav-right-icon right-panel">
+                <li class="extra-nav-icon relative">
+                    <search-header placeholder="{{search}}" width-manage="20" ng-model="getCurrentSearchResult" is-active-header="false" search-id="test"></search-header>
+                </li>
+              
+            </ul>
+             
+        </div>
+     </div>
+
+
+<!--sub header end-->
+
+
+
+
+    <!--page start-->
+    <div>
+        <div class="white" ng-class="{'page-footer-is-active': checkboxIsTrue}">
+            <smart-list item-class="collection-item avatar collection-item--animate"
+                        model="{{ setTemplateData | filter:getCurrentSearchResult }}"
+                        style-class="collection with-header"
+                        template="p2p/shared/views/templateListTemp.html">
+            </smart-list>
+            </div>
+        <footer class="page-footer" ng-show="checkboxIsTrue">
+            <div class="row">
+                <div class="col s12 right-align ">
+                    <div class="btn-group">
+                        <smart-button config='{"title":"USE TEMPLATE"}' ng-class="btn-first-button" ng-click="goToPage(e)" disable="false"></smart-button>
+                     
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+<smart-doc-slider ng-show="p2pTempFlag" on-hide="closeTemplatePreviewPopup()" ng-class="{ 'docSlider--open': p2pTempFlag }" slide-obj="{{slideObj}}"></smart-doc-slider>
+<!-- SAVED VIEW -->
+<!---model view slider-->
+<!--<div ng-show="openPopuFlag">
+    <a href="javascript:void(0);" class="slide-view-modal-next" ng-click="next($event)" ng-class="{'btn-show' : previewFlag}" >
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_RightChevro"></use>
+            </svg>
+        </i>
+    </a>
+    <a href="javascript:void(0);" class="slide-view-modal-previous" ng-click="prev()" ng-class="{'btn-show' : previewFlag}" >
+        <i class="icon iconSmall">
+            <svg>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_LeftChevron"></use>
+            </svg>
+        </i>
+    </a>
+    <div class="slide-view-modal-overlay" ng-click="closeSlideView();"  ng-class="{'overlay-show' : previewFlag}"></div>
+
+    <div class="slide-view-modal modal " ng-class="[slide{{$index + 1}}, openSlideModal]" ng-hide="slideHide{{$index  + 1}}"  ng-repeat="item in [1,2,3]" >
+        <div ng-include="'p2p/shared/views/templateAttibuteContent.html'">
+            
+        </div>
+    </div>
+    
+
+</div>-->

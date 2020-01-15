@@ -1,0 +1,1666 @@
+﻿input[type=text]:disabled + label,
+input[type=text][readonly="readonly"] + label,
+input[type=text][readonly] + label,
+input[type=text][disabled="disabled"] + label,
+input[type=text][disabled] + label,
+input[type=password]:disabled + label,
+input[type=password][readonly="readonly"] + label,
+input[type=email]:disabled + label,
+input[type=email][readonly="readonly"] + label,
+input[type=url]:disabled + label,
+input[type=url][readonly="readonly"] + label,
+input[type=time]:disabled + label,
+input[type=time][readonly="readonly"] + label,
+input[type=date]:disabled + label,
+input[type=date][readonly="readonly"] + label,
+input[type=datetime-local]:disabled + label,
+input[type=datetime-local][readonly="readonly"] + label,
+input[type=tel]:disabled + label,
+input[type=tel][readonly="readonly"] + label,
+input[type=number]:disabled + label,
+input[type=number][readonly="readonly"] + label,
+input[type=number][readonly] + label,
+input[type=number][disabled] + label,
+input[type=search]:disabled + label,
+input[type=search][readonly="readonly"] + label,
+textarea.materialize-textarea:disabled + label,
+textarea.materialize-textarea[readonly="readonly"] + label {
+    /*color: #757575;*/
+    color: rgba(0,0,0,0.64);
+}
+
+input[type=text]:disabled,
+input[type=text][readonly="readonly"],
+input[type=text][disabled="disabled"],
+input[type=text][readonly],
+input[type=text][disabled],
+input[type=password]:disabled,
+input[type=password][readonly="readonly"],
+input[type=email]:disabled,
+input[type=email][readonly="readonly"],
+input[type=url]:disabled,
+input[type=url][readonly="readonly"],
+input[type=time]:disabled,
+input[type=time][readonly="readonly"],
+input[type=date]:disabled,
+input[type=date][readonly="readonly"],
+input[type=datetime-local]:disabled,
+input[type=datetime-local][readonly="readonly"],
+input[type=tel]:disabled,
+input[type=tel][readonly="readonly"],
+input[type=number]:disabled,
+input[type=number][readonly="readonly"],
+input[type=number][readonly],
+input[type=number][disabled],
+input[type=search]:disabled,
+input[type=search][readonly="readonly"],
+textarea.materialize-textarea:disabled,
+textarea.materialize-textarea[readonly="readonly"] {
+    /*color: #757575;*/
+    color: rgba(0,0,0,0.90);
+    border-bottom: 1px dotted transparent;
+}
+
+input[type=text][readonly="readonly"].select-dropdown,
+input[type=text][readonly].select-dropdown {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+input[type=text].file-path.invalid {
+    box-shadow: none;
+}
+
+.select-wrapper input.select-dropdown:disabled {
+    //SRC2-2225
+   // color: #757575;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.fixed-action-btn {
+    z-index: 11;
+
+    &.top {
+        top: 85px;
+        padding: 0 0 15px 0;
+        bottom: inherit;
+
+        ul {
+            top: 70px;
+            bottom: inherit;
+        }
+    }
+}
+
+/*------------------------------------*\
+	#autocomplete modification
+\*------------------------------------*/
+/**
+ * Extend `.autocomplete-suggestions {}` used by dev team. 3rd party CSS 
+ */
+.autocomplete-suggestions {
+    border: 1px solid #f0f0f0 !important;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+.autocomplete-suggestion {
+    background-color: #fff;
+    padding: 1.071rem 0.7143rem;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+.autocomplete-textfield-suggestions {
+    position: absolute;
+    z-index: 1;
+    top: 39px;
+    left: 10px;
+    width: calc( 100% - 20px );
+}
+
+.autocomplete-selected {
+    background-color: #f0f0f0 !important;
+}
+
+/*------------------------------------*\
+	#modal
+\*------------------------------------*/
+/**
+ * Extend `.modal {}` from materialize.css
+ */
+.scrollableModel {
+    .modal-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    .modal-footer_new, .modal-footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        background: none;
+    }
+}
+
+.modal-content-with-form {
+    border-top: 1px solid transparent;
+}
+
+.modal .modal-footer {
+    padding: 4px 8px 10px 20px;
+    border-top: 1px solid transparent;
+    background: white;
+}
+
+.m-f-checkbox-valign {
+    margin-top: 12px;
+}
+
+/*------------------------------------*\
+	#table
+\*------------------------------------*/
+/**
+ * Extend `table` from materialize.css
+ */
+$gridTextColor: #000;
+
+th {
+    font-weight: normal;
+    color: lighten($gridTextColor, 36%);
+    font-size: 0.8571rem;
+}
+
+td {
+    font-weight: normal;
+    color: lighten($gridTextColor, 23%);
+}
+
+/**
+ * Extend `table` from materialize.css
+ * increasing first & last column left & right padding
+ */
+th:first-child, td:first-child {
+    padding-left: 20px;
+}
+
+th:last-child, td:last-child {
+    padding-right: 20px;
+}
+
+.input-fields-inside th, .input-fields-inside td {
+    padding-top: 3px;
+    padding-bottom: 10px;
+}
+
+.input-fields-inside th:first-child, .input-fields-inside td:first-child {
+    padding-left: 10px;
+}
+
+.input-fields-inside th:last-child, .input-fields-inside td:last-child {
+    padding-left: 24px;
+}
+
+.table-with-inputbox td:first-child {
+    padding-left: 24px;
+}
+
+.table-with-inputbox td:last-child {
+    padding-right: 24px;
+}
+
+.table-with-inputbox td {
+    padding: 8px 15px;
+}
+/*------------------------------------*\
+	#form - input field 
+\*------------------------------------*/
+/**
+ * Extend `input-field { }` from materialize.css
+ * we are using wrong approch for this need to remove `.editableMode .input-field` from _module.scss &   
+ * `.formEdit .input-field` which is below one & use 1 rem top margin to `input-field`
+ */
+.formEdit .input-field {
+    margin-bottom: 15px;
+}
+
+[type="checkbox"].filled-in:not(:checked) + label:after {
+    background: #fff;
+    border: 2px solid #757575;
+    top: 2px;
+}
+
+/*------------------------------------*\
+	#footer page class and class for lookup header
+\*------------------------------------*/
+/*
+* Extend lookup header and btn-small
+*/
+
+footer.page-footer {
+    padding-top: 16px;
+}
+
+.lookup-header {
+    font-size: 16px;
+    padding: 1.429rem;
+    line-height: 1.5;
+    border-bottom: 1px solid #e7e7e7;
+    color: #000;
+}
+
+.btn-small {
+    font-size: 0.85rem;
+    font-weight: normal !important;
+}
+
+
+
+/*------------------------------------*\
+	#checkbox empty for circle 
+\*------------------------------------*/
+/*
+* Extend checkbox class with avatar on hover visible and showing if one is clicked
+*/
+
+.circle-emt-checkbox[type="checkbox"] + label {
+    padding: 17px;
+    position: absolute;
+    top: 0.7143rem;
+    left: 15px;
+    border-radius: 50%;
+    position: absolute;
+
+    &:after, &:before {
+        top: 8px !important;
+        left: 8px !important;
+    }
+}
+
+
+.nxt-checkbox-hide {
+    @include transitions('all ease-in-out 0.5s');
+    cursor: pointer;
+
+    & + .circle-emt-checkbox[type="checkbox"] + label {
+        visibility: hidden;
+        @include transitions('all ease-in-out 0.5s');
+    }
+}
+
+.nxt-checkbox-show, .nxt-checkbox-show-prement {
+    visibility: hidden;
+
+    & + .circle-emt-checkbox[type="checkbox"] + label {
+        visibility: visible;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+	#collection  
+\*------------------------------------*/
+/*
+ * Extend `.collection .collection-item.avatar .circle { }` from materialize.css
+ */
+
+.collection {
+    .collection-item {
+        background-color: transparent;
+    }
+}
+
+.collection .collection-item.avatar i.circle {
+    height: 36px;
+    width: 36px;
+    border: 2px solid rgba(0, 0, 0, 0.38);
+    color: rgba(0, 0, 0, 0.38);
+    background: rgba(224, 224, 224, 0.38);
+    line-height: 29px;
+
+    img {
+        width: 100%;
+        vertical-align: middle;
+    }
+}
+/*TWO 10070*/
+.card-content .collection .collection-item.avatar .title {
+    font-size: 14px;
+}
+
+.collection .title {
+    color: #212121;
+}
+.card-content .collection .title {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.collection .collection-item.avatar p, .collection .collection-item p {
+    font-size: 0.85714rem;
+}
+
+.collecton-item-secondary-text-wrapper {
+    font-size: 0.85714rem;
+    margin: 0;
+    display: block;
+    color: #757575;
+}
+/*--------------------------------*\
+	#secodory content with tabs
+\*--------------------------------*/
+
+/* 
+  * exten '.secondary-content with tab '
+*/
+.s-c-with-tab {
+    padding: 10px 15px;
+}
+
+.lookup-bulk-order-edit {
+    width: 350px;
+    z-index: 982;
+}
+
+
+/*------------------------------------*\
+	#form - checkbox 
+\*------------------------------------*/
+/**
+ * Extend `checkbox .filled-in` from materialize.css 
+ * adding one more style class for checkbox, saying partial selected used for partially selected checkboxes e.g.categorypopup
+ */
+
+[type="checkbox"].filled-partial {
+    &:checked {
+        + label:before {
+            top: 0;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+            -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+            border-radius: 2px;
+        }
+    }
+}
+/*--------------------------------*\
+	#tabs with active
+\*--------------------------------*/
+
+/* 
+  * extend 'tab design'
+*/
+.tabs .tab a {
+    font-weight: 700;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.tabs .tab .active {
+    color: $link;
+}
+
+.tabs .indicator {
+    display: none !important;
+}
+
+ul .tabs {
+    height: 48px !important;
+}
+
+.tabs .tab a.active {
+    border-bottom: 2px solid $link !important;
+}
+
+/*----------------------------*\
+	 #add header and footer for dropdown
+\*--------------------------------*/
+.dropdown-content--size-small {
+    min-width: 214px;
+}
+
+.dropdown-content--size-medium {
+    min-width: 285px;
+}
+/* classes for reset the value*/
+.dropdown-content li.dropdown-content-header, .dropdown-content li:hover.dropdown-content-header,
+.dropdown-content li.dropdown-content-footer, .dropdown-content li:hover.dropdown-content-footer,
+.dropdown-content li.dropdown-content-content, .dropdown-content li:hover.dropdown-content-content {
+    background-color: #fff;
+    white-space: nowrap;
+    line-height: normal;
+    cursor: default;
+}
+
+.dropdown-content li.dropdown-content-header span,
+.dropdown-content li.dropdown-content-footer span,
+/*.dropdown-content li.dropdown-content-content span,*/
+.dropdown-content li.dropdown-content-content {
+    padding: 0;
+}
+
+.dropdown-content-header:after, .dropdown-content-content:after, .dropdown-content-footer:after {
+    content: '';
+    clear: both;
+    height: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dropdown-content li.dropdown-content-header {
+    height: 57px;
+    padding: 17px 12px;
+
+    .searchWithHiddenTextField {
+        /*top:-4px;
+		right: 0.68rem;*/
+    }
+}
+
+
+
+.dropdown-content li.dropdown-content-footer, .dropdown-content .dropdown-content-footer {
+    min-height: 51px;
+    padding: 7px;
+}
+
+.dropdown-content-header .title {
+    line-height: 24px;
+    font-size: 1.143rem;
+    padding-left: 8px;
+}
+
+.dropdown-button--withBorder {
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dropdown-content li.collection-item label {
+    text-transform: capitalize;
+}
+/*----------------------------*\
+	 #chips 
+\*--------------------------------*/
+/* 
+  * changing chips light to make remove icon vertically aligned
+*/
+.chip {
+    padding: 0 2px 0 10px;
+}
+
+.chip i.material-icons, .chip i.icon.iconSmall {
+    line-height: 24px;
+}
+/* 
+  * change z-index for navebar-fixed
+*/
+
+.chklink label {
+    color: $link;
+}
+
+.selected .chklink label {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.dropdown-content .secondary-content {
+    top: 5px !important;
+}
+
+.filled-partial [type="checkbox"].filled-in:not(:checked) + label:before,
+.filled-partial [type="checkbox"].filled-in:checked + label:before {
+    top: 5px;  
+    left: 7px;
+    width: 12px;
+    height: 12px;
+    border-color: #fff;
+    border-width: 2px;
+    transform: rotateZ(0deg);
+}
+
+.filled-partial [type="checkbox"].filled-in:not(:checked) + label:after,
+.filled-partial [type="checkbox"].filled-in:checked + label:after {
+    border-color: #5a5a5a;
+    border-width: 2px;
+    background-color: $link;
+}
+
+.disable-partial [type="checkbox"].filled-in:not(:checked) + label:before,
+.disable-partial [type="checkbox"].filled-in:checked + label:before {
+    top: 5px;  
+    left: 7px;
+    width: 12px;
+    height: 12px;
+    border-color: #fff;
+    border-width: 2px;
+    transform: rotateZ(0deg);
+}
+
+.disable-partial [type="checkbox"].filled-in:checked + label:after {
+    border-color: #d3d3d3;
+    border-width: 2px;
+    background-color: #d3d3d3;
+    cursor: default;
+    pointer-events: none;
+}
+.disable-partial [type="checkbox"].filled-in:not(:checked) + label:after {
+    border: 1px solid #d3d3d3;
+    background-color: #d3d3d3;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* INPUT UI */
+
+/* Show Less Show More For Read Only Text Area Start */
+      .areaReadOnlyContent {
+              position: relative;
+        .areaReadOnlyPara {
+                margin-right: 52px !important;
+                 overflow: hidden;
+                 color: rgba(0, 0, 0, 0.87);
+                  span:focus{
+                     outline:none !important;
+                 }
+                 &.readOnlyshowLess {
+                    white-space: nowrap;
+                 }
+            &.areareadOnlyContentPara1 {
+                max-width: calc(100% - 110px);
+                text-align: justify;
+            }
+            &.areareadOnlyContentPara2 {
+                max-width: 100%;
+                margin-right: 0 !important;
+                text-align: justify;
+            }
+            & > p {
+                margin: 2px 0;
+            }
+        }
+        .showMoreLink {
+            width: 115px;
+            right: 0;
+            position: absolute;
+            top: 0;
+            cursor:default;
+            padding-left: 5px;
+        }
+        .ellipsis{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+        }    
+}
+.areaReadOnlyContent +label{
+    top: -15px !important;
+    bottom: auto !important;
+}
+
+/* Show Less Show More For Read Only Text Area Start */
+
+
+.select-wrapper span.caret {
+    right: 0;
+}
+
+.select-wrapper input.select-dropdown {
+     height: 2.1rem;   
+    line-height: 2.1rem;
+}
+
+
+.paginationPadding input.select-dropdown{
+   margin-top: 6px !important;
+}
+.ContractlangPage{
+    bottom:8px;
+}
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    height: 2rem;
+}
+
+.input-field label {
+    top: auto;
+    bottom: 5px;
+}
+
+.input-field label.active {
+    font-size: 0.8rem;
+    bottom: 27px;
+
+    &.empty-label {
+           top: -5px !important; 
+    }
+   &.emptyTxt{bottom:5px; font-size:1rem; color:rgba(0, 0, 0, 0.64);
+                &:after{
+                    /*top:25px; */
+                    font-size:0.8rem;
+                }
+     }
+    &.invalidTxt{color:rgba(0, 0, 0, 0.64);}
+}
+
+.line-height-manager.input-field{
+   .ng-empty + label.active, .ng-empty + label{
+        bottom:15px;  font-size:1rem; color:rgba(0, 0, 0, 0.64);
+                &:after{
+                    top:25px;
+                    font-size:0.8rem;
+                    transition:all .2s ease-out;
+                    }
+    }
+   input[type=text][readonly="readonly"].ng-empty + label.active, input[type=text][readonly].ng-empty + label.active, .line-height-manager.input-field input[type=text][disabled].ng-not-empty + label{
+    bottom: 37px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.64);
+   }
+   .ng-empty.ng-not-empty-add + label.active{
+          bottom: 37px; font-size: 12px;
+                &:after{
+                      top: 45px;
+                     font-size: 0.8rem;
+                    transition:all .2s ease-out;
+                    }
+    }
+
+}
+.line-height-manager.input-field{
+    .ng-empty:focus + label.active{
+        &:after{
+            top:45px;
+             transition:all .2s ease-out;
+        }
+    }
+}
+
+.input-field{
+    .ng-empty + label.active, .ng-empty + label{
+        bottom:5px; font-size:1rem; color:rgba(0, 0, 0, 0.64);
+                &:after{
+                    top:25px; 
+                    font-size:0.8rem;
+                    transition:all .2s ease-out;
+                    }
+    }
+    &.readOnlyField .ng-empty +label.active{
+           bottom:27px;
+           font-size:0.8rem;
+        }   
+}
+.input-field{
+    .ng-empty:focus + label.active{
+        bottom:27px; font-size:0.8rem; color:rgba(0, 0, 0, 0.64);
+        &:after{
+            top:45px; 
+            transition:all .2s ease-out;
+        }
+    } 
+    
+}
+.input-field input[type=text].ng-empty + label.active.empty-label:after,.input-field input[type=number].ng-empty + label.active.empty-label:after, .input-field textarea.materialize-textarea.ng-empty + label:after, .input-field textarea.materialize-textarea.ng-empty:focus + label.active:after{top:47px;}
+
+.input-field textarea.ng-empty + label.active{top:18px !important;
+         &:after{top:30px;}
+}
+.optionalField.input-field label.active {
+    /*bottom: 27px;*/ 
+}
+
+
+.line-height-manager.input-field{
+   .datepicker + label.active, input:focus:not([readonly]).datepicker + label.active, .datepicker label.active{
+    font-size: 0.8rem; 
+    bottom: 37px;
+   }
+}
+.line-height-manager.input-field .datepicker + label.active{
+    font-size: 0.8rem;
+    &:after{
+        top: 45px;
+    }
+}
+.input-field{
+   .datepicker + label.active{
+    font-size: 0.8rem;
+    bottom: 27px;
+   }
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked,
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+	/*visibility: hidden; due to visibility hidden focus not arrived in checkbox */
+    opacity:0;
+}
+.line-height-manager.input-field .datepicker.ng-empty+label.active:after {
+	top:45px;
+}
+
+/* INPUT UI ENDS */
+
+/*----------------------------*\
+	 #dropdown 
+\*--------------------------------*/
+/* 
+  * added curve border in dropdown
+*/
+.dropdown-content {
+    border-radius: 2px;
+    /*background: #fafafa;*/
+}
+/*float-btn-fixed on page stick*/
+.fixed-action-btn.is-page-end {
+    position: inherit;
+    padding-top: 0;
+    padding-bottom: 5px;
+    float: right;
+    padding-right: 23px;
+    margin-bottom: 23px;
+}
+/*float-btn-fixed is-action-btn*/
+.is-action-btn-trigger i.icon svg{
+    @include transitions(all ease-in-out 0.2s);  
+}
+ 
+.active .is-action-btn-trigger i.icon svg {
+    transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    transform-origin: center center; 
+}
+
+.pricesheetTable {
+    table-layout: fixed;
+
+    [type="checkbox"] + label {
+        height: 20px;
+    }
+
+    i.small {
+        font-size: 1rem;
+    }
+
+    td {
+        padding: 9px 10px 8px;
+        color: lighten($gridTextColor, 13%);
+    }
+
+    th:first-child, td:first-child {
+        padding-left: 20px !important;
+    }
+
+    th{
+       padding: 14px 10px 13px !important;
+
+        .th-cnt{
+            max-width: calc(100% - 30px);
+        }
+    }
+}
+
+.sidebar-btn svg {
+    width: 16px !important;
+}
+
+.secHeader {
+    font-size: 16px;
+}
+
+
+.progress--bar {
+    height: 2px;
+    background-color: #e5e5e5;
+    border-radius: 0px;
+    margin: 1.5rem 0 0.3rem 0;
+    width: 10%;
+    display: inline-block;
+}
+
+.progress--bar .indeterminate--bar {
+    background-color: #66cc66;
+}
+
+/* ADD ROWS POPOVER */
+.addRowRB [type="radio"]:not(:checked) + label, .addRowRB [type="radio"]:checked + label {
+    padding-left: 25px;
+}
+
+.addRowRB .redio-chanel label {
+    margin: 0;
+}
+
+.addRowRB .marginRight30:last-child {
+    margin-right: 0;
+}
+/* ADD ROW POPOVER ENDS */
+
+.icon {
+    &.icon--xLarge > svg {
+        width: 68px;
+        height: 68px;
+    }
+}
+
+.tabShadow .borderBtmGray {
+    box-shadow: 0px 1px 5px #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+.circle-clipper {
+    &.circle-clipper--x .circle {
+        border-width: 2px;
+    }
+}
+
+.preloader-wrapper {
+    &.x-small {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/*------------------------------------*\
+	#date modification
+\*------------------------------------*/
+/**
+ * Extend `.input[type=text][readonly] {}`, to show border below date field 
+ */
+[type=date] input[type=text][readonly] {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/*[type=date] input[type=text] + label:before {
+	content: "";
+	border-top: 5px solid rgba(0, 0, 0, 0.7);
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	display: inline-block;
+	right: -10px;
+	top: 25px;
+}*/
+
+table [type=date] input[type=text] + label:before {
+    top: 14px;
+    right: -11px;
+}
+
+/*------------------------------------*\
+	#dropdown modification
+\*------------------------------------*/
+/**
+ * Extend `.dropdown-content li {}`, to increase li height in grid header
+ */
+
+/*th .dropdown-content li {
+	line-height: 3rem;
+}*/
+
+.lookup-popup {
+    &.list-item:hover {
+        background-color: #eee;
+    }
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #212121;
+}
+
+.dropdown-content li {
+    cursor: default;
+    box-sizing: border-box;
+}
+/* remove tab background*/
+.tabs {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+    padding-left: 30px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+[type="checkbox"] + label {
+    padding-left: 29px;
+    color: rgba(0, 0, 0, 0.87);
+    height: 27px;
+    line-height: 27px; 
+}
+
+textarea.materialize-textarea + label:after  {
+    top: 44px;
+}
+.input-field textarea.materialize-textarea ~ label.active.emptyTxt{
+    top:1.6rem !important;
+}
+
+nav .nav-wrapper {
+}
+
+.material-tooltip {
+    white-space: pre-wrap;
+    max-width: 50%;
+    z-index: 2030;
+}
+
+.switch label {
+    height: 21px;
+    display: inline-block;
+}
+
+.box-solid {   
+    border: 1px solid #ccc;
+    min-height: 100px;
+}
+.box-switch   .switch label{
+    .lever {
+        float: left;
+    }
+    span:first-child {
+        width: 145px;
+        display: block;
+        float: left;
+        margin-top: -12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }
+
+.switch label .lever {
+    top: -3px;    
+    width: 28px;
+    height: 5px; 
+    margin: 0px;
+    margin-left:2px;
+    background-color: #cccccc;
+    &:after{
+        width: 14px;
+        height: 14px;
+        border-radius: 14px;
+        top:-5px;
+        left: 0px;
+        box-shadow: 0px 1px 1.96px 0.04px rgba(3, 3, 3, 0.68);
+        background-color: #fff;
+    }
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #7ac5fa;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: $link;   
+}
+.switch label input[type=checkbox][disabled] + .lever{
+    background-color: #ccc;  
+}
+.switch label input[type=checkbox][disabled]:checked + .lever{
+    background-color: #b2e5ff;   
+}
+.switch label input[type=checkbox][disabled] + .lever:after{
+    background-color: #e1e1e1; 
+    box-shadow: None; 
+}
+.switch label input[type=checkbox][disabled]:checked + .lever:after{
+     background-color: #8acefd;  
+      box-shadow: None;  
+}
+.switch label input[type=checkbox]:checked + .lever:after{
+     left: 14px;
+}
+
+textarea.materialize-textarea[readonly="readonly"] {
+    top: 1.6rem;
+}
+/*.btn-flat:hover{background:rgba(158,158,158,0.2);}*/
+
+table.highlight.noTransitionTr > tbody > tr {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+    transition: none;
+}
+
+/*.textareaSpace.input-field label{top:1.45rem;}
+.textareaSpace.input-field label.active{transform:translateY(-60%)}*/
+.textareaSpace textarea.materialize-textarea {
+    padding: 0;
+    min-height: 0;
+}
+/*.textareaSpace textarea.materialize-textarea:focus, .textareaSpace textarea.materialize-textarea[readonly="readonly"]{padding:20px 0 0 0;}*/
+.textareaSpace textarea.materialize-textarea + label:after {
+    top: 48px;
+}
+
+.btn-floating i {
+    line-height: 33px;
+}
+
+.collection.with-header .collection-item.avatar {
+    padding-right: 20px;
+}
+
+.lookup-modal .select-dropdown li:hover {
+    background-color: #eee;
+}
+
+.lookup-popup .dropdown-content li > a,
+.lookup-popup .dropdown-content li > span {
+    padding: 0.5rem;
+}
+
+.lookup-popup .select-dropdown li {
+    cursor: pointer;
+}
+
+textarea.materialize-textarea {
+    max-height: 84.2px !important;
+
+    min-height:1.8rem;
+}
+
+.whiteSecondaryBtn .btn {
+    background-color: #fff;
+    color: $link;
+}
+
+
+/*.highlight01{background:lighten('#000000', 2%), -webkit-box-shadow:inset 0 3px 3px 0 #bebebe; box-shadow:inset 0 3px 3px 0 #bebebe;}*/
+
+/*------------------------------------*\
+	#form focus modification
+\*------------------------------------*/
+
+/*[type="radio"]:checked + label:before {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+}*/
+
+/*[type="checkbox"]:focus + label:after {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    border: 0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+}*/
+
+[type="checkbox"].filled-in:focus + label:after {
+    border-radius: 2px;
+}
+
+[type="checkbox"].filled-in:checked:focus + label:after {
+    border-radius: 2px;
+}
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after,
+input[type=checkbox]:not(:disabled) ~ .lever:active:after{
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(0, 0, 0, 0.08);
+}
+/*@media only screen and (max-width: 1000px){
+    input[type=checkbox]:not(:disabled):focus ~ .lever::after {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+}*/
+
+input[disabled][type="checkbox"] + label {
+    cursor: default;
+}
+
+/*.btn:focus, .btn-flat:focus {
+	background-color:#1a77c9;
+	color:#fff;
+}   
+			  
+a:focus, i.icon:focus{
+	color:#1a77c9;
+	outline:1px auto #159dfc;
+}*/
+
+.nav-wrapper .btn:focus, .extra-nav-wrap .btn:focus, .modal-header .btn:focus, .dropdown-content-header .btn:focus, .dropdown-content-content .btn:focus, .modal-content .search-icon:focus, .modal-content .cancel-icon:focus,
+.nav-wrapper .btn-flat:focus, .extra-nav-wrap .btn-flat:focus, .modal-header .btn-flat:focus, .dropdown-content-header .btn-flat:focus, .dropdown-content-content .btn-flat:focus,
+.nav-wrapper a:focus, .extra-nav-wrap a:focus, .modal-header a:focus, .dropdown-content-header a:focus, .dropdown-content-content a:focus,
+.nav-wrapper i.icon:focus, .extra-nav-wrap i.icon:focus, .modal-header i.icon:focus, .dropdown-content-header i.icon:focus, .dropdown-content-content i.icon:focus {
+    outline: 1px solid #159dfc;
+    outline: 1px auto #159dfc;
+    /*background-color:inherit;
+    color:inherit;*/
+}
+
+/*------------------------------------*\
+	#collapsible modification
+\*------------------------------------*/
+.collapsible-header {
+    padding: 0 1.2rem;
+
+    i {
+        margin-right: 0.5rem;
+    }
+}
+
+/*--------------------------------------*\
+	#changes for ui-grid
+\*-------------------------------------*/
+.ui-grid-cell .btn-flat {
+    height: 30px;
+    line-height: 20px;
+}
+/*------------------------------------*\
+	#update model padding
+\*------------------------------------*/
+.model.update--model .modal-header {
+    padding: 17px 24px;
+}
+
+/*------------------------------------*\
+	#dropdown li hover color 
+\*------------------------------------*/
+/**
+ * Extend `.dropdown-content li:hover {}`, to remove background color on tabs hover
+ */
+.dropdown-content li.tab:hover {
+    background-color: #fff;
+}
+
+/*------------------------------------*\
+	#collection 
+\*------------------------------------*/
+/**
+ * Extend `.collection a.collection-item {}`, to change background & text color
+ */
+
+.collection a.collection-item {
+    color: $link;
+   
+}
+
+.collection .collection-item.active {
+    background-color: #f5f5f5;
+    color: rgba(0, 0, 0, 0.87);
+}
+// Dropdown with optgroups
+.dropdown-content li.optgroup:hover,
+.dropdown-content li.optgroup.active,
+.dropdown-content li.optgroup.selected {
+    background: #fff;
+    cursor: default;
+}
+
+.dropdown-content li.optgroup {
+    padding-left: 0;
+}
+
+.dropdown-content li.optgroup > span {
+    color: #9e9e9e;
+}
+
+.dropdownHasDivider .dropdown-content li.optgroup {
+    border-top: 1px solid #eee;
+}
+
+.dropdownHasDivider .dropdown-content li.optgroup > span {
+    display: none;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.shadowNone {
+    box-shadow: none !important;
+}
+
+.sub-title {
+    font-size: 1.28571rem;
+    color: #212121;
+    padding: 17px 22px;
+}
+
+/*------------------------------------*\
+	#toast 
+\*------------------------------------*/
+/**
+ * Extend `.toast {}`, to change position & behaviour of toast
+ */
+
+.toast-container {
+    max-width: 400px;
+    bottom: 10px;
+    left: 10px;
+    display: block;
+    position: fixed;
+    z-index: 10000;
+}
+
+.toast-animation--duration {
+    animation-duration: 0.5s !important;
+}
+
+.toast-transition--easeIn {
+    transition: all 0.5ms ease-in;
+}
+
+.toast-transition--easeOut {
+    transition: all 0.5ms ease-out;
+}
+
+#toast-container {
+    max-width: 400px;
+    left: 10px;
+    bottom: 78px;
+    top: auto;
+    right: auto;
+
+    .toast {
+        height: auto;
+        line-height: 1.4;
+        padding: 14px 25px 13px;
+        word-break: break-word;
+    }
+}
+
+.filterHeaderAction .dropdown-content li > a,
+.dropdown-content li > span, .dropdown-content li > a:not(.link-btn) {
+    color: #5A5A5A;
+    padding: 0.7rem 0.7rem;
+}
+
+.input-field textarea ~ label {
+    top: 1.3rem !important;
+    bottom: auto !important;
+}
+
+.input-field textarea ~ label.active,.input-field textarea:focus:not([readonly]) + label {
+    top: 0rem !important;
+    bottom: auto !important;
+    font-size:12px;
+}
+
+textarea.materialize-textarea {
+    margin-top: 16px;
+}
+/*------------------------------------*\
+	#badge 
+\*------------------------------------*/
+/**
+ * Extend `.badge {}`, to change position  of count
+ */
+
+span.collection-Badge--position {
+    top: 0.7857rem;
+    right: 0.3571rem;
+}
+
+/*------------------------------------*\
+	#textfield suffix icon 
+\*------------------------------------*/
+/**
+ * Extend `.input-field .suffix {}`, to change position  of icon
+ */
+.input-field .suffix {
+    right: 0;
+}
+
+/*------------------------------------*\
+	#update for textarea  height
+\*------------------------------------*/
+textarea.materialize-textarea {
+    height: 1.8rem;
+    padding: 0;
+}
+
+.input-field textarea ~ label.active {
+    top: -0.6rem;
+    bottom: auto !important;
+}
+
+[type="checkbox"].filled-in:checked + label:before {
+    top: 5px;
+    width: 7px;
+    height: 11px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+}
+
+[type="checkbox"].filled-in:checked + label:after {
+    top: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+[type="checkbox"].filled-in:not(:checked) + label:after {
+    height: 16px;
+    width: 16px;
+    top: 5px;
+}
+
+[type="radio"] + label:before, [type="radio"] + label:after {
+    left: 0px;
+}
+
+[type="checkbox"].filled-in + label:before, [type="checkbox"].filled-in + label:after {
+    left: 5px;
+}
+
+/*DATE FIELD - DISABLED STATE NO BORDER */
+[type=date] input[type=text][readonly][disabled] {
+    border-bottom: none;
+}
+/* DATE FIELD - DISABLED STATE NO BORDER END */
+
+.input-field .field-suffix-loader {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.input-field .field-suffix-loader ~ input[type="text"] {
+    padding-right: 25px;
+    box-sizing: border-box;
+}
+
+.select-wrapper {
+    .select-dropdown {
+        max-height: 200px;
+    }
+}
+
+.character-counter {
+    margin-top: 0px;
+}
+
+span.character-counter {
+    line-height: 0 !important;
+    margin-top: 8px !important;
+}
+
+.readonly-value-manager + span.character-counter {
+    margin-top: 14px;
+}
+
+.optionalField .character-counter {
+    margin-right: 22px;
+    line-height: 0;
+    margin-top: 5px;
+}
+
+/*------------------------------------*\
+	#textfield type number removed spinner
+\*------------------------------------*/
+/**
+ * Extend `input[type=number]`, removed spinner
+ * this property is not supported by IE11 & opera mini all
+ */
+
+.noSpinner input[type=number]::-webkit-inner-spin-button,
+.noSpinner input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+/*-----------------------------*\
+	#collection With spacing	
+/*-----------------------------*/
+.collection-with-spacing {
+    border: none;
+
+    .collection-item {
+        border: 1px solid #e0e0e0;
+        margin-bottom: 5px;
+
+        &:last-child {
+            border: 1px solid #e0e0e0;
+        }
+
+        &.avatar {
+            min-height: 50px;
+
+            .circle {
+                background: #f5f5f5;
+                border: 1px solid #e0e0e0;
+                height: 30px;
+                width: 30px;
+                color: #949494;
+                line-height: 27px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.secondary-content-with-waves {
+    top: 6px;
+}
+
+textarea + label + .character-counter,
+input[type=text] + label + .character-counter {
+    visibility:hidden;
+}
+
+textarea:focus + label + .character-counter,
+input[type=text]:focus + label + .character-counter {
+    visibility:visible;
+}
+
+.ddautoHeight {
+    height: auto !important;
+}
+
+.inputGroupwithContent {
+}
+
+.ddContentWithPadding {
+    padding: 1.7143rem;
+}
+
+.dropdown-content--size-xsmall {
+    width: 150px;
+}
+
+@media only screen and (min-width: 961px) {
+    .toast {
+        float: left;
+    }
+}
+
+
+.row::after{display:block;height:0; overflow:hidden;}
+
+.tabs .tab a {
+    padding: 15px 20px 10px;
+}
+
+::selection {
+    background-color: #3297fd;
+    color: #fff;
+}
+
+.select-wrapper input.select-dropdown:focus::selection {
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* Show Less Show More For Read Only Text Area block 2 Start */
+      .areaReadOnlyContent {
+              position: relative;
+        .areaReadOnlyPara {
+                margin-right: 52px !important;
+                margin-bottom: -3px !important;
+                 overflow: hidden;
+                 color: rgba(0, 0, 0, 0.87);
+                  span:focus{
+                     outline:none !important;
+                 }
+                 &.readOnlyshowLess {
+                    white-space: nowrap;
+                 }
+                 
+            &.areareadOnlyContentPara1 {
+                max-width: calc(100% - 110px);
+                text-align: justify;
+            }
+            &.areareadOnlyContentPara2 {
+                max-width: 100%;
+                margin-right: 0 !important;
+                margin-bottom: 0 !important;
+                text-align: justify;
+            }
+            & > p {
+                margin: 2px 0;
+            }
+            & > span:first-child {
+                display: inline-block;
+                padding-top: 10px;
+            }
+        }
+        .showMoreLink {
+            width: 115px;
+            right: 0;
+            position: absolute;
+            top: 9px;
+            cursor:default;
+            padding-left: 5px;
+        }
+        .ellipsis{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+        }    
+}
+.areaReadOnlyContent +label{
+    top: -3px !important;
+    bottom: auto !important;
+}
+.optionalField {
+     .areaReadOnlyContent + label {
+          top: -3px !important;
+          bottom: auto !important;
+    }
+}
+
+/* Show Less Show More For Read Only Text Area block 2 Start */
+
+/*css for textfield*/
+
+  .input-field .prefix + div > input,
+  .input-field .prefix + div > textarea {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem); }
+  .input-field .suffix + div  > input,
+  .input-field .suffix + div  > textarea {
+    margin-right: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem); }
+  .input-field .prefix + div   > textarea, .input-field .suffix + div  > textarea {
+    padding-top: .8rem; }
+  .input-field .prefix + div  > label {
+    margin-left: 3rem; }
+  .input-field .suffix + div  > label {
+    margin-right: 3rem; }
+  @media only screen and (max-width: 960px) {
+    .input-field .prefix + div  > input, .input-field .suffix + div  > input {
+      width: 86%;
+      width: calc(100% - 3rem); } }
+  @media only screen and (max-width: 600px) {
+    .input-field .prefix + div  > input, .input-field .suffix + div  > input {
+      width: 80%;
+      width: calc(100% - 3rem); } }
+
+
+  /*added this to resolve TWO-10933 - as it is occussring because of updated version of velocity.js*/
+.fixed-action-btn ul{bottom:94px;}
+.fixed-action-btn.activeOnClick ul{bottom:54px;}   
+  
+  .fixed-action-btn.top ul{top:35px;}
+  /*TWO-10933 - end*/
+  .modal{border-radius:0}
+
+ .autocomplete-suggestions{
+      &.autocomplete-suggestion-box{
+          max-height: 300px; z-index: 9999;display:block !important; position:absolute;width:100%; color:#000 !important; font-size:1rem !important; 
+      }
+  }
+
+.spinner-blue,
+.spinner-blue-only {
+  border-color: $link; }
+
+/*added following classes due to overwrite materialize classes*/
+html{color:$default}
+.black-text{color:$default !important}
+.blue{ background-color::$link !important}
+.blue-text{ color:$link !important}
+.green{ background-color::$success !important}
+.green-text{ color:$success !important }
+.red-text{color:$error !important ;}
+.orange{ background-color::$pending !important}
+.orange-text{color:$pending !important ;}
+.purple{ background-color::$purple !important}
+.purple-text{color:$purple !important ;}
+.cyan-text.text-lighten-3{color:$sideNavLinks !important}
+/*status background color classess*/
+.error-status-bg{ background-color:$error}
+.success-status-bg{ background-color:$success}
+.pending-status-bg{ background-color:$pending}
+.notYetStarted-status-bg{ background-color:$notYetStarted}
+.notAvailable-status-bg{ background-color:$NA}
+.confirmation-status-bg{ background-color:$confirmation}
+
+/*status color classes*/
+.error-status-text{ color:$error}
+.success-status-text{ color:$success}
+.pending-status-text{ color:$pending}
+.notYetStarted-status-text{ color:$notYetStarted}
+.notAvailable-status-text{ color:$NA}
+.confirmation-status-text{ color:$confirmation}
+/* switch will highlight on focus */
+ .switch label input:not(:disabled):focus + span::after {
+ 	 box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+/* SELECT FOCUS  */
+input[type=text][readonly="readonly"].select-dropdown:focus, input[type=text][readonly].select-dropdown:focus{ border-bottom: 1px solid $link;
+    box-shadow: 0 1px 0 0 $link;}
+.isFocused label{color:$link!important;}
+.tableSelect, table.sTable td > smart-select{
+	.select-wrapper{
+  	    height: 20px;
+		 input.select-dropdown {
+                border: 1px solid transparent;
+ 		 	 height:25px; 
+			   margin:0;
+               padding:0 20px 4px 5px;
+ 			  line-height:normal;	
+			&:focus{
+				  box-shadow: 0 0 0 1px #0177d6;
+                  border: 1px solid #0177d6;
+			}
+		}
+	 	span.caret{
+			    top: 0px;
+                right: 0;
+		}
+	}
+}

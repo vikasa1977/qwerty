@@ -1,0 +1,25 @@
+<li ng-class="{'{{config.class}}':true, 'notifyBubble':config.notification, 'currentActive':config.active}" ng-style="config.marginRight">
+    <a ng-if='!config.isUserProfile && !config.isExternalLink' href="javascript:void(0)" class="waves-effect waves-block waves-light right-side-nav tooltipped waves-circle" ng-click="toggle(config)" data-activates="slide-out-bookmark" smart-tooltip position="{{config.position ? config.position : 'bottom'}}" delay="250" message="{{config.tooltip}}" tabindex="{{config.tabIdx}}">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="{{!config.isUserProfile?config.icon:''}}"></use>
+            </svg>
+        </i>
+
+    </a>
+    <div class="z-depth-1 small-notification-bubble bubble header-noti-circle" ng-click="toggle(config)" data-activates="slide-out-bookmark" ng-if="config.notification">
+        <i ng-bind="config.notification"></i>
+    </div>
+    <a ng-if='config.isUserProfile' id="uniqueIdForHeaderProfile" href="javascript:void(0)" ng-click="clickedOnProfile()" class="waves-effect  waves-block waves-light user-image">
+        <span>
+            <img ng-src="{{config.icon}}" alt="{{config.tooltip}}" smart-tooltip position="{{config.position ? config.position : 'bottom'}}" delay="250" message="{{config.tooltip}}" />
+        </span>
+    </a>
+    <a ng-if='config.isExternalLink' href="{{config.href}}" class="waves-effect waves-block waves-light right-side-nav tooltipped waves-circle" smart-tooltip position="{{config.position ? config.position : 'bottom'}}" delay="250" message="{{config.tooltip}}" tabindex="{{config.tabIdx}}">
+        <i class="icon iconSmall ">
+            <svg>
+                <use xlink:href="{{!config.isUserProfile?config.icon:''}}"></use>
+            </svg>
+        </i>
+    </a>
+</li>

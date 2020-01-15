@@ -1,0 +1,60 @@
+<div ng-controller='bookmarkCtrl' class="fullHeight" id="slide-out-bookmark">
+
+
+        <div class="row internal-external-notification">
+            <smart-tabs tab-config="{{smartExternalBookmarkData}}"></smart-tabs>
+        </div>
+
+
+        <!--<a href="javascript:void(0)" ng-click="addBookmarkPopupCall(e)" class="white-text collection-item waves-effect waves-block waves-light selected tooltipped side-nav-bookmark-title right-align">
+            <span ng-bind="addAsBookmarkLabel">{{addAsBookmarkLabel}}</span>
+			<i class="icon iconSmall lineHeightInherit heightAuto" smart-tooltip position="bottom" delay="250" message="Add Bookmark">
+				<svg>
+					<use xlink:href="#icon_BookmarkAdd"></use>
+				</svg>
+			</i>
+        </a>-->
+		<!--<smart-list model="{{getModel().data}}" style-class="collection" item-class="collection-item" template="shared/sideNav/views/bookmarkTemplate.html" controller-name="headerCtrl" click-callback="clickHandler" lazy-load-callback="onLazyLoad"></smart-list>-->
+         <!--<smart-scroll height="100%" v-offset="90px" class="bookmark-list">   
+           
+                 <ul class="collection" ng-init="items = getModel().data" >
+                <li class="collection-item" ng-repeat="item in items track by $index">
+                    <smart-dropdown config="{{bookMarkdropDownConfig}}">
+                        <a href="javascript:void(0)" class="icon iconSmall right dropdown-button" data-activates='bookMarkDropdown_{{$index}}'>
+                            <svg>
+                                <use xlink:href="#icon_MenuKebab"></use>
+                            </svg>
+                        </a>
+                        <ul id='bookMarkDropdown_{{$index}}' class='dropdown-content dd-close-off black-text'>
+                            <li class="row side-nav-lookup-item" ng-click="$parent.$parent.$parent.$parent.$parent.$parent.$parent.editBookmarkFunc(item)">
+                                <i class="col s4 icon iconSmall blue-text">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Edit"></use>
+                                    </svg>
+                                </i>
+                                <a class="col s8 side-nav-lookup-txt" ng-bind="editLabel"></a>
+                            </li>
+                            <li class="row side-nav-lookup-item" ng-click="$parent.$parent.$parent.$parent.$parent.$parent.$parent.deleteBookmark(item)">
+                                <i class="col s4 icon iconSmall blue-text">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_TrashCan"></use>
+                                    </svg>
+                                </i>
+                                <a class="col s8 side-nav-lookup-txt" ng-bind="deleteLabel"></a>
+                            </li>
+                            <li class="row side-nav-lookup-item" ng-click="$parent.$parent.$parent.$parent.$parent.$parent.$parent.shareBookmark()">
+                                <i class="col s4 icon iconSmall blue-text">
+                                    <svg>
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Share"></use>
+                                    </svg>
+                                </i>
+                                <a class="col s8 side-nav-lookup-txt" ng-bind="shareLabel"></a>
+                            </li>
+                        </ul>
+                    </smart-dropdown>
+                    <a href="{{item.bookMarkUrl}}" ng-bind="item.bookMarkName" class="bookmark-name"></a>
+                </li>
+            </ul>
+        </smart-scroll>-->
+    
+</div>

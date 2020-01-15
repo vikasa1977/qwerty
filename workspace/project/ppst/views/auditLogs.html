@@ -1,0 +1,139 @@
+<!-- subheader -- required headers & icons are visibled & handled via controllers -->
+<div class="row marginBtm0 extra-nav-wrap" scrolled ng-class="{'extra-nav-wrap-fixed': fixedSubHeader,'boxShadowNone':showFilter}">
+    <div class="col s12 subHeaderWithFilter subHeader">
+      <div class="extra-nav-title">
+            <a href="javascript:history.go(-1);" class="left waves-circle waves-effect waves-light extra-nav-title--back" smart-tooltip position="bottom" message="{{'Back'|| translate}}">
+                <i class="icon small ">
+                    <svg><use xlink:href="#icon_Back"></use></svg>
+                </i>
+            </a>
+            <i class="icon small extra-nav-title--icon">
+                <svg><use xlink:href="#icon_RfxReq"></use></svg>
+            </i>
+            <span class="extra-nav-title--text ng-cloak">{{'AUDIT LOGS' || translate}}</span>
+        </div>
+    </div>
+
+</div>
+
+
+<section class="scroll-container white extendBg paddingBtm65">
+        <div class="grey-text center-align paddingTop100"  ng-if="auditTrail.length == 0">Audit trail not available...</div>
+        <div ng-if="auditTrail.length > 0">
+            <table class="bordered" sticky-header scroll-type="page">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                </colgroup>
+                <thead>
+                 <tr>
+                    <th ng-repeat="item in auditLog">
+                        {{item.title || translate}}
+                        <div class="displayInlineBlock" ng-if="item.filter">
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative" ng-if="item.title == 'Date'">
+                                <a href="javascript:void(0)" data-activates='filterDelStatus' class="dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" message="{{item.showFilterText | date:'MM/dd/yyyy @ h:mma'}}">
+                                        <svg>
+                                            <use xlink:href="#icon_Filter" ng-show="!item.isApplyFilter"></use>
+                                            <use xlink:href="#icon_FilterAppli" ng-show="item.isApplyFilter"></use>
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul id='filterDelStatus' class='dropdown-content dd-close-off width400 overflow-inherit'>
+                                     <li class="dropdown-content-content">
+                                        <div class="row marginTop10">
+                                            <div class="col s12 fontSize14 black-text">
+                                                <span class="left marginTop11 paddingLeft10">{{'Sort'|| translate}} : </span>
+                                                <smart-radio gap="true" class="left" ng-model="selectedOrderType" options="orderType"></smart-radio>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-content-content">
+                                        <div class="row  padding5">
+                                            <smart-textfield class="input-field col s6" type="date" label="From" ng-model="item.fromDate"></smart-textfield>
+                                            <smart-textfield class="input-field col s6" type="date" label="To" ng-model="item.toDate"></smart-textfield>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-content-footer">
+                                        <div class="right">
+                                            <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CANCEL</a>
+                                            <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown" ng-click="applyFilterFn(item)">APPLY</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </smart-dropdown>
+                            <smart-dropdown config="{{dropDownConfig}}" class="relative" ng-if="item.title == 'User Role' || item.title == 'Project Phase'">
+                                <a href="javascript:void(0)" data-activates='filter_{{$index}}' class="dropdown-button" data-position="bottom" data-delay="50" data-constrainwidth="false">
+                                    <i class="icon iconSmall" smart-tooltip position="bottom" message="{{item.showFilterText}}">
+                                        <svg>
+                                            <use xlink:href="#icon_Filter" ng-show="!item.isApplyFilter"></use>
+                                            <use xlink:href="#icon_FilterAppli" ng-show="item.isApplyFilter"></use>
+                                        </svg>
+                                     </i>
+                                </a>
+                                <div id='filter_{{$index}}' class='dropdown-content  width260 dd-close-off overflow-inherit'>
+                                    <smart-scroll height="200px">
+                                        <div class="dropdown-content-content padding10" ng-repeat="dropdown in item.data">
+                                            <smart-checkbox label="{{dropdown.label}}" ng-model="dropdown.isSelected"></smart-checkbox>
+                                        </div>
+                                    </smart-scroll>
+                                    <div class="dropdown-content-footer is-scrolled">
+                                        <div class="right">
+                                            <a href="javascript:void(0)" class="left bold marginRight25 marginTop8 fontSize14 action-close-dropdown">CANCEL</a>
+                                            <a href="javascript:void(0)" class="left bold marginRight15 marginTop8 fontSize14 action-close-dropdown" ng-click="applyFilterFn(item)">DONE</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </smart-dropdown>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in auditTrail | limitTo : totalDisplayed">
+                        <td>{{item.date || translate}}</td>
+                        <td>{{item.timeZone || translate}}</td>
+                        <td>{{item.userRole || translate}}</td>
+                        <td>{{item.username || translate}}</td>
+                        <td>{{item.projectPhase || translate}}</td>
+                        <td>{{item.actionPerformed || translate}}</td>
+                        <td>{{item.oldValue || translate}}</td>
+                        <td>{{item.newValue || translate}}</td>
+                        <td>{{item.notes || translate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row marginBtm0  " ng-hide="totalDisplayed >= auditTrail.length - 1 || auditTrail.length < 7">
+               <div class="height50 col s12 relative" ng-if="showLineLoader">
+                    <smart-global-loader  config="lineLoaderFlag"></smart-global-loader>
+                </div>
+                <div class="col s12 center-align marginTop10 marginBtm10" ng-hide="showLineLoader">
+                    <smart-button flat="true" config='{"title":"LOAD MORE"}' ng-click="loadMore()"></smart-button>
+               </div>
+            </div>
+        </div>
+    
+</section>
+
+
+
+<!-- footer bar -->
+<footer class="page-footer footerSpace">
+    <div class="row marginBtm0">
+        <div class="right paddingRight15">
+            <smart-button ng-click="returnToPage();" class="footerBtn" config='{"title":"CLOSE"}'></smart-button>
+        </div>
+        <!--<div class="right paddingRight15 whiteSecondaryBtn ">
+            <smart-button ng-click="lastPage();" class="footerBtn" config='{"title":"CLOSE"}'></smart-button>
+        </div>-->
+    </div>
+</footer>

@@ -1,0 +1,94 @@
+<div class="clearfix" scrolled>
+    <ul class="panel-content-iteamList">
+        <li class="panel-content-iteamList-item clearfix paddingLeft12" ng-class="{'filled-partial' : selectedMilestonesCnt>0 && !selectAllPhaseItems.checkedAll}">
+            <smart-checkbox class="left" label="Select All" ng-model="selectAllPhaseItems.checkedAll" on-change="toggleAllPhaseItems(selectAllPhaseItems.checkedAll)"></smart-checkbox>
+            <!-- <div class="right  grey-text">0/2</div> -->
+        </li>
+    </ul>
+    <smart-scroll v-offset="205px">
+        <div class="filter-section-item borderBottme5e5e5" ng-repeat="item in filtersGroup track by $index">
+            <div class="withSearchIcon clearfix">
+                <div class="col s12 cursorPointer">
+                    <div class="left">
+                        <ul class="marginTop15">
+                            <li ng-class="{'filled-partial' : item.checkedCount>0 && !item.isChecked}">
+                                <span>
+                                    <smart-checkbox class="left" ng-model="item.isChecked" on-change="selectAllSubItems(item)"></smart-checkbox>
+                                </span>
+                                <span ng-click="filterAccordian(item)">
+                                    <i class="icon group-arrowDir"
+                                       ng-class="{'active':item.show}">
+                                        <svg>
+                                            <use xlink:href="#icon_DownChevron"></use>
+                                        </svg>
+                                    </i>
+                                </span>
+                    </li>
+                    </ul>
+                </div>
+                    <div class="left" smart-tooltip position="bottom" delay="10">
+                        <a href="javascript:void(0)" class="fontSize14 filter-tl">
+                            {{item.phaseName | uppercase}} ({{item.data.length}})
+                        </a>
+                        <div class="sub-ops clearfix">
+                            <span ng-if="item.opStyle != 'popoutInfo'"
+                                  ng-click="$event.stopPropagation();"
+                                  class="fontSize12 dropdown-button">
+                                {{item.opStatus}}
+                            </span>
+                            <!-- drop down with config was here-->
+                        </div>
+                    </div>
+                    <!-- Filter icon -->
+
+                </div>
+
+                <!-- Accordian content content -->
+                <div class="relative clearfix filter-section-content" ng-show="item.show">
+                    <div class="filterSection clearfix">
+                        <i class="icon iconFix iconSmall filterCloseIcon marginRight5 clo-ico" smart-tooltip position="bottom" delay="10" message="{{'Close'|| translate}}">
+                            <svg>
+                                <use xlink:href="#icon_Close"></use>
+                            </svg>
+                        </i>
+                        <div class="clearfix">
+                            <ul class="collection noBorder margin0 width100P">
+                                <!--<smart-scroll v-offset="250px">-->
+                                <li ng-repeat="subItem in item.data track by $index">
+                                    <div class="row borderTopLight paddingLeft10  paddingTop5 paddingBtm5" ng-class="{'activeLeftPanel' : subItem.id == detailedItemData.id}">
+                                        <div class="col paddingRight0 paddingLeft0">
+                                            <smart-checkbox class="list-chk clearfix" ng-model="subItem.isChecked" ng-change="selectOneMilestone(subItem.isChecked, {'data' : subItem,'phaseName' :item.phaseName, 'id' : subItem.id})"></smart-checkbox>
+                                        </div>
+                                        <div class="col s8 m8 l9 paddingRight0 paddingLeft0">
+                                            <div class="col s12 paddingLeft0">
+                                                <a href="javascrip:void(0);" ng-click="showDetailedData(subItem, item.phaseName, $index)">
+                                                    <div title="{{subItem.milestoneName}}" ng-class="subItem.type == 'Mandatory'? 'left mandatoryMilestones' : 'truncate'">{{subItem.milestoneName}}</div>
+                                                    <label class="truncate width100P" title="{{subItem.assignedTo}}" ng-class="subItem.type == 'Mandatory'? 'left' : ''">
+                                                        Assigned To {{subItem.assignedTo}}
+                                                    </label>
+                                                    <label class="left width100P">
+                                                        Due By {{subItem.dueBy}}
+                                                    </label>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="right marginRight15">
+                                            <span class="marginTop5 statusCircle" ng-class="subItem.progressStatus.completion == 'Yes'? 'completed' : ''" smart-infotip message="{{subItem.progressStatus.completion == 'Yes' ? 'Achieved' : 'Not Started'}}" position="left">
+                                            </span>
+                                            <!--<i class="icon iconSmall center" smart-tooltip message="{{subItem.progressStatus.completion == 'Yes'? 'Achieved' : 'Not Started'}}" position="bottom">
+                                                <svg>
+                                                    <circle ng-class="subItem.progressStatus.completion == 'Yes'? 'completed' : 'notComplete'" cx="16" cy="16" r="7" />
+                                                </svg>
+                                            </i>-->
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--</smart-scroll>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </smart-scroll>
+</div>

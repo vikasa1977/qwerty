@@ -1,0 +1,302 @@
+<!-- order tab content -->
+
+<div class="row margin0">
+    <!-- Get Data section -- orders List -->
+    <div class="col s12">
+        <div class="row paddingTop20 formEdit margin0">
+            <smart-textfield label="{{'From'|| translate}}" type="date" class="col s12 m3 l4 xl3 xxl2 margin0" onfocus="true" ng-model="'1470051238000'"></smart-textfield>
+            <smart-textfield label="{{'To'|| translate}}" type="date" class="col s12 m3 l4 xl3 xxl2 margin0" onfocus="true" ng-model="'1470051238000'"></smart-textfield>
+            <div class="col s12 m6 l4 xl3 xxl2"><smart-button config='getDataBtnConfig'></smart-button></div>
+        </div>
+    </div>
+</div>
+
+<!-- orders List -- table -->
+<div class="panelBox">
+    <div class="panelBox-content">
+        <div class="panelBox-header clearfix row marginBottom0 borderTop">
+            <div class="panelBox-header--title col s12 m6">{{'ORDERS'|| translate}}</div>
+            <div class="col s12 m6">
+                <!-- panel Box-- header -->
+                <div class="panelBox-header--action">
+					<a href="javascript:void(0)" class=" waves-circle waves-effect waves-grey" ng-click="savedViewPopUpOpenForLine(e)">
+                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Saved Filters'|| translate}}">
+                            <svg>
+                                <use xlink:href="#icon_SavedView"></use>
+                            </svg>
+                        </i>
+                    </a>
+                    <a href="javascript:void(0)" class=" hide  waves-circle waves-effect waves-grey" ng-click="saveViewPopupCallbackForLine(e)">
+                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Save'|| translate}}">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Save"></use>
+                            </svg>
+                        </i>
+                    </a>
+
+                    <a href="javascript:void(0)" class=" hide  waves-circle waves-effect waves-grey">
+                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Filter'|| translate}}">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter" ng-hide="true"></use>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_FilterReset"></use>
+                            </svg>
+                        </i>
+                    </a>
+
+                    <a href="javascript:void(0)" class="  waves-circle waves-effect waves-grey">
+                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Manage Attributes'|| translate}}" id="manageColumnBtn" data-target="manageColumnPopup">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ManageColumns"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- panel Box-- body -->
+        <div class="panelBox-body padding0">
+            <!-- panel Box-- body -- alert bar-->
+               <div class="clearfix">
+                <div class="alert-bar--warning enter-from-top alert-bar alert-bar--with-button" ng-if="forLine.isApplyFilters && !forLine.isSavedView">
+                    <a href="javascript:void(0)">By Condition</a>, <a href="javascript:void(0)">By Value</a>
+                    <div class="right">
+                        <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveViewPopupCallbackForLine(e)"></smart-button>
+                    </div>
+                </div>
+                <div class="alert-bar alert-bar--warning  alert-bar--with-button enter-from-top" ng-if="forLine.isSavedView ">
+                    <div>
+                        <span class="saved-view-content" ng-click="savedViewPopupCallbackForLine(e)">
+                            {{ selectedSavedviewForLine.name }}  <span class="is-modified" ng-if="forLine.isSavedViewModified"><em>Modified</em> </span>
+                        </span>
+                        <div class="right" ng-if="forLine.isSavedViewModified">
+                            <smart-button flat="true" class="modal-close" config='{"title": "SAVE" }' ng-click="saveOnCurrentlineFilter(e)"></smart-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--<smart-scroll height="400px" class="clearfix clear">-->
+                <!-- panel Box-- body -- table-->
+                <table class="bordered highlight marginBtm50" id="dataTable">
+                    <colgroup>
+                        <col style="width:10px" />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                    </colgroup>
+
+                    <!-- panel Box -- body -- table -- thead -->
+                    <thead>
+                        <tr>
+                            <th class="left-align" ng-class="{'filled-partial' : fillpartial == true }">
+                                <smart-checkbox label="" ng-model="selectedAll" fill='true' class="left" ng-click="checkAll(selectedAll)"></smart-checkbox>
+                            </th>
+                            <th class="left-align" ng-repeat="colH in tableHeaderLines">
+								<div>
+                                {{colH.name || translate}}
+                               <smart-sort current-cell="{{colH.headerfor}}"  sort-by="LineSortArray.orderSortType" sort-reverse="LineSortArray.orderSortReverse">
+                                </smart-sort>
+
+                                <smart-dropdown config="{{dropDownConfig}}">
+                                    <a href="javascript:void(0)" data-activates='gridFilterdd1_{{$index}}' class="dropdown-button waves-circle waves-effect waves-grey"  data-position="bottom" data-delay="50" >
+                                        <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Filter'|| translate}}">
+                                            <svg>
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter"></use>
+                                            </svg>
+                                        </i>
+                                    </a>
+                                    <ul id='gridFilterdd1_{{$index}}' class='dropdown-content dd-close-off width400 overflow-inherit '>
+                                        <li class="dropdown-content-header hide">
+                                            <div class="title">
+                                                <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Filter'|| translate}}">
+                                                    <svg>
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_Filter"></use>
+                                                    </svg>
+                                                </i>
+
+                                                {{ 'Manage Filter' | translate }}
+                                            </div>
+
+                                        </li>
+                                        <li class="dropdown-content-content" ng-class="{ 'is-scrolled': true}">
+                                            <smart-tabs tab-config="{{filtertabsData }}" width="100%" class="tabShadow"></smart-tabs>
+                                        </li>
+                                        <li class="dropdown-content-footer">
+                                            <div class="right">
+                                                <smart-button config='cancelBtnConfig' flat="true" ng-click="closePopover();" disable="false" class="fontSize14"></smart-button>
+                                                <smart-button config='applyBtnConfig' flat="true" ng-click="applyFilterLine(forLine.isSavedView);" disable="false" class="fontSize14"></smart-button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </smart-dropdown>
+								</div>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <!-- panel Box -- body -- table -- tbody -->
+                    <tbody>
+                        <tr ng-repeat="orderList in orderLists | orderBy:LineSortArray.orderSortType:LineSortArray.orderSortReverse" animate-on-load class="staggeredTop">
+                            <td class="left-align">
+                                <smart-checkbox label="" ng-model="orderList.selected" fill='true' class="left" ng-change="onChange(orderList.selected)"></smart-checkbox>
+                            </td>
+                            <td class="left-align">
+                                {{orderList.type}}
+                            </td>
+                            <td class="left-align">{{orderList.number}}</td>
+                            <td class="left-align">{{orderList.name}}</td>
+                            <td class="left-align">{{orderList.partner}}</td>
+                            <td class="left-align">{{orderList.partnerContract}}</td>
+                            <td class="left-align">{{orderList.status}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            <!--</smart-scroll>-->
+        </div>
+    </div>
+</div>
+
+<!-- popup -- manage column -->
+<!--<smart-button config='{"title":"Manage Column"}' class="waves-effect waves-light marginLeft15" id="manageColumnBtn" data-target="manageColumnPopup" type="large"></smart-button>-->
+<smart-list-popup template-url="{{smartCatPopupMultiLevel}}" type="small" default-text="Manage Attributes" show="" mode="true" selected-value="manageColumnData" modal-content="manageColumnPopup" modal-button="manageColumnBtn" initial-display-text="manageColumnDatainitialDisplayText" callback=""></smart-list-popup>
+
+<!-- popover -- manage filter -->
+<script id="manageFilter.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix ">
+        <input class="with-gap" type="radio" ng-model="item.lable" name="selectSortBy" ng-value="item.lable" id="getsortBy-{{ $index }}">
+        <label for="getsortBy-{{ $index }}" class="grey-text text-darken-4 truncate">{{ item.lable}}</label>
+        <!-- popover -- manage filter -- icons -->
+        <div class="secondary-content s-c--closest-top">
+            <a href="javascript:void(0)" ng-click="editCurrentViewName($index)" class="waves-circle waves-effect">
+                <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Edit'|| translate}}">
+                    <svg>
+                        <use xlink:href="#icon_editPen"></use>
+                    </svg>
+                </i>
+            </a>
+            <a href="javascript:void(0)" ng-click="deleteItem($index)" class="waves-circle waves-effect">
+                <i class="icon iconSmall" smart-tooltip position="bottom" delay="10" message="{{'Delete'|| translate}}">
+                    <svg>
+                        <use xlink:href="#icon_TrashCan"></use>
+                    </svg>
+                </i>
+            </a>
+        </div>
+
+        <!-- popover -- manage filter -- edit view -->
+        <div class="well single-edit-panel" animate-on-load ng-if="item.showCurrentItemEditor" ng-init="getEditedviewName.lable = item.lable">
+            <div class="single-edit-panel-input-box row">
+                <smart-textfield focus="true" label="{{'Edit Name'|| translate}}" class="active col s12" ng-model="getEditedviewName.lable"></smart-textfield>
+            </div>
+
+            <!-- popover -- manage filter -- icons -->
+            <div class="single-edit-panel-secondary-content">
+                <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="closeEditPanel($index)">
+                    <i class="icon iconSmall blue-text" smart-tooltip position="bottom" delay="10" message="{{'Close'|| translate}}">
+                        <svg>
+                            <use xlink:href="#icon_Close"></use>
+                        </svg>
+                    </i>
+                </a>
+                <a href="javascript:void(0)" class="waves-circle waves-effect" ng-click="updateViewName($index)">
+                    <i class="icon iconSmall blue-text" smart-tooltip position="bottom" delay="10" message="{{'Add'|| translate}}">
+                        <svg>
+                            <use xlink:href="#icon_Check"></use>
+                        </svg>
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!-- popover -- grid filter --by condition tab -->
+<script id="byCondition.html" type="text/ng-template">
+    <div class="clearfix fontSize14">
+        <div class="row">
+            <div class="col s12 black-text marginTop20">
+                 {{colH.name || translate}}
+            </div>
+        </div>
+        <div class="row">
+            <smart-select label="" ng-model="selectedOperator" options="operatorOptions" datakey="label" class="col s6"></smart-select>
+            <smart-textfield type="number" label="" ng-model="showValuefrom" class="col s6 marginTop6"></smart-textfield>
+        </div>
+        <div class="row marginBottom0">
+            <smart-radio gap="true" class="col s12" ng-model="selectedcondnType" options="conditionType" on-change="onChangeFilter(selectedOrderType)"></smart-radio>
+        </div>
+        <div class="row">
+            <smart-select label="" ng-model="selectedOperator" options="operatorOptions" datakey="label" class="col s6"></smart-select>
+            <smart-textfield type="number" label="" ng-model="showValueTo" class="col s6 marginTop6"></smart-textfield>
+        </div>
+    </div>
+</script>
+
+<!-- popover -- grid filter --by value tab -->
+<script id="byValue.html" type="text/ng-template">
+   
+    <div class="clearfix">
+        <div class="row marginBtm0">
+            <div class="col s12 fontSize14 black-text"><span class="left marginTop11">{{'Sort'|| translate}} : </span><smart-radio gap="true" class="left radio-space" ng-model="selectedOrderType" options="orderType" on-change="onChangeFilter(selectedOrderType)"></smart-radio></div>
+        </div>
+        <div class="collection noBorder">
+            <div class="collection-item clearfix">
+                <div class="searchSlideMain searchSlideMain--inputBdrBNone zIndex1" data-ng-init="mysearch=false;">
+                    <div class="searchWithHiddenTextField" ng-class="{'active': isActive}">
+                        <a href="javascript:void(0)" ng-class="showMe" ng-click="treeSearchModel='';hideSearch()" ng-show="hideClose" class="waves-circle waves-effect cancel-icon btn-flat black-text">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Close"></use></svg>
+                            </i>
+                        </a>
+
+                        <smart-textfield ng-model="treeSearchModel" class="input-field" placeholder="Search" focus="focusSearch"></smart-textfield>
+                        <a href="javascript:void(0)" class="search-icon btn-flat black-text" smart-tooltip position="bottom" delay="50" message="Search" ng-click="showSearch()">
+                            <i class="icon iconSmall center grey-text">
+                                <svg><use xlink:href="#icon_Search"></use></svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+                <smart-checkbox label="{{ascfilterListForAll.lable}}" ng-model="ascfilterListForAll.selected" fill='true' on-change="checkAllBox(ascfilterListForAll.selected, showTab)"></smart-checkbox>
+            </div>
+        </div>
+        <div ng-class="{ 'is-scrolled': true}" style="height:135px">
+            
+            <smart-list model="{{ascfilterLists}}"
+                        style-class="collection noBorder "
+                        item-class="collection-item staggeredRight"
+                        height="100px" template="ascFilter.html" ng-show="showTab">
+            </smart-list>
+
+
+            <smart-list model="{{descfilterLists}}"
+                        style-class="collection noBorder "
+                        item-class="collection-item staggeredRight"
+                        height="100px" template="descFilter.html" ng-show="!showTab">
+            </smart-list>
+        </div>
+    </div>
+</script>
+
+<!-- popover -- grid filter --by value tab -- radio ascending -->
+<script id="ascFilter.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+    </div>
+</script>
+
+<!-- popover -- grid filter --by value tab -- radio descending -->
+<script id="descFilter.html" type="text/ng-template">
+    <div item="{{item}}" class="clearfix">
+        <smart-checkbox label="{{item.lable}}" ng-model="item.selected" fill='true'></smart-checkbox>
+    </div>
+</script>
+
+<smart-saved-view-popup  show="savedViewPopUpForLine" hide="savedViewPopupHideCallbackForLine(e)" ng-model="selectedSavedviewForLine" open-popup-saved-view="showSavedViewListForLine" config="getSavedViewsListForLine" is-apply-filters="forLine.isApplyFilters" is-saved-view="forLine.isSavedView" is-saved-view-modified="forLine.isSavedViewModified" api="popupApiForLine"></smart-saved-view-popup>

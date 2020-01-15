@@ -1,0 +1,22 @@
+<div class="" >
+    <div class="col s12 relative marginTop2 padding0">       
+        <!-- <smart-list-lookup readonly="{{(!categoryList.selectedoption.approved || parentScope.readOnlyPage)}}" class="paddingLeft10 left  paddingRight10 line-height-manager marginBtm0" titleofmodel="Choose Category" selecttypeoption="selectTypeOption" multiselect="false"  is-mandatory="true" label="{{categoryList.displaytext}}" addnew="false" ng-model="categoryList.selectedoption" options="categoryList.options" displayformat="['name']" lookup-hide="reasonPoup(data)"></smart-list-lookup> -->
+        <!-- {{typeOptions1}}<smart-typeahead class="col s12 line-height-manager"  multiselect="false"   show-lookup="true" ng-model="party.specialist" titleofmodel="Contract Specialist" options="categoryOptions" filterkeys="['FirstName', 'LastName']" optionformat="<span>{FirstName} {LastName}</span><div>{UserName}</div>" displayformat="{FirstName} {LastName}" label="Contract Specialist" callback-on-icon-click="myTestCallback($event)" ></smart-typeahead> -->
+        <!-- <smart-select class="col s12" label="Category" ng-model="selectedCurrency" options="categoryOptions" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>  -->
+        <smart-form-widget form-config="config.formConfig" model-data="config.modelData" on-save="onSave(data, prevObj)"></smart-form-widget>
+    </div>
+</div>
+
+<!-- <div>
+    <div class="row marginBtm0" ng-controller="supplierProfileBasicDetailsCtrl">		
+        <div class="col s12 input-field marginTop10 marginBtm30 height21 cbr-field">
+            <label class="active" ng-if="selectedCategoryNodes.length > 0">Category</label>
+            <a href="javascript:void(0)" ng-click="treeOpenCallback('category')" ng-class="{'disable': buyerPreview}">{{selectedCategoriesTxt}}</a>
+			<span ng-if="selectedCategoriesValidate && !selectedCategoryNodes.length" class="red-text fontSize12 displayBlock marginBtm5">This is required field.</span>
+        </div> 
+    </div>
+
+    <smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()" cancel-button="true"></smart-popup>
+</div> -->
+
+

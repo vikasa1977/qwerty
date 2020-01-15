@@ -1,0 +1,53 @@
+
+<div ng-controller="shipToCtrlr">
+    <div class="shipTo1-container">
+        <div class="input-field col s12 l4 m6 dual-icon">
+            <i class="icon iconSmall iconFix tooltipped add-address-detail" ng-click="show()">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_LpAdd"></use>
+                </svg>
+            </i>
+            <i class="icon iconSmall iconFix tooltipped second-icon">
+                <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_ShipLoc"></use>
+                </svg>
+            </i>
+            <input disabled="" id="entity_name" ng-model="ngModel.name" type="text" class="validate">
+        </div>
+
+        <div class="input-field col s12 l4 m12">
+            <input disabled="" value="{{ngModel.address}}" id="sta" type="text" class="validate">
+            <label for="sta" class="active ng-binding">Ship To Address</label>
+        </div>
+    </div>
+
+    <smart-popup template-url="addLocation.html" show="{{showLocationPopup}}" on-hide="onLocationModalHide"></smart-popup>
+
+    <script id="addLocation.html" type="text/ng-template">
+        <div class="modal-header">
+            <span class="title">Add New Ship to Location</span>
+        </div>
+
+        <smart-form-widget class="modal-content padding10">
+            <smart-section plain="true">
+                <smart-textfield class="col s12 l6 m6" label="Location Name" ng-model="ngModel.location.locationName"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Location Code" ng-model="ngModel.location.locationCode"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Address Line 1" ng-model="ngModel.location.addressLine1"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Address Line 2" ng-model="ngModel.location.addressLine2"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="City" ng-model="ngModel.location.city"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Country" ng-model="ngModel.location.country"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Zip Code" ng-model="ngModel.location.zipCode"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="State" ng-model="ngModel.location.state"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Contact Person" ng-model="ngModel.location.contactPerson"></smart-textfield>
+                <smart-textfield class="col s12 l6 m6" label="Telephone Number" ng-model="ngModel.location.telephoneNumber"></smart-textfield>
+            </smart-section>
+        </smart-form-widget>
+
+        <div class="modal-footer">
+            <div class="row marginBottom0">
+                <a class="modal-action modal-close waves-effect btn-flat" ng-click="onDoneButtonClick()">DONE</a>
+                <a class="modal-action modal-close waves-effect btn-flat" ng-click="onCancelButtonClick()">CANCEL</a>
+            </div>
+        </div>
+    </script>
+</div>

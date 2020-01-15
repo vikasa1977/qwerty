@@ -1,0 +1,132 @@
+<div id="addTaxes" ng-click="$event.stopPropagation();">
+    <!-- popup -- add taxes -- modal header -->
+    <div class="modal-header clearfix">
+        <div class="title"><span class="left"  ng-if="!isaccruedtaxes">{{  'Delivery Schedule' | translate | uppercase  }}</span>
+    
+    
+<span class="left" ng-if="isaccruedtaxes">{{ 'Title' || translate | uppercase  }}</span>
+        </div>
+    </div>
+
+    <!-- popup -- add taxes -- modal body -->
+    <div class="modal-content padding0 is-scrolled">
+
+        <!-- popup -- add taxes -- modal body -- add row -->
+        <div class="row marginBtm0 div-table-row">
+            <smart-textfield class="col s2 line-height-manager marginTop0 marginBtm0" label="Serial No" ng-model="deliveryList.serialNo" rules="{{textRules}}" focus="feildFocus1"></smart-textfield>
+            <smart-textfield class="col s2 line-height-manager marginTop0 marginBtm0" type="text" smart-character-restrict patternreg="^[a-zA-z]" maxlength="100" label="Delivery Quantity" ng-model="deliveryList.deliveryQuantity" rules="{{textRules}}" focus="feildFocus2"></smart-textfield>
+            <smart-textfield type="date" class="col s2 line-height-manager marginTop0 marginBtm0" label="DeliveryDate" ng-model="deliveryList.deliveryDate" rules="{{textRules}}" min="{{currentDate}}"></smart-textfield>
+      
+        
+            <smart-select label="UOM" options="deliveryList.uomOptions" ng-model="deliveryList.selectedUOM" class="col s2 marginBtm0 width100P quantityfor marginTop4" datakey ="name" focus="feildFocus3"></smart-select>
+
+<!--            <smart-textfield class="col s1 line-height-manager marginTop0 marginBtm0" type="text" maxlength="100" label="UOM" ng-model="deliveryList.uom"></smart-textfield>-->
+            <smart-textfield class="col s2 line-height-manager marginTop0 marginBtm0" maxlength="100" label="Sequence No" ng-model="deliveryList.sequenceNo" rules="{{textRules}}" focus="feildFocus4"></smart-textfield>
+            
+            <div class="col s2 line-height-manager marginBtm0">
+                <a href="javascript:void(0)" class="right btn-flat  paddingTop8" ng-click="addCurrentDelivery()">
+                    {{ 'Add' || translate | uppercase  }}
+                </a>
+            </div>
+        </div>
+        
+        <!-- popup -- add taxes -- modal body -- table -->
+        <smart-scroll height="100%" v-offset="300">
+            <div class="relative div-table-row defg" dir-paginate="deliveryDetailList in deliveryDetailLists| itemsPerPage:selectedOption1.size" pagination-id="deliveryDetails">
+                <!-- popup -- add delivery -- modal body -- table row -->
+                <div class="row marginBtm0  lineHeight30 paddingTop4">
+                    <div class="col s2">
+                        <smart-textfield class="col s12 marginTop0 margin marginBtm0" ng-model="deliveryDetailList.serialNo" readonly="true" disable="true">
+
+                       
+                    </div>
+                    <div class="col s2 input-field">
+                        <smart-textfield class="col s12 marginTop0 margin marginBtm0 quantity" ng-model="deliveryDetailList.deliveryQuantity" readonly="true" disable="true">
+                    </div>
+                    <div class="col s2 input-field">
+                        <!--<span>{{  deliveryDetailList.deliveryDate }}</span>-->
+                        <smart-textfield class="col s12 marginTop0 margin marginBtm0" ng-model="deliveryDetailList.deliveryDate" type="date" readonly="true" disable="true">
+
+                    </div>
+                    <div class="col s2 input-field">
+                        <!--<smart-select options="uomOptions" readonly="true" disable="true" ng-model="deliveryList.uom" is-mandatory="true" class="col s12 left margin fieldcollapse marginBtm0 width100P quantityfor marginTop4" datakey="name"></smart-select>-->
+
+                        <smart-textfield class="col s12 marginTop0 margin marginBtm0" ng-model="deliveryDetailList.selectedUOM.name" readonly="true" disable="true">-->
+                    </div>
+                    <div class="col s2 input-field">
+                        <smart-textfield class="col s12 marginTop0 margin marginBtm0" ng-model="deliveryDetailList.sequenceNo" readonly="true" disable="true">
+                        
+                        
+                    </div>
+                    <div class="col s2 right-align icons-wrap">
+                        <a class="waves-effect waves-circle margin9  " ng-click="editCurrentDelivery(deliveryDetailList)" href="javascript:void(0)">
+                            <i class="icon iconSmall" smart-tooltip="" position="bottom" delay="50" message="{{ 'Edit' || translate}}">
+                                <svg>
+                                    <use xlink:href="#icon_editPen"></use>
+                                </svg>
+                            </i>
+                        </a>
+
+                        <a href="javascript:void(0)" class="waves-effect waves-circle" ng-click="deleteCurrent($index)">
+                            <i class="icon iconSmall" smart-tooltip="" position="bottom" delay="50" message="{{ 'Delete' || translate}}">
+                                <svg>
+                                    <use xlink:href="#icon_TrashCan"></use>
+                                </svg>
+                            </i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- popup -- add delivery -- modal body -- table row edit -->
+                <div class="slider-pop row grey greyPanel lighten-3 marginBtm0 div-table-row" ng-show="deliveryDetailList.showEdithCurrentPanel">
+                    <smart-textfield class="col s2 active line-height-manager" label="Serial No" focus="Deliveryfocus" ng-model="tempDeliveryList.serialNo" rules="{{textRules}}"></smart-textfield>
+                    <smart-textfield class="col s2 active line-height-manager" maxlength="100" label="Delivery Quantity" ng-model="tempDeliveryList.deliveryQuantity" rules="{{textRules}}"></smart-textfield>
+                    <!--<smart-textfield type="date" class="col s2 line-height-manager marginTop0 marginBtm0" label="DeliveryDate" ng-model="deliveryList.deliveryDate"></smart-textfield>-->
+                    
+                    <smart-textfield type="date" class="col s2 active left-align line-height-manager" label="DeliveryDate" ng-model="tempDeliveryList.deliveryDate" rules="{{textRules}}"></smart-textfield>
+                    <smart-select options="tempDeliveryList.uomOptions" ng-model="tempDeliveryList.selectedUOM" class="col s2 active line-height-manager left margin fieldcollapse marginBtm0 width100P quantityfor marginTop4" datakey="name" rules="{{textRules}}"></smart-select>
+                   <!-- <smart-textfield class="col s1 active line-height-manager" label="UOM" ng-model="updatedCurrentDelivery[$index].uom"></smart-textfield>-->
+                    <smart-textfield class="col s2 active line-height-manager" label="SequenceNo" ng-model="tempDeliveryList.sequenceNo" rules="{{textRules}}"></smart-textfield>
+
+                    <div class="col s2 right-align">
+                        <a class="icon iconSmall  marginTop5 waves-effect waves-circle" href="javascript:void(0)" ng-click="cancelUpdatedEditedDelivery(tempDeliveryList, deliveryDetailList)">
+                            <svg>
+                                <use xlink:href="#icon_Close"></use>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="icon iconSmall marginTop5  waves-effect waves-circle" ng-click="updatedEditedDelivery(tempDeliveryList, deliveryDetailList) ">
+                            <svg>
+                                <use xlink:href="#icon_Check"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix paginationWrapper savable right" ng-show="deliveryDetailLists.length>defaultOption.size" style="padding-bottom: 10px;">
+                <div class="left selectPaginationDropDown">
+
+                    <span class="rowsToShow"> Rows Per Page:</span>
+                    <smart-select class="col s12 m4 l4 xl3 xxl3 input-field" options="rowsToShowOpts" ng-model="selectedOption1" datakey="size"></smart-select>
+
+                </div>
+                <dir-pagination-controls class="left" pagination-id="deliveryDetails" max-size="10" direction-links="true" boundary-links="true" on-page-change="pageChanged()" template-url="shared/view/pagination/pagination.html"></dir-pagination-controls>
+            </div>
+        </smart-scroll>
+        
+    </div>
+
+    <!-- popup -- add taxes -- modal footer -->
+    <div class="modal-footer is-scrolled paddingLeft8">
+        <div class="row marginBottom0">
+            <!--<smart-button ng-if="!isaccruedtaxes" ng-hide="isLineaccrudtaxes" flat="true" config='{"title":"EXEMPT"}' class="left wave-effect waves-grey" callback="exemptConfirmCall" ></smart-button>-->
+            <smart-button flat="true" ng-if="!isaccruedtaxes" config='{"title":"DONE"}' class="modal-close wave-effect waves-grey"  ng-click="applyFnDelivery()" ng-class="{'disabled': deliveryDetailLists.length <= 0}"></smart-button>
+  
+                 <smart-button flat="true" ng-if="isLineaccrudtaxes" ng-hide="!isLineaccrudtaxes"  config='{"title":"APPLY"}' class="modal-close wave-effect waves-grey"  ng-click="applyFn()" ng-class="{'disabled': taxesDetailLists.length <= 0}"></smart-button>
+
+            <smart-button ng-if="isaccruedtaxes" ng-hide="isLineaccrudtaxes"  flat="true" config='{"title":"Prorate"}' class="wave-effect waves-grey" ng-click="applyProrate()" ng-class="{'disabled': taxesDetailLists.length <= 0}"></smart-button>
+
+            <smart-button flat="true" config='{"title":"CANCEL"}' class="modal-close wave-effect waves-grey" ng-click="CloseFnDelivery()"></smart-button>
+               
+        </div>
+    </div>
+</div>

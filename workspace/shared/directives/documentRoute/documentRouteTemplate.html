@@ -1,0 +1,22 @@
+<div class="blue-overlay animated singleLineRecords" ng-class="{'fadeIn':animateDelayFlag && animationRemoved,'bounceOut':!animateDelayFlag}" ng-if="isCreationActive" ng-click="closeCreationPhase('cancel',$event)">
+    <div class="centered">
+        <div class="white-text center-align action-box-wrap">
+            <h5 class="marginBtm20"> {{creationMsg | translate}}</h5>
+            <div ng-if="actionBlock.show" class="white action-box z-depth-3 animated" ng-show="animateDelayFlag" ng-class="{'flipInX':animateDelayFlag,'flipOutX':!animateDelayFlag,'action-block-disable':actionBlock.isDisable}" ng-repeat="actionBlock in creationPhaseConfiguration" ng-click="closeCreationPhase(actionBlock,$event)">
+                <div class="action-box-icon">
+                    <i class="icon iconSmall action-icon" ng-class="{'blue-text':!actionBlock.disable,'action-block-disable':actionBlock.disable}">
+                        <svg>
+                            <use xlink:href="{{actionBlock.icon}}"></use>
+                        </svg>
+                    </i>
+                </div>
+                <div class="action-box-text">
+                    <a href="javascript:void(0)" ng-class="{'action-block-disable':actionBlock.disable}">{{actionBlock.title | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-align">
+        <a class="white waves-effect blue-text btn overlay-okay-button" ng-click="closeCreationPhase('cancel',$event)">CANCEL</a>
+    </div>
+</div> 

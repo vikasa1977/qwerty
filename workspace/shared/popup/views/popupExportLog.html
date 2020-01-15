@@ -1,0 +1,60 @@
+<div>
+    <div class="modal-header">
+        <i class="icon iconSmall grey-text left">
+            <svg>
+                <use xlink:href="#icon_logFile"></use>
+            </svg>
+        </i>
+        <span class="title">{{ 'EXPORT LOG' || translate }} </span>
+    </div>
+    <div class="modal-content padding0 is-scrolled"  ng-class="{'is-scrolled': true}">
+        <table class="bordered sTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Exported by</th>
+					<th>Exported on</th>
+					<th>Type</th>
+					<th class="center-align">Email sent to</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="javascript:void(09);">Contract Name.zip</a></td>
+					<td>John Doe</td>
+					<td>3/1/2016</td>
+					<td>Sent via Email</td>
+					<td class="center-align">abc@gep.com</td>
+				</tr>
+				<tr>
+					<td><a href="javascript:void(09);">Contract Name 1.zip</a></td>
+					<td>Alex Smith</td>
+					<td>10/1/2016</td>
+					<td>Downloaded</td>
+					<td class="center-align">-</td>
+				</tr>
+				<tr>
+					<td><a href="javascript:void(09);">Contract Name 2.zip</a></td>
+					<td>John Doe</td>
+					<td>20/3/2016</td>
+					<td>Downloaded</td>
+					<td class="center-align">-</td>
+				</tr>
+				<tr>
+					<td><a href="javascript:void(09);">Contract Name 3.zip</a></td>
+					<td>Alex Smith</td>
+					<td>4/6/2016</td>
+					<td>Downloaded</td>
+					<td class="center-align">-</td>
+				</tr>
+			</tbody>
+        </table>
+    </div>
+    <div class="modal-footer paddingLeft8"  >
+        <div class="clearfix">           
+            <smart-button flat="true" class="modal-close right" config='{"title":"DONE"}' ></smart-button>           
+        </div>
+    </div>
+</div>
+
+
