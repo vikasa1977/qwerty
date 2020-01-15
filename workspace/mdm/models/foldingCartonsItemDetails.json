@@ -95,16 +95,16 @@
       "reqName": "Parts - Supplier Association",
       "currency": "USA",
       "region" : "USA",
-      "purchaseType": { "title": "Blanket with Release" },
       "supName": "Product",
-      "itemNo":"FOLDING CARTONS",
+      "purchaseType": { "title": "Blanket with Release" },
+      "itemNo":"Cost Model of Wheat Bread",
       "revision":"10",
-      "itemName":"FOLDING CARTONS",
+      "itemName":"Wheat Bread",
       "desc":"1",
-      "itemType":"Ton",
+      "itemType":"Each",
       "bUom":"1",
       "targetPrice":"Acrylates",
-      "category":"FOLDING CARTONS",
+      "category":"Bread",
       "pitemNo":"P678 053 3116",
       "linkedTool":"Yes",
       "mToolName":"Fatigue Tool",
@@ -115,9 +115,9 @@
       "volume":"1",
       "supplier1":"ABC Inc",
       "USD":"USD",
-      "currentcost":"18000",
-      "shouldcost":"15985",
-      "suppliercapacity" :"800 MM Pounds per year",
+      "currentcost":"$3",
+      "shouldcost":"$2.55",
+      "suppliercapacity" :"100,000 Unit",
       "utilization" : "100%",
       "ownername":"Sara Williams",
 
@@ -1053,14 +1053,17 @@
                       "title": "Lbs"
                     },
                     {
-                      "title": "Ton", 
-                      "selected": true
+                      "title": "Ton"
                     },
                     {
                       "title": "DNY"
                     },
                     {
                       "title": "RUPEE"
+                    },
+                    {
+                      "title": "Each",
+                      "selected": true
                     }
                   ],
                   "readonly": false,

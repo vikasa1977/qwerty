@@ -1,6 +1,6 @@
 [
     {
-        "Name": "Folding Cartons",
+        "Name": "Cost Model of Wheat Bread",
         "Number1": "TMPL 01:15-00006",
         "countItem": "10",
         "createdBy": "Matt Daemon",
@@ -8,11 +8,11 @@
         "summary1": "Morbi tortor metus, volutpat ut augue non, scelerisque euismod erat. Curabitur ut nunc eleifend",
         "isTempSelected": false,
         "isCheckedAll": true,
-        "productName": "Ketchup",
+        "productName": "Wheat Bread",
         "productType": "Product",
         "ownerName": "Sara Williams",
-        "supplierName": "Heinz",
-        "shouldCost": "USD 1.35",
+        "supplierName": "ABC Inc.",
+        "shouldCost": "$2.55",
         "tempAttr": [{
                 "itemName": "IT Laptop and Service Maintenance",
                 "quantity": "100 Hours",

@@ -9188,12 +9188,12 @@ function costElementFunc($scope, $rootScope, $http, $state) {
 
         $scope.costElementsList = [
             {
-                'questval1': '9000',
-                'questval': '9000',
+                'questval1': '1.43',
+                'questval': '0.8',
                 'sequence': '1',
-                'Product': 'Board-Raw',
-                'costelem': '1',
-                'value': 'Ton',
+                'Product': 'Raw Material',
+                'costelem': '1.8',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Manual"
@@ -9204,34 +9204,34 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '1000',
-                'questval': '1000',
+                'questval1': '0.16',
+                'questval': '0.53',
                 'sequence': '2',
-                'Product': 'Board Waste',
-                'costelem': '0.4430',
+                'Product': 'Product Waste',
+                'costelem': '0.3',
                 'value': 'Lbs',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Subscription Feed"
+                    "name": "Manual"
                 },
                 selectedDataSource: {
-                    "name": "ICIS"
+                    "name": ""
                 },
                 'currency': ''
             },
             {
-                'questval1': '1000',
-                'questval': '1000',
+                'questval1': '0.16',
+                'questval': '0.16',
                 'sequence': '3',
-                'Product': 'Coating Waste',
+                'Product': 'Packaging',
                 'costelem': '1',
-                'value': 'Lbs',
+                'value': 'Each',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Subscription Feed"
+                    "name": "Subscription Database"
                 },
                 selectedDataSource: {
-                    "name": "GEP Chemicals Price Database"
+                    "name": "GEP Packaging Price Database"
                 },
                 'currency': ''
             }

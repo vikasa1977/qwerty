@@ -85,7 +85,7 @@ function p2pReqTemplateCtrlFunc($scope, $rootScope, routeSvc, $http, $timeout, $
             $state.productNameFoldingCartons = false;
             $state.go('mdm.itemDetails');
         }
-        else if (e.Name == "Folding Cartons") {
+        else if (e.Name == "Cost Model of Wheat Bread") {
             $state.showNewGraph = false;
             $state.productNameKetchup = false;
             $state.productNameFoldingCartons = true;
