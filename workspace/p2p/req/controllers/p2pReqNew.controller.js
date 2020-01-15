@@ -9199,7 +9199,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                     "name": "Manual"
                 },
                 selectedDataSource: {
-                    "name": " "
+                    "name": ""
                 },
                 'currency': ''
             },
