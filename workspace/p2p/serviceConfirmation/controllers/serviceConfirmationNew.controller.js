@@ -3499,6 +3499,69 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "value": '20.00'
                 }
             ];
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Waste Factor" && $state.productNameFoldingCartons) {
+            $scope.costDetails = "Waste Factor";
+            $scope.mainSection = false;
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Waste Factor",
+                    "name": "Labor Setup Coating A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Manual",
+                    "unitcost": 6,
+                    "inputuom": "Case",
+                    "outputuom": "Case",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": '$0.07'
+                }
+            ];
         } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Shipper" && $state.productNameFoldingCartons) {
             $scope.costDetails = "Shipper";
             $scope.mainSection = false;
@@ -3551,10 +3614,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
-                    "inputuom": "Each",
-                    "outputuom": "Each",
+                    "inputuom": "Case",
+                    "outputuom": "Case",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
@@ -3614,7 +3677,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
                     "inputuom": "Case",
                     "outputuom": "Case",
@@ -3677,7 +3740,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
                     "inputuom": "Case",
                     "outputuom": "Case",
@@ -3740,7 +3803,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
                     "inputuom": "Case",
                     "outputuom": "Case",
@@ -3804,7 +3867,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
                     "inputuom": "Case",
                     "outputuom": "Case",
@@ -3867,7 +3930,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "refcostelem": "Not Applicable",
                     "perofref": "",
                     "scale": "Fixed",
-                    "costsource": "Labor Index1",
+                    "costsource": "Manual",
                     "unitcost": 6,
                     "inputuom": "Case",
                     "outputuom": "Case",
@@ -8555,6 +8618,10 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     {
                         title: "Master Case",
                         isSelected: false,
+                    },
+                    {
+                        title: "Waste Factor",
+                        isSelected: false,
                     }
                 ]
             },
@@ -8912,7 +8979,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
     $scope.showBorder = $state.showPretzelsInnerPage;
 
-    $scope.value2 = "0.55";
+    $scope.value2 = "1.82";
     $scope.value3 = "0.12";
     $scope.value4 = "0.15";
     $scope.value5 = "7.595";
