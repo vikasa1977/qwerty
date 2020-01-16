@@ -8212,7 +8212,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         // console.log(state.pageDirection);
         if($state.rediretBase == "Packaging") {
             $scope.taskList = [{
-                title: "Packaging Costs",
+                title: "Packaging",
                 isTaskVisible: true,
                 isSelected: true,
                 taskGrp: [{
@@ -8273,6 +8273,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             },
         ];
         }
+        $scope.details = $state.rediretBase;
         
     }else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNamepolyviny) {
         $scope.product1 = false;
