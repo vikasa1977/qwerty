@@ -3517,7 +3517,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         debugger;
         $scope.historyList = [{
             'sequence': '1',
-            'Product': 'Production Cost',
+            'Product': 'Packaging',
             'costelem': 'LBS',
             'value':  '0.56',
             'currency': 'SEK',
@@ -3531,12 +3531,12 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         },
         {
             'sequence': '2',
-            'Product': 'Shipping Cost',
+            'Product': 'Manufacturing Overhead',
             'costelem': 'OZ',
             'value':  '0.16',
             'currency': 'SEK',
             selectedCostSource1: {
-                "name": "Computed"
+                "name": "Manual"
             },
             'isChecked': false,
             selectedDataSource: {
@@ -3550,7 +3550,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             'value':  '0.1',
             'currency': 'SEK',
             selectedCostSource1: {
-                "name": "Computed"
+                "name": "Manual"
             },
             'isChecked': false,
             selectedDataSource: {
@@ -4269,27 +4269,27 @@ function costSummaryGraphCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
                             color: Highcharts.getOptions().colors[3]
                         },
                         {
-                            name: 'Packaging Cost',
+                            name: 'Packaging Waste',
                             y: 1000,
                             color: Highcharts.getOptions().colors[5]
                         },
                         {
-                            name: 'PRODUCTION COST',
+                            name: 'Packaging Cost',
                             y: 3485,
                             color: Highcharts.getOptions().colors[6]
                         },
                         {
-                            name: 'SHIPPING COST',
+                            name: 'Overhead',
                             y: 1000,
                             color: Highcharts.getOptions().colors[7]
                         },
                         {
-                            name: 'MARGIN',
+                            name: 'Margin',
                             y: 500,
                             color: Highcharts.getOptions().colors[8]
                         },
                         {
-                            name: 'TOTAL',
+                            name: 'Total',
                             isIntermediateSum: true,
                             color: Highcharts.getOptions().colors[1]
                         }
