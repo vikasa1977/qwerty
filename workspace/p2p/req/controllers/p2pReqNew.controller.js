@@ -9188,29 +9188,31 @@ function costElementFunc($scope, $rootScope, $http, $state) {
 
         $scope.costElementsList = [
             {
-                'questval1': '1.43',
-                'questval': '0.8',
+                'questval1': '$ 0.0007',
+                'questval': '$0.01',
+                'formula': '0.33%',
                 'sequence': '1',
-                'Product': 'Raw Material',
-                'costelem': '1.8',
-                'value': 'Lbs',
+                'Product': 'flour',
+                'costelem': '0.067',
+                'value': 'case',
                 'currency': 'SEK',
                 selectedCostSource: {
-                    "name": "Manual"
+                    "name": "Market Index"
                 },
                 selectedDataSource: {
                     "name": ""
                 },
                 'currency': '',
-                "valueEm":'-',
+                "valueEm":'https://fred.stlouisfed.org/series/PCU3112113112111',
             },
             {
-                'questval1': '0.16',
-                'questval': '0.53',
+                'questval1': '$ -',
+                'questval': '$0.00',
+                'formula': '78.29%',
                 'sequence': '2',
-                'Product': 'Product Waste',
-                'costelem': '0.3',
-                'value': 'Lbs',
+                'Product': 'Water',
+                'costelem': '15.78',
+                'value': 'case',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Manual"
@@ -9222,12 +9224,13 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "valueEm":'-',
             },
             {
-                'questval1': '0.16',
-                'questval': '0.16',
+                'questval1': '$0.0100',
+                'questval': '$0.01',
+                'formula': '0.10%',
                 'sequence': '3',
-                'Product': 'Packaging',
+                'Product': 'ingredient3',
                 'costelem': '1',
-                'value': 'Each',
+                'value': 'case',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9237,7 +9240,97 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                     "name": "GEP Packaging Price Database"
                 },
                 'currency': ''
-            }
+            },
+            {
+                'questval1': '$0.0200',
+                'questval': '$0.01',
+                'formula': '0.10%',
+                'sequence': '4',
+                'Product': 'ingredient4',
+                'costelem': '2',
+                'value': 'case',
+                'currency': 'SEK',
+                "valueEm":'-',
+                selectedCostSource: {
+                    "name": "Subscription Database"
+                },
+                selectedDataSource: {
+                    "name": "GEP Packaging Price Database"
+                },
+                'currency': ''
+                },
+                {
+                'questval1': '$0.0300',
+                'questval': '$0.01',
+                'formula': '0.10%',
+                'sequence': '5',
+                'Product': 'ingredient5',
+                'costelem': '3',
+                'value': 'case',
+                'currency': 'SEK',
+                "valueEm":'-',
+                selectedCostSource: {
+                    "name": "Subscription Database"
+                },
+                selectedDataSource: {
+                    "name": "GEP Packaging Price Database"
+                },
+                'currency': ''
+                },
+                {
+                'questval1': '$0.0400',
+                'questval': '$0.01',
+                'formula': '0.10%',
+                'sequence': '6',
+                'Product': 'ingredient6',
+                'costelem': '4',
+                'value': 'case',
+                'currency': 'SEK',
+                "valueEm":'-',
+                selectedCostSource: {
+                    "name": "Subscription Database"
+                },
+                selectedDataSource: {
+                    "name": "GEP Packaging Price Database"
+                },
+                'currency': ''
+                },
+                {
+                'questval1': '$0.0500',
+                'questval': '$0.01',
+                'formula': '0.10%',
+                'sequence': '7',
+                'Product': 'ingredient7',
+                'costelem': '5',
+                'value': 'case',
+                'currency': 'SEK',
+                "valueEm":'-',
+                selectedCostSource: {
+                    "name": "Subscription Database"
+                },
+                selectedDataSource: {
+                    "name": "GEP Packaging Price Database"
+                },
+                'currency': ''
+                },
+                {
+                'questval1': '$0.0600',
+                'questval': '$0.01',
+                'formula': '0.10%',
+                'sequence': '8',
+                'Product': 'ingredient8',
+                'costelem': '6',
+                'value': 'case',
+                'currency': 'SEK',
+                "valueEm":'-',
+                selectedCostSource: {
+                    "name": "Subscription Database"
+                },
+                selectedDataSource: {
+                    "name": "GEP Packaging Price Database"
+                },
+                'currency': ''
+                },
 
         ];
     } else if ($state.productNamepolyviny) {

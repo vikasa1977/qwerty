@@ -54,8 +54,9 @@
     <table class="bordered sTable fixedTbl">
         <colgroup ng-if="!addNewColumn">
             <col style="width:5%" />
-            <col style="width:7%" />
-            <col style="width:10%" />
+            <col style="width:5%" />
+            <col style="width:9%" />
+            <col style="width:7%;"/>
             <col style="width:7%" />
             <col style="width:6%" />
             <col style="width:15%" />
@@ -87,6 +88,7 @@
                 </th>
                 <th class="left-align">Sequence</th>
                 <th class="left-align">Product</span></th>
+                <th class="left-align paddingLeft0">Formula</th>
                 <th class="left-align paddingLeft0">Quantity</th>
                 <th class="left-align paddingLeft0">UOM</th>
                 <th class="left-align paddingLeft0">Cost Source</th>
@@ -106,7 +108,7 @@
                 </th>
                 <th class="left-align">Sequence</th>
                 <th class="left-align">Product</span></th>
-                <!-- <th class="left-align paddingLeft0">Type</th> -->
+                <th class="left-align paddingLeft0">Formula</th>
                 <th class="left-align paddingLeft0">Quantity</th>
                 <th class="left-align paddingLeft0">UOM</th>
                 <th class="left-align paddingLeft0">Cost Source</th>
@@ -128,6 +130,7 @@
                     <a title="{{costElement.Product}}" href="javascript:void(0);"
                         ng-click="treeOpenCallback('category', $index, $event)">{{costElement.Product}}</a>
                 </td>
+                <td class="left-align padding0">{{costElement.formula}}</td>
                 <td class="left-align padding0">
                     <smart-textfield class="col s12 validate-bar marginBtm0" placeholder="Enter Name"
                         ng-model="costElement.costelem"></smart-textfield>
@@ -145,8 +148,7 @@
                             displaykey="name"></smart-select>
                     </span>
                     <span ng-if="costElement.selectedDataSource.name == ''">
-                        <smart-textfield class="validate-bar marginBtm0" placeholder="Enter Name"
-                        ng-model="costElement.valueEm"></smart-textfield>
+                        <a href="{{costElement.valueEm}}">{{costElement.valueEm}}</a>
                     </span>
                 </td>
 
