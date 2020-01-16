@@ -9195,8 +9195,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
 
         $scope.costElementsList = [
             {
-                'questval1': '$ 0.0007',
-                'questval': '$0.01',
+                'questval1': '0.0007',
+                'questval': '0.01',
                 'formula': '0.33%',
                 'sequence': '1',
                 'Product': 'flour',
@@ -9213,11 +9213,11 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "valueEm":'https://fred.stlouisfed.org/series/PCU3112113112111',
             },
             {
-                'questval1': '$ -',
-                'questval': '$0.00',
+                'questval1': '-',
+                'questval': '0.00',
                 'formula': '78.29%',
                 'sequence': '2',
-                'Product': 'Water',
+                'Product': 'water',
                 'costelem': '15.78',
                 'value': 'case',
                 'currency': 'SEK',
@@ -9231,8 +9231,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "valueEm":'-',
             },
             {
-                'questval1': '$0.0100',
-                'questval': '$0.01',
+                'questval1': '0.0100',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '3',
                 'Product': 'ingredient3',
@@ -9249,8 +9249,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
             },
             {
-                'questval1': '$0.0200',
-                'questval': '$0.01',
+                'questval1': '0.0200',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '4',
                 'Product': 'ingredient4',
@@ -9267,8 +9267,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
                 },
                 {
-                'questval1': '$0.0300',
-                'questval': '$0.01',
+                'questval1': '0.0300',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '5',
                 'Product': 'ingredient5',
@@ -9285,8 +9285,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
                 },
                 {
-                'questval1': '$0.0400',
-                'questval': '$0.01',
+                'questval1': '0.0400',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '6',
                 'Product': 'ingredient6',
@@ -9303,8 +9303,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
                 },
                 {
-                'questval1': '$0.0500',
-                'questval': '$0.01',
+                'questval1': '0.0500',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '7',
                 'Product': 'ingredient7',
@@ -9321,8 +9321,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'currency': ''
                 },
                 {
-                'questval1': '$0.0600',
-                'questval': '$0.01',
+                'questval1': '0.0600',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '8',
                 'Product': 'ingredient8',

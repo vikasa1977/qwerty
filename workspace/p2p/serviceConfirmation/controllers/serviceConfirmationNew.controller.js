@@ -8583,7 +8583,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
     $scope.showBorder = $state.showPretzelsInnerPage;
 
-    $scope.value2 = "0.55";
+    $scope.value2 = "1.82";
     $scope.value3 = "0.12";
     $scope.value4 = "0.15";
     $scope.value5 = "7.595";

@@ -1,6 +1,6 @@
 [
     {
-        "Name": "Cost Model of Wheat Bread",
+        "Name": "Cost Model of Bread",
         "Number1": "TMPL 01:15-00006",
         "countItem": "10",
         "createdBy": "Matt Daemon",
@@ -8,7 +8,7 @@
         "summary1": "Morbi tortor metus, volutpat ut augue non, scelerisque euismod erat. Curabitur ut nunc eleifend",
         "isTempSelected": false,
         "isCheckedAll": true,
-        "productName": "Wheat Bread",
+        "productName": "Bread",
         "productType": "Product",
         "ownerName": "Sara Williams",
         "supplierName": "ABC Inc.",

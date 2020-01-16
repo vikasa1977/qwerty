@@ -1671,7 +1671,7 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             $scope.docName = "Ketchup Should Cost";
             var urlJson = 'mdm/models/ketchupItemDetails.json';
         }else if($state.productNameFoldingCartons) {
-            $scope.docName = "Cost Model of Wheat Bread";
+            $scope.docName = "Cost Model of Bread";
             var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } else if($state.productNamepolyviny) {
             $scope.docName = "Should Cost Analysis Polyvinyl Chloride Resin";
