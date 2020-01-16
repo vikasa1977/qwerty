@@ -3535,7 +3535,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.taskList1 = [{
                     'sequence': '1',
-                    "costelement": "Direct Labor",
+                    "costelement": "Shipper",
                     "name": "Labor Setup Coating A",
                     "dependent": {
                         "options": [{
@@ -3558,142 +3558,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 600
-                },
-                {
-                    'sequence': '2',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Coating A",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Labor Index2",
-                    "unitcost": 800,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 800
-                },
-                {
-                    'sequence': '3',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Setup Sheeting Z",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Fixed",
-                    "costsource": "Labor Index3",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
-                },
-                {
-                    'sequence': '4',
-                    "costelement": "Direct Labor",
-                    "name": "Labor Sheeting Z",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Labor Index4",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
-                },
-                {
-                    'sequence': '5',
-                    "costelement": "Supervisor",
-                    "name": "Super1",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Labor Index5",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
-                },
-                {
-                    'sequence': '6',
-                    "costelement": "Other",
-                    "name": "Manager",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Labor Index6",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
+                    "cost": '$0.20'
                 }
             ];
         } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overhead" && $state.productNameFoldingCartons) {
@@ -3787,7 +3652,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
                 }
             ];
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Waste factor" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3823,7 +3688,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.taskList1 = [{
                     'sequence': '1',
-                    "costelement": "Labor Efficiency",
+                    "costelement": "Label Carton",
                     "name": "Wastage",
                     "dependent": {
                         "options": [{
@@ -3846,11 +3711,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "requiredqty": "",
                     "stepyeild": "",
                     "required": "",
-                    "cost": 1260
+                    "cost": '$1.00'
                 },
                 {
                     'sequence': '2',
-                    "costelement": "Machine Efficiency",
+                    "costelement": "Fitment",
                     "name": "Wastage",
                     "dependent": {
                         "options": [{
@@ -3873,7 +3738,88 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "requiredqty": "",
                     "stepyeild": "",
                     "required": "",
-                    "cost": 175
+                    "cost": '$0.25'
+                },
+                {
+                    'sequence': '3',
+                    "costelement": "Secondary Packaging",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Production",
+                    "perofref": 0.7,
+                    "scale": "",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": '$0.10'
+                },
+                {
+                    'sequence': '4',
+                    "costelement": "Sleeve",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Production",
+                    "perofref": 0.7,
+                    "scale": "",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": '$0.10'
+                },
+                {
+                    'sequence': '5',
+                    "costelement": "Master Case",
+                    "name": "Wastage",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "Yes"
+                        }
+                    },
+                    "refcostelem": "Production",
+                    "perofref": 0.7,
+                    "scale": "",
+                    "costsource": "",
+                    "unitcost": "",
+                    "inputuom": "",
+                    "outputuom": "",
+                    "throughputqty": "",
+                    "requiredqty": "",
+                    "stepyeild": "",
+                    "required": "",
+                    "cost": '$0.10'
                 }
             ]
 ;
@@ -8324,7 +8270,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         isSelected: false,
                     },
                     {
-                        title: "Process Loss",
+                        title: "Waste factor",
                         isSelected: false,
                     },
                     {
@@ -8332,24 +8278,6 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         isSelected: false,
                     }
                 ]
-            },
-            {
-                title: "Shipment Costs",
-                isTaskVisible: false,
-                isSelected: false,
-                taskGrp: [{
-                    title: "Freight and WHS",
-                    isSelected: false
-                }]
-            },
-            {
-                title: "Margin",
-                isTaskVisible: false,
-                isSelected: false,
-                taskGrp: [{
-                    title: "Supplier Margin",
-                    isSelected: false
-                }]
             },
         ];
     }else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNamepolyviny) {
