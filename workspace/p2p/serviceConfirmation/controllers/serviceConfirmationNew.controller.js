@@ -3941,7 +3941,135 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "cost": '$0.10'
                 }
             ];
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Other" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Total per lb" && $state.productNameFoldingCartons) {
+            $scope.costDetails = "Total per lb";
+            $scope.mainSection = false;
+
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Total per lb",
+                    "name": "Labor Setup Coating A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Manual",
+                    "unitcost": 6,
+                    "inputuom": "Case",
+                    "outputuom": "Case",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": '$0.24'
+                }
+            ];
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Total per case" && $state.productNameFoldingCartons) {
+            $scope.costDetails = "Total per case";
+            $scope.mainSection = false;
+
+            $scope.projectMgmtSec = false;
+            $scope.jobSiteSec = false;
+            $scope.liftingEquipmentsSec = false;
+            $scope.manual3 = false;
+            $scope.manual6 = false;
+            $scope.manual5 = false;
+            $scope.manual4 = false;
+            // $scope.computed6 = true;
+            $scope.costSourceDrop = [{
+                "options": [{
+                    "name": "Computed"
+                }, {
+                    "name": "Manual"
+                }],
+                "selectedoption": {
+                    "name": "Computed"
+                }
+            }];
+            $scope.costSourceDrop[0].selectedoption = {
+                "name": "Computed"
+            };
+
+            $scope.formulaServiceMain1 = 'Number of Hours * Labor Rate';
+            $scope.toolingCostSectoin = false;
+            $scope.machiningCostSection = true;
+            $scope.trimmingCostSection = false;
+            $scope.showDevelopmentCostSection = false;
+            $scope.shippingCostSection = false;
+            $scope.packagingCostSection = false;
+            $scope.manual1 = false;
+            $scope.computed1 = true;
+
+            $scope.taskList1 = [{
+                    'sequence': '1',
+                    "costelement": "Total per case",
+                    "name": "Labor Setup Coating A",
+                    "dependent": {
+                        "options": [{
+                            "name": "Yes"
+                        }, {
+                            "name": "No"
+                        }],
+                        "selectedoption": {
+                            "name": "No"
+                        }
+                    },
+                    "refcostelem": "Not Applicable",
+                    "perofref": "",
+                    "scale": "Fixed",
+                    "costsource": "Manual",
+                    "unitcost": 6,
+                    "inputuom": "Case",
+                    "outputuom": "Case",
+                    "throughputqty": 1,
+                    "requiredqty": 1,
+                    "stepyeild": 100,
+                    "required": 1,
+                    "cost": '$4.55'
+                }
+            ];
+        }  else if ($scope.taskList[parentIndex].taskGrp[index].title == "Other" && $state.productNameFoldingCartons) {
             $scope.costDetails = "Other";
             $scope.mainSection = false;
 

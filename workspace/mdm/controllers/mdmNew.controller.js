@@ -3545,7 +3545,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         },
         // {
         //     'sequence': '3',
-        //     'Product': 'Margin',
+        //     'Product': 'Total Costs (FOB Origin)',
         //     'costelem': 'LBS',
         //     'value':  '0.1',
         //     'currency': 'SEK',
