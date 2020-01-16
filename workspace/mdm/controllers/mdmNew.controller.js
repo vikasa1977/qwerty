@@ -3531,7 +3531,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         },
         {
             'sequence': '2',
-            'Product': 'Manufacturing Overhead',
+            'Product': 'Other Processing Costs',
             'costelem': 'OZ',
             'value':  '0.16',
             'currency': 'SEK',
@@ -3543,20 +3543,20 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
                 "name": "GEP FTL NA Price Database"
             }
         },
-        {
-            'sequence': '3',
-            'Product': 'Margin',
-            'costelem': 'LBS',
-            'value':  '0.1',
-            'currency': 'SEK',
-            selectedCostSource1: {
-                "name": "Manual"
-            },
-            'isChecked': false,
-            selectedDataSource: {
-                "name": "None"
-            }
-        }
+        // {
+        //     'sequence': '3',
+        //     'Product': 'Margin',
+        //     'costelem': 'LBS',
+        //     'value':  '0.1',
+        //     'currency': 'SEK',
+        //     selectedCostSource1: {
+        //         "name": "Manual"
+        //     },
+        //     'isChecked': false,
+        //     selectedDataSource: {
+        //         "name": "None"
+        //     }
+        // }
     ];
     } else if ($state.productNamepolyviny) {
         $scope.dataSourceOptions = [{
