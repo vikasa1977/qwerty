@@ -3536,7 +3536,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.taskList1 = [{
                     'sequence': '1',
                     "costelement": "Direct Labor",
-                    "name": "Labor Setup Coating A",
+                    "name": "Labor Mixing",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3551,19 +3551,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index1",
-                    "unitcost": 600,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 6,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 600
+                    "cost": 6
                 },
                 {
                     'sequence': '2',
                     "costelement": "Direct Labor",
-                    "name": "Labor Coating A",
+                    "name": "Labor Packaging",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3578,19 +3578,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Proportional",
                     "costsource": "Labor Index2",
-                    "unitcost": 800,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 8,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 800
+                    "cost": 8
                 },
                 {
                     'sequence': '3',
                     "costelement": "Direct Labor",
-                    "name": "Labor Setup Sheeting Z",
+                    "name": "Labor SetUp",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3605,19 +3605,19 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Fixed",
                     "costsource": "Labor Index3",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 1,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 1
                 },
                 {
                     'sequence': '4',
                     "costelement": "Direct Labor",
-                    "name": "Labor Sheeting Z",
+                    "name": "Labor Packaging",
                     "dependent": {
                         "options": [{
                             "name": "Yes"
@@ -3632,14 +3632,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Proportional",
                     "costsource": "Labor Index4",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 1,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 1
                 },
                 {
                     'sequence': '5',
@@ -3659,14 +3659,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Proportional",
                     "costsource": "Labor Index5",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 1,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 1
                 },
                 {
                     'sequence': '6',
@@ -3686,14 +3686,14 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "perofref": "",
                     "scale": "Proportional",
                     "costsource": "Labor Index6",
-                    "unitcost": 100,
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "unitcost": 1,
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
                     "required": 1,
-                    "cost": 100
+                    "cost": 1
                 }
             ];
         } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Overhead" && $state.productNameFoldingCartons) {
@@ -4303,8 +4303,8 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "scale": "Fixed",
                     "costsource": "Labor Index5",
                     "unitcost": "36.00",
-                    "inputuom": "Ton",
-                    "outputuom": "Ton",
+                    "inputuom": "Each",
+                    "outputuom": "Each",
                     "throughputqty": 1,
                     "requiredqty": 1,
                     "stepyeild": 100,
