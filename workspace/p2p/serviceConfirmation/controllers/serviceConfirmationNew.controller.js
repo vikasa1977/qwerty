@@ -3652,7 +3652,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
                 }
             ];
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Waste factor" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Process Loss" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3688,7 +3688,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
 
             $scope.taskList1 = [{
                     'sequence': '1',
-                    "costelement": "Label Carton",
+                    "costelement": "Waste Factor",
                     "name": "Wastage",
                     "dependent": {
                         "options": [{
@@ -3711,119 +3711,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                     "requiredqty": "",
                     "stepyeild": "",
                     "required": "",
-                    "cost": '$1.00'
-                },
-                {
-                    'sequence': '2',
-                    "costelement": "Fitment",
-                    "name": "Wastage",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "Yes"
-                        }
-                    },
-                    "refcostelem": "Production",
-                    "perofref": 0.7,
-                    "scale": "",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": '$0.25'
-                },
-                {
-                    'sequence': '3',
-                    "costelement": "Secondary Packaging",
-                    "name": "Wastage",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "Yes"
-                        }
-                    },
-                    "refcostelem": "Production",
-                    "perofref": 0.7,
-                    "scale": "",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": '$0.10'
-                },
-                {
-                    'sequence': '4',
-                    "costelement": "Sleeve",
-                    "name": "Wastage",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "Yes"
-                        }
-                    },
-                    "refcostelem": "Production",
-                    "perofref": 0.7,
-                    "scale": "",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": '$0.10'
-                },
-                {
-                    'sequence': '5',
-                    "costelement": "Master Case",
-                    "name": "Wastage",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "Yes"
-                        }
-                    },
-                    "refcostelem": "Production",
-                    "perofref": 0.7,
-                    "scale": "",
-                    "costsource": "",
-                    "unitcost": "",
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": "",
-                    "requiredqty": "",
-                    "stepyeild": "",
-                    "required": "",
-                    "cost": '$0.10'
+                    "cost": '$0.07'
                 }
             ]
 ;
-        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Production" && $state.productNameFoldingCartons) {
+        } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Materials" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
             $scope.jobSiteSec = false;
@@ -3857,88 +3749,143 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
             $scope.manual1 = false;
             $scope.computed1 = true;
 
+           
             $scope.taskList1 = [{
-                    'sequence': '1',
-                    "costelement": "Machine",
-                    "name": "Setup Sheeting Machine A",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Fixed",
-                    "costsource": "Cost Master",
-                    "unitcost": 100,
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
+                'sequence': '1',
+                "costelement": "Label Carton",
+                "name": "Wastage",
+                "dependent": {
+                    "options": [{
+                        "name": "Yes"
+                    }, {
+                        "name": "No"
+                    }],
+                    "selectedoption": {
+                        "name": "Yes"
+                    }
                 },
-                {
-                    'sequence': '2',
-                    "costelement": "Machine",
-                    "name": "Sheeting Machine A",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Proportional",
-                    "costsource": "Cost Master",
-                    "unitcost": 50,
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 50
+                "refcostelem": "Labor (Cost Element)",
+                "perofref": 0.7,
+                "scale": "Proportional",
+                "costsource": "",
+                "unitcost": "",
+                "inputuom": "",
+                "outputuom": "",
+                "throughputqty": "",
+                "requiredqty": "",
+                "stepyeild": "",
+                "required": "",
+                "cost": '$1.00'
+            },
+            {
+                'sequence': '2',
+                "costelement": "Fitment",
+                "name": "Wastage",
+                "dependent": {
+                    "options": [{
+                        "name": "Yes"
+                    }, {
+                        "name": "No"
+                    }],
+                    "selectedoption": {
+                        "name": "Yes"
+                    }
                 },
-                {
-                    'sequence': '3',
-                    "costelement": "Machine",
-                    "name": "Setup Coating Machine A",
-                    "dependent": {
-                        "options": [{
-                            "name": "Yes"
-                        }, {
-                            "name": "No"
-                        }],
-                        "selectedoption": {
-                            "name": "No"
-                        }
-                    },
-                    "refcostelem": "Not Applicable",
-                    "perofref": "",
-                    "scale": "Fixed",
-                    "costsource": "Cost Master",
-                    "unitcost": 100,
-                    "inputuom": "",
-                    "outputuom": "",
-                    "throughputqty": 1,
-                    "requiredqty": 1,
-                    "stepyeild": 100,
-                    "required": 1,
-                    "cost": 100
-                }
-            ];
+                "refcostelem": "Production",
+                "perofref": 0.7,
+                "scale": "",
+                "costsource": "",
+                "unitcost": "",
+                "inputuom": "",
+                "outputuom": "",
+                "throughputqty": "",
+                "requiredqty": "",
+                "stepyeild": "",
+                "required": "",
+                "cost": '$0.25'
+            },
+            {
+                'sequence': '3',
+                "costelement": "Secondary Packaging",
+                "name": "Wastage",
+                "dependent": {
+                    "options": [{
+                        "name": "Yes"
+                    }, {
+                        "name": "No"
+                    }],
+                    "selectedoption": {
+                        "name": "Yes"
+                    }
+                },
+                "refcostelem": "Production",
+                "perofref": 0.7,
+                "scale": "",
+                "costsource": "",
+                "unitcost": "",
+                "inputuom": "",
+                "outputuom": "",
+                "throughputqty": "",
+                "requiredqty": "",
+                "stepyeild": "",
+                "required": "",
+                "cost": '$0.10'
+            },
+            {
+                'sequence': '4',
+                "costelement": "Sleeve",
+                "name": "Wastage",
+                "dependent": {
+                    "options": [{
+                        "name": "Yes"
+                    }, {
+                        "name": "No"
+                    }],
+                    "selectedoption": {
+                        "name": "Yes"
+                    }
+                },
+                "refcostelem": "Production",
+                "perofref": 0.7,
+                "scale": "",
+                "costsource": "",
+                "unitcost": "",
+                "inputuom": "",
+                "outputuom": "",
+                "throughputqty": "",
+                "requiredqty": "",
+                "stepyeild": "",
+                "required": "",
+                "cost": '$0.10'
+            },
+            {
+                'sequence': '5',
+                "costelement": "Master Case",
+                "name": "Wastage",
+                "dependent": {
+                    "options": [{
+                        "name": "Yes"
+                    }, {
+                        "name": "No"
+                    }],
+                    "selectedoption": {
+                        "name": "Yes"
+                    }
+                },
+                "refcostelem": "Production",
+                "perofref": 0.7,
+                "scale": "",
+                "costsource": "",
+                "unitcost": "",
+                "inputuom": "",
+                "outputuom": "",
+                "throughputqty": "",
+                "requiredqty": "",
+                "stepyeild": "",
+                "required": "",
+                "cost": '$0.10'
+            }
+        ]
         } else if ($scope.taskList[parentIndex].taskGrp[index].title == "Transportation" && $state.productNameFoldingCartons) {
             $scope.mainSection = false;
             $scope.projectMgmtSec = false;
@@ -8270,11 +8217,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         isSelected: false,
                     },
                     {
-                        title: "Waste factor",
+                        title: "Process Loss",
                         isSelected: false,
                     },
                     {
-                        title: "Production",
+                        title: "Materials",
                         isSelected: false,
                     }
                 ]
