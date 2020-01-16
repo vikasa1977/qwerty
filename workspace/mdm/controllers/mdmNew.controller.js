@@ -3519,7 +3519,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             'sequence': '1',
             'Product': 'Packaging',
             'costelem': 'LBS',
-            'value':  '0.56',
+            'value':  '1.82',
             'currency': 'SEK',
             selectedCostSource1: {
                 "name": "Computed"
@@ -3533,14 +3533,14 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             'sequence': '2',
             'Product': 'Other Processing Costs',
             'costelem': 'OZ',
-            'value':  '0.16',
+            'value':  '2.51',
             'currency': 'SEK',
             selectedCostSource1: {
-                "name": "Manual"
+                "name": "Computed"
             },
             'isChecked': false,
             selectedDataSource: {
-                "name": "GEP FTL NA Price Database"
+                "name": "None"
             }
         },
         // {
