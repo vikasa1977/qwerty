@@ -9201,7 +9201,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '1',
                 'Product': 'flour',
                 'costelem': '0.067',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Market Index"
@@ -9219,7 +9219,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '2',
                 'Product': 'water',
                 'costelem': '15.78',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 selectedCostSource: {
                     "name": "Manual"
@@ -9237,7 +9237,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '3',
                 'Product': 'ingredient3',
                 'costelem': '1',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9255,7 +9255,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '4',
                 'Product': 'ingredient4',
                 'costelem': '2',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9273,7 +9273,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '5',
                 'Product': 'ingredient5',
                 'costelem': '3',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9291,7 +9291,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '6',
                 'Product': 'ingredient6',
                 'costelem': '4',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9309,7 +9309,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '7',
                 'Product': 'ingredient7',
                 'costelem': '5',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
@@ -9327,7 +9327,7 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 'sequence': '8',
                 'Product': 'ingredient8',
                 'costelem': '6',
-                'value': 'case',
+                'value': 'Lbs',
                 'currency': 'SEK',
                 "valueEm":'-',
                 selectedCostSource: {
