@@ -8208,8 +8208,11 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.productKetchup = false;
         $scope.productFoldingCarton = true;
         $scope.productMilk = false;
-        $scope.taskList = [{
-                title: "Production Costs",
+        debugger;
+        // console.log(state.pageDirection);
+        if($state.rediretBase == "Packaging") {
+            $scope.taskList = [{
+                title: "Packaging Costs",
                 isTaskVisible: true,
                 isSelected: true,
                 taskGrp: [{
@@ -8227,6 +8230,50 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                 ]
             },
         ];
+
+        } else if( $state.rediretBase == "Manufacturing Overhead" ) {
+            $scope.taskList = [{
+                title: "Manufacturing Overhead",
+                isTaskVisible: true,
+                isSelected: true,
+                taskGrp: [{
+                        title: "Labor",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Process Loss",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Materials",
+                        isSelected: false,
+                    }
+                ]
+            },
+        ];
+
+        } else if( $state.rediretBase == "Margin" ) {
+            $scope.taskList = [{
+                title: "Margin",
+                isTaskVisible: true,
+                isSelected: true,
+                taskGrp: [{
+                        title: "Labor",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Process Loss",
+                        isSelected: false,
+                    },
+                    {
+                        title: "Materials",
+                        isSelected: false,
+                    }
+                ]
+            },
+        ];
+        }
+        
     }else if ($state.newUrl !== 'service' && !$state.productNameFoldingCartons && !$state.productNameKetchup && !$state.productNameMilk && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && $state.productNamepolyviny) {
         $scope.product1 = false;
         $scope.services1 = false;

@@ -9112,6 +9112,13 @@ function notesAttachmentFunc($scope) {
 }
 
 function costElementFunc($scope, $rootScope, $http, $state) {
+    $scope.redirect = function(e) {
+        debugger;
+        console.log(e);
+        $state.rediretBase = e;
+        $state.go('p2p.serviceConfirmation.tasklist');
+    }
+    
     $scope.addNewColumn = $state.productNamePretzelAnalysis;
     $scope.showIndeName = $state.productNameMilk;
     $state.showPretzelsInnerPage = false;
