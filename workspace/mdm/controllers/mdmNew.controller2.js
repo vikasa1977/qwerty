@@ -1665,8 +1665,10 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
 		$scope.noOfSeals = '2 Shield'
 	} else {
         if(!$state.productNameKetchup && !$state.productNameFoldingCartons &&!$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
-            $scope.docName = $state.showNewGraph ? "DF Fillet Blocks" : "SF Fillet Blocks";
-            var urlJson = $state.showNewGraph ? 'mdm/models/itemDetails2.json' : 'mdm/models/itemDetails.json';
+            // $scope.docName = $state.showNewGraph ? "DF Fillet Blocks" : "SF Fillet Blocks";
+            // var urlJson = $state.showNewGraph ? 'mdm/models/itemDetails2.json' : 'mdm/models/itemDetails.json';
+            $scope.docName = "Cost Model of Wheat Bread";
+            var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } else if($state.productNameKetchup) {
             $scope.docName = "Ketchup Should Cost";
             var urlJson = 'mdm/models/ketchupItemDetails.json';
@@ -1690,7 +1692,10 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         else if($state.productNameAcrylonitrile) {
             $scope.docName = "Should Cost Analysis: 1234-Acrylonitrile";
             var urlJson = 'mdm/models/acrylonitrileDetails.json';
-        }
+        } else  {
+            $scope.docName = "Cost Model of Wheat Bread";
+            var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
+        } 
 		$scope.showStatus = false;
 		$scope.boreGeo = '';
 		$scope.InsideDiameter = '';

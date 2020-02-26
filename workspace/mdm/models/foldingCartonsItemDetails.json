@@ -129,7 +129,42 @@
       "breadth": "20",
       "height": "30",
       "calculatedVolume": "6000",
-      "volumeOverride": "5000"
+      "volumeOverride": "5000",
+
+      "Category": "Logistics Full Truckload",
+      "Sub-Category":"Dry Van",
+      "ShouldCostAnalysis":"Base Quantity",
+      "UnitofMeasure":"RatePerMile",
+      "Industry":"CPG",
+      "DefaultCountry":"USA",
+
+      "OriginCity":"CHICAGO",
+      "OriginState":"IL",
+      "OriginPostelCode":"#####",
+      "OriginRegion":"Greate Plains",
+
+      "DestinationCity":"ATLANTA",
+      "DestinationState":"GA",
+      "DestinationPostalCode":"#####",
+      "DestinationRegion":"South East",
+
+      "AverageRatePerMile":"1.66",
+      "MinimumRatePerMile":"1.31",
+      "MaximumRatePerMile":"2.26",
+      "Miles":"723",
+      "CalculatedFuel":"####",
+      "LaneCompetitiveness":"High",
+
+      "LocationType":"Live Load",
+      "Pick-UpWaitingTime":"2.0",
+      "Backhaul-shipper":"No",
+      "IncludeFuel":"No",
+
+      "DriverRequirements":"Single Driver",
+      "Drop-OffWaitingTime":"2.5",
+      "BackhaulMarket":"85%",
+      "DefinedFSCPerMile":"7mph"
+
 
     },
     "attachementObj": [
@@ -951,296 +986,396 @@
   "formConfig": {
     "sections": [
       {
-        "label": "COST SUMMARY",
-        "isDraggable": true,
-        "isMandatory": true,
-        "isCollapsible": true,
-        "isActive": true,
-        "rows": [
-          {
-            "properties": [
-              {
-                "colspan": 6,
-                "type": "subsection",
-                "isMandatory": true,
-                "data": "setup",
-                "templateUrl": "mdm/views/costSummaryGraph.html",
-                "controller": "costSummaryGraphCtrl"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "label": "Basic Details",
         "isMandatory": true,
         "isCollapsible": true,
-        "isActive": false,
+        "isActive": true,
         "isDraggable": true,
         "rows": [
           {
             "properties": [
               {
                 "colspan": 1,
-                "label": "Analysis Name",
+                "label": "Category",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.itemNo",
+                "data": "setup.Category",
                 "focus": true,
                 "attributes": {
                 "readonly": false
               }
               },
               {
-               "colspan": 1,
-               "label": "Type",
-               "type": "dropdown",
-               "editable": true,
-               "isMandatory": true,
-               "data": "setup.supName",
-               "focus": true,
-               "attributes": {
-                "options": [
-                  {
-                    "title": "Product", 
-                    "selected": true
-                  },
-                  {
-                    "title": "Services"
-                  }
-                ],
-                "readonly": false,
-                "maxlength": 10
-              }
-               
-              },
-              {
-               "colspan": 1,
-               "label": "Product Name",
-               "type": "textfield",
-               "editable": true,
-               "isMandatory": true,
-               "data": "setup.itemName",
-               "focus": true,
-               "attributes": {
-               "readonly": false
+                "colspan": 1,
+                "label": "Sub-Category",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.Sub-Category",
+                "focus": true,
+                "attributes": {
+                "readonly": false
               }
               },
               {
                 "colspan": 1,
-                "label": "Base Quantity",
+                "label": "Should Cost Analysis",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.desc",
+                "data": "setup.ShouldCostAnalysis",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }
+                "readonly": false
+              }
               },
               {
-				        "colspan": 1,
-                "label": "Base UOM",
-               "type": "dropdown",
-                "editable": true,
-                "isMandatory": true,
-                "data": "setup.itemType",
-                "focus": true,
-                "attributes": {
-                  "options": [
-                    {
-                      "title": "Lbs"
-                    },
-                    {
-                      "title": "Ton"
-                    },
-                    {
-                      "title": "DNY"
-                    },
-                    {
-                      "title": "RUPEE"
-                    },
-                    {
-                      "title": "Each",
-                      "selected": true
-                    }
-                  ],
-                  "readonly": false,
-                  "maxlength": 10
-                }
-              },
-			        {
-				        "colspan": 1,
-                "label": "Volume",
+                "colspan": 1,
+                "label": "Unit of Measure",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.volume",
+                "data": "setup.UnitofMeasure",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }
-              },
-			        { 
-				        "label": "Category",
-                "type": "textfield",
-                "editable": true,
-                "isMandatory": true,
-                "data": "setup.category",
-                "focus": true,
-                "attributes": {
-                  "readonly": true
-                }
-              },
-			        {
-			        	"colspan": 1,
-                "label": "Region",
-                "type": "textfield",
-                "editable": true,
-                "isMandatory": true,
-                "data": "setup.region",
-                "focus": true,
-                "attributes": {
-                  "readonly": true
-                }
-                
+                "readonly": false
+              }
               },
               {
-			        	"colspan": 1,
-                "label": "Supplier",
+                "colspan": 1,
+                "label": "Industr",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.supplier1",
+                "data": "setup.Industry",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }
-                
+                "readonly": false
+              }
               },
               {
-			        	"colspan": 1,
-                "label": "Currency Type",
-                "type": "dropdown",
-                "editable": true,
-                "isMandatory": true,
-                "data": "setup.USD",
-                "focus": true,
-                "attributes": {
-                  "options": [
-                    {
-                      "title": "USD", 
-                      "selected": true
-                    },
-                    {
-                      "title": "DNY"
-                    },
-                    {
-                      "title": "RUPEE"
-                    }
-                  ],
-                  "readonly": false,
-                  "maxlength": 10
-                }
-                
-              },
-              {
-			        	"colspan": 1,
-                "label": "Current Cost",
+                "colspan": 1,
+                "label": "Default Country",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.currentcost",
+                "data": "setup.DefaultCountry",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }
-                
-              },
+                "readonly": false
+              }
+              }
+              
+              
+            ]
+          },
+          {
+            "properties":[
               {
-			        	"colspan": 1,
-                "label": "Should Cost",
+                "colspan": 1,
+                "label": "Origin City",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.shouldcost",
+                "data": "setup.OriginCity",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }
-                
+                "readonly": false
+              }
               },
               {
-			        	"colspan": 1,
-                "label": "Supplier Capacity",
+                "colspan": 1,
+                "label": "Origin State",
                 "type": "textfield",
                 "editable": true,
                 "isMandatory": true,
-                "data": "setup.suppliercapacity",
+                "data": "setup.OriginState",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }                
+                "readonly": false
+              }
               },
               {
-			        	"colspan": 1,
-                "label": "Supplier Capacity Utilization",
+                "colspan": 1,
+                "label": "Origin Postal Code",
                 "type": "textfield",
-                 "editable": true,
+                "editable": true,
                 "isMandatory": true,
-                "data": "setup.utilization",
+                "data": "setup.OriginPostelCode",
                 "focus": true,
                 "attributes": {
-                  "readonly": false
-                }              
-            }
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Origin Region",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.OriginRegion",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              }
+            ]
+          },
+          {
+            "properties":[
+              {
+                "colspan": 1,
+                "label": "Destination City",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DestinationCity",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Destination State",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DestinationState",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Destination Postal Code",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DestinationPostalCode",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Destination Region",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DestinationRegion",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              }
             ]
           }
         ]
       },
       {
-        "label": "PRODUCT CONSTITUENTS",
-        "isDraggable": true,
-        "isCollapsible": true,
-        "isActive": false,
-        "isVisible": true,
-        "rows": [
-          {
-            "properties": [
-              {
-                "colspan": 6,
-                "type": "subsection",
-                "isMandatory": true,
-                "data": "setup",
-                "templateUrl": "mdm/views/costElements.html",
-                "controller": "costElementCtrl"
-              }
-            ]
-          }
-        ]
-      }, 
-      {
-        "label": "CONVERSION & OTHER COSTS",
-        "isDraggable": true,
+        "label": "Competitive Rate Benchmark",
         "isMandatory": true,
         "isCollapsible": true,
         "isActive": false,
+        "isDraggable": true,
         "rows": [
           {
             "properties": [
               {
-                "colspan": 6,
-                "type": "subsection",
+                "colspan": 1,
+                "label": "Average Rate Per Mile",
+                "type": "textfield",
+                "editable": true,
                 "isMandatory": true,
-                "data": "setup",
-                "templateUrl": "mdm/views/historicalGeoPacific.html",
-                "controller": "costElementCtrl"
+                "data": "setup.AverageRatePerMile",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Minimum Rate Per Mile",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.MinimumRatePerMile",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Maximum Rate Per Mile",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.MaximumRatePerMile",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Miles",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.Miles",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Calculated Fuel",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.CalculatedFuel",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Lane Competitiveness",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.LaneCompetitiveness",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
               }
             ]
           }
         ]
-      }
+      },
+      {
+        "label": "Client Variable Input",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 1,
+                "label": "Location Type",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.LocationType",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Pick-Up Waiting Time (in hours)",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.Pick-UpWaitingTime",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Backhaul - Shipper",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.Backhaul-shipper",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Include Fuel?",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.IncludeFuel",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              }
+            ]
+          },
+          
+          {
+            "properties":[
+              {
+                "colspan": 1,
+                "label": "Driver Requirements",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DriverRequirements",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Drop-Off Waiting Time (in hours)",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.Drop-OffWaitingTime",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Backhaul - Market",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.BackhaulMarket",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              },
+              {
+                "colspan": 1,
+                "label": "Defined FSC Per Mile",
+                "type": "textfield",
+                "editable": true,
+                "isMandatory": true,
+                "data": "setup.DefinedFSCPerMile",
+                "focus": true,
+                "attributes": {
+                "readonly": false
+              }
+              }
+            ]
+          }
+        ]
+      } 
+    
     
     ]
   },
