@@ -3779,20 +3779,20 @@
                                             </th>
                                             <th class="center-align">Sequence</th>
                                             <th class="left-align">Cost Element</th>
-                                            <th class="left-align">Name(User Spec)</th>
+                                            <!-- <th class="left-align">Name(User Spec)</th> -->
                                             <th class="left-align">Dependent</th>
                                             <th class="left-align">Reference Cost Element</th>
                                             <th class="left-align">Percentage of Reference</th>
-                                            <th class="left-align">Scale</th>
+                                            <!-- <th class="left-align">Scale</th> -->
                                             <th class="left-align">Cost Source</th>
                                             <th class="left-align">Unit Cost</th>
-                                            <th class="left-align">Input UOM</th>
-                                            <th class="left-align">Output UOM</th>
+                                            <!-- <th class="left-align">Input UOM</th> -->
+                                            <th class="left-align">UOM</th>
                                             <th class="left-align">Throughput Quantity</th>
                                             <th class="left-align">Required Quantity</th>
                                             <th class="right-align">Step Yeild</th>
                                             <th class="right-align">Required</th>
-                                            <th class="right-align">Cost</th>
+                                            <th class="right-align">Total Cost</th>
                                         </tr>
                                     </thead>
                                     <tbody style="font-size:12px">
@@ -3805,7 +3805,7 @@
                                             <!-- <td class="left-align">
                                                 <smart-select label="" ng-model="task.approvalType.selectedoption" options="task.approvalType.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
                                             </td> -->
-                                            <td class="center-align">{{task.name}}</td>
+                                            <!-- <td class="center-align">{{task.name}}</td> -->
                                             <td class="left-align">
                                                 <smart-select label="" ng-model="task.dependent.selectedoption" options="task.dependent.options" datakey="name" on-change="onChange(selectedCurrency)"></smart-select>                                     
                                             </td>
@@ -3817,10 +3817,10 @@
                                                 <smart-textfield class="col s30 validate-bar right-align marginBtn0" style="text-align: right" is-mandatory="true" placeholder="Enter Value" ng-model="task.value"></smart-textfield>
                                             </td> -->
                                             <td class="center-align">{{task.perofref}}</td>
-                                            <td class="center-align">{{task.scale}}</td>
+                                            <!-- <td class="center-align">{{task.scale}}</td> -->
                                             <td class="center-align">{{task.costsource}}</td>
-                                            <td class="center-align">{{task.unitcost}}</td>
-                                            <td class="center-align">{{task.inputuom}}</td>
+                                            <td class="center-align">{{task.cost}}</td>
+                                            <!-- <td class="center-align">{{task.inputuom}}</td> -->
                                             <td class="center-align">{{task.outputuom}}</td>
                                             <td class="center-align">{{task.throughputqty}}</td>
                                             <td class="center-align">{{task.requiredqty}}</td>
