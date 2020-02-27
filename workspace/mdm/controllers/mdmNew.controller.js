@@ -3312,7 +3312,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '345.48',
             rpm: '0.478',
-            reference: ''
+            reference: '',
+            formula : '((One way miles *2)/ (1+ backhaul rate))* Rate per mile * benefit rate'
         },
         {
             product: 'Driver - Added Wait Time',
@@ -3320,7 +3321,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '91.88',
             rpm: '0.127',
-            reference: ''
+            reference: '',
+            formula: '(pick-up waiting time + drop-off waiting time)* avg driver cost per hour '
         },
         {
             product: 'Driver Type:  SOLO',
@@ -3328,7 +3330,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '0.00',
             rpm: '0.000',
-            reference: ''
+            reference: '',
+            formula: ''
         },
         {
             product: 'Driver - Other',
@@ -3336,7 +3339,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '',
             rpm: '',
-            reference: ''
+            reference: '',
+            formula: ''
         },
         
     ]
@@ -3348,7 +3352,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '33.10',
             rpm: '0.046',
-            reference: ''
+            reference: '',
+            formula: '(avg tractor maintenance cost/ truck hours per year)'
         },
         {
             product: 'Tractor - Depreciation',
@@ -3356,7 +3361,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '85.28',
             rpm: '0.118',
-            reference: ''
+            reference: '',
+            formula: '(tractor purchase price - tractor resale value)/(tractor hours per year * avg tractor life)'
         },
         {
             product: 'Trailer - Maintainence',
@@ -3364,7 +3370,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '14.26',
             rpm: '0.020',
-            reference: ''
+            reference: '',
+            formula: '(avg trailor maintenance cost/ truck hours per year)'
         },
         {
             product: 'Trailer - Depreciation',
@@ -3372,7 +3379,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: 'RPM',
             loadCost: '7.64',
             rpm: '0.011',
-            reference: ''
+            reference: '',
+            formula: '(trailor purchase price - trailor resale value)/(trailor hours per year * avg trailor life)'
         },
         {
             product: 'Vehicle - Other',
