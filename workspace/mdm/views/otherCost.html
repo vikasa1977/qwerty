@@ -1,0 +1,61 @@
+<div class="marginbtm10">
+	<table class="bordered sTable fixedTbl">
+		<colgroup>
+			<col style="width:15%" />
+			<col style="width:10%" />
+			<col style="width:10%" />
+			<col style="width:15%" />
+			<col style="width:15%" />
+			<col style="width:20%" />
+		</colgroup>
+				<th class="left-align">
+                    Product
+				</th>
+				<th class="left-align">Cost Source</th>
+				<th class="left-align">UOM</span></th>
+				<th class="left-align ">Load Cost(USD)</th>
+				<th class="left-align" >RPM Cost(USD)</th>
+				<th class="left-align">Reference Index</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr  ng-repeat="cost in otherCosts track by $index">
+				<td>
+					{{cost.product}}
+				</td>
+				<td class="left-align">{{cost.source}}</td>
+
+				<td class="left-align ">
+					{{cost.uom}}
+				</td>
+
+				<td class="left-align ">
+                    {{cost.loadCost}}
+				</td>
+				<!-- <td class="left-align padding0">
+                    {{cost.index}}
+				</td> -->
+				<!-- <td class="" style="text-align: right;padding-right: 20px;">{{history.dataSource}}</td> -->
+
+				<td class="left-align ">
+					{{cost.rpm}}
+				</td>
+
+				<td class="left-align " style="">
+					{{cost.reference}}
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+	<div id="pollock1" style="display: none; position: fixed;
+        height: 100%;
+        width: 100%;
+        background: aliceblue;
+        top: 0;
+        z-index: 999;
+        left: 0;
+        background: rgba(93, 87, 87, 0.5);">
+		<div class="abc" style="background-image: url('shared/resources/images/Other_CostsPopup_Fish.png');background-position: center;background-repeat: no-repeat;background-size: cover;height: 100%;"></div>
+		<smart-popup template-url="shared/popup/views/smartHierarchyTreeTemplate.html" show="{{showTreePopup}}" on-hide="onPopupHideCallback()"
+		 cancel-button="true"></smart-popup>
