@@ -23,7 +23,108 @@
 				<td>
 					{{cost.product}}
 				</td>
-				<td class="left-align">{{cost.source}}</td>
+				<td class="left-align">{{cost.source}}
+                    <div style="display: inline-block; vertical-align: top; margin-left: 0px">
+                        <smart-dropdown config="{{dropDownConfig}}" fixed="true">
+                            <i class="icon iconSmall left dropdown-button blue-text manageCol-tbl-settings" data-activates="otherdropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings">
+                                <svg><use xlink:href="#icon_Settings"></use></svg>
+                            </i>
+                            <div id="otherdropdownComputed{{$index}}" class="dropdown-content dd-close-off lookup-popup lookup-modal dd-close-off computed">
+                                <div class="clearfix computed-header">
+                                    <div class="computed-header-label">Formula :</div>
+                                    <div><span></span></div>
+                                    <smart-button class="right" flat="true" config='{"title":"Validate","allignRight":"true"}'></smart-button>
+                                </div>
+                                <div class="clearfix computed-content">
+                                    <div class="row marginBtm10">
+                                        <div class="computed-formulalist">
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        Labor Cost
+                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="javascript:void(0)">Operation Overheads</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        Historical Price
+                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                <li>
+                                                    <a href="javascript:void(0)">
+                                                        Lorem
+                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
+                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
+                                                        </i>
+                                                    </a>
+                                                </li>
+                                                <li><a href="javascript:void(0)">Price</a></li>
+                                                <li><a href="javascript:void(0)">Lorem lpsum</a></li>
+                                                <li><a href="javascript:void(0)">Lorem</a></li>
+                                                <li><a href="javascript:void(0)">Price</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="computed-operatorlist">
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_Plus"></use></svg>
+                                                    </i>
+                                                </li>
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_Minus"></use></svg>
+                                                    </i>
+                                                </li>
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_Multiply"></use></svg>
+                                                    </i>
+                                                </li>
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_Divide"></use></svg>
+                                                    </i>
+                                                </li>
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_LeftBracket"></use></svg>
+                                                    </i>
+                                                </li>
+                                                <li>
+                                                    <i class="icon iconSmall blue-text cursorPointer">
+                                                        <svg><use xlink:href="#icon_RightBracket"></use></svg>
+                                                    </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row marginBtm10">
+                                        <div class="clearfix">
+                                            <div class="left">
+                                                <span class="left marginRight7 marginTop15">Decimal Points</span>
+                                                <smart-textfield class="col s3 margin0 line-height-manager" type="text" datanumeric="true" spinner="false" ng-model="iniVal"></smart-textfield>
+                                                <smart-textfield class="col s3 margin0 line-height-manager decimaldd-sample" ng-model="iniSampleVal" label="Sample" readonly="true"></smart-textfield>
+                                            </div>
+                                            <smart-checkbox label="Auto Sum" class="left" ng-model="true"></smart-checkbox>
+                                        </div>
+                                    </div>
+                                    <div class="lookup-footer right">
+                                        <a class="action-close-dropdown marginRight30 padding10" href="javascript:void(0)">CANCEL</a>
+                                        <a class="action-close-dropdown marginRight5 padding10" href="javascript:void(0)">DONE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </smart-dropdown>
+                    </div>
+                </td>
 
 				<td class="left-align ">
 					{{cost.uom}}
