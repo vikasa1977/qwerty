@@ -39,36 +39,7 @@
                                     <div class="row marginBtm10">
                                         <div class="computed-formulalist">
                                             <ul>
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        Labor Cost
-                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
-                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
-                                                        </i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="javascript:void(0)">Operation Overheads</a></li>
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        Historical Price
-                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
-                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
-                                                        </i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="javascript:void(0)">Lorem lpsum</a></li>
-                                                <li>
-                                                    <a href="javascript:void(0)">
-                                                        Lorem
-                                                        <i class="icon iconSmall right paddingTop5" smart-tooltip position="bottom" message="Not visible to Supplier">
-                                                            <svg><use xlink:href="#icon_notVisible"></use></svg>
-                                                        </i>
-                                                    </a>
-                                                </li>
-                                                <li><a href="javascript:void(0)">Price</a></li>
-                                                <li><a href="javascript:void(0)">Lorem lpsum</a></li>
-                                                <li><a href="javascript:void(0)">Lorem</a></li>
-                                                <li><a href="javascript:void(0)">Price</a></li>
+                                                <li  ng-repeat="item in filter"><a href="javascript:void(0)">{{item}}</a></li>
                                             </ul>
                                         </div>
                                         <div class="computed-operatorlist">

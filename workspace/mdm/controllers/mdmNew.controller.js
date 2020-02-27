@@ -3303,7 +3303,8 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             uom: '',
             loadCost: '108.3',
             rpm: '0.150',
-            reference: 'Labor Wage Index (BLS: Truck Drivers)'
+            reference: 'Labor Wage Index (BLS: Truck Drivers)',
+            formula : ''
         },
         {
             product: 'Driver - Effective per Trip',
@@ -3426,6 +3427,25 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
             reference: 'PPI: Iron & Steel'
         }
 
+    ]
+
+    $scope.filter = [
+        "one-way miles",
+        "backhaul rate",
+        "rate per mile",
+        "benefit rate",
+        "pick-up waiting  time",
+        "drop-off waiting time",
+        "avg driver cost per hour",
+        "avg tractor maintenance cost",
+        "avg trailor maintenance cost",
+        "truck hours per year",
+        "tractor purchase price",
+        "tractor resale value",
+        "trailor purchase price",
+        "trailor resale value",
+        "avg tractor life",
+        "avg trailor life"
     ]
 
 
