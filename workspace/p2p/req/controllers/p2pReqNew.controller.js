@@ -9231,8 +9231,8 @@ function costElementFunc($scope, $rootScope, $http, $state) {
                 "valueEm":'-',
             },
             {
-                'questval1': '$0.0100',
-                'questval': '$0.01',
+                'questval1': '0.0100',
+                'questval': '0.01',
                 'formula': '0.10%',
                 'sequence': '3',
                 'Product': 'ingredient3',

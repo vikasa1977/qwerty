@@ -4401,7 +4401,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
                         }
                     },
                     "refcostelem": "Labor (Cost Element)",
-                    "perofref": 0.7,
+                    "perofref": 4,
                     "scale": "Proportional",
                     "costsource": "",
                     "unitcost": "",
@@ -8813,7 +8813,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.services1 = true;
         $scope.product1 = false;
         $scope.taskList = [{
-            title: "Production Costs",
+            title: "Packaging",
             isTaskVisible: true,
             isSelected: false,
             taskGrp: [{
@@ -8835,7 +8835,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.product1 = true;
         $scope.services1 = false;
         $scope.taskList = [{
-            title: "Production Costs",
+            title: "Packaging",
             isTaskVisible: true,
             isSelected: false,
             taskGrp: [{
@@ -8860,7 +8860,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.productFoldingCarton = false;
         $scope.productMilk = false;
         $scope.taskList = [{
-                title: "Production Costs",
+                title: "Packaging",
                 isTaskVisible: true,
                 isSelected: false,
                 taskGrp: [{
@@ -8998,7 +8998,7 @@ function itemDetailsServConfCtrlFunc($scope, $rootScope, RuleEngine, $http, noti
         $scope.productFoldingCarton = true;
         $scope.productMilk = false;
         $scope.taskList = [{
-                title: "Production Costs",
+                title: "Packaging",
                 isTaskVisible: true,
                 isSelected: true,
                 taskGrp: [{

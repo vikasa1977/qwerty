@@ -1667,13 +1667,13 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
         if(!$state.productNameKetchup && !$state.productNameFoldingCartons &&!$state.productNameMilk && !$state.productNameAcrylonitrile && !$state.productNameFuleHouse && !$state.productNamePretzelAnalysis && !$state.productNamepolyviny) {
             // $scope.docName = $state.showNewGraph ? "DF Fillet Blocks" : "SF Fillet Blocks";
             // var urlJson = $state.showNewGraph ? 'mdm/models/itemDetails2.json' : 'mdm/models/itemDetails.json';
-            $scope.docName = "Cost Model of Wheat Bread";
+            $scope.docName = "LOGISTICS WORKBENCH-...(000001)";
             var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } else if($state.productNameKetchup) {
             $scope.docName = "Ketchup Should Cost";
             var urlJson = 'mdm/models/ketchupItemDetails.json';
         }else if($state.productNameFoldingCartons) {
-            $scope.docName = "Cost Model of Wheat Bread";
+            $scope.docName = "LOGISTICS WORKBENCH-...(000001)";
             var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } else if($state.productNamepolyviny) {
             $scope.docName = "Should Cost Analysis Polyvinyl Chloride Resin";
@@ -1693,7 +1693,7 @@ function mdmNewItemDetailCtrlFunc($scope, $rootScope, $translate, RuleEngine, $h
             $scope.docName = "Should Cost Analysis: 1234-Acrylonitrile";
             var urlJson = 'mdm/models/acrylonitrileDetails.json';
         } else  {
-            $scope.docName = "Cost Model of Wheat Bread";
+            $scope.docName = "LOGISTICS WORKBENCH-...(000001)";
             var urlJson = 'mdm/models/foldingCartonsItemDetails.json';
         } 
 		$scope.showStatus = false;

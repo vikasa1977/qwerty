@@ -3,16 +3,16 @@
 		<colgroup>
 			<col style="width:15%" />
 			<col style="width:10%" />
-			<col style="width:10%" />
-			<col style="width:15%" />
-			<col style="width:15%" />
 			<col style="width:20%" />
+			<col style="width:15%" />
+			<col style="width:15%" />
+			<col style="width:10%" />
 		</colgroup>
 				<th class="left-align">
                     Product
 				</th>
 				<th class="left-align">Cost Source</th>
-				<th class="left-align">Reference Index</th>
+				<th class="left-align">Index Name</th>
 				<th class="left-align">UOM</span></th>
 				<th class="left-align ">Load Cost(USD)</th>
 				<th class="left-align" >RPM Cost(USD)</th>
@@ -24,7 +24,7 @@
 					{{cost.product}}
 				</td>
 				<td class="left-align">{{cost.source}}
-                    <div style="display: inline-block; vertical-align: top; margin-left: 0px">
+                    <div ng-if="cost.source === 'Computed'" style="display: inline-block; vertical-align: top; margin-left: 0px">
                         <smart-dropdown config="{{dropDownConfig}}" fixed="true">
                             <i class="icon iconSmall left dropdown-button blue-text manageCol-tbl-settings" data-activates="driverdropdownComputed{{$index}}" smart-tooltip position="bottom" message="Computed Settings">
                                 <svg><use xlink:href="#icon_Settings"></use></svg>
