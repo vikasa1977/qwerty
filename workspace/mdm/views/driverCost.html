@@ -12,10 +12,10 @@
                     Product
 				</th>
 				<th class="left-align">Cost Source</th>
+				<th class="left-align">Reference Index</th>
 				<th class="left-align">UOM</span></th>
 				<th class="left-align ">Load Cost(USD)</th>
 				<th class="left-align" >RPM Cost(USD)</th>
-				<th class="left-align">Reference Index</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -125,6 +125,10 @@
                         </smart-dropdown>
                     </div>
                 </td>
+                
+				<td class="left-align " style="">
+					{{cost.reference}}
+				</td>
 
 				<td class="left-align ">
 					{{cost.uom}}
@@ -142,9 +146,6 @@
 					{{cost.rpm}}
 				</td>
 
-				<td class="left-align " style="">
-					{{cost.reference}}
-				</td>
 
 			</tr>
 		</tbody>
