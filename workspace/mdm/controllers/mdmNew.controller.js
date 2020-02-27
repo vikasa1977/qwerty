@@ -3296,6 +3296,138 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
 
     //Table below the highcharts
 
+    $scope.productCosts = [
+        {
+            product: 'Driver - Index',
+            source: 'Index',
+            uom: '',
+            loadCost: '108.3',
+            rpm: '0.150',
+            reference: 'Labor Wage Index (BLS: Truck Drivers)'
+        },
+        {
+            product: 'Driver - Effective per Trip',
+            source: 'Computed',
+            uom: '',
+            loadCost: '345.48',
+            rpm: '0.478',
+            reference: 'Worksheet: Driver Pay'
+        },
+        {
+            product: 'Driver - Added Wait Time',
+            source: 'Computed',
+            uom: '',
+            loadCost: '91.88',
+            rpm: '0.127',
+            reference: ''
+        },
+        {
+            product: 'Driver Type:  SOLO',
+            source: 'Computed',
+            uom: '',
+            loadCost: '0.00',
+            rpm: '0.000',
+            reference: ''
+        },
+        {
+            product: 'Driver - Other',
+            source: 'Manual',
+            uom: '',
+            loadCost: '',
+            rpm: '',
+            reference: ''
+        },
+        
+    ]
+
+    $scope.vehicalCosts = [
+        {
+            product: 'Tractor - Maint',
+            source: 'Computed',
+            uom: '',
+            loadCost: '33.10',
+            rpm: '0.046',
+            reference: ''
+        },
+        {
+            product: 'Tractor - Depr',
+            source: 'Computed',
+            uom: '',
+            loadCost: '85.28',
+            rpm: '0.118',
+            reference: ''
+        },
+        {
+            product: 'Trailer - Maint',
+            source: 'Computed',
+            uom: '',
+            loadCost: '14.26',
+            rpm: '0.020',
+            reference: ''
+        },
+        {
+            product: 'Trailer - Depr',
+            source: 'Computed',
+            uom: '',
+            loadCost: '7.64',
+            rpm: '0.011',
+            reference: ''
+        },
+        {
+            product: 'Vehicle - Other',
+            source: 'Computed',
+            uom: '',
+            loadCost: '6.42',
+            rpm: '0.009',
+            reference: ''
+        },
+       
+    ]
+
+    $scope.otherCosts = [
+        {
+            product: 'Administrative Labor',
+            source: 'Computed',
+            uom: '',
+            loadCost: '11.25',
+            rpm: '0.015',
+            reference: ''
+        },
+        {
+            product: 'Insurance and Fees',
+            source: 'Computed',
+            uom: '',
+            loadCost: '28.40',
+            rpm: '0.039',
+            reference: ''
+        },
+        {
+            product: 'Operating Taxes',
+            source: 'Computed',
+            uom: '',
+            loadCost: '21.17',
+            rpm: '0.029',
+            reference: ''
+        },
+        {
+            product: 'Overhead',
+            source: 'Computed',
+            uom: '',
+            loadCost: '45.37',
+            rpm: '0.063',
+            reference: ''
+        },
+        {
+            product: 'Margin',
+            source: 'Computed',
+            uom: '',
+            loadCost: '52.93',
+            rpm: '0.073',
+            reference: 'PPI: Iron & Steel'
+        }
+
+    ]
+
 
     $scope.goToPage = function (e, ind) {
         if (ind == 0) {

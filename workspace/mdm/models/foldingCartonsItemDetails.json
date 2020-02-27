@@ -1374,9 +1374,70 @@
             ]
           }
         ]
-      } 
-    
-    
+      },
+      {
+        "label": "Driver Cost",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "mdm/views/driverCost.html",
+                "controller": "historicalCtrl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Vehicle Costs",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "mdm/views/vehicalCost.html",
+                "controller": "historicalCtrl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Other Costs",
+        "isMandatory": true,
+        "isCollapsible": true,
+        "isActive": false,
+        "isDraggable": true,
+        "rows": [
+          {
+            "properties": [
+              {
+                "colspan": 6,
+                "type": "subsection",
+                "isMandatory": true,
+                "data": "setup",
+                "templateUrl": "mdm/views/otherCost.html",
+                "controller": "historicalCtrl"
+              }
+            ]
+          }
+        ]
+      }    
     ]
   },
 
