@@ -3300,7 +3300,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Driver - Index',
             source: 'Index',
-            uom: '',
+            uom: 'RPM',
             loadCost: '108.3',
             rpm: '0.150',
             reference: 'Labor Wage Index (BLS: Truck Drivers)'
@@ -3308,15 +3308,15 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Driver - Effective per Trip',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '345.48',
             rpm: '0.478',
-            reference: 'Worksheet: Driver Pay'
+            reference: ''
         },
         {
             product: 'Driver - Added Wait Time',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '91.88',
             rpm: '0.127',
             reference: ''
@@ -3324,7 +3324,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Driver Type:  SOLO',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '0.00',
             rpm: '0.000',
             reference: ''
@@ -3332,7 +3332,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Driver - Other',
             source: 'Manual',
-            uom: '',
+            uom: 'RPM',
             loadCost: '',
             rpm: '',
             reference: ''
@@ -3342,33 +3342,33 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
 
     $scope.vehicalCosts = [
         {
-            product: 'Tractor - Maint',
+            product: 'Tractor - Maintainence',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '33.10',
             rpm: '0.046',
             reference: ''
         },
         {
-            product: 'Tractor - Depr',
+            product: 'Tractor - Depreciation',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '85.28',
             rpm: '0.118',
             reference: ''
         },
         {
-            product: 'Trailer - Maint',
+            product: 'Trailer - Maintainence',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '14.26',
             rpm: '0.020',
             reference: ''
         },
         {
-            product: 'Trailer - Depr',
+            product: 'Trailer - Depreciation',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '7.64',
             rpm: '0.011',
             reference: ''
@@ -3376,7 +3376,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Vehicle - Other',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '6.42',
             rpm: '0.009',
             reference: ''
@@ -3388,7 +3388,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Administrative Labor',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '11.25',
             rpm: '0.015',
             reference: ''
@@ -3396,7 +3396,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Insurance and Fees',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '28.40',
             rpm: '0.039',
             reference: ''
@@ -3404,7 +3404,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Operating Taxes',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '21.17',
             rpm: '0.029',
             reference: ''
@@ -3412,7 +3412,7 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Overhead',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '45.37',
             rpm: '0.063',
             reference: ''
@@ -3420,10 +3420,18 @@ function historicalCtrlFunc($scope, $rootScope, $translate, RuleEngine, $http, $
         {
             product: 'Margin',
             source: 'Computed',
-            uom: '',
+            uom: 'RPM',
             loadCost: '52.93',
             rpm: '0.073',
             reference: 'PPI: Iron & Steel'
+        },
+        {
+            product: 'Fuel',
+            source: 'Computed',
+            uom: 'RPM',
+            loadCost: ' ',
+            rpm: ' ',
+            reference: ' '
         }
 
     ]
